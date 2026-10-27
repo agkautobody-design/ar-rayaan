@@ -1,0 +1,180 @@
+{
+ "note": "Wording is copied word for word from the Prophet’s words as printed in assets/hadith/nawawi40.json. Left out on purpose: 8 (the wording needs its context), 19 and 41 (no named grader), 22 (the Prophet’s part is one word), 30 and 31 (grade or collection not confirmed), and the collection question for 27 and 33 (their collections are not in the checked corpora).",
+ "items": [
+  {
+   "n": 1,
+   "said": "Actions are (judged) by motives (niyyah), so each man will have what he intended.",
+   "head": "Actions are (judged) by motives (niyyah),"
+  },
+  {
+   "n": 2,
+   "said": "It is that you believe in Allah and His angels and His Books and His Messengers and in the Last Day, and in fate (qadar), both in its good and in its evil aspects.",
+   "head": "It is that you believe in Allah and His angels and His Books and His Messengers"
+  },
+  {
+   "n": 3,
+   "said": "Islam has been built on five [pillars]: testifying that there is no deity worthy of worship except Allah and that Muhammad is the Messenger of Allah, establishing the salah (prayer), paying the zakat (obligatory charity), making the hajj (pilgrimage) to the House, and fasting in Ramadhan.",
+   "head": "Islam has been built on five [pillars]: testifying that there is no deity worthy of worship except Allah and that Muhammad is the Messenger of Allah,"
+  },
+  {
+   "n": 4,
+   "said": "Verily the creation of each one of you is brought together in his mother’s womb for forty days in the form of a nutfah (a drop), then he becomes an alaqah (clot of blood) for a like period, then a mudghah (morsel of flesh) for a like period"
+  },
+  {
+   "n": 5,
+   "said": "He who innovates something in this matter of ours (i.e., Islam) that is not of it will have it rejected (by Allah).",
+   "head": "He who innovates something in this matter of ours (i.e., Islam)"
+  },
+  {
+   "n": 6,
+   "said": "That which is lawful is clear and that which is unlawful is clear, and between the two of them are doubtful matters about which many people do not know.",
+   "head": "That which is lawful is clear and that which is unlawful is clear,"
+  },
+  {
+   "n": 7,
+   "said": "The deen (religion) is naseehah (advice, sincerity)."
+  },
+  {
+   "n": 9,
+   "said": "What I have forbidden for you, avoid. What I have ordered you [to do], do as much of it as you can.",
+   "head": "What I have forbidden for you, avoid."
+  },
+  {
+   "n": 10,
+   "said": "Allah the Almighty is Good and accepts only that which is good.",
+   "head": "Allah the Almighty is Good"
+  },
+  {
+   "n": 11,
+   "said": "Leave that which makes you doubt for that which does not make you doubt.",
+   "head": "Leave that which makes you doubt"
+  },
+  {
+   "n": 12,
+   "said": "Part of the perfection of one’s Islam is his leaving that which does not concern him.",
+   "head": "Part of the perfection of one’s Islam"
+  },
+  {
+   "n": 13,
+   "said": "None of you [truly] believes until he loves for his brother that which he loves for himself.",
+   "head": "None of you [truly] believes"
+  },
+  {
+   "n": 14,
+   "said": "It is not permissible to spill the blood of a Muslim except in three [instances]"
+  },
+  {
+   "n": 15,
+   "said": "Let him who believes in Allah and the Last Day speak good, or keep silent",
+   "head": "Let him who believes in Allah and the Last Day speak good,"
+  },
+  {
+   "n": 16,
+   "said": "Do not become angry."
+  },
+  {
+   "n": 17,
+   "said": "Verily Allah has prescribed ihsan (proficiency, perfection) in all things."
+  },
+  {
+   "n": 18,
+   "said": "Have taqwa (fear) of Allah wherever you may be, and follow up a bad deed with a good deed which will wipe it out, and behave well towards the people.",
+   "head": "Have taqwa (fear) of Allah wherever you may be,"
+  },
+  {
+   "n": 20,
+   "said": "Verily, from what was learnt by the people from the speech of the earliest prophecy is: If you feel no shame, then do as you wish.",
+   "head": "Verily, from what was learnt by the people from the speech of the earliest prophecy is:"
+  },
+  {
+   "n": 21,
+   "said": "Say I believe in Allah — and then be steadfast."
+  },
+  {
+   "n": 23,
+   "said": "And the salah (prayer) is a light, and charity is a proof, and patience is illumination, and the Qur’an is a proof either for you or against you.",
+   "head": "And the salah (prayer) is a light, and charity is a proof,"
+  },
+  {
+   "n": 24,
+   "said": "O My servants! I have forbidden dhulm (oppression) for Myself, and I have made it forbidden amongst you, so do not oppress one another.",
+   "head": "O My servants! I have forbidden dhulm (oppression) for Myself,"
+  },
+  {
+   "n": 25,
+   "said": "And commanding the good is a charity, and forbidding an evil is a charity",
+   "head": "And commanding the good is a charity,"
+  },
+  {
+   "n": 26,
+   "said": "Every joint of a person must perform a charity each day that the sun rises: to judge justly between two people is a charity.",
+   "head": "Every joint of a person must perform a charity each day that the sun rises:"
+  },
+  {
+   "n": 27,
+   "said": "Consult your heart. Righteousness is that about which the soul feels at ease and the heart feels tranquil.",
+   "head": "Consult your heart.",
+   "collection": false
+  },
+  {
+   "n": 28,
+   "said": "Beware of newly invented matters [in the religion], for verily every bidah (innovation) is misguidance.",
+   "head": "Beware of newly invented matters [in the religion],"
+  },
+  {
+   "n": 29,
+   "said": "Fasting is a shield; charity wipes away sin as water extinguishes fire",
+   "head": "Fasting is a shield;"
+  },
+  {
+   "n": 32,
+   "said": "There should be neither harming (darar) nor reciprocating harm (dirar)."
+  },
+  {
+   "n": 33,
+   "said": "But, the onus of proof is upon the claimant, and the taking of an oath is upon him who denies.",
+   "head": "But, the onus of proof is upon the claimant,",
+   "collection": false
+  },
+  {
+   "n": 34,
+   "said": "Whosoever of you sees an evil, let him change it with his hand; and if he is not able to do so, then [let him change it] with his tongue;",
+   "head": "Whosoever of you sees an evil, let him change it with his hand;"
+  },
+  {
+   "n": 35,
+   "said": "Do not envy one another, and do not inflate prices for one another, and do not hate one another",
+   "head": "Do not envy one another, and do not inflate prices for one another,"
+  },
+  {
+   "n": 36,
+   "said": "Whoever removes a worldly grief from a believer, Allah will remove from him one of the griefs of the Day of Resurrection.",
+   "head": "Whoever removes a worldly grief from a believer,"
+  },
+  {
+   "n": 37,
+   "said": "Whosoever intended to perform a good deed, but did not do it, then Allah writes it down with Himself as a complete good deed.",
+   "head": "Whosoever intended to perform a good deed, but did not do it,"
+  },
+  {
+   "n": 38,
+   "said": "And My servant continues to draw near to me with nafil (supererogatory) deeds until I Love him.",
+   "head": "And My servant continues to draw near to me with nafil (supererogatory) deeds"
+  },
+  {
+   "n": 39,
+   "said": "Verily Allah has pardoned [or been lenient with] for me my ummah: their mistakes, their forgetfulness, and that which they have been forced to do under duress.",
+   "head": "Verily Allah has pardoned [or been lenient with] for me my ummah:"
+  },
+  {
+   "n": 40,
+   "said": "Be in this world as though you were a stranger or a wayfarer.",
+   "head": "Be in this world"
+  },
+  {
+   "n": 42,
+   "said": "O Son of Adam, as long as you invoke Me and ask of Me, I shall forgive you for what you have done, and I shall not mind.",
+   "head": "O Son of Adam, as long as you invoke Me and ask of Me,"
+  }
+ ]
+}

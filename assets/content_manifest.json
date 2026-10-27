@@ -6,9 +6,9 @@
    "version": 4
   },
   "feelings/feelings.json": {
-   "bytes": 26496,
-   "sha256": "ee4a8a32a13bce1bf5fba825f7b753a5df3ab59768d0b2f764512d15b9982bbd",
-   "version": 5
+   "bytes": 28414,
+   "sha256": "03be0fd60a5c1e0b703df257a6622935df84f2a4002288e0252afe92b7bcd956",
+   "version": 6
   },
   "finance/paper_market.json": {
    "bytes": 3108,
@@ -16,29 +16,29 @@
    "version": 1
   },
   "games/names99.json": {
-   "bytes": 12954,
-   "sha256": "72216662c9e9b9ae3301cef91dc3e7890cf551be0900e72ae22acc81dc2e8700",
-   "version": 2
-  },
-  "games/trivia.json": {
-   "bytes": 12480,
-   "sha256": "41f1f5836e187c9a31de7bd1014ccc213e65da5870a5190087af27c433b236e9",
+   "bytes": 19240,
+   "sha256": "dfc1e1b3914a250081db73ec640702fc57f47827b2d95b7c6b7ccaf2cb378a5b",
    "version": 3
   },
+  "games/trivia.json": {
+   "bytes": 163217,
+   "sha256": "6cce1f59bddfb17daf930f559c59619f09e674b0136cd2be1eabe04af7e01075",
+   "version": 4
+  },
   "guides/guides.json": {
-   "bytes": 77489,
-   "sha256": "2b54572d07385a99a02ed10a8ce1824cc55ff0134842ca10777718450ec64610",
-   "version": 9
+   "bytes": 158750,
+   "sha256": "333687bcababf14d50878807ca0f36b076decd5588f04c776bb4100b2cf4fecd",
+   "version": 10
   },
   "share/cards.json": {
-   "bytes": 2639,
-   "sha256": "f6eb3a284024dd1303a83da230f5bb9350294d281847e7b665582aa1bdcd6f8d",
-   "version": 2
+   "bytes": 2808,
+   "sha256": "058f33655fbb30b589a4d38f273cbc8ba01598f6d80562f057d2a19cfc02313c",
+   "version": 3
   },
   "stories/companions.json": {
-   "bytes": 46966,
-   "sha256": "ef56cbfe273fbdd0b52017c003dc981b277baad0f64474a964e870bc2a85664e",
-   "version": 7
+   "bytes": 48390,
+   "sha256": "069cffda8766986b092e519dd048d8609f0a3fdb42e8dd00d0aa50306e4cdbd0",
+   "version": 8
   },
   "stories/dailyduas.json": {
    "bytes": 56717,
@@ -46,19 +46,19 @@
    "version": 7
   },
   "stories/ghayb.json": {
-   "bytes": 84523,
-   "sha256": "da66d7714fb0aad69c500905362544af4cf2ad97e960dedd4d749d9db1dec387",
-   "version": 5
+   "bytes": 96022,
+   "sha256": "408c34a7eb9e95d1b37b4bdf5718c127cb7ef832adf7b15743949e9776eba24d",
+   "version": 6
   },
   "stories/khutbahs.json": {
-   "bytes": 53868,
-   "sha256": "645392f3cff2179347cfdb29533efe81b970c428e02f71abc5c451ef431da65e",
-   "version": 8
+   "bytes": 65384,
+   "sha256": "f1b92f1d0c603ef474f05cbc5690444fe5f0cdecdab253265bb1a883337ff3cd",
+   "version": 9
   },
   "stories/modernhadith.json": {
-   "bytes": 51733,
-   "sha256": "3481787bc34a2758df3a7803710e77f319abe3ab3650bab586149bbfb2550e91",
-   "version": 13
+   "bytes": 54788,
+   "sha256": "672996881a5046efeefce2ea2780dad9d61e120718b329f8888f19e0adf6f46b",
+   "version": 16
   },
   "stories/newmuslim.json": {
    "bytes": 37931,
@@ -66,29 +66,29 @@
    "version": 4
   },
   "stories/prophets.json": {
-   "bytes": 62600,
-   "sha256": "871e0f1e7e4994dd3a7d0bbab3f8ebfbcc3f26d1121f874124d17e387504beef",
-   "version": 4
-  },
-  "stories/seerah.json": {
-   "bytes": 66202,
-   "sha256": "1e5b8b783da34589bb924c693a32442a80b96f24bd80b5bb885ef6e78aa0c021",
-   "version": 6
-  },
-  "stories/signs.json": {
-   "bytes": 20623,
-   "sha256": "76da60a97f55e0559d47500cd11f72706dc54efc350447973d0a2099a0e0fdfa",
+   "bytes": 90422,
+   "sha256": "4f2cdc745da11e6ba917386277b0f9011d656d1606f4452a67066b6c2074b5d9",
    "version": 5
   },
-  "stories/tales.json": {
-   "bytes": 24708,
-   "sha256": "0e2f2f5379ebb5dbec20dd2929d3069b2610ad5575514c6f126742972e577412",
+  "stories/seerah.json": {
+   "bytes": 83122,
+   "sha256": "f87d74dd45cb8ceda7b7fe79716b0dd735dec3d03f29d32103d07d0ab76ab10e",
+   "version": 7
+  },
+  "stories/signs.json": {
+   "bytes": 21442,
+   "sha256": "a5780422bff8932a0cdf83543ca7e6202d18bd30a8287ba44c56702b16a85184",
    "version": 6
   },
-  "stories/women.json": {
-   "bytes": 44342,
-   "sha256": "7f52fd2e504c85b7f9e9131653a3314022608aaa518a46bdb2cf464ac42d2b7b",
+  "stories/tales.json": {
+   "bytes": 25328,
+   "sha256": "592d5450a5dbe5cddd935d848915cea5d2111d7a3d24db9369f54a57f31cf184",
    "version": 7
+  },
+  "stories/women.json": {
+   "bytes": 45244,
+   "sha256": "7541f75926170e9df7925b31568b4bd0aaee58d04039f81fcd9e061ec4b98303",
+   "version": 8
   }
  },
  "schema": 1

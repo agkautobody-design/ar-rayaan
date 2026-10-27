@@ -28,6 +28,8 @@ String? didYouMean(
       .where((String w) => w.isNotEmpty && w != 'surah' && w != 'sura')
       .toList();
   if (words.isEmpty) return null;
+  // A spelling the search already understands ("salat", "sabr") is not a typo.
+  if (words.any(isKnownSpelling)) return null;
   final String folded = words.map((String w) => kSpellingFolds[w] ?? w).join();
   final String key = nameKey(folded);
   if (key.length < 5) return null;

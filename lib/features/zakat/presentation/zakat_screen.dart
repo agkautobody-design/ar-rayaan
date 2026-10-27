@@ -315,7 +315,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                     _note('Your home, car and tools of trade are never zakatable. '
                         'Rental property itself is exempt — only its saved income.'),
                   ]),
-                  _section('DEBTS & MORTGAGE (DEDUCTED)',
+                  _section('DEBTS & MORTGAGE (SCHOOL-DEPENDENT)',
                       Icons.remove_circle_outline, [
                     _field('debts', 'Debts due within this year',
                         Icons.money_off_outlined),
@@ -323,7 +323,9 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                         Icons.house_outlined),
                     _field('bills', 'Bills due now', Icons.receipt_outlined),
                     _note('Only what falls due within this lunar year is '
-                        'deducted — not the full remaining mortgage principal.'),
+                        'counted — not the full remaining mortgage principal. '
+                        'Whether it is subtracted depends on your school '
+                        '(chosen above): Shafi\'i does not subtract debts.'),
                   ]),
                   const SizedBox(height: 8),
                   if (r.notes.isNotEmpty) _buildNotesCard(r.notes),
@@ -460,8 +462,10 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
             ],
           ),
           const SizedBox(height: 8),
-          _note('This changes how worn jewelry is treated, and which note about '
-              'debts is shown. Every difference is labeled on screen — '
+          _note('This changes how worn jewelry is treated and whether your '
+              'debts are subtracted (Hanafi, Hanbali and Maliki deduct them '
+              'in the way stated in the result notes; the Shafi\'i relied-upon '
+              'view does not). Every difference is labeled on screen — '
               'nothing is hidden.'),
           const SizedBox(height: 4),
         ],

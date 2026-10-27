@@ -20,10 +20,13 @@
 ///   accessible value (balance − taxes − early-withdrawal penalties);
 ///   Position 2: on penalty-free access. Both presented; the user chooses
 ///   and stays consistent.
-/// - Debts: deduct what is due within the current lunar year (Hanafi: this
-///   year's installments of long-term debt such as a mortgage — NOT the
-///   whole principal). Shafi'i generally does not deduct debts; surfaced
-///   as a note, not a forced rule.
+/// - Debts: Hanafi and Hanbali deduct debts that are due from zakatable
+///   wealth; Maliki deduct them from cash, gold and silver only, and only
+///   when no other non-zakatable asset could repay them; Shafi'i (the
+///   relied-upon view) do NOT deduct debts. The calculator follows the
+///   chosen school: for Shafi'i the debts entered are listed in a note and
+///   not subtracted. Long-term debt such as a mortgage counts only as this
+///   year's installments (a contemporary position), not the whole principal.
 library;
 
 import 'nisab.dart';
@@ -314,16 +317,37 @@ abstract final class ZakatEngine {
       if (amount > 0) debts.add(ZakatLine(label, amount, note: note));
     }
 
-    deduct('Debts due this year', i.debtsDueThisYear);
-    deduct('Mortgage — this year\'s installments', i.mortgageYearInstallments,
-        'not the full remaining principal');
-    deduct('Bills due now', i.billsDue);
-    if ((i.debtsDueThisYear > 0 || i.mortgageYearInstallments > 0) &&
-        i.madhab == Madhab.shafii) {
-      notes.add(
-          'Note: the Shafi\'i school generally does not deduct debts from '
-          'zakatable wealth. Shown here for transparency — consult your '
-          'scholar on which practice you follow.');
+    final bool schoolDeducts = i.madhab != Madhab.shafii;
+    if (schoolDeducts) {
+      deduct('Debts due this year', i.debtsDueThisYear);
+      deduct('Mortgage — this year\'s installments', i.mortgageYearInstallments,
+          'not the full remaining principal');
+      deduct('Bills due now', i.billsDue);
+    }
+    final double debtsEntered =
+        i.debtsDueThisYear + i.mortgageYearInstallments + i.billsDue;
+    if (debtsEntered > 0) {
+      notes.add(switch (i.madhab) {
+        Madhab.hanafi =>
+          'Debts (Hanafi): debts owed to people that are due now are '
+              'deducted from your zakatable wealth.',
+        Madhab.hanbali =>
+          'Debts (Hanbali): debts that are due are deducted from cash and '
+              'trade wealth.',
+        Madhab.maliki =>
+          'Debts (Maliki): a debt is deducted from cash, gold and silver '
+              'only, and only if you have no other assets that are not '
+              'themselves liable to zakat (goods or property) that could '
+              'repay it. If you do have such assets, deduct less and ask a '
+              'scholar.',
+        Madhab.shafii =>
+          'Debts (Shafi\'i): in the relied-upon Shafi\'i view a debt does '
+              'not reduce the wealth on which zakat is due, so the '
+              '${debtsEntered.toStringAsFixed(2)} of debts you entered is '
+              'NOT subtracted here. An older Shafi\'i opinion does deduct '
+              'debts; if your scholar follows it, choose Hanafi or Hanbali '
+              'to see that figure.',
+      });
     }
 
     final double totalAssets =

@@ -148,10 +148,35 @@ class QiblaScreen extends ConsumerWidget {
                         'Turn your body until you face that direction. With the live '
                         'compass on, the dial turns with your phone: when the needle '
                         'points straight up, the top of your phone faces the Qibla. '
-                        'The sunnah is to face '
-                        'the qiblah in every prescribed prayer; when travelling, Allah says: '
-                        '"Wherever you turn, there is the Face of Allah" (2:115) \u2014 the '
-                        'concession of prayer on the move is vast.',
+                        'Facing the qiblah is a condition of the prayer, not a '
+                        'sunnah: a prayer prayed facing another way is not valid '
+                        '(Bukhari 4494 \u2014 the Prophet \ufdfa was ordered to face the '
+                        'Kaaba). Far from Makkah, the Hanafi, Maliki and Hanbali '
+                        'schools require you to face its direction; the Shafi\'i '
+                        'school requires you to aim at the Kaaba itself as best you '
+                        'can judge. For you both mean this bearing, as exact as you '
+                        'can make it.',
+                        style: AppText.bodyMuted.copyWith(height: 1.55),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Exceptions: a voluntary prayer on an animal or vehicle may face '
+                        'the way you are travelling (Bukhari 1099), and Allah\u2019s words '
+                        '\u201cSo wherever you [might] turn, there is the Face of Allah\u201d '
+                        '(2:115) were explained by Ibn Umar in this context (Tirmidhi 2958, '
+                        'sahih per al-Albani). An obligatory prayer is prayed facing the '
+                        'qiblah (Bukhari 400); someone who truly cannot face it \u2014 in '
+                        'fear, tied or trapped, or unable to turn on a moving vehicle '
+                        '\u2014 prays as he is able.',
+                        style: AppText.bodyMuted.copyWith(height: 1.55),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'If you cannot find the direction: ask a local person, look for '
+                        'the mihrab of a mosque, and use the bearing above. If you are '
+                        'still unsure, make your best effort and pray the way your '
+                        'effort leads. The schools differ on whether a prayer must be '
+                        'repeated if you later learn you faced wrongly; ask your imam.',
                         style: AppText.bodyMuted.copyWith(height: 1.55),
                       ),
                         const SizedBox(height: 16),

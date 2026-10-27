@@ -18,7 +18,7 @@ import '../features/community/presentation/notifications_screens.dart';
 import '../features/community/presentation/rules_screen.dart';
 import '../features/academy/presentation/academy_home_screen.dart';
 import '../features/academy/presentation/course_overview_screen.dart';
-import '../features/academy/presentation/lesson_player_screen.dart';
+import '../features/academy/presentation/lesson_v3_screen.dart';
 import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
@@ -144,6 +144,10 @@ abstract final class AppRoutes {
       '/hadi?q=${Uri.encodeQueryComponent(question)}';
   /// The Forty Hadith, opened at hadith [number].
   static String hadithAt(int number) => '/hadith?n=$number';
+
+  /// The Forty Hadith, showing only the hadith the person bookmarked or
+  /// wrote a note on.
+  static String hadithSaved() => '/hadith?saved=1';
   static const String noor = '/noor';
   /// The person's saved NOOR reflections, newest first.
   static const String noorReflections = '/noor/reflections';
@@ -800,6 +804,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (c, s) => _fade(
           HadithScreen(
             initialNumber: int.tryParse(s.uri.queryParameters['n'] ?? ''),
+            savedOnly: s.uri.queryParameters['saved'] == '1',
           ),
         ),
       ),
@@ -1099,7 +1104,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         path: '/academy/lesson/:course/:unit/:lesson',
         pageBuilder: (context, state) {
           final p = state.pathParameters;
-          return _fade(LessonPlayerScreen(
+          return _fade(LessonEntryScreen(
             key: ValueKey<String>('lesson-${p['lesson']!}'),
             courseId: p['course']!,
             unitId: p['unit']!,

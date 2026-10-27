@@ -1,0 +1,233 @@
+{
+ "abudawud:2380": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: sudden vomiting while fasting needs no atonement; deliberate vomiting does. Graders differ",
+  "grade": "Daif (Zubair Ali Zai); Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:2639": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Jabir: the Prophet kept to the rear on journeys, urged on the weak and took people up behind him with dua",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3855": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Usamah ibn Sharik: the Bedouins ask about medical treatment; he says to seek treatment, Allah sent a cure for every disease except old age",
+  "grade": "Isnaad Sahih (Zubair Ali Zai); Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:4782": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Dharr: if angry while standing, sit; if it leaves, good, otherwise lie down",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:1517": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Zayd: whoever says astaghfirullah al-ladhi la ilaha illa huwa al-hayy al-qayyum wa atubu ilayh is forgiven even if he fled battle",
+  "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih Lighairihi (Shuaib Al Arnaut)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:3573": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ubadah ibn as-Samit: a Muslim's dua is granted or a like evil is averted, if not for sin or severing kinship",
+  "grade": "Hasan (Zubair Ali Zai); Hasan Sahih (Ahmad Muhammad Shakir); Hasan Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:715": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Anas ibn Malik al-Ka'bi: Allah lifted fasting from the traveller and fasting from the pregnant and nursing woman",
+  "grade": "Hasan (Bashar Awad Maarouf); Hasan (Zubair Ali Zai); Hasan Sahih (Ahmad Muhammad Shakir); Hasan Sahih (Al-Albani)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2416": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Mas'ud: the feet of the son of Adam do not move until he is asked about five things (life, youth, wealth earned and spent, knowledge acted on). Graders differ",
+  "grade": "Daif (Bashar Awad Maarouf); Daif (Zubair Ali Zai); Hasan (Ahmad Muhammad Shakir); Hasan (Al-Albani)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2507": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "The Muslim who mixes with people and is patient with their harm is better than the one who does not",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:3537": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Umar: Allah accepts a servant's repentance until the soul reaches the throat",
+  "grade": "Hasan (Ahmad Muhammad Shakir); Hasan (Al-Albani); Hasan (Bashar Awad Maarouf); Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "ibnmajah:4252": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Ma'qil heard Ibn Mas'ud: the Prophet said regret is repentance",
+  "grade": "Hasan (Shuaib Al Arnaut); Hasan (Zubair Ali Zai); Sahih (Al-Albani); Sahih (Muhammad Fouad Abd al-Baqi)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "bukhari:6340": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: dua is answered if one does not grow impatient and say 'I made dua and was not answered'",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:2449": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: whoever wronged another should seek forgiveness before the Day when there is no money",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:1294": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Mas'ud: not of us who slaps the cheeks, tears the clothes and calls the call of Jahiliyyah",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:137": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abbad ibn Tamim's uncle: do not leave the prayer unless you hear a sound or smell something",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:5269": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: Allah has forgiven my ummah the thoughts of their souls so long as not acted on or spoken",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:5978": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Asma bint Abu Bakr: her mother came during the Prophet's time and he told her to keep ties with her",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:6116": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: a man asked for advice; the Prophet said do not become angry, repeated",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:832": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Aisha: the Prophet sought refuge in prayer from the grave's torment, the Dajjal's trial, trials of life and death, sin and debt",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:6346": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas: the Prophet's dua at times of distress (La ilaha illallah al-Azim al-Halim ...)",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "bukhari:4563": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas: hasbunallah wa ni'm al-wakil was said by Ibrahim when thrown in the fire and by Muhammad when told people had gathered against them",
+  "grade": "Sahih",
+  "grader": "In Sahih al-Bukhari (collection gives no separate grade)"
+ },
+ "muslim:2730": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas: the Prophet's dua at times of distress (La ilaha illallah al-Azim al-Halim ...)",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:1054": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abdullah ibn Amr: successful is the one who submitted, was given enough and whom Allah made content with it",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:1155": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: whoever eats or drinks forgetfully while fasting should complete the fast",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:335": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Mu'adha asked Aisha: the menstruating woman makes up fasts but not prayers",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:361": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abbad ibn Tamim's uncle: do not leave prayer unless you hear a sound or smell something",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:127": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: Allah has forgiven my ummah the promptings of their hearts so long as not spoken or acted on",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:521": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Jabir: five things given to the Prophet (including: the earth made a place of prayer and purification)",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:589": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Aisha: the Prophet's dua of refuge in prayer from the grave, the Dajjal, life and death, sin and debt",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:728": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Umm Habiba: twelve voluntary rak'ahs a day, a house is built in Paradise",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:852": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: an hour on Friday in which a Muslim asking Allah for good is given it",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:975": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Buraydah: the Prophet taught them the greeting to say on visiting the graveyard",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ },
+ "muslim:1034": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Hakim ibn Hizam: the upper hand is better than the lower; begin with your dependants",
+  "grade": "Sahih",
+  "grader": "In Sahih Muslim (collection gives no separate grade)"
+ }
+}

@@ -1,522 +1,6274 @@
 [
  {
-  "id": "tq-01",
+  "id": "tq-001",
   "category": "Prophets",
-  "question": "Who was thrown into the fire and did not burn?",
+  "question": "Who was thrown into a blazing fire and was kept safe by Allah’s command?",
+  "options": [
+   "Yusuf",
+   "Musa",
+   "Ibrahim",
+   "Nuh"
+  ],
+  "answer": 2,
+  "why": "Allah said: “O fire, be coolness and safety upon Abraham”. (Qur’an 21:69, 37:97).",
+  "source": "Qur’an 21:69; 37:97",
+  "claims": [
+   {
+    "ref": "21:69",
+    "quote": "be coolness and safety upon Abraham"
+   },
+   {
+    "ref": "37:97",
+    "quote": "throw him into the burning fire"
+   }
+  ]
+ },
+ {
+  "id": "tq-002",
+  "category": "Prophets",
+  "question": "Which prophet was swallowed by a great fish?",
+  "options": [
+   "Salih",
+   "Yunus",
+   "Hud",
+   "Ayyub"
+  ],
+  "answer": 1,
+  "why": "Yunus was swallowed by the fish while blameworthy, and he glorified Allah. (Qur’an 37:139-142).",
+  "source": "Qur’an 37:139-142",
+  "claims": [
+   {
+    "ref": "37:139-142",
+    "quote": "the fish swallowed him"
+   }
+  ]
+ },
+ {
+  "id": "tq-003",
+  "category": "Prophets",
+  "question": "Which prophet interpreted the king’s dream of seven fat cows and seven lean ones?",
+  "options": [
+   "Ya’qub",
+   "Musa",
+   "Yusuf",
+   "Dawud"
+  ],
+  "answer": 2,
+  "why": "Yusuf explained the king’s dream, and asked to be put in charge of the storehouses of the land. (Qur’an 12:43, 12:47-49, 12:55).",
+  "source": "Qur’an 12:43; 12:47-49; 12:55",
+  "claims": [
+   {
+    "ref": "12:43",
+    "quote": "seven fat cows"
+   },
+   {
+    "ref": "12:47-49",
+    "quote": ""
+   },
+   {
+    "ref": "12:55",
+    "quote": "Appoint me over the storehouses of the land"
+   }
+  ]
+ },
+ {
+  "id": "tq-004",
+  "category": "Prophets",
+  "question": "Whose staff became a clear serpent when he threw it down before Pharaoh?",
+  "options": [
+   "Ilyas",
+   "Harun",
+   "Shu’ayb",
+   "Musa"
+  ],
+  "answer": 3,
+  "why": "Musa threw down his staff and it became a serpent, manifest. (Qur’an 26:32).",
+  "source": "Qur’an 26:32",
+  "claims": [
+   {
+    "ref": "26:32",
+    "quote": "it was a serpent, manifest"
+   }
+  ]
+ },
+ {
+  "id": "tq-005",
+  "category": "Prophets",
+  "question": "Which prophet was commanded to construct a ship under Allah’s observation?",
+  "options": [
+   "Lut",
+   "Nuh",
+   "Hud",
+   "Idris"
+  ],
+  "answer": 1,
+  "why": "Nuh was commanded: “construct the ship under Our observation and Our inspiration”. (Qur’an 11:37).",
+  "source": "Qur’an 11:37",
+  "claims": [
+   {
+    "ref": "11:37",
+    "quote": "construct the ship under Our observation and Our inspiration"
+   }
+  ]
+ },
+ {
+  "id": "tq-006",
+  "category": "Prophets",
+  "question": "Which prophet asked Allah for a kingdom that would not belong to anyone after him?",
   "options": [
    "Ibrahim",
+   "Dawud",
+   "Dhul-Qarnayn",
+   "Sulayman"
+  ],
+  "answer": 3,
+  "why": "Sulayman asked for “a kingdom such as will not belong to anyone after me”. (Qur’an 38:35).",
+  "source": "Qur’an 38:35",
+  "claims": [
+   {
+    "ref": "38:35",
+    "quote": "a kingdom such as will not belong to anyone after me"
+   }
+  ]
+ },
+ {
+  "id": "tq-007",
+  "category": "Prophets",
+  "question": "Who was the first human being, created from clay, before whom the angels were told to prostrate?",
+  "options": [
+   "Ibrahim",
+   "Adam",
+   "Idris",
+   "Nuh"
+  ],
+  "answer": 1,
+  "why": "Allah told the angels He would create a human being from clay, and they prostrated to Adam. (Qur’an 38:71, 2:34).",
+  "source": "Qur’an 38:71; 2:34",
+  "claims": [
+   {
+    "ref": "38:71",
+    "quote": "I am going to create a human being from clay"
+   },
+   {
+    "ref": "2:34",
+    "quote": "Prostrate before Adam"
+   }
+  ]
+ },
+ {
+  "id": "tq-008",
+  "category": "Prophets",
+  "question": "Which prophet’s people were destroyed by a screaming wind?",
+  "options": [
+   "Lut",
+   "Hud",
+   "Salih",
+   "Shu’ayb"
+  ],
+  "answer": 1,
+  "why": "Allah sent a screaming wind upon ‘Ad, the people to whom Hud was sent. (Qur’an 41:15-16, 7:65).",
+  "source": "Qur’an 41:15-16; 7:65",
+  "claims": [
+   {
+    "ref": "41:15-16",
+    "quote": "a screaming wind"
+   },
+   {
+    "ref": "7:65",
+    "quote": "their brother Hud"
+   }
+  ]
+ },
+ {
+  "id": "tq-009",
+  "category": "Prophets",
+  "question": "Which prophet was told to strike the sea with his staff, so that it parted?",
+  "options": [
+   "Musa",
+   "Yunus",
+   "Yusuf",
+   "Nuh"
+  ],
+  "answer": 0,
+  "why": "Musa was told: “Strike with your staff the sea,” and it parted. (Qur’an 26:63).",
+  "source": "Qur’an 26:63",
+  "claims": [
+   {
+    "ref": "26:63",
+    "quote": "Strike with your staff the sea"
+   }
+  ]
+ },
+ {
+  "id": "tq-010",
+  "category": "Prophets",
+  "question": "According to Qur’an 4:164, to whom did Allah speak directly?",
+  "options": [
+   "Dawud",
    "Nuh",
    "Musa",
+   "Ayyub"
+  ],
+  "answer": 2,
+  "why": "The verse says: “And Allah spoke to Moses with [direct] speech”. (Qur’an 4:164).",
+  "source": "Qur’an 4:164",
+  "claims": [
+   {
+    "ref": "4:164",
+    "quote": "And Allah spoke to Moses with [direct] speech"
+   }
+  ]
+ },
+ {
+  "id": "tq-011",
+  "category": "Prophets",
+  "question": "Which prophet does the Qur’an say Allah took as an intimate friend?",
+  "options": [
+   "Yusuf",
+   "Ibrahim",
+   "Musa",
+   "Nuh"
+  ],
+  "answer": 1,
+  "why": "“Allah took Abraham as an intimate friend”. (Qur’an 4:125).",
+  "source": "Qur’an 4:125",
+  "claims": [
+   {
+    "ref": "4:125",
+    "quote": "Allah took Abraham as an intimate friend"
+   }
+  ]
+ },
+ {
+  "id": "tq-012",
+  "category": "Prophets",
+  "question": "Which two prophets raised the foundations of the House (the Kaaba)?",
+  "options": [
+   "Nuh and Hud",
+   "Musa and Harun",
+   "Dawud and Sulayman",
+   "Ibrahim and Ismail"
+  ],
+  "answer": 3,
+  "why": "“When Abraham was raising the foundations of the House and [with him] Ishmael”. (Qur’an 2:127).",
+  "source": "Qur’an 2:127",
+  "claims": [
+   {
+    "ref": "2:127",
+    "quote": "Abraham was raising the foundations of the House and [with him] Ishmael"
+   }
+  ]
+ },
+ {
+  "id": "tq-013",
+  "category": "Prophets",
+  "question": "Which prophet saw in a dream that he was sacrificing his son?",
+  "options": [
+   "Yunus",
+   "Ibrahim",
+   "Nuh",
+   "Ya’qub"
+  ],
+  "answer": 1,
+  "why": "Ibrahim told his son: “indeed I have seen in a dream that I [must] sacrifice you”. (Qur’an 37:102).",
+  "source": "Qur’an 37:102",
+  "claims": [
+   {
+    "ref": "37:102",
+    "quote": "indeed I have seen in a dream that I [must] sacrifice you"
+   }
+  ]
+ },
+ {
+  "id": "tq-014",
+  "category": "Prophets",
+  "question": "Whose son refused to board the ship and said he would take refuge on a mountain?",
+  "options": [
+   "Hud",
+   "Ibrahim",
+   "Nuh",
+   "Lut"
+  ],
+  "answer": 2,
+  "why": "Nuh’s son said: “I will take refuge on a mountain to protect me from the water”. (Qur’an 11:42-43).",
+  "source": "Qur’an 11:42-43",
+  "claims": [
+   {
+    "ref": "11:42-43",
+    "quote": "I will take refuge on a mountain to protect me from the water"
+   }
+  ]
+ },
+ {
+  "id": "tq-015",
+  "category": "Prophets",
+  "question": "How long did Nuh remain among his people, according to Qur’an 29:14?",
+  "options": [
+   "950 years",
+   "1,000 years",
+   "120 years",
+   "500 years"
+  ],
+  "answer": 0,
+  "why": "He remained among them “a thousand years minus fifty years”. (Qur’an 29:14).",
+  "source": "Qur’an 29:14",
+  "claims": [
+   {
+    "ref": "29:14",
+    "quote": "a thousand years minus fifty years"
+   }
+  ]
+ },
+ {
+  "id": "tq-016",
+  "category": "Prophets",
+  "question": "Which prophet was given the Zabur (Psalms)?",
+  "options": [
+   "Dawud",
+   "Musa",
+   "Yusuf",
+   "Isa"
+  ],
+  "answer": 0,
+  "why": "“And to David We gave the book [of Psalms]”. (Qur’an 4:163).",
+  "source": "Qur’an 4:163",
+  "claims": [
+   {
+    "ref": "4:163",
+    "quote": "to David We gave the book [of Psalms]"
+   }
+  ]
+ },
+ {
+  "id": "tq-017",
+  "category": "Prophets",
+  "question": "Which prophet was given the Injil (the Gospel)?",
+  "options": [
+   "Yunus",
+   "Dawud",
+   "Musa",
+   "Isa"
+  ],
+  "answer": 3,
+  "why": "“We gave him the Gospel, in which was guidance and light”. (Qur’an 5:46).",
+  "source": "Qur’an 5:46",
+  "claims": [
+   {
+    "ref": "5:46",
+    "quote": "We gave him the Gospel, in which was guidance and light"
+   }
+  ]
+ },
+ {
+  "id": "tq-018",
+  "category": "Prophets",
+  "question": "To which prophet did Allah give “the Scripture and the Criterion” in Surah Al-Baqarah?",
+  "options": [
+   "Musa",
+   "Hud",
+   "Nuh",
    "Yusuf"
   ],
   "answer": 0,
-  "why": "Ibrahim was thrown into a great fire, and Allah commanded it: 'be coolness and safety' (21:69)."
+  "why": "Allah recalls: “We gave Moses the Scripture and criterion”. (Qur’an 2:53).",
+  "source": "Qur’an 2:53",
+  "claims": [
+   {
+    "ref": "2:53",
+    "quote": "We gave Moses the Scripture and criterion"
+   }
+  ]
  },
  {
-  "id": "tq-02",
+  "id": "tq-019",
   "category": "Prophets",
-  "question": "Which prophet was swallowed by a great fish?",
+  "question": "Which prophet was taught the speech of the birds and understood an ant’s warning?",
+  "options": [
+   "Yunus",
+   "Sulayman",
+   "Yahya",
+   "Ayyub"
+  ],
+  "answer": 1,
+  "why": "Sulayman said: “O people, we have been taught the language of birds”, and he smiled at the ant’s words. (Qur’an 27:16, 27:18-19).",
+  "source": "Qur’an 27:16; 27:18-19",
+  "claims": [
+   {
+    "ref": "27:16",
+    "quote": "we have been taught the language of birds"
+   },
+   {
+    "ref": "27:18-19",
+    "quote": ""
+   }
+  ]
+ },
+ {
+  "id": "tq-020",
+  "category": "Prophets",
+  "question": "Which prophet said, “Indeed, adversity has touched me, and you are the most merciful of the merciful”?",
+  "options": [
+   "Salih",
+   "Hud",
+   "Lut",
+   "Ayyub"
+  ],
+  "answer": 3,
+  "why": "Ayyub called to his Lord in his illness and Allah removed his affliction. (Qur’an 21:83-84).",
+  "source": "Qur’an 21:83-84",
+  "claims": [
+   {
+    "ref": "21:83-84",
+    "quote": "adversity has touched me"
+   }
+  ]
+ },
+ {
+  "id": "tq-021",
+  "category": "Prophets",
+  "question": "Which prophet lost his sight from grief and regained it when Yusuf’s shirt was cast over his face?",
+  "options": [
+   "Ismail",
+   "Ya’qub",
+   "Ishaq",
+   "Ibrahim"
+  ],
+  "answer": 1,
+  "why": "His eyes turned white from grief, and when the bearer of good tidings cast the shirt on his face he regained sight. (Qur’an 12:84, 12:96).",
+  "source": "Qur’an 12:84; 12:96",
+  "claims": [
+   {
+    "ref": "12:84",
+    "quote": "his eyes became white from grief"
+   },
+   {
+    "ref": "12:96",
+    "quote": "he cast it over his face, and he returned [once again] seeing"
+   }
+  ]
+ },
+ {
+  "id": "tq-022",
+  "category": "Prophets",
+  "question": "Whose son was named Yahya, by Allah’s own choice of the name?",
+  "options": [
+   "Ibrahim",
+   "Yunus",
+   "Ayyub",
+   "Zakariya"
+  ],
+  "answer": 3,
+  "why": "“We give you good tidings of a boy whose name will be John”, which is Yahya in Arabic. (Qur’an 19:7).",
+  "source": "Qur’an 19:7",
+  "claims": [
+   {
+    "ref": "19:7",
+    "quote": "a boy whose name will be John"
+   }
+  ]
+ },
+ {
+  "id": "tq-023",
+  "category": "Prophets",
+  "question": "Which prophet spoke from the cradle?",
+  "options": [
+   "Yusuf",
+   "Ismail",
+   "Isa",
+   "Yahya"
+  ],
+  "answer": 2,
+  "why": "The infant said: “Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet”. (Qur’an 19:29-30).",
+  "source": "Qur’an 19:29-30",
+  "claims": [
+   {
+    "ref": "19:29-30",
+    "quote": "Indeed, I am the servant of Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-024",
+  "category": "Prophets",
+  "question": "About which prophet does the Qur’an say, “We raised him to a high station”?",
+  "options": [
+   "Lut",
+   "Idris",
+   "Salih",
+   "Hud"
+  ],
+  "answer": 1,
+  "why": "“And We raised him to a high station”. (Qur’an 19:56-57).",
+  "source": "Qur’an 19:56-57",
+  "claims": [
+   {
+    "ref": "19:56-57",
+    "quote": "We raised him to a high station"
+   }
+  ]
+ },
+ {
+  "id": "tq-025",
+  "category": "Prophets",
+  "question": "To which people was Shu’ayb sent?",
+  "options": [
+   "‘Ad",
+   "Madyan",
+   "The people of Lut",
+   "Thamud"
+  ],
+  "answer": 1,
+  "why": "“...[We sent] their brother Shu’ayb”. (Qur’an 7:85).",
+  "source": "Qur’an 7:85",
+  "claims": [
+   {
+    "ref": "7:85",
+    "quote": "[We sent] their brother Shu'ayb"
+   }
+  ]
+ },
+ {
+  "id": "tq-026",
+  "category": "Prophets",
+  "question": "Which prophet was sent a she-camel as a sign for his people?",
+  "options": [
+   "Hud",
+   "Salih",
+   "Lut",
+   "Shu’ayb"
+  ],
+  "answer": 1,
+  "why": "“This is the she-camel of Allah [sent] to you as a sign”. (Qur’an 7:73).",
+  "source": "Qur’an 7:73",
+  "claims": [
+   {
+    "ref": "7:73",
+    "quote": "This is the she-camel of Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-027",
+  "category": "Prophets",
+  "question": "Which prophet’s wife was “of those who remained [with the evildoers]”?",
+  "options": [
+   "Ayyub",
+   "Lut",
+   "Ibrahim",
+   "Yusuf"
+  ],
+  "answer": 1,
+  "why": "“We saved him and his family, except for his wife; she was of those who remained [with the evildoers]”. (Qur’an 7:83).",
+  "source": "Qur’an 7:83",
+  "claims": [
+   {
+    "ref": "7:83",
+    "quote": "except for his wife; she was of those who remained [with the evildoers]"
+   }
+  ]
+ },
+ {
+  "id": "tq-028",
+  "category": "Prophets",
+  "question": "Which prophet is described as “true to his promise”?",
+  "options": [
+   "Ismail",
+   "Ishaq",
+   "Ya’qub",
+   "Yahya"
+  ],
+  "answer": 0,
+  "why": "“Indeed, he was true to his promise, and he was a messenger and a prophet”. (Qur’an 19:54).",
+  "source": "Qur’an 19:54",
+  "claims": [
+   {
+    "ref": "19:54",
+    "quote": "he was true to his promise"
+   }
+  ]
+ },
+ {
+  "id": "tq-029",
+  "category": "Prophets",
+  "question": "Which two prophets were sent together to Pharaoh?",
+  "options": [
+   "Musa and Harun",
+   "Nuh and Hud",
+   "Ibrahim and Lut",
+   "Zakariya and Yahya"
+  ],
+  "answer": 0,
+  "why": "Allah said: “Go, you and your brother, with My signs”. (Qur’an 20:42-43).",
+  "source": "Qur’an 20:42-43",
+  "claims": [
+   {
+    "ref": "20:42-43",
+    "quote": "Go, you and your brother"
+   }
+  ]
+ },
+ {
+  "id": "tq-030",
+  "category": "Prophets",
+  "question": "Which prophet killed Goliath (Jalut)?",
+  "options": [
+   "Sulayman",
+   "Dawud",
+   "Yusuf",
+   "Musa"
+  ],
+  "answer": 1,
+  "why": "“And David killed Goliath”. (Qur’an 2:251).",
+  "source": "Qur’an 2:251",
+  "claims": [
+   {
+    "ref": "2:251",
+    "quote": "David killed Goliath"
+   }
+  ]
+ },
+ {
+  "id": "tq-031",
+  "category": "Prophets",
+  "question": "Which prophet made the shape of a bird from clay, which became a bird by Allah’s permission?",
+  "options": [
+   "Isa",
+   "Ibrahim",
+   "Musa",
+   "Sulayman"
+  ],
+  "answer": 0,
+  "why": "“I design for you from clay [that which is] like the form of a bird, then I breathe into it and it becomes a bird by permission of Allah”. (Qur’an 3:49).",
+  "source": "Qur’an 3:49",
+  "claims": [
+   {
+    "ref": "3:49",
+    "quote": "it becomes a bird by permission of Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-032",
+  "category": "Prophets",
+  "question": "Whose disciples asked for a table spread with food from heaven?",
+  "options": [
+   "Musa",
+   "Isa",
+   "Yunus",
+   "Dawud"
+  ],
+  "answer": 1,
+  "why": "They said: “can your Lord send down to us a table [spread with food] from the heaven?” (Qur’an 5:112).",
+  "source": "Qur’an 5:112",
+  "claims": [
+   {
+    "ref": "5:112",
+    "quote": "send down to us a table [spread with food] from the heaven"
+   }
+  ]
+ },
+ {
+  "id": "tq-033",
+  "category": "Prophets",
+  "question": "According to Qur’an 4:157-158, what happened to Isa?",
+  "options": [
+   "He was killed by his people",
+   "He was crucified",
+   "He died in the desert",
+   "Allah raised him to Himself"
+  ],
+  "answer": 3,
+  "why": "“They did not kill him, nor did they crucify him”; “Rather, Allah raised him to Himself”. (Qur’an 4:157-158).",
+  "source": "Qur’an 4:157-158",
+  "claims": [
+   {
+    "ref": "4:157-158",
+    "quote": "Allah raised him to Himself"
+   }
+  ]
+ },
+ {
+  "id": "tq-034",
+  "category": "Prophets",
+  "question": "What did Yusuf’s brothers falsely say had eaten him?",
+  "options": [
+   "A wolf",
+   "A snake",
+   "A lion",
+   "A hyena"
+  ],
+  "answer": 0,
+  "why": "The brothers claimed: “a wolf ate him”. (Qur’an 12:17).",
+  "source": "Qur’an 12:17",
+  "claims": [
+   {
+    "ref": "12:17",
+    "quote": "a wolf ate him"
+   }
+  ]
+ },
+ {
+  "id": "tq-035",
+  "category": "Prophets",
+  "question": "How long did the youths of the Cave stay there, according to Qur’an 18:25?",
+  "options": [
+   "300 years",
+   "40 years",
+   "3 years",
+   "309 years"
+  ],
+  "answer": 3,
+  "why": "“And they remained in their cave for three hundred years and exceeded by nine”. (Qur’an 18:25).",
+  "source": "Qur’an 18:25",
+  "claims": [
+   {
+    "ref": "18:25",
+    "quote": "three hundred years and exceeded by nine"
+   }
+  ]
+ },
+ {
+  "id": "tq-036",
+  "category": "Prophets",
+  "question": "Who journeyed to the setting and the rising of the sun and built a barrier against Gog and Magog (Ya’juj and Ma’juj)?",
+  "options": [
+   "Qarun",
+   "Sulayman",
+   "Dhul-Qarnayn",
+   "Talut"
+  ],
+  "answer": 2,
+  "why": "The Qur’an tells how he reached “the setting of the sun” and then built a barrier between the people and Gog and Magog. (Qur’an 18:86, 18:94-95).",
+  "source": "Qur’an 18:86; 18:94-95",
+  "claims": [
+   {
+    "ref": "18:86",
+    "quote": "the setting of the sun"
+   },
+   {
+    "ref": "18:94-95",
+    "quote": ""
+   }
+  ]
+ },
+ {
+  "id": "tq-037",
+  "category": "Prophets",
+  "question": "Which prophet’s mother was inspired to place him in the river?",
+  "options": [
+   "Ismail",
+   "Isa",
+   "Musa",
+   "Yusuf"
+  ],
+  "answer": 2,
+  "why": "Allah inspired her: “Suckle him; but when you fear for him, cast him into the river”. (Qur’an 28:7).",
+  "source": "Qur’an 28:7",
+  "claims": [
+   {
+    "ref": "28:7",
+    "quote": "cast him into the river"
+   }
+  ]
+ },
+ {
+  "id": "tq-038",
+  "category": "Prophets",
+  "question": "Which prophet’s wife and the wife of Nuh are both mentioned in Qur’an 66:10 as examples for the disbelievers?",
+  "options": [
+   "Musa",
+   "Yusuf",
+   "Lut",
+   "Ibrahim"
+  ],
+  "answer": 2,
+  "why": "Allah gave as an example for the disbelievers the wife of Nuh and the wife of Lut. (Qur’an 66:10).",
+  "source": "Qur’an 66:10",
+  "claims": [
+   {
+    "ref": "66:10",
+    "quote": "the wife of Noah and the wife of Lot"
+   }
+  ]
+ },
+ {
+  "id": "tq-039",
+  "category": "Prophets",
+  "question": "Which prophet’s story is told in the surah that is named after him and says he was sold for a few dirhams?",
+  "options": [
+   "Yusuf",
+   "Yunus",
+   "Hud",
+   "Ibrahim"
+  ],
+  "answer": 0,
+  "why": "“And they sold him for a reduced price - a few dirhams”. (Qur’an 12:20).",
+  "source": "Qur’an 12:20",
+  "claims": [
+   {
+    "ref": "12:20",
+    "quote": "a few dirhams"
+   }
+  ]
+ },
+ {
+  "id": "tq-040",
+  "category": "Prophets",
+  "question": "Which prophet is told in the Qur’an, “O Zakariya, indeed We give you good tidings of a boy”, and was struck mute for three nights?",
+  "options": [
+   "Zakariya",
+   "Ya’qub",
+   "Yunus",
+   "Ayyub"
+  ],
+  "answer": 0,
+  "why": "His sign was that he would not speak to the people for three nights. (Qur’an 19:10).",
+  "source": "Qur’an 19:10",
+  "claims": [
+   {
+    "ref": "19:10",
+    "quote": "three nights"
+   }
+  ]
+ },
+ {
+  "id": "tq-041",
+  "category": "Prophets",
+  "question": "To which prophet and his brother did Allah inspire: settle your people in Egypt in houses?",
+  "options": [
+   "Ibrahim",
+   "Musa",
+   "Yunus",
+   "Nuh"
+  ],
+  "answer": 1,
+  "why": "Allah inspired Moses and his brother: “Settle your people in Egypt in houses”. (Qur’an 10:87).",
+  "source": "Qur’an 10:87",
+  "claims": [
+   {
+    "ref": "10:87",
+    "quote": "Settle your people in Egypt in houses"
+   }
+  ]
+ },
+ {
+  "id": "tq-042",
+  "category": "Qur’an",
+  "question": "Which surah is named after an animal Moses told his people to slaughter?",
+  "options": [
+   "Al-Ankabut (the Spider)",
+   "Al-Fil (the Elephant)",
+   "An-Nahl (the Bee)",
+   "Al-Baqarah (the Cow)"
+  ],
+  "answer": 3,
+  "why": "Moses said: “Allah commands you to slaughter a cow.” (Qur’an 2:67).",
+  "source": "Qur’an 2:67",
+  "claims": [
+   {
+    "ref": "2:67",
+    "quote": "Allah commands you to slaughter a cow"
+   }
+  ]
+ },
+ {
+  "id": "tq-043",
+  "category": "Qur’an",
+  "question": "Which surah is named after the elephant?",
+  "options": [
+   "Al-Fil",
+   "Al-Ankabut",
+   "An-Naml",
+   "Al-Baqarah"
+  ],
+  "answer": 0,
+  "why": "It begins: “how your Lord dealt with the companions of the elephant”. (Qur’an 105:1).",
+  "source": "Qur’an 105:1",
+  "claims": [
+   {
+    "ref": "105:1",
+    "quote": "how your Lord dealt with the companions of the elephant"
+   }
+  ]
+ },
+ {
+  "id": "tq-044",
+  "category": "Qur’an",
+  "question": "Which surah is named after the bee?",
+  "options": [
+   "An-Naml",
+   "Al-Ankabut",
+   "An-Nahl",
+   "Al-Fil"
+  ],
+  "answer": 2,
+  "why": "“And your Lord inspired to the bee”. (Qur’an 16:68).",
+  "source": "Qur’an 16:68",
+  "claims": [
+   {
+    "ref": "16:68",
+    "quote": "your Lord inspired to the bee"
+   }
+  ]
+ },
+ {
+  "id": "tq-045",
+  "category": "Qur’an",
+  "question": "Which surah is named after the ants?",
+  "options": [
+   "Al-Fil",
+   "An-Nahl",
+   "Al-Ankabut",
+   "An-Naml"
+  ],
+  "answer": 3,
+  "why": "“Until, when they came upon the valley of the ants, an ant said...” (Qur’an 27:18).",
+  "source": "Qur’an 27:18",
+  "claims": [
+   {
+    "ref": "27:18",
+    "quote": "the valley of the ants, an ant said"
+   }
+  ]
+ },
+ {
+  "id": "tq-046",
+  "category": "Qur’an",
+  "question": "Which surah is named after the spider?",
+  "options": [
+   "An-Naml",
+   "Al-Fil",
+   "Al-Ankabut",
+   "An-Nahl"
+  ],
+  "answer": 2,
+  "why": "“The example of those who take allies other than Allah is like that of the spider who takes a home.” (Qur’an 29:41).",
+  "source": "Qur’an 29:41",
+  "claims": [
+   {
+    "ref": "29:41",
+    "quote": "like that of the spider who takes a home"
+   }
+  ]
+ },
+ {
+  "id": "tq-047",
+  "category": "Qur’an",
+  "question": "Which surah is named after a metal?",
+  "options": [
+   "Az-Zumar",
+   "Al-Hadid (Iron)",
+   "Al-Fajr",
+   "Al-Mulk"
+  ],
+  "answer": 1,
+  "why": "“And We sent down iron, wherein is great military might and benefits for the people.” (Qur’an 57:25).",
+  "source": "Qur’an 57:25",
+  "claims": [
+   {
+    "ref": "57:25",
+    "quote": "We sent down iron"
+   }
+  ]
+ },
+ {
+  "id": "tq-048",
+  "category": "Qur’an",
+  "question": "Which three-verse surah begins “Indeed, We have granted you, [O Muhammad], al-Kawthar”?",
+  "options": [
+   "Al-Masad",
+   "Al-Kawthar",
+   "Al-Falaq",
+   "Al-Ikhlas"
+  ],
+  "answer": 1,
+  "why": "It has three verses and begins: “Indeed, We have granted you, [O Muhammad], al-Kawthar.” (Qur’an 108:1).",
+  "source": "Qur’an 108:1",
+  "claims": [
+   {
+    "ref": "108:1",
+    "quote": "Indeed, We have granted you, [O Muhammad], al-Kawthar"
+   }
+  ]
+ },
+ {
+  "id": "tq-049",
+  "category": "Qur’an",
+  "question": "Which surah begins with the command “Say, ‘He is Allah, [who is] One’”?",
+  "options": [
+   "Al-Kawthar",
+   "Al-Ikhlas",
+   "Al-Falaq",
+   "An-Nas"
+  ],
+  "answer": 1,
+  "why": "The first verse is “Say, ‘He is Allah, [who is] One’”. (Qur’an 112:1).",
+  "source": "Qur’an 112:1",
+  "claims": [
+   {
+    "ref": "112:1",
+    "quote": "Say, \"He is Allah, [who is] One"
+   }
+  ]
+ },
+ {
+  "id": "tq-050",
+  "category": "Qur’an",
+  "question": "Which surah is the only one that does not open with the basmalah (“In the name of Allah”)?",
+  "options": [
+   "Al-Fatihah",
+   "Yusuf",
+   "Al-Anfal",
+   "At-Tawbah"
+  ],
+  "answer": 3,
+  "why": "It opens: “[This is a declaration of] disassociation, from Allah and His Messenger”. (Qur’an 9:1).",
+  "source": "Qur’an 9:1",
+  "claims": [
+   {
+    "ref": "9:1",
+    "quote": "disassociation, from Allah and His Messenger"
+   }
+  ]
+ },
+ {
+  "id": "tq-051",
+  "category": "Qur’an",
+  "question": "Which surah does Allah describe as telling “the best of stories”?",
+  "options": [
+   "Maryam",
+   "Hud",
+   "Yusuf",
+   "Al-Kahf"
+  ],
+  "answer": 2,
+  "why": "The verse says: “We relate to you, [O Muhammad], the best of stories”, in the surah of Yusuf. (Qur’an 12:3).",
+  "source": "Qur’an 12:3",
+  "claims": [
+   {
+    "ref": "12:3",
+    "quote": "the best of stories"
+   }
+  ]
+ },
+ {
+  "id": "tq-052",
+  "category": "Qur’an",
+  "question": "Which surah is named after a woman, and begins by telling the Prophet ﷺ to mention her story in the Book?",
+  "options": [
+   "Maryam",
+   "At-Tahrim",
+   "An-Nisa",
+   "Al-Mujadilah"
+  ],
+  "answer": 0,
+  "why": "“And mention, [O Muhammad], in the Book [the story of] Mary”. (Qur’an 19:16).",
+  "source": "Qur’an 19:16",
+  "claims": [
+   {
+    "ref": "19:16",
+    "quote": "And mention, [O Muhammad], in the Book [the story of] Mary"
+   }
+  ]
+ },
+ {
+  "id": "tq-053",
+  "category": "Qur’an",
+  "question": "Which wise man gave his name to a surah after Allah “had certainly given” him wisdom?",
+  "options": [
+   "Harun",
+   "Luqman",
+   "Khidr",
+   "Dhul-Qarnayn"
+  ],
+  "answer": 1,
+  "why": "“And We had certainly given Luqman wisdom [and said], ‘Be grateful to Allah.’” (Qur’an 31:12).",
+  "source": "Qur’an 31:12",
+  "claims": [
+   {
+    "ref": "31:12",
+    "quote": "And We had certainly given Luqman wisdom"
+   }
+  ]
+ },
+ {
+  "id": "tq-054",
+  "category": "Qur’an",
+  "question": "Which surah is named after the table of food that Isa’s disciples asked for?",
+  "options": [
+   "Al-A’raf",
+   "Al-Ma’idah",
+   "Al-An’am",
+   "An-Nisa"
+  ],
+  "answer": 1,
+  "why": "Isa prayed: “send down to us a table [spread with food] from the heaven”. (Qur’an 5:114).",
+  "source": "Qur’an 5:114",
+  "claims": [
+   {
+    "ref": "5:114",
+    "quote": "send down to us a table [spread with food] from the heaven"
+   }
+  ]
+ },
+ {
+  "id": "tq-055",
+  "category": "Qur’an",
+  "question": "Which surah tells of the “companions of the cave”?",
+  "options": [
+   "Al-Kawthar",
+   "Al-Kafirun",
+   "Al-Kahf",
+   "Al-Qalam"
+  ],
+  "answer": 2,
+  "why": "“Or have you thought that the companions of the cave and the inscription were, among Our signs, a wonder?” (Qur’an 18:9).",
+  "source": "Qur’an 18:9",
+  "claims": [
+   {
+    "ref": "18:9",
+    "quote": "the companions of the cave and the inscription"
+   }
+  ]
+ },
+ {
+  "id": "tq-056",
+  "category": "Qur’an",
+  "question": "Which surah begins “Indeed, We sent Noah to his people, [saying], ‘Warn your people’”?",
+  "options": [
+   "Hud",
+   "Nuh",
+   "Yunus",
+   "Ibrahim"
+  ],
+  "answer": 1,
+  "why": "“Indeed, We sent Noah to his people, [saying], ‘Warn your people before there comes to them a painful punishment.’” (Qur’an 71:1).",
+  "source": "Qur’an 71:1",
+  "claims": [
+   {
+    "ref": "71:1",
+    "quote": "Warn your people before there comes to them a painful punishment"
+   }
+  ]
+ },
+ {
+  "id": "tq-057",
+  "category": "Qur’an",
+  "question": "Which surah mentions the call to prayer on the day of Jumu’ah (Friday)?",
+  "options": [
+   "Al-Qadr",
+   "Al-Layl",
+   "Al-Jumu’ah",
+   "Al-Kahf"
+  ],
+  "answer": 2,
+  "why": "“When [the adhan] is called for the prayer on the day of Jumu’ah [Friday], then proceed to the remembrance of Allah and leave trade.” (Qur’an 62:9).",
+  "source": "Qur’an 62:9",
+  "claims": [
+   {
+    "ref": "62:9",
+    "quote": "then proceed to the remembrance of Allah and leave trade"
+   }
+  ]
+ },
+ {
+  "id": "tq-058",
+  "category": "Qur’an",
+  "question": "In which month was the Qur’an revealed, according to 2:185?",
+  "options": [
+   "Muharram",
+   "Shawwal",
+   "Ramadan",
+   "Rajab"
+  ],
+  "answer": 2,
+  "why": "“The month of Ramadhan [is that] in which was revealed the Qur’an”. (Qur’an 2:185).",
+  "source": "Qur’an 2:185",
+  "claims": [
+   {
+    "ref": "2:185",
+    "quote": "The month of Ramadhan [is that] in which was revealed the Qur'an"
+   }
+  ]
+ },
+ {
+  "id": "tq-059",
+  "category": "Qur’an",
+  "question": "What is “better than a thousand months”?",
+  "options": [
+   "The Night of Decree (Laylat al-Qadr)",
+   "The night of Arafah",
+   "The day of Jumu’ah",
+   "The first ten days of Dhul-Hijjah"
+  ],
+  "answer": 0,
+  "why": "“The Night of Decree is better than a thousand months.” (Qur’an 97:3).",
+  "source": "Qur’an 97:3",
+  "claims": [
+   {
+    "ref": "97:3",
+    "quote": "The Night of Decree is better than a thousand months"
+   }
+  ]
+ },
+ {
+  "id": "tq-060",
+  "category": "Qur’an",
+  "question": "Which surah repeats the verse “Indeed, with hardship [will be] ease”?",
+  "options": [
+   "Ad-Duha",
+   "At-Tin",
+   "Ash-Sharh (Al-Inshirah)",
+   "Al-Asr"
+  ],
+  "answer": 2,
+  "why": "“For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease.” (Qur’an 94:5-6).",
+  "source": "Qur’an 94:5-6",
+  "claims": [
+   {
+    "ref": "94:5-6",
+    "quote": "Indeed, with hardship [will be] ease"
+   }
+  ]
+ },
+ {
+  "id": "tq-061",
+  "category": "Qur’an",
+  "question": "Which verse begins, “Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence”?",
+  "options": [
+   "The first verse of Al-Ikhlas",
+   "The Light Verse (24:35)",
+   "The last verse of Al-Baqarah",
+   "Ayat al-Kursi (2:255)"
+  ],
+  "answer": 3,
+  "why": "That is Ayat al-Kursi, in Surah Al-Baqarah. (Qur’an 2:255).",
+  "source": "Qur’an 2:255",
+  "claims": [
+   {
+    "ref": "2:255",
+    "quote": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence"
+   }
+  ]
+ },
+ {
+  "id": "tq-062",
+  "category": "Qur’an",
+  "question": "Which surah contains the Light Verse (“Allah is the Light of the heavens and the earth”)?",
+  "options": [
+   "Al-Hadid",
+   "Ya-Sin",
+   "An-Nur",
+   "Al-Baqarah"
+  ],
+  "answer": 2,
+  "why": "“Allah is the Light of the heavens and the earth.” (Qur’an 24:35).",
+  "source": "Qur’an 24:35",
+  "claims": [
+   {
+    "ref": "24:35",
+    "quote": "Allah is the Light of the heavens and the earth"
+   }
+  ]
+ },
+ {
+  "id": "tq-063",
+  "category": "Qur’an",
+  "question": "What does the Qur’an say about compulsion in religion (2:256)?",
+  "options": [
+   "It must be done in secret",
+   "It is only for the Arabs",
+   "It is required of children",
+   "There is no compulsion in it"
+  ],
+  "answer": 3,
+  "why": "“There shall be no compulsion in [acceptance of] the religion.” (Qur’an 2:256).",
+  "source": "Qur’an 2:256",
+  "claims": [
+   {
+    "ref": "2:256",
+    "quote": "There shall be no compulsion in [acceptance of] the religion"
+   }
+  ]
+ },
+ {
+  "id": "tq-064",
+  "category": "Qur’an",
+  "question": "According to 2:183, what has been decreed upon the believers as it was upon those before them?",
+  "options": [
+   "Zakat",
+   "Fasting",
+   "Hajj",
+   "Night prayer"
+  ],
+  "answer": 1,
+  "why": "“Decreed upon you is fasting as it was decreed upon those before you that you may become righteous.” (Qur’an 2:183).",
+  "source": "Qur’an 2:183",
+  "claims": [
+   {
+    "ref": "2:183",
+    "quote": "decreed upon you is fasting as it was decreed upon those before you"
+   }
+  ]
+ },
+ {
+  "id": "tq-065",
+  "category": "Qur’an",
+  "question": "Which surah begins, “Say, ‘I seek refuge in the Lord of daybreak’”?",
+  "options": [
+   "Al-Ikhlas",
+   "Al-Masad",
+   "Al-Falaq",
+   "An-Nas"
+  ],
+  "answer": 2,
+  "why": "That is the first verse of Al-Falaq. (Qur’an 113:1).",
+  "source": "Qur’an 113:1",
+  "claims": [
+   {
+    "ref": "113:1",
+    "quote": "I seek refuge in the Lord of daybreak"
+   }
+  ]
+ },
+ {
+  "id": "tq-066",
+  "category": "Qur’an",
+  "question": "Which is the last surah of the Qur’an in the order of the mushaf?",
+  "options": [
+   "Al-Fatihah",
+   "Al-Falaq",
+   "An-Nas",
+   "Al-Ikhlas"
+  ],
+  "answer": 2,
+  "why": "Surah 114 begins: “Say, ‘I seek refuge in the Lord of mankind’”. (Qur’an 114:1).",
+  "source": "Qur’an 114:1",
+  "claims": [
+   {
+    "ref": "114:1",
+    "quote": "I seek refuge in the Lord of mankind"
+   }
+  ]
+ },
+ {
+  "id": "tq-067",
+  "category": "Qur’an",
+  "question": "Which surah opens with an oath by the fig and the olive?",
+  "options": [
+   "At-Tin",
+   "Al-Alaq",
+   "Ash-Shams",
+   "Al-Layl"
+  ],
+  "answer": 0,
+  "why": "“By the fig and the olive.” (Qur’an 95:1).",
+  "source": "Qur’an 95:1",
+  "claims": [
+   {
+    "ref": "95:1",
+    "quote": "By the fig and the olive"
+   }
+  ]
+ },
+ {
+  "id": "tq-068",
+  "category": "Qur’an",
+  "question": "Which surah mentions the accustomed journey of the Quraysh in winter and summer?",
+  "options": [
+   "Quraysh",
+   "Al-Humazah",
+   "Al-Maun",
+   "Al-Fil"
+  ],
+  "answer": 0,
+  "why": "“Their accustomed security [in] the caravan of winter and summer.” (Qur’an 106:2).",
+  "source": "Qur’an 106:2",
+  "claims": [
+   {
+    "ref": "106:2",
+    "quote": "the caravan of winter and summer"
+   }
+  ]
+ },
+ {
+  "id": "tq-069",
+  "category": "Qur’an",
+  "question": "Which surah reassures the Prophet ﷺ: “Your Lord has not taken leave of you”?",
+  "options": [
+   "Al-Qadr",
+   "Al-Kawthar",
+   "Al-Alaq",
+   "Ad-Duha"
+  ],
+  "answer": 3,
+  "why": "“Your Lord has not taken leave of you, [O Muhammad], nor has He detested [you].” (Qur’an 93:3).",
+  "source": "Qur’an 93:3",
+  "claims": [
+   {
+    "ref": "93:3",
+    "quote": "Your Lord has not taken leave of you"
+   }
+  ]
+ },
+ {
+  "id": "tq-070",
+  "category": "Qur’an",
+  "question": "Which surah says, “Did We not expand for you, [O Muhammad], your breast?”",
+  "options": [
+   "Al-Alaq",
+   "At-Tin",
+   "Ash-Sharh",
+   "Ad-Duha"
+  ],
+  "answer": 2,
+  "why": "That is its opening verse. (Qur’an 94:1).",
+  "source": "Qur’an 94:1",
+  "claims": [
+   {
+    "ref": "94:1",
+    "quote": "Did We not expand for you, [O Muhammad], your breast"
+   }
+  ]
+ },
+ {
+  "id": "tq-071",
+  "category": "Qur’an",
+  "question": "Which relative of the Prophet ﷺ is named in the Qur’an, in Surah Al-Masad?",
+  "options": [
+   "Hamzah",
+   "Abu Talib",
+   "Abu Lahab",
+   "Al-Abbas"
+  ],
+  "answer": 2,
+  "why": "“May the hands of Abu Lahab be ruined, and ruined is he.” (Qur’an 111:1).",
+  "source": "Qur’an 111:1",
+  "claims": [
+   {
+    "ref": "111:1",
+    "quote": "May the hands of Abu Lahab be ruined"
+   }
+  ]
+ },
+ {
+  "id": "tq-072",
+  "category": "Qur’an",
+  "question": "What does the Qur’an say about its language (12:2)?",
+  "options": [
+   "It was sent down in Hebrew",
+   "It was sent down in every language",
+   "It was sent down without words",
+   "It was sent down as an Arabic Qur’an"
+  ],
+  "answer": 3,
+  "why": "“Indeed, We have sent it down as an Arabic Qur’an that you might understand.” (Qur’an 12:2).",
+  "source": "Qur’an 12:2",
+  "claims": [
+   {
+    "ref": "12:2",
+    "quote": "We have sent it down as an Arabic Qur'an"
+   }
+  ]
+ },
+ {
+  "id": "tq-073",
+  "category": "Qur’an",
+  "question": "When Allah spoke to Musa in the sacred valley of Tuwa, what did He command “for My remembrance”?",
+  "options": [
+   "To fast",
+   "To give zakat",
+   "To establish prayer",
+   "To make Hajj"
+  ],
+  "answer": 2,
+  "why": "“Indeed, I am Allah. There is no deity except Me, so worship Me and establish prayer for My remembrance.” (Qur’an 20:12-14, 20:12-14).",
+  "source": "Qur’an 20:12-14; 20:12-14",
+  "claims": [
+   {
+    "ref": "20:12-14",
+    "quote": "the sacred valley of Tuwa"
+   },
+   {
+    "ref": "20:12-14",
+    "quote": "establish prayer for My remembrance"
+   }
+  ]
+ },
+ {
+  "id": "tq-074",
+  "category": "Qur’an",
+  "question": "According to 17:1, where did the Night Journey end?",
+  "options": [
+   "Al-Masjid al-Aqsa",
+   "Quba Mosque",
+   "Masjid al-Haram",
+   "Masjid an-Nabawi"
+  ],
+  "answer": 0,
+  "why": "“Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa”. (Qur’an 17:1).",
+  "source": "Qur’an 17:1",
+  "claims": [
+   {
+    "ref": "17:1",
+    "quote": "from al-Masjid al-Haram to al-Masjid al-Aqsa"
+   }
+  ]
+ },
+ {
+  "id": "tq-075",
+  "category": "Qur’an",
+  "question": "Surah An-Najm mentions “another descent” at which tree?",
+  "options": [
+   "The fig tree",
+   "The tree of Bay’ah",
+   "The Lote Tree of the Utmost Boundary",
+   "The tree of Zaqqum"
+  ],
+  "answer": 2,
+  "why": "“At the Lote Tree of the Utmost Boundary.” (Qur’an 53:14).",
+  "source": "Qur’an 53:14",
+  "claims": [
+   {
+    "ref": "53:14",
+    "quote": "At the Lote Tree of the Utmost Boundary"
+   }
+  ]
+ },
+ {
+  "id": "tq-076",
+  "category": "Qur’an",
+  "question": "How many categories of zakat recipients does Qur’an 9:60 list?",
+  "options": [
+   "5",
+   "8",
+   "10",
+   "7"
+  ],
+  "answer": 1,
+  "why": "The verse lists the poor, the needy, those employed to collect, those whose hearts are being reconciled, freeing captives, those in debt, the cause of Allah, and the wayfarer. (Qur’an 9:60).",
+  "source": "Qur’an 9:60",
+  "claims": [
+   {
+    "ref": "9:60",
+    "quote": "Zakah expenditures are only for the poor and for the needy"
+   }
+  ]
+ },
+ {
+  "id": "tq-077",
+  "category": "Qur’an",
+  "question": "What is the subject of the longest verse in the Qur’an (2:282)?",
+  "options": [
+   "Fasting rules",
+   "Prayer times",
+   "Inheritance shares",
+   "Writing down debts"
+  ],
+  "answer": 3,
+  "why": "“When you contract a debt for a specified term, write it down.” (Qur’an 2:282).",
+  "source": "Qur’an 2:282",
+  "claims": [
+   {
+    "ref": "2:282",
+    "quote": "when you contract a debt for a specified term, write it down"
+   }
+  ]
+ },
+ {
+  "id": "tq-078",
+  "category": "Qur’an",
+  "question": "Which surah contains “Establish prayer at the decline of the sun [from its meridian] until the darkness of the night”?",
+  "options": [
+   "Al-Kahf",
+   "An-Nur",
+   "Al-Isra",
+   "Maryam"
+  ],
+  "answer": 2,
+  "why": "“Establish prayer at the decline of the sun [from its meridian] until the darkness of the night and [also] the Qur’an of dawn.” (Qur’an 17:78).",
+  "source": "Qur’an 17:78",
+  "claims": [
+   {
+    "ref": "17:78",
+    "quote": "Establish prayer at the decline of the sun"
+   }
+  ]
+ },
+ {
+  "id": "tq-079",
+  "category": "Qur’an",
+  "question": "Which angel is named together with Jibril (Gabriel) in Qur’an 2:98?",
+  "options": [
+   "Mika’il (Michael)",
+   "Munkar",
+   "Israfil",
+   "Malik"
+  ],
+  "answer": 0,
+  "why": "“...His angels and His messengers and Gabriel and Michael”. (Qur’an 2:98).",
+  "source": "Qur’an 2:98",
+  "claims": [
+   {
+    "ref": "2:98",
+    "quote": "and Gabriel and Michael"
+   }
+  ]
+ },
+ {
+  "id": "tq-080",
+  "category": "Qur’an",
+  "question": "Which Qur’anic story features a knowledgeable “servant from among Our servants” whom Musa met?",
+  "options": [
+   "The story in Surah Al-Kahf",
+   "The story in Surah Yusuf",
+   "The story in Surah Hud",
+   "The story in Surah Maryam"
+  ],
+  "answer": 0,
+  "why": "“And they found a servant from among Our servants to whom we had given mercy from us and had taught him from Us a [certain] knowledge.” (Qur’an 18:65).",
+  "source": "Qur’an 18:65",
+  "claims": [
+   {
+    "ref": "18:65",
+    "quote": "a servant from among Our servants"
+   }
+  ]
+ },
+ {
+  "id": "tq-081",
+  "category": "Qur’an",
+  "question": "Which man is described in the Qur’an as “from the people of Moses” and having treasures whose keys would burden strong men?",
+  "options": [
+   "Haman",
+   "Qarun",
+   "Talut",
+   "Samiri"
+  ],
+  "answer": 1,
+  "why": "“Indeed, Qarun was from the people of Moses, but he tyrannized them.” (Qur’an 28:76).",
+  "source": "Qur’an 28:76",
+  "claims": [
+   {
+    "ref": "28:76",
+    "quote": "Qarun was from the people of Moses"
+   }
+  ]
+ },
+ {
+  "id": "tq-082",
+  "category": "Qur’an",
+  "question": "Where is the standing place of Abraham, according to Qur’an 3:97?",
+  "options": [
+   "In Jerusalem",
+   "In the Sacred House (Makkah)",
+   "In Madinah",
+   "At Quba"
+  ],
+  "answer": 1,
+  "why": "“In it are clear signs [such as] the standing place of Abraham.” (Qur’an 3:97).",
+  "source": "Qur’an 3:97",
+  "claims": [
+   {
+    "ref": "3:97",
+    "quote": "the standing place of Abraham"
+   }
+  ]
+ },
+ {
+  "id": "tq-083",
+  "category": "Qur’an",
+  "question": "What does Allah call upon people to do for the House, “for whoever is able to find thereto a way” (3:97)?",
+  "options": [
+   "Build a wall around it",
+   "Send gifts to it",
+   "Make the pilgrimage",
+   "Pray there only at night"
+  ],
+  "answer": 2,
+  "why": "“[Due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way.” (Qur’an 3:97).",
+  "source": "Qur’an 3:97",
+  "claims": [
+   {
+    "ref": "3:97",
+    "quote": "a pilgrimage to the House - for whoever is able to find thereto a way"
+   }
+  ]
+ },
+ {
+  "id": "tq-084",
+  "category": "Qur’an",
+  "question": "Which surah begins “About what are they asking one another?”",
+  "options": [
+   "At-Takwir",
+   "Abasa",
+   "An-Naba",
+   "An-Nazi’at"
+  ],
+  "answer": 2,
+  "why": "That is the opening of Surah An-Naba. (Qur’an 78:1).",
+  "source": "Qur’an 78:1",
+  "claims": [
+   {
+    "ref": "78:1",
+    "quote": "About what are they asking one another"
+   }
+  ]
+ },
+ {
+  "id": "tq-085",
+  "category": "Qur’an",
+  "question": "Which surah begins “When the earth is shaken with its [final] earthquake”?",
+  "options": [
+   "Al-Waqi’ah",
+   "Al-Qari’ah",
+   "At-Takathur",
+   "Az-Zalzalah"
+  ],
+  "answer": 3,
+  "why": "That is its opening verse. (Qur’an 99:1).",
+  "source": "Qur’an 99:1",
+  "claims": [
+   {
+    "ref": "99:1",
+    "quote": "When the earth is shaken with its [final] earthquake"
+   }
+  ]
+ },
+ {
+  "id": "tq-086",
+  "category": "Qur’an",
+  "question": "Which surah begins “When the victory of Allah has come and the conquest”?",
+  "options": [
+   "Al-Fath",
+   "Al-Kawthar",
+   "An-Nasr",
+   "Al-Asr"
+  ],
+  "answer": 2,
+  "why": "That is its opening verse. (Qur’an 110:1).",
+  "source": "Qur’an 110:1",
+  "claims": [
+   {
+    "ref": "110:1",
+    "quote": "When the victory of Allah has come and the conquest"
+   }
+  ]
+ },
+ {
+  "id": "tq-087",
+  "category": "Qur’an",
+  "question": "Which surah begins “Blessed is He in whose hand is dominion”?",
+  "options": [
+   "Ar-Rahman",
+   "Al-Waqi’ah",
+   "Ya-Sin",
+   "Al-Mulk"
+  ],
+  "answer": 3,
+  "why": "That is its opening verse. (Qur’an 67:1).",
+  "source": "Qur’an 67:1",
+  "claims": [
+   {
+    "ref": "67:1",
+    "quote": "Blessed is He in whose hand is dominion"
+   }
+  ]
+ },
+ {
+  "id": "tq-088",
+  "category": "Qur’an",
+  "question": "Which surah is named after the “Striking Calamity”?",
+  "options": [
+   "Al-Waqi’ah",
+   "Al-Ghashiyah",
+   "Al-Qari’ah",
+   "Al-Haqqah"
+  ],
+  "answer": 2,
+  "why": "“The Striking Calamity.” (Qur’an 101:1).",
+  "source": "Qur’an 101:1",
+  "claims": [
+   {
+    "ref": "101:1",
+    "quote": "The Striking Calamity"
+   }
+  ]
+ },
+ {
+  "id": "tq-089",
+  "category": "Qur’an",
+  "question": "Which surah is named after “the Occurrence”?",
+  "options": [
+   "Al-Haqqah",
+   "Al-Qari’ah",
+   "Al-Waqi’ah",
+   "Al-Mulk"
+  ],
+  "answer": 2,
+  "why": "“When the Occurrence occurs.” (Qur’an 56:1).",
+  "source": "Qur’an 56:1",
+  "claims": [
+   {
+    "ref": "56:1",
+    "quote": "When the Occurrence occurs"
+   }
+  ]
+ },
+ {
+  "id": "tq-090",
+  "category": "Qur’an",
+  "question": "Which surah begins with a name of Allah meaning “The Most Merciful”?",
+  "options": [
+   "Al-Malik",
+   "Al-Mulk",
+   "Al-Fatihah",
+   "Ar-Rahman"
+  ],
+  "answer": 3,
+  "why": "The surah opens with “The Most Merciful”. (Qur’an 55:1).",
+  "source": "Qur’an 55:1",
+  "claims": [
+   {
+    "ref": "55:1",
+    "quote": "The Most Merciful"
+   }
+  ]
+ },
+ {
+  "id": "tq-091",
+  "category": "Qur’an",
+  "question": "Which surah begins “Have you seen the one who denies the Recompense?”",
+  "options": [
+   "Al-Humazah",
+   "Quraysh",
+   "Al-Ma’un",
+   "Al-Fil"
+  ],
+  "answer": 2,
+  "why": "That is its opening verse. (Qur’an 107:1).",
+  "source": "Qur’an 107:1",
+  "claims": [
+   {
+    "ref": "107:1",
+    "quote": "Have you seen the one who denies the Recompense"
+   }
+  ]
+ },
+ {
+  "id": "tq-092",
+  "category": "Qur’an",
+  "question": "What did Allah create man from, according to Surah Al-Alaq?",
+  "options": [
+   "Light",
+   "A clinging substance",
+   "Fire",
+   "Water only"
+  ],
+  "answer": 1,
+  "why": "“Created man from a clinging substance.” (Qur’an 96:2).",
+  "source": "Qur’an 96:2",
+  "claims": [
+   {
+    "ref": "96:2",
+    "quote": "Created man from a clinging substance"
+   }
+  ]
+ },
+ {
+  "id": "tq-093",
+  "category": "Qur’an",
+  "question": "Which surah contains the line “By time, indeed, mankind is in loss”?",
+  "options": [
+   "Al-Qadr",
+   "Al-Humazah",
+   "Al-Asr",
+   "Al-Fil"
+  ],
+  "answer": 2,
+  "why": "“By time... Indeed, mankind is in loss.” (Qur’an 103:1-2).",
+  "source": "Qur’an 103:1-2",
+  "claims": [
+   {
+    "ref": "103:1-2",
+    "quote": "Indeed, mankind is in loss"
+   }
+  ]
+ },
+ {
+  "id": "tq-094",
+  "category": "Women",
+  "question": "Whom did Allah describe as “chosen above the women of the worlds”?",
+  "options": [
+   "Asiya",
+   "Hajar",
+   "Maryam",
+   "Khadijah"
+  ],
+  "answer": 2,
+  "why": "The angels said: “Allah has chosen you and purified you and chosen you above the women of the worlds.” (Qur’an 3:42).",
+  "source": "Qur’an 3:42",
+  "claims": [
+   {
+    "ref": "3:42",
+    "quote": "Allah has chosen you and purified you and chosen you above the women of the worlds"
+   }
+  ]
+ },
+ {
+  "id": "tq-095",
+  "category": "Women",
+  "question": "Whose wife prayed: “Build for me near You a house in Paradise”?",
+  "options": [
+   "Pharaoh’s wife (Asiya)",
+   "Lut’s wife",
+   "Nuh’s wife",
+   "The wife of Imran"
+  ],
+  "answer": 0,
+  "why": "She prayed: “My Lord, build for me near You a house in Paradise and save me from Pharaoh”. (Qur’an 66:11).",
+  "source": "Qur’an 66:11",
+  "claims": [
+   {
+    "ref": "66:11",
+    "quote": "build for me near You a house in Paradise"
+   }
+  ]
+ },
+ {
+  "id": "tq-096",
+  "category": "Women",
+  "question": "Who was inspired to put her baby in the river and not to fear or grieve?",
+  "options": [
+   "The mother of Musa",
+   "The mother of Yusuf",
+   "The wife of Ibrahim",
+   "The mother of Isa"
+  ],
+  "answer": 0,
+  "why": "Allah said: “Suckle him; but when you fear for him, cast him into the river and do not fear and do not grieve.” (Qur’an 28:7).",
+  "source": "Qur’an 28:7",
+  "claims": [
+   {
+    "ref": "28:7",
+    "quote": "cast him into the river and do not fear and do not grieve"
+   }
+  ]
+ },
+ {
+  "id": "tq-097",
+  "category": "Women",
+  "question": "Who followed baby Musa along the river bank and then told Pharaoh’s household about a nurse?",
+  "options": [
+   "His sister",
+   "Asiya",
+   "His mother",
+   "Hajar"
+  ],
+  "answer": 0,
+  "why": "His mother said to his sister, “Follow him”; she then said, “Shall I direct you to a household that will be responsible for him for you”. (Qur’an 28:11-12, 28:11-12).",
+  "source": "Qur’an 28:11-12; 28:11-12",
+  "claims": [
+   {
+    "ref": "28:11-12",
+    "quote": "Follow him"
+   },
+   {
+    "ref": "28:11-12",
+    "quote": "Shall I direct you to a household that will be responsible for him for you"
+   }
+  ]
+ },
+ {
+  "id": "tq-098",
+  "category": "Women",
+  "question": "Who ruled over the people of Saba’ (Sheba) and visited Sulayman’s court?",
+  "options": [
+   "Hajar",
+   "The Queen of Sheba",
+   "The wife of Imran",
+   "The wife of Pharaoh"
+  ],
+  "answer": 1,
+  "why": "The hoopoe reported: “I found [there] a woman ruling them, and she has been given of all things, and she has a great throne.” (Qur’an 27:23).",
+  "source": "Qur’an 27:23",
+  "claims": [
+   {
+    "ref": "27:23",
+    "quote": "I found [there] a woman ruling them"
+   }
+  ]
+ },
+ {
+  "id": "tq-099",
+  "category": "Women",
+  "question": "Which surah begins by saying Allah heard “the one who argues with you, [O Muhammad], concerning her husband”?",
+  "options": [
+   "Al-Mujadilah",
+   "Al-Hujurat",
+   "At-Talaq",
+   "An-Nur"
+  ],
+  "answer": 0,
+  "why": "The surah opens with Allah hearing “the speech of the one who argues with you, [O Muhammad], concerning her husband”. (Qur’an 58:1).",
+  "source": "Qur’an 58:1",
+  "claims": [
+   {
+    "ref": "58:1",
+    "quote": "the one who argues with you, [O Muhammad], concerning her husband"
+   }
+  ]
+ },
+ {
+  "id": "tq-100",
+  "category": "Women",
+  "question": "Which woman pledged what was in her womb to Allah, saying “my Lord, indeed I have pledged to You”?",
+  "options": [
+   "The wife of Zakariya",
+   "Sarah",
+   "The wife of Imran",
+   "Hajar"
+  ],
+  "answer": 2,
+  "why": "“...the wife of ‘Imran said, ‘My Lord, indeed I have pledged to You what is in my womb, consecrated [for Your service]’.” (Qur’an 3:35).",
+  "source": "Qur’an 3:35",
+  "claims": [
+   {
+    "ref": "3:35",
+    "quote": "indeed I have pledged to You what is in my womb"
+   }
+  ]
+ },
+ {
+  "id": "tq-101",
+  "category": "Women",
+  "question": "Which two women are given in Qur’an 66:10 as examples of disbelievers married to righteous men?",
+  "options": [
+   "The wives of Nuh and Lut",
+   "The wives of Yusuf and Ya’qub",
+   "The wives of Ibrahim and Ismail",
+   "The wives of Musa and Harun"
+  ],
+  "answer": 0,
+  "why": "Allah gave “the wife of Noah and the wife of Lot” as an example. (Qur’an 66:10).",
+  "source": "Qur’an 66:10",
+  "claims": [
+   {
+    "ref": "66:10",
+    "quote": "the wife of Noah and the wife of Lot"
+   }
+  ]
+ },
+ {
+  "id": "tq-102",
+  "category": "Women",
+  "question": "What does the Qur’an call the wives of the Prophet ﷺ?",
+  "options": [
+   "Sisters of the angels",
+   "Mothers of the believers",
+   "Daughters of Quraysh",
+   "Keepers of the House"
+  ],
+  "answer": 1,
+  "why": "“His wives are [in the position of] their mothers.” (Qur’an 33:6).",
+  "source": "Qur’an 33:6",
+  "claims": [
+   {
+    "ref": "33:6",
+    "quote": "his wives are [in the position of] their mothers"
+   }
+  ]
+ },
+ {
+  "id": "tq-103",
+  "category": "Women",
+  "question": "To which wife of the Prophet ﷺ did Uthman send for the manuscripts of the Qur’an, so that perfect copies could be made?",
+  "options": [
+   "Khadijah",
+   "Zaynab",
+   "Hafsa",
+   "Aisha"
+  ],
+  "answer": 2,
+  "why": "“`Uthman sent a message to Hafsa saying, ‘Send us the manuscripts of the Qur’an’.” Hafsa sent it to him. (Bukhari 4987).",
+  "source": "Sahih al-Bukhari 4987",
+  "claims": [
+   {
+    "hadith": "bukhari:4987",
+    "quote": "Send us the manuscripts of the Qur'an"
+   }
+  ]
+ },
+ {
+  "id": "tq-104",
+  "category": "Women",
+  "question": "Which Companion’s daughter was nicknamed Dhat an-Nitaqayn (“the owner of two belts”)?",
+  "options": [
+   "Safiyyah",
+   "Asma bint Abi Bakr",
+   "Aisha bint Abi Bakr",
+   "Umm Salamah"
+  ],
+  "answer": 1,
+  "why": "The Hijrah account says she was named Dhat-un-Nitaqain, “the owner of two belts”. (Bukhari 3905).",
+  "source": "Sahih al-Bukhari 3905",
+  "claims": [
+   {
+    "hadith": "bukhari:3905",
+    "quote": "Dhat-un-Nitaqain"
+   }
+  ]
+ },
+ {
+  "id": "tq-105",
+  "category": "Women",
+  "question": "Who comforted the Prophet ﷺ after the first revelation by saying that Allah would never disgrace him?",
+  "options": [
+   "Hafsa",
+   "Aisha",
+   "Umm Salamah",
+   "Khadijah"
+  ],
+  "answer": 3,
+  "why": "Khadija replied, “Never! By Allah, Allah will never disgrace you.” (Bukhari 3).",
+  "source": "Sahih al-Bukhari 3",
+  "claims": [
+   {
+    "hadith": "bukhari:3",
+    "quote": "Allah will never disgrace you"
+   }
+  ]
+ },
+ {
+  "id": "tq-106",
+  "category": "Women",
+  "question": "According to a hadith, whom is a man most entitled to treat with the best companionship?",
+  "options": [
+   "His father",
+   "His teacher",
+   "His neighbour",
+   "His mother"
+  ],
+  "answer": 3,
+  "why": "The Prophet ﷺ answered three times: “Your mother.” Then, fourth: “Your father”. (Bukhari 5971).",
+  "source": "Sahih al-Bukhari 5971",
+  "claims": [
+   {
+    "hadith": "bukhari:5971",
+    "quote": "Your mother"
+   }
+  ]
+ },
+ {
+  "id": "tq-107",
+  "category": "Women",
+  "question": "What does Qur’an 2:158 call as-Safa and al-Marwah?",
+  "options": [
+   "Among the symbols of Allah",
+   "Tombs of prophets",
+   "Resting places",
+   "Markets"
+  ],
+  "answer": 0,
+  "why": "“Indeed, as-Safa and al-Marwah are among the symbols of Allah.” (Qur’an 2:158).",
+  "source": "Qur’an 2:158",
+  "claims": [
+   {
+    "ref": "2:158",
+    "quote": "as-Safa and al-Marwah are among the symbols of Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-108",
+  "category": "Women",
+  "question": "Which woman was told by angels she would have a son, Ishaq, followed by Ya’qub, while she stood by?",
+  "options": [
+   "Hajar",
+   "The wife of Ibrahim (Sarah)",
+   "The wife of Zakariya",
+   "The wife of Imran"
+  ],
+  "answer": 1,
+  "why": "“His wife was standing, and she smiled; then We gave her good tidings of Isaac, and after Isaac, Jacob.” (Qur’an 11:71).",
+  "source": "Qur’an 11:71",
+  "claims": [
+   {
+    "ref": "11:71",
+    "quote": "We gave her good tidings of Isaac, and after Isaac, Jacob"
+   }
+  ]
+ },
+ {
+  "id": "tq-109",
+  "category": "Women",
+  "question": "The Qur’an mentions two women who came to Musa at the well of Madyan. What did one of them say about her father?",
+  "options": [
+   "He is a traveler",
+   "He is an old man",
+   "He is a trader",
+   "He is a king"
+  ],
+  "answer": 1,
+  "why": "They said: “our father is an old man.” (Qur’an 28:23).",
+  "source": "Qur’an 28:23",
+  "claims": [
+   {
+    "ref": "28:23",
+    "quote": "our father is an old man"
+   }
+  ]
+ },
+ {
+  "id": "tq-110",
+  "category": "Women",
+  "question": "To whom did Allah say, “Shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates”?",
+  "options": [
+   "Sarah",
+   "Maryam",
+   "Asiya",
+   "Hajar"
+  ],
+  "answer": 1,
+  "why": "“And shake toward you the trunk of the palm tree; it will drop upon you ripe, fresh dates.” (Qur’an 19:25).",
+  "source": "Qur’an 19:25",
+  "claims": [
+   {
+    "ref": "19:25",
+    "quote": "shake toward you the trunk of the palm tree"
+   }
+  ]
+ },
+ {
+  "id": "tq-111",
+  "category": "Seerah",
+  "question": "In which cave did the first revelation come to the Prophet ﷺ?",
+  "options": [
+   "The cave of Hira",
+   "The cave of Uhud",
+   "The cave of Hunayn",
+   "The cave of Thawr"
+  ],
+  "answer": 0,
+  "why": "He used to go into seclusion in the cave of Hira, and the first words revealed were: “Recite in the name of your Lord who created”. (Qur’an 96:1; Bukhari 3).",
+  "source": "Qur’an 96:1 · Sahih al-Bukhari 3",
+  "claims": [
+   {
+    "hadith": "bukhari:3",
+    "quote": "cave of Hira"
+   },
+   {
+    "ref": "96:1",
+    "quote": "Recite in the name of your Lord who created"
+   }
+  ]
+ },
+ {
+  "id": "tq-112",
+  "category": "Seerah",
+  "question": "What was the first command of Allah to the Prophet ﷺ in the first revelation?",
+  "options": [
+   "Pray",
+   "Give charity",
+   "Fast",
+   "Recite"
+  ],
+  "answer": 3,
+  "why": "“Recite in the name of your Lord who created.” (Qur’an 96:1).",
+  "source": "Qur’an 96:1",
+  "claims": [
+   {
+    "ref": "96:1",
+    "quote": "Recite in the name of your Lord who created"
+   }
+  ]
+ },
+ {
+  "id": "tq-113",
+  "category": "Seerah",
+  "question": "Who was with the Prophet ﷺ in the cave on the Hijrah when he said, “Do not grieve; indeed Allah is with us”?",
+  "options": [
+   "Ali",
+   "Umar",
+   "Uthman",
+   "Abu Bakr"
+  ],
+  "answer": 3,
+  "why": "“...he said to his companion, ‘Do not grieve; indeed Allah is with us.’” (Qur’an 9:40).",
+  "source": "Qur’an 9:40",
+  "claims": [
+   {
+    "ref": "9:40",
+    "quote": "he said to his companion, \"Do not grieve; indeed Allah is with us"
+   }
+  ]
+ },
+ {
+  "id": "tq-114",
+  "category": "Seerah",
+  "question": "In the cave on the Hijrah, how did the Prophet ﷺ reassure Abu Bakr?",
+  "options": [
+   "“What do you think of two, the third of whom is Allah?”",
+   "“We shall leave at once.”",
+   "“Light a fire.”",
+   "“Hide behind the rock.”"
+  ],
+  "answer": 0,
+  "why": "He said, “O Abu Bakr! What do you think of two (persons) the third of whom is Allah?” (Bukhari 3653).",
+  "source": "Sahih al-Bukhari 3653",
+  "claims": [
+   {
+    "hadith": "bukhari:3653",
+    "quote": "What do you think of two (persons) the third of whom is Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-115",
+  "category": "Seerah",
+  "question": "How many nights did the Prophet ﷺ and Abu Bakr stay in the cave on the mountain of Thawr?",
+  "options": [
+   "Seven",
+   "Three",
+   "One",
+   "Ten"
+  ],
+  "answer": 1,
+  "why": "They reached a cave on the mountain of Thaur and “stayed there for three nights”. (Bukhari 3905).",
+  "source": "Sahih al-Bukhari 3905",
+  "claims": [
+   {
+    "hadith": "bukhari:3905",
+    "quote": "stayed there for three nights"
+   }
+  ]
+ },
+ {
+  "id": "tq-116",
+  "category": "Seerah",
+  "question": "Which surah says “And already had Allah given you victory at [the battle of] Badr while you were few in number”?",
+  "options": [
+   "Al-Anfal",
+   "At-Tawbah",
+   "Al-Imran",
+   "An-Nisa"
+  ],
+  "answer": 2,
+  "why": "“And already had Allah given you victory at [the battle of] Badr while you were few in number.” (Qur’an 3:123).",
+  "source": "Qur’an 3:123",
+  "claims": [
+   {
+    "ref": "3:123",
+    "quote": "already had Allah given you victory at [the battle of] Badr"
+   }
+  ]
+ },
+ {
+  "id": "tq-117",
+  "category": "Seerah",
+  "question": "Who was appointed commander of the fifty archers at Uhud?",
+  "options": [
+   "Khalid ibn al-Walid",
+   "Abdullah ibn Jubair",
+   "Mus’ab ibn Umair",
+   "Hamzah"
+  ],
+  "answer": 1,
+  "why": "The Prophet ﷺ “appointed ‘Abdullah bin Jubair as the commander of the infantry men (archers) who were fifty”. (Bukhari 3039).",
+  "source": "Sahih al-Bukhari 3039",
+  "claims": [
+   {
+    "hadith": "bukhari:3039",
+    "quote": "appointed `Abdullah bin Jubair as the commander of the infantry men (archers) who were fifty"
+   }
+  ]
+ },
+ {
+  "id": "tq-118",
+  "category": "Seerah",
+  "question": "What did the Muslims dig around Madinah before the Battle of the Trench?",
+  "options": [
+   "A trench",
+   "A canal to the sea",
+   "A well",
+   "A wall of stone"
+  ],
+  "answer": 0,
+  "why": "“The Emigrants and the Ansar started digging the trench around Medina carrying the earth on their backs.” (Bukhari 2835).",
+  "source": "Sahih al-Bukhari 2835",
+  "claims": [
+   {
+    "hadith": "bukhari:2835",
+    "quote": "digging the trench around Medina carrying the earth on their backs"
+   }
+  ]
+ },
+ {
+  "id": "tq-119",
+  "category": "Seerah",
+  "question": "What did Allah send against the confederates at the Trench?",
+  "options": [
+   "A swarm of locusts",
+   "A flood",
+   "A plague",
+   "A wind and soldiers they could not see"
+  ],
+  "answer": 3,
+  "why": "“We sent upon them a wind and armies [of angels] you did not see.” (Qur’an 33:9).",
+  "source": "Qur’an 33:9",
+  "claims": [
+   {
+    "ref": "33:9",
+    "quote": "We sent upon them a wind and armies [of angels] you did not see"
+   }
+  ]
+ },
+ {
+  "id": "tq-120",
+  "category": "Seerah",
+  "question": "Which agreement let the Muslims return to Makkah the following year and stay three days?",
+  "options": [
+   "The Treaty of Hudaybiyyah",
+   "The Treaty of Najran",
+   "The Pledge of Aqabah",
+   "The Constitution of Madinah"
+  ],
+  "answer": 0,
+  "why": "At Hudaibiya the Prophet ﷺ “made a peace treaty with the Al-Mushrikun”; the Muslims would come to Makkah the following year and stay three days. (Bukhari 2700; Bukhari 2700).",
+  "source": "Sahih al-Bukhari 2700 · Sahih al-Bukhari 2700",
+  "claims": [
+   {
+    "hadith": "bukhari:2700",
+    "quote": "made a peace treaty with the Al-Mushrikun"
+   },
+   {
+    "hadith": "bukhari:2700",
+    "quote": "would come to Makkah the following year and would stay there for three days"
+   }
+  ]
+ },
+ {
+  "id": "tq-121",
+  "category": "Seerah",
+  "question": "Under what did the Companions pledge allegiance to the Prophet ﷺ in the verse revealed about Hudaybiyyah?",
+  "options": [
+   "A tree",
+   "A palm roof",
+   "A mountain",
+   "A tent"
+  ],
+  "answer": 0,
+  "why": "“Certainly was Allah pleased with the believers when they pledged allegiance to you, [O Muhammad], under the tree.” (Qur’an 48:18).",
+  "source": "Qur’an 48:18",
+  "claims": [
+   {
+    "ref": "48:18",
+    "quote": "when they pledged allegiance to you, [O Muhammad], under the tree"
+   }
+  ]
+ },
+ {
+  "id": "tq-122",
+  "category": "Seerah",
+  "question": "How long did the Prophet ﷺ pray towards Jerusalem after arriving in Madinah, according to Al-Bara’?",
+  "options": [
+   "Forty days",
+   "Three years",
+   "Sixteen or seventeen months",
+   "Two weeks"
+  ],
+  "answer": 2,
+  "why": "He prayed “facing Baitul-Maqdis (Jerusalem) for sixteen or seventeen months”. (Bukhari 40).",
+  "source": "Sahih al-Bukhari 40",
+  "claims": [
+   {
+    "hadith": "bukhari:40",
+    "quote": "facing Baitul-Maqdis (Jerusalem) for sixteen or seventeen months"
+   }
+  ]
+ },
+ {
+  "id": "tq-123",
+  "category": "Seerah",
+  "question": "The Qur’an (2:144) tells the Prophet ﷺ to turn his face toward what?",
+  "options": [
+   "Al-Masjid al-Aqsa",
+   "Al-Masjid al-Haram",
+   "The Black Stone only",
+   "Quba"
+  ],
+  "answer": 1,
+  "why": "“So turn your face toward al-Masjid al-Haram.” (Qur’an 2:144).",
+  "source": "Qur’an 2:144",
+  "claims": [
+   {
+    "ref": "2:144",
+    "quote": "So turn your face toward al-Masjid al-Haram"
+   }
+  ]
+ },
+ {
+  "id": "tq-124",
+  "category": "Seerah",
+  "question": "Which mosque is described as “founded on righteousness from the first day”?",
+  "options": [
+   "The Mosque of Quba",
+   "The Mosque of the Prophet in Makkah",
+   "Masjid al-Aqsa",
+   "The Kaaba"
+  ],
+  "answer": 0,
+  "why": "“A mosque founded on righteousness from the first day is more worthy for you to stand in.” (Qur’an 9:108).",
+  "source": "Qur’an 9:108",
+  "claims": [
+   {
+    "ref": "9:108",
+    "quote": "founded on righteousness from the first day"
+   }
+  ]
+ },
+ {
+  "id": "tq-125",
+  "category": "Seerah",
+  "question": "Who was ordered to pronounce the adhan after the Muslims discussed signals such as a bell or fire?",
+  "options": [
+   "Salman al-Farisi",
+   "Bilal",
+   "Zayd ibn Thabit",
+   "Abu Bakr"
+  ],
+  "answer": 1,
+  "why": "“Then Bilal was ordered to pronounce Adhan for the prayer by saying its wordings twice.” (Bukhari 603).",
+  "source": "Sahih al-Bukhari 603",
+  "claims": [
+   {
+    "hadith": "bukhari:603",
+    "quote": "Bilal was ordered to pronounce Adhan for the prayer by saying its wordings twice"
+   }
+  ]
+ },
+ {
+  "id": "tq-126",
+  "category": "Seerah",
+  "question": "Which surah asks the Prophet ﷺ, “Did He not find you an orphan and give [you] refuge?”",
+  "options": [
+   "Al-Alaq",
+   "Al-Qadr",
+   "Ad-Duha",
+   "Al-Layl"
+  ],
+  "answer": 2,
+  "why": "“Did He not find you an orphan and give [you] refuge?” (Qur’an 93:6).",
+  "source": "Qur’an 93:6",
+  "claims": [
+   {
+    "ref": "93:6",
+    "quote": "Did He not find you an orphan and give [you] refuge"
+   }
+  ]
+ },
+ {
+  "id": "tq-127",
+  "category": "Seerah",
+  "question": "What does the Qur’an say about the Prophet’s character?",
+  "options": [
+   "He was of royal descent",
+   "He was of a great moral character",
+   "He was a priest",
+   "He was a poet"
+  ],
+  "answer": 1,
+  "why": "“And indeed, you are of a great moral character.” (Qur’an 68:4).",
+  "source": "Qur’an 68:4",
+  "claims": [
+   {
+    "ref": "68:4",
+    "quote": "you are of a great moral character"
+   }
+  ]
+ },
+ {
+  "id": "tq-128",
+  "category": "Seerah",
+  "question": "The Qur’an says the Prophet ﷺ was sent as a mercy to whom?",
+  "options": [
+   "The believers only",
+   "The Arabs only",
+   "The Quraysh only",
+   "The worlds"
+  ],
+  "answer": 3,
+  "why": "“And We have not sent you, [O Muhammad], except as a mercy to the worlds.” (Qur’an 21:107).",
+  "source": "Qur’an 21:107",
+  "claims": [
+   {
+    "ref": "21:107",
+    "quote": "except as a mercy to the worlds"
+   }
+  ]
+ },
+ {
+  "id": "tq-129",
+  "category": "Seerah",
+  "question": "How does Qur’an 33:40 describe Muhammad ﷺ?",
+  "options": [
+   "The Messenger of Allah and the last of the prophets",
+   "A leader of Quraysh only",
+   "One of seven kings",
+   "The first of the prophets"
+  ],
+  "answer": 0,
+  "why": "He is “the Messenger of Allah and last of the prophets.” (Qur’an 33:40).",
+  "source": "Qur’an 33:40",
+  "claims": [
+   {
+    "ref": "33:40",
+    "quote": "the Messenger of Allah and last of the prophets"
+   }
+  ]
+ },
+ {
+  "id": "tq-130",
+  "category": "Seerah",
+  "question": "Which surah contains “This day I have perfected for you your religion”?",
+  "options": [
+   "Al-An’am",
+   "An-Nisa",
+   "Al-Ma’idah",
+   "Al-A’raf"
+  ],
+  "answer": 2,
+  "why": "The verse is in Surah Al-Ma’idah: “This day I have perfected for you your religion and completed My favor upon you.” (Qur’an 5:3; Bukhari 45).",
+  "source": "Qur’an 5:3 · Sahih al-Bukhari 45",
+  "claims": [
+   {
+    "ref": "5:3",
+    "quote": "This day I have perfected for you your religion"
+   },
+   {
+    "hadith": "bukhari:45",
+    "quote": "standing at 'Arafat"
+   }
+  ]
+ },
+ {
+  "id": "tq-131",
+  "category": "Seerah",
+  "question": "Which battle does the Qur’an mention with the words “on the day of Hunayn”?",
+  "options": [
+   "Hunayn",
+   "Badr",
+   "Uhud",
+   "The Trench"
+  ],
+  "answer": 0,
+  "why": "“Allah has already given you victory in many regions and [even] on the day of Hunayn.” (Qur’an 9:25).",
+  "source": "Qur’an 9:25",
+  "claims": [
+   {
+    "ref": "9:25",
+    "quote": "on the day of Hunayn"
+   }
+  ]
+ },
+ {
+  "id": "tq-132",
+  "category": "Seerah",
+  "question": "Which journey, mentioned at the start of Surah Al-Isra, took the Prophet ﷺ from Makkah to Al-Aqsa?",
+  "options": [
+   "The Night Journey (Isra)",
+   "The Hijrah",
+   "The journey to Ta’if",
+   "The Farewell Pilgrimage"
+  ],
+  "answer": 0,
+  "why": "“Exalted is He who took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa.” (Qur’an 17:1).",
+  "source": "Qur’an 17:1",
+  "claims": [
+   {
+    "ref": "17:1",
+    "quote": "took His Servant by night from al-Masjid al-Haram to al-Masjid al-Aqsa"
+   }
+  ]
+ },
+ {
+  "id": "tq-133",
+  "category": "Seerah",
+  "question": "According to Qur’an 8:30, what did the disbelievers plot against the Prophet ﷺ?",
+  "options": [
+   "They plotted to crown him",
+   "They plotted to marry him",
+   "They plotted to restrain, kill, or expel him",
+   "They plotted to gift him"
+  ],
+  "answer": 2,
+  "why": "“When those who disbelieved plotted against you to restrain you or kill you or evict you.” (Qur’an 8:30).",
+  "source": "Qur’an 8:30",
+  "claims": [
+   {
+    "ref": "8:30",
+    "quote": "plotted against you to restrain you or kill you or evict you"
+   }
+  ]
+ },
+ {
+  "id": "tq-134",
+  "category": "Seerah",
+  "question": "Which surah promises “You will surely enter al-Masjid al-Haram, if Allah wills, in safety”?",
+  "options": [
+   "Muhammad",
+   "Al-Hadid",
+   "Al-Hujurat",
+   "Al-Fath"
+  ],
+  "answer": 3,
+  "why": "“You will surely enter al-Masjid al-Haram, if Allah wills, in safety.” (Qur’an 48:27).",
+  "source": "Qur’an 48:27",
+  "claims": [
+   {
+    "ref": "48:27",
+    "quote": "You will surely enter al-Masjid al-Haram, if Allah wills, in safety"
+   }
+  ]
+ },
+ {
+  "id": "tq-135",
+  "category": "Seerah",
+  "question": "Which Companion was told by Abu Bakr, “you used to write the Divine Inspiration for Allah’s Messenger”, and asked to collect the Qur’an?",
+  "options": [
+   "Khalid ibn al-Walid",
+   "Bilal",
+   "Zayd ibn Thabit",
+   "Abu Hurayrah"
+  ],
+  "answer": 2,
+  "why": "Abu Bakr said: “you used to write the Divine Inspiration for Allah’s Messenger (ﷺ). So you should search for (the fragmentary scripts of) the Qur’an and collect it in one book.” (Bukhari 4986).",
+  "source": "Sahih al-Bukhari 4986",
+  "claims": [
+   {
+    "hadith": "bukhari:4986",
+    "quote": "you used to write the Divine Inspiration for Allah's Messenger"
+   }
+  ]
+ },
+ {
+  "id": "tq-136",
+  "category": "Seerah",
+  "question": "What did the Prophet ﷺ do on Hudaybiyyah when Abu Jandal came hopping in chains?",
+  "options": [
+   "He took him to Madinah",
+   "He returned him to the Mushrikun, as the treaty required",
+   "He ransomed him",
+   "He fought for him"
+  ],
+  "answer": 1,
+  "why": "“Abu Jandal came hopping, his legs being chained, but the Prophet (ﷺ) returned him to Al-Mushrikun.” (Bukhari 2700).",
+  "source": "Sahih al-Bukhari 2700",
+  "claims": [
+   {
+    "hadith": "bukhari:2700",
+    "quote": "Abu Jandal came hopping, his legs being chained, but the Prophet (ﷺ) returned him to Al-Mushrikun"
+   }
+  ]
+ },
+ {
+  "id": "tq-137",
+  "category": "Companions",
+  "question": "Which Companion is the only one named in the Qur’an?",
+  "options": [
+   "Uthman",
+   "Abu Bakr",
+   "Zayd ibn Harithah",
+   "Umar"
+  ],
+  "answer": 2,
+  "why": "He is named (in Arabic, Zayd) in Surah Al-Ahzab 33:37, in the verse about “the one on whom Allah bestowed favor and you bestowed favor”. (Qur’an 33:37).",
+  "source": "Qur’an 33:37",
+  "claims": [
+   {
+    "ref": "33:37",
+    "quote": "the one on whom Allah bestowed favor and you bestowed favor"
+   }
+  ]
+ },
+ {
+  "id": "tq-138",
+  "category": "Companions",
+  "question": "Who is described in the Qur’an as “one of two” in the cave with the Prophet ﷺ?",
+  "options": [
+   "Uthman ibn Affan",
+   "Umar ibn al-Khattab",
+   "Ali ibn Abi Talib",
+   "Abu Bakr as-Siddiq"
+  ],
+  "answer": 3,
+  "why": "“...as one of two, when they were in the cave and he said to his companion”. (Qur’an 9:40).",
+  "source": "Qur’an 9:40",
+  "claims": [
+   {
+    "ref": "9:40",
+    "quote": "as one of two, when they were in the cave"
+   }
+  ]
+ },
+ {
+  "id": "tq-139",
+  "category": "Companions",
+  "question": "Who narrated the hadith “The reward of deeds depends upon the intentions”?",
+  "options": [
+   "Anas ibn Malik",
+   "Umar ibn al-Khattab",
+   "Aisha",
+   "Abu Hurayrah"
+  ],
+  "answer": 1,
+  "why": "“I heard Allah’s Messenger (ﷺ) saying, ‘The reward of deeds depends upon the intentions’.” (Bukhari 1).",
+  "source": "Sahih al-Bukhari 1",
+  "claims": [
+   {
+    "hadith": "bukhari:1",
+    "quote": "The reward of deeds depends upon the intentions"
+   }
+  ]
+ },
+ {
+  "id": "tq-140",
+  "category": "Companions",
+  "question": "Who narrated the hadith about the best of you being those who learn the Qur’an and teach it?",
+  "options": [
+   "Ali",
+   "Abu Bakr",
+   "Umar",
+   "Uthman ibn Affan"
+  ],
+  "answer": 3,
+  "why": "“The best among you (Muslims) are those who learn the Qur’an and teach it.” (Bukhari 5027).",
+  "source": "Sahih al-Bukhari 5027",
+  "claims": [
+   {
+    "hadith": "bukhari:5027",
+    "quote": "The best among you (Muslims) are those who learn the Qur'an and teach it"
+   }
+  ]
+ },
+ {
+  "id": "tq-141",
+  "category": "Companions",
+  "question": "Who told the Prophet ﷺ that if any of the pursuers should look under his feet he would see them in the cave?",
+  "options": [
+   "Ali",
+   "Abu Bakr",
+   "Zayd",
+   "Umar"
+  ],
+  "answer": 1,
+  "why": "He said: “If any of them should look under his feet, he would see us.” (Bukhari 3653).",
+  "source": "Sahih al-Bukhari 3653",
+  "claims": [
+   {
+    "hadith": "bukhari:3653",
+    "quote": "If any of them should look under his feet, he would see us"
+   }
+  ]
+ },
+ {
+  "id": "tq-142",
+  "category": "Companions",
+  "question": "Which Companion narrated that the Prophet ﷺ said: “None of you will have faith till he wishes for his brother what he likes for himself”?",
+  "options": [
+   "Abu Hurayrah",
+   "Abdullah ibn Umar",
+   "Anas ibn Malik",
+   "Jabir ibn Abdillah"
+  ],
+  "answer": 2,
+  "why": "“None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.” (Bukhari 13).",
+  "source": "Sahih al-Bukhari 13",
+  "claims": [
+   {
+    "hadith": "bukhari:13",
+    "quote": "None of you will have faith till he wishes for his (Muslim) brother what he likes for himself"
+   }
+  ]
+ },
+ {
+  "id": "tq-143",
+  "category": "Companions",
+  "question": "Who reported the hadith about the strong person being the one who controls himself in anger?",
+  "options": [
+   "Anas",
+   "Umar",
+   "Abu Hurayrah",
+   "Ali"
+  ],
+  "answer": 2,
+  "why": "“The strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger.” (Bukhari 6114).",
+  "source": "Sahih al-Bukhari 6114",
+  "claims": [
+   {
+    "hadith": "bukhari:6114",
+    "quote": "the strong is the one who controls himself while in anger"
+   }
+  ]
+ },
+ {
+  "id": "tq-144",
+  "category": "Al-Ghayb",
+  "question": "Besides the angels, who descends on the Night of Decree, according to 97:4?",
+  "options": [
+   "The prophets",
+   "The jinn",
+   "The Spirit (commonly understood to be Jibril)",
+   "Iblis"
+  ],
+  "answer": 2,
+  "why": "“The angels and the Spirit descend therein by permission of their Lord for every matter.” (Qur’an 97:4).",
+  "source": "Qur’an 97:4",
+  "claims": [
+   {
+    "ref": "97:4",
+    "quote": "The angels and the Spirit descend therein by permission of their Lord for every matter"
+   }
+  ]
+ },
+ {
+  "id": "tq-145",
+  "category": "Al-Ghayb",
+  "question": "Who said to the angels, “Indeed, I will make upon the earth a successive authority”?",
+  "options": [
+   "Adam",
+   "Iblis",
+   "Jibril",
+   "Allah"
+  ],
+  "answer": 3,
+  "why": "“Your Lord said to the angels, ‘Indeed, I will make upon the earth a successive authority.’” (Qur’an 2:30).",
+  "source": "Qur’an 2:30",
+  "claims": [
+   {
+    "ref": "2:30",
+    "quote": "Indeed, I will make upon the earth a successive authority"
+   }
+  ]
+ },
+ {
+  "id": "tq-146",
+  "category": "Al-Ghayb",
+  "question": "Who is the angel called out to by the people of Hell?",
+  "options": [
+   "Mika’il",
+   "Jibril",
+   "Malik",
+   "Ridwan"
+  ],
+  "answer": 2,
+  "why": "“And they will call, ‘O Malik, let your Lord put an end to us!’” (Qur’an 43:77).",
+  "source": "Qur’an 43:77",
+  "claims": [
+   {
+    "ref": "43:77",
+    "quote": "O Malik, let your Lord put an end to us"
+   }
+  ]
+ },
+ {
+  "id": "tq-147",
+  "category": "Al-Ghayb",
+  "question": "How many angels does the Qur’an say are over the Fire, according to 74:30?",
+  "options": [
+   "Twelve",
+   "Seven",
+   "Seventy",
+   "Nineteen"
+  ],
+  "answer": 3,
+  "why": "“Over it are nineteen [angels].” (Qur’an 74:30).",
+  "source": "Qur’an 74:30",
+  "claims": [
+   {
+    "ref": "74:30",
+    "quote": "Over it are nineteen"
+   }
+  ]
+ },
+ {
+  "id": "tq-148",
+  "category": "Al-Ghayb",
+  "question": "How many angels will bear the Throne of Allah on the Day of Judgment, according to Qur’an 69:17?",
+  "options": [
+   "Eight",
+   "Twelve",
+   "Seven",
+   "Four"
+  ],
+  "answer": 0,
+  "why": "“And there will bear the Throne of your Lord above them, that Day, eight [of them].” (Qur’an 69:17).",
+  "source": "Qur’an 69:17",
+  "claims": [
+   {
+    "ref": "69:17",
+    "quote": "eight [of them]"
+   }
+  ]
+ },
+ {
+  "id": "tq-149",
+  "category": "Al-Ghayb",
+  "question": "What are the “noble and recording” beings appointed over every person?",
+  "options": [
+   "Keeper angels",
+   "Satans",
+   "Birds",
+   "Jinn"
+  ],
+  "answer": 0,
+  "why": "“Indeed, [appointed] over you are keepers, noble and recording.” (Qur’an 82:10-11).",
+  "source": "Qur’an 82:10-11",
+  "claims": [
+   {
+    "ref": "82:10-11",
+    "quote": "[appointed] over you are keepers"
+   }
+  ]
+ },
+ {
+  "id": "tq-150",
+  "category": "Al-Ghayb",
+  "question": "What was the jinn created from, according to Qur’an 55:15?",
+  "options": [
+   "A smokeless flame of fire",
+   "Light",
+   "Water",
+   "Clay"
+  ],
+  "answer": 0,
+  "why": "“And He created the jinn from a smokeless flame of fire.” (Qur’an 55:15).",
+  "source": "Qur’an 55:15",
+  "claims": [
+   {
+    "ref": "55:15",
+    "quote": "created the jinn from a smokeless flame of fire"
+   }
+  ]
+ },
+ {
+  "id": "tq-151",
+  "category": "Al-Ghayb",
+  "question": "What was man created from, according to Qur’an 55:14?",
+  "options": [
+   "Light",
+   "Smoke",
+   "Fire",
+   "Clay like pottery"
+  ],
+  "answer": 3,
+  "why": "“He created man from clay like [that of] pottery.” (Qur’an 55:14).",
+  "source": "Qur’an 55:14",
+  "claims": [
+   {
+    "ref": "55:14",
+    "quote": "He created man from clay like [that of] pottery"
+   }
+  ]
+ },
+ {
+  "id": "tq-152",
+  "category": "Al-Ghayb",
+  "question": "What will be blown, so that all in the heavens and the earth fall dead except whom Allah wills?",
+  "options": [
+   "The Pen",
+   "The Horn",
+   "The Wind",
+   "The Bell"
+  ],
+  "answer": 1,
+  "why": "“And the Horn will be blown, and whoever is in the heavens and whoever is on the earth will fall dead except whom Allah wills.” (Qur’an 39:68).",
+  "source": "Qur’an 39:68",
+  "claims": [
+   {
+    "ref": "39:68",
+    "quote": "the Horn will be blown"
+   }
+  ]
+ },
+ {
+  "id": "tq-153",
+  "category": "Al-Ghayb",
+  "question": "Who are the people mentioned in the Qur’an who will be released at the end of time, descending from every elevation?",
+  "options": [
+   "Gog and Magog (Ya’juj and Ma’juj)",
+   "The people of ‘Ad",
+   "The people of Madyan",
+   "The people of Thamud"
+  ],
+  "answer": 0,
+  "why": "“Until when [the dam of] Gog and Magog has been opened and they, from every elevation, descend.” (Qur’an 21:96).",
+  "source": "Qur’an 21:96",
+  "claims": [
+   {
+    "ref": "21:96",
+    "quote": "Gog and Magog has been opened and they, from every elevation, descend"
+   }
+  ]
+ },
+ {
+  "id": "tq-154",
+  "category": "Al-Ghayb",
+  "question": "What creature does the Qur’an say Allah will bring forth from the earth when “the word befalls them”?",
+  "options": [
+   "A flying horse",
+   "A two-headed bird",
+   "A creature speaking to the people",
+   "A lion"
+  ],
+  "answer": 2,
+  "why": "“We will bring forth for them a creature from the earth speaking to them.” (Qur’an 27:82).",
+  "source": "Qur’an 27:82",
+  "claims": [
+   {
+    "ref": "27:82",
+    "quote": "We will bring forth for them a creature from the earth speaking to them"
+   }
+  ]
+ },
+ {
+  "id": "tq-155",
+  "category": "Al-Ghayb",
+  "question": "Who holds “the keys of the unseen”, according to Qur’an 6:59?",
+  "options": [
+   "The jinn",
+   "The angels",
+   "The prophets",
+   "Allah alone"
+  ],
+  "answer": 3,
+  "why": "“And with Him are the keys of the unseen; none knows them except Him.” (Qur’an 6:59).",
+  "source": "Qur’an 6:59",
+  "claims": [
+   {
+    "ref": "6:59",
+    "quote": "with Him are the keys of the unseen; none knows them except Him"
+   }
+  ]
+ },
+ {
+  "id": "tq-156",
+  "category": "Al-Ghayb",
+  "question": "Who takes the souls of people, according to Qur’an 32:11?",
+  "options": [
+   "The jinn",
+   "Jibril",
+   "Israfil",
+   "The angel of death"
+  ],
+  "answer": 3,
+  "why": "“Say, ‘The angel of death will take you who has been entrusted with you.’” (Qur’an 32:11).",
+  "source": "Qur’an 32:11",
+  "claims": [
+   {
+    "ref": "32:11",
+    "quote": "The angel of death will take you who has been entrusted with you"
+   }
+  ]
+ },
+ {
+  "id": "tq-157",
+  "category": "Al-Ghayb",
+  "question": "Which surah says a group of the jinn listened and said, “Indeed, we have heard an amazing Qur’an”?",
+  "options": [
+   "Al-Jinn",
+   "An-Nas",
+   "Al-Fil",
+   "Al-Qadr"
+  ],
+  "answer": 0,
+  "why": "“A group of the jinn listened and said, ‘Indeed, we have heard an amazing Qur’an.’” (Qur’an 72:1).",
+  "source": "Qur’an 72:1",
+  "claims": [
+   {
+    "ref": "72:1",
+    "quote": "a group of the jinn listened and said"
+   }
+  ]
+ },
+ {
+  "id": "tq-158",
+  "category": "Al-Ghayb",
+  "question": "When people ask about the soul (the ruh), what does the Qur’an say?",
+  "options": [
+   "It is air",
+   "It is a bird",
+   "It is of the affair of my Lord",
+   "It is made of light"
+  ],
+  "answer": 2,
+  "why": "“Say, ‘The soul is of the affair of my Lord.’” (Qur’an 17:85).",
+  "source": "Qur’an 17:85",
+  "claims": [
+   {
+    "ref": "17:85",
+    "quote": "The soul is of the affair of my Lord"
+   }
+  ]
+ },
+ {
+  "id": "tq-159",
+  "category": "Al-Ghayb",
+  "question": "What does Qur’an 23:100 call the barrier behind them until the Day they are resurrected?",
+  "options": [
+   "Sirat",
+   "Mizan",
+   "Hawd",
+   "Barzakh"
+  ],
+  "answer": 3,
+  "why": "“And behind them is a barrier until the Day they are resurrected.” (Qur’an 23:100).",
+  "source": "Qur’an 23:100",
+  "claims": [
+   {
+    "ref": "23:100",
+    "quote": "behind them is a barrier until the Day they are resurrected"
+   }
+  ]
+ },
+ {
+  "id": "tq-160",
+  "category": "Al-Ghayb",
+  "question": "Who refused to prostrate to Adam and became arrogant?",
+  "options": [
+   "Jibril",
+   "Iblis",
+   "Harut",
+   "Malik"
+  ],
+  "answer": 1,
+  "why": "“Prostrate before Adam; so they prostrated, except for Iblees. He refused and was arrogant.” (Qur’an 2:34).",
+  "source": "Qur’an 2:34",
+  "claims": [
+   {
+    "ref": "2:34",
+    "quote": "so they prostrated, except for Iblees. He refused and was arrogant"
+   }
+  ]
+ },
+ {
+  "id": "tq-161",
+  "category": "Al-Ghayb",
+  "question": "Which sign in the Hadith precedes the Hour, when “the sun rises from the West”?",
+  "options": [
+   "A great flood",
+   "A blazing star",
+   "The sun rising from the west",
+   "A thick darkness"
+  ],
+  "answer": 2,
+  "why": "The Prophet ﷺ said, “The Hour will not be established until the sun rises from the West”. (Bukhari 4635).",
+  "source": "Sahih al-Bukhari 4635",
+  "claims": [
+   {
+    "hadith": "bukhari:4635",
+    "quote": "The Hour will not be established until the sun rises from the West"
+   }
+  ]
+ },
+ {
+  "id": "tq-162",
+  "category": "Al-Ghayb",
+  "question": "Which false messiah does the Prophet ﷺ describe as one-eyed, bringing with him what resembles Hell and Paradise?",
+  "options": [
+   "Gog",
+   "Haman",
+   "Ad-Dajjal",
+   "Iblis"
+  ],
+  "answer": 2,
+  "why": "“...is one-eyed and will bring with him what will resemble Hell and Paradise.” (Bukhari 3338).",
+  "source": "Sahih al-Bukhari 3338",
+  "claims": [
+   {
+    "hadith": "bukhari:3338",
+    "quote": "is one-eyed and will bring with him what will resemble Hell and Paradise"
+   }
+  ]
+ },
+ {
+  "id": "tq-163",
+  "category": "Al-Ghayb",
+  "question": "In the hadith of Jibril, when Jibril asked “What is faith?”, which belief is first in the Prophet’s answer?",
+  "options": [
+   "Belief in destiny",
+   "Belief in Allah",
+   "Belief in the Books",
+   "Belief in the angels"
+  ],
+  "answer": 1,
+  "why": "He said: “Faith is to believe in Allah, His angels...” (Bukhari 50).",
+  "source": "Sahih al-Bukhari 50",
+  "claims": [
+   {
+    "hadith": "bukhari:50",
+    "quote": "Faith is to believe in Allah, His angels"
+   }
+  ]
+ },
+ {
+  "id": "tq-164",
+  "category": "Al-Ghayb",
+  "question": "According to Bukhari 5010, which verse brings a guard from Allah all night if recited when going to bed?",
+  "options": [
+   "Surah Al-Kawthar",
+   "Surah Al-Fatihah",
+   "Ayat al-Kursi",
+   "Surah An-Nas"
+  ],
+  "answer": 2,
+  "why": "“When you go to your bed, recite Ayat-al-Kursi”, and “there will be a guard from Allah who will protect you all night long”. (Bukhari 5010).",
+  "source": "Sahih al-Bukhari 5010",
+  "claims": [
+   {
+    "hadith": "bukhari:5010",
+    "quote": "When you go to your bed, recite Ayat-al-Kursi"
+   }
+  ]
+ },
+ {
+  "id": "tq-165",
+  "category": "Al-Ghayb",
+  "question": "What are “sufficient for one” if recited at night, according to a hadith?",
+  "options": [
+   "The first two verses of Al-Fatihah",
+   "The last verse of Al-Kahf",
+   "Surah Al-Kawthar",
+   "The last two verses of Surat al-Baqara"
+  ],
+  "answer": 3,
+  "why": "“It is sufficient for one to recite the last two Verses of Surat-al-Baqara at night.” (Bukhari 4008).",
+  "source": "Sahih al-Bukhari 4008",
+  "claims": [
+   {
+    "hadith": "bukhari:4008",
+    "quote": "It is sufficient for one to recite the last two Verses of Surat-al-Baqara at night"
+   }
+  ]
+ },
+ {
+  "id": "tq-166",
+  "category": "Al-Ghayb",
+  "question": "In the hadith of Jibril, what did the Prophet ﷺ say Ihsan is?",
+  "options": [
+   "To worship Allah as if you see Him",
+   "To fast Ramadan",
+   "To pay zakat",
+   "To visit the sick"
+  ],
+  "answer": 0,
+  "why": "He replied, “To worship Allah as if you see Him, and if you cannot achieve this state of devotion then you must consider that He is looking at you.” (Bukhari 50).",
+  "source": "Sahih al-Bukhari 50",
+  "claims": [
+   {
+    "hadith": "bukhari:50",
+    "quote": "To worship Allah as if you see Him"
+   }
+  ]
+ },
+ {
+  "id": "tq-167",
+  "category": "Al-Ghayb",
+  "question": "Which prophet does Surah Al-Naml say was addressed by a hoopoe saying it had come “from Sheba with certain news”?",
+  "options": [
+   "Musa",
+   "Dawud",
+   "Ibrahim",
+   "Sulayman"
+  ],
+  "answer": 3,
+  "why": "“He took attendance of the birds and said, ‘Why do I not see the hoopoe?’” and the hoopoe returned with news. (Qur’an 27:20, 27:22).",
+  "source": "Qur’an 27:20; 27:22",
+  "claims": [
+   {
+    "ref": "27:20",
+    "quote": "Why do I not see the hoopoe"
+   },
+   {
+    "ref": "27:22",
+    "quote": "I have come to you from Sheba with certain news"
+   }
+  ]
+ },
+ {
+  "id": "tq-168",
+  "category": "Worship",
+  "question": "What does the Qur’an command in 2:43, alongside prayer?",
+  "options": [
+   "Fast",
+   "Travel",
+   "Give zakah",
+   "Perform Hajj"
+  ],
+  "answer": 2,
+  "why": "“And establish prayer and give zakah and bow with those who bow.” (Qur’an 2:43).",
+  "source": "Qur’an 2:43",
+  "claims": [
+   {
+    "ref": "2:43",
+    "quote": "establish prayer and give zakah and bow with those who bow"
+   }
+  ]
+ },
+ {
+  "id": "tq-169",
+  "category": "Worship",
+  "question": "What does the Qur’an say prayer prohibits (29:45)?",
+  "options": [
+   "Immorality and wrongdoing",
+   "Study and learning",
+   "Travel and trade",
+   "Sleep and rest"
+  ],
+  "answer": 0,
+  "why": "“Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater.” (Qur’an 29:45).",
+  "source": "Qur’an 29:45",
+  "claims": [
+   {
+    "ref": "29:45",
+    "quote": "prayer prohibits immorality and wrongdoing"
+   }
+  ]
+ },
+ {
+  "id": "tq-170",
+  "category": "Worship",
+  "question": "Qur’an 4:103 says prayer has been decreed upon the believers as a decree of what?",
+  "options": [
+   "Specified numbers of people",
+   "Specified clothes",
+   "Specified places",
+   "Specified times"
+  ],
+  "answer": 3,
+  "why": "“Indeed, prayer has been decreed upon the believers a decree of specified times.” (Qur’an 4:103).",
+  "source": "Qur’an 4:103",
+  "claims": [
+   {
+    "ref": "4:103",
+    "quote": "prayer has been decreed upon the believers a decree of specified times"
+   }
+  ]
+ },
+ {
+  "id": "tq-171",
+  "category": "Worship",
+  "question": "Which surah contains the command to wash the faces and forearms to the elbows before prayer?",
+  "options": [
+   "Maryam",
+   "Al-Mulk",
+   "Al-Ma’idah",
+   "Al-Baqarah"
+  ],
+  "answer": 2,
+  "why": "“When you rise to [perform] prayer, wash your faces and your forearms to the elbows.” (Qur’an 5:6).",
+  "source": "Qur’an 5:6",
+  "claims": [
+   {
+    "ref": "5:6",
+    "quote": "wash your faces and your forearms to the elbows and wipe over your heads and wash your feet to the ankles"
+   }
+  ]
+ },
+ {
+  "id": "tq-172",
+  "category": "Worship",
+  "question": "What does the Qur’an say to maintain with care, “and [in particular] the middle prayer”?",
+  "options": [
+   "The Friday prayer only",
+   "The night vigil only",
+   "The funeral prayer",
+   "The obligatory prayers"
+  ],
+  "answer": 3,
+  "why": "“Maintain with care the [obligatory] prayers and [in particular] the middle prayer.” (Qur’an 2:238).",
+  "source": "Qur’an 2:238",
+  "claims": [
+   {
+    "ref": "2:238",
+    "quote": "Maintain with care the [obligatory] prayers and [in particular] the middle prayer"
+   }
+  ]
+ },
+ {
+  "id": "tq-173",
+  "category": "Worship",
+  "question": "Which surah says “Certainly will the believers have succeeded: They who are during their prayer humbly submissive”?",
+  "options": [
+   "Al-Mu’minun",
+   "Al-Hajj",
+   "An-Nur",
+   "Al-Furqan"
+  ],
+  "answer": 0,
+  "why": "“Certainly will the believers have succeeded: They who are during their prayer humbly submissive.” (Qur’an 23:1-2).",
+  "source": "Qur’an 23:1-2",
+  "claims": [
+   {
+    "ref": "23:1-2",
+    "quote": "They who are during their prayer humbly submissive"
+   }
+  ]
+ },
+ {
+  "id": "tq-174",
+  "category": "Worship",
+  "question": "What did Allah say to Ibrahim to proclaim to the people (22:27)?",
+  "options": [
+   "The Jumu’ah",
+   "The Sawm",
+   "The Hajj",
+   "The Zakat"
+  ],
+  "answer": 2,
+  "why": "“And proclaim to the people the Hajj [pilgrimage]; they will come to you on foot.” (Qur’an 22:27).",
+  "source": "Qur’an 22:27",
+  "claims": [
+   {
+    "ref": "22:27",
+    "quote": "proclaim to the people the Hajj [pilgrimage]; they will come to you on foot"
+   }
+  ]
+ },
+ {
+  "id": "tq-175",
+  "category": "Worship",
+  "question": "What is the ancient House that the Qur’an says pilgrims perform Tawaf around?",
+  "options": [
+   "The Dome of the Rock",
+   "Masjid an-Nabawi",
+   "The Kaaba",
+   "Quba"
+  ],
+  "answer": 2,
+  "why": "“Perform Tawaf around the ancient House.” (Qur’an 22:29).",
+  "source": "Qur’an 22:29",
+  "claims": [
+   {
+    "ref": "22:29",
+    "quote": "perform Tawaf around the ancient House"
+   }
+  ]
+ },
+ {
+  "id": "tq-176",
+  "category": "Worship",
+  "question": "What does Qur’an 3:96 say about the first House established for mankind?",
+  "options": [
+   "It was at Madinah",
+   "It was at Makkah",
+   "It was at Jerusalem",
+   "It was at Ta’if"
+  ],
+  "answer": 1,
+  "why": "“Indeed, the first House [of worship] established for mankind was that at Makkah.” (Qur’an 3:96).",
+  "source": "Qur’an 3:96",
+  "claims": [
+   {
+    "ref": "3:96",
+    "quote": "the first House [of worship] established for mankind was that at Makkah"
+   }
+  ]
+ },
+ {
+  "id": "tq-177",
+  "category": "Worship",
+  "question": "According to Qur’an 2:125, what should be taken from the standing place of Abraham?",
+  "options": [
+   "A place of trade",
+   "A place of burial",
+   "A place of prayer",
+   "A place of rest"
+  ],
+  "answer": 2,
+  "why": "“And take, [O believers], from the standing place of Abraham a place of prayer.” (Qur’an 2:125).",
+  "source": "Qur’an 2:125",
+  "claims": [
+   {
+    "ref": "2:125",
+    "quote": "take, [O believers], from the standing place of Abraham a place of prayer"
+   }
+  ]
+ },
+ {
+  "id": "tq-178",
+  "category": "Worship",
+  "question": "What should the believers do with Hajj and ‘umrah, according to Qur’an 2:196?",
+  "options": [
+   "Complete them for Allah",
+   "Skip them if ill",
+   "Combine them with trade",
+   "Do them in secret"
+  ],
+  "answer": 0,
+  "why": "“And complete the Hajj and ‘umrah for Allah.” (Qur’an 2:196).",
+  "source": "Qur’an 2:196",
+  "claims": [
+   {
+    "ref": "2:196",
+    "quote": "complete the Hajj and 'umrah for Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-179",
+  "category": "Worship",
+  "question": "Which surah says “by the remembrance of Allah hearts are assured”?",
+  "options": [
+   "Ibrahim",
+   "Al-Hijr",
+   "Ar-Ra’d",
+   "An-Nahl"
+  ],
+  "answer": 2,
+  "why": "“Unquestionably, by the remembrance of Allah hearts are assured.” (Qur’an 13:28).",
+  "source": "Qur’an 13:28",
+  "claims": [
+   {
+    "ref": "13:28",
+    "quote": "by the remembrance of Allah hearts are assured"
+   }
+  ]
+ },
+ {
+  "id": "tq-180",
+  "category": "Worship",
+  "question": "Qur’an 33:41 tells the believers to remember Allah how?",
+  "options": [
+   "With much remembrance",
+   "Only at night",
+   "Only in the mosque",
+   "Only silently"
+  ],
+  "answer": 0,
+  "why": "“O you who have believed, remember Allah with much remembrance.” (Qur’an 33:41).",
+  "source": "Qur’an 33:41",
+  "claims": [
+   {
+    "ref": "33:41",
+    "quote": "remember Allah with much remembrance"
+   }
+  ]
+ },
+ {
+  "id": "tq-181",
+  "category": "Worship",
+  "question": "To what did the Prophet ﷺ compare the five prayers, asking whether any dirt would remain on one who bathes there five times a day?",
+  "options": [
+   "A spring in the mountains",
+   "A river at one’s door",
+   "A well in the desert",
+   "The rain"
+  ],
+  "answer": 1,
+  "why": "The Prophet ﷺ asked: “If there was a river at the door of anyone of you and he took a bath in it five times a day would you notice any dirt on him?” (Bukhari 528).",
+  "source": "Sahih al-Bukhari 528",
+  "claims": [
+   {
+    "hadith": "bukhari:528",
+    "quote": "If there was a river at the door of anyone of you and he took a bath in it five times a day would you notice any dirt on him"
+   }
+  ]
+ },
+ {
+  "id": "tq-182",
+  "category": "Worship",
+  "question": "According to Ibn Mas’ud, the best deed is to perform the compulsory prayers at what?",
+  "options": [
+   "In congregation only",
+   "Any time of the day",
+   "Midnight",
+   "Their stated fixed times"
+  ],
+  "answer": 3,
+  "why": "“To perform the (daily compulsory) prayers at their (early) stated fixed times.” (Bukhari 7534).",
+  "source": "Sahih al-Bukhari 7534",
+  "claims": [
+   {
+    "hadith": "bukhari:7534",
+    "quote": "To perform the (daily compulsory) prayers at their (early) stated fixed times"
+   }
+  ]
+ },
+ {
+  "id": "tq-183",
+  "category": "Worship",
+  "question": "What did the Prophet ﷺ say about fasting?",
+  "options": [
+   "It is a shield",
+   "It is a bridge",
+   "It is a sword",
+   "It is a mountain"
+  ],
+  "answer": 0,
+  "why": "“Fasting is a shield (or a screen or a shelter).” (Bukhari 1894).",
+  "source": "Sahih al-Bukhari 1894",
+  "claims": [
+   {
+    "hadith": "bukhari:1894",
+    "quote": "Fasting is a shield"
+   }
+  ]
+ },
+ {
+  "id": "tq-184",
+  "category": "Worship",
+  "question": "What opens when Ramadan begins, according to a hadith?",
+  "options": [
+   "The doors of the mosque",
+   "The gates of the Kaaba",
+   "The gates of Paradise",
+   "The gates of the valley"
+  ],
+  "answer": 2,
+  "why": "“When Ramadan begins, the gates of Paradise are opened.” (Bukhari 1898).",
+  "source": "Sahih al-Bukhari 1898",
+  "claims": [
+   {
+    "hadith": "bukhari:1898",
+    "quote": "When Ramadan begins, the gates of Paradise are opened"
+   }
+  ]
+ },
+ {
+  "id": "tq-185",
+  "category": "Worship",
+  "question": "What is forgiven for those who stand in prayer on Laylat al-Qadr out of faith and hope for reward?",
+  "options": [
+   "Their illness",
+   "Their taxes",
+   "Their debts",
+   "Their past sins"
+  ],
+  "answer": 3,
+  "why": "“Whoever established prayers on the night of Qadr out of sincere faith and hoping for a reward from Allah, then all his previous sins will be forgiven.” (Bukhari 1901).",
+  "source": "Sahih al-Bukhari 1901",
+  "claims": [
+   {
+    "hadith": "bukhari:1901",
+    "quote": "Whoever established prayers on the night of Qadr out of sincere faith and hoping for a reward from Allah, then all his previous sins will be forgiven"
+   }
+  ]
+ },
+ {
+  "id": "tq-186",
+  "category": "Worship",
+  "question": "What did the Prophet ﷺ call the best Jihad for women?",
+  "options": [
+   "Teaching",
+   "Charity only",
+   "Hajj Mabrur",
+   "Fasting every day"
+  ],
+  "answer": 2,
+  "why": "“The best Jihad (for women) is Hajj Mabrur.” (Bukhari 1520).",
+  "source": "Sahih al-Bukhari 1520",
+  "claims": [
+   {
+    "hadith": "bukhari:1520",
+    "quote": "The best Jihad (for women) is Hajj Mabrur"
+   }
+  ]
+ },
+ {
+  "id": "tq-187",
+  "category": "Worship",
+  "question": "What did the Prophet ﷺ prescribe as Zakat-ul-Fitr?",
+  "options": [
+   "One sa’ of dates or barley",
+   "A sheep",
+   "A bag of salt",
+   "One gold dinar"
+  ],
+  "answer": 0,
+  "why": "He “enjoined the payment of one Sa’ of dates or one Sa’ of barley as Zakat-ul-Fitr”. (Bukhari 1503).",
+  "source": "Sahih al-Bukhari 1503",
+  "claims": [
+   {
+    "hadith": "bukhari:1503",
+    "quote": "one Sa' of dates or one Sa' of barley as Zakat-ul-Fitr"
+   }
+  ]
+ },
+ {
+  "id": "tq-188",
+  "category": "Worship",
+  "question": "What did the Prophet ﷺ say about a particular time on Friday?",
+  "options": [
+   "It is the time to sleep",
+   "If a Muslim prays and asks Allah for good then, Allah fulfills the request",
+   "It is the best time to trade",
+   "It is the time to travel"
+  ],
+  "answer": 1,
+  "why": "“On Friday there is a particular time. If a Muslim happens to be praying and invoking Allah for something good during that time, Allah will surely fulfill his request.” (Bukhari 6400).",
+  "source": "Sahih al-Bukhari 6400",
+  "claims": [
+   {
+    "hadith": "bukhari:6400",
+    "quote": "On Friday there is a particular time. If a Muslim happens to be praying and invoking Allah for something good during that time, Allah will surely fulfill his request"
+   }
+  ]
+ },
+ {
+  "id": "tq-189",
+  "category": "Worship",
+  "question": "What does the hadith say about taking a bath on Friday and then proceeding for the Jumu’ah prayer?",
+  "options": [
+   "He gets a large reward in this world only",
+   "His sins between that Friday and the last are forgiven",
+   "He gets a day off",
+   "Nothing"
+  ],
+  "answer": 1,
+  "why": "If he remains silent while the Imam delivers the Khutba, “his sins in-between the present and the last Friday would be forgiven”. (Bukhari 883).",
+  "source": "Sahih al-Bukhari 883",
+  "claims": [
+   {
+    "hadith": "bukhari:883",
+    "quote": "his sins in-between the present and the last Friday would be forgiven"
+   }
+  ]
+ },
+ {
+  "id": "tq-190",
+  "category": "Worship",
+  "question": "Cleanliness is described in a hadith as being what part of faith?",
+  "options": [
+   "A quarter",
+   "Half",
+   "All",
+   "A third"
+  ],
+  "answer": 1,
+  "why": "“Cleanliness is half of faith.” (Muslim 223).",
+  "source": "Sahih Muslim 223",
+  "claims": [
+   {
+    "hadith": "muslim:223",
+    "quote": "Cleanliness is half of faith"
+   }
+  ]
+ },
+ {
+  "id": "tq-191",
+  "category": "Worship",
+  "question": "Which two phrases are “very light on the tongue, very heavy in the balance”, according to Abu Hurayrah?",
+  "options": [
+   "Bismillah and Alhamdulillah",
+   "Astaghfirullah and Inna lillahi",
+   "Subhan Allahi wa bihamdihi and Subhan Allahil-‘Azim",
+   "La ilaha illa Allah and Allahu Akbar"
+  ],
+  "answer": 2,
+  "why": "“two expressions which are very easy for the tongue to say, but they are very heavy in the balance”: “Subhan Allah wa bihamdihi” and “Subhan Allah Al-`Azim”. (Bukhari 6406).",
+  "source": "Sahih al-Bukhari 6406",
+  "claims": [
+   {
+    "hadith": "bukhari:6406",
+    "quote": "two expressions which are very easy for the tongue to say, but they are very heavy in the balance"
+   }
+  ]
+ },
+ {
+  "id": "tq-192",
+  "category": "Worship",
+  "question": "Whom does Qur’an 3:97 say the pilgrimage to the House is due from?",
+  "options": [
+   "Only scholars",
+   "Only the people of Makkah",
+   "The people who are able to find a way there",
+   "Only men"
+  ],
+  "answer": 2,
+  "why": "“[Due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way.” (Qur’an 3:97).",
+  "source": "Qur’an 3:97",
+  "claims": [
+   {
+    "ref": "3:97",
+    "quote": "a pilgrimage to the House - for whoever is able to find thereto a way"
+   }
+  ]
+ },
+ {
+  "id": "tq-193",
+  "category": "General",
+  "question": "What does the Qur’an say about parents in 17:23?",
+  "options": [
+   "Paying them wages",
+   "Good treatment of them",
+   "Staying away",
+   "Supporting only the father"
+  ],
+  "answer": 1,
+  "why": "“And your Lord has decreed that you not worship except Him, and to parents, good treatment.” (Qur’an 17:23).",
+  "source": "Qur’an 17:23",
+  "claims": [
+   {
+    "ref": "17:23",
+    "quote": "to parents, good treatment"
+   }
+  ]
+ },
+ {
+  "id": "tq-194",
+  "category": "General",
+  "question": "What are the believers told not to say to their parents when they grow old?",
+  "options": [
+   "“Peace”",
+   "“Allah”",
+   "“Uff”",
+   "“Yes”"
+  ],
+  "answer": 2,
+  "why": "“Say not to them [so much as], ‘uff,’ and do not repel them but speak to them a noble word.” (Qur’an 17:23).",
+  "source": "Qur’an 17:23",
+  "claims": [
+   {
+    "ref": "17:23",
+    "quote": "say not to them [so much as], \"uff,\" and do not repel them but speak to them a noble word"
+   }
+  ]
+ },
+ {
+  "id": "tq-195",
+  "category": "General",
+  "question": "What does 49:12 compare backbiting to?",
+  "options": [
+   "Walking in darkness",
+   "Building on sand",
+   "Drinking poison",
+   "Eating the flesh of one’s dead brother"
+  ],
+  "answer": 3,
+  "why": "“Would one of you like to eat the flesh of his brother when dead? You would detest it.” (Qur’an 49:12).",
+  "source": "Qur’an 49:12",
+  "claims": [
+   {
+    "ref": "49:12",
+    "quote": "Would one of you like to eat the flesh of his brother when dead"
+   }
+  ]
+ },
+ {
+  "id": "tq-196",
+  "category": "General",
+  "question": "Who are “but brothers” in Qur’an 49:10?",
+  "options": [
+   "The prophets",
+   "The believers",
+   "The Quraysh",
+   "The Arabs"
+  ],
+  "answer": 1,
+  "why": "“The believers are but brothers, so make settlement between your brothers.” (Qur’an 49:10).",
+  "source": "Qur’an 49:10",
+  "claims": [
+   {
+    "ref": "49:10",
+    "quote": "The believers are but brothers, so make settlement between your brothers"
+   }
+  ]
+ },
+ {
+  "id": "tq-197",
+  "category": "General",
+  "question": "According to 49:13, who is the most noble in the sight of Allah?",
+  "options": [
+   "The richest",
+   "The strongest",
+   "The oldest",
+   "The most righteous"
+  ],
+  "answer": 3,
+  "why": "“Indeed, the most noble of you in the sight of Allah is the most righteous of you.” (Qur’an 49:13).",
+  "source": "Qur’an 49:13",
+  "claims": [
+   {
+    "ref": "49:13",
+    "quote": "the most noble of you in the sight of Allah is the most righteous of you"
+   }
+  ]
+ },
+ {
+  "id": "tq-198",
+  "category": "General",
+  "question": "What is the response the Qur’an describes for the servants of the Most Merciful when the ignorant address them harshly?",
+  "options": [
+   "They leave town",
+   "They stay silent forever",
+   "They say words of peace",
+   "They argue back"
+  ],
+  "answer": 2,
+  "why": "“When the ignorant address them [harshly], they say [words of] peace.” (Qur’an 25:63).",
+  "source": "Qur’an 25:63",
+  "claims": [
+   {
+    "ref": "25:63",
+    "quote": "when the ignorant address them [harshly], they say [words of] peace"
+   }
+  ]
+ },
+ {
+  "id": "tq-199",
+  "category": "General",
+  "question": "What does Qur’an 41:34 say to do with an evil deed?",
+  "options": [
+   "Ignore it",
+   "Report it to the king",
+   "Repel it with something better",
+   "Repay it exactly"
+  ],
+  "answer": 2,
+  "why": "“Repel [evil] by that [deed] which is better.” (Qur’an 41:34).",
+  "source": "Qur’an 41:34",
+  "claims": [
+   {
+    "ref": "41:34",
+    "quote": "Repel [evil] by that [deed] which is better"
+   }
+  ]
+ },
+ {
+  "id": "tq-200",
+  "category": "General",
+  "question": "What does Qur’an 3:134 praise the doers of good for restraining?",
+  "options": [
+   "Anger",
+   "Speaking",
+   "Eating",
+   "Sleeping"
+  ],
+  "answer": 0,
+  "why": "“Who restrain anger and who pardon the people - and Allah loves the doers of good.” (Qur’an 3:134).",
+  "source": "Qur’an 3:134",
+  "claims": [
+   {
+    "ref": "3:134",
+    "quote": "who restrain anger and who pardon the people"
+   }
+  ]
+ },
+ {
+  "id": "tq-201",
+  "category": "General",
+  "question": "What does the Qur’an say about the one who relies upon Allah (65:3)?",
+  "options": [
+   "Allah is sufficient for him",
+   "He will never be ill",
+   "He will never be tested",
+   "He will never be poor"
+  ],
+  "answer": 0,
+  "why": "“And whoever relies upon Allah - then He is sufficient for him.” (Qur’an 65:3).",
+  "source": "Qur’an 65:3",
+  "claims": [
+   {
+    "ref": "65:3",
+    "quote": "whoever relies upon Allah - then He is sufficient for him"
+   }
+  ]
+ },
+ {
+  "id": "tq-202",
+  "category": "General",
+  "question": "What does Allah promise to those who are grateful (14:7)?",
+  "options": [
+   "He will reduce their work",
+   "He will cancel their prayers",
+   "He will surely increase them",
+   "He will give them gold"
+  ],
+  "answer": 2,
+  "why": "“If you are grateful, I will surely increase you [in favor].” (Qur’an 14:7).",
+  "source": "Qur’an 14:7",
+  "claims": [
+   {
+    "ref": "14:7",
+    "quote": "If you are grateful, I will surely increase you [in favor]"
+   }
+  ]
+ },
+ {
+  "id": "tq-203",
+  "category": "General",
+  "question": "What does Allah say about charity that grows seven spikes, each with a hundred grains?",
+  "options": [
+   "It is wasted",
+   "It is forgotten",
+   "It is taxed",
+   "It is multiplied"
+  ],
+  "answer": 3,
+  "why": "“Like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills.” (Qur’an 2:261).",
+  "source": "Qur’an 2:261",
+  "claims": [
+   {
+    "ref": "2:261",
+    "quote": "like a seed [of grain] which grows seven spikes; in each spike is a hundred grains"
+   }
+  ]
+ },
+ {
+  "id": "tq-204",
+  "category": "General",
+  "question": "What does Allah say about trade and interest in Qur’an 2:275?",
+  "options": [
+   "He has forbidden trade",
+   "He has permitted both",
+   "He has forbidden both",
+   "He has permitted trade and forbidden interest"
+  ],
+  "answer": 3,
+  "why": "“But Allah has permitted trade and has forbidden interest.” (Qur’an 2:275).",
+  "source": "Qur’an 2:275",
+  "claims": [
+   {
+    "ref": "2:275",
+    "quote": "Allah has permitted trade and has forbidden interest"
+   }
+  ]
+ },
+ {
+  "id": "tq-205",
+  "category": "General",
+  "question": "What does Qur’an 4:58 command believers to render to those due?",
+  "options": [
+   "Trusts",
+   "Rents",
+   "Gifts",
+   "Taxes"
+  ],
+  "answer": 0,
+  "why": "“Indeed, Allah commands you to render trusts to whom they are due.” (Qur’an 4:58).",
+  "source": "Qur’an 4:58",
+  "claims": [
+   {
+    "ref": "4:58",
+    "quote": "Allah commands you to render trusts to whom they are due"
+   }
+  ]
+ },
+ {
+  "id": "tq-206",
+  "category": "General",
+  "question": "Which surah tells believers to investigate information brought by a disobedient person?",
+  "options": [
+   "Al-Fath",
+   "Al-Hujurat",
+   "Qaf",
+   "Muhammad"
+  ],
+  "answer": 1,
+  "why": "“If there comes to you a disobedient one with information, investigate.” (Qur’an 49:6).",
+  "source": "Qur’an 49:6",
+  "claims": [
+   {
+    "ref": "49:6",
+    "quote": "if there comes to you a disobedient one with information, investigate"
+   }
+  ]
+ },
+ {
+  "id": "tq-207",
+  "category": "General",
+  "question": "What did Prophet Muhammad ﷺ say we should do with our tongue, if we believe in Allah and the Last Day?",
+  "options": [
+   "Speak only to scholars",
+   "Say whatever we like",
+   "Say what is good or keep quiet",
+   "Never speak"
+  ],
+  "answer": 2,
+  "why": "“Anybody who believes in Allah and the Last Day should talk what is good or keep quiet.” (Bukhari 6018).",
+  "source": "Sahih al-Bukhari 6018",
+  "claims": [
+   {
+    "hadith": "bukhari:6018",
+    "quote": "should talk what is good or keep quiet"
+   }
+  ]
+ },
+ {
+  "id": "tq-208",
+  "category": "General",
+  "question": "The Prophet ﷺ said none of you will have faith till he wishes for his brother what?",
+  "options": [
+   "What he lacks",
+   "What he likes for himself",
+   "What he fears",
+   "What he needs"
+  ],
+  "answer": 1,
+  "why": "“None of you will have faith till he wishes for his (Muslim) brother what he likes for himself.” (Bukhari 13).",
+  "source": "Sahih al-Bukhari 13",
+  "claims": [
+   {
+    "hadith": "bukhari:13",
+    "quote": "wishes for his (Muslim) brother what he likes for himself"
+   }
+  ]
+ },
+ {
+  "id": "tq-209",
+  "category": "General",
+  "question": "Who is the first of the seven shaded by Allah’s shade on the Day when there is no other shade?",
+  "options": [
+   "A famous scholar",
+   "A rich man",
+   "A strong warrior",
+   "A just ruler"
+  ],
+  "answer": 3,
+  "why": "“Seven people will be shaded by Allah under His shade on the day when there will be no shade except His”; the first is “(1) a just ruler”. (Bukhari 1423; Bukhari 1423).",
+  "source": "Sahih al-Bukhari 1423 · Sahih al-Bukhari 1423",
+  "claims": [
+   {
+    "hadith": "bukhari:1423",
+    "quote": "Seven people will be shaded by Allah under His shade on the day when there will be no shade except His"
+   },
+   {
+    "hadith": "bukhari:1423",
+    "quote": "(1) a just ruler"
+   }
+  ]
+ },
+ {
+  "id": "tq-210",
+  "category": "General",
+  "question": "What does Qur’an 51:56 give as the purpose of creating jinn and mankind?",
+  "options": [
+   "To rule the earth",
+   "To worship Allah",
+   "To gather wealth",
+   "To build cities"
+  ],
+  "answer": 1,
+  "why": "“And I did not create the jinn and mankind except to worship Me.” (Qur’an 51:56).",
+  "source": "Qur’an 51:56",
+  "claims": [
+   {
+    "ref": "51:56",
+    "quote": "I did not create the jinn and mankind except to worship Me"
+   }
+  ]
+ },
+ {
+  "id": "tq-211",
+  "category": "General",
+  "question": "What does Qur’an 2:286 say Allah does not charge a soul beyond?",
+  "options": [
+   "Its capacity",
+   "Its status",
+   "Its wealth",
+   "Its age"
+  ],
+  "answer": 0,
+  "why": "“Allah does not charge a soul except [with that within] its capacity.” (Qur’an 2:286).",
+  "source": "Qur’an 2:286",
+  "claims": [
+   {
+    "ref": "2:286",
+    "quote": "Allah does not charge a soul except [with that within] its capacity"
+   }
+  ]
+ },
+ {
+  "id": "tq-212",
+  "category": "General",
+  "question": "According to 33:56, what do Allah and His angels do for the Prophet ﷺ?",
+  "options": [
+   "Give him a kingdom",
+   "Confer blessings upon him",
+   "Hide him",
+   "Ask him to leave"
+  ],
+  "answer": 1,
+  "why": "“Indeed, Allah confers blessing upon the Prophet, and His angels [ask Him to do so].” (Qur’an 33:56).",
+  "source": "Qur’an 33:56",
+  "claims": [
+   {
+    "ref": "33:56",
+    "quote": "Allah confers blessing upon the Prophet, and His angels [ask Him to do so]"
+   }
+  ]
+ },
+ {
+  "id": "tq-213",
+  "category": "General",
+  "question": "What does Qur’an 18:110 say the Prophet ﷺ is, in terms of his humanity?",
+  "options": [
+   "An angel",
+   "A king",
+   "Only a man like them, to whom revelation was given",
+   "A jinn"
+  ],
+  "answer": 2,
+  "why": "“Say, ‘I am only a man like you, to whom has been revealed that your god is one God.’” (Qur’an 18:110).",
+  "source": "Qur’an 18:110",
+  "claims": [
+   {
+    "ref": "18:110",
+    "quote": "I am only a man like you, to whom has been revealed that your god is one God"
+   }
+  ]
+ },
+ {
+  "id": "tq-214",
+  "category": "Prophets",
+  "question": "Which prophet asked Allah to show him how He gives life to the dead?",
+  "options": [
+   "Ibrahim",
+   "Musa",
+   "Nuh",
+   "Zakariya"
+  ],
+  "answer": 0,
+  "why": "He said: “My Lord, show me how You give life to the dead.” Allah told him to take four birds. (Qur’an 2:260).",
+  "source": "Qur’an 2:260",
+  "claims": [
+   {
+    "ref": "2:260",
+    "quote": "My Lord, show me how You give life to the dead"
+   }
+  ]
+ },
+ {
+  "id": "tq-215",
+  "category": "Prophets",
+  "question": "Which prophet said, “Indeed, I have turned my face toward He who created the heavens and the earth”?",
+  "options": [
+   "Yusuf",
+   "Nuh",
+   "Isa",
+   "Ibrahim"
+  ],
+  "answer": 3,
+  "why": "“Indeed, I have turned my face toward He who created the heavens and the earth, inclining toward truth, and I am not of those who associate others with Allah.” (Qur’an 6:79).",
+  "source": "Qur’an 6:79",
+  "claims": [
+   {
+    "ref": "6:79",
+    "quote": "I have turned my face toward He who created the heavens and the earth"
+   }
+  ]
+ },
+ {
+  "id": "tq-216",
+  "category": "Prophets",
+  "question": "What did Ibrahim leave intact when he broke the idols of his people?",
+  "options": [
+   "The largest one",
+   "None of them",
+   "The one they loved most",
+   "The smallest one"
+  ],
+  "answer": 0,
+  "why": "“So he made them into fragments, except a large one among them, that they might return to it [and question].” (Qur’an 21:58).",
+  "source": "Qur’an 21:58",
+  "claims": [
+   {
+    "ref": "21:58",
+    "quote": "So he made them into fragments, except a large one among them"
+   }
+  ]
+ },
+ {
+  "id": "tq-217",
+  "category": "Prophets",
+  "question": "Where did Ibrahim say he settled some of his descendants “near Your sacred House”?",
+  "options": [
+   "A mountain city",
+   "An uncultivated valley",
+   "A fertile garden",
+   "An island"
+  ],
+  "answer": 1,
+  "why": "“Our Lord, I have settled some of my descendants in an uncultivated valley near Your sacred House.” (Qur’an 14:37).",
+  "source": "Qur’an 14:37",
+  "claims": [
+   {
+    "ref": "14:37",
+    "quote": "I have settled some of my descendants in an uncultivated valley near Your sacred House"
+   }
+  ]
+ },
+ {
+  "id": "tq-218",
+  "category": "Prophets",
+  "question": "Which prophet asked, “My Lord, make this city [Makkah] secure”?",
+  "options": [
+   "Nuh",
+   "Ibrahim",
+   "Hud",
+   "Musa"
+  ],
+  "answer": 1,
+  "why": "“My Lord, make this city [Makkah] secure and keep me and my sons away from worshipping idols.” (Qur’an 14:35).",
+  "source": "Qur’an 14:35",
+  "claims": [
+   {
+    "ref": "14:35",
+    "quote": "make this city [Makkah] secure and keep me and my sons away from worshipping idols"
+   }
+  ]
+ },
+ {
+  "id": "tq-219",
+  "category": "Prophets",
+  "question": "What was the ship of Nuh carried on, according to Qur’an 54:13?",
+  "options": [
+   "Skins",
+   "Logs tied by rope",
+   "Planks and nails",
+   "Papyrus"
+  ],
+  "answer": 2,
+  "why": "“And We carried him on a [construction of] planks and nails.” (Qur’an 54:13).",
+  "source": "Qur’an 54:13",
+  "claims": [
+   {
+    "ref": "54:13",
+    "quote": "a [construction of] planks and nails"
+   }
+  ]
+ },
+ {
+  "id": "tq-220",
+  "category": "Prophets",
+  "question": "What was Nuh told to load on the ship, besides his family and the believers?",
+  "options": [
+   "Seven of every creature",
+   "One of every plant",
+   "Two mates of each creature",
+   "Only food"
+  ],
+  "answer": 2,
+  "why": "“Load upon the ship of each [creature] two mates and your family.” (Qur’an 11:40).",
+  "source": "Qur’an 11:40",
+  "claims": [
+   {
+    "ref": "11:40",
+    "quote": "Load upon the ship of each [creature] two mates and your family"
+   }
+  ]
+ },
+ {
+  "id": "tq-221",
+  "category": "Prophets",
+  "question": "What sign was sent to Salih’s people, which they were told had its day for drink?",
+  "options": [
+   "A staff",
+   "A spring of oil",
+   "A flood",
+   "A she-camel"
+  ],
+  "answer": 3,
+  "why": "“This is a she-camel. For her is a [time of] drink, and for you is a [time of] drink, [each] on a known day.” (Qur’an 26:155, 7:73).",
+  "source": "Qur’an 26:155; 7:73",
+  "claims": [
+   {
+    "ref": "26:155",
+    "quote": "This is a she-camel. For her is a [time of] drink"
+   },
+   {
+    "ref": "7:73",
+    "quote": "This is the she-camel of Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-222",
+  "category": "Prophets",
+  "question": "Which prophet told his people to give full measure and weight in justice?",
+  "options": [
+   "Shu’ayb",
+   "Lut",
+   "Salih",
+   "Hud"
+  ],
+  "answer": 0,
+  "why": "“O my people, give full measure and weight in justice and do not deprive the people of their due.” (Qur’an 11:85).",
+  "source": "Qur’an 11:85",
+  "claims": [
+   {
+    "ref": "11:85",
+    "quote": "give full measure and weight in justice and do not deprive the people of their due"
+   }
+  ]
+ },
+ {
+  "id": "tq-223",
+  "category": "Prophets",
+  "question": "Which prophet said, “I only complain of my suffering and my grief to Allah”?",
+  "options": [
+   "Ya’qub",
+   "Ayyub",
+   "Yusuf",
+   "Nuh"
+  ],
+  "answer": 0,
+  "why": "He said: “I only complain of my suffering and my grief to Allah.” (Qur’an 12:86).",
+  "source": "Qur’an 12:86",
+  "claims": [
+   {
+    "ref": "12:86",
+    "quote": "I only complain of my suffering and my grief to Allah"
+   }
+  ]
+ },
+ {
+  "id": "tq-224",
+  "category": "Prophets",
+  "question": "What did Yusuf say about prison when invited to wrongdoing?",
+  "options": [
+   "He asked to be freed first",
+   "He preferred it to what they invited him to",
+   "He hated it",
+   "He said it was a punishment"
+  ],
+  "answer": 1,
+  "why": "“My Lord, prison is more to my liking than that to which they invite me.” (Qur’an 12:33).",
+  "source": "Qur’an 12:33",
+  "claims": [
+   {
+    "ref": "12:33",
+    "quote": "prison is more to my liking than that to which they invite me"
+   }
+  ]
+ },
+ {
+  "id": "tq-225",
+  "category": "Prophets",
+  "question": "What did Yusuf say to his brothers when he forgave them?",
+  "options": [
+   "“Leave my city.”",
+   "“I will never see you.”",
+   "“No blame will there be upon you today.”",
+   "“Give me the money.”"
+  ],
+  "answer": 2,
+  "why": "“No blame will there be upon you today. Allah will forgive you; and He is the most merciful of the merciful.” (Qur’an 12:92).",
+  "source": "Qur’an 12:92",
+  "claims": [
+   {
+    "ref": "12:92",
+    "quote": "No blame will there be upon you today. Allah will forgive you"
+   }
+  ]
+ },
+ {
+  "id": "tq-226",
+  "category": "Prophets",
+  "question": "Which prophet asked Allah to “expand my breast” and “untie the knot from my tongue”?",
+  "options": [
+   "Zakariya",
+   "Harun",
+   "Yusuf",
+   "Musa"
+  ],
+  "answer": 3,
+  "why": "“My Lord, expand for me my breast [with assurance]”, and “untie the knot from my tongue”. (Qur’an 20:25-28, 20:25-28).",
+  "source": "Qur’an 20:25-28; 20:25-28",
+  "claims": [
+   {
+    "ref": "20:25-28",
+    "quote": "My Lord, expand for me my breast [with assurance]"
+   },
+   {
+    "ref": "20:25-28",
+    "quote": "untie the knot from my tongue"
+   }
+  ]
+ },
+ {
+  "id": "tq-227",
+  "category": "Prophets",
+  "question": "Whom did Musa ask Allah to appoint as a minister from his family?",
+  "options": [
+   "Qarun",
+   "Yusha",
+   "Harun",
+   "Ismail"
+  ],
+  "answer": 2,
+  "why": "“And appoint for me a minister from my family - Aaron, my brother.” (Qur’an 20:29-30).",
+  "source": "Qur’an 20:29-30",
+  "claims": [
+   {
+    "ref": "20:29-30",
+    "quote": "appoint for me a minister from my family - Aaron, my brother"
+   }
+  ]
+ },
+ {
+  "id": "tq-228",
+  "category": "Prophets",
+  "question": "What did Allah answer when Musa asked to see Him?",
+  "options": [
+   "“Come near.”",
+   "“Look at the sun.”",
+   "“Close your eyes.”",
+   "“You will not see Me”"
+  ],
+  "answer": 3,
+  "why": "“You will not see Me, but look at the mountain; if it should remain in place, then you will see Me.” (Qur’an 7:143).",
+  "source": "Qur’an 7:143",
+  "claims": [
+   {
+    "ref": "7:143",
+    "quote": "You will not see Me, but look at the mountain"
+   }
+  ]
+ },
+ {
+  "id": "tq-229",
+  "category": "Prophets",
+  "question": "What did the Samiri make for the Children of Israel?",
+  "options": [
+   "A calf with a lowing sound",
+   "A ship",
+   "A tent",
+   "A throne"
+  ],
+  "answer": 0,
+  "why": "“And he extracted for them [the statue of] a calf which had a lowing sound.” (Qur’an 20:88).",
+  "source": "Qur’an 20:88",
+  "claims": [
+   {
+    "ref": "20:88",
+    "quote": "a calf which had a lowing sound"
+   }
+  ]
+ },
+ {
+  "id": "tq-230",
+  "category": "Prophets",
+  "question": "Which prophet was told, “O mountains, repeat [Our] praises with him, and the birds [as well]”?",
+  "options": [
+   "Sulayman",
+   "Musa",
+   "Isa",
+   "Dawud"
+  ],
+  "answer": 3,
+  "why": "“And We certainly gave David from Us bounty. [We said], ‘O mountains, repeat [Our] praises with him’.” (Qur’an 34:10).",
+  "source": "Qur’an 34:10",
+  "claims": [
+   {
+    "ref": "34:10",
+    "quote": "O mountains, repeat [Our] praises with him, and the birds [as well]"
+   }
+  ]
+ },
+ {
+  "id": "tq-231",
+  "category": "Prophets",
+  "question": "What did Allah make pliable for Dawud?",
+  "options": [
+   "Stone",
+   "Iron",
+   "Gold",
+   "Clay"
+  ],
+  "answer": 1,
+  "why": "“And We made pliable for him iron.” (Qur’an 34:10).",
+  "source": "Qur’an 34:10",
+  "claims": [
+   {
+    "ref": "34:10",
+    "quote": "And We made pliable for him iron"
+   }
+  ]
+ },
+ {
+  "id": "tq-232",
+  "category": "Prophets",
+  "question": "Whose wind did Allah subject, with a morning journey of a month?",
+  "options": [
+   "Sulayman",
+   "Nuh",
+   "Dawud",
+   "Hud"
+  ],
+  "answer": 0,
+  "why": "“And to Solomon [We subjected] the wind - its morning [journey was that of] a month.” (Qur’an 34:12).",
+  "source": "Qur’an 34:12",
+  "claims": [
+   {
+    "ref": "34:12",
+    "quote": "And to Solomon [We subjected] the wind - its morning [journey was that of] a month"
+   }
+  ]
+ },
+ {
+  "id": "tq-233",
+  "category": "Prophets",
+  "question": "Who brought the throne of the Queen of Sheba “before your glance returns to you”?",
+  "options": [
+   "One who had knowledge from the Scripture",
+   "Jibril",
+   "The hoopoe",
+   "Sulayman himself"
+  ],
+  "answer": 0,
+  "why": "“Said one who had knowledge from the Scripture, ‘I will bring it to you before your glance returns to you.’” (Qur’an 27:40).",
+  "source": "Qur’an 27:40",
+  "claims": [
+   {
+    "ref": "27:40",
+    "quote": "I will bring it to you before your glance returns to you"
+   }
+  ]
+ },
+ {
+  "id": "tq-234",
+  "category": "Prophets",
+  "question": "Which prophet called on Allah, “Satan has touched me with hardship and torment”?",
   "options": [
    "Yunus",
    "Ayyub",
    "Hud",
    "Salih"
   ],
-  "answer": 0,
-  "why": "Yunus called from the darkness: 'la ilaha illa Anta' — and his prayer is one the Prophet ﷺ said is always answered (21:87; Tirmidhi 3505, sahih per Darussalam)."
+  "answer": 1,
+  "why": "“Indeed, Satan has touched me with hardship and torment.” (Qur’an 38:41).",
+  "source": "Qur’an 38:41",
+  "claims": [
+   {
+    "ref": "38:41",
+    "quote": "Satan has touched me with hardship and torment"
+   }
+  ]
  },
  {
-  "id": "tq-03",
+  "id": "tq-235",
   "category": "Prophets",
-  "question": "Which prophet interpreted the king's dream in Egypt?",
+  "question": "Which prophet’s call from the darkness was “There is no deity except You; exalted are You”?",
   "options": [
-   "Ya'qub",
+   "Yunus",
+   "Nuh",
    "Musa",
+   "Ayyub"
+  ],
+  "answer": 0,
+  "why": "“There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.” (Qur’an 21:87).",
+  "source": "Qur’an 21:87",
+  "claims": [
+   {
+    "ref": "21:87",
+    "quote": "There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers"
+   }
+  ]
+ },
+ {
+  "id": "tq-236",
+  "category": "Prophets",
+  "question": "Whom did Allah tell: “O John, take the Scripture with determination”?",
+  "options": [
    "Yusuf",
-   "Dawud"
+   "Zakariya",
+   "Isa",
+   "Yahya"
+  ],
+  "answer": 3,
+  "why": "“O John, take the Scripture with determination.” (Qur’an 19:12).",
+  "source": "Qur’an 19:12",
+  "claims": [
+   {
+    "ref": "19:12",
+    "quote": "O John, take the Scripture with determination"
+   }
+  ]
+ },
+ {
+  "id": "tq-237",
+  "category": "Prophets",
+  "question": "What did Isa say about a messenger who would come after him?",
+  "options": [
+   "His name would be Musa",
+   "He would be a king",
+   "His name would be Ahmad",
+   "His name would be Yahya"
   ],
   "answer": 2,
-  "why": "Yusuf interpreted the dream of seven fat and seven lean cows and became treasurer of Egypt (12:43-55)."
+  "why": "Isa said he was “bringing good tidings of a messenger to come after me, whose name is Ahmad”. (Qur’an 61:6).",
+  "source": "Qur’an 61:6",
+  "claims": [
+   {
+    "ref": "61:6",
+    "quote": "bringing good tidings of a messenger to come after me"
+   }
+  ]
  },
  {
-  "id": "tq-04",
+  "id": "tq-238",
   "category": "Prophets",
-  "question": "Whose staff turned into a serpent before Pharaoh?",
+  "question": "What did Allah allow Isa to cure by His permission?",
   "options": [
-   "Musa",
-   "Harun",
-   "Ilyas",
-   "Shu'ayb"
+   "Only the poor",
+   "Only the children",
+   "The blind and the leper",
+   "Only the kings"
   ],
-  "answer": 0,
-  "why": "Musa threw down his staff and it became a clear serpent; he drew out his hand and it shone white (26:32-33)."
+  "answer": 2,
+  "why": "Allah recalls: “you healed the blind and the leper with My permission”. (Qur’an 5:110).",
+  "source": "Qur’an 5:110",
+  "claims": [
+   {
+    "ref": "5:110",
+    "quote": "you healed the blind and the leper with My permission"
+   }
+  ]
  },
  {
-  "id": "tq-05",
+  "id": "tq-239",
   "category": "Prophets",
-  "question": "Which prophet built the ark?",
+  "question": "Which king did the prophet of the Children of Israel say Allah had sent to them?",
   "options": [
-   "Nuh",
-   "Hud",
-   "Lut",
-   "Idris"
-  ],
-  "answer": 0,
-  "why": "Nuh was commanded: 'construct the ship under Our observation and Our inspiration' (11:37)."
- },
- {
-  "id": "tq-06",
-  "category": "Prophets",
-  "question": "Which prophet was given a kingdom no one will have after him?",
-  "options": [
+   "Sulayman",
+   "Jalut",
    "Dawud",
-   "Dhu'l-Qarnayn",
-   "Ibrahim",
-   "Sulayman"
+   "Talut (Saul)"
   ],
   "answer": 3,
-  "why": "Sulayman asked for 'a kingdom such as will not belong to anyone after me' (38:35)."
+  "why": "“Indeed, Allah has sent to you Saul as a king.” (Qur’an 2:247).",
+  "source": "Qur’an 2:247",
+  "claims": [
+   {
+    "ref": "2:247",
+    "quote": "Allah has sent to you Saul as a king"
+   }
+  ]
  },
  {
-  "id": "tq-07",
+  "id": "tq-240",
   "category": "Prophets",
-  "question": "Who was the first prophet?",
+  "question": "Who is “Israel” in the Qur’an, whose children are called the Children of Israel?",
   "options": [
-   "Adam",
-   "Nuh",
+   "Ya’qub",
+   "Yusuf",
    "Ibrahim",
-   "Idris"
+   "Ishaq"
   ],
   "answer": 0,
-  "why": "Adam is the first man and the first prophet (his story opens 2:30-39)."
+  "why": "The verse speaks of “what Israel had made unlawful to himself”; the Qur’an uses Israel for Ya’qub. (Qur’an 3:93).",
+  "source": "Qur’an 3:93",
+  "claims": [
+   {
+    "ref": "3:93",
+    "quote": "what Israel had made unlawful to himself"
+   }
+  ]
  },
  {
-  "id": "tq-08",
+  "id": "tq-241",
   "category": "Prophets",
-  "question": "Which prophet's people were destroyed by a screaming wind?",
+  "question": "What did Adam and his wife say after they erred?",
   "options": [
-   "Thamud",
-   "Madyan",
-   "the people of Lut",
-   "'Ad"
-  ],
-  "answer": 3,
-  "why": "'Ad were destroyed by a bitter wind of seven nights and eight days (69:6-8) — the people of the prophet Hud."
- },
- {
-  "id": "tq-09",
-  "category": "Women",
-  "question": "Who was the first martyr in Islam?",
-  "options": [
-   "Sumayyah",
-   "Maryam",
-   "Khadijah",
-   "Asiya"
+   "“Our Lord, we have wronged ourselves”",
+   "“We did nothing”",
+   "“We were deceived”",
+   "“We will leave”"
   ],
   "answer": 0,
-  "why": "Sumayyah bint Khayyat was killed for her faith in Makkah and is reported in the seerah sources as the first martyr in Islam."
+  "why": "“Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.” (Qur’an 7:23).",
+  "source": "Qur’an 7:23",
+  "claims": [
+   {
+    "ref": "7:23",
+    "quote": "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers"
+   }
+  ]
  },
  {
-  "id": "tq-10",
-  "category": "Women",
-  "question": "Whose plea became the name of a surah of the Qur'an?",
+  "id": "tq-242",
+  "category": "Prophets",
+  "question": "What name does Qur’an 6:74 give to Ibrahim’s father?",
   "options": [
-   "Maryam",
-   "Khadijah",
-   "Asma bint Abi Bakr",
-   "Khawlah bint Tha'labah"
-  ],
-  "answer": 3,
-  "why": "Surah Al-Mujadilah — 'the speech of the one who argues with you, [O Muhammad], concerning her husband' — was revealed for Khawlah (58:1)."
- },
- {
-  "id": "tq-11",
-  "category": "Women",
-  "question": "Which woman, a servant he inherited from his father, cared for the young Prophet Muhammad ﷺ after his mother's death?",
-  "options": [
-   "Khadijah",
-   "Fatima",
-   "Umm Ayman",
-   "Amina"
-  ],
-  "answer": 2,
-  "why": "Umm Ayman (Barakah) cared for him in his childhood, and he honoured her all her life (seerah sources: Ibn Hisham, Ibn Sa'd)."
- },
- {
-  "id": "tq-12",
-  "category": "Women",
-  "question": "Who is the only woman named in the Qur'an?",
-  "options": [
-   "Khadijah",
-   "Aisha",
-   "Maryam",
-   "Asiya"
-  ],
-  "answer": 2,
-  "why": "Maryam bint Imran — Surah Maryam (19) is named for her."
- },
- {
-  "id": "tq-13",
-  "category": "Women",
-  "question": "Which wife of the Prophet ﷺ kept the master copy of the first Qur'an?",
-  "options": [
-   "Aisha",
-   "Hafsa",
-   "Zaynab",
-   "Umm Salama"
-  ],
-  "answer": 1,
-  "why": "The leaves were gathered in the custody of Hafsa; the standardized copies descended from it (Bukhari 4987-4988)."
- },
- {
-  "id": "tq-14",
-  "category": "Women",
-  "question": "Who carried supplies to the cave of Thawr in two belts?",
-  "options": [
-   "Umm Ammarah",
-   "Safiyya",
-   "Sumayyah",
-   "Asma bint Abi Bakr"
-  ],
-  "answer": 3,
-  "why": "Asma smuggled food to the Prophet ﷺ and Abu Bakr — she is known as 'Dhat an-Nitaqayn,' the possessor of the two belts."
- },
- {
-  "id": "tq-15",
-  "category": "Women",
-  "question": "Whom did the Prophet ﷺ approach first when Allah commanded him to offer his wives the choice between the world and Allah?",
-  "options": [
-   "Zaynab bint Jahsh",
-   "Aisha",
-   "Hafsa",
-   "Umm Salama"
-  ],
-  "answer": 1,
-  "why": "He began with Aisha, and she chose Allah, His Messenger and the Hereafter (33:28-29; Bukhari 4785). All his wives made the same choice."
- },
- {
-  "id": "tq-16",
-  "category": "Seerah",
-  "question": "In which cave did the Prophet ﷺ receive the first revelation?",
-  "options": [
-   "Thawr",
-   "Hira",
-   "Uhud",
-   "Nur"
-  ],
-  "answer": 1,
-  "why": "The cave of Hira on Jabal an-Nur — the first word was 'Iqra' (96:1)."
- },
- {
-  "id": "tq-17",
-  "category": "Seerah",
-  "question": "Who accompanied the Prophet ﷺ on the Hijrah as 'the second of two'?",
-  "options": [
-   "Umar",
-   "Ali",
-   "Uthman",
-   "Abu Bakr"
-  ],
-  "answer": 3,
-  "why": "'when they were in the cave and he said to his companion, Do not grieve; indeed Allah is with us' (9:40)."
- },
- {
-  "id": "tq-18",
-  "category": "Seerah",
-  "question": "Which battle is named 'the day of the criterion' in the Qur'an?",
-  "options": [
-   "Uhud",
-   "Badr",
-   "the Trench",
-   "Hunayn"
-  ],
-  "answer": 1,
-  "why": "'the day of criterion - the day when the two armies met' — Badr, called furqan (8:41)."
- },
- {
-  "id": "tq-19",
-  "category": "Seerah",
-  "question": "What stopped the coalition at the Battle of the Trench?",
-  "options": [
-   "A bitter gale",
-   "A cavalry charge",
-   "A flood",
-   "A plague"
+   "Azar",
+   "Harun",
+   "Haman",
+   "Imran"
   ],
   "answer": 0,
-  "why": "Allah sent a wind and a storm that broke the siege (33:9)."
+  "why": "“Abraham said to his father Azar”. (Qur’an 6:74).",
+  "source": "Qur’an 6:74",
+  "claims": [
+   {
+    "ref": "6:74",
+    "quote": "Abraham said to his father Azar"
+   }
+  ]
  },
  {
-  "id": "tq-20",
-  "category": "Seerah",
-  "question": "Which treaty 'looked like defeat' but opened Arabia?",
+  "id": "tq-243",
+  "category": "Prophets",
+  "question": "Which prophet is told in 37:123, “Indeed, Elias was from among the messengers”?",
   "options": [
-   "Hudaybiyyah",
-   "Aqabah",
-   "the Charter of Madinah",
-   "Fath Makkah"
+   "Ilyas",
+   "Ayyub",
+   "Idris",
+   "Hud"
   ],
   "answer": 0,
-  "why": "The Qur'an called Hudaybiyyah 'a clear conquest' (48:1)."
+  "why": "“And indeed, Elias was from among the messengers.” (Qur’an 37:123).",
+  "source": "Qur’an 37:123",
+  "claims": [
+   {
+    "ref": "37:123",
+    "quote": "Elias was from among the messengers"
+   }
+  ]
  },
  {
-  "id": "tq-21",
-  "category": "Companions",
-  "question": "Who was the first caliph after the Prophet ﷺ?",
+  "id": "tq-244",
+  "category": "Prophets",
+  "question": "Which prophet, with Ismail and Elisha, is remembered in 38:48 as among the outstanding?",
   "options": [
-   "Umar",
-   "Uthman",
-   "Ali",
-   "Abu Bakr"
+   "Yunus",
+   "Idris",
+   "Hud",
+   "Dhul-Kifl"
   ],
   "answer": 3,
-  "why": "Abu Bakr as-Siddiq; the Prophet ﷺ had him lead the prayer in his final illness."
+  "why": "“And remember Ishmael, Elisha and Dhul-Kifl, and all are among the outstanding.” (Qur’an 38:48).",
+  "source": "Qur’an 38:48",
+  "claims": [
+   {
+    "ref": "38:48",
+    "quote": "Ishmael, Elisha and Dhul-Kifl, and all are among the outstanding"
+   }
+  ]
  },
  {
-  "id": "tq-22",
-  "category": "Companions",
-  "question": "Which companion gave the adhan from the roof of the Kaaba after the conquest of Makkah?",
+  "id": "tq-245",
+  "category": "Qur’an",
+  "question": "Which verse of Al-Fatihah says “It is You we worship and You we ask for help”?",
   "options": [
-   "Ammar",
-   "Salman",
-   "Bilal",
-   "Khabbab"
+   "Verse 7",
+   "Verse 1",
+   "Verse 5",
+   "Verse 3"
   ],
   "answer": 2,
-  "why": "The Prophet ﷺ called Bilal to give the adhan at the Kaaba when Makkah was opened (seerah sources: Ibn Hisham)."
+  "why": "“It is You we worship and You we ask for help.” (Qur’an 1:5).",
+  "source": "Qur’an 1:5",
+  "claims": [
+   {
+    "ref": "1:5",
+    "quote": "It is You we worship and You we ask for help"
+   }
+  ]
  },
  {
-  "id": "tq-23",
-  "category": "Companions",
-  "question": "Which companion was the first ambassador of Islam — sent to Madinah?",
+  "id": "tq-246",
+  "category": "Qur’an",
+  "question": "Which surah repeats “So which of the favors of your Lord would you deny?”",
   "options": [
-   "Mu'adh ibn Jabal",
-   "Zayd ibn Harithah",
-   "Mus'ab ibn Umair",
-   "Abu Musa al-Ash'ari"
+   "Al-Waqi’ah",
+   "Al-Mulk",
+   "Ar-Rahman",
+   "Al-Qamar"
   ],
   "answer": 2,
-  "why": "Mus'ab was sent back with the Madinan believers before the Hijrah (seerah)."
+  "why": "It repeats: “So which of the favors of your Lord would you deny?” (Qur’an 55:13).",
+  "source": "Qur’an 55:13",
+  "claims": [
+   {
+    "ref": "55:13",
+    "quote": "So which of the favors of your Lord would you deny"
+   }
+  ]
  },
  {
-  "id": "tq-24",
-  "category": "Companions",
-  "question": "Whose freeing freed a hundred families?",
+  "id": "tq-247",
+  "category": "Qur’an",
+  "question": "Which surah says “do not despair of the mercy of Allah. Indeed, Allah forgives all sins”?",
   "options": [
-   "Umm Salama",
-   "Juwayriyya",
-   "Safiyya",
-   "Hafsa"
-  ],
-  "answer": 1,
-  "why": "The Prophet ﷺ married Juwayriyya, and the companions then freed the captives of Banu al-Mustaliq, who were now his in-laws."
- },
- {
-  "id": "tq-25",
-  "category": "Companions",
-  "question": "Which companion pulled the rings of the Prophet's ﷺ helmet out of his cheek at Uhud with his teeth, losing his own front teeth?",
-  "options": [
-   "Talha",
-   "Zubayr",
-   "Sa'd",
-   "Abu Ubaidah"
-  ],
-  "answer": 3,
-  "why": "Abu Ubaidah ibn al-Jarrah pulled the helmet rings out with his teeth and lost his front teeth doing so (seerah sources: Ibn Hisham)."
- },
- {
-  "id": "tq-26",
-  "category": "Qur'an",
-  "question": "What is the first revealed word of the Qur'an?",
-  "options": [
-   "Qul",
-   "Iqra",
-   "Bismillah",
-   "Alhamdulillah"
-  ],
-  "answer": 1,
-  "why": "'Recite in the name of your Lord who created' (96:1)."
- },
- {
-  "id": "tq-27",
-  "category": "Qur'an",
-  "question": "How many surahs are in the Qur'an?",
-  "options": [
-   "110",
-   "116",
-   "120",
-   "114"
-  ],
-  "answer": 3,
-  "why": "114 surahs."
- },
- {
-  "id": "tq-28",
-  "category": "Qur'an",
-  "question": "Which surah is named after a metal?",
-  "options": [
-   "Al-Fajr",
+   "Ghafir",
    "Az-Zumar",
-   "Al-Hadid",
-   "Al-Mulk"
+   "Ash-Shura",
+   "Fussilat"
   ],
-  "answer": 2,
-  "why": "Al-Hadid — 'the iron' (57)."
+  "answer": 1,
+  "why": "“Say, ‘O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins.’” (Qur’an 39:53).",
+  "source": "Qur’an 39:53",
+  "claims": [
+   {
+    "ref": "39:53",
+    "quote": "do not despair of the mercy of Allah. Indeed, Allah forgives all sins"
+   }
+  ]
  },
  {
-  "id": "tq-29",
-  "category": "Qur'an",
-  "question": "Ayat al-Kursi is in which surah?",
+  "id": "tq-248",
+  "category": "Qur’an",
+  "question": "Which surah says “Every soul will taste death, and you will only be given your [full] compensation on the Day of Resurrection”?",
   "options": [
-   "Al-Imran",
+   "Al-A’raf",
+   "Al-Ma’idah",
+   "An-Nisa",
+   "Al-Imran"
+  ],
+  "answer": 3,
+  "why": "“Every soul will taste death, and you will only be given your [full] compensation on the Day of Resurrection.” (Qur’an 3:185).",
+  "source": "Qur’an 3:185",
+  "claims": [
+   {
+    "ref": "3:185",
+    "quote": "Every soul will taste death"
+   }
+  ]
+ },
+ {
+  "id": "tq-249",
+  "category": "Qur’an",
+  "question": "What do the believers say, according to 2:156, when disaster strikes?",
+  "options": [
+   "“Allah is far.”",
+   "“We are lost.”",
+   "“It was not meant.”",
+   "“Indeed we belong to Allah, and indeed to Him we will return.”"
+  ],
+  "answer": 3,
+  "why": "“Who, when disaster strikes them, say, ‘Indeed we belong to Allah, and indeed to Him we will return.’” (Qur’an 2:156).",
+  "source": "Qur’an 2:156",
+  "claims": [
+   {
+    "ref": "2:156",
+    "quote": "Indeed we belong to Allah, and indeed to Him we will return"
+   }
+  ]
+ },
+ {
+  "id": "tq-250",
+  "category": "Qur’an",
+  "question": "Which surah has the dua “Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good”?",
+  "options": [
+   "Al-A’raf",
    "An-Nisa",
    "Al-Baqarah",
-   "Al-Ma'idah"
+   "Al-Imran"
   ],
   "answer": 2,
-  "why": "Al-Baqarah 2:255 — 'His Kursi extends over the heavens and the earth.'"
+  "why": "“Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.” (Qur’an 2:201).",
+  "source": "Qur’an 2:201",
+  "claims": [
+   {
+    "ref": "2:201",
+    "quote": "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire"
+   }
+  ]
  },
  {
-  "id": "tq-30",
-  "category": "Qur'an",
-  "question": "'Bismillah' opens every surah except which one?",
+  "id": "tq-251",
+  "category": "Qur’an",
+  "question": "Which surah has the dua “Our Lord, grant us from among our wives and offspring comfort to our eyes”?",
   "options": [
-   "At-Tawbah",
-   "Al-Fatihah",
+   "Ash-Shu’ara",
+   "An-Naml",
+   "An-Nur",
+   "Al-Furqan"
+  ],
+  "answer": 3,
+  "why": "“Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous.” (Qur’an 25:74).",
+  "source": "Qur’an 25:74",
+  "claims": [
+   {
+    "ref": "25:74",
+    "quote": "grant us from among our wives and offspring comfort to our eyes"
+   }
+  ]
+ },
+ {
+  "id": "tq-252",
+  "category": "Qur’an",
+  "question": "Which surah has the dua “My Lord, increase me in knowledge”?",
+  "options": [
+   "Al-Hajj",
+   "Al-Anbiya",
+   "Ta-Ha",
+   "Maryam"
+  ],
+  "answer": 2,
+  "why": "“And say, ‘My Lord, increase me in knowledge.’” (Qur’an 20:114).",
+  "source": "Qur’an 20:114",
+  "claims": [
+   {
+    "ref": "20:114",
+    "quote": "My Lord, increase me in knowledge"
+   }
+  ]
+ },
+ {
+  "id": "tq-253",
+  "category": "Qur’an",
+  "question": "Which surah says “Call upon Me; I will respond to you”?",
+  "options": [
+   "Fussilat",
+   "Ghafir (Al-Mu’min)",
+   "Ash-Shura",
+   "Az-Zukhruf"
+  ],
+  "answer": 1,
+  "why": "“And your Lord says, ‘Call upon Me; I will respond to you.’” (Qur’an 40:60).",
+  "source": "Qur’an 40:60",
+  "claims": [
+   {
+    "ref": "40:60",
+    "quote": "Call upon Me; I will respond to you"
+   }
+  ]
+ },
+ {
+  "id": "tq-254",
+  "category": "Qur’an",
+  "question": "What does Allah say in 2:186 about His nearness?",
+  "options": [
+   "“Indeed I am near”",
+   "“I am hidden”",
+   "“I am far”",
+   "“I am in the sky only”"
+  ],
+  "answer": 0,
+  "why": "“Indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.” (Qur’an 2:186).",
+  "source": "Qur’an 2:186",
+  "claims": [
+   {
+    "ref": "2:186",
+    "quote": "indeed I am near. I respond to the invocation of the supplicant when he calls upon Me"
+   }
+  ]
+ },
+ {
+  "id": "tq-255",
+  "category": "Qur’an",
+  "question": "Which surah ends with “For you is your religion, and for me is my religion”?",
+  "options": [
+   "Al-Ikhlas",
+   "Al-Masad",
+   "An-Nasr",
+   "Al-Kafirun"
+  ],
+  "answer": 3,
+  "why": "“For you is your religion, and for me is my religion.” (Qur’an 109:6).",
+  "source": "Qur’an 109:6",
+  "claims": [
+   {
+    "ref": "109:6",
+    "quote": "For you is your religion, and for me is my religion"
+   }
+  ]
+ },
+ {
+  "id": "tq-256",
+  "category": "Qur’an",
+  "question": "Which dua asks, “My Lord, make me an establisher of prayer”?",
+  "options": [
+   "Musa’s dua (20:25)",
+   "Ibrahim’s dua (14:40)",
+   "Yunus’s dua (21:87)",
+   "Adam’s dua (7:23)"
+  ],
+  "answer": 1,
+  "why": "“My Lord, make me an establisher of prayer, and [many] from my descendants. Our Lord, and accept my supplication.” (Qur’an 14:40).",
+  "source": "Qur’an 14:40",
+  "claims": [
+   {
+    "ref": "14:40",
+    "quote": "My Lord, make me an establisher of prayer, and [many] from my descendants"
+   }
+  ]
+ },
+ {
+  "id": "tq-257",
+  "category": "Seerah",
+  "question": "What does Qur’an 33:21 say about the Messenger of Allah ﷺ?",
+  "options": [
+   "He is a poet",
+   "In him is an excellent pattern",
+   "He is a judge only",
+   "He is a king"
+  ],
+  "answer": 1,
+  "why": "“There has certainly been for you in the Messenger of Allah an excellent pattern.” (Qur’an 33:21).",
+  "source": "Qur’an 33:21",
+  "claims": [
+   {
+    "ref": "33:21",
+    "quote": "There has certainly been for you in the Messenger of Allah an excellent pattern"
+   }
+  ]
+ },
+ {
+  "id": "tq-258",
+  "category": "Seerah",
+  "question": "How does Qur’an 9:128 describe the Messenger toward the believers?",
+  "options": [
+   "Distant and silent",
+   "Harsh and stern",
+   "Rich and generous",
+   "Kind and merciful"
+  ],
+  "answer": 3,
+  "why": "“to the believers is kind and merciful”. (Qur’an 9:128).",
+  "source": "Qur’an 9:128",
+  "claims": [
+   {
+    "ref": "9:128",
+    "quote": "to the believers is kind and merciful"
+   }
+  ]
+ },
+ {
+  "id": "tq-259",
+  "category": "Seerah",
+  "question": "To whom was the Prophet ﷺ sent, according to Qur’an 34:28 and 7:158?",
+  "options": [
+   "The people of Madinah",
+   "The Arabs only",
+   "All of mankind",
+   "The Quraysh only"
+  ],
+  "answer": 2,
+  "why": "“We have not sent you except comprehensively to mankind as a bringer of good tidings and a warner.” (Qur’an 34:28, 7:158).",
+  "source": "Qur’an 34:28; 7:158",
+  "claims": [
+   {
+    "ref": "34:28",
+    "quote": "We have not sent you except comprehensively to mankind as a bringer of good tidings and a warner"
+   },
+   {
+    "ref": "7:158",
+    "quote": "O mankind, indeed I am the Messenger of Allah to you all"
+   }
+  ]
+ },
+ {
+  "id": "tq-260",
+  "category": "Seerah",
+  "question": "According to Qur’an 53:3, the Prophet ﷺ does not speak from what?",
+  "options": [
+   "Fear",
+   "Memory",
+   "Anger",
+   "His own inclination"
+  ],
+  "answer": 3,
+  "why": "“Nor does he speak from [his own] inclination.” (Qur’an 53:3).",
+  "source": "Qur’an 53:3",
+  "claims": [
+   {
+    "ref": "53:3",
+    "quote": "Nor does he speak from [his own] inclination"
+   }
+  ]
+ },
+ {
+  "id": "tq-261",
+  "category": "Worship",
+  "question": "How does Al-Fatihah begin its praise of Allah (1:2)?",
+  "options": [
+   "“[All] praise is [due] to Allah, Lord of the worlds”",
+   "“Say, He is Allah”",
+   "“Blessed is He”",
+   "“In the name of your Lord”"
+  ],
+  "answer": 0,
+  "why": "The second verse is “[All] praise is [due] to Allah, Lord of the worlds”. (Qur’an 1:2).",
+  "source": "Qur’an 1:2",
+  "claims": [
+   {
+    "ref": "1:2",
+    "quote": "[All] praise is [due] to Allah, Lord of the worlds"
+   }
+  ]
+ },
+ {
+  "id": "tq-262",
+  "category": "Worship",
+  "question": "What do we ask for in the sixth verse of Al-Fatihah?",
+  "options": [
+   "Guidance to the straight path",
+   "Wealth",
+   "Victory",
+   "Forgiveness only"
+  ],
+  "answer": 0,
+  "why": "“Guide us to the straight path.” (Qur’an 1:6).",
+  "source": "Qur’an 1:6",
+  "claims": [
+   {
+    "ref": "1:6",
+    "quote": "Guide us to the straight path"
+   }
+  ]
+ },
+ {
+  "id": "tq-263",
+  "category": "Worship",
+  "question": "What does Qur’an 2:197 say about the months of Hajj?",
+  "options": [
+   "They are only winter",
+   "They are only Ramadan",
+   "They are all twelve",
+   "They are well-known months"
+  ],
+  "answer": 3,
+  "why": "“Hajj is [during] well-known months.” (Qur’an 2:197).",
+  "source": "Qur’an 2:197",
+  "claims": [
+   {
+    "ref": "2:197",
+    "quote": "Hajj is [during] well-known months"
+   }
+  ]
+ },
+ {
+  "id": "tq-264",
+  "category": "Worship",
+  "question": "Who does Allah say “woe” to in 107:4-5?",
+  "options": [
+   "Those who give zakah",
+   "Those who fast",
+   "Those who perform Hajj",
+   "Those who pray but are heedless of their prayer"
+  ],
+  "answer": 3,
+  "why": "“So woe to those who pray, [but] who are heedless of their prayer.” (Qur’an 107:4-5).",
+  "source": "Qur’an 107:4-5",
+  "claims": [
+   {
+    "ref": "107:4-5",
+    "quote": "So woe to those who pray"
+   }
+  ]
+ },
+ {
+  "id": "tq-265",
+  "category": "Worship",
+  "question": "What does Qur’an 62:10 tell believers to do after the Friday prayer has concluded?",
+  "options": [
+   "Fast",
+   "Travel to Makkah",
+   "Stay in the mosque all day",
+   "Disperse in the land and seek Allah’s bounty"
+  ],
+  "answer": 3,
+  "why": "“When the prayer has been concluded, disperse within the land and seek from the bounty of Allah, and remember Allah often.” (Qur’an 62:10).",
+  "source": "Qur’an 62:10",
+  "claims": [
+   {
+    "ref": "62:10",
+    "quote": "disperse within the land and seek from the bounty of Allah, and remember Allah often"
+   }
+  ]
+ },
+ {
+  "id": "tq-266",
+  "category": "Worship",
+  "question": "What does Qur’an 17:79 call the extra prayer in part of the night?",
+  "options": [
+   "An obligation on all",
+   "Additional (voluntary) worship for you",
+   "A prayer for travelers",
+   "A funeral prayer"
+  ],
+  "answer": 1,
+  "why": "“And from [part of] the night, pray with it as additional [worship] for you.” (Qur’an 17:79).",
+  "source": "Qur’an 17:79",
+  "claims": [
+   {
+    "ref": "17:79",
+    "quote": "And from [part of] the night, pray with it as additional [worship] for you"
+   }
+  ]
+ },
+ {
+  "id": "tq-267",
+  "category": "Worship",
+  "question": "Which surah begins with “O you who wraps himself [in clothing], arise [to pray] the night, except for a little”?",
+  "options": [
+   "Al-Muzzammil",
+   "Al-Qalam",
+   "Al-Alaq",
+   "Al-Mudaththir"
+  ],
+  "answer": 0,
+  "why": "That is its opening. (Qur’an 73:1-2).",
+  "source": "Qur’an 73:1-2",
+  "claims": [
+   {
+    "ref": "73:1-2",
+    "quote": "Arise [to pray] the night, except for a little"
+   }
+  ]
+ },
+ {
+  "id": "tq-268",
+  "category": "Worship",
+  "question": "What does Qur’an 2:185 say about Allah’s intention for the believers regarding Ramadan?",
+  "options": [
+   "He intends nothing",
+   "He intends isolation",
+   "He intends ease, not hardship",
+   "He intends hardship"
+  ],
+  "answer": 2,
+  "why": "The verse says Allah “intends for you ease” and not hardship. (Qur’an 2:185).",
+  "source": "Qur’an 2:185",
+  "claims": [
+   {
+    "ref": "2:185",
+    "quote": "Allah intends for you ease"
+   }
+  ]
+ },
+ {
+  "id": "tq-269",
+  "category": "General",
+  "question": "Which attributes does Qur’an 2:177 list as true righteousness?",
+  "options": [
+   "Only prayer",
+   "Only knowledge",
+   "Only wealth",
+   "Faith in Allah, the Last Day, the angels, the Book, and the prophets"
+  ],
+  "answer": 3,
+  "why": "“[True] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets.” (Qur’an 2:177).",
+  "source": "Qur’an 2:177",
+  "claims": [
+   {
+    "ref": "2:177",
+    "quote": "one who believes in Allah, the Last Day, the angels, the Book, and the prophets"
+   }
+  ]
+ },
+ {
+  "id": "tq-270",
+  "category": "General",
+  "question": "What does Qur’an 16:125 say to invite people with?",
+  "options": [
+   "Anger",
+   "Money",
+   "Wisdom and good instruction",
+   "Force"
+  ],
+  "answer": 2,
+  "why": "“Invite to the way of your Lord with wisdom and good instruction.” (Qur’an 16:125).",
+  "source": "Qur’an 16:125",
+  "claims": [
+   {
+    "ref": "16:125",
+    "quote": "Invite to the way of your Lord with wisdom and good instruction"
+   }
+  ]
+ },
+ {
+  "id": "tq-271",
+  "category": "General",
+  "question": "What does Qur’an 7:31 say about eating and drinking?",
+  "options": [
+   "Do so in secret",
+   "Avoid them all day",
+   "Do so only at night",
+   "Do so, but not excessively"
+  ],
+  "answer": 3,
+  "why": "“Eat and drink, but be not excessive.” (Qur’an 7:31).",
+  "source": "Qur’an 7:31",
+  "claims": [
+   {
+    "ref": "7:31",
+    "quote": "eat and drink, but be not excessive"
+   }
+  ]
+ },
+ {
+  "id": "tq-272",
+  "category": "General",
+  "question": "Which surah says “He placed between you affection and mercy”?",
+  "options": [
+   "Al-Ahzab",
+   "An-Nur",
+   "At-Talaq",
+   "Ar-Rum"
+  ],
+  "answer": 3,
+  "why": "“He placed between you affection and mercy.” (Qur’an 30:21).",
+  "source": "Qur’an 30:21",
+  "claims": [
+   {
+    "ref": "30:21",
+    "quote": "He placed between you affection and mercy"
+   }
+  ]
+ },
+ {
+  "id": "tq-273",
+  "category": "General",
+  "question": "What does Qur’an 4:19 command regarding wives?",
+  "options": [
+   "Keep them silent",
+   "Avoid them",
+   "Live with them in kindness",
+   "Exclude them"
+  ],
+  "answer": 2,
+  "why": "“And live with them in kindness.” (Qur’an 4:19).",
+  "source": "Qur’an 4:19",
+  "claims": [
+   {
+    "ref": "4:19",
+    "quote": "And live with them in kindness"
+   }
+  ]
+ },
+ {
+  "id": "tq-274",
+  "category": "General",
+  "question": "Who does Qur’an 24:22 say should pardon and overlook?",
+  "options": [
+   "Only judges",
+   "Only kings",
+   "Only the poor",
+   "Those of virtue and wealth"
+  ],
+  "answer": 3,
+  "why": "“Let them pardon and overlook. Would you not like that Allah should forgive you?” (Qur’an 24:22).",
+  "source": "Qur’an 24:22",
+  "claims": [
+   {
+    "ref": "24:22",
+    "quote": "let them pardon and overlook"
+   }
+  ]
+ },
+ {
+  "id": "tq-275",
+  "category": "General",
+  "question": "What did Luqman advise his son about walking and voice (31:19)?",
+  "options": [
+   "Walk fast and speak loud",
+   "Walk slowly and whisper",
+   "Run",
+   "Be moderate in pace and lower the voice"
+  ],
+  "answer": 3,
+  "why": "“And be moderate in your pace and lower your voice.” (Qur’an 31:19).",
+  "source": "Qur’an 31:19",
+  "claims": [
+   {
+    "ref": "31:19",
+    "quote": "be moderate in your pace and lower your voice"
+   }
+  ]
+ },
+ {
+  "id": "tq-276",
+  "category": "General",
+  "question": "What does Qur’an 5:8 tell believers not to let hatred of a people prevent?",
+  "options": [
+   "Being just",
+   "Fasting",
+   "Praying",
+   "Greeting"
+  ],
+  "answer": 0,
+  "why": "“Do not let the hatred of a people prevent you from being just. Be just; that is nearer to righteousness.” (Qur’an 5:8).",
+  "source": "Qur’an 5:8",
+  "claims": [
+   {
+    "ref": "5:8",
+    "quote": "do not let the hatred of a people prevent you from being just"
+   }
+  ]
+ },
+ {
+  "id": "tq-277",
+  "category": "General",
+  "question": "Which surah begins “Woe to those who give less [than due]”?",
+  "options": [
+   "Al-Mutaffifin",
+   "Al-Ma’un",
+   "Al-Humazah",
+   "Al-Takathur"
+  ],
+  "answer": 0,
+  "why": "That is its opening. (Qur’an 83:1).",
+  "source": "Qur’an 83:1",
+  "claims": [
+   {
+    "ref": "83:1",
+    "quote": "Woe to those who give less [than due]"
+   }
+  ]
+ },
+ {
+  "id": "tq-278",
+  "category": "General",
+  "question": "Which surah begins “Competition in [worldly] increase diverts you”?",
+  "options": [
+   "Al-Asr",
+   "Al-Humazah",
+   "At-Takathur",
+   "Al-Qari’ah"
+  ],
+  "answer": 2,
+  "why": "That is its opening. (Qur’an 102:1).",
+  "source": "Qur’an 102:1",
+  "claims": [
+   {
+    "ref": "102:1",
+    "quote": "Competition in [worldly] increase diverts you"
+   }
+  ]
+ },
+ {
+  "id": "tq-279",
+  "category": "General",
+  "question": "What does Qur’an 9:71 say about believing men and women?",
+  "options": [
+   "They are enemies",
+   "They are allies of one another",
+   "They are rivals",
+   "They are strangers"
+  ],
+  "answer": 1,
+  "why": "“The believing men and believing women are allies of one another.” (Qur’an 9:71).",
+  "source": "Qur’an 9:71",
+  "claims": [
+   {
+    "ref": "9:71",
+    "quote": "The believing men and believing women are allies of one another"
+   }
+  ]
+ },
+ {
+  "id": "tq-280",
+  "category": "General",
+  "question": "What does Qur’an 103:3 say the successful do besides believing and doing righteous deeds?",
+  "options": [
+   "Travel often",
+   "Advise each other to truth and patience",
+   "Buy and sell",
+   "Fast every day"
+  ],
+  "answer": 1,
+  "why": "“Advised each other to truth and advised each other to patience.” (Qur’an 103:3).",
+  "source": "Qur’an 103:3",
+  "claims": [
+   {
+    "ref": "103:3",
+    "quote": "advised each other to truth and advised each other to patience"
+   }
+  ]
+ },
+ {
+  "id": "tq-281",
+  "category": "General",
+  "question": "What does Qur’an 3:103 tell believers to hold firmly to?",
+  "options": [
+   "The wall",
+   "The ship",
+   "The rope of Allah",
+   "The mountain"
+  ],
+  "answer": 2,
+  "why": "“And hold firmly to the rope of Allah all together and do not become divided.” (Qur’an 3:103).",
+  "source": "Qur’an 3:103",
+  "claims": [
+   {
+    "ref": "3:103",
+    "quote": "hold firmly to the rope of Allah all together and do not become divided"
+   }
+  ]
+ },
+ {
+  "id": "tq-282",
+  "category": "General",
+  "question": "Which people does Qur’an 59:9 describe as giving preference to the emigrants over themselves?",
+  "options": [
+   "The Ansar of Madinah",
+   "The Bedouin",
+   "The Quraysh",
+   "The People of the Book"
+  ],
+  "answer": 0,
+  "why": "“They love those who emigrated to them”, and “give [them] preference over themselves, even though they are in privation”. (Qur’an 59:9).",
+  "source": "Qur’an 59:9",
+  "claims": [
+   {
+    "ref": "59:9",
+    "quote": "They love those who emigrated to them"
+   }
+  ]
+ },
+ {
+  "id": "tq-283",
+  "category": "General",
+  "question": "Whom does the Qur’an say the righteous feed, for the countenance of Allah, wanting no reward or gratitude?",
+  "options": [
+   "Only scholars",
+   "Only travelers",
+   "Only relatives",
+   "The needy, the orphan, and the captive"
+  ],
+  "answer": 3,
+  "why": "“And they give food in spite of love for it to the needy, the orphan, and the captive.” (Qur’an 76:8).",
+  "source": "Qur’an 76:8",
+  "claims": [
+   {
+    "ref": "76:8",
+    "quote": "they give food in spite of love for it to the needy, the orphan, and the captive"
+   }
+  ]
+ },
+ {
+  "id": "tq-284",
+  "category": "General",
+  "question": "According to 2:219, what does the Qur’an say about wine and gambling?",
+  "options": [
+   "They are praised",
+   "They are neutral",
+   "In them is great sin and some benefit, but the sin is greater",
+   "They are required"
+  ],
+  "answer": 2,
+  "why": "“In them is great sin and [yet, some] benefit for people. But their sin is greater than their benefit.” (Qur’an 2:219).",
+  "source": "Qur’an 2:219",
+  "claims": [
+   {
+    "ref": "2:219",
+    "quote": "In them is great sin and [yet, some] benefit for people. But their sin is greater than their benefit"
+   }
+  ]
+ },
+ {
+  "id": "tq-285",
+  "category": "General",
+  "question": "What does Qur’an 5:90 call intoxicants and gambling?",
+  "options": [
+   "A sign of strength",
+   "Defilement from the work of Satan",
+   "A lawful pleasure",
+   "A trial of wealth"
+  ],
+  "answer": 1,
+  "why": "“...intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful.” (Qur’an 5:90).",
+  "source": "Qur’an 5:90",
+  "claims": [
+   {
+    "ref": "5:90",
+    "quote": "are but defilement from the work of Satan, so avoid it that you may be successful"
+   }
+  ]
+ },
+ {
+  "id": "tq-286",
+  "category": "General",
+  "question": "What does Qur’an 17:32 tell believers not to approach?",
+  "options": [
+   "The market",
+   "The mosque",
+   "Unlawful sexual intercourse",
+   "The sea"
+  ],
+  "answer": 2,
+  "why": "“And do not approach unlawful sexual intercourse. Indeed, it is ever an immorality and is evil as a way.” (Qur’an 17:32).",
+  "source": "Qur’an 17:32",
+  "claims": [
+   {
+    "ref": "17:32",
+    "quote": "do not approach unlawful sexual intercourse"
+   }
+  ]
+ },
+ {
+  "id": "tq-287",
+  "category": "General",
+  "question": "What does Qur’an 2:188 forbid consuming unjustly?",
+  "options": [
+   "Bread",
+   "One another’s wealth",
+   "Water",
+   "Fruit"
+  ],
+  "answer": 1,
+  "why": "“And do not consume one another’s wealth unjustly.” (Qur’an 2:188).",
+  "source": "Qur’an 2:188",
+  "claims": [
+   {
+    "ref": "2:188",
+    "quote": "do not consume one another's wealth unjustly"
+   }
+  ]
+ },
+ {
+  "id": "tq-288",
+  "category": "General",
+  "question": "What does Qur’an 4:29 permit when taking wealth?",
+  "options": [
+   "Taking in secret",
+   "Lawful business by mutual consent",
+   "Taking by force",
+   "Taking by trick"
+  ],
+  "answer": 1,
+  "why": "“Do not consume one another’s wealth unjustly but only [in lawful] business by mutual consent.” (Qur’an 4:29).",
+  "source": "Qur’an 4:29",
+  "claims": [
+   {
+    "ref": "4:29",
+    "quote": "only [in lawful] business by mutual consent"
+   }
+  ]
+ },
+ {
+  "id": "tq-289",
+  "category": "General",
+  "question": "What does Qur’an 17:36 say will be questioned on the Day of Judgment?",
+  "options": [
+   "Only the hands",
+   "Only the tongue",
+   "Hearing, sight, and the heart",
+   "Only the feet"
+  ],
+  "answer": 2,
+  "why": "“Indeed, the hearing, the sight and the heart - about all those [one] will be questioned.” (Qur’an 17:36).",
+  "source": "Qur’an 17:36",
+  "claims": [
+   {
+    "ref": "17:36",
+    "quote": "the hearing, the sight and the heart - about all those [one] will be questioned"
+   }
+  ]
+ },
+ {
+  "id": "tq-290",
+  "category": "General",
+  "question": "What did Umar say when he kissed the Black Stone?",
+  "options": [
+   "“You were sent to the Prophet.”",
+   "“I know that you are a stone and can neither benefit anyone nor harm anyone.”",
+   "“You are from Paradise.”",
+   "“You are the pure stone.”"
+  ],
+  "answer": 1,
+  "why": "“No doubt, I know that you are a stone and can neither benefit anyone nor harm anyone.” (Bukhari 1597).",
+  "source": "Sahih al-Bukhari 1597",
+  "claims": [
+   {
+    "hadith": "bukhari:1597",
+    "quote": "I know that you are a stone and can neither benefit anyone nor harm anyone"
+   }
+  ]
+ },
+ {
+  "id": "tq-291",
+  "category": "General",
+  "question": "What did the Prophet ﷺ do before the prayer on the day of Eid-ul-Fitr?",
+  "options": [
+   "Traveled",
+   "Slept",
+   "Fasted",
+   "Ate some dates"
+  ],
+  "answer": 3,
+  "why": "He “never proceeded (for the prayer) on the Day of ‘Id-ul-Fitr unless he had eaten some dates”. (Bukhari 953).",
+  "source": "Sahih al-Bukhari 953",
+  "claims": [
+   {
+    "hadith": "bukhari:953",
+    "quote": "never proceeded (for the prayer) on the Day of `Id-ul-Fitr unless he had eaten some dates"
+   }
+  ]
+ },
+ {
+  "id": "tq-292",
+  "category": "General",
+  "question": "What did the Prophet ﷺ use to clean his mouth with when he got up at night?",
+  "options": [
+   "A comb",
+   "Water only",
+   "A siwak",
+   "Salt"
+  ],
+  "answer": 2,
+  "why": "“Whenever the Prophet (ﷺ) got up at night, he used to clean his mouth with Siwak.” (Bukhari 245).",
+  "source": "Sahih al-Bukhari 245",
+  "claims": [
+   {
+    "hadith": "bukhari:245",
+    "quote": "he used to clean his mouth with Siwak"
+   }
+  ]
+ },
+ {
+  "id": "tq-293",
+  "category": "General",
+  "question": "How many names of Allah are mentioned in the hadith “whoever knows them will go to Paradise”?",
+  "options": [
+   "Ninety",
+   "Ninety-nine",
+   "Seventy",
+   "One hundred and one"
+  ],
+  "answer": 1,
+  "why": "“Allah has ninety-nine names, i.e. one-hundred minus one, and whoever knows them will go to Paradise.” (Bukhari 2736).",
+  "source": "Sahih al-Bukhari 2736",
+  "claims": [
+   {
+    "hadith": "bukhari:2736",
+    "quote": "Allah has ninety-nine names, i.e. one-hundred minus one, and whoever knows them will go to Paradise"
+   }
+  ]
+ },
+ {
+  "id": "tq-294",
+  "category": "Al-Ghayb",
+  "question": "According to 2:3, those who are guided believe in what?",
+  "options": [
+   "The market",
+   "The seen only",
+   "The unseen",
+   "The past only"
+  ],
+  "answer": 2,
+  "why": "“Who believe in the unseen, establish prayer, and spend out of what We have provided for them.” (Qur’an 2:3).",
+  "source": "Qur’an 2:3",
+  "claims": [
+   {
+    "ref": "2:3",
+    "quote": "believe in the unseen, establish prayer, and spend out of what We have provided for them"
+   }
+  ]
+ },
+ {
+  "id": "tq-295",
+  "category": "Qur’an",
+  "question": "Who does the Qur’an say will guard it (15:9)?",
+  "options": [
+   "The angels",
+   "Allah",
+   "The Quraysh",
+   "The scholars"
+  ],
+  "answer": 1,
+  "why": "“Indeed, it is We who sent down the Qur’an and indeed, We will be its guardian.” (Qur’an 15:9).",
+  "source": "Qur’an 15:9",
+  "claims": [
+   {
+    "ref": "15:9",
+    "quote": "it is We who sent down the Qur'an and indeed, We will be its guardian"
+   }
+  ]
+ },
+ {
+  "id": "tq-296",
+  "category": "Qur’an",
+  "question": "What does 54:17 say Allah has made the Qur’an?",
+  "options": [
+   "Only for Arabs",
+   "Only for scholars",
+   "Hard to read",
+   "Easy for remembrance"
+  ],
+  "answer": 3,
+  "why": "“And We have certainly made the Qur’an easy for remembrance, so is there any who will remember?” (Qur’an 54:17).",
+  "source": "Qur’an 54:17",
+  "claims": [
+   {
+    "ref": "54:17",
+    "quote": "We have certainly made the Qur'an easy for remembrance"
+   }
+  ]
+ },
+ {
+  "id": "tq-297",
+  "category": "Qur’an",
+  "question": "How does 17:82 describe what is sent down of the Qur’an for the believers?",
+  "options": [
+   "Land and cattle",
+   "Pride and honor",
+   "Healing and mercy",
+   "Wealth and power"
+  ],
+  "answer": 2,
+  "why": "“And We send down of the Qur’an that which is healing and mercy for the believers.” (Qur’an 17:82).",
+  "source": "Qur’an 17:82",
+  "claims": [
+   {
+    "ref": "17:82",
+    "quote": "We send down of the Qur'an that which is healing and mercy for the believers"
+   }
+  ]
+ },
+ {
+  "id": "tq-298",
+  "category": "Qur’an",
+  "question": "What does Qur’an 73:4 command about the recitation of the Qur’an?",
+  "options": [
+   "Recite as fast as possible",
+   "Recite only silently",
+   "Recite once a year",
+   "Recite with measured recitation"
+  ],
+  "answer": 3,
+  "why": "“And recite the Qur’an with measured recitation.” (Qur’an 73:4).",
+  "source": "Qur’an 73:4",
+  "claims": [
+   {
+    "ref": "73:4",
+    "quote": "recite the Qur'an with measured recitation"
+   }
+  ]
+ },
+ {
+  "id": "tq-299",
+  "category": "Qur’an",
+  "question": "Which surah is described with “By the wise Qur’an” as its second verse?",
+  "options": [
+   "Al-Kahf",
+   "Al-Mulk",
    "Ya-Sin",
-   "Al-Kahf"
+   "Al-Waqi’ah"
+  ],
+  "answer": 2,
+  "why": "Ya-Sin begins with the letters Ya, Seen, then “By the wise Qur’an.” (Qur’an 36:2).",
+  "source": "Qur’an 36:2",
+  "claims": [
+   {
+    "ref": "36:2",
+    "quote": "By the wise Qur'an"
+   }
+  ]
+ },
+ {
+  "id": "tq-300",
+  "category": "Qur’an",
+  "question": "What does Allah say when He intends a thing, according to 36:82?",
+  "options": [
+   "He says to it “Be,” and it is",
+   "He sends a messenger",
+   "He consults the angels",
+   "He waits"
   ],
   "answer": 0,
-  "why": "Surah At-Tawbah (9) opens without the basmalah."
+  "why": "“His command is only when He intends a thing that He says to it, ‘Be,’ and it is.” (Qur’an 36:82).",
+  "source": "Qur’an 36:82",
+  "claims": [
+   {
+    "ref": "36:82",
+    "quote": "that He says to it, \"Be,\" and it is"
+   }
+  ]
  },
  {
-  "id": "tq-31",
-  "category": "Al-Ghayb",
-  "question": "Which angel carries revelation?",
+  "id": "tq-301",
+  "category": "Seerah",
+  "question": "How does Qur’an 3:144 describe Muhammad ﷺ?",
   "options": [
-   "Mika'il",
-   "Israfil",
-   "Jibril",
-   "Malak al-Mawt"
-  ],
-  "answer": 2,
-  "why": "Ruh al-Amin, the Trustworthy Spirit (26:193-194)."
- },
- {
-  "id": "tq-32",
-  "category": "Al-Ghayb",
-  "question": "What are Munkar and Nakir?",
-  "options": [
-   "Two scribes",
-   "Two gates of Paradise",
-   "Two questioners of the grave",
-   "Two winds"
-  ],
-  "answer": 2,
-  "why": "The two angels who ask: who is your Lord, what is your religion, who is this man? (Tirmidhi 1071, hasan per Darussalam)."
- },
- {
-  "id": "tq-33",
-  "category": "Al-Ghayb",
-  "question": "What breaks the whisper (waswas)?",
-  "options": [
-   "Silence",
-   "Seeking refuge in Allah",
-   "Counting",
-   "Leaving the room"
-  ],
-  "answer": 1,
-  "why": "'And if an evil suggestion comes to you from Satan, then seek refuge in Allah' (7:200)."
- },
- {
-  "id": "tq-34",
-  "category": "Al-Ghayb",
-  "question": "Which sign comes last among the ten major signs?",
-  "options": [
-   "The Beast",
-   "The fire that gathers",
-   "The sunrise from the west",
-   "The smoke"
-  ],
-  "answer": 1,
-  "why": "The fire that drives mankind to the gathering place is the last of the ten signs listed in the hadith of Hudhayfah (Muslim 2901)."
- },
- {
-  "id": "tq-35",
-  "category": "Al-Ghayb",
-  "question": "What is the barzakh?",
-  "options": [
-   "A punishment",
-   "A gate of Paradise",
-   "A night prayer",
-   "A barrier behind which nothing returns"
+   "The first messenger",
+   "A king",
+   "An angel",
+   "Only a messenger, other messengers have passed before him"
   ],
   "answer": 3,
-  "why": "'Behind them is a barrier until the Day they are resurrected' (23:100)."
+  "why": "“Muhammad is not but a messenger. [Other] messengers have passed on before him.” (Qur’an 3:144).",
+  "source": "Qur’an 3:144",
+  "claims": [
+   {
+    "ref": "3:144",
+    "quote": "Muhammad is not but a messenger. [Other] messengers have passed on before him"
+   }
+  ]
  },
  {
-  "id": "tq-36",
-  "category": "General",
-  "question": "What does 'Islam' literally mean?",
+  "id": "tq-302",
+  "category": "Seerah",
+  "question": "How does Qur’an 48:29 describe the Companions of the Prophet ﷺ?",
   "options": [
-   "Peace",
-   "Praise",
-   "Light",
-   "Submission"
-  ],
-  "answer": 3,
-  "why": "Submission to Allah — from aslama."
- },
- {
-  "id": "tq-37",
-  "category": "General",
-  "question": "How many pillars of Islam are there?",
-  "options": [
-   "4",
-   "6",
-   "5",
-   "7"
+   "Isolated from each other",
+   "Rich and powerful",
+   "Forceful against the disbelievers, merciful among themselves",
+   "Fond of fighting"
   ],
   "answer": 2,
-  "why": "Shahada, prayer, zakat, fasting, Hajj."
+  "why": "“Those with him are forceful against the disbelievers, merciful among themselves.” (Qur’an 48:29).",
+  "source": "Qur’an 48:29",
+  "claims": [
+   {
+    "ref": "48:29",
+    "quote": "those with him are forceful against the disbelievers, merciful among themselves"
+   }
+  ]
  },
  {
-  "id": "tq-38",
-  "category": "General",
-  "question": "In which month do Muslims fast?",
+  "id": "tq-303",
+  "category": "Seerah",
+  "question": "How does Qur’an 42:38 describe the believers’ affairs?",
   "options": [
-   "Shawwal",
-   "Ramadan",
-   "Rajab",
-   "Muharram"
-  ],
-  "answer": 1,
-  "why": "'The month of Ramadhan [is that] in which was revealed the Qur'an' (2:185)."
- },
- {
-  "id": "tq-39",
-  "category": "General",
-  "question": "What is the direction of prayer called?",
-  "options": [
-   "Qiblah",
-   "Sajdah",
-   "Mihrab",
-   "Rak'ah"
+   "Determined by consultation among themselves",
+   "Decided by one person",
+   "Decided by lots",
+   "Decided by age"
   ],
   "answer": 0,
-  "why": "The qiblah — toward al-Masjid al-Haram."
+  "why": "“Whose affair is [determined by] consultation among themselves.” (Qur’an 42:38).",
+  "source": "Qur’an 42:38",
+  "claims": [
+   {
+    "ref": "42:38",
+    "quote": "whose affair is [determined by] consultation among themselves"
+   }
+  ]
  },
  {
-  "id": "tq-40",
-  "category": "General",
-  "question": "Which phrase is the testimony of faith?",
+  "id": "tq-304",
+  "category": "Seerah",
+  "question": "What does Qur’an 49:2 tell believers not to raise above the voice of the Prophet ﷺ?",
   "options": [
-   "Alhamdulillah",
-   "La ilaha illa Allah",
-   "Bismillah",
-   "Subhan Allah"
+   "Their swords",
+   "Their tents",
+   "Their voices",
+   "Their flags"
+  ],
+  "answer": 2,
+  "why": "“Do not raise your voices above the voice of the Prophet.” (Qur’an 49:2).",
+  "source": "Qur’an 49:2",
+  "claims": [
+   {
+    "ref": "49:2",
+    "quote": "do not raise your voices above the voice of the Prophet"
+   }
+  ]
+ },
+ {
+  "id": "tq-305",
+  "category": "Seerah",
+  "question": "Who does Qur’an 59:8 describe as “expelled from their homes and their properties”?",
+  "options": [
+   "The Jews of Khaybar",
+   "The poor emigrants (Muhajirun)",
+   "The merchants of Ta’if",
+   "The Ansar"
   ],
   "answer": 1,
-  "why": "The shahada's first half — 'there is no deity but Allah.'"
+  "why": "“For the poor emigrants who were expelled from their homes and their properties.” (Qur’an 59:8).",
+  "source": "Qur’an 59:8",
+  "claims": [
+   {
+    "ref": "59:8",
+    "quote": "the poor emigrants who were expelled from their homes and their properties"
+   }
+  ]
+ },
+ {
+  "id": "tq-306",
+  "category": "Companions",
+  "question": "Whom did the Prophet ﷺ order to lead the people in prayer during his final illness?",
+  "options": [
+   "Abu Bakr",
+   "Uthman",
+   "Umar",
+   "Ali"
+  ],
+  "answer": 0,
+  "why": "A report says the Prophet ﷺ “ordered Abu Bakr to lead the people in prayer”. (Muslim 418).",
+  "source": "Sahih Muslim 418",
+  "claims": [
+   {
+    "hadith": "muslim:418",
+    "quote": "ordered Abu Bakr to lead the people in prayer"
+   }
+  ]
+ },
+ {
+  "id": "tq-307",
+  "category": "Worship",
+  "question": "What does Qur’an 6:162 say the believer’s prayer, rites, living, and dying are for?",
+  "options": [
+   "Allah, Lord of the worlds",
+   "The family",
+   "The tribe",
+   "The king"
+  ],
+  "answer": 0,
+  "why": "“Indeed, my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds.” (Qur’an 6:162).",
+  "source": "Qur’an 6:162",
+  "claims": [
+   {
+    "ref": "6:162",
+    "quote": "my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds"
+   }
+  ]
+ },
+ {
+  "id": "tq-308",
+  "category": "General",
+  "question": "What does Qur’an 94:7-8 say to do when you have finished your duties?",
+  "options": [
+   "Rest",
+   "Travel",
+   "Count your wealth",
+   "Stand up for worship and direct your longing to your Lord"
+  ],
+  "answer": 3,
+  "why": "“So when you have finished [your duties], then stand up [for worship]. And to your Lord direct [your] longing.” (Qur’an 94:7-8).",
+  "source": "Qur’an 94:7-8",
+  "claims": [
+   {
+    "ref": "94:7-8",
+    "quote": "So when you have finished [your duties], then stand up [for worship]. And to your Lord direct [your] longing"
+   }
+  ]
+ },
+ {
+  "id": "tq-309",
+  "category": "General",
+  "question": "What does Qur’an 2:285 say about the Messenger and the believers?",
+  "options": [
+   "They believe in angels only",
+   "They believe in books only",
+   "All have believed in Allah, His angels, books, and messengers",
+   "Only the Messenger believed"
+  ],
+  "answer": 2,
+  "why": "“All of them have believed in Allah and His angels and His books and His messengers.” (Qur’an 2:285).",
+  "source": "Qur’an 2:285",
+  "claims": [
+   {
+    "ref": "2:285",
+    "quote": "All of them have believed in Allah and His angels and His books and His messengers"
+   }
+  ]
+ },
+ {
+  "id": "tq-310",
+  "category": "General",
+  "question": "What does Qur’an 16:97 promise to the one who does righteousness and is a believer?",
+  "options": [
+   "A long life",
+   "A good life",
+   "A secret life",
+   "A rich life"
+  ],
+  "answer": 1,
+  "why": "“Whoever does righteousness, whether male or female, while he is a believer - We will surely cause him to live a good life.” (Qur’an 16:97).",
+  "source": "Qur’an 16:97",
+  "claims": [
+   {
+    "ref": "16:97",
+    "quote": "We will surely cause him to live a good life"
+   }
+  ]
  }
 ]

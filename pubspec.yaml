@@ -53,6 +53,8 @@ flutter:
     - assets/quran/
     - assets/quran/translations/
     - assets/academy/
+    - assets/academy/lessons_v3/
+    - assets/academy/phrases/
     - assets/hadith/
     - assets/adhkar/
     - assets/noor/

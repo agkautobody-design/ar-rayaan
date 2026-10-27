@@ -205,10 +205,10 @@ const List<GameDef> kGames = <GameDef>[
     hasSetup: true,
     hasQuestions: true,
     hasHints: true,
-    sourceNote: 'Questions come from the app’s own story notes. Only '
-        'questions that name a source (a surah and ayah, a hadith book and '
-        'number, or a seerah book) are used, and the source is shown after '
-        'each answer.',
+    sourceNote: 'Every question names its source: a surah and ayah, or a '
+        'hadith in Sahih al-Bukhari or Sahih Muslim, with the number. The '
+        'wording is checked against the Saheeh International text and the '
+        'hadith collections, and the source is shown after each answer.',
     howToPlay: <String>[
       'Choose a topic and how many questions.',
       'Pick the answer you think is right. There is no timer.',
@@ -226,7 +226,9 @@ const List<GameDef> kGames = <GameDef>[
     iconKey: 'names',
     kind: GameEngineKind.own,
     elderFeatured: true,
-    sourceNote: 'Each Name shows the Qur’an reference it comes from.',
+    sourceNote: 'Each Name shows an ayah where the Name itself, or the verb '
+        'it comes from, appears in the Qur’an. The meanings are '
+        'explanations, not translations of the Name.',
     howToPlay: <String>[
       'Tap a card to turn it over and see the meaning.',
       'Use Next and Previous to move through the Names.',

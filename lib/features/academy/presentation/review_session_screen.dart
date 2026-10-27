@@ -20,6 +20,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
 import '../application/family_service.dart';
+import '../application/lessons_v3_provider.dart';
 import '../application/recall_checks.dart';
 import '../application/sfx_provider.dart';
 import '../application/word_deck_provider.dart';
@@ -32,6 +33,9 @@ import '../domain/recall_check.dart' show RecallCheckBuilder;
 import '../domain/review_questions.dart';
 import '../domain/sfx.dart';
 import '../domain/spaced_repetition.dart';
+import '../domain/v3/lesson_v3_model.dart' show LessonV3;
+import '../domain/v3/lesson_v3_review.dart' show v3ReviewQuestions;
+import '../domain/v3/lessons_v3.dart' show LessonsV3;
 import '../domain/word_deck.dart';
 import 'wasia_lessons.dart';
 
@@ -455,14 +459,27 @@ class _LessonReviewCardState extends ConsumerState<_LessonReviewCard> {
       }
     }
     final String? openRoute = route;
-    final bool loading = _isLetters && lettersAsync.isLoading;
+    // A v3 lesson asks its own hand-written check items (a few at a time, a
+    // different few each round); FSRS still decides when it comes back.
+    final AsyncValue<bool> hasV3 = ref.watch(hasLessonV3Provider(_lessonId));
+    final bool isV3 = hasV3.valueOrNull ?? false;
+    final AsyncValue<LessonsV3>? v3Async =
+        isV3 ? ref.watch(lessonsV3Provider) : null;
+    final LessonsV3? v3 = v3Async?.valueOrNull;
+    final LessonV3? v3Lesson = v3?[_lessonId];
+    final int round = widget.card.repetitions + widget.card.lapses;
+    final bool loading = (_isLetters && lettersAsync.isLoading) ||
+        hasV3.isLoading ||
+        (v3Async?.isLoading ?? false);
     final List<ReviewQuestion> questions = loading
         ? const <ReviewQuestion>[]
-        : reviewQuestionsForLesson(
-            _lessonId,
-            letters: letters,
-            round: widget.card.repetitions + widget.card.lapses,
-          );
+        : (v3Lesson != null && v3 != null
+            ? v3ReviewQuestions(v3Lesson, v3.resolver, round: round)
+            : reviewQuestionsForLesson(
+                _lessonId,
+                letters: letters,
+                round: round,
+              ));
     return GlassCard(
       strong: true,
       child: Column(
