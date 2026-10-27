@@ -196,7 +196,13 @@ The packs assume this retrieval, offline, no embeddings:
 
 ## 9. Help lines (`assets/support/helplines.json`)
 
-One entry per service: `country`, `service`, `number` / `text` / `url` as applicable, `hours`, `scope` (suicide, addiction, domestic abuse, child, sexual violence, general, gambling, smoking), `language`, `verifiedOn`, `source` (official page where one exists), `status` (`verified` or `unverified`). Only `verified` entries are in the display list; the rest sit in a separate `toVerify` list. Details are in the file header.
+File: `assets/support/helplines.json`, built by `tool/support/build_helplines.py` and checked by `tool/support/validate_helplines.py` (which also cross-checks the app's `HelpResources`).
+
+Top level: `schema`, `verifiedOn`, `about`, `scopes`, `helplines` (display set) and `toVerify` (never shown).
+
+Each row: `id`, `country` (ISO code or `INT`), `service`, `number`, `text` (SMS/keyword), `url`, `hours` (null if the source did not state it), `scope` (suicide, addiction, domestic-abuse, child, sexual-violence, general, emergency, smoking, gambling, elder, eating, poison, muslim), `language`, `audience` (adult, child, adult-concerned, child-or-adult-concerned, adult-or-concerned), `verifiedOn`, `source` (operator or official page), `status` (`verified` or `unverified`), `notes`.
+
+Rules: only rows read on an operator or official page on `verifiedOn` are in `helplines`; anything unconfirmed is `unverified` and sits in `toVerify` with the reason. Child lines (`audience` child) are kept apart from adult lines. The app joins a `referral` or `safety` snippet with the user's country and the snippet's scope; numbers are never typed in snippet text. Where a country has no verified crisis line the app falls back to the `INT` directories.
 
 ## 10. Review and status
 
