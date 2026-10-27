@@ -28,13 +28,14 @@ void main() {
 
     test('every dua is reachable: none falls into "more", none is lost', () {
       final Map<String, List<Story>> grouped = groupHisnDuas(duas);
-      expect(grouped['more'], isEmpty, reason: 'all 42 are filed in a gate');
+      expect(grouped['more'], isEmpty, reason: 'all 38 are filed in a gate');
       final int shown =
           grouped.values.fold(0, (int n, List<Story> l) => n + l.length);
       final int duplicates =
           duas.where((Story s) => s.duplicateOf != null).length;
       expect(shown + duplicates, duas.length);
-      expect(duplicates, 3);
+      // The 4 duplicate Hisn entries were removed; none is left to point away.
+      expect(duplicates, 0);
       expect(grouped['morning-evening'], isNotEmpty);
       expect(grouped['home'], isNotEmpty);
     });
