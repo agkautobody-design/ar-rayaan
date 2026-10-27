@@ -340,3 +340,13 @@ Every Qur'an quotation was checked word for word against the bundled text and ev
 | khutbahs | kh-structure | 3 | C | New. Muslim 869, 867, 851, Bukhari 934 and Qur'an 62:9 verified. |
 | khutbahs | kh-structure | 4 | RF | New. States that the schools differ on what is obligatory; gives no ruling. |
 | khutbahs | kh-structure | 5 | RF | New. Explains how the app's khutbahs are built. Label: Reflection. |
+
+## Correctness pass: seerah, companions, women (2026-10-27)
+
+Every claim in these three packs was re-checked against the bundled Qur'an, the hadith corpus (number, grade and grader) and, for seerah detail, Ibn Hisham (ed. al-Saqqa et al.) and Ibn Sa'd (ed. Ihsan Abbas). Claims that could not be verified were removed or labelled as reports without a chain; editor-note and footnote text was removed from user-facing chapters.
+
+| pack | id | chapter | class | note |
+|---|---|---|---|---|
+| seerah | seerah-04 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 235-236 (the month of Ramadan, Hira), with Bukhari 3 and 3851 for the revelation and his age. |
+| seerah | seerah-19 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 66, 77-79 (Uhud: the cavalry, the archers, the wounds), with Bukhari 4043 and 5722. |
+| seerah | seerah-27 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 602-605 (the sermon at Arafat), with Muslim 1218; Bukhari 67 is the separate sermon at Mina on the Day of Sacrifice. |
