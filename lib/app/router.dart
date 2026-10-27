@@ -143,6 +143,10 @@ abstract final class AppRoutes {
       '/hadi?q=${Uri.encodeQueryComponent(question)}';
   /// The Forty Hadith, opened at hadith [number].
   static String hadithAt(int number) => '/hadith?n=$number';
+
+  /// The Forty Hadith, showing only the hadith the person bookmarked or
+  /// wrote a note on.
+  static String hadithSaved() => '/hadith?saved=1';
   static const String noor = '/noor';
   /// The person's saved NOOR reflections, newest first.
   static const String noorReflections = '/noor/reflections';
@@ -792,6 +796,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (c, s) => _fade(
           HadithScreen(
             initialNumber: int.tryParse(s.uri.queryParameters['n'] ?? ''),
+            savedOnly: s.uri.queryParameters['saved'] == '1',
           ),
         ),
       ),

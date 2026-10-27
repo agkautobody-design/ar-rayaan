@@ -12,16 +12,25 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../academy/application/academy_providers.dart';
+import '../../academy/presentation/qa_bank_screen.dart'
+    show QaEntry, qaBankProvider;
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
 import '../../huda/presentation/huda_screens.dart' show Guide, guidesProvider;
+import '../../notes/application/notes_controller.dart';
+import '../../notes/domain/notes.dart';
 import '../../quran/application/quran_providers.dart';
 import '../../quran/domain/quran_models.dart';
+import '../../quran/presentation/surah_reader_screen.dart'
+    show transliterationProvider;
 import '../domain/app_destinations.dart';
 import '../domain/did_you_mean.dart';
+import '../domain/quran_find.dart';
 import '../domain/quran_search.dart';
+import '../domain/search_docs.dart';
+import '../domain/search_engine.dart';
 import '../domain/search_text.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
@@ -45,12 +54,11 @@ class _Hit {
     required this.kicker,
     required this.icon,
     required this.open,
-    this.rank = 0,
+    this.score = 0,
   });
 
-  /// 0 = the title or name matched; 1 = only the body text did. Title
-  /// matches are listed first on their shelf.
-  final int rank;
+  /// How well the item answers the query (see `scoreDoc`); better first.
+  final int score;
 
   final String shelf;
   final String title;
@@ -88,8 +96,10 @@ class _SearchState extends ConsumerState<SearchScreen> {
   Timer? _debounce;
   static const Duration _pause = Duration(milliseconds: 180);
 
-  static const int _otherCap = 40;
-  static const int _quranCap = 30;
+  /// How many results of each kind are shown; "Show more" adds a page.
+  static const int _page = 30;
+  int _otherShown = _page;
+  int _quranShown = _page;
 
   @override
   void initState() {
@@ -135,31 +145,47 @@ class _SearchState extends ConsumerState<SearchScreen> {
     final stories = storiesAsync.valueOrNull ?? const <Story>[];
     final hadiths = hadithAsync.valueOrNull ?? const <Hadith>[];
     final sets = adhkarAsync.valueOrNull ?? const <AdhkarSet>[];
-    // The guides and the Academy switch only add to the answer; they never
-    // hold the search back or count as a failed shelf.
+    // The guides, the Q&A, the notes, the transliteration and the Academy
+    // switch only add to the answer; they never hold the search back or
+    // count as a failed shelf.
     final List<Guide> guides =
         ref.watch(guidesProvider).valueOrNull ?? const <Guide>[];
     final bool academyOn = ref.watch(academyFlagProvider).valueOrNull ?? true;
+    final List<QaEntry> qa = academyOn
+        ? (ref.watch(qaBankProvider).valueOrNull ?? const <QaEntry>[])
+        : const <QaEntry>[];
+    final Map<String, String> translit =
+        ref.watch(transliterationProvider).valueOrNull ??
+            const <String, String>{};
+    final List<NoteItem> notes = ref.watch(notesProvider);
 
     // Result groups, shown in this order.
     final List<_Hit> destinationHits = <_Hit>[];
     final List<_Hit> surahHits = <_Hit>[];
     final List<_Hit> allOther = <_Hit>[];
     final List<_Hit> quranCards = <_Hit>[];
-    int otherTotal = 0;
     int quranTotal = 0;
     String? suggestion;
     final bool arabicQuery = containsArabicLetters(_q);
     final String foldedQ = foldArabic(_q);
     final String skeletonQ = arabicSkeleton(_q);
-    bool arabicMatch(String text) =>
+    bool arabicMatch(String? text) =>
+        text != null &&
         arabicQuery &&
         skeletonQ.length >= 2 &&
         (foldArabic(text).contains(foldedQ) ||
             arabicSkeleton(text).contains(skeletonQ));
-    void addOther(_Hit hit) => allOther.add(hit);
+    String clip(String t) => t.length > 90 ? '${t.substring(0, 90)}…' : t;
 
     if (_q.length >= 2 || parseVerseKey(_q) != null) {
+      final QuerySpec spec = QuerySpec.parse(_q);
+      // Score an item; for an Arabic query an Arabic match is a good answer.
+      int rate(Object owner, SearchDoc Function() make, {String? arabic}) {
+        if (arabicMatch(arabic)) return 70;
+        if (arabicQuery) return 0;
+        return scoreDoc(docFor(owner, make), spec);
+      }
+
       if (parseVerseKey(_q) == null) {
         for (final AppDestination d
             in matchDestinations(_q, academyOn: academyOn)) {
@@ -191,9 +217,10 @@ class _SearchState extends ConsumerState<SearchScreen> {
         }
       }
 
-      final List<QuranHit> quranHits = searchQuran(quran, _q, limit: 200);
+      final List<QuranHit> quranHits =
+          findQuran(quran, _q, translit: translit);
       quranTotal = quranHits.length;
-      for (final QuranHit h in quranHits.take(_quranCap)) {
+      for (final QuranHit h in quranHits.take(_quranShown)) {
         quranCards.add(_Hit(
           shelf: "QUR'AN ${h.key}",
           title: '${h.surahName} · ayah ${h.ayah}',
@@ -211,10 +238,18 @@ class _SearchState extends ConsumerState<SearchScreen> {
       }
 
       for (final Guide g in guides) {
-        if (matchesQuery('${g.title} ${g.subtitle} ${g.category}', _q)) {
-          addOther(_Hit(
+        final int sc = rate(
+          g,
+          () => SearchDoc(
+            title: g.title,
+            subtitle: '${g.subtitle} ${g.category}',
+            body: g.steps.join(' '),
+          ),
+        );
+        if (sc > 0) {
+          allOther.add(_Hit(
             shelf: 'GUIDE',
-            rank: matchesQuery(g.title, _q) ? 0 : 1,
+            score: sc,
             title: g.title,
             kicker: g.subtitle,
             icon: Icons.checklist_rtl_outlined,
@@ -226,32 +261,29 @@ class _SearchState extends ConsumerState<SearchScreen> {
         }
       }
       for (final h in hadiths) {
-        if (matchesQuery(h.english, _q) || arabicMatch(h.arabic)) {
-          addOther(_Hit(
+        // The grade and who gave it are searchable too ("sahih", "hasan").
+        final int sc = rate(h, () => hadithDoc(h), arabic: h.arabic);
+        if (sc > 0) {
+          allOther.add(_Hit(
             shelf: 'HADITH',
-            rank: 1,
+            score: sc,
             title: 'Hadith ${h.number} — an-Nawawi 40',
-            kicker: h.english.length > 90
-                ? '${h.english.substring(0, 90)}…'
-                : h.english,
+            kicker: clip(h.english),
             icon: Icons.format_quote_outlined,
             open: () => context.open(AppRoutes.hadithAt(h.number)),
           ));
         }
       }
       for (final s in stories) {
-        final bool named = matchesQuery(s.title, _q) ||
-            matchesQuery(s.subtitle, _q) ||
-            matchesQuery(s.kicker, _q);
-        // A story that only MENTIONS the word in its opening is listed
-        // after the ones named for it, and says so.
-        final bool mentioned = !named &&
-            s.chapters.isNotEmpty &&
-            matchesQuery(s.chapters.first.body, _q);
-        if (named || mentioned) {
-          addOther(_Hit(
-            shelf: mentioned ? 'STORY · MENTIONED' : 'STORY',
-            rank: named ? 0 : 1,
+        // Every chapter is searched, not just the first.
+        final int sc = rate(s, () => storyDoc(s), arabic: arabicQuery ? storyArabic(s) : null);
+        if (sc > 0) {
+          // A story that only MENTIONS the word is listed after the ones
+          // named for it, and says so.
+          final bool named = sc >= 80;
+          allOther.add(_Hit(
+            shelf: named ? 'STORY' : 'STORY · MENTIONED',
+            score: sc,
             title: s.title,
             kicker: (s.hasUnverified || s.hasWeakNarration)
                 ? 'Unverified · ${s.kicker}'
@@ -261,35 +293,77 @@ class _SearchState extends ConsumerState<SearchScreen> {
           ));
         }
       }
+      for (final QaEntry e in qa) {
+        final int sc = rate(e, () => qaDoc(e.q, e.a));
+        if (sc > 0) {
+          allOther.add(_Hit(
+            shelf: 'Q&A',
+            score: sc,
+            title: e.q,
+            kicker: clip(e.a),
+            icon: Icons.help_outline,
+            open: () => context.open('/academy/qa'),
+          ));
+        }
+      }
+      for (final NoteItem n in notes) {
+        final int sc = rate(n, () => noteDoc(n));
+        if (sc > 0) {
+          allOther.add(_Hit(
+            shelf: 'YOUR NOTE',
+            score: sc,
+            title: n.title,
+            kicker: clip(n.body.isEmpty ? n.title : n.body),
+            icon: Icons.edit_note_outlined,
+            open: () => context.open(AppRoutes.notes),
+          ));
+        }
+      }
       final Set<String> seenDhikr = <String>{};
       for (final set in sets) {
         for (final d in set.items) {
           final t = d.translation ?? '';
-          if (matchesQuery(t, _q) || arabicMatch(d.arabic)) {
+          final int sc = rate(
+            d,
+            () => dhikrDoc(
+              setTitle: set.titleEn,
+              transliteration: d.transliteration,
+              translation: d.translation,
+            ),
+            arabic: d.arabic,
+          );
+          if (sc > 0) {
             // Morning and evening sets share many identical adhkar.
             if (!seenDhikr.add('${d.arabic}|$t')) continue;
-            addOther(_Hit(
+            allOther.add(_Hit(
               shelf: 'DHIKR',
-              rank: 1,
+              score: sc,
               title: set.titleEn,
-              kicker: t.length > 90 ? '${t.substring(0, 90)}…' : t,
+              kicker: clip(t),
               icon: Icons.volunteer_activism_outlined,
-              open: () =>
-                  context.open('${AppRoutes.adhkar}?set=${set.id}'),
+              open: () => context.open('${AppRoutes.adhkar}?set=${set.id}'),
             ));
           }
         }
       }
     }
 
-    // Name matches first, then the rest; each group keeps its shelf order.
+    // Best answer first; equal scores keep the shelf order above (the sort
+    // is made stable by the original position).
+    final List<(int, _Hit)> indexed = <(int, _Hit)>[
+      for (int i = 0; i < allOther.length; i++) (i, allOther[i]),
+    ]..sort(((int, _Hit) a, (int, _Hit) b) {
+        final int c = b.$2.score.compareTo(a.$2.score);
+        return c != 0 ? c : a.$1.compareTo(b.$1);
+      });
+    final int otherTotal = indexed.length;
     final List<_Hit> otherHits = <_Hit>[
-      ...allOther.where((_Hit h) => h.rank == 0),
-      ...allOther.where((_Hit h) => h.rank != 0),
-    ].take(_otherCap).toList();
-    otherTotal = allOther.length;
+      for (final (int, _Hit) e in indexed.take(_otherShown)) e.$2,
+    ];
 
-    final String? dym = suggestion;
+    // A word that found things is not a typo.
+    final String? dym =
+        (otherTotal == 0 && quranTotal == 0) ? suggestion : null;
     final List<_Hit> hits = <_Hit>[
       ...destinationHits,
       ...surahHits,
@@ -306,10 +380,47 @@ class _SearchState extends ConsumerState<SearchScreen> {
         countsLine += ' · $otherTotal ON THE OTHER SHELVES';
       }
       if (quranTotal > quranCards.length) {
-        final String plus = quranTotal >= 200 ? '+' : '';
-        countsLine += " · $quranTotal$plus IN THE QUR'AN";
+        countsLine += " · $quranTotal IN THE QUR'AN";
       }
     }
+    final int otherLeft = otherTotal - otherHits.length;
+    final int quranLeft = quranTotal - quranCards.length;
+
+    Widget card(_Hit h) => Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: GlassCard(
+            blur: false,
+            onTap: h.open,
+            child: Row(children: [
+              Icon(h.icon, size: 17, color: AppColors.goldLight),
+              const SizedBox(width: 12),
+              Expanded(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    h.shelf,
+                    style: AppText.bodyMuted
+                        .copyWith(fontSize: 12, letterSpacing: 1.5),
+                  ),
+                  Text(h.title,
+                      style: AppText.body.copyWith(
+                          fontSize: 13.5, fontWeight: FontWeight.w600)),
+                  Text(h.kicker,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                ],
+              )),
+              const Icon(Icons.chevron_right, color: AppColors.gold, size: 16),
+            ]),
+          ),
+        );
+
+    Widget moreButton(Key key, String label, VoidCallback onTap) => Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton(key: key, onPressed: onTap, child: Text(label)),
+        );
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -431,39 +542,26 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 Column(children: [
                   Text(countsLine, style: AppText.eyebrow),
                   const SizedBox(height: 8),
-                  for (final h in hits)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: GlassCard(
-                        blur: false,
-                        onTap: h.open,
-                        child: Row(children: [
-                          Icon(h.icon, size: 17, color: AppColors.goldLight),
-                          const SizedBox(width: 12),
-                          Expanded(
-                              child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                h.shelf,
-                                style: AppText.bodyMuted.copyWith(
-                                    fontSize: 12, letterSpacing: 1.5),
-                              ),
-                              Text(h.title,
-                                  style: AppText.body.copyWith(
-                                      fontSize: 13.5,
-                                      fontWeight: FontWeight.w600)),
-                              Text(h.kicker,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: AppText.bodyMuted
-                                      .copyWith(fontSize: 12)),
-                            ],
-                          )),
-                          const Icon(Icons.chevron_right,
-                              color: AppColors.gold, size: 16),
-                        ]),
-                      ),
+                  for (final h in <_Hit>[
+                    ...destinationHits,
+                    ...surahHits,
+                    ...otherHits,
+                  ])
+                    card(h),
+                  if (otherLeft > 0)
+                    moreButton(
+                      const Key('search-more-other'),
+                      'Show ${otherLeft < _page ? otherLeft : _page} more '
+                      'of $otherLeft',
+                      () => setState(() => _otherShown += _page),
+                    ),
+                  for (final h in quranCards) card(h),
+                  if (quranLeft > 0)
+                    moreButton(
+                      const Key('search-more-quran'),
+                      "Show ${quranLeft < _page ? quranLeft : _page} more "
+                      "verses of $quranLeft",
+                      () => setState(() => _quranShown += _page),
                     ),
                   // A whole sentence is a question, not a word to find:
                   // the hits above are only loose matches, so say where a
@@ -505,6 +603,8 @@ class _SearchState extends ConsumerState<SearchScreen> {
       _q = '';
       _raw = '';
       _hasText = false;
+      _otherShown = _page;
+      _quranShown = _page;
       _fieldGen++;
       _focus = FocusNode();
     });
@@ -539,7 +639,9 @@ class _SearchState extends ConsumerState<SearchScreen> {
     setState(() {
       _hasText = raw.isNotEmpty;
       _raw = raw;
-      _q = raw.toLowerCase();
+      _q = asciiDigits(raw).toLowerCase();
+      _otherShown = _page;
+      _quranShown = _page;
     });
   }
 
