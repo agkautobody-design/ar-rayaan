@@ -1,7 +1,7 @@
 # Creed, knowledge, history. Neutral on contested political history; sourced where the sources are open to us.
 
 E('pillars-iman',
-  m=[r'\bpillars? of (?:iman|imaan|faith|belief)\b', r'\b(?:six|6) (?:pillars|articles) of (?:iman|imaan|faith|belief)\b', r'\barticles of (?:faith|belief|iman)\b', r'\bwhat (?:do|does) (?:muslims?|islam) believe\b', r'\bwhat is iman\b', r'\bwhat is (?:imaan|faith) in islam\b', r'\bbasic beliefs? (?:of|in) islam\b', r'\bbeliefs? of (?:muslims?|islam)\b', r'\bwhat must (?:a )?muslim believe\b'],
+  m=[r'\bpillars? of (?:iman|imaan|faith|belief)\b', r'\b(?:six|6) (?:pillars|articles) of (?:iman|imaan|faith|belief)\b', r'\barticles of (?:faith|belief|iman)\b', r'\bwhat (?:do|does) (?:muslims?|islam) believe\b', r'\bwhat is iman\b', r'\bwhat is (?:imaan|faith)$', r'\bbasic beliefs? (?:of|in) islam\b', r'\bbeliefs? of (?:muslims?|islam)\b', r'\bwhat must (?:a )?muslim believe\b'],
   topic='iman',
   text="""
 Iman (faith) has six articles. When the angel Jibreel asked the Prophet ﷺ about iman, he answered: {H muslim:8|The Prophet said that iman is to affirm your faith in Allah, in His angels, in His Books, in His Messengers, in the Day of Judgment, and to affirm your faith in the divine decree about good and evil}.
@@ -56,7 +56,7 @@ At the end, "Alhamdulillah" (all praise is due to Allah) is said to thank Him.
   review='Only cited texts.')
 
 E('salam-meaning',
-  m=[r'\bassalamu? ?alaikum\b', r'\bas salamu? ?alaykum\b', r'\bassalamualaikum\b', r'\bsalam alaikum\b', r'\bsalaam\b', r'\bwhat (?:does|is) salam\b', r'\bmeaning of (?:salam|salaam|assalam\w*)\b', r'\bhow (?:do|to) (?:i )?(?:greet|reply to) (?:a )?(?:muslim|salam)\b', r'\bwa alaikum\b', r'\bwalaikum\b', r'\bislamic greeting\b', r'\bmuslim greeting\b', r'\bgreet\w* in islam\b'],
+  m=[r'\bassalamu? ?alaikum\b', r'\bas salamu? ?alaykum\b', r'\bassalamualaikum\b', r'\bsalam alaikum\b', r'\bsalaam\b', r'\bwhat (?:does|is) salam\b', r'\bmeaning of (?:salam|salaam|assalam\w*)\b', r'\bhow (?:do|to) (?:i )?(?:greet|reply to) (?:a )?(?:muslim|salam)\b', r'\bwa alaikum\b', r'\bwalaikum\b', r'\bislamic greeting\b', r'\bmuslim greeting\b', r'^greet\w*$'],
   x=[r'\b(?:game|story)\b'],
   topic='salam',
   text="""
@@ -188,7 +188,7 @@ Allah describes him as {Q 68:4|of a great moral character} and as {Q 21:107|a me
 
 E('quran-what',
   m=[r'\bwhat is (?:the )?(?:quran|qur an|koran)\b', r'\bwho wrote (?:the )?(?:quran|qur an|koran)\b', r'\bwhat is the holy book\b', r'\bwhat is islam s holy book\b', r'\bis the (?:quran|qur an|koran) (?:changed|preserved|authentic|real|original|corrupted)\b', r'\bhow many (?:surahs|chapters|suras)\b', r'\bhow (?:was|is) the (?:quran|qur an|koran) (?:revealed|compiled|preserved|collected)\b', r'\btell me about the (?:quran|qur an|koran)\b', r'\bwhen was the (?:quran|qur an|koran) revealed\b', r'\bquran (?:overview|introduction|summary)\b', r'\bwhy (?:is|was) the (?:quran|qur an) in arabic\b'],
-  x=[r'\b(?:in this app|screen|bookmark|download|tafsir tab|reciter|audio)\b', r'\bvs\b', r'\bdifference between\b'],
+  x=[r'\b(?:in this app|screen|bookmark|download|tafsir tab|reciter|audio)\b', r'\bvs\b', r'\bdifference between\b', r'\b(?:game|games|quiz|trivia|play)\b'],
   topic='quran',
   text="""
 The Qur'an is the word of Allah, revealed to the Prophet Muhammad ﷺ through the angel Jibreel ({QR 2:97}), in Arabic, in stages over about twenty-three years (the thirteen years in Makkah and ten in Madinah of {H bukhari:3902|Ibn Abbas said the Prophet started receiving the Divine Inspiration at the age of forty, stayed in Makkah for thirteen years, was ordered to migrate, lived as an emigrant for ten years and died at sixty-three}). It began in the month of Ramadan: {Q 2:185|The month of Ramadhan [is that] in which was revealed the Qur'an, a guidance for the people}, on the Night of Decree ({QR 97:1}).
@@ -202,6 +202,7 @@ Reading it, understanding it, and acting on it are all rewarded. You can read an
 
 E('hadith-what',
   m=[r'\bwhat is (?:a |the )?hadith\b', r'\bwhat are hadiths?\b', r'\bwhat are ahadith\b', r'\bwhat is (?:the )?sunnah\b', r'\bwhat is sunnah\b', r'\bhadith (?:grades?|grading|classification|authenticity)\b', r'\bsahih (?:vs|versus|and|or) (?:hasan|daif|weak)\b', r'\bwhat is (?:a )?(?:sahih|hasan|daif|da if|weak|fabricated|mawdu) hadith\b', r'\bwhat does sahih mean\b', r'\bhow (?:do|can) (?:i|we) know (?:if )?(?:a )?hadith is (?:authentic|sahih|real)\b', r'\bsix books of hadith\b', r'\bsihah sitta\b', r'\bkutub al sittah\b', r'\bmajor hadith collections\b', r'\bhadith collections?\b'],
+  x=[r'\b(?:game|games|quiz|trivia|play)\b'],
   topic='hadith',
   text="""
 A hadith is a report of what the Prophet ﷺ said, did, or approved. Together these reports are his sunnah, the second source of Islamic teaching after the Qur'an. Each report has a text and a chain of narrators (isnad) back to the Prophet ﷺ.
@@ -306,7 +307,7 @@ Please note:
   review='Mahdi reports: the contested strength is stated without a ruling; flagged for scholar review.')
 
 E('china-knowledge',
-  m=[r'\bseek knowledge (?:even )?(?:as far as|even in|even unto|to) china\b', r'\bknowledge (?:even )?(?:in|as far as|to) china\b', r'\bchina\b.*\b(?:knowledge|hadith)\b', r'\b(?:knowledge|hadith)\b.*\bchina\b', r'\bseek(?:ing)? knowledge\b.*\b(?:hadith|authentic|sahih|obligatory|duty)\b', r'\bis seeking knowledge (?:obligatory|a duty|an obligation|fard|compulsory)\b', r'\bseeking knowledge in islam\b', r'\bislam and (?:education|knowledge)\b', r'\bimportance of (?:knowledge|education) in islam\b'],
+  m=[r'\bseek knowledge (?:even )?(?:as far as|even in|even unto|to) china\b', r'\bknowledge (?:even )?(?:in|as far as|to) china\b', r'\bchina\b.*\b(?:knowledge|hadith)\b', r'\b(?:knowledge|hadith)\b.*\bchina\b', r'\bseek(?:ing)? knowledge\b.*\b(?:hadith|authentic|sahih|obligatory|duty)\b', r'\bis seeking knowledge (?:obligatory|a duty|an obligation|fard|compulsory)\b', r'^seeking knowledge$', r'\bislam and (?:education|knowledge)\b', r'\bimportance of (?:knowledge|education)\b'],
   topic='knowledge',
   text="""
 No: "Seek knowledge even in China" is not an authentic hadith. It is not found in Bukhari, Muslim or the other major collections, and hadith scholars treat it as weak or invented, so it should not be attributed to the Prophet ﷺ. It is often quoted for the real point that knowledge is worth travelling for.
@@ -316,7 +317,7 @@ What is established is that Islam values knowledge highly. Allah says: {Q 39:9|A
 The Seeking Knowledge guide in this app has authentic texts on the subject.
 """,
   go=['/huda/guide?id=huda-knowledge'],
-  review='The statement that the China saying is weak/invented is the near-unanimous view of hadith scholars but is not text-checked here (it is not in the hadith corpus used). Ibn Majah 224 is cited as weak per the build.')
+  review='The statement that the China saying is weak/invented is the near-unanimous view of hadith scholars but is not text-checked here (it is not in the hadith corpus used). The Ibn Majah report is cited as weak with its grader.')
 
 E('allah-loves-me',
   m=[r'\bdoes allah (?:love|care about|hear|see|know|forgive|remember|accept) me\b', r'\bwill allah (?:love|forgive|accept|hear|help|punish|ever forgive) me\b', r'\bis allah (?:angry|upset|mad|disappointed|punishing|testing) (?:with|at) me\b', r'\bis allah (?:punishing|testing) me\b', r'\bdoes allah hate me\b', r'\ballah (?:hates|abandoned|forgot|left|ignores|ignored) me\b', r'\bwill allah ever forgive\b', r'\bdoes allah forgive (?:all|every|big|major|everything)\b', r'\bis there hope for me\b', r'\bi feel (?:far|distant) from allah\b', r'\bi feel allah (?:doesn t|does not|isn t) \w+\b', r'\bcan allah forgive\b', r'\bi (?:committed|did) (?:a )?(?:big|major|terrible|huge|bad) sin\b', r'\bi m a (?:bad|terrible|sinful) muslim\b'],
@@ -333,7 +334,7 @@ If you have sinned, even greatly, the door is open: {Q 39:53|do not despair of t
   review='None beyond the cited texts.')
 
 E('jihad-peace',
-  m=[r'\bis islam (?:a )?(?:religion of )?(?:peace|violent|violence|peaceful|terroris\w*)\b', r'\bdoes islam (?:promote|teach|allow|encourage|support|permit) (?:violence|terroris\w*|killing|war|murder)\b', r'\bwhat is jihad\b', r'\bmeaning of jihad\b', r'\bjihad\b', r'\bterroris\w*\b.*\b(?:islam|muslims?)\b', r'\b(?:islam|muslims?)\b.*\bterroris\w*\b', r'\bislam and (?:violence|terror\w*|war)\b', r'\bkill(?:ing)? (?:non muslims?|infidels?|kafirs?|innocent)\b', r'\bpeace in islam\b', r'\bwhat does islam say about (?:violence|war|killing|peace)\b', r'\bis it (?:halal|allowed|permissible) to kill\b', r'\bsword verse\b', r'\bfight (?:the )?(?:infidels?|disbelievers|non muslims?)\b'],
+  m=[r'\bis islam (?:a )?(?:religion of )?(?:peace|violent|violence|peaceful|terroris\w*)\b', r'\bdoes islam (?:promote|teach|allow|encourage|support|permit) (?:violence|terroris\w*|killing|war|murder)\b', r'\bwhat is jihad\b', r'\bmeaning of jihad\b', r'\bjihad\b', r'\bterroris\w*\b.*\b(?:islam|muslims?)\b', r'\b(?:islam|muslims?)\b.*\bterroris\w*\b', r'\bislam and (?:violence|terror\w*|war)\b', r'\bkill(?:ing)? (?:non muslims?|infidels?|kafirs?|innocent)\b', r'^peace$', r'\bwhat does islam say about (?:violence|war|killing|peace)\b', r'\bis it (?:halal|allowed|permissible) to kill\b', r'\bsword verse\b', r'\bfight (?:the )?(?:infidels?|disbelievers|non muslims?)\b'],
   topic='peace',
   text="""
 Islam's teaching is to protect life and to be just to everyone. The Qur'an says that killing an innocent person is like killing all of mankind: {Q 5:32|whoever kills a soul unless for a soul or for corruption [done] in the land - it is as if he had slain mankind entirely. And whoever saves one - it is as if he had saved mankind entirely}. Terror against civilians is a major sin and has no place in Islam, whoever does it and in whatever name.
@@ -343,3 +344,18 @@ Jihad means "striving". The greater part of it is the struggle against one's own
 Kindness to people of other faiths who do not fight you is commanded: {Q 60:8|Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes - from being righteous toward them and acting justly toward them}, and {Q 2:256|There shall be no compulsion in [acceptance of] the religion}. Whether any particular war is lawful is a question for qualified scholars, not for individuals or groups.
 """,
   review='Fighting only for defence is stated per the cited verses; the classical fiqh of jihad includes further discussion that is not summarised here. Flagged for scholar review.')
+
+E('other-religions',
+  m=[r'\bis (?:christianity|judaism|hinduism|buddhism|sikhism|atheism|catholicism|christian\w*) (?:true|right|correct|the truth|false|wrong|the true religion)\b', r'\b(?:do|did) you think (?:that )?(?:christianity|judaism|hinduism|buddhism|atheism|islam|christians|jews) (?:is|are) (?:true|right|correct)\b', r'\bwhich (?:religion|faith) is (?:true|right|correct|the truth|the best|better)\b', r'\bis islam (?:the )?(?:only )?(?:true|right|correct|best|only) (?:religion|way|faith)\b', r'\bis islam (?:the )?(?:only|one) (?:way|path|religion)\b',
+     r'\bwhy (?:islam|is islam|should i choose islam|choose islam|be a muslim)\b', r'\bwhat does islam say about (?:christians?|jews?|hindus?|buddhists?|atheists?|other religions|non muslims?|people of other faiths)\b', r'\bwill (?:non muslims?|christians?|jews?|hindus?|atheists?|people of other (?:faiths?|religions?)) go to (?:hell|heaven|paradise|jahannam|jannah)\b', r'\bdo (?:muslims|you) respect (?:other religions|christians|jews)\b', r'\bis jesus (?:god|the son of god|divine)\b', r'\btrinity\b', r'\bwhat do muslims (?:believe|think) about (?:jesus|isa|christ)\b', r'\bdid jesus die on the cross\b', r'\bcrucifix\w*\b', r'\bwhat is the difference between islam and christianity\b', r'\bislam (?:vs|versus|and) christianity\b'],
+  topic='religions',
+  text="""
+I answer from Islam, so I can tell you what Muslims believe, and I will not mock or attack anyone's faith.
+
+Muslims believe that Allah sent messengers to every people with one message, to worship Him alone, and that Muhammad ﷺ is the last of them. So Muslims say that the religion with Allah is Islam, meaning submission to Him ({Q 3:19|Indeed, the religion in the sight of Allah is Islam}), the way of Ibrahim: {Q 3:67|Abraham was neither a Jew nor a Christian, but he was one inclining toward truth, a Muslim [submitting to Allah]}.
+
+On Jesus (Isa): Muslims honour him as one of the greatest messengers, born miraculously to Maryam, and a word from Allah. The Qur'an says: {Q 4:171|The Messiah, Jesus, the son of Mary, was but a messenger of Allah and His word which He directed to Mary and a soul [created at a command] from Him}, and teaches that he is not God or the son of God, and rejects the Trinity, and says that to claim Allah is the third of three is disbelief: {Q 5:73|And there is no god except one God}. The Qur'an also compares his creation to that of Adam ({QR 3:59}). So Muslims and Christians agree on his honour and miracles, and differ on who he is.
+
+How Muslims are told to treat others: {Q 2:256|There shall be no compulsion in [acceptance of] the religion}, {Q 29:46|do not argue with the People of the Scripture except in a way that is best}, and in the last words of Surah Al-Kafirun: {Q 109:6|For you is your religion, and for me is my religion}. Whom Allah admits to Paradise is for Him to judge; a Muslim's duty is to invite with kindness and wisdom and to be just to everyone.
+""",
+  review='Statements on Christian belief are limited to what the Qur\'an says and what Muslims therefore believe; the final judgment on individuals is left to Allah. Flagged for scholar review.')

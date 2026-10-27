@@ -3736,6 +3736,28 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-2260",
+   "collection": "Sahih Muslim",
+   "number": "2260",
+   "english": "Buraida reported the Messenger of Allah said he who played Nardashir, a game similar to backgammon, is like one who dyed his hand with the flesh and blood of swine",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "buraida",
+    "reported",
+    "played",
+    "nardashir",
+    "game",
+    "similar",
+    "backgammon",
+    "like"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2260",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
   }
  ]
 }

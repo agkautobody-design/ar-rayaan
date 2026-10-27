@@ -39,7 +39,7 @@ If you are being hit, or you are afraid for your safety, ask me about abuse and 
 
 E('nikah-basics',
   m=[r'\bnikah\b', r'\bnikkah\b', r'\bmahr\b', r'\bmehr\b', r'\bdowry\b', r'\bbridal gift\b', r'\bwali\b', r'\bguardian\b.*\b(?:marriage|marry|nikah)\b', r'\b(?:conditions|requirements|pillars) of (?:a )?(?:marriage|nikah)\b', r'\bhow (?:do|to|can) (?:i |we )?(?:get )?married\b', r'\bmarriage contract\b',
-     r'\bforced marriage\b', r'\barranged marriage\b', r'\bmarry without (?:my )?(?:parents?|family|wali|father)\b', r'\bwalima\b', r'\bis (?:marriage|nikah) (?:compulsory|obligatory|fard|sunnah|required|mandatory)\b', r'\bwhy (?:should|do) (?:i|muslims?) (?:get )?marr(?:y|ied)\b', r'\bmarriage in islam\b', r'\bhow to marry\b', r'\bwhat is marriage\b', r'\bislamic wedding\b', r'\bengagement\b'],
+     r'\bforced marriage\b', r'\barranged marriage\b', r'\bmarry without (?:my )?(?:parents?|family|wali|father)\b', r'\bwalima\b', r'\bis (?:marriage|nikah) (?:compulsory|obligatory|fard|sunnah|required|mandatory)\b', r'\bwhy (?:should|do) (?:i|muslims?) (?:get )?marr(?:y|ied)\b', r'^marriage$', r'\bhow to marry\b', r'\bwhat is marriage\b', r'\bislamic wedding\b', r'\bengagement\b'],
   x=[r'\b(?:games?|story|prophet s marriage|marriages of the prophet)\b', r'\b(?:non muslim|christian|jewish|jew|hindu|buddhist|atheist)\b'],
   topic='marriage',
   go=['/huda/guide?id=huda-nikah'],

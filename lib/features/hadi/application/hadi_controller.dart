@@ -62,6 +62,8 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/dua', '/academy/hifz', '/academy/recitation',
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
   '/tasbeeh', '/settings/language', '/quran/bookmarks',
+  '/kids', '/games/history', '/games/memory', '/games/ludo',
+  '/games/shatranj',
 };
 
 /// Short names for the screens Hādi offers as buttons. A route that is not
@@ -117,6 +119,11 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/letters': 'the Arabic letters',
   '/academy/arabic-language': 'the Arabic language school',
   '/games/trivia': 'Trivia',
+  '/kids': 'For Children',
+  '/games/history': 'Game history',
+  '/games/memory': 'Memory Match',
+  '/games/ludo': 'Ludo',
+  '/games/shatranj': 'Shatranj (chess)',
 };
 
 /// The Huda guides Hādi may open directly, as `/huda/guide?id=<id>`, with the
