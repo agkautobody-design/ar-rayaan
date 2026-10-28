@@ -469,18 +469,20 @@ class _OrderCard extends StatelessWidget {
             if (canMove) ...<Widget>[
               IconButton(
                 tooltip: 'Move up',
+                padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(
-                  minWidth: GamesTheme.minTap,
-                  minHeight: GamesTheme.minTap,
+                  minWidth: 56,
+                  minHeight: 56,
                 ),
                 onPressed: position == 0 ? null : onUp,
                 icon: Icon(Icons.keyboard_arrow_up, color: palette.accent),
               ),
               IconButton(
                 tooltip: 'Move down',
+                padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(
-                  minWidth: GamesTheme.minTap,
-                  minHeight: GamesTheme.minTap,
+                  minWidth: 56,
+                  minHeight: 56,
                 ),
                 onPressed: position == count - 1 ? null : onDown,
                 icon: Icon(Icons.keyboard_arrow_down, color: palette.accent),

@@ -309,11 +309,15 @@ bool _usableWord(String w) {
 }
 
 class _AyahRef {
-  const _AyahRef(this.surah, this.ayah, this.words, this.text);
+  const _AyahRef(this.surah, this.ayah, this.words, this.text,
+      [this.english = '']);
   final int surah;
   final int ayah;
   final List<String> words;
   final String text;
+
+  /// The translation the app already shows for this ayah in the reader.
+  final String english;
 }
 
 class _SurahRow {
@@ -374,7 +378,9 @@ List<QuizQuestion> buildQuranQuiz(
           .toList();
       if (words.length < minTok || words.length > maxTok) continue;
       if (!words.any(_usableWord)) continue;
-      ayat.add(_AyahRef(n, row[0] as int, words, text));
+      final String english =
+          row.length > 2 && row[2] is String ? row[2] as String : '';
+      ayat.add(_AyahRef(n, row[0] as int, words, text, english));
     }
   }
   final List<_SurahRow> surahPool = <_SurahRow>[
@@ -480,7 +486,9 @@ QuizQuestion? _ayahQuestion(
     options: options,
     answer: options.indexOf(answer),
     context: difficulty == GameDifficulty.easy ? 'From Surah ${s.name}' : null,
-    explanation: 'The ayah reads: ${a.text}',
+    explanation: a.english.isEmpty
+        ? 'The ayah reads: ${a.text}'
+        : 'The ayah reads: ${a.text}\n\nIn English: ${a.english}',
     citation: 'Qur’an ${a.surah}:${a.ayah} (Surah ${s.name})',
   );
 }

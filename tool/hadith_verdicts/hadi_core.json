@@ -76,6 +76,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "abudawud:2229": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "abudawud:2356": {
   "verdict": "ok",
   "grade": "Hasan sahih",
@@ -2456,6 +2463,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "tirmidhi:1187": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "tirmidhi:131": {
   "verdict": "ok",
   "grade": "Da'if",
@@ -2613,6 +2627,13 @@
  "tirmidhi:415": {
   "verdict": "ok",
   "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:678": {
+  "verdict": "ok",
+  "grade": "Da'if",
   "grader": "Darussalam",
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."

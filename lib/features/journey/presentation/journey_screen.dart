@@ -312,7 +312,7 @@ class _DoneCard extends ConsumerWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          '${p.label} (${(p.weight * 100).round()}%)',
+                          p.label,
                           style: AppText.body.copyWith(fontSize: 14),
                         ),
                       ),

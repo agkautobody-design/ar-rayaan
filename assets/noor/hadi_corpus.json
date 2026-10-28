@@ -2516,7 +2516,7 @@
    "id": "h:muslim-2003",
    "collection": "Sahih Muslim",
    "number": "2003",
-   "english": "Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden, and whoever drinks wine in this world and dies addicted to it without repenting will not be given a drink in the Hereafter",
+   "english": "Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
@@ -2525,9 +2525,7 @@
     "every",
     "intoxicant",
     "khamr",
-    "forbidden",
-    "whoever",
-    "drinks"
+    "forbidden"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2003",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
@@ -8991,6 +8989,72 @@
     "payable"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:1573",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-2229",
+   "collection": "Sunan Abu Dawud",
+   "number": "2229",
+   "english": "Ibn Abbas reported that the wife of Thabit ibn Qais separated from him for compensation and the Prophet made her waiting period one menstrual cycle",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "abbas",
+    "reported",
+    "wife",
+    "thabit",
+    "qais",
+    "separated",
+    "compensation",
+    "made"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:2229",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:tirmidhi-1187",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "1187",
+   "english": "Thawban reported that the Prophet said if a woman asks her husband for khul' without any harm or cause, the scent of Paradise will be unlawful for her",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "thawban",
+    "reported",
+    "woman",
+    "asks",
+    "husband",
+    "khul'",
+    "without",
+    "harm"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:1187",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:tirmidhi-678",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "678",
+   "english": "Ali reported that Al-Abbas asked the Messenger of Allah about paying his zakat early, before it was due, and he gave him permission",
+   "grade": "Da'if",
+   "grader": "Darussalam",
+   "topics": [
+    "reported",
+    "abbas",
+    "asked",
+    "about",
+    "paying",
+    "zakat",
+    "early",
+    "before"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:678",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-10-27"
