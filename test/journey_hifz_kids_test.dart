@@ -216,10 +216,10 @@ void main() {
     });
 
     test('kids doors drop Academy ones when the Academy is off', () {
-      expect(kidsDoorsFor(showAcademy: true).length, 3);
+      expect(kidsDoorsFor(showAcademy: true).length, 5);
       expect(
         kidsDoorsFor(showAcademy: false).map((KidsDoor d) => d.id),
-        <String>['games'],
+        <String>['games', 'surahs', 'duas'],
       );
     });
 

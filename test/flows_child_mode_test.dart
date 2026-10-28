@@ -264,7 +264,7 @@ void main() {
       expect(
         kidsDoorsFor(showAcademy: true, childMode: true)
             .map((KidsDoor d) => d.id),
-        <String>['letters', 'games', 'stories'],
+        <String>['letters', 'games', 'stories', 'surahs', 'duas'],
       );
       expect(
         kidsDoorsFor(showAcademy: true).map((KidsDoor d) => d.id),

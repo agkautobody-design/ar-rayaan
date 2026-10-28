@@ -186,6 +186,7 @@ class _MoodCheckInScreenState extends ConsumerState<MoodCheckInScreen> {
                 final bool? ok = await showDialog<bool>(
                   context: context,
                   builder: (BuildContext ctx) => AlertDialog(
+                    semanticLabel: 'Delete all check-ins?',
                     title: const Text('Delete all check-ins?'),
                     content: const Text('This cannot be undone.'),
                     actions: <Widget>[
@@ -449,6 +450,7 @@ class _SafetyPlanScreenState extends ConsumerState<SafetyPlanScreen> {
                 final bool? ok = await showDialog<bool>(
                   context: context,
                   builder: (BuildContext ctx) => AlertDialog(
+                    semanticLabel: 'Delete my safety plan?',
                     title: const Text('Delete my safety plan?'),
                     content: const Text('This cannot be undone.'),
                     actions: <Widget>[

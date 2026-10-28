@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/content_loader.dart';
+import '../../../app/core/online_status.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -99,8 +101,18 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
             const SizedBox(height: 14),
             const Center(child: NeedHelpNowButton(large: true)),
             const SizedBox(height: 14),
-            for (final e in const [
-              ('Qur\u2019an', 'Read and listen', Icons.menu_book_outlined, AppRoutes.quran),
+            for (final e in [
+              (
+                'Qur\u2019an',
+                // Say what to do when the text is not yet kept on this device.
+                ref.watch(quranOfflineReadyProvider).valueOrNull == false
+                    ? (deviceReportsOnline == false
+                        ? 'Needs internet once: connect, then tap'
+                        : 'Tap to open it and keep it on this phone')
+                    : 'Read and listen',
+                Icons.menu_book_outlined,
+                AppRoutes.quran,
+              ),
               ('Prayer times', 'When to pray today', Icons.access_time, AppRoutes.prayerTimes),
               ('Daily Duas', 'Prayers for morning and evening', Icons.wb_twilight, AppRoutes.adhkar),
               ('For Your Heart', 'How do you feel today?', Icons.favorite_border, AppRoutes.feelings),

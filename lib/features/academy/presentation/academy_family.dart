@@ -28,6 +28,7 @@ import 'widgets/age_band_chooser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The Family Wing — parents add children, watch their growth, and speak
 /// with Wasia about each child's learning.
@@ -782,7 +783,7 @@ class _FamilyDoor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,
@@ -976,6 +977,7 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
+        semanticLabel: kChildrenPrivacyTitle,
         backgroundColor: const Color(0xFF0A0F18),
         title: Text(kChildrenPrivacyTitle, style: AppText.titleMedium),
         content: SingleChildScrollView(

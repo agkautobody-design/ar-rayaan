@@ -6,6 +6,7 @@ import '../../../app/theme/widgets/tr_text.dart';
 import '../../../app/theme/app_colors.dart';
 import '../data/ludo_board_art.dart';
 import '../data/ludo_rules.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Pawn colours, in colour order: red, blue, yellow, green. Used for dots and
 /// markers; the board picture and pawn sprites carry the real artwork.
@@ -285,7 +286,7 @@ class LudoBoardView extends StatelessWidget {
                 top: top + lift,
                 width: side,
                 height: side,
-                child: Semantics(
+                child: FocusSafeSemantics(
                   button: s.movable,
                   label: '$name pawn ${s.token + 1}, ${s.where}',
                   onTap: s.movable && onTapToken != null

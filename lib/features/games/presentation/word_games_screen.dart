@@ -21,6 +21,7 @@ import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 const String _wordSource = 'The glossary of the Huda guides in the app: the '
     'plain, literal meanings it gives for these terms. Nothing here states '
@@ -688,7 +689,7 @@ class _Tile extends StatelessWidget {
         ),
       ),
     );
-    return Semantics(
+    return FocusSafeSemantics(
       button: onTap != null,
       label: label,
       excludeSemantics: true,

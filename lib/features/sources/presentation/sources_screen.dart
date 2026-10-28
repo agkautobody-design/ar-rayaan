@@ -325,7 +325,10 @@ class _TrustCard extends StatelessWidget {
     ),
     (
       'What stays on your device',
-      'Your settings, bookmarks, progress and reflections. Hādi conversations are not saved: they stay on screen for the visit only. We do not sell your data. See the Privacy Policy (still a draft) for the services the app contacts.',
+      'Your settings, bookmarks, progress and reflections. Hādi does not '
+          'save your conversations: they stay on screen for this visit only. '
+          'We do not sell your data. See the Privacy Policy (still a draft) '
+          'for the services the app contacts.',
     ),
   ];
 

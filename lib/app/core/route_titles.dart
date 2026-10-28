@@ -26,6 +26,8 @@ abstract final class RouteTitles {
     '/home/quick': 'Quick Access',
     '/handout': 'Handout',
     '/kids': 'For Children',
+    '/kids/surahs': 'Short surahs',
+    '/kids/duas': 'Duas for children',
     '/kids/grownups': 'What grown-ups can see',
     '/kids/ask': 'Ask Wasia',
     '/support/teachers': 'For teachers and mentors',

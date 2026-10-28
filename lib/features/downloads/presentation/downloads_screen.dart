@@ -53,7 +53,7 @@ String textStatusLine(
     case PackPhase.downloaded:
       return 'Saved in this browser · $size';
     case PackPhase.notDownloaded:
-      return 'Not saved · needs internet each visit · $size';
+      return 'Not saved yet · needs internet to read · $size';
     case PackPhase.queued:
       return 'Waiting its turn · $size';
     case PackPhase.downloading:
@@ -93,6 +93,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: title,
         title: Text(title),
         content: Text(body),
         actions: <Widget>[

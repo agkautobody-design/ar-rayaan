@@ -15,6 +15,7 @@ import '../../tracking/application/tracking_providers.dart';
 import '../application/tasbeeh_providers.dart';
 import '../domain/tasbeeh_counter.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// A plain counter. The whole lower half of the screen is one big tap area.
 /// On Android it can also count with the volume buttons while the screen is
@@ -275,7 +276,7 @@ class _TapPad extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
-      child: Semantics(
+      child: FocusSafeSemantics(
         button: true,
         label:
             'Tap to count. ${state.count} of ${state.target}, '

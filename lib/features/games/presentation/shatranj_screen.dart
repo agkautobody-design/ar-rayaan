@@ -25,6 +25,7 @@ import '../data/room_moves.dart';
 import '../ui/games_theme.dart';
 import 'online_lobby.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// SHATRANJ. A complete game of chess: every rule (castling, en passant,
 /// promotion to the piece you choose, check, checkmate, stalemate, threefold
@@ -688,6 +689,7 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
     final bool? r = await showDialog<bool>(
       context: context,
       builder: (BuildContext c) => AlertDialog(
+        semanticLabel: title,
         backgroundColor: AppColors.navy,
         title: Text(title, style: AppText.titleMedium),
         content: Text(body, style: AppText.body),
@@ -1555,7 +1557,7 @@ class _RoundAction extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool on = onTap != null;
     final double d = big ? 64 : 54;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       enabled: on,
       label: label,
@@ -1622,7 +1624,7 @@ class _PromoChoice extends StatelessWidget {
   Widget build(BuildContext context) {
     final String name = pieceName(pieceType(piece));
     final String label = '${name[0].toUpperCase()}${name.substring(1)}';
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

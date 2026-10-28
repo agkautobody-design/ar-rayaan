@@ -28,6 +28,7 @@ class _HadithNoteDialogState extends State<HadithNoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'Your note',
       backgroundColor: AppColors.navy,
       title: Text('Your note', style: AppText.titleMedium),
       content: TextField(

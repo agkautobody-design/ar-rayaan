@@ -6,6 +6,7 @@ import '../theme/widgets/tr_text.dart';
 import 'package:go_router/go_router.dart';
 
 import '../router.dart';
+import '../theme/widgets/focus_safe_semantics.dart';
 
 /// App-wide error handling.
 ///
@@ -214,7 +215,7 @@ class _FallbackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Color gold = AppErrorFallbackColors.gold;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

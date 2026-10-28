@@ -28,6 +28,7 @@ import '../domain/surah_search.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import 'quran_offline_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
 /// New screen designed within the locked system — pending Founder approval.
@@ -507,7 +508,7 @@ class _AyatAlKursiShortcut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: 'Ayat al-Kursi, Al-Baqarah 2:255',
       excludeSemantics: true,

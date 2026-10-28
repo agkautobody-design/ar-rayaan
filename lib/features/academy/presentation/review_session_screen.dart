@@ -39,6 +39,7 @@ import '../domain/v3/lesson_v3_review.dart' show v3ReviewQuestions;
 import '../domain/v3/lessons_v3.dart' show LessonsV3;
 import '../domain/word_deck.dart';
 import 'wasia_lessons.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class ReviewSessionScreen extends ConsumerStatefulWidget {
   const ReviewSessionScreen({super.key});
@@ -580,7 +581,7 @@ class _LessonReviewCardState extends ConsumerState<_LessonReviewCard> {
         for (int o = 0; o < q.options.length; o++)
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: Semantics(
+            child: FocusSafeSemantics(
               button: true,
               selected: picked == o,
               label: q.options[o],

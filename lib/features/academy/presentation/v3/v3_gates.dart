@@ -11,6 +11,7 @@ import '../../../../app/theme/widgets/tr_text.dart';
 
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
+import '../../../../app/theme/widgets/announce.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
 import '../../domain/v3/lesson_v3_model.dart';
 import '../../domain/v3/lesson_v3_review.dart' show fillSentence;
@@ -50,11 +51,16 @@ class _Result extends StatelessWidget {
     return Focus(
       focusNode: node,
       skipTraversal: true,
-      child: Semantics(
-        liveRegion: true,
-        container: true,
-        label: spoken,
-        child: ExcludeSemantics(child: child),
+      // Also sent as an announcement: the live-region label alone stayed
+      // silent in the browser.
+      child: Announce(
+        message: spoken,
+        child: Semantics(
+          liveRegion: true,
+          container: true,
+          label: spoken,
+          child: ExcludeSemantics(child: child),
+        ),
       ),
     );
   }
@@ -738,29 +744,36 @@ class _MatchViewState extends State<MatchView> {
             ),
           if (fb != null && fb.correct && !_s.allSettled) ...<Widget>[
             const SizedBox(height: 6),
-            Semantics(
-              liveRegion: true,
-              container: true,
-              label: t('v3.right'),
-              child: ExcludeSemantics(
-                child: Text(
-                  t('v3.right'),
-                  key: const Key('v3-match-right'),
-                  style: _body().copyWith(
-                      fontWeight: FontWeight.w600, color: AppColors.gold),
+            Announce(
+              message: t('v3.right'),
+              child: Semantics(
+                liveRegion: true,
+                container: true,
+                label: t('v3.right'),
+                child: ExcludeSemantics(
+                  child: Text(
+                    t('v3.right'),
+                    key: const Key('v3-match-right'),
+                    style: _body().copyWith(
+                        fontWeight: FontWeight.w600, color: AppColors.gold),
+                  ),
                 ),
               ),
             ),
           ],
           if (fb != null && fb.reteach != null) ...<Widget>[
             const SizedBox(height: 6),
-            Semantics(
-              liveRegion: true,
-              container: true,
-              label: fb.reteach!,
-              child: ExcludeSemantics(
-                child: Text(fb.reteach!,
-                    key: const Key('v3-reteach'), style: _body()),
+            Announce(
+              message: fb.reteach!,
+              assertive: true,
+              child: Semantics(
+                liveRegion: true,
+                container: true,
+                label: fb.reteach!,
+                child: ExcludeSemantics(
+                  child: Text(fb.reteach!,
+                      key: const Key('v3-reteach'), style: _body()),
+                ),
               ),
             ),
             if (fb.back != null && !_s.allSettled)

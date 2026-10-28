@@ -49,7 +49,8 @@ class KidsDoor {
   final bool needsParent;
 }
 
-/// The three doors. Every one is a screen that already exists.
+/// The doors. Every one is a screen made for children, or one that already
+/// exists and is safe for them.
 const List<KidsDoor> kKidsDoors = <KidsDoor>[
   KidsDoor(
     id: 'letters',
@@ -74,6 +75,20 @@ const List<KidsDoor> kKidsDoors = <KidsDoor>[
     route: '/academy/stories',
     icon: Icons.auto_stories_outlined,
     isAcademy: true,
+  ),
+  KidsDoor(
+    id: 'surahs',
+    title: 'Short surahs',
+    subtitle: 'Read and listen, one small surah at a time',
+    route: '/kids/surahs',
+    icon: Icons.menu_book_outlined,
+  ),
+  KidsDoor(
+    id: 'duas',
+    title: 'Duas',
+    subtitle: 'Words to say to Allah, with what they mean',
+    route: '/kids/duas',
+    icon: Icons.back_hand_outlined,
   ),
 ];
 

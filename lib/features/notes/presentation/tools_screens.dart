@@ -203,6 +203,7 @@ class _NoteEditorState extends State<_NoteEditor> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: widget.existing == null ? 'New note' : 'Edit note',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text(
         widget.existing == null ? 'New note' : 'Edit note',

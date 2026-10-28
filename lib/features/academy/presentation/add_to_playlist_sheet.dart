@@ -93,6 +93,7 @@ Future<String?> askForName(BuildContext context,
   final bool? ok = await showDialog<bool>(
     context: context,
     builder: (BuildContext ctx) => AlertDialog(
+      semanticLabel: title,
       backgroundColor: AppColors.navy,
       title: Text(title, style: AppText.titleMedium),
       content: TextField(

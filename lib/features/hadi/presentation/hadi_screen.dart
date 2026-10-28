@@ -38,8 +38,10 @@ import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../support/presentation/privacy_shield.dart';
+import '../../support/domain/quick_exit_signal.dart';
 import '../../support/application/support_settings.dart';
 import '../../support/presentation/support_widgets.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The items under the More options button in the header.
 enum _HadiMenu { newConversation, school, advanced, about }
@@ -238,6 +240,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'New conversation?',
         backgroundColor: AppColors.night,
         title: Text(
           'New conversation?',
@@ -603,6 +606,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     // the composer shrinks, so the chat gets at least half the screen.
     final bool tight = isTightLayout(context);
     _tight = tight;
+    final bool showQuickExit = ref.watch(supportSettingsProvider).quickExit &&
+        hadi.messages.any((HadiMessage m) =>
+            !m.fromHadi || m.support != null || m.crisis != null);
+    final bool squeezed = tight || largeText;
     final bool fullIntro = _introOpen || (!compact && !largeText && !tight);
     ref.listen<HadiState>(
       hadiControllerProvider,
@@ -690,6 +697,13 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         else
                           Expanded(child: statusPill),
                         const SizedBox(width: 4),
+                        if (showQuickExit && squeezed)
+                          _HeaderIcon(
+                            icon: Icons.exit_to_app,
+                            label:
+                                'Quick exit. Clears this conversation and leaves now.',
+                            onTap: requestQuickExit,
+                          ),
                         _HeaderIcon(
                           icon: Icons.favorite_outline,
                           label: 'Need help now',
@@ -844,9 +858,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             // nobody should have to say something hard to find the way out.
             // Before they have typed anything there is nothing to hide, and
             // the room is kept for the chat on a small or zoomed screen.
-            if (ref.watch(supportSettingsProvider).quickExit &&
-                hadi.messages.any((HadiMessage m) =>
-                    !m.fromHadi || m.support != null || m.crisis != null))
+            // On a very small or zoomed screen the button moves into the
+            // header row (an icon) so the chat keeps its room.
+            if (showQuickExit && !squeezed)
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: QuickExitButton(),
@@ -1030,7 +1044,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         ),
                       ),
                     ),
-                    Semantics(
+                    FocusSafeSemantics(
                       button: true,
                       enabled: !hadi.typing,
                       label: 'Send',
@@ -1517,16 +1531,29 @@ class _Bubble extends ConsumerWidget {
                         bottomRight: Radius.circular(4),
                       ),
                     ),
-                    child: SelectableText(
-                      message.text,
+                    // The person's own words are read out too (a selectable
+                    // field alone reaches a screen reader as an empty box).
+                    child: Semantics(
+                      container: true,
+                      label: 'You: ${message.text}',
                       textDirection: HadiMarkdown.isMostlyRtl(message.text)
                           ? TextDirection.rtl
                           : (startsWithLatin(message.text)
                               ? TextDirection.ltr
                               : null),
-                      style: AppText.body.copyWith(
-                        color: AppColors.night,
-                        height: 1.4,
+                      child: ExcludeSemantics(
+                        child: SelectableText(
+                          message.text,
+                          textDirection: HadiMarkdown.isMostlyRtl(message.text)
+                              ? TextDirection.rtl
+                              : (startsWithLatin(message.text)
+                                  ? TextDirection.ltr
+                                  : null),
+                          style: AppText.body.copyWith(
+                            color: AppColors.night,
+                            height: 1.4,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -1550,7 +1577,7 @@ class _HeaderIcon extends StatelessWidget {
     // The circle is 40 dp; the area that answers a tap is 48 dp.
     return Tooltip(
       message: label,
-      child: Semantics(
+      child: FocusSafeSemantics(
         button: true,
         label: label,
         excludeSemantics: true,

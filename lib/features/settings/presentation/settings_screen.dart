@@ -23,6 +23,7 @@ import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
 import '../../quran/presentation/quran_translation_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -458,7 +459,7 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 4),
-                      Semantics(
+                      FocusSafeSemantics(
                         button: true,
                         label: 'Replay the introduction',
                         excludeSemantics: true,

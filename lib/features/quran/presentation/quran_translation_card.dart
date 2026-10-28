@@ -126,7 +126,9 @@ class _Row extends StatelessWidget {
       label: '$title. $subtitle',
       child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
-        child: ConstrainedBox(
+        // The label above says it all; the words inside would be read a
+        // second time (and make a second stop).
+        child: ExcludeSemantics(child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
           child: Row(
             children: <Widget>[
@@ -150,7 +152,7 @@ class _Row extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        )),
       )),
     );
   }

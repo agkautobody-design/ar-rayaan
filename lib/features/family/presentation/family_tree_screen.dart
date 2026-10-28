@@ -14,6 +14,7 @@ import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class FamilyTreeScreen extends ConsumerStatefulWidget {
   const FamilyTreeScreen({super.key, this.initiallyExpanded = const <String>{}});
@@ -253,7 +254,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                   return Row(
                 children: [
                   if (hasKids)
-                    Semantics(
+                    FocusSafeSemantics(
                       button: true,
                       expanded: isOpen,
                       label: '${isOpen ? 'Hide' : 'Show'} the children of ${node.name}',

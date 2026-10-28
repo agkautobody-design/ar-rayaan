@@ -8,6 +8,7 @@ import '../../core/kids_mode.dart';
 import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
+import 'focus_safe_semantics.dart';
 
 /// One tap to Hādi from a full-screen page.
 ///
@@ -150,7 +151,7 @@ class AskHadiPill extends StatelessWidget {
     // At large text the words would make the pill tall and wide: a round
     // 48dp icon instead (the label stays for screen readers).
     final bool compact = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

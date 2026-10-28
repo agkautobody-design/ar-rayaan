@@ -345,8 +345,9 @@ const String kOfflineStatusNote =
     'is kept for this site only.\n\n'
     'Needs a connection: recitation you have not downloaded, nasheeds, '
     'online game tables, the community, the masjid finder, and any answer '
-    'from an AI service. In a browser the app itself also needs a '
-    'connection to open.';
+    'from an AI service. In a browser the app needs a connection the first '
+    'time you open it; after that the browser keeps a copy so it reopens '
+    'offline (not in a private window, and not after clearing site data).';
 
 /// Why nasheeds have no download button. Shown on the Downloads screen and
 /// on the player.

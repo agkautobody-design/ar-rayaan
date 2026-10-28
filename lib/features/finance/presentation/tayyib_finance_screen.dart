@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../zakat/domain/zakat_calculation.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../domain/halal_screen.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// TAYYIB FINANCE - the wealth wing. Purification, giving, and earning.
 /// Zakat links to the live engine; the stock screener teaches the AAOIFI
@@ -279,7 +280,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                           if ((w['note'] as String? ?? '').isNotEmpty)
                             Text(w['note'] as String, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ])),
-                        Semantics(
+                        FocusSafeSemantics(
                           button: true,
                           label: 'Remove from the watch list',
                           excludeSemantics: true,
