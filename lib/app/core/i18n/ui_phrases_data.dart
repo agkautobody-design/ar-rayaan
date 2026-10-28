@@ -1,5 +1,5 @@
 // GENERATED phrase table (see ui_phrases.dart). Machine-drafted ar/ur/bn:
-// every entry needs a native-speaker review (docs/OWNER_ACTIONS.md item 21).
+// every entry needs a native-speaker review (docs/OWNER_ACTIONS.md item 22).
 // Column order: Arabic, Urdu, Bangla.
 
 const Map<String, List<String>> _pFaith = <String, List<String>>{

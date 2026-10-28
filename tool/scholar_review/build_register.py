@@ -1126,8 +1126,8 @@ def build_languages():
             where_app='Arabic, Urdu and Bangla wording of: %s' % title,
             file='lib/app/core/i18n/ui_phrases_data.dart', key='group "%s"' % gid,
             what='Every English / Arabic / Urdu / Bangla row of group "%s" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible "Native-speaker review needed" note.' % gid,
-            why='Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur\u2019an, hadith and du\u2019a text is never in these tables.',
-            reviewer=NATIVE, also=[], source=['docs/OWNER_ACTIONS.md item 21', 'docs/content_needed/translation_review.md'],
+            why='Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur\u2019an, hadith and du\u2019a text is never in these tables.',
+            reviewer=NATIVE, also=[], source=['docs/OWNER_ACTIONS.md item 22', 'docs/content_needed/translation_review.md'],
             priority='high' if gid in ('support', 'hadi', 'sources') else 'normal',
             label_surface='NativeReviewNote on the screen' if gid in ('support', 'hadi', 'sources', 'prayer', 'qibla', 'quran', 'faith', 'you', 'settings', 'more') else 'Language settings note')
     R.add(
@@ -1136,7 +1136,7 @@ def build_languages():
         file='lib/features/sakina/domain/crisis_l10n.dart', key='seven crisis cards, five follow-ups, four country notes',
         what='Arabic, Urdu and Bangla wording of the fixed crisis cards (self-harm, suicide question, abuse, child safety, eating disorder, substance emergency, extremism). The verse is not translated: the card gives a reference only. Help-line names and numbers come from HelpResources, never from this file.',
         why='Machine draft of safety text; a native-speaking clinician must read it before it can lose its on-screen "Native-speaker review needed" line. Until then a reply without checked wording is shown in English with a note in the language.',
-        reviewer=NATIVE, also=[CLIN, HADITH], source=['docs/OWNER_ACTIONS.md item 21', 'OWNER_ACTIONS item 4'], priority='high',
+        reviewer=NATIVE, also=[CLIN, HADITH], source=['docs/OWNER_ACTIONS.md item 22', 'OWNER_ACTIONS item 4'], priority='high',
         label_surface='Review line at the end of each card')
     rr = [
         ('lang.crisis.roman-urdu', 'Roman-Urdu and Roman-Bangla crisis phrases (for example "marna chahta hoon", "jaan de dunga")'),

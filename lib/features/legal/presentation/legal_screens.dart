@@ -29,7 +29,16 @@ class LegalSection {
   final String body;
 }
 
+/// Who the app belongs to, as the owner stated it (Oct 2026). Only the name
+/// of the business and of the owner: no address, number or company status is
+/// given because none has been published. Never add one here.
+const String kLegalWhoWeAre =
+    'Ar-Rayaan is an app of RHW Technologies. The owner is Abdul G Khokhar. '
+    'Where these pages say “we” or “us”, they mean RHW '
+    'Technologies.';
+
 const List<LegalSection> kTermsSections = <LegalSection>[
+  LegalSection('Who we are', kLegalWhoWeAre),
   LegalSection(
     'What Ar-Rayaan is',
     'Ar-Rayaan is a study and reflection companion: Qur\'an, hadith, '
@@ -102,6 +111,7 @@ const List<LegalSection> kTermsSections = <LegalSection>[
 ];
 
 const List<LegalSection> kPrivacySections = <LegalSection>[
+  LegalSection('Who we are', kLegalWhoWeAre),
   LegalSection(
     'What stays on your device',
     'Your settings, bookmarks, progress, reflections and any AI key you '
@@ -162,7 +172,14 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'Only for a rare character none of them contains (an emoji, or a '
         'script such as Chinese), your browser may fetch a fallback font '
         'from Google (fonts.gstatic.com), which reveals your IP address to '
-        'Google. Each has its own privacy policy.',
+        'Google. Each has its own privacy policy.\n\n'
+        'Zakat calculator: only when you tap Use live prices, the app asks '
+        'gold-api.com for the gold and silver price, and a currency-data '
+        'service (served by jsDelivr or Cloudflare Pages) for the exchange '
+        'rate into your currency. They can see your IP address; they are '
+        'sent nothing about your balances. Your currency is guessed on the '
+        'device from your saved prayer-times city or your phone\u2019s '
+        'region, and the guess is never sent anywhere.',
   ),
   LegalSection(
     'Sharing',

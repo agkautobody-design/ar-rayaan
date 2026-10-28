@@ -33384,8 +33384,8 @@
    "where_in_app": "Hadi chat > built-in answer \"app-maker-tradition\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='app-maker-tradition'",
-   "what_to_review": "Built-in answer \"app-maker-tradition\": Two questions, answered plainly. Who made it: the app does not name an owner, a company or a funder on any screen I can read from, so I have none to give you, and I will not guess one. What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as…",
-   "why_flagged": "States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. Owner and funder are deliberately not named because the app names none; the owner may wish to publish them.",
+   "what_to_review": "Built-in answer \"app-maker-tradition\": Two questions, answered plainly. Who made it: Ar-Rayaan is an app of RHW Technologies, and the owner is Abdul G Khokhar. That is what the app states. It gives no funder, address or company details on any screen I can read from, so I have none to give you, and…",
+   "why_flagged": "States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. The maker is named as the owner stated it (Oct 2026): RHW Technologies, owner Abdul G Khokhar. No funder, address or company status is given because none has been stated.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -79060,13 +79060,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"faith\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"faith\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79080,13 +79080,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"hadi\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"hadi\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79100,13 +79100,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"more\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"more\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79120,13 +79120,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"prayer\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"prayer\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79140,13 +79140,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"qibla\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"qibla\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79160,13 +79160,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"quran\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"quran\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79180,13 +79180,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"settings\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"settings\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79200,13 +79200,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"shell\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"shell\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "Language settings note",
@@ -79220,13 +79220,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"sources\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"sources\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79240,13 +79240,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"support\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"support\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79260,13 +79260,13 @@
    "file": "lib/app/core/i18n/ui_phrases_data.dart",
    "key": "group \"you\"",
    "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"you\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
-   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "docs/content_needed/translation_review.md"
    ],
    "label_surface": "NativeReviewNote on the screen",
@@ -79289,7 +79289,7 @@
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "docs/OWNER_ACTIONS.md item 21",
+    "docs/OWNER_ACTIONS.md item 22",
     "OWNER_ACTIONS item 4"
    ],
    "label_surface": "Review line at the end of each card",

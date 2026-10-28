@@ -269,6 +269,22 @@ class SourcesScreen extends ConsumerWidget {
                           subtitle:
                               'The call to prayer from the Sacred Mosque, Makkah',
                         ),
+                        _Divider(),
+                        _SourceRow(
+                          key: Key('source-live-prices'),
+                          title: 'Zakat calculator · live gold and silver prices',
+                          subtitle:
+                              'Gold and silver spot prices in US dollars from gold-api.com, a free service that needs no key; its terms allow use in apps. Used only when you tap Use live prices. Each result shows its source, its time and the rate used.',
+                          link: 'https://gold-api.com',
+                        ),
+                        _Divider(),
+                        _SourceRow(
+                          key: Key('source-exchange-rates'),
+                          title: 'Zakat calculator · exchange rates · currency-api',
+                          subtitle:
+                              'The daily reference exchange rates that change the dollar price into your currency, from the open-licence currency-api dataset, served by jsDelivr and Cloudflare Pages. It also gives a daily gold and silver price in your currency if gold-api.com is down. These are reference prices, not a jeweller’s or a bank’s price.',
+                          link: 'https://github.com/fawazahmed0/exchange-api',
+                        ),
                       ],
                     ),
                   ),
@@ -299,6 +315,12 @@ class _TrustCard extends StatelessWidget {
   const _TrustCard({super.key});
 
   static const List<(String, String)> points = <(String, String)>[
+    (
+      'Who is behind this app',
+      'Ar-Rayaan is made by RHW Technologies. The owner is Abdul G '
+          'Khokhar. The app does not claim that any scholar, mosque or '
+          'organisation has reviewed, endorsed or approved it.',
+    ),
     (
       'Who writes the answers',
       'Hādi answers from a shelf of cited Qur’an and hadith texts built '
@@ -378,6 +400,7 @@ class _SectionLabel extends StatelessWidget {
 
 class _SourceRow extends StatelessWidget {
   const _SourceRow({
+    super.key,
     required this.title,
     required this.subtitle,
     this.link,
