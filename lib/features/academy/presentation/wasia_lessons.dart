@@ -625,7 +625,10 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
 /// What the Ask Wasia box says about the AI, true to the parent's switch: off
 /// means Wasia answers only from her lesson shelf, on this device.
 class WasiaAiCaption extends StatefulWidget {
-  const WasiaAiCaption({super.key});
+  const WasiaAiCaption({this.inLesson = true, super.key});
+
+  /// False on the Kids Corner page, where there is no lesson open.
+  final bool inLesson;
 
   @override
   State<WasiaAiCaption> createState() => WasiaAiCaptionState();
@@ -644,12 +647,15 @@ class WasiaAiCaptionState extends State<WasiaAiCaption> {
 
   @override
   Widget build(BuildContext context) {
+    final String subject = widget.inLesson
+        ? 'Anything about this lesson \u2014 ask your teacher.'
+        : 'Ask your teacher about your letters, your lessons or how you feel.';
     return Text(
       _on
-          ? 'Anything about this lesson \u2014 ask your teacher. (A parent has '
-              'allowed the AI connection for this; your name is never sent.)'
-          : 'Anything about this lesson \u2014 ask your teacher. Wasia answers '
-              'from her own lessons on this device. No AI is used.',
+          ? '$subject (A parent has allowed the AI connection for this; your '
+              'name is never sent.)'
+          : '$subject Wasia answers from her own lessons on this device. '
+              'No AI is used.',
       key: const Key('wasia-ai-caption'),
       style: AppText.bodyMuted.copyWith(fontSize: 12),
     );
@@ -677,12 +683,15 @@ Widget arabicAwareText(String text, TextStyle style, {Key? key}) {
   int at = 0;
   for (final RegExpMatch m in run.allMatches(text)) {
     if (m.start > at) spans.add(TextSpan(text: text.substring(at, m.start)));
+    // One letter (the Alif in "Lesson 1: Alif") is drawn large: a single
+    // stroke at body size was too small to teach with.
+    final bool oneLetter = m.group(0)!.trim().runes.length <= 3;
     spans.add(TextSpan(
       text: m.group(0),
       style: TextStyle(
         fontFamily: 'Amiri',
-        fontSize: (style.fontSize ?? 18) * 1.15,
-        height: 1.8,
+        fontSize: (style.fontSize ?? 18) * (oneLetter ? 2.1 : 1.15),
+        height: oneLetter ? 1.4 : 1.8,
       ),
     ));
     at = m.end;

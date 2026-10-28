@@ -20,7 +20,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/crisis_l10n.dart'
-    show crisisRepeatIn, englishWithNote, withEnglishFallbackNote;
+    show crisisRepeatIn, englishWithNote, withEmergencyLine, withEnglishFallbackNote;
 import '../../sakina/domain/crisis_latch.dart';
 import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
@@ -595,11 +595,20 @@ class HadiController extends Notifier<HadiState> {
     _lastSupportTopic = null;
     _hardCheckin = false;
     state = HadiState(
-      messages: const <HadiMessage>[
-        HadiMessage(fromHadi: true, text: kHadiGreeting),
+      messages: <HadiMessage>[
+        HadiMessage(fromHadi: true, text: _nextGreeting()),
       ],
       live: _apiKey != null,
     );
+  }
+
+  /// How many fresh conversations have started in this run of the app. A
+  /// reset does not greet with the same sentences every time.
+  static int _greetings = 0;
+
+  static String _nextGreeting() {
+    _greetings++;
+    return kHadiGreetings[_greetings % kHadiGreetings.length];
   }
 
   /// Starts a fresh conversation that opens from the support page the person
@@ -1243,10 +1252,12 @@ class HadiController extends Notifier<HadiState> {
         LeavingQuestion.detect(q)) {
       final String? cc = ref.read(helpCountryProvider);
       final bool picked = ref.read(pickedHelpCountryProvider) != null;
+      // The options come first: a frightened reader should not have to scroll
+      // past a long list of lines to reach the answer. The lines follow.
       final String text = _crisisShownRecently()
-          ? LeavingQuestion.options
-          : '${_cardText(CrisisKind.abuse, cc, picked)}\n\n'
-              '${LeavingQuestion.options}';
+          ? LeavingQuestion.optionsFor(q)
+          : '${LeavingQuestion.optionsFor(q)}\n\n'
+              '${_cardText(CrisisKind.abuse, cc, picked)}';
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -1482,7 +1493,8 @@ class HadiController extends Notifier<HadiState> {
       }
       // A support reply with no checked wording in the chosen language is
       // shown in English with a clear note in that language.
-      reply = withEnglishFallbackNote(reply, _supportLang);
+      reply = withEmergencyLine(
+          withEnglishFallbackNote(reply, _supportLang), _supportLang);
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -1987,6 +1999,20 @@ const String kHadiGreeting =
     'authentic knowledge. Ask me about worship, the Qur\'an, or where '
     'anything lives in this app. And when the weight is heavy, tell me '
     'that too — I will stay with it.';
+
+/// The openings. The first is the one shown when Hadi is first opened; a
+/// fresh conversation after a reset moves on to the next, so the greeting is
+/// not word for word the same every time.
+const List<String> kHadiGreetings = <String>[
+  kHadiGreeting,
+  'Salam. I am Hādi. Ask me about worship, the Qur\'an or where something '
+      'lives in this app. If something heavy is on your heart, you can tell '
+      'me that too, and I will listen.',
+  'As-Salaamu Alaikum. This is Hādi. Bring me a question about your deen or '
+      'this app, or just tell me how things are. We can go at your pace.',
+  'Peace be with you. I am Hādi, here to point you to authentic knowledge '
+      'and to listen when life feels heavy. What is on your mind?',
+];
 
 final NotifierProvider<HadiController, HadiState> hadiControllerProvider =
     NotifierProvider<HadiController, HadiState>(HadiController.new);

@@ -331,7 +331,7 @@ class _AcademyHomeScreenState
                     ? 'adult'
                     : (track == 'teen' ? '13-17' : null),
               ),
-              if ((track == 'adult' || track == 'parent') && !showDoor) ...<Widget>[
+              if (track == 'adult' || track == 'parent') ...<Widget>[
                 const _TeacherCard(),
                 const SizedBox(height: 12),
               ],

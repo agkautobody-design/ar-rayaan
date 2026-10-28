@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5507,
+ "total": 5511,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 64,
-   "high_priority": 36
+   "items": 68,
+   "high_priority": 40
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -134,14 +134,14 @@
   "Fiqh scholar (per madhab)": 623,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 525,
-  "Clinician (Sakina and health content)": 1011,
+  "Clinician (Sakina and health content)": 1015,
   "Native speaker (ar / bn / ur)": 279,
   "Privacy lawyer": 15,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1289,
+  "high": 1293,
   "normal": 3516,
   "low": 702
  },
@@ -82733,6 +82733,92 @@
     "R11_T2"
    ],
    "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.child-distress-r3",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > \"I hate myself\", \"bullied\", \"mean\" replies per age band; exam nerves; ambiguous \"tired of everything\" for adults and children",
+   "file": "lib/features/support/domain/child_distress.dart",
+   "key": "ChildDistressKind.selfHate / bullied / mean; CrisisDetector passive ideation",
+   "what_to_review": "Round 3: three new child reply kinds with a grown-up and helpline choice; exam nerves no longer get the scared-child reply; passive ideation phrases (\"tired of everything ... want it to stop\") get the safety check.",
+   "why_flagged": "R12: the sentences got the wrong card or none. No clinician or child-protection specialist has read the wording; the passive-ideation phrase list needs clinical review.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2",
+    "R12_T10"
+   ],
+   "label_surface": "Wasia thread, Hadi and Sakina",
+   "status": "open"
+  },
+  {
+   "id": "support.help-sheet-bands",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Need help now sheet > different lists for 5-8, 9-12, 13-17 and adults",
+   "file": "lib/features/sakina/presentation/widgets/need_help_button.dart",
+   "key": "NeedHelpButton sheet",
+   "what_to_review": "Round 3: 5-8 shows only dial-able lines; adults see emergency numbers (911 in the US) first. Verified numbers only.",
+   "why_flagged": "R12: one sheet for every age. A safeguarding specialist should confirm the lines shown for each band.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2"
+   ],
+   "label_surface": "Need help now sheet",
+   "status": "open"
+  },
+  {
+   "id": "teacher.guidance-entry",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Teachers and mentors page reachable from Academy, Family, Quick Access, the support hub and search",
+   "file": "lib/features/support/presentation/support_pathway_screens.dart",
+   "key": "support-hub-teachers",
+   "what_to_review": "Round 3: a \"For teachers and mentors\" entry on five surfaces.",
+   "why_flagged": "R12_T1: the page existed but could not be found. Safeguarding specialist should read the page text.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T1"
+   ],
+   "label_surface": "Support hub",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-reader-r3",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Child surah reader, dua and story pages without adult chrome; Memorise this surah; short-surah difficulty cue",
+   "file": "lib/features/quran/presentation/surah_reader_screen.dart",
+   "key": "child mode reader",
+   "what_to_review": "Round 3: in child mode the reader hides downloads, bookmarks, notes and links; the surah list says how long each surah is.",
+   "why_flagged": "R12_T2: adult controls were reachable by a child. A parent-safety reviewer should confirm.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2"
+   ],
+   "label_surface": "Kids Corner",
    "status": "open"
   },
   {

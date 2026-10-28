@@ -32,6 +32,18 @@ enum ChildDistressKind {
   /// is never their fault, keep telling until someone listens. Does not assume
   /// the home, and asks for no details.
   touch,
+
+  /// Somebody keeps being unkind on purpose: "I am being bullied", "they push
+  /// me", "they call me names". Named as bullying, not as a sad day.
+  bullied,
+
+  /// Unkind children, being laughed at or left out, without the word
+  /// bullying: "kids are mean to me", "nobody likes me".
+  mean,
+
+  /// "I hate myself", "I am ugly", "I am worthless". Answered with warmth for
+  /// the child, a gentle safety line, and a trusted adult.
+  selfHate,
 }
 
 /// Plain word matching, English only (CLINICIAN AND SAFEGUARDING REVIEW
@@ -111,18 +123,38 @@ abstract final class ChildDistress {
     'keep watching bad videos',
   ];
 
+  static const List<String> _selfHate = <String>[
+    'i hate myself', 'hate myself', 'i hate my self', 'i am ugly', 'im ugly',
+    'i am worthless', 'im worthless', 'i am useless', 'im useless',
+    'i am a bad person', 'im a bad person', 'i am a failure', 'im a failure',
+    'i hate who i am', 'i hate being me', 'i wish i was someone else',
+    'i wish i were someone else', 'i wish i was different',
+    'i am a bad kid', 'im a bad kid', 'i am so bad', 'i hate my life',
+  ];
+
+  static const List<String> _bullied = <String>[
+    'bully', 'bullied', 'bullying', 'bullies', 'call me names',
+    'calls me names', 'push me', 'pushes me', 'pick on me', 'picks on me',
+    'make fun of me', 'makes fun of me', 'threaten me', 'threatens me',
+    'send me nasty', 'send me mean messages', 'share a photo of me',
+    'shared a photo of me',
+  ];
+
+  static const List<String> _mean = <String>[
+    'mean to me', 'is mean to me', 'kids are mean', 'children are mean',
+    'the kids are mean', 'nobody likes me', 'no one likes me', 'laugh at me',
+    'laughs at me', 'laughing at me', 'everyone hates me', 'they all laugh',
+    'they laugh', 'kids laugh', 'children laugh', 'everyone laughs',
+    'are unkind to me', 'is unkind to me', 'unkind to me',
+  ];
+
   static const List<String> _school = <String>[
-    'mean to me', 'is mean to me', 'kids are mean', 'children are mean', 'nobody likes me', 'no one likes me',
-    'laugh at me', 'laughs at me', 'laughing at me', 'make fun of me',
-    'makes fun of me', 'call me names', 'calls me names', 'pick on me',
-    'picks on me', 'push me', 'pushes me', 'bully', 'bullied', 'bullying',
     'i hate school', 'dont want to go to school', 'do not want to go to school',
     'dont wanna go to school', 'dont want to go', 'do not want to go',
     'no friends', 'nobody plays with me', 'no one plays with me',
-    'they leave me out', 'leave me out', 'everyone hates me', 'bullies',
+    'they leave me out', 'leave me out',
     'nobody wants to play with me', 'scared of school', 'afraid of school',
-    'scared to go to school', 'everyone laughs', 'they all laugh',
-    'they laugh', 'kids laugh', 'children laugh',
+    'scared to go to school',
   ];
 
   static const List<String> _scared = <String>[
@@ -152,6 +184,11 @@ abstract final class ChildDistress {
     // list: "I cannot read well and everyone laughs" is first of all about
     // reading, and it gets a referral as well as comfort.
     if (_any(n, _learning)) return ChildDistressKind.learning;
+    // Self-hatred before bullying: "nobody likes me, I hate myself" is first
+    // of all about how the child sees themselves.
+    if (_any(n, _selfHate)) return ChildDistressKind.selfHate;
+    if (_any(n, _bullied)) return ChildDistressKind.bullied;
+    if (_any(n, _mean)) return ChildDistressKind.mean;
     if (_any(n, _school)) return ChildDistressKind.school;
     // Exam nerves are a school-worry for the student pack, not distress.
     if (n.contains(' exam') || n.contains(' quiz') || n.contains(' test ')) {
@@ -238,6 +275,116 @@ abstract final class ChildDistress {
                         'The help lines are just below.',
                   ];
         return options[v % options.length];
+      case ChildDistressKind.bullied:
+        final List<String> b = small
+            ? <String>[
+                'Thank you for telling me. Bullying is when someone keeps '
+                    'being unkind to you on purpose. It is not okay, and it is '
+                    'never your fault. A grown-up can help to make it stop. '
+                    'You can tell $adults. You choose who. A helpline for '
+                    'children is just below.',
+                'I am glad you told me. Nobody should hurt you or scare you '
+                    'on purpose. Please tell a grown-up at school, and a '
+                    'parent too if it feels safe. If the first grown-up does '
+                    'not help, tell another one. You choose who. The button '
+                    'below has a helpline for children.',
+              ]
+            : teen
+                ? <String>[
+                    'That is bullying, and I am sorry you are dealing with '
+                        'it. It says nothing bad about you. It is worth '
+                        'telling $adults. If it is online, keep screenshots '
+                        'and note the dates. If the first grown-up does not '
+                        'act, tell another. You choose who. The help lines '
+                        'below are for young people, if you want someone '
+                        'outside school.',
+                    'Being targeted over and over is not something you have '
+                        'to handle alone, and it is not your fault. A '
+                        'grown-up can step in: a teacher, a school '
+                        'counsellor, or a parent if it feels safe. Writing '
+                        'down what happened and when helps them act. You '
+                        'choose who. The help lines for young people are '
+                        'just below.',
+                  ]
+                : <String>[
+                    'I am sorry. Being bullied is not your fault, and you do '
+                        'not have to put up with it. It helps to tell '
+                        '$adults. You choose who. Writing down what happened '
+                        'and when makes it easier for them to act. If you '
+                        'tell someone and nothing changes, tell another '
+                        'grown-up. The help lines for children are just '
+                        'below.',
+                    'Thank you for telling me. Being picked on again and '
+                        'again is bullying, and a grown-up can step in. You '
+                        'could tell a teacher or a school counsellor, or a '
+                        'parent if it feels safe. You choose who. The help '
+                        'lines for children are just below.',
+                  ];
+        return b[v % b.length];
+      case ChildDistressKind.mean:
+        final List<String> m = small
+            ? <String>[
+                'I am sorry the other children are being unkind. That hurts, '
+                    'and you did nothing wrong. Is there a grown-up you like '
+                    'at school? You could tell them. You could tell a parent '
+                    'too, if it feels safe. You choose who. The button below '
+                    'has a helpline for children.',
+                'Thank you for telling me. Being laughed at or left out feels '
+                    'sad, and it is not your fault. A grown-up can help. You '
+                    'choose who to tell: $adults. A helpline for children is '
+                    'just below.',
+              ]
+            : teen
+                ? <String>[
+                    'That sounds lonely and unfair, and it makes sense that '
+                        'it hurts. People being unkind says something about '
+                        'them, not about you. If it keeps happening, it is '
+                        'worth telling $adults. You choose who. The help '
+                        'lines below are for young people.',
+                    'I am sorry people are treating you like that. You do '
+                        'not have to just put up with it. A grown-up can '
+                        'help, and so can asking to sit or work with '
+                        'different people. You choose who to tell. The help '
+                        'lines below are for young people.',
+                  ]
+                : <String>[
+                    'I am sorry the other children are being mean. That '
+                        'really hurts, and it is not your fault. Would you '
+                        'like to tell me a bit more? You do not have to. It '
+                        'is also good to tell $adults. You choose who. The '
+                        'help lines for children are just below.',
+                    'That sounds painful, and I am glad you said it. Being '
+                        'treated unkindly never means something is wrong '
+                        'with you. A grown-up can help. You choose who to '
+                        'tell: $adults. The help lines for children are '
+                        'just below.',
+                  ];
+        return m[v % m.length];
+      case ChildDistressKind.selfHate:
+        if (small) {
+          return 'Thank you for telling me. I am sorry you feel that way '
+              'about yourself. You are not bad, and you are not alone. '
+              'It is a big feeling, and a grown-up can help with it. You can '
+              'tell $adults. You choose who. If you ever want to hurt '
+              'yourself, tell a grown-up right away. The button just below '
+              'has a helpline for children.';
+        }
+        if (teen) {
+          return 'Thank you for trusting me with that. Hating yourself is '
+              'painful, and it is more common than people say. It is a '
+              'feeling, not a fact about who you are, and it can change with '
+              'support. I cannot tell what is behind it, so I will not '
+              'guess. Would you like to say more? It would also help to tell '
+              '$adults, and you choose who. If you ever think about hurting '
+              'yourself, please tell a grown-up near you straight away, or '
+              'use the "Show help lines" button just below.';
+        }
+        return 'Thank you for telling me. I am sorry you feel like that about '
+            'yourself. It is a painful feeling, but it is not the truth '
+            'about you, and it can get better. Would you like to say more? '
+            'You do not have to. It also helps to tell $adults. You choose '
+            'who. If you ever want to hurt yourself, tell a grown-up near '
+            'you straight away. The help lines for children are just below.';
       case ChildDistressKind.home:
         if (small) {
           return 'Thank you for telling me. You are not in trouble, and it is '

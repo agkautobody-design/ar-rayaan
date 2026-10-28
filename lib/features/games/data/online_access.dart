@@ -4,22 +4,20 @@ import '../../academy/application/family_service.dart';
 class OnlineVerdict {
   const OnlineVerdict._(this.blocked, this.needsParent, this.message);
 
-  /// Nothing in the way: no child profiles, or the learner is a child whose
-  /// guardian switched online tables on.
+  /// Nothing in the way: no child profiles on the device.
   static const OnlineVerdict allowed = OnlineVerdict._(false, false, '');
 
   /// The device has child profiles and nobody is chosen as the learner (a
   /// child can pick "Nobody"), so an adult answers the parent check first.
   static const OnlineVerdict parentCheck = OnlineVerdict._(false, true, '');
 
-  /// The learner is a child whose guardian has NOT switched tables on.
+  /// The learner is a child. Online tables are off for children entirely;
+  /// there is no switch for a guardian to turn them on.
   factory OnlineVerdict.childOff(String childName) => OnlineVerdict._(
         true,
         false,
-        'Online tables are off for $childName. A parent or guardian can turn '
-        'them on in the Family Wing, on $childName’s card, under '
-        '“Online game tables”. Until then you can still play on '
-        'this device.',
+        'Online tables are for grown-ups, so they are off for $childName. '
+        'You can still play on this device.',
       );
 
   final bool blocked;
@@ -29,9 +27,8 @@ class OnlineVerdict {
 
 /// The rule in front of every online table (Ludo and Shatranj).
 ///
-///  * A child profile can create or join a table only when a guardian has
-///    switched "Online game tables" on for that child in the Family Wing.
-///    It is OFF for every new child.
+///  * A child profile can never create or join an online table (round 12:
+///    the guardian switch was removed). An old stored switch is ignored.
 ///  * With child profiles on the device but nobody chosen as the learner, the
 ///    parent check comes first (otherwise "Nobody" would be a way round it).
 ///  * A device with no child profiles is an adult's: no extra step.
@@ -51,7 +48,6 @@ class OnlineAccess {
         if (c['id'] == id) child = c;
       }
       if (child == null) return OnlineVerdict.parentCheck;
-      if (await _family.onlineGamesAllowed(id)) return OnlineVerdict.allowed;
       final Object? n = child['name'];
       return OnlineVerdict.childOff(n is String && n.isNotEmpty ? n : 'this child');
     } catch (_) {

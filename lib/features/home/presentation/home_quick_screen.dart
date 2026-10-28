@@ -27,6 +27,7 @@ class HomeQuickScreen extends ConsumerWidget {
     ('Quick Hadith', 'A hadith in a breath', 'assets/images/tiles/tile_prayer.jpg', '/hadith'),
     ('Quick Khutbah', 'Sermons, in the Library', 'assets/images/tiles/tile_journey.jpg', '/stories'),
     ('Daily Duas', 'Du\u2019a & dhikr for the day', 'assets/images/tiles/tile_calendar.jpg', '/adhkar'),
+    ('For Teachers', 'Guidance for teachers & mentors', 'assets/images/tiles/tile_knowledge.jpg', '/support/teachers'),
     ('Tayyib Finance', 'Zakat \u00b7 sadaqah \u00b7 halal stocks', 'assets/images/tiles/tile_prayer.jpg', '/finance'),
   ];
 
