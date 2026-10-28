@@ -13,8 +13,8 @@
 library;
 
 /// Left-to-right isolate (U+2066) and pop directional isolate (U+2069).
-const String kLri = '⁦';
-const String kPdi = '⁩';
+const String kLri = '\u2066';
+const String kPdi = '\u2069';
 
 bool _isLatinLetter(int c) =>
     (c >= 0x41 && c <= 0x5A) ||

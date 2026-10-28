@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Text;
+import 'package:flutter/widgets.dart' as w show Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -325,7 +326,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                       ),
                       // Required by the OpenStreetMap tile and data licence.
                       const SimpleAttributionWidget(
-                        source: Text('OpenStreetMap contributors'),
+                        source: w.Text('OpenStreetMap contributors'),
                       ),
                       MarkerLayer(markers: [
                         if (_hasPlace)
