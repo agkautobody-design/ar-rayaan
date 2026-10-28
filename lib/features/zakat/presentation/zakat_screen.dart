@@ -1,16 +1,22 @@
+import 'dart:ui' as ui;
+
 import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../auth/presentation/widgets/auth_text_field.dart';
+import '../../prayer/application/prayer_providers.dart';
+import '../../prayer/application/prayer_repository.dart';
 import '../application/zakat_history_provider.dart';
 import '../domain/live_price_service.dart';
 import '../domain/live_prices.dart';
 import '../domain/nisab.dart';
+import '../domain/zakat_currencies.dart';
 import '../domain/zakat_calculation.dart';
 import '../domain/zakat_engine.dart';
 import '../domain/zakat_history.dart';
@@ -22,11 +28,15 @@ import '../../../app/theme/widgets/focus_ring.dart';
 /// the obligation live. Madhab-aware; scholarly positions labeled, never
 /// ruled on. Live metal prices are a convenience — manual entry always works.
 class ZakatScreen extends ConsumerStatefulWidget {
-  const ZakatScreen({super.key, this.livePriceService});
+  const ZakatScreen({super.key, this.livePriceService, this.deviceCountryCode});
 
   /// Where the live-price button gets its numbers. Tests pass one built on a
   /// fake HTTP client; the app uses the default.
   final LivePriceService? livePriceService;
+
+  /// The device's region (ISO 3166-1 alpha-2) used to guess the currency.
+  /// Null reads it from the phone; tests pass a value (empty means "none").
+  final String? deviceCountryCode;
 
   @override
   ConsumerState<ZakatScreen> createState() => _ZakatScreenState();
@@ -63,25 +73,46 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   MetalPrices? _saved;
   LivePriceService get _service =>
       widget.livePriceService ?? (_ownedService ??= LivePriceService());
-  // The per-gram prices the live fetch last wrote (US dollars). While the
-  // price boxes still hold exactly these, the prices are dollar prices.
+  // The per-gram prices the live fetch last wrote, and the currency they are
+  // in. While the price boxes still hold exactly these, the prices are in
+  // [_liveCurrency].
   String _liveGold = '';
   String _liveSilver = '';
+  String _liveCurrency = '';
+
+  static const String _currencyPrefKey = 'zakat.currency.v1';
+
+  // Which currency [_saved] belongs to, and the plain-words note about where
+  // the currency in the box came from.
+  String _savedFor = '';
+  String _currencyNote = '';
 
   bool get _livePricesInUse =>
       _liveGold.isNotEmpty &&
       _c['goldPrice']!.text == _liveGold &&
       _c['silverPrice']!.text == _liveSilver;
 
-  /// Why live (dollar) prices cannot be used with the currency typed in the
-  /// currency box, or null when they can.
+  /// The listed currency the currency box holds, or null.
+  String? get _code => ZakatCurrencies.codeFromLabel(_c['currency']!.text);
+
+  /// Why live prices cannot be fetched with what is in the currency box, or
+  /// null when they can.
   String? get _currencyBlock =>
       LivePrices.blockedReason(_c['currency']!.text);
 
-  /// Set when dollar prices are in the boxes but the balances are in
-  /// another currency: the result would be wrong by the exchange rate, so
-  /// no figure is shown until the person fixes it.
-  String? get _priceMismatch => _livePricesInUse ? _currencyBlock : null;
+  /// Set when live prices are in the boxes but they are in a different
+  /// currency from the one now chosen: the result would be wrong by the
+  /// exchange rate, so no figure is shown until the person fixes it.
+  String? get _priceMismatch {
+    if (!_livePricesInUse) return null;
+    final String? now = _code;
+    if (now == _liveCurrency) return null;
+    final String shown = _c['currency']!.text.trim().isEmpty
+        ? 'not set'
+        : _c['currency']!.text.trim().toUpperCase();
+    return 'The prices in the boxes are in $_liveCurrency, but your currency '
+        'is now $shown. Fetch live prices again, or type the prices yourself.';
+  }
 
   /// A field's amount, never negative (a negative figure is flagged on the
   /// field itself by [ZakatCalculation.amountProblem] and counts as zero).
@@ -94,15 +125,94 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   void initState() {
     super.initState();
     _c['penalty']!.text = '30';
+    _initCurrency();
     _loadSaved();
     for (final c in _c.values) {
       c.addListener(() => setState(() {}));
     }
+    _c['currency']!.addListener(_onCurrencyChanged);
+  }
+
+  /// The phone's region: the first language in the device list that carries
+  /// one. Never sent anywhere.
+  static String? _deviceCountry() {
+    try {
+      for (final ui.Locale l in ui.PlatformDispatcher.instance.locales) {
+        final String? c = l.countryCode;
+        if (c != null && c.isNotEmpty) return c;
+      }
+      final String? c = ui.PlatformDispatcher.instance.locale.countryCode;
+      return (c == null || c.isEmpty) ? null : c;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Fills the currency box: the currency the person picked here before, else
+  /// a guess from their saved prayer-times city or the phone's region. The
+  /// note under the box always says which, so it is never a silent guess.
+  void _initCurrency() {
+    String? chosen;
+    try {
+      chosen = ref.read(sharedPreferencesProvider).getString(_currencyPrefKey);
+    } catch (_) {
+      chosen = null;
+    }
+    final String? known = ZakatCurrencies.codeFromLabel(chosen);
+    if (known != null) {
+      _c['currency']!.text = known;
+      _currencyNote = 'Your choice, saved on this device. Change it any time.';
+      return;
+    }
+    String? placeCountry;
+    try {
+      final PrayerLocation place = ref.read(prayerLocationProvider);
+      if (place.isSet) placeCountry = place.country;
+    } catch (_) {
+      placeCountry = null;
+    }
+    final DetectedCurrency? d = ZakatCurrencies.detect(
+      placeCountryName: placeCountry,
+      deviceCountryCode: widget.deviceCountryCode ?? _deviceCountry(),
+    );
+    if (d != null) {
+      _c['currency']!.text = d.code;
+      _currencyNote = 'Set to ${d.code} from ${d.reason}. If your balances '
+          'are in another currency, pick it from the list.';
+    } else {
+      _currencyNote = 'The app could not tell your currency from this device. '
+          'Pick it from the list, or type the gold and silver prices '
+          'yourself, in the same currency as your balances.';
+    }
+  }
+
+  /// Keeps [_saved] in step with the currency in the box: saved prices are
+  /// kept per currency, and only ones in the current currency are offered.
+  void _onCurrencyChanged() {
+    final String code = _code ?? '';
+    if (code == _savedFor) return;
+    _loadSaved();
   }
 
   Future<void> _loadSaved() async {
-    final MetalPrices? p = await _service.lastSaved();
-    if (mounted && p != null) setState(() => _saved = p);
+    final String code = _code ?? '';
+    _savedFor = code;
+    _saved = null;
+    if (code.isEmpty) return;
+    final MetalPrices? p = await _service.lastSaved(currency: code);
+    if (mounted && p != null && _savedFor == code) setState(() => _saved = p);
+  }
+
+  void _pickCurrency(String? code) {
+    if (code == null) return;
+    _c['currency']!.text = code;
+    try {
+      ref.read(sharedPreferencesProvider).setString(_currencyPrefKey, code);
+    } catch (_) {
+      // Remembering the choice is a convenience.
+    }
+    setState(() => _currencyNote =
+        'Your choice, saved on this device. Change it any time.');
   }
 
   @override
@@ -150,22 +260,22 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
         silverPricePerGram: _v('silverPrice'),
       );
 
-  String _usd(double v) => '\$${v.toStringAsFixed(2)}';
-
   void _applyPrices(MetalPrices p) {
-    _liveGold = p.goldPerGram.toStringAsFixed(2);
-    _liveSilver = p.silverPerGram.toStringAsFixed(2);
+    _liveGold = MetalPrices.formatPrice(p.goldPerGram);
+    _liveSilver = MetalPrices.formatPrice(p.silverPerGram);
+    _liveCurrency = p.currency;
     _c['goldPrice']!.text = _liveGold;
     _c['silverPrice']!.text = _liveSilver;
   }
 
   Future<void> _fetchLivePrices() async {
-    // Live prices are in US dollars: only use them for dollar balances. The
-    // button stays tappable so this is always explained, never silent.
+    // Only listed currencies can be fetched. The button stays tappable so
+    // this is always explained, never silent.
+    final String? code = _code;
     final String? block = _currencyBlock;
-    if (block != null) {
+    if (code == null || block != null) {
       setState(() {
-        _priceNote = block;
+        _priceNote = block ?? 'Pick your currency from the list first.';
         _priceNoteIsError = true;
       });
       return;
@@ -176,17 +286,21 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
       _priceNoteIsError = false;
     });
     try {
-      final MetalPrices p = await _service.fetch();
+      final MetalPrices p = await _service.fetch(currency: code);
       if (!mounted) return;
       setState(() {
-        _applyPrices(p);
-        _saved = p.asSavedCopy();
-        _priceNoteIsError = false;
-        _priceNote = 'Live prices in US dollars per gram: gold '
-            '${_usd(p.goldPerGram)}, silver ${_usd(p.silverPerGram)}. '
-            'Source: ${p.source}, '
-            '${p.dailyOnly ? 'rate for' : 'as of'} ${p.whenText()}.'
-            '${p.dailyOnly ? ' This source updates once a day.' : ''}';
+        // The person may have changed the currency while this was loading.
+        if (_code == code) {
+          _applyPrices(p);
+          _priceNoteIsError = false;
+          _priceNote = 'Live prices in ${p.currency} per gram: '
+              '${p.priceLine()}. ${p.sourceLine()}';
+        } else {
+          _priceNoteIsError = false;
+          _priceNote = 'The currency changed while prices were loading, so '
+              'they were not used. Tap the button again.';
+        }
+        if (_savedFor == code) _saved = p.asSavedCopy();
       });
     } on LivePriceException catch (e) {
       _fail(e.message);
@@ -212,11 +326,9 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
     setState(() {
       _applyPrices(p);
       _priceNoteIsError = false;
-      _priceNote = 'Saved prices in US dollars per gram: gold '
-          '${_usd(p.goldPerGram)}, silver ${_usd(p.silverPerGram)}. '
-          'Source: ${p.source}, '
-          '${p.dailyOnly ? 'rate for' : 'as of'} ${p.whenText()}. '
-          'These are not live; check them before relying on the result.';
+      _priceNote = 'Saved prices in ${p.currency} per gram: ${p.priceLine()}. '
+          '${p.sourceLine()} These are not live; check them before relying '
+          'on the result.';
     });
   }
 
@@ -452,7 +564,11 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                   : const Icon(Icons.cloud_download_outlined,
                       size: 16, color: AppColors.gold),
               label: Text(
-                _fetchingPrices ? 'Fetching…' : 'Use live prices (USD)',
+                _fetchingPrices
+                    ? 'Fetching…'
+                    : (_code == null
+                        ? 'Use live prices'
+                        : 'Use live prices ($_code)'),
                 style: AppText.label.copyWith(color: AppColors.gold),
               ),
             ),
@@ -483,18 +599,50 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                 ),
               ),
             ),
-          _note(_currencyBlock ??
-              'Live prices are in US dollars, which matches the currency '
-                  'you set.'),
+          _note('Live prices are the gold and silver market (spot) price per '
+              'gram, changed into your currency with a daily reference '
+              'exchange rate. They are not what a jeweller or a bank '
+              'charges. Check with your scholar which price to use.'),
+          Text('YOUR CURRENCY',
+              style: AppText.eyebrow.copyWith(color: AppColors.gold)),
+          const SizedBox(height: 4),
+          Semantics(
+            label: 'Choose your currency',
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                key: const Key('currency-picker'),
+                isExpanded: true,
+                value: _code,
+                hint: Text('Pick your currency', style: AppText.body),
+                dropdownColor: AppColors.night,
+                style: AppText.body,
+                items: <DropdownMenuItem<String>>[
+                  for (final ZakatCurrency c in ZakatCurrencies.all)
+                    DropdownMenuItem<String>(
+                      value: c.code,
+                      child: Text(c.label, overflow: TextOverflow.ellipsis),
+                    ),
+                ],
+                onChanged: _pickCurrency,
+              ),
+            ),
+          ),
+          if (_currencyNote.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text(_currencyNote,
+                  key: const Key('currency-note'),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+            ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
-            child: Semantics(label: 'Your currency (optional label, e.g. CAD)', child: TextField(
+            child: Semantics(label: 'Currency code or label (for a currency not in the list, type it here)', child: TextField(
               key: const Key('currency-label'),
               controller: _c['currency'],
               style: AppText.body,
               maxLength: 6,
               decoration: const InputDecoration(
-                hintText: 'Your currency (optional label, e.g. CAD)',
+                hintText: 'Currency code, or your own label',
                 counterText: '',
               ),
             )),

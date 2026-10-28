@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'zakat_currencies.dart';
+
 /// Live gold and silver spot prices (gold-api.com) are quoted in US dollars
 /// per troy ounce. The calculator's price fields hold a price per gram in
-/// the SAME currency as the person's balances, so a dollar price may only be
-/// used when the balances are in dollars. This keeps that rule in one tested
-/// place.
+/// the SAME currency as the person's balances, so the dollar price is changed
+/// into the person's currency first (see [LivePriceService]). This keeps the
+/// ounce-to-gram constant and the "is this currency one we can fetch" rule in
+/// one tested place.
 class LivePrices {
   const LivePrices._();
 
@@ -22,21 +25,21 @@ class LivePrices {
         t == 'DOLLARS';
   }
 
-  /// Why live prices must not be used for [currencyLabel], or null when they
-  /// may be. An empty label is not assumed to be dollars.
+  /// Why live prices cannot be fetched for [currencyLabel], or null when
+  /// they can (the box holds one of the listed currencies). An empty box is
+  /// never assumed to be anything.
   static String? blockedReason(String currencyLabel) {
-    if (isUsd(currencyLabel)) return null;
+    if (ZakatCurrencies.codeFromLabel(currencyLabel) != null) return null;
     final String c = currencyLabel.trim();
     if (c.isEmpty) {
-      return 'Live prices are in US dollars. If your balances are in US '
-          'dollars, type USD in the currency box below. If they are in '
-          'another currency, type the gold and silver prices yourself, in '
-          'that currency.';
+      return 'Pick your currency from the list first, so the live prices '
+          'come in the same currency as your balances. If yours is not '
+          'listed, type the gold and silver prices yourself.';
     }
-    return 'Live prices are in US dollars, but your currency is set to '
-        '${c.toUpperCase()}. Type the gold and silver prices yourself, in '
-        '${c.toUpperCase()}, so the nisab is worked out in the same '
-        'currency as your balances.';
+    return 'Live prices are not offered in ${c.toUpperCase()}. Pick a '
+        'currency from the list, or type the gold and silver prices '
+        'yourself, in ${c.toUpperCase()}, so the nisab is worked out in the '
+        'same currency as your balances.';
   }
 
   /// Dollars per gram from the two API bodies, e.g. `{"price": 2650.5}`.

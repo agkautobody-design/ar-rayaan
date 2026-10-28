@@ -846,17 +846,19 @@ abstract final class HadiRouting {
   }
 
   static const String whoRunsReply =
-      'The app does not name an owner, a company or a funder on the '
-      'screens I can read from, so I have none to give you, and I will not '
-      'guess one.\n\n'
-      'What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as a '
-      'study and reflection companion, not a religious authority. Our '
-      'Sources lists every text, translation and reciter it uses, and '
-      'links Shaykh Muhammad Saqib Iqbal’s channel for guidance. How we '
-      'handle religious content says no named scholar has reviewed the app '
-      'yet. On cost: everything in this app, including me, is free today, '
-      'nothing asks for a card, and a paid plan for extra live answers is '
-      'planned but not open.\n[GO:/sources]\n[GO:/settings]';
+      'Ar-Rayaan is an app of RHW Technologies, and its owner is Abdul G '
+      'Khokhar. That is what the app states, and it is all I can tell you: '
+      'it gives no funder, address or company details on the screens I can '
+      'read from, so I have none to give you, and I will not guess any.\n\n'
+      'What the app says about itself: the Terms of Service (in Settings) '
+      'describe Ar-Rayaan as a study and reflection companion, not a '
+      'religious authority. Our Sources lists every text, translation and '
+      'reciter it uses, and links Shaykh Muhammad Saqib Iqbal’s channel for '
+      'guidance. How we handle religious content says no named scholar has '
+      'reviewed the app yet, and the app does not claim that any scholar or '
+      'organisation endorses it. On cost: everything in this app, including '
+      'me, is free today, nothing asks for a card, and a paid plan for extra '
+      'live answers is planned but not open.\n[GO:/sources]\n[GO:/settings]';
 
   // ── The same answer twice ────────────────────────────────────────────
 

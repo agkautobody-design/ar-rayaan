@@ -33384,8 +33384,8 @@
    "where_in_app": "Hadi chat > built-in answer \"app-maker-tradition\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='app-maker-tradition'",
-   "what_to_review": "Built-in answer \"app-maker-tradition\": Two questions, answered plainly. Who made it: the app does not name an owner, a company or a funder on any screen I can read from, so I have none to give you, and I will not guess one. What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as…",
-   "why_flagged": "States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. Owner and funder are deliberately not named because the app names none; the owner may wish to publish them.",
+   "what_to_review": "Built-in answer \"app-maker-tradition\": Two questions, answered plainly. Who made it: Ar-Rayaan is an app of RHW Technologies, and the owner is Abdul G Khokhar. That is what the app states. It gives no funder, address or company details on any screen I can read from, so I have none to give you, and…",
+   "why_flagged": "States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. The maker is named as the owner stated it (Oct 2026): RHW Technologies, owner Abdul G Khokhar. No funder, address or company status is given because none has been stated.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

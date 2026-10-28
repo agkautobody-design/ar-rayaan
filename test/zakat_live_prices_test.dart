@@ -17,19 +17,22 @@ void main() {
   });
 
   group('LivePrices.blockedReason', () {
-    test('allows dollars', () {
-      expect(LivePrices.blockedReason('USD'), isNull);
+    test('allows every listed currency, in any case', () {
+      for (final String c in <String>['USD', 'cad', ' PKR ', 'Eur', 'SAR']) {
+        expect(LivePrices.blockedReason(c), isNull, reason: c);
+      }
     });
 
-    test('an empty currency is not assumed to be dollars', () {
+    test('an empty currency is not assumed to be anything', () {
       final String? r = LivePrices.blockedReason('');
       expect(r, isNotNull);
-      expect(r, contains('type USD'));
+      expect(r, contains('Pick your currency'));
+      expect(r, contains('type the gold and silver prices yourself'));
     });
 
-    test('names the currency the person chose', () {
-      final String? r = LivePrices.blockedReason('pkr');
-      expect(r, contains('PKR'));
+    test('names a currency that is not offered and says what to do', () {
+      final String? r = LivePrices.blockedReason('xyz');
+      expect(r, contains('XYZ'));
       expect(r, contains('yourself'));
     });
   });

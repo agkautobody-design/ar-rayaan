@@ -1937,7 +1937,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '\n[GO:/search]',
   ),
   _Entry(
-    <String>['contact support', 'report a problem', 'report a bug', 'send feedback', 'how do i contact you', 'who made this app'],
+    <String>['contact support', 'report a problem', 'report a bug', 'send feedback', 'how do i contact you'],
     'I do not have a support address to give you. Please use the contact '
     'details on the Privacy Policy or Terms in Settings, under "Legal & '
     'account".'
