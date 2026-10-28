@@ -4,6 +4,8 @@ import '../../../app/core/providers.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../academy/application/hifz_providers.dart';
 import '../../academy/application/word_deck_provider.dart';
+import '../../academy/domain/hifz_planner.dart' show ayatInSurah, juzAmmaAyat;
+import '../../academy/domain/hifz_progress.dart' show HifzState;
 import '../../academy/domain/path_ux.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
@@ -120,8 +122,17 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
       } catch (_) {}
 
       int ayatMemorised = 0;
+      int ayatPlanTotal = 0;
+      int ayatInPlan = 0;
       try {
-        ayatMemorised = ref.watch(hifzStateProvider).totalMemorised;
+        final HifzState hifz = ref.watch(hifzStateProvider);
+        ayatMemorised = hifz.totalMemorised;
+        ayatPlanTotal = hifz.juzAmma
+            ? juzAmmaAyat()
+            : ayatInSurah(hifz.targetSurah);
+        ayatInPlan = hifz.juzAmma
+            ? hifz.juzAmmaMemorised
+            : hifz.memorisedIn(hifz.targetSurah);
       } catch (_) {}
 
       int reviewsDue = 0;
@@ -148,7 +159,8 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
           openedSurah: readingStarted,
           reflections: reflections,
           lessonsDone: lessonsDone,
-          ayatMemorised: ayatMemorised,
+          ayatMemorised: ayatInPlan,
+          ayatPlanTotal: ayatPlanTotal,
         ),
       );
 

@@ -38,6 +38,7 @@ class RingInputs {
     this.reflections = 0,
     this.lessonsDone = 0,
     this.ayatMemorised = 0,
+    this.ayatPlanTotal = 0,
   });
 
   /// Adhkar repetitions counted today, and the total in all sets.
@@ -55,6 +56,11 @@ class RingInputs {
 
   /// Ayat the learner has written down as memorised in the Hifz planner.
   final int ayatMemorised;
+
+  /// Ayat in the learner's Hifz plan (564 for all of Juz Amma). The memorised
+  /// part of the ring is the share of this plan written down; when no plan
+  /// size is known, any ayah written down counts as the whole part.
+  final int ayatPlanTotal;
 }
 
 /// The five parts of the ring, in the order the screen lists them.
@@ -82,7 +88,9 @@ List<RingPart> ringParts(RingInputs i) {
     RingPart(
       label: 'Marked ayat as memorised',
       weight: 0.15,
-      fraction: i.ayatMemorised > 0 ? 1 : 0,
+      fraction: i.ayatPlanTotal > 0
+          ? (i.ayatMemorised / i.ayatPlanTotal).clamp(0.0, 1.0).toDouble()
+          : (i.ayatMemorised > 0 ? 1 : 0),
     ),
   ];
 }
@@ -106,6 +114,7 @@ const String kRingEmptyLine = 'Start whenever you like.';
 const String kRingExplanation =
     'This ring starts empty, and that is fine: start whenever you like. It '
     'fills as you do five things: count your '
-    'adhkar today (up to 45%), then save a reflection, finish a lesson and '
-    'write down ayat you have memorised (15% each), and open a surah (10%). '
-    'It is a starting guide, not a score.';
+    'adhkar today (up to 45%), save a reflection (15%), finish a lesson (15%), '
+    'open a surah (10%), and write down ayat you have memorised (up to 15%, '
+    'in proportion to the ayat in your Hifz plan, so 564 ayat of Juz Amma '
+    'fill it). It is a starting guide, not a score.';

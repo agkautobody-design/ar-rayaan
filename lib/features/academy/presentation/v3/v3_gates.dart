@@ -61,14 +61,33 @@ class _Result extends StatelessWidget {
 
 /// A face of a match or an option: plain text, or Arabic.
 class FaceText extends StatelessWidget {
-  const FaceText({super.key, this.text, this.arabic});
+  const FaceText({super.key, this.text, this.arabic, this.translit});
 
   final String? text;
   final String? arabic;
 
+  /// How the Arabic sounds, shown under it so a learner who cannot read the
+  /// script yet can still check a match.
+  final String? translit;
+
   @override
   Widget build(BuildContext context) {
     final String? a = arabic;
+    final String? tl = translit;
+    if (a != null && tl != null && tl.isNotEmpty) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ArabicText(a, size: 26),
+          const SizedBox(height: 4),
+          Text(
+            tl,
+            textAlign: TextAlign.center,
+            style: AppText.caption.copyWith(fontSize: 13, height: 1.35),
+          ),
+        ],
+      );
+    }
     if (a != null) return ArabicText(a, size: 26);
     return Text(text ?? '', textAlign: TextAlign.center, style: _body());
   }
@@ -583,7 +602,12 @@ class _MatchViewState extends State<MatchView> {
   }
 
   /// The words of a face, for a screen reader (the Arabic when it is Arabic).
-  String _plain(Face f) => f.text ?? _arabicOf(f) ?? '';
+  String _plain(Face f) {
+    final String? a = _arabicOf(f);
+    if (f.text != null || a == null) return f.text ?? '';
+    final String? tl = _translitOf(f);
+    return tl == null || tl.isEmpty ? a : '$a, said $tl';
+  }
 
   String? _arabicOf(Face f) {
     if (f.ref != null) return widget.resolver.resolve(f.ref!)?.arabicJoined;
@@ -591,7 +615,19 @@ class _MatchViewState extends State<MatchView> {
     return null;
   }
 
-  Widget _face(Face f) => FaceText(text: f.text, arabic: _arabicOf(f));
+  String? _translitOf(Face f) {
+    final String? ref = f.ref;
+    if (ref == null) return null;
+    final ResolvedPhrase? p = widget.resolver.resolve(ref);
+    if (p == null || p.lines.length != 1) return null;
+    return p.lines.first.translit;
+  }
+
+  Widget _face(Face f) => FaceText(
+        text: f.text,
+        arabic: _arabicOf(f),
+        translit: _translitOf(f),
+      );
 
   void _tapRight(int pair) {
     final MatchFeedback? r = _s.tapRight(pair);

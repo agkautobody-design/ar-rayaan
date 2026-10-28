@@ -104,7 +104,7 @@
 ],
 "expect": [
 {
-"core": "zakat-nisab-rate",
+"core": "zakat-amount",
 "refusal": false
 }
 ]
@@ -3485,6 +3485,60 @@
 "expect": [
 {
 "core": "ramadan-basics",
+"refusal": false
+}
+]
+},
+{
+"turns": [
+"How much zakat do I pay?",
+"when is zakat due?",
+"what about debts for zakat?"
+],
+"expect": [
+{
+"core": "zakat-amount",
+"refusal": false
+},
+{
+"core": "zakat-due",
+"refusal": false
+},
+{
+"core": "zakat-debts",
+"refusal": false
+}
+]
+},
+{
+"turns": [
+"Can I share this chat with a friend?"
+],
+"expect": [
+{
+"core": "share-chat",
+"refusal": false
+}
+]
+},
+{
+"turns": [
+"What is the punishment for apostasy in Islam?"
+],
+"expect": [
+{
+"core": "apostasy-ruling",
+"refusal": false
+}
+]
+},
+{
+"turns": [
+"Where do I change what you remember about me?"
+],
+"expect": [
+{
+"core": "hadi-memory-settings",
 "refusal": false
 }
 ]

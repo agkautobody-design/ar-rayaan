@@ -33,13 +33,13 @@ You can say it alone, to Allah, at any time; no priest, certificate or special p
 
 Good to know:
 - Your earlier sins are forgiven. {HS muslim:121|Amr ibn al-As reported the Prophet asked him, Are you not aware that Islam wipes out all the previous misdeeds?}.
-- Taking a bath on accepting Islam is recommended: {HS abudawud:355|Qays ibn Asim came to the Prophet intending to embrace Islam, and the Prophet commanded him to take a bath with water boiled with the leaves of the lote tree}.
+- Taking a bath on accepting Islam: {HS abudawud:355|Qays ibn Asim came to the Prophet intending to embrace Islam, and the Prophet commanded him to take a bath with water boiled with the leaves of the lote tree}. Scholars differ on whether this bath is required or only recommended. All agree it is good, so if you can, take it.
 - Learn step by step: first to pray (see the How to Pray guide), then fasting, and the rest as you can. Nobody expects you to know everything at once. Allah says {Q 22:78|has not placed upon you in the religion any difficulty}.
 
 The New Muslim path in this app walks you through the basics. If you want to talk with someone, a nearby masjid will welcome you.
 """,
   go=['/new-muslim', '/huda/guide?id=huda-prayer'],
-  review='The bath on accepting Islam and what to say are standard practice; Arabic shahada is the universally known text.')
+  review='The bath on accepting Islam: the schools differ on whether it is required or recommended (stated as a difference, as in Path Day 1). What to say is standard practice; Arabic shahada is the universally known text.')
 
 E('bismillah-meaning',
   m=[r'\bbismillah\b', r'\bbismillahi\b', r'\bbasmala\w*\b', r'\bbasmalah\b', r'\bin the name of allah\b.*\bmean\w*\b', r'\bwhy (?:do )?muslims? say bismillah\b', r'\bwhen (?:to|should i) say bismillah\b'],

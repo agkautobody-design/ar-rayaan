@@ -56,12 +56,12 @@ v('us-911', 'US', 'Emergency services', '911', ['emergency'], '24/7', 'https://w
 v('ca-988', 'CA', '9-8-8 Suicide Crisis Helpline', '9-8-8', ['suicide', 'general'], '24/7', 'https://988.ca/get-help/what-to-expect', ['en', 'fr'], text='Text 9-8-8')
 v('ca-khp', 'CA', 'Kids Help Phone', '1-800-668-6868', ['child', 'suicide', 'general'], '24/7 phone and text', 'https://kidshelpphone.ca/urgent-help',
   ['en', 'multiple'], text='Text CONNECT to 686868', aud='child', note='Page contradicts itself on live-chat hours; chat not relied on.')
-v('ca-naseeha', 'CA', 'Naseeha Muslim Youth Helpline', '1-866-627-3342', ['muslim', 'suicide', 'general'], '24/7', 'https://www.naseeha.org/helpline-textline',
+v('ca-naseeha', 'CA', 'Naseeha Muslim Youth Helpline', '1-866-627-3342', ['muslim', 'suicide', 'general', 'compulsive'], '24/7', 'https://www.naseeha.org/helpline-textline',
   ['en', 'fr', 'ar', 'ur', 'hi', 'pa', 'bn', 'gu'], note='Page names no countries served; based in Ontario.')
 # ---------------------------------------------------------------- UK
 v('gb-samaritans', 'GB', 'Samaritans', '116 123', ['suicide', 'general'], '24/7', 'https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/')
 v('gb-shout', 'GB', 'Shout', None, ['suicide', 'general'], '24/7', 'https://giveusashout.org/get-help/', text='Text SHOUT to 85258')
-v('gb-myh', 'GB', 'Muslim Youth Helpline', '0808 808 2008', ['muslim', 'general', 'suicide'], '16:00-22:00 daily', 'https://myh.org.uk/how-we-can-help/call-us/')
+v('gb-myh', 'GB', 'Muslim Youth Helpline', '0808 808 2008', ['muslim', 'general', 'suicide', 'compulsive'], '16:00-22:00 daily', 'https://myh.org.uk/how-we-can-help/call-us/')
 v('gb-ndah', 'GB', 'National Domestic Abuse Helpline (Refuge)', '0808 2000 247', ['domestic-abuse'], '24/7', 'https://refuge.org.uk/i-need-help-now/how-we-can-help-you/national-domestic-abuse-helpline/', note='Page names no country scope; London-based, serves the UK.')
 v('gb-mwn', 'GB', 'Muslim Women\'s Network UK helpline', '0800 999 5786', ['domestic-abuse', 'muslim', 'general'], None, 'https://www.mwnuk.co.uk/contact-mwnuk', note='Hours and eligibility not stated on the page.')
 v('gb-karma', 'GB', 'Karma Nirvana (honour-based abuse)', '0800 5999 247', ['domestic-abuse'], 'Mon-Fri 09:00-17:00', 'https://karmanirvana.org.uk/get-help/helpline/', note='For emergencies call 999.')

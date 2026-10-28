@@ -115,10 +115,9 @@ E('apostasy-ruling',
      r'\bwhat happens (?:if|when) (?:a )?(?:muslim|someone|you|i|one|people) (?:leave|leaves|left|quit|quits|abandons?) islam\b', r'\bcan (?:a )?(?:muslim|someone|you) (?:leave|quit|abandon) islam\b', r'\bfreedom of (?:religion|belief|faith|conscience)\b', r'\bcompulsion in religion\b',
      r'\bis it (?:true|a fact) that (?:muslims|ex muslims|people who leave islam)\b.*\b(?:killed|executed|die|death)\b', r'\bex muslims?\b'],
   x=[r'\b(?:my|our) (?:son|daughter|child|children|husband|wife|friend|brother|sister|father|mother)\b',
-     # A question for a verdict (the punishment, the penalty, the ruling) is
-     # a legal question: it goes to the ruling gate and its scholar reply,
-     # as it always has, not to a summary from me.
-     r'\b(?:punish\w*|penalty|penalties|death|kill\w*|executed|execution|ruling|rulings|verdict|fatwa|crime)\b'],
+     # A person asking about leaving Islam for themselves is met with the
+     # personal answer below, not a summary of the legal positions.
+     r'\bi (?:want|wanna|wish|am|m|have|plan|think|thinking|considering|will|would like)\b'],
   topic='apostasy',
   text="""
 This is one of the most argued-over questions about Islam, so here is a straight answer with the texts and the disagreement, not a dodge.
@@ -132,7 +131,7 @@ How scholars have read them:
 - Other scholars, early and today, read the reports as a penalty for treason, deserting to an enemy or fighting the community (note the words "and separates from the community"), not for a private change of belief. They point to the verses above, and to the bedouin who asked the Prophet to cancel his pledge to Islam and left Madinah: he refused to cancel it, but did not punish him ({H bukhari:7211|Jabir reported that a bedouin pledged himself to Islam, then asked the Prophet three times to cancel his pledge, was refused, and left Madinah}).
 - On one point there is wide agreement: this belongs to a lawful court, never to a family, a neighbour or a crowd. A person who hurts someone for leaving Islam is acting against Islam, and breaks the law in most countries.
 
-I do not give rulings, and this is not a verdict. A qualified scholar can tell you the position of a school in detail.
+I do not give a legal ruling, and this is not a verdict. A qualified scholar can tell you the position of a school in detail.
 """,
   go=['/sources'],
   review='Balanced summary of a contested question: the classical majority position, the restricted-to-treason reading, and the agreement that no private person may act. Needs a scholar to confirm the attributions (including the Hanafi position on women) and the wording.')

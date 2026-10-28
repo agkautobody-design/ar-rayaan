@@ -307,7 +307,11 @@ abstract final class HadiCore {
       if (re.hasMatch(c)) return null;
     }
     final bool pronoun = _pronoun.hasMatch(c);
-    if (!pronoun && words.length > 4) return null;
+    // "what if I have debts", "what about my loan": a short "what if / what
+    // about" is a follow-up even when it has a few more words.
+    final bool whatIf =
+        RegExp(r'^(?:and\s+)?(?:what\s+if|what\s+about|how\s+about)\b').hasMatch(c);
+    if (!pronoun && words.length > (whatIf ? 7 : 4)) return null;
     String? topic;
     int seen = 0;
     for (int i = history.length - 1; i >= 0 && seen < 6; i--) {

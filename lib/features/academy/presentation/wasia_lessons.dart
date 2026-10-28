@@ -253,7 +253,7 @@ class LettersLessonsScreen extends ConsumerWidget {
                             Text(e['title'] as String,
                                 style: AppText.body.copyWith(
                                     fontWeight: FontWeight.w700, fontSize: 13.5)),
-                            Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 saved to the chosen child',
+                            Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 your best is kept (with the active child, or on this device)',
                                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           ],
                         )),

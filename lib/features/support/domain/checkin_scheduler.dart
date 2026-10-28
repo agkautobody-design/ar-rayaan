@@ -62,6 +62,12 @@ abstract final class CheckinScheduler {
 
   static DateTime _day(DateTime t) => DateTime(t.year, t.month, t.day);
 
+  /// [days] calendar days after [t]. Not `t.add(Duration(days: n))`: that adds
+  /// 24-hour blocks, and across a clock change it lands an hour off, which
+  /// made a check-in due a whole day late.
+  static DateTime _plusDays(DateTime t, int days) =>
+      DateTime(t.year, t.month, t.day + days);
+
   /// Whether the check-in may be shown now. [busy] is true while a crisis
   /// card or latch is active, or the person is mid-conversation about
   /// something else: then it waits.
@@ -73,22 +79,23 @@ abstract final class CheckinScheduler {
     // Never asked and no clock yet: the clock starts the first time the
     // person opens Hadi (see [start]), so a new person is not asked on day one.
     if (last == null) return false;
-    return !_day(now).isBefore(_day(last).add(Duration(days: intervalDays(s.frequency))));
+    return !_day(now).isBefore(_plusDays(last, intervalDays(s.frequency)));
   }
 
   /// The state after the check-in was shown (and the person answered, or did
   /// not).
   static CheckinState after(CheckinState s, CheckinAnswer a, DateTime now) {
     final int base = intervalDays(s.frequency);
-    // "It has been hard" is asked about again soon (three days, or sooner if
-    // the person chose a shorter interval), not after a month of silence.
-    // Turning check-ins off still ends it at once.
-    final int days = a == CheckinAnswer.hard
-        ? (base > 0 && base < 3 ? base : 3)
-        : (a == CheckinAnswer.okay ? base : base * 2);
+    // Owner rule: at most once in the chosen interval, whatever the answer.
+    // "It has been hard" is answered with care and the help lines there and
+    // then; asking again sooner would feel like being watched. So it waits the
+    // same interval as "I'm okay". Turning check-ins off still ends it.
+    final int days = (a == CheckinAnswer.okay || a == CheckinAnswer.hard)
+        ? base
+        : base * 2;
     return s.copy(
       lastAsked: _day(now),
-      nextDue: _day(now).add(Duration(days: days)),
+      nextDue: _plusDays(now, days),
     );
   }
 

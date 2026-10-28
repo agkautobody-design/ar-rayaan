@@ -309,6 +309,16 @@ const List<GameDef> kGames = <GameDef>[
     hasDifficulty: true,
     howToPlay: <String>[
       'White moves first. Tap a piece, then a square it can reach.',
+      'Rook: any number of squares along a row or a column. Bishop: any '
+          'number along a diagonal. Queen: like a rook and a bishop together.',
+      'Knight: an L shape, two squares one way and one to the side. It is '
+          'the only piece that jumps over others.',
+      'King: one square in any direction, never onto a square that is '
+          'attacked. Pawn: one square forward (two from its first move), and '
+          'it captures one square diagonally forward.',
+      'Check means your king is attacked. You must answer it at once: move '
+          'the king, block the attack or capture the attacker. If you cannot, '
+          'it is checkmate.',
       'Win by checkmate. A stalemate, the same position three times, fifty '
           'moves with no capture or pawn move, or too few pieces left are draws.',
       'Castling, en passant and choosing your promotion piece all work. You '

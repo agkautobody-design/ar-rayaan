@@ -1900,6 +1900,7 @@ abstract final class CrisisResponses {
           HelpKind.suicide,
         HelpKind.emergency,
         HelpKind.abuse,
+        HelpKind.suicide,
       ];
     }
     switch (kind) {
@@ -1950,9 +1951,21 @@ abstract final class CrisisResponses {
     final Set<HelpKind> kinds = <HelpKind>{
       ...kindsFor(kind),
       if (child) HelpKind.child,
+      // A child who is scared or hurt can also reach the crisis line for
+      // their country (988 in the United States takes calls and texts from
+      // young people); it is listed after the child and emergency lines.
+      if (child && kind == CrisisKind.childSafety) HelpKind.suicide,
     };
     List<HelpResource> rows =
         HelpResources.forCountry(countryCode, kinds: kinds);
+    // Poison control lines are for swallowed medicine or chemicals. They are
+    // kept off every other card (abuse, distress, eating, child safety).
+    if (kind != CrisisKind.substanceEmergency) {
+      rows = <HelpResource>[
+        for (final HelpResource r in rows)
+          if (!RegExp(r'poison', caseSensitive: false).hasMatch(r.name)) r,
+      ];
+    }
     if (kind == CrisisKind.abuse && !child) {
       rows = <HelpResource>[
         for (final HelpResource r in rows)
