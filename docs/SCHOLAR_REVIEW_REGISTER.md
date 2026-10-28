@@ -52,11 +52,11 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Hadith / aqidah scholar | 2448 | 1036 |
 | Fiqh scholar (per madhab) | 623 | 236 |
 | Women's scholar | 151 | 95 |
-| Arabic / tajweed / qira'at specialist | 524 | 196 |
+| Arabic / tajweed / qira'at specialist | 525 | 195 |
 | Clinician (Sakina and health content) | 1011 | 252 |
 | Native speaker (ar / bn / ur) | 279 | 12 |
 | Privacy lawyer | 15 | 16 |
-| Rights holder / licensing (not a scholar) | 7 | 1 |
+| Rights holder / licensing (not a scholar) | 6 | 2 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
@@ -83,7 +83,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 56 | 1 | 5 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
-| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
+| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 4 |  |  |  | 4 |  |
 | Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
 | UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 243 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
@@ -137,13 +137,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
 - Stories: seerah, companions, women: 46 items (29 high). Ids start with `story.women`.
 
-### Arabic / tajweed / qira'at specialist (524 lead, 196 also)
+### Arabic / tajweed / qira'at specialist (525 lead, 195 also)
 
 - Academy phrase registry (transliteration, meaning, word glosses): 131 items (131 high). Ids start with `phrase.aqid-und-daw`, `phrase.arabic_hfz`, `phrase.eol_hlth_wmns_char`, `phrase.fam-yth-trx`, `phrase.foundation`.
 - Academy word glosses (300): 300 items (0 high). Ids start with `gloss.001`, `gloss.002`, `gloss.003`, `gloss.004`, `gloss.005`, `gloss.006`.
 - Academy schools, Path lessons and static course screens: 1 items (0 high). Ids start with `kids.alif-wording`.
 - Arabic, tajweed, Hifz and Qur'an recitation teaching: 88 items (42 high). Ids start with `arabic.arabic-script-lessons`, `arabic.colored-examples`, `arabic.hifz-method`, `arabic.sun-moon-letters`, `arabic.tajweed-jali-khafi`, `arabic.tarteel-definition`.
-- Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
+- Qur'an text, translation, transliteration, licences: 4 items (3 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
 ### Clinician (Sakina and health content) (1011 lead, 252 also)
@@ -164,10 +164,10 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Sakina rooms, feelings, safety copy, health: 5 items (5 high). Ids start with `support.children-age-band`, `support.kids-grownups-page`, `support.memory`, `support.online-consent`, `support.privacy-storage`.
 - Privacy, terms, children's privacy, community rules: 10 items (10 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.firebase-startup`, `legal.parent-pin`.
 
-### Rights holder / licensing (not a scholar) (7 lead, 1 also)
+### Rights holder / licensing (not a scholar) (6 lead, 2 also)
 
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (0 high). Ids start with `kids.translit-credit`.
-- Qur'an text, translation, transliteration, licences: 5 items (3 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.translit-59`, `quran.word-meanings-source`.
+- Qur'an text, translation, transliteration, licences: 4 items (2 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.word-meanings-source`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.channels`.
 
 ### App owner (product wording and voice, not a scholar) (449 lead, 0 also)
@@ -3864,7 +3864,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `quran.saheeh-licence` | Qur'an reader > English translation; Our Sources; share and copy | Whether the bundled Saheeh International English text may be distributed, copied and shared inside the app. | FIX_QURAN_HADITH_REPORT: licence UNCONFIRMED (Tanzil terms: translations non-commercial, permission from the translator or publisher needed). No permission statement in the repo. This is a rights question, not a scholar question. | Rights holder / licensing | high | FIX_QURAN_HADITH_REPORT (Saheeh licence unconfirmed); docs/OWNER_ACTIONS.md item 5 |
 | `quran.clear-quran-pack` | Qur'an reader > default English translation | The publisher's written authorisation for The Clear Quran (distribution, offline use, sharing, credit line), and the text file itself, which is not in the repo. | The app is built to use The Clear Quran by default but ships the interim translation until the file and the authorisation exist. | Rights holder / licensing | high | docs/content_needed/CLEAR_QURAN_PACK.md; docs/OWNER_ACTIONS.md item 5 |
 | `quran.foundation-terms` | Qur'an reader; translations fetched online | Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched. | OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk). | Rights holder / licensing | normal | docs/OWNER_ACTIONS.md item 5 |
-| `quran.translit-59` | Qur'an reader > transliteration, and search | The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy. | FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist. | Rights holder / licensing + Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (transliteration 59/6236) |
+| `quran.translit-generated` | Qur'an reader > transliteration under every ayah; Home daily verse; Academy | The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrop… | The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide. | Arabic / tajweed / qira'at specialist + Rights holder / licensing | high | docs/DATA_SOURCES.md T1; docs/OWNER_ACTIONS.md item 23 |
 | `quran.translit-accuracy` | Qur'an reader > transliteration; lesson say-steps | Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author's own learning aid. | FIX_WORSHIP_REPORT and phrases files: "all transliterations and meanings are learning aids"; docs/content_needed/dua_transliteration.md lists the gaps. | Arabic / tajweed / qira'at specialist | high | FIX_WORSHIP_REPORT; docs/content_needed/dua_transliteration.md |
 | `quran.arabic-diacritics` | Qur'an reader (Arabic text) | Arabic diacritics were compared with a reference Uthmani text; differences were reported in the pass and no text was changed. | FIX_QURAN_HADITH_REPORT: consonantal skeleton matched; diacritic differences exist and are unreviewed. | Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (diacritics vs Uthmani) |
 | `quran.riwaya` | Qur'an reader; recitation audio | Confirm the text edition (Hafs an Asim, Madinah mushaf pagination of 604 pages) and any claim about it. | Qira'at are a specialist matter; no qira'at specialist has reviewed the choice. | Arabic / tajweed / qira'at specialist | normal | Reviewer list: Arabic / tajweed / qira'at |

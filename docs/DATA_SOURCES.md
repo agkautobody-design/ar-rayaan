@@ -111,3 +111,67 @@ label and used with typed prices.
 3. The region of the phone's language list.
 4. Otherwise nothing is guessed and the screen says so.
 The note under the currency box always says which of these set it.
+
+
+---
+
+# Arabic reading support: transliteration and meaning (added 28 Oct 2026)
+
+Rule: wherever the app shows Arabic it shows the Arabic in Latin letters
+(transliteration) and the meaning, unless the person switched either off in
+Settings (both on by default). Neither the Arabic nor the transliteration is
+typed by hand: both come from the datasets below.
+
+## T1. Qur'an transliteration: `assets/quran/translit_en.json` (all 6,236 ayahs)
+
+- Made by: `tool/translit/build_quran_translit.py` from the output of the
+  rule-based romaniser in https://github.com/risan/quran-json
+  (`src/quranjson/romanize.py`, renderer `en-simple`, commit 6523a9a of
+  1 Oct 2026). The romaniser reads the Kemenag Arabic text and applies Hafs
+  connected-reading rules (sun letters, joining, idgham, iqlab, pause forms).
+  The Kemenag Latin field is never read. Keys are Hafs ayah numbers, checked
+  against `assets/quran/quran.json` (6,236 of 6,236 match, per-surah counts
+  match).
+- One change from the source, made by the build script (deterministic): the
+  ayn, which the source writes as a backtick, is written as an apostrophe,
+  like the rest of the app.
+- Licence: CC BY-SA 4.0. Read from the repository's `LICENSE.txt`, its
+  `pyproject.toml` and `src/quranjson/config.py`, which state: "Generated from
+  the Arabic text of the Mushaf Standar Indonesia (Kemenag), which carries no
+  copyright (PMA 44/2016, Pasal 8(1)); the romanisation is machine-generated."
+  Credit and the licence name are on the Our Sources screen. The file is an
+  adaptation, so it stays CC BY-SA 4.0 (share-alike) and is a separate file
+  from the app's code and from every other dataset.
+- Status: machine-generated; the source project says it is "not yet reviewed
+  by a qualified reader". Every screen that shows it says "Scholar review
+  needed" (register item `quran.translit-generated`).
+- Shares: NOT shared. A Qur'an share carries the Arabic and the reference
+  only (owner's rule until the translation licence is settled). Dua and adhkar
+  shares carry their own transliteration (see T2).
+- Not verified (see OWNER_ACTIONS item 23): that Pasal 8(1) of PMA 44/2016
+  gives the Kemenag text no copyright (that is quran-json's reading of
+  Indonesian law, we did not read the regulation); whether Indonesian rules on
+  Qur'an text (LPMQ tashih) apply to a romanisation; how CC BY-SA share-alike
+  applies when a short line is quoted next to other text in a share; the
+  Tanzil site's own terms for its transliteration (tanzil.net is not reachable
+  from the build environment, so no Tanzil transliteration is used).
+
+## T2. Transliteration of duas, adhkar, guides, Academy phrases
+
+- Source: the app's own registries (`assets/academy/phrases/*.json`,
+  `assets/guides/guides.json`, `assets/adhkar/adhkar.json`,
+  `assets/stories/dailyduas.json`, `assets/finance/ramadan.json`); each item
+  carries its source (`tlSource`, `translitSource`, `sources`) and a
+  `needsScholarReview` flag. Sources named there: Hisn al-Muslim pages on
+  sunnah.com, fitrahive/dua-dhikr (MIT), the Qur'an transliteration above, and
+  items rendered by the app author from the Arabic (flagged).
+- Items with no transliteration are shown as "Transliteration not available
+  yet". Nothing is invented.
+- Not verified: the redistribution terms of the sunnah.com Hisn pages.
+
+## T3. Meaning
+
+- Qur'an: Saheeh International via Tanzil (interim; rights-holder permission
+  for this app not confirmed, see `docs/OWNER_ACTIONS.md` item 5). Credit line
+  unchanged. Not used in shares.
+- Everything else: the `meaning` / `en` field of the item's own registry.
