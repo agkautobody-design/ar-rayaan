@@ -39,7 +39,23 @@ class QuranTranslationCard extends ConsumerWidget {
                   'interim translation is shown.',
         // Only "selected" when its text is really what the reader shows.
         selected: chosen == null && clearInstalled,
-        onTap: () => ref.read(translationSelectionProvider.notifier).choose(null),
+        onTap: () {
+          ref.read(translationSelectionProvider.notifier).choose(null);
+          // The row looks like a choice but there is nothing to switch to
+          // yet: say so instead of a tap that appears to do nothing.
+          if (!clearInstalled) {
+            ScaffoldMessenger.maybeOf(context)
+              ?..hideCurrentSnackBar()
+              ..showSnackBar(
+                const SnackBar(
+                  content: Text(
+                    'The Clear Quran text is not installed yet. The interim '
+                    'translation keeps showing until it is.',
+                  ),
+                ),
+              );
+          }
+        },
       ),
       for (final TranslationChoice c in choices)
         if (c.id != kClearQuranId)

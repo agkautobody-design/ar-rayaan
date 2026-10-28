@@ -82,11 +82,13 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
     try {
       var perm = await Geolocator.checkPermission();
       if (perm == LocationPermission.denied) {
-        perm = await Geolocator.requestPermission();
+        perm = await Geolocator.requestPermission()
+            .timeout(const Duration(seconds: 25));
       }
       if (perm == LocationPermission.always ||
           perm == LocationPermission.whileInUse) {
-        final pos = await Geolocator.getCurrentPosition();
+        final pos = await Geolocator.getCurrentPosition()
+            .timeout(const Duration(seconds: 25));
         _lat = pos.latitude;
         _lon = pos.longitude;
         got = true;
