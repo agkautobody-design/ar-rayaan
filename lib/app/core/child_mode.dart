@@ -43,11 +43,28 @@ const List<String> kChildAllowed = <String>[
   '/academy/letters',
   '/academy/stories',
   '/stories/read',
-  // Games with no chat and no online play.
+  // Games with no chat and no online play (the hub is exact, and a game
+  // page must be one of [kChildGameIds]; see [childModeAllows]).
   '/games',
   '/games/memory',
-  '/games/ayah',
+  '/games/names99',
   '/games/g',
+  // Short surahs and duas, as lists made for children.
+  '/kids/surahs',
+  '/kids/duas',
+];
+
+/// The games a child is shown (and can open) in child mode: a short, curated
+/// list. Each runs on this device with no chat and no online table. Hifz
+/// practice, the Seerah challenges, Ludo and chess (which have online play)
+/// and the adult question banks are left for a grown-up.
+/// Reviewed in the scholar register (child-mode games).
+const List<String> kChildGameIds = <String>[
+  'arabic-words',
+  'memory',
+  'names99',
+  'salah-wudu',
+  'prophets-order',
 ];
 
 /// The short surahs a child can open and listen to in child mode. Each is a
@@ -66,8 +83,13 @@ bool childModeAllows(String path) {
   // The Games hub is exact: its other tables (Ludo, chess, online rooms) are not
   // for a child on their own.
   if (path == '/games') return true;
+  if (bare.startsWith('/games/g/')) {
+    final List<String> parts = bare.split('/');
+    // /games/g/<id>[/setup|/play|/results]
+    return parts.length >= 4 && kChildGameIds.contains(parts[3]);
+  }
   for (final String p in kChildAllowed) {
-    if (p == '/games') continue;
+    if (p == '/games' || p == '/games/g') continue;
     if (path == p || path.startsWith('$p/')) return true;
   }
   return false;

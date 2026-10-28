@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_typography.dart';
 import '../../academy/application/wasia_controller.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../../sakina/application/sakina_providers.dart';
@@ -43,9 +45,7 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
     WidgetsBinding.instance.addPostFrameCallback((_) => _coldOpen());
   }
 
-  static const List<String> _quietPrefixes = <String>[
-    '/hadi', '/support', '/sakina', '/kids/safety',
-  ];
+  static const List<String> _quietPrefixes = kQuickExitQuietPrefixes;
 
   void _coldOpen() {
     if (!mounted || !_private) return;
@@ -77,6 +77,8 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
   }
 
   void _exit() {
+    // Back (the browser's too) must not return to the screen just left.
+    armQuickExitGuard();
     try {
       ref.read(hadiControllerProvider.notifier).clearThread();
       ref.read(wasiaControllerProvider.notifier).clear();
@@ -136,19 +138,46 @@ class QuickExitButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final SupportSettings s = ref.watch(supportSettingsProvider);
     if (!s.quickExit) return const SizedBox.shrink();
-    return Align(
-      alignment: s.quickExitLeft ? Alignment.centerLeft : Alignment.centerRight,
-      child: Semantics(
-        button: true,
-        label: 'Quick exit. Clears this conversation and leaves now.',
-        child: OutlinedButton.icon(
-          key: const Key('quick-exit'),
-          onPressed: requestQuickExit,
-          icon: const Icon(Icons.exit_to_app, size: 20),
-          label: const Text('Exit now'),
-          style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
-        ),
+    final Widget button = Semantics(
+      button: true,
+      label: 'Quick exit. Clears this conversation and leaves now.',
+      excludeSemantics: true,
+      child: OutlinedButton.icon(
+        key: const Key('quick-exit'),
+        onPressed: requestQuickExit,
+        icon: const Icon(Icons.exit_to_app, size: 20),
+        label: const Text('Exit now'),
+        style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
       ),
+    );
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints box) {
+        // Say what it does when there is room; the label alone reads as a
+        // mystery button.
+        final bool room = box.maxWidth >= 340 &&
+            MediaQuery.textScalerOf(context).scale(14) / 14 <= 1.2;
+        final Widget note = Flexible(
+          child: Text(
+            'Clears what is on screen and leaves.',
+            style: AppText.caption.copyWith(color: AppColors.textFaint),
+          ),
+        );
+        return Row(
+          mainAxisAlignment:
+              s.quickExitLeft ? MainAxisAlignment.start : MainAxisAlignment.end,
+          children: <Widget>[
+            if (room && !s.quickExitLeft) ...<Widget>[
+              note,
+              const SizedBox(width: 10),
+            ],
+            button,
+            if (room && s.quickExitLeft) ...<Widget>[
+              const SizedBox(width: 10),
+              note,
+            ],
+          ],
+        );
+      },
     );
   }
 }

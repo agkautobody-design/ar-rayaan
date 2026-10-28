@@ -60,6 +60,7 @@ import '../features/legal/legal_routes.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/journey/presentation/journey_screen.dart';
 import '../features/kids/presentation/kids_corner_screen.dart';
+import '../features/kids/presentation/kids_lists_screens.dart';
 import '../features/noor/presentation/reflections_screen.dart';
 import '../features/menu/presentation/menu_screen.dart';
 import '../features/noor/presentation/noor_screen.dart';
@@ -71,6 +72,7 @@ import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
+import '../features/support/domain/quick_exit_signal.dart';
 import '../features/support/presentation/parent_listening_screen.dart';
 import '../features/support/presentation/support_pathway_screens.dart';
 import '../features/support/presentation/support_wellbeing_screen.dart';
@@ -87,6 +89,7 @@ import '../features/stories/presentation/stories_screen.dart';
 import '../features/stories/presentation/new_muslim_path_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
+import '../features/elder/application/elder_mode.dart';
 import '../features/elder/presentation/elder_care_screen.dart';
 import '../features/elder/presentation/elder_home_screen.dart';
 import '../features/finance/presentation/tayyib_finance_screen.dart';
@@ -272,6 +275,7 @@ String parentRouteOf(String path) {
     }
     return AppRoutes.academy;
   }
+  if (p.startsWith('/kids/')) return AppRoutes.kids;
   if (p.startsWith('/academy/')) return AppRoutes.academy;
   if (p.startsWith(AppRoutes.storyReader)) return AppRoutes.stories;
   if (p.startsWith('${AppRoutes.huda}/')) return AppRoutes.huda;
@@ -447,7 +451,13 @@ GoRouter buildRouter({String initialLocation = '/'}) {
     // off re-checks the current address.
     refreshListenable: kChildMode,
     redirect: (BuildContext context, GoRouterState state) =>
-        childModeRedirect(state.uri.path),
+        childModeRedirect(state.uri.path) ??
+        quickExitRedirect(state.uri.path, AppRoutes.home) ??
+        // Elder Mode keeps its own home: Back, Home or a link to the busy
+        // normal Home lands on the Elder home instead.
+        (kElderModeOn && state.uri.path == AppRoutes.home
+            ? ElderMode.homeRoute
+            : null),
     // Any unknown link lands somewhere useful instead of a red error page.
     errorPageBuilder: (context, state) =>
         _fade(const NotFoundScreen(), pill: false),
@@ -734,6 +744,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: AppRoutes.kids,
           pageBuilder: (context, state) =>
               _fade(const KidsCornerScreen(), pill: false),
+        ),
+        GoRoute(
+          path: '/kids/surahs',
+          pageBuilder: (context, state) =>
+              _fade(const KidsSurahsScreen(), pill: false),
+        ),
+        GoRoute(
+          path: '/kids/duas',
+          pageBuilder: (context, state) =>
+              _fade(const KidsDuasScreen(), pill: false),
         ),
         GoRoute(
           path: AppRoutes.stories,

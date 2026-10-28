@@ -10,6 +10,7 @@ import '../ui/games_art.dart';
 import 'chess_board_art.dart';
 import 'chess_engine.dart';
 import 'chess_settings.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Where the chess art lives. `tool/process_game_art.py` makes the pieces and
 /// the marble boards from the owner's approved art (see
@@ -394,7 +395,7 @@ class ChessBoardView extends StatelessWidget {
         : isTarget
             ? (piece == 0 ? 'legal move' : 'legal capture')
             : '';
-    return Semantics(
+    return FocusSafeSemantics(
       key: ValueKey<String>('sq-${squareName(sq)}'),
       button: true,
       selected: isSel,

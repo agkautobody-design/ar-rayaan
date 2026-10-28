@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../elder/application/elder_mode.dart';
 import '../data/game_history.dart';
@@ -33,6 +35,8 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
     final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
     final GamesState store = ref.watch(gamesStoreProvider);
     final List<GameDef> games = visibleGames(showAcademy: showAcademy);
+    // Child mode: only the short, curated list (see [kChildGameIds]).
+    final bool childMode = kChildMode.value;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -43,13 +47,38 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
             title: 'Games',
             tagline: 'Build your knowledge through play',
           ),
-          if (elder)
+          if (childMode)
+            ..._childBody(games)
+          else if (elder)
             ..._elderBody(games, store)
           else
             ..._normalBody(games, store),
         ],
       ),
     );
+  }
+
+  /// Child mode: a short list of games for children, nothing else (no
+  /// filters, no history, no settings, no friends, no unfinished-games strip).
+  List<Widget> _childBody(List<GameDef> games) {
+    final List<GameDef> mine = <GameDef>[
+      for (final String id in kChildGameIds)
+        for (final GameDef g in games)
+          if (g.id == id) g,
+    ];
+    return <Widget>[
+      const SizedBox(height: 4),
+      for (final GameDef g in mine)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: GameTile(game: g, large: true),
+        ),
+      const SizedBox(height: 8),
+      Text(
+        'No ads, no coins, no scores. Play as long as you like.',
+        style: AppText.bodyMuted.copyWith(height: 1.5),
+      ),
+    ];
   }
 
   List<Widget> _normalBody(List<GameDef> games, GamesState store) {
@@ -206,24 +235,30 @@ class GameTile extends StatelessWidget {
       for (final PlayMode m in PlayMode.values)
         if (game.modes.contains(m)) m.label,
     ];
+    // On a narrow or zoomed screen the picture and the chevron give their
+    // room to the words: a title must never wrap one letter to a line.
+    final bool squeezed = MediaQuery.sizeOf(context).width < 360 ||
+        MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
     return GamePanel(
       semanticsLabel: '${game.title}. ${game.blurb}. ${modes.join(', ')}.',
       onTap: () => context.open('/games/g/${game.id}'),
-      padding: EdgeInsets.all(large ? 20 : 14),
+      padding: EdgeInsets.all(large ? (squeezed ? 14 : 20) : 14),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ArtThumb(
-            gameId: game.id,
-            iconKey: game.iconKey,
-            size: large ? 64 : 52,
-          ),
-          const SizedBox(width: 14),
+          if (!squeezed) ...<Widget>[
+            ArtThumb(
+              gameId: game.id,
+              iconKey: game.iconKey,
+              size: large ? 64 : 52,
+            ),
+            const SizedBox(width: 14),
+          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                WholeWordText(
                   game.title,
                   style: AppText.titleMedium.copyWith(
                     color: GamesTheme.champagne,
@@ -231,7 +266,7 @@ class GameTile extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text(
+                WholeWordText(
                   game.blurb,
                   style: AppText.body.copyWith(
                     color: AppColors.textMuted,
@@ -252,10 +287,11 @@ class GameTile extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 14, left: 4),
-            child: Icon(Icons.chevron_right, color: AppColors.gold),
-          ),
+          if (!squeezed)
+            const Padding(
+              padding: EdgeInsets.only(top: 14, left: 4),
+              child: Icon(Icons.chevron_right, color: AppColors.gold),
+            ),
         ],
       ),
     );

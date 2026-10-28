@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 
+import '../online_status.dart';
+
 /// O-4 Firebase bootstrap — activated purely by build-time defines, so the
 /// same binary runs in local mode (beta, no config) or Firebase mode
 /// (Founder's project) with zero code changes:
@@ -57,6 +59,10 @@ abstract final class FirebaseBootstrap {
   static Future<bool> maybeInit() async {
     final FirebaseOptions? options = _options;
     if (options == null) return false;
+    // The browser says there is no connection: do not wait for a script that
+    // cannot arrive. The app starts at once in local mode (everything that
+    // works offline works; sign-in and cloud reports wait for a connection).
+    if (deviceReportsOnline == false) return false;
     try {
       await Firebase.initializeApp(options: options).timeout(initTimeout);
       return true;

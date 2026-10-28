@@ -116,6 +116,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
                               final bool? wipe = await showDialog<bool>(
                                 context: context,
                                 builder: (BuildContext c) => AlertDialog(
+                                  semanticLabel: 'Delete what Hadi knows?',
                                   title: const Text('Delete what Hadi knows?'),
                                   content: const Text(
                                       'You can keep what is saved, or delete it now.'),
@@ -164,6 +165,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
                               final bool? ok = await showDialog<bool>(
                                 context: context,
                                 builder: (BuildContext c) => AlertDialog(
+                                  semanticLabel: 'Before you turn this on',
                                   title: const Text('Before you turn this on'),
                                   content: const Text(
                                       'If you turn this on, what you type in a support '
@@ -328,6 +330,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
     final String? word = await showDialog<String>(
       context: context,
       builder: (BuildContext d) => AlertDialog(
+        semanticLabel: 'Safe word',
         title: const Text('Safe word'),
         content: TextField(
           key: const Key('safe-word-field'),
@@ -516,6 +519,7 @@ class WhatHadiKnowsScreen extends ConsumerWidget {
     final String? t = await showDialog<String>(
       context: context,
       builder: (BuildContext d) => AlertDialog(
+        semanticLabel: 'Edit',
         title: const Text('Edit'),
         content: TextField(controller: c, maxLength: UserMemory.maxLength),
         actions: <Widget>[

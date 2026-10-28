@@ -12,6 +12,7 @@ import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The text COPIED to the person's own clipboard for one ayah: Arabic, the
 /// translation, the reference and where both texts come from. Nothing is
@@ -198,7 +199,7 @@ class _Action extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,
@@ -250,6 +251,7 @@ class _NoteDialogState extends State<_NoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: widget.title,
       backgroundColor: AppColors.navy,
       title: Text(widget.title, style: AppText.titleMedium),
       content: TextField(

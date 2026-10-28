@@ -66,8 +66,8 @@ NextStep resolveNextStep({
       final String adhkarLine = adhkarLeft == null
           ? 'Then your adhkar.'
           : adhkarLeft <= 0
-          ? 'Your adhkar for today are done.'
-          : 'Then your adhkar: $adhkarLeft left today.';
+          ? 'Your morning adhkar for today are done.'
+          : 'Then your morning adhkar: $adhkarLeft repetitions left today.';
       return NextStep(
         headline: nextPrayer == null
             ? 'Choose your place for prayer times'

@@ -9,6 +9,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../application/quran_marks_controller.dart';
 import '../domain/quran_marks.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Ayah bookmarks and notes are kept by the Qur'an reader (see
 /// [QuranMarksController]), not in the general Notes list or the saved
@@ -35,7 +36,7 @@ class QuranMarksLinkCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final QuranMarks marks = ref.watch(quranMarksProvider);
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: 'Qur\u2019an bookmarks and notes. ${summary(marks)}',
       excludeSemantics: true,

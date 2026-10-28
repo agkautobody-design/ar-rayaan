@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
 import 'focus_ring.dart';
+import 'focus_safe_semantics.dart';
 
 /// Locked glass card style (Design System panel):
 /// Blur 24px · Border 1px gold (subtle glow) · Radius 20px ·
@@ -122,7 +123,7 @@ class GlassCard extends StatelessWidget {
     );
     final String? label = semanticsLabel;
     if (label == null) return Semantics(button: true, child: tappable);
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

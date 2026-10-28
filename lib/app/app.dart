@@ -19,6 +19,7 @@ import 'l10n/generated/app_localizations.dart';
 import 'router.dart';
 import 'theme/app_theme.dart';
 import 'theme/widgets/offline_banner.dart';
+import '../features/support/domain/quick_exit_signal.dart';
 import '../features/support/presentation/privacy_shield.dart';
 
 class ArRayaanApp extends ConsumerStatefulWidget {
@@ -137,7 +138,12 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
               child: AccessibilityScope(
             child: Listener(
               behavior: HitTestBehavior.translucent,
-              onPointerDown: (_) => ref.read(ambientServiceProvider).unlock(),
+              onPointerDown: (_) {
+                ref.read(ambientServiceProvider).unlock();
+                // A deliberate touch ends the "do not go back to where I
+                // was" guard that a quick exit sets.
+                releaseQuickExitGuard();
+              },
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(

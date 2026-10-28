@@ -5,6 +5,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../application/test_me_provider.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// True while "Hide text / test me" is on and this ayah has not been tapped
 /// open. The transliteration and the translation are covered with the Arabic:
@@ -42,7 +43,7 @@ class HideableArabic extends ConsumerWidget {
     if (shown) return child;
     void reveal() => ref.read(revealedAyahsProvider.notifier).state =
         <String>{...ref.read(revealedAyahsProvider), key};
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       excludeSemantics: true,
       label: 'Ayah $ayah is hidden. Tap to show it.',

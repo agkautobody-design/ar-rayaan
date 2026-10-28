@@ -11,6 +11,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../elder/application/elder_mode.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -216,6 +217,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
               children: [_welcomeSlide(l10n), _needSlide(l10n)],
             ),
           ),
+          const SizedBox(height: 10),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             for (var d = 0; d < slides; d++)
               Container(
@@ -278,7 +280,16 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 const SizedBox(height: 20),
                 Text(l10n.ui('onb.hello'), style: AppText.eyebrow),
                 const SizedBox(height: 8),
-                Text(l10n.ui('onb.title'), textAlign: TextAlign.center,
+                // A hyphen is a place to break a line ("Ar-" / "Rayaan"); the
+                // name is kept whole with a non-breaking hyphen at large
+                // sizes, where the title wraps.
+                Text(
+                    (_bigOrNarrow(context) ||
+                            MediaQuery.textScalerOf(context).scale(14) / 14 > 1.1 ||
+                            MediaQuery.sizeOf(context).width < 330)
+                        ? l10n.ui('onb.title').replaceAll('Ar-Rayaan', 'Ar\u2011Rayaan')
+                        : l10n.ui('onb.title'),
+                    textAlign: TextAlign.center,
                     key: const Key('onboarding-welcome-title'),
                     style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 28, color: AppColors.goldLight)),
                 const SizedBox(height: 14),
@@ -302,6 +313,9 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                   const SizedBox(height: 18),
                   _elderOffer(l10n),
                 ],
+                // Room at the end, so the last line scrolls clear of the
+                // page dots below instead of sitting under them.
+                const SizedBox(height: 24),
               ],
             ),
           ),
@@ -313,7 +327,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
   /// "Easier to read?" - one big tap for Elder Mode (big words, big buttons,
   /// a simple home). It can be switched off again in Settings.
   Widget _elderOffer(L10n l10n) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: '${l10n.ui('onb.elder1')}. ${l10n.ui('onb.elder2')}',
       excludeSemantics: true,
@@ -374,7 +388,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
           runSpacing: 8,
           children: [
             for (final Locale loc in LocaleController.firstRunChoices)
-              Semantics(
+              FocusSafeSemantics(
                 button: true,
                 selected: current.languageCode == loc.languageCode,
                 label: names[loc.languageCode],
@@ -478,7 +492,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
     final bool selected = _need == n.key;
     // A real button for a screen reader (with its chosen state spoken) and
     // for the keyboard (Tab, Enter or Space, with a visible ring).
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       selected: selected,
       inMutuallyExclusiveGroup: true,

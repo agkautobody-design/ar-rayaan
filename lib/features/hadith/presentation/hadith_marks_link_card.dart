@@ -9,6 +9,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../application/hadith_marks_controller.dart';
 import '../domain/hadith_marks.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Hadith bookmarks and notes are kept by the Hadith screen (see
 /// [HadithMarksController]), not in the general Notes list. This card sits on
@@ -33,7 +34,7 @@ class HadithMarksLinkCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final HadithMarks marks = ref.watch(hadithMarksProvider);
     void open() => context.push(AppRoutes.hadithSaved());
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: 'Hadith bookmarks and notes. ${summary(marks)}',
       excludeSemantics: true,

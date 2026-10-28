@@ -218,7 +218,7 @@ const List<_Entry> _knowledge = <_Entry>[
   // tells the learner to practise with a teacher.
   // Letter 1 of 28
   _Entry(<String>['alif', 'letter alif', 'the alif'],
-    'Alif (ا) — Its sound comes from the empty space of the mouth and throat (the Arabic term is al-jawf). Open the Letters school in the Academy and start the lesson for Alif: you will see the letter, practise it and answer a gentle question. Say its name slowly. Alif is the very first letter, so there is none before it.',
+    'Alif (ا) — It is a tall, straight line. To say it, open your mouth wide and let a long, open \'aaa\' come out, like when you say \'aah\' for the doctor. Open the Letters school in the Academy and start the lesson for Alif: you will see the letter, practise it and answer a gentle question. Say its name slowly. Alif is the very first letter, so there is none before it.',
   ),
   // Letter 2 of 28
   _Entry(<String>['ba', 'baa', 'letter ba', 'the ba'],

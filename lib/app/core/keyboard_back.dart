@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/support/domain/quick_exit_signal.dart';
 import '../router.dart';
 
 /// Escape goes Back on any screen that was opened on top of another.
@@ -24,10 +25,13 @@ class KeyboardBackScope extends StatelessWidget {
       canRequestFocus: false,
       skipTraversal: true,
       includeSemantics: false,
-      onKeyEvent: (FocusNode node, KeyEvent event) =>
-          handleEscapeBack(router, event)
-              ? KeyEventResult.handled
-              : KeyEventResult.ignored,
+      onKeyEvent: (FocusNode node, KeyEvent event) {
+        // A deliberate key press ends the guard a quick exit sets.
+        if (event is KeyDownEvent) releaseQuickExitGuard();
+        return handleEscapeBack(router, event)
+            ? KeyEventResult.handled
+            : KeyEventResult.ignored;
+      },
       child: child,
     );
   }

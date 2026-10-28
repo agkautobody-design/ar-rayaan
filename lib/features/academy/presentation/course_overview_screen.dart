@@ -16,6 +16,7 @@ import '../domain/course_manifest.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// One tracked course: its lessons, what is done, one button to continue.
 ///
@@ -214,7 +215,7 @@ class _LessonRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String title = AcademyStrings.get(lesson.titleKey);
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: '$title, ${done ? 'done' : 'not done yet'}',
       excludeSemantics: true,

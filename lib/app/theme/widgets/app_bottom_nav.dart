@@ -9,6 +9,7 @@ import '../../core/i18n/app_locale.dart';
 import '../app_colors.dart';
 import 'focus_ring.dart';
 import 'whole_word_text.dart';
+import 'focus_safe_semantics.dart';
 
 /// Locked bottom navigation: Home · Faith · Family · Hādi · You.
 ///
@@ -89,7 +90,7 @@ class _NavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     // Inactive uses textFaint (>= 4.5:1 on the nav bar); it was 45% sand.
     final Color color = active ? AppColors.gold : AppColors.textFaint;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       selected: active,
       label: label,

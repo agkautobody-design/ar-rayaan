@@ -15,6 +15,7 @@ import '../../habits/application/habits_providers.dart';
 import '../application/sfx_provider.dart';
 import '../domain/dhikr_session.dart';
 import '../domain/sfx.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class DhikrSessionScreen extends ConsumerStatefulWidget {
   const DhikrSessionScreen({super.key});
@@ -148,7 +149,7 @@ class _DhikrSessionScreenState
                 builder: (context, _) {
                   final double glow = 0.35 + _breathe.value * 0.5;
                   final bool finished = _state.phase == DhikrPhase.complete;
-                  return Semantics(
+                  return FocusSafeSemantics(
                     button: true,
                     enabled: !finished,
                     label: 'Count one remembrance: ${_set.meaning}',

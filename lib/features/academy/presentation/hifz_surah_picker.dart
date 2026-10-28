@@ -9,6 +9,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../quran/domain/quran_index.dart';
 import '../../quran/domain/quran_models.dart';
 import '../../quran/domain/surah_search.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The name of surah [number] ("Al-Kahf"), or '' when out of range.
 String hifzSurahName(int number) =>
@@ -46,7 +47,7 @@ class HifzSurahPicker extends StatelessWidget {
       children: <Widget>[
         Text('Surah', style: AppText.caption),
         const SizedBox(height: 4),
-        Semantics(
+        FocusSafeSemantics(
           button: true,
           label: 'Surah: $label. Tap to choose another surah.',
           excludeSemantics: true,

@@ -26,6 +26,8 @@ abstract final class RouteTitles {
     '/home/quick': 'Quick Access',
     '/handout': 'Handout',
     '/kids': 'For Children',
+    '/kids/surahs': 'Short surahs',
+    '/kids/duas': 'Duas for children',
     '/noor/reflections': 'My Reflections',
     '/games': 'Games',
     '/games/history': 'Game History',

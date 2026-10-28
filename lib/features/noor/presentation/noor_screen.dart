@@ -18,6 +18,7 @@ import '../../share/presentation/share_actions.dart';
 import '../application/noor_providers.dart';
 import '../domain/noor_entry.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Screen 7 · Today's NOOR — daily ayah/hadith + reflection.
 ///
@@ -442,7 +443,7 @@ class _ShareNoorButton extends ConsumerWidget {
   Widget _button(BuildContext context, WidgetRef ref) {
     return Tooltip(
       message: 'Share today’s NOOR',
-      child: Semantics(
+      child: FocusSafeSemantics(
       button: true,
       label: 'Share today’s NOOR',
       excludeSemantics: true,

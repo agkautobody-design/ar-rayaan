@@ -9,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Home, page two - the quick-access hall. Everything dear, one tap away.
 class HomeQuickScreen extends ConsumerWidget {
@@ -77,7 +78,7 @@ class _QuickTile extends StatelessWidget {
     // Grows with the system text size so the caption never overflows.
     final double textScale =
         (MediaQuery.textScalerOf(context).scale(14) / 14).clamp(1.0, 2.0);
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: '$title. $subtitle',
       excludeSemantics: true,
