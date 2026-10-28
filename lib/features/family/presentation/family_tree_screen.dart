@@ -7,6 +7,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../share/application/share_service.dart';
+import '../../share/presentation/share_actions.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
@@ -398,6 +400,23 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
     }
   }
 
+  /// The text share for one person in the tree. Public teaching only.
+  ShareDoc _shareDoc(FamilyTreeData data, FamilyNode node) {
+    final List<String> parents = <String>[
+      for (final String p in node.parents)
+        if (data.byId[p] != null) data.byId[p]!.name,
+    ];
+    return ShareDoc.treePerson(
+      name: node.name,
+      era: node.era,
+      label: node.sourceLabel,
+      description: node.description,
+      lineage: parents.isEmpty ? null : 'Child of ${parents.join(' and ')}',
+      lineageNote: node.lineageNote,
+      sources: node.sources,
+    );
+  }
+
   void _openNode(BuildContext context, FamilyTreeData data, FamilyNode node) {
     final hasKids = node.children.any((c) => data.byId.containsKey(c));
     final List<FamilyRelation> relations = <FamilyRelation>[
@@ -490,7 +509,14 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
               Wrap(
                 spacing: 10,
                 runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
+                  // Words only: the share carries the name, era, label,
+                  // lineage and sources. No image of any prophet, ever.
+                  ShareButton(
+                    doc: _shareDoc(data, node),
+                    subject: node.name,
+                  ),
                   if (node.story != null)
                     ElevatedButton.icon(
                       onPressed: () {

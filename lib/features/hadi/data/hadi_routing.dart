@@ -1,5 +1,6 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
+import 'hadi_game_ask.dart';
 
 /// What a short "yes" refers to: either a question to answer in its place or
 /// a finished reply.
@@ -1009,6 +1010,7 @@ abstract final class HadiRouting {
     if (answer.contains('is a medical question, and your doctor')) return true;
     if (_repeatOpeners.any(answer.contains)) return true;
     if (answer.contains(_moreOpener)) return true;
+    if (HadiGameAsk.isReply(answer)) return true;
     return fixedReplies.any(answer.contains);
   }
 }

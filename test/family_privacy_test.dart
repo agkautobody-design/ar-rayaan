@@ -10,6 +10,7 @@ import 'package:ar_rayaan/features/academy/domain/children_privacy.dart';
 import 'package:ar_rayaan/features/academy/presentation/academy_family.dart';
 import 'package:ar_rayaan/features/academy/presentation/widgets/parent_gate.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/sakina/domain/crisis_detector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -298,7 +299,8 @@ void main() {
       final String reply = await c
           .read(wasiaControllerProvider.notifier)
           .ask('I want to kill myself', persona: WasiaPersona.student);
-      expect(reply, wasiaCrisisReply(WasiaPersona.student));
+      expect(reply,
+          wasiaCrisisReply(WasiaPersona.student, kind: CrisisKind.selfHarm));
       expect(reply, contains('trust'));
       expect(RegExp(r'\d{3,}').hasMatch(reply), isFalse,
           reason: 'no phone number is ever invented');

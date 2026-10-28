@@ -2,6 +2,7 @@
 /// its text, its source lines and its reflection questions. Nothing is added.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import '../application/share_text.dart';
 
 class HandoutSection {
@@ -20,6 +21,7 @@ class HandoutData {
     required this.sections,
     this.sources = const <String>[],
     this.questions = const <String>[],
+    this.reviewKey,
   });
 
   final String title;
@@ -31,6 +33,10 @@ class HandoutData {
   final List<HandoutSection> sections;
   final List<String> sources;
   final List<String> questions;
+
+  /// Register id of the content, when it has one. The handout then carries
+  /// the fixed "Scholar review needed" label (or the sign-off).
+  final String? reviewKey;
 
   /// Plain text for Copy: same order as the page.
   String toPlainText() {
@@ -59,7 +65,8 @@ class HandoutData {
         b.write('\n${i + 1}. ${questions[i].trim()}');
       }
     }
-    b.write('\n\n$kSharedFromLine');
+    if (reviewKey != null) b.write('\n\n${scholarReviewText(reviewKey!)}');
+    b.write('\n\n${shareFooter()}');
     return b.toString();
   }
 
@@ -114,7 +121,13 @@ class HandoutData {
       }
       b.write('</ol>');
     }
-    b.write('<p class="credit">${escapeHtml(kSharedFromLine)}</p>');
+    if (reviewKey != null) {
+      b.write('<p class="note">${escapeHtml(scholarReviewText(reviewKey!))}</p>');
+    }
+    b.write(
+      '<p class="credit">${escapeHtml(kSharedFromLine)}. '
+      '${escapeHtml(kShareDownloadLine)}: ${escapeHtml(kInviteUrl)}</p>',
+    );
     b.write('</body></html>');
     return b.toString();
   }

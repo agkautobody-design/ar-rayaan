@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
@@ -197,8 +198,12 @@ class SupportWellbeingScreen extends ConsumerWidget {
                           SwitchRow(
                             icon: Icons.visibility_off_outlined,
                             title: 'Private mode',
-                            subtitle: 'No history. A plain cover when the app is left '
-                                'or switched, and no message text in notifications.',
+                            subtitle: 'A plain cover when the app is left or '
+                                'switched, the Hādi and Wasia conversations '
+                                'cleared when you leave, no message text in '
+                                'notifications, and no support screen when '
+                                'the app opens. It does not hide the browser\u2019s '
+                                'own history or the address bar on the web.',
                             value: s.privateMode,
                             onChanged: (bool v) => n.setPrivateMode(v),
                           ),
@@ -234,7 +239,9 @@ class SupportWellbeingScreen extends ConsumerWidget {
                                 Text(
                                   n.safeWord == null
                                       ? 'Not set. Type your word in Hadi to clear the chat and leave at once.'
-                                      : 'Set. Typing it in Hadi clears the chat and leaves at once.',
+                                      : (kIsWeb
+                                          ? 'Set for this visit only. On the web it is forgotten when the page is closed or reloaded, so set it again next time. Typing it in Hadi clears the chat and leaves at once.'
+                                          : 'Set. Typing it in Hadi clears the chat and leaves at once.'),
                                   style: AppText.bodyMuted.copyWith(fontSize: 12),
                                 ),
                               ],

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,12 +13,14 @@ import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
-/// The text copied for one ayah: Arabic, the translation, the reference and
-/// where both texts come from. Nothing is reworded.
+/// The text COPIED to the person's own clipboard for one ayah: Arabic, the
+/// translation, the reference and where both texts come from. Nothing is
+/// reworded. This is a private copy, not a share: the share sheet sends the
+/// Arabic and reference only (see `ShareDoc.ayah`).
 ///
 /// [credit] is the source line for the translation actually shown (see
 /// `QuranTexts.shareCreditLine`); it defaults to the interim translation.
-String ayahShareText(
+String ayahCopyText(
   String surahName,
   int surah,
   Ayah ayah, {
@@ -109,7 +112,7 @@ class AyahActionsSheet extends ConsumerWidget {
               onTap: () async {
                 await copyWithFeedback(
                   context,
-                  ayahShareText(
+                  ayahCopyText(
                     surahName,
                     surah,
                     ayah,
@@ -129,8 +132,12 @@ class AyahActionsSheet extends ConsumerWidget {
                 unawaited(
                   showSharePreview(
                     context,
-                    text: ayahShareText(surahName, surah, ayah),
-                    title: '$surahName $surah:${ayah.number}',
+                    doc: ShareDoc.ayah(
+                      surahName: surahName,
+                      surah: surah,
+                      from: ayah.number,
+                      arabic: ayah.arabic,
+                    ),
                     subject: 'this ayah',
                   ),
                 );

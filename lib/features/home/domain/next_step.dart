@@ -143,6 +143,10 @@ NextStep resolveNextStep({
             : 'Continue reading $quranResume',
         detail: 'The Qur’an, with the English beside it.',
         route: NextStepRoutes.quran,
+        // Someone who skipped the introduction chose no goal: keep the door
+        // to the 30-day road for a new Muslim one tap away.
+        secondaryLabel: need == null ? 'New to Islam? The 30-day road' : null,
+        secondaryRoute: need == null ? NextStepRoutes.newMuslimPath : null,
       );
   }
 }

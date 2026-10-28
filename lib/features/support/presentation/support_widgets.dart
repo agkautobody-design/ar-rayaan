@@ -164,7 +164,7 @@ class SupportHelpLines extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String? country = ref.watch(deviceCountryProvider);
+    final String? country = ref.watch(helpCountryProvider);
     final List<HelpResource> rows = HelplinesLoader.forScope(scope, country).take(4).toList();
     if (rows.isEmpty) return const SizedBox.shrink();
     return Padding(

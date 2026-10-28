@@ -310,6 +310,34 @@ def add_all(R):
         'Round 10 T2: no content told a parent how to listen to a bullied child. A clinician and a child-protection specialist should read it; a scholar should read the faith line.',
         CLIN, ['R10_T2'], 'high', also=[FIQH, LAWYER], sub='children',
         surf='Family Wing and search')
+    # ------------------------------------------------ support and safety fixes (round 10, fix pass B)
+    add('support.safe-replies', 'sakina', 'Hadi > refused taper schedule; controlling husband; a child who told a parent; a struggling teenager; a quiet student; "are you a therapist?"; "be my only friend"',
+        'lib/features/support/domain/safe_replies.dart', 'TaperRequest, CoerciveMarriage, ChildConcern, AboutHadi (word lists and fixed replies)',
+        'Fixed on-device replies for moments that are neither a crisis card nor a ruling: no taper schedule (a doctor decides), listening and a safety question before any patience or duty, what a parent does when a child tells them something, how to open a conversation with a withdrawn teenager, what a teacher does about a quiet student, and honest answers that Hadi is an app and not a therapist or a friend.',
+        'R10_T9 and R10_T10: a taper request got a ruling card, a controlling-husband question got a patience verse, and "are you a therapist" got a lesson-shelf answer. No clinician, safeguarding specialist or scholar has read them.',
+        CLIN, ['R10_T9', 'R10_T10', 'R10_T2'], 'high', also=[LAWYER, FIQH, NATIVE], sub='support',
+        surf='Under each of these replies in Hadi and Wasia')
+    add('support.crisis-phrases-fixb', 'languages', 'Crisis phrases added in fix pass B (English plus Arabic, Urdu, Bangla)',
+        'lib/features/sakina/domain/crisis_detector.dart', '_selfHarm, _abuse, _substance (added phrases)',
+        'New phrases: "nobody would notice if I was gone", "I do not want to go home", "someone at home hurts me", "I am scared he will hurt me tonight", pills with alcohol, and short Arabic, Urdu and Bangla lists for the same ideas.',
+        'R10_T9, R10_T10, R10_T2: these sentences were missed. The non-English lists were written for coverage and are NOT read by a native speaker: Native-speaker review needed before they are relied on. English wording must be read by a clinician for false alarms and misses.',
+        NATIVE, ['R10_T9', 'R10_T10', 'R10_T2'], 'high', also=[CLIN], sub='crisis-phrases')
+    add('support.child-disclosure-card', 'sakina', 'Wasia, Kids > the card a child sees when they tell something serious (ages 5-8, 9-12, 13-17); cards for reading difficulty, vaping, pornography',
+        'lib/features/support/domain/child_distress.dart; lib/features/academy/application/wasia_controller.dart', 'ChildDistress.disclosureCard; learning, vape, porn replies',
+        'Full-sentence, age-banded wording: "I believe you", "it is not your fault", Wasia cannot keep secrets from the grown-ups who help, the child chooses who to tell, the help-line button. A reading-difficulty line goes to a teacher or a doctor, vaping and pornography to a trusted adult, with no shaming and no diagnosis.',
+        'R10_T2: the old card was a broken sentence that told a child what to do under pressure. A child-protection specialist and a clinician should read the wording for each age band.',
+        CLIN, ['R10_T2'], 'high', also=[LAWYER, NATIVE], sub='children',
+        surf='Wasia thread and Kids Corner')
+    add('support.help-country-choice', 'sakina', 'Need help now / Hadi crisis card > the country the person picks',
+        'lib/features/sakina/application/sakina_providers.dart; lib/features/sakina/domain/crisis_detector.dart', 'pickedHelpCountryProvider; CrisisResponses.regionNote(picked)',
+        'The country picked under the help lines now also decides the text of the card, not only the rows. The note says the lines are for the country the person chose.',
+        'R10_T10: a Bangladeshi user picked Bangladesh and the card text still named another country. The wording of the note needs a native-speaker read in each supported language.',
+        CLIN, ['R10_T10'], 'normal', also=[NATIVE], sub='help-lines')
+    add('support.helplines-fixb', 'sakina', 'Help lines added in fix pass B: Egypt child hotline 16000, Egypt women\'s complaints hotline 15115, Saudi child helpline 116111, Canada provincial gender-based-violence directory',
+        'assets/support/helplines.json; tool/support/build_helplines.py', 'eg-16000, eg-15115, sa-116111, ca-gbv-provincial',
+        'Four rows read on 2026-10-27 on official or UN pages (sources in the file). Canada has no single national line, so the row opens the Government of Canada list. The Egypt women\'s hotline rests on a 2020 UN interview and should be re-checked on an NCW page. Hours are left empty because the pages did not state them.',
+        'R10_T9, R10_T10: Canada adult domestic violence, Bangladesh women\'s, Saudi and Egypt coverage were missing. Bangladesh 109 was already verified. Nothing unverified is shown.',
+        CLIN, ['R10_T9', 'R10_T10'], 'high', also=[NATIVE], sub='help-lines')
     add('support.wasia-checkin', 'sakina', 'Wasia > the gentle check-in for a child',
         'lib/features/academy/application/wasia_checkin.dart', 'WasiaCheckinNotifier; kWasiaCheckinFallback',
         'Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it.',

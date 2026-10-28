@@ -1,5 +1,3 @@
-import 'dart:async' show unawaited;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +7,6 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../elder/application/elder_mode.dart';
-import '../../share/presentation/share_actions.dart';
 import '../../tracking/application/tracking_providers.dart';
 import '../../tracking/domain/encouragement.dart';
 import '../application/habits_providers.dart';
@@ -78,16 +75,12 @@ class QuietDoneGate {
 
 /// The calm card body: one line, an optional warm line for someone new or
 /// coming back, one button.
-/// No points, no confetti, no ranking. When [shareText] is given there is
-/// also a quiet "Share" button; it only opens a preview, nothing is sent
-/// until the person confirms there.
+/// No points, no confetti, no ranking, and no share button: that something
+/// was finished is the person's own, and is never offered for sharing.
 class QuietDoneCard extends ConsumerWidget {
-  const QuietDoneCard({this.onClose, this.shareText, super.key});
+  const QuietDoneCard({this.onClose, super.key});
 
   final VoidCallback? onClose;
-
-  /// The milestone line to preview and share ("I completed ...").
-  final String? shareText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -126,27 +119,6 @@ class QuietDoneCard extends ConsumerWidget {
                 ),
               ],
               const SizedBox(height: 16),
-              if (shareText != null) ...<Widget>[
-                ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: elder ? 64 : 48),
-                  child: OutlinedButton.icon(
-                    key: const Key('quiet-done-share'),
-                    onPressed: () => unawaited(
-                      showSharePreview(
-                        context,
-                        text: shareText!,
-                        subject: 'this milestone',
-                      ),
-                    ),
-                    icon: const Icon(Icons.ios_share, size: 18),
-                    label: Text(
-                      'Share this',
-                      style: TextStyle(fontSize: elder ? 20 : null),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-              ],
               ConstrainedBox(
                 constraints: BoxConstraints(minHeight: elder ? 64 : 48),
                 child: FilledButton(
@@ -173,7 +145,6 @@ Future<void> showQuietDone(
   WidgetRef ref, {
   required String moment,
   bool oncePerDay = true,
-  String? shareText,
 }) async {
   if (!kQuietDoneEnabled) return;
   try {
@@ -188,7 +159,7 @@ Future<void> showQuietDone(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (BuildContext sheet) => QuietDoneCard(shareText: shareText),
+      builder: (BuildContext sheet) => const QuietDoneCard(),
     );
   } catch (_) {}
 }

@@ -43,3 +43,18 @@ final NotifierProvider<DaysReturnedController, int> daysReturnedProvider =
 final Provider<String?> deviceCountryProvider = Provider<String?>(
   (_) => ui.PlatformDispatcher.instance.locale.countryCode,
 );
+
+/// A country the person chose by hand, in the Need help now sheet or under a
+/// crisis card. It lives in memory for this visit only and is never saved or
+/// sent anywhere. It wins over the device language everywhere help lines are
+/// shown, so the card, the sheet and the room lists always agree.
+final StateProvider<String?> pickedHelpCountryProvider =
+    StateProvider<String?>((Ref ref) => null);
+
+/// The country whose help lines are shown: the one the person picked, else
+/// the one from the device language, else null (worldwide lines only).
+final Provider<String?> helpCountryProvider = Provider<String?>((Ref ref) {
+  final String? picked = ref.watch(pickedHelpCountryProvider);
+  if (picked != null && picked.trim().isNotEmpty) return picked;
+  return ref.watch(deviceCountryProvider);
+});

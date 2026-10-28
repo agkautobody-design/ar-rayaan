@@ -108,7 +108,7 @@ abstract final class HelplinesLoader {
     ];
     final HelpResource r = HelpResource(
       name: (e['service'] as String?) ?? contact,
-      detail: bits.isEmpty ? 'Read on the service’s own page on $verifiedOn.' : bits.join('. '),
+      detail: bits.join('. '),
       contact: contact,
       region: cc == 'INT' ? 'Worldwide' : (_regions[cc] ?? cc),
       dial: plainPhone ? digits : null,
@@ -117,6 +117,7 @@ abstract final class HelplinesLoader {
       kinds: kinds.isEmpty ? const <HelpKind>{HelpKind.general} : kinds,
       verifiedOn: verifiedOn,
       source: source,
+      childOnly: e['audience'] == 'child',
     );
     _scopes[r] = scope.toSet();
     return r;

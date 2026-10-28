@@ -824,6 +824,7 @@ abstract final class AcademyStrings {
       'track.eyebrow': 'Learning track',
       'track.child': 'Child',
       'track.teen': 'Teen',
+      'track.adult': 'Adult',
       'track.parent': 'Parent',
       'track.hint':
           'Changes what this page shows. On the Child track, other tracks and the other schools open only with a grown-up\u2019s PIN.',
@@ -1161,6 +1162,7 @@ abstract final class AcademyStrings {
       'track.eyebrow': 'LEARNING AS',
       'track.child': 'Child',
       'track.teen': 'Teen',
+      'track.adult': 'Adult',
       'track.parent': 'Parent',
       'academy.reviewsDue': 'Reviews due',
       'academy.lessonsDone': 'pelajaran selesai',

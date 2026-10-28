@@ -13,7 +13,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/domain/handout.dart';
 import '../../share/presentation/handout_screen.dart';
 import '../../share/presentation/share_actions.dart';
@@ -125,9 +125,8 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             alignment: WrapAlignment.end,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              ShareCopyButtons(
-                text: storyChapterShareText(story, current),
-                title: story.title,
+              ShareButton(
+                doc: storyChapterShareDoc(story, current),
                 subject: 'this chapter',
               ),
               MakeHandoutButton(makeData: () => storyHandout(story)),
@@ -383,10 +382,16 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
 
 /// The chapter on screen as plain text: title, Arabic, text, then the
 /// story's source lines and its honesty label, then the app credit.
-String storyChapterShareText(Story story, StoryChapter chapter) {
+String storyChapterShareText(Story story, StoryChapter chapter) =>
+    ShareService.build(storyChapterShareDoc(story, chapter));
+
+/// The share for the chapter on screen: text only, never an image. A story or
+/// khutbah that is not "Established" says so, and carries "Scholar review
+/// needed" until a named scholar is recorded.
+ShareDoc storyChapterShareDoc(Story story, StoryChapter chapter) {
   final String label = chapter.label ?? story.sourceLabel;
   final String sources = story.sources.join('; ');
-  return composeShareText(
+  return ShareDoc.story(
     title: chapter.heading.isEmpty
         ? story.title
         : '${story.title}: ${chapter.heading}',
@@ -395,6 +400,7 @@ String storyChapterShareText(Story story, StoryChapter chapter) {
     source: label == kLabelEstablished
         ? sources
         : '$sources (${storyLabelDisplay(label)})',
+    reviewKey: storyReviewKey(story.collection, story.id),
   );
 }
 
@@ -402,6 +408,7 @@ String storyChapterShareText(Story story, StoryChapter chapter) {
 /// family question that already ends the story.
 HandoutData storyHandout(Story story) => HandoutData(
       title: story.title,
+      reviewKey: storyReviewKey(story.collection, story.id),
       subtitle: story.subtitle,
       notice: story.sourceLabel == kLabelEstablished
           ? null

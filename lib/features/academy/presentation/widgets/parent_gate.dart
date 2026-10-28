@@ -282,8 +282,8 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
               Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  'Forgotten it? Clearing this site\u2019s data in the browser '
-                  'removes the PIN, and the child profiles with it.',
+                  'Forgotten it? The Privacy page, under Children, explains '
+                  'what to do.',
                   style: AppText.caption,
                 ),
               ),

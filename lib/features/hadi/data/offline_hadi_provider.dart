@@ -5,6 +5,7 @@ import 'hadi_core.dart';
 import 'hadi_decline.dart';
 import 'hadi_explain.dart';
 import 'hadi_finder.dart';
+import 'hadi_game_ask.dart';
 import 'hadi_game_help.dart';
 import 'hadi_routing.dart';
 
@@ -1046,6 +1047,11 @@ class OfflineHadiProvider implements HadiProvider {
 
     // A person who says someone they love has died is answered with care,
     // before the shelf is read.
+    // "Ask Hadi about this" in a game: the game's own text, answered from
+    // the game's own fields.
+    final String? gameAsk = HadiGameAsk.answer(question);
+    if (gameAsk != null) return gameAsk;
+
     final String? grief = griefReply(question);
     if (grief != null) return grief;
 
@@ -1899,8 +1905,9 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['does hadi remember me', 'hadi memory', 'clear hadi memory', 'clear my conversation', 'delete our chat', 'delete my chat', 'forget me', 'does hadi remember my name'],
     'In Settings, under Hadi, the switch "Hadi remembers you" lets Hadi '
     'greet you by name; it is stored on this device only. Hadi also '
-    'remembers your last conversation on this device, and you can clear it '
-    'from the Hadi screen.'
+    'does not save your conversations: they stay on screen for this visit '
+    'only. Hadi never keeps anything about your health, medicines, drinking, '
+    'drugs or safety, even if you ask.'
     '\n[GO:/settings]',
   ),
   _Entry(

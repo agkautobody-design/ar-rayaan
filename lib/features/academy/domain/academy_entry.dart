@@ -22,7 +22,7 @@ extension AcademyDoorX on AcademyDoor {
 
   /// The learning track this door starts on, or null to leave it as it is.
   String? get track => switch (this) {
-        AcademyDoor.newToIslam => 'teen',
+        AcademyDoor.newToIslam => 'adult',
         AcademyDoor.myChild => 'child',
         AcademyDoor.returning => null,
       };

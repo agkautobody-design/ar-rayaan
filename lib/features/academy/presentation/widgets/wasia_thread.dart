@@ -115,6 +115,7 @@ class _WasiaThreadState extends ConsumerState<WasiaThread> {
               kind: s.messages.last.crisis!,
               label: 'Show help lines',
               showSakinaLink: false,
+              forChild: true,
             ),
           ),
         ),

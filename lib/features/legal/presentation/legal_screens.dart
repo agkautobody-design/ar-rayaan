@@ -163,6 +163,19 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'Google. Each has its own privacy policy.',
   ),
   LegalSection(
+    'Sharing',
+    'You can share a verse, hadith, du\u2019a, story, lesson text, guide, '
+        'calendar occasion or a mosque or restaurant listing. You always see '
+        'exactly what will be sent first, and nothing is sent until you '
+        'choose an app to send it with. A share contains only that public '
+        'content and a link to the app: never your name, your location, '
+        'your notes, your progress, your saved items or anything from a '
+        'conversation, and nothing about children. The link is the same for '
+        'everyone and carries no code, so we receive nothing about who you '
+        'send it to. Once a share leaves the app, the app you send it with '
+        'handles it under its own policy.',
+  ),
+  LegalSection(
     'We do not sell your data',
     'We do not sell personal data or show advertising based on it.',
   ),

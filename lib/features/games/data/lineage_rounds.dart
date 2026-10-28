@@ -37,6 +37,17 @@ const Set<String> _riverSubjects = <String>{'ismail', 'ishaq', 'yaqub', 'yusuf'}
 bool _isFolded(Map<String, dynamic> n) =>
     (n['name'] as String).startsWith('…');
 
+/// Rows of the tree that stand for several people at once ("His other
+/// daughters", "His other wives"). They are real in the tree but are not a
+/// person: a question about one reads as a dangling sentence ("His other
+/// daughters is the child of Muhammad") and as a wrong choice they are odd.
+bool _isGroup(Map<String, dynamic> n) {
+  final String name = n['name'] as String;
+  return name.startsWith('His other ') ||
+      name.startsWith('The wife of ') ||
+      name.startsWith('The Line of ');
+}
+
 bool _established(Map<String, dynamic> n) => n['sourceLabel'] == 'Established';
 
 List<String> _strings(Map<String, dynamic> n, String key) =>
@@ -69,7 +80,7 @@ List<LineageRound> buildLineageRounds(
   };
 
   bool eligibleChild(Map<String, dynamic> n) {
-    if (!_established(n) || _isFolded(n)) return false;
+    if (!_established(n) || _isFolded(n) || _isGroup(n)) return false;
     final List<String> parents = _strings(n, 'parents');
     if (parents.isEmpty) return false;
     for (final String p in parents) {
@@ -105,6 +116,7 @@ List<LineageRound> buildLineageRounds(
       for (final Map<String, dynamic> x in nodes)
         if (!banned.contains(x['id']) &&
             !_isFolded(x) &&
+            !_isGroup(x) &&
             _established(x) &&
             x['placement'] != 'unplaced' &&
             x['name'] != answerName &&
@@ -151,7 +163,9 @@ List<LineageRound> buildLineageRounds(
     ]..shuffle(rnd);
     final String name = n['name'] as String;
     rounds.add(LineageRound(
-      prompt: 'Which river of Ibrahim’s house does $name belong to?',
+      prompt: 'Ibrahim’s family runs in two branches, which the tree calls rivers: '
+          'the first through Ismail, the second through Ishaq. '
+          'Which river does $name belong to?',
       options: options,
       answer: options.indexOf(first ? kFirstRiver : kSecondRiver),
       why: first

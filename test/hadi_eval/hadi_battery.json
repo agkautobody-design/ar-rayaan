@@ -1534,7 +1534,7 @@
 ],
 "expect": [
 {
-"core": "privacy-free-ads",
+"core": "app-free-cost",
 "refusal": false
 }
 ]
@@ -1567,7 +1567,7 @@
 ],
 "expect": [
 {
-"core": "",
+"core": "app-notifications",
 "refusal": false
 }
 ]

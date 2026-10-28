@@ -449,9 +449,11 @@ class SettingsScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'Hādi also remembers your last conversation on this '
-                        'device, so you can pick up where you left off. Clear '
-                        'it any time from the Hādi screen.',
+                        'Hādi does not save your conversations. They stay on '
+                        'screen for this visit only, and are gone when you '
+                        'leave, clear them, or close the app. Hādi never '
+                        'keeps anything about your health, medicines, '
+                        'drinking, drugs or safety, even if you ask it to.',
                         style: AppText.bodyMuted.copyWith(
                           fontSize: 12,
                           height: 1.5,

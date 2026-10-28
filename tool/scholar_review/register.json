@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5399,
+ "total": 5468,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 462,
+   "items": 483,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 562,
-   "high_priority": 108
+   "items": 575,
+   "high_priority": 112
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 53,
-   "high_priority": 29
+   "items": 57,
+   "high_priority": 32
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -105,8 +105,8 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 195,
-   "high_priority": 90
+   "items": 226,
+   "high_priority": 121
   },
   "legal": {
    "title": "Privacy, terms, children's privacy, community rules",
@@ -130,19 +130,19 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2434,
-  "Fiqh scholar (per madhab)": 589,
+  "Hadith / aqidah scholar": 2447,
+  "Fiqh scholar (per madhab)": 610,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 1003,
-  "Native speaker (ar / bn / ur)": 230,
+  "Clinician (Sakina and health content)": 1007,
+  "Native speaker (ar / bn / ur)": 261,
   "Privacy lawyer": 14,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1240,
-  "normal": 3457,
+  "high": 1278,
+  "normal": 3488,
   "low": 702
  },
  "items": [
@@ -33170,6 +33170,526 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.app-free-cost",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"app-free-cost\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='app-free-cost'",
+   "what_to_review": "Built-in answer \"app-free-cost\": Yes, it is free today. This is what the Settings screen says, under \"What is free\": \"Everything in this app is free today, including Hādi, and nothing asks for a card. A paid plan for extra live answers is planned but not open yet. Connecting your own AI acco…",
+   "why_flagged": "Quotes the Settings \"What is free\" card and the Privacy policy line; checked against the screens. The policy itself is still a draft awaiting a lawyer.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.app-tracking",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"app-tracking\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='app-tracking'",
+   "what_to_review": "Built-in answer \"app-tracking\": Here is what the app's own Privacy policy and screens say, without adding anything: - Your settings, bookmarks, progress, reflections and your chats with me are stored on your device. Clearing the app's data erases them. - \"We do not sell personal data or sho…",
+   "why_flagged": "Summarises the Privacy policy sections and screens; checked against the screens. The policy is a draft awaiting a lawyer, and has no contact address yet.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.app-notifications",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"app-notifications\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='app-notifications'",
+   "what_to_review": "Built-in answer \"app-notifications\": The app has two kinds of reminders, and you control each one yourself: - Prayer alerts: open Prayer Times. Each prayer has a bell next to it. Tap the bell to switch that prayer's alert on or off (when it is on the bell reads \"Turn off the Fajr alert\", for exa…",
+   "why_flagged": "Checked against the Prayer Times notification card and bell labels; the zakat reminder switches are described only in general terms.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.dua-toilet",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"dua-toilet\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='dua-toilet'",
+   "what_to_review": "Built-in answer \"dua-toilet\": On entering the toilet, the Prophet ﷺ used to say (Sahih al-Bukhari 142): اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ Allahumma inni a'udhu bika minal-khubuthi wal-khaba'ith. Meaning: O Allah, I seek refuge in You from the male and female dev…",
+   "why_flagged": "Arabic is copied from the cited hadith by the build script; the transliteration is typed by hand and needs a reader to check it. The Bismillah, foot-order and silent-recitation points are standard teaching, not text-checked here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.faith-doubt",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"faith-doubt\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='faith-doubt'",
+   "what_to_review": "Built-in answer \"faith-doubt\": Thank you for telling me this. It is not easy to say, and I will not rush to fix you or lecture you. Doubt is more common than people admit, and it is not the same as having left. Some of the Companions came to the Prophet ﷺ troubled by thoughts they felt wer…",
+   "why_flagged": "Pastoral wording, not a ruling. The two reports and verses are checked against their sources. Would benefit from a pastoral reader (an imam or counsellor) to check the tone.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.apostasy-ruling",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"apostasy-ruling\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='apostasy-ruling'",
+   "what_to_review": "Built-in answer \"apostasy-ruling\": This is one of the most argued-over questions about Islam, so here is a straight answer with the texts and the disagreement, not a dodge. What the texts say: - The Qur'an protects freedom of belief: \"There shall be no compulsion in [acceptance of] the religio…",
+   "why_flagged": "Balanced summary of a contested question: the classical majority position, the restricted-to-treason reading, and the agreement that no private person may act. Needs a scholar to confirm the attributions (including the Hanafi position on women) and the wording.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.leaving-islam-personal",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"leaving-islam-personal\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='leaving-islam-personal'",
+   "what_to_review": "Built-in answer \"leaving-islam-personal\": I am glad you told me, and did not just go quiet with it. I will be honest with you: I will not pretend to be neutral about what Islam teaches, and I will not pressure you either. What the Qur'an says first is that belief cannot be forced: \"There shall be no…",
+   "why_flagged": "Pastoral wording, not a ruling. It states the Islamic position honestly (no compulsion; turning away is serious before Allah) without threatening. Needs a pastoral reader to check the tone.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.nine-five-sword",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"nine-five-sword\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='nine-five-sword'",
+   "what_to_review": "Built-in answer \"nine-five-sword\": Surah at-Tawbah 9:5 is often quoted on its own. Read in order, it belongs to a passage about a specific war: the idolaters of Makkah who had broken their treaties with the Muslims. - The passage opens by ending the treaties with those idolaters who had broken…",
+   "why_flagged": "Reads 9:5 in its context (9:1-13) from the cited verses; the account of the commentators on abrogation is a summary of a disagreement and needs a scholar to confirm. Flagged for scholar review.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.app-maker-tradition",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"app-maker-tradition\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='app-maker-tradition'",
+   "what_to_review": "Built-in answer \"app-maker-tradition\": Two questions, answered plainly. Who made it: the app does not name an owner, a company or a funder on any screen I can read from, so I have none to give you, and I will not guess one. What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as…",
+   "why_flagged": "States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. Owner and funder are deliberately not named because the app names none; the owner may wish to publish them.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.companion-friend",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"companion-friend\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='companion-friend'",
+   "what_to_review": "Built-in answer \"companion-friend\": I would like to be useful to you, and I will be honest about what I am: an app. I am not a person. I do not remember you the way a friend does, I cannot sit with you in a hard hour, and I will not notice if you go quiet. A friend should be a real person, and…",
+   "why_flagged": "Honest-companion wording (what the app is not) and a pointer to real people; the one hadith is cited with its grade. No ruling.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.bored",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"bored\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='bored'",
+   "what_to_review": "Built-in answer \"bored\": Let us fix that. A few ideas: - A story: the Stories section has the prophets, the companions, the Prophet's life and short tales, each with its sources. - A game: Games has Qur'an knowledge, Stories trivia, the 99 Names, a word search, Ludo and chess. They k…",
+   "why_flagged": "Built-in answer; no named scholar has reviewed it.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.evolution",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"evolution\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='evolution'",
+   "what_to_review": "Built-in answer \"evolution\": Short, honest answer: Muslims do not all agree on this, and it is a question for a scholar who also understands the science. I do not have a scholar-reviewed position to give you. What nearly all scholars agree on: Allah is the Creator of everything, and the…",
+   "why_flagged": "A map of the positions, not a ruling: needs a scholar (ideally one trained in the sciences) to check that each position is fairly described.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.women-equality",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"women-equality\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='women-equality'",
+   "what_to_review": "Built-in answer \"women-equality\": A fair answer has two parts: what the texts give women, and where Muslims still argue. Equal in worth before Allah: \"Indeed, the Muslim men and Muslim women, the believing men and believing women, the obedient men and obedient women, the truthful men and trut…",
+   "why_flagged": "Balanced summary of rights and differences; the explanation of the inheritance and witness rules is the usual scholarly one but contested. Needs a scholar to check, ideally including a woman scholar.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.inheritance-half",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"inheritance-half\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='inheritance-half'",
+   "what_to_review": "Built-in answer \"inheritance-half\": The rule comes from the Qur'an: \"Allah instructs you concerning your children: for the male, what is equal to the share of two females\" (Qur'an 4:11). It sits alongside the verse that gave women a fixed, obligatory share of their own: \"For men is a share of w…",
+   "why_flagged": "The verse is quoted exactly; the stated reasons are the usual scholarly explanation and are contested. Needs a scholar to check.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.handshake-opposite-gender",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"handshake-opposite-gender\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='handshake-opposite-gender'",
+   "what_to_review": "Built-in answer \"handshake-opposite-gender\": Scholars differ on this, so I will give you the views and the texts rather than one verdict. The texts: Aisha reported that when women pledged themselves to the Prophet ﷺ he took the pledge by words alone (Sahih Muslim 1866), and that his hand never touched t…",
+   "why_flagged": "A fair summary of a contested point; the hadith are cited with their numbers. The count and attribution of the permissive view need a scholar to check.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.wudu-mistakes",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"wudu-mistakes\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='wudu-mistakes'",
+   "what_to_review": "Built-in answer \"wudu-mistakes\": Mistakes people often make in wudu, and the points they miss: - Missing the heels or part of the feet. The Prophet ﷺ saw people hurrying and rubbing wet hands over their feet and called out: Abdullah ibn Amr reported that some people performed ablution hurrie…",
+   "why_flagged": "Which points need the whole head wiped, and nail polish, differ by school and are standard teaching, not text-checked here. The two hadith are cited with their numbers.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.intentions-hadith-grade",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"intentions-hadith-grade\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='intentions-hadith-grade'",
+   "what_to_review": "Built-in answer \"intentions-hadith-grade\": \"Actions are by intentions\" is among the most firmly established of all hadith. It is reported by Umar ibn al-Khattab, and it is the very first hadith in Sahih al-Bukhari (Sahih al-Bukhari 1), and also in Sahih Muslim (Sahih Muslim 1907). Because both Sahih c…",
+   "why_flagged": "Collection numbers verified in the hadith corpus; the statement about acceptance of the two Sahihs is the standard view.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.pray-in-english",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"pray-in-english\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='pray-in-english'",
+   "what_to_review": "Built-in answer \"pray-in-english\": Scholars differ, so here is the honest picture, then what to do now. - The Prophet ﷺ taught the prayer in Arabic, and the Qur'an recited in it is Arabic. Most scholars (the Maliki, Shafi'i and Hanbali schools, and the two companions of Abu Hanifa) say the Qur…",
+   "why_flagged": "States the difference among the schools and the Abu Hanifa narration in general terms; needs a scholar to confirm the attributions. The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani).",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.forgot-prayer-words",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"forgot-prayer-words\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='forgot-prayer-words'",
+   "what_to_review": "Built-in answer \"forgot-prayer-words\": First: do not be afraid, and do not stop praying. Everyone who learns the prayer goes blank at times, and Allah sees the effort. - If you are in the prayer and cannot recall a word, say what you can, stay still, and carry on. A slip does not need you to start…",
+   "why_flagged": "The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani); the encouragement not to restart after a slip in recitation is general advice, not text-checked.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.sitting-in-prayer-words",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"sitting-in-prayer-words\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='sitting-in-prayer-words'",
+   "what_to_review": "Built-in answer \"sitting-in-prayer-words\": There are two sittings, with different words. Sitting between the two prostrations (in every rak'ah): say \"Rabbighfir li\", meaning \"My Lord, forgive me\" (Sunan Abu Dawud 874, sahih per Darussalam). The sitting at the end of the second rak'ah (and the last sit…",
+   "why_flagged": "The transliteration is typed by hand from the Arabic shown; please have a reader check it. The second sitting of a three- or four-rak'ah prayer differs by school (some stop at the tashahhud).",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.pillars-islam",
    "area": "hadi",
    "subarea": "core-answer",
@@ -36294,6 +36814,32 @@
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadith-grade-ask",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadith-grade-ask\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadith-grade-ask'",
+   "what_to_review": "Built-in answer \"hadith-grade-ask\": I do not grade hadith myself, and I will not give a grade from memory. A grade is a scholar's judgment on the chain and the text, and it can differ from one scholar to another. What I can do: - For hadith from Sahih al-Bukhari and Sahih Muslim, the scholars a…",
+   "why_flagged": "Describes how grades are shown in the app and how to check one. The statement that the Bukhari and Muslim reports need no separate grade is the standard view. No grade is given from memory.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
    "priority": "normal",
    "source_of_flag": [
     "hadi_core_data.dart reviewNote (kept for the review list)"
@@ -52144,6 +52690,253 @@
    "status": "open"
   },
   {
+   "id": "hadith.corpus.abudawud-30",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 30",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-30]",
+   "what_to_review": "Sunan Abu Dawud 30: \"Aisha reported that when the Prophet came out of the toilet he said: Ghufranaka, Your forgiveness\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-874",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 874",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-874]",
+   "what_to_review": "Sunan Abu Dawud 874: \"Hudhayfah described the Prophet's night prayer: between the two prostrations he said, My Lord, forgive me, My Lord, forgive me\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-142",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 142",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-142]",
+   "what_to_review": "Sahih al-Bukhari 142: \"Anas reported that whenever the Prophet went into the toilet he said: O Allah, I seek refuge with You from the male and female evil spirits\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-201",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 201",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-201]",
+   "what_to_review": "Sahih al-Bukhari 201: \"Anas reported that the Prophet used to perform ablution with one mudd of water\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-3017",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 3017",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-3017]",
+   "what_to_review": "Sahih al-Bukhari 3017: \"Ibn Abbas reported that the Prophet said if somebody discards his religion, kill him\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-6878",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6878",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-6878]",
+   "what_to_review": "Sahih al-Bukhari 6878: \"Abdullah reported the Prophet said the blood of a Muslim who confesses that none has the right to be worshipped but Allah cannot be shed except in th…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-7211",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 7211",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-7211]",
+   "what_to_review": "Sahih al-Bukhari 7211: \"Jabir reported that a bedouin pledged himself to Islam, then asked the Prophet three times to cancel his pledge, was refused, and left Madinah\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-7214",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 7214",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-7214]",
+   "what_to_review": "Sahih al-Bukhari 7214: \"Aisha reported that the Prophet used to take the pledge from women by words only, and his hand did not touch any woman's hand except the one his righ…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.ibnmajah-1978",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Ibn Majah 1978",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:ibnmajah-1978]",
+   "what_to_review": "Sunan Ibn Majah 1978: \"Abdullah ibn Amr reported the Prophet said the best of you are those who are best to their womenfolk\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-132",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 132",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-132]",
+   "what_to_review": "Sahih Muslim 132: \"some Companions told the Prophet they found in their minds thoughts too grave to speak of, and he said that this is the clear faith\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-1866",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 1866",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-1866]",
+   "what_to_review": "Sahih Muslim 1866: \"Aisha reported that when believing women migrated to Madinah they were tested by the verse of allegiance, and whoever agreed to it, the Messenger sai…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-241",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 241",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-241]",
+   "what_to_review": "Sahih Muslim 241: \"Abdullah ibn Amr reported that some people performed ablution hurriedly on a journey and their heels were dry, and the Prophet said woe to dry heels,…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-2378",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2378",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-2378]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2378: \"Abu Hurairah reported the Prophet said a man is upon the religion of his friend, so let one of you look at whom he befriends\" (grade Hasan, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
    "id": "hadith.corpus-quran.2-255",
    "area": "hadith",
    "subarea": "hadi-corpus",
@@ -58604,7 +59397,7 @@
    "where_in_app": "Stories > New Muslim path (30 days) > \"Day 5: Your First Prayer — Two Rak'ahs\"",
    "file": "assets/stories/newmuslim.json",
    "key": "[id=newmuslim-05]",
-   "what_to_review": "3 chapter(s) of \"Day 5: Your First Prayer — Two Rak'ahs\" and its source lines (6 sources); label \"Interpretive\".",
+   "what_to_review": "5 chapter(s) of \"Day 5: Your First Prayer — Two Rak'ahs\" and its source lines (11 sources); label \"Interpretive\".",
    "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Story label: \"Interpretive\". Chapter labels: Interpretive. | FACT_S4 day 5: Start with two rak'ahs must not read as permission to omit the five prayers (new Muslim: the five are obligatory). | New Muslim path: the whole 30-day path is untested with a new Muslim and unreviewed (R9_T3).",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -76504,6 +77297,468 @@
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
    "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('اريد ان اختفي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"اريد ان اختفي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.049",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('اتمني ان اختفي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"اتمني ان اختفي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.050",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا احد سيفتقدني')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا احد سيفتقدني\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.051",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لن يفتقدني احد')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لن يفتقدني احد\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.052",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا احد سيلاحظ لو اختفيت')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا احد سيلاحظ لو اختفيت\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.053",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا اريد ان اكون هنا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا اريد ان اكون هنا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.054",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا اريد ان ابقي علي قيد الحياة')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا اريد ان ابقي علي قيد الحياة\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.055",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('سئمت الحياة')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"سئمت الحياة\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.056",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('كرهت نفسي واريد ان اموت')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"كرهت نفسي واريد ان اموت\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.057",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('غائب ہو جانا چاہتا ہوں')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"غائب ہو جانا چاہتا ہوں\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.058",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('غائب ہو جانا چاہتی ہوں')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"غائب ہو جانا چاہتی ہوں\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.059",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('کوئی مجھے یاد نہیں کرے گا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"کوئی مجھے یاد نہیں کرے گا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.060",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('کسی کو میرے جانے کا پتہ نہیں چلے گا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"کسی کو میرے جانے کا پتہ نہیں چلے گا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.061",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زندہ نہیں رہنا چاہتا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زندہ نہیں رہنا چاہتا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.062",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زندہ نہیں رہنا چاہتی')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زندہ نہیں رہنا چاہتی\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.063",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('কেউ আমাকে মিস করবে না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"কেউ আমাকে মিস করবে না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.064",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('কেউ টের পাবে না আমি নেই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"কেউ টের পাবে না আমি নেই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.065",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('বাঁচতে ইচ্ছা করে না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"বাঁচতে ইচ্ছা করে না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.066",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('বেঁচে থাকতে চাই না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"বেঁচে থাকতে চাই না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.067",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('হারিয়ে যেতে চাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"হারিয়ে যেতে চাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.068",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('আমি মরে যেতে চাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"আমি মরে যেতে চাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.069",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
    "key": "_Pat('می خواهم بمیرم')",
    "what_to_review": "Crisis phrase in Arabic/Urdu script: \"می خواهم بمیرم\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
    "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
@@ -76521,7 +77776,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.049",
+   "id": "lang.crisis.070",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76543,7 +77798,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.050",
+   "id": "lang.crisis.071",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76565,7 +77820,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.051",
+   "id": "lang.crisis.072",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76587,7 +77842,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.052",
+   "id": "lang.crisis.073",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76609,7 +77864,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.053",
+   "id": "lang.crisis.074",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76631,7 +77886,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.054",
+   "id": "lang.crisis.075",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76653,7 +77908,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.055",
+   "id": "lang.crisis.076",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76675,7 +77930,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.056",
+   "id": "lang.crisis.077",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76697,7 +77952,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.057",
+   "id": "lang.crisis.078",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76719,7 +77974,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.058",
+   "id": "lang.crisis.079",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76741,7 +77996,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.059",
+   "id": "lang.crisis.080",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76763,7 +78018,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.060",
+   "id": "lang.crisis.081",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76785,7 +78040,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.061",
+   "id": "lang.crisis.082",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76807,7 +78062,205 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.062",
+   "id": "lang.crisis.083",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زوجي يؤذيني')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زوجي يؤذيني\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.084",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('خائفة من زوجي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"خائفة من زوجي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.085",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('خايفة من زوجي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"خايفة من زوجي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.086",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('شوہر مارتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"شوہر مارتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.087",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('شوہر مجھے مارتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"شوہر مجھے مارتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.088",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('مجھے اپنے شوہر سے ڈر لگتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"مجھے اپنے شوہر سے ڈر لگتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.089",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('স্বামী আমাকে মারে')",
+   "what_to_review": "Crisis phrase in Bengali script: \"স্বামী আমাকে মারে\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.090",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('আমার স্বামী আমাকে মারে')",
+   "what_to_review": "Crisis phrase in Bengali script: \"আমার স্বামী আমাকে মারে\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.091",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('স্বামীকে ভয় পাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"স্বামীকে ভয় পাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.092",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76829,7 +78282,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.063",
+   "id": "lang.crisis.093",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76851,7 +78304,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.064",
+   "id": "lang.crisis.094",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76873,7 +78326,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.065",
+   "id": "lang.crisis.095",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76895,7 +78348,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.066",
+   "id": "lang.crisis.096",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76917,7 +78370,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.067",
+   "id": "lang.crisis.097",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76939,7 +78392,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.068",
+   "id": "lang.crisis.098",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76961,7 +78414,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.069",
+   "id": "lang.crisis.099",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -76983,7 +78436,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.070",
+   "id": "lang.crisis.100",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77005,7 +78458,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.071",
+   "id": "lang.crisis.101",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77027,7 +78480,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.072",
+   "id": "lang.crisis.102",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77049,7 +78502,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.073",
+   "id": "lang.crisis.103",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77071,7 +78524,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.074",
+   "id": "lang.crisis.104",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77093,7 +78546,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.075",
+   "id": "lang.crisis.105",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77115,7 +78568,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.076",
+   "id": "lang.crisis.106",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77137,7 +78590,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.077",
+   "id": "lang.crisis.107",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77159,7 +78612,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.078",
+   "id": "lang.crisis.108",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77181,7 +78634,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.079",
+   "id": "lang.crisis.109",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77203,7 +78656,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.080",
+   "id": "lang.crisis.110",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77225,7 +78678,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.081",
+   "id": "lang.crisis.111",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77247,7 +78700,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.082",
+   "id": "lang.crisis.112",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77269,7 +78722,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.083",
+   "id": "lang.crisis.113",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77291,7 +78744,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.084",
+   "id": "lang.crisis.114",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77313,7 +78766,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.085",
+   "id": "lang.crisis.115",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77335,7 +78788,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.086",
+   "id": "lang.crisis.116",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -80572,6 +82025,124 @@
     "R10_T2"
    ],
    "label_surface": "Family Wing and search",
+   "status": "open"
+  },
+  {
+   "id": "support.safe-replies",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Hadi > refused taper schedule; controlling husband; a child who told a parent; a struggling teenager; a quiet student; \"are you a therapist?\"; \"be my only friend\"",
+   "file": "lib/features/support/domain/safe_replies.dart",
+   "key": "TaperRequest, CoerciveMarriage, ChildConcern, AboutHadi (word lists and fixed replies)",
+   "what_to_review": "Fixed on-device replies for moments that are neither a crisis card nor a ruling: no taper schedule (a doctor decides), listening and a safety question before any patience or duty, what a parent does when a child tells them something, how to open a conversation with a withdrawn teenager, what a teacher does about a quiet student, and honest answers that Hadi is an app and not a therapist or a friend.",
+   "why_flagged": "R10_T9 and R10_T10: a taper request got a ruling card, a controlling-husband question got a patience verse, and \"are you a therapist\" got a lesson-shelf answer. No clinician, safeguarding specialist or scholar has read them.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Fiqh scholar (per madhab)",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10",
+    "R10_T2"
+   ],
+   "label_surface": "Under each of these replies in Hadi and Wasia",
+   "status": "open"
+  },
+  {
+   "id": "support.crisis-phrases-fixb",
+   "area": "languages",
+   "subarea": "crisis-phrases",
+   "where_in_app": "Crisis phrases added in fix pass B (English plus Arabic, Urdu, Bangla)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_selfHarm, _abuse, _substance (added phrases)",
+   "what_to_review": "New phrases: \"nobody would notice if I was gone\", \"I do not want to go home\", \"someone at home hurts me\", \"I am scared he will hurt me tonight\", pills with alcohol, and short Arabic, Urdu and Bangla lists for the same ideas.",
+   "why_flagged": "R10_T9, R10_T10, R10_T2: these sentences were missed. The non-English lists were written for coverage and are NOT read by a native speaker: Native-speaker review needed before they are relied on. English wording must be read by a clinician for false alarms and misses.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10",
+    "R10_T2"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.child-disclosure-card",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia, Kids > the card a child sees when they tell something serious (ages 5-8, 9-12, 13-17); cards for reading difficulty, vaping, pornography",
+   "file": "lib/features/support/domain/child_distress.dart; lib/features/academy/application/wasia_controller.dart",
+   "key": "ChildDistress.disclosureCard; learning, vape, porn replies",
+   "what_to_review": "Full-sentence, age-banded wording: \"I believe you\", \"it is not your fault\", Wasia cannot keep secrets from the grown-ups who help, the child chooses who to tell, the help-line button. A reading-difficulty line goes to a teacher or a doctor, vaping and pornography to a trusted adult, with no shaming and no diagnosis.",
+   "why_flagged": "R10_T2: the old card was a broken sentence that told a child what to do under pressure. A child-protection specialist and a clinician should read the wording for each age band.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.help-country-choice",
+   "area": "sakina",
+   "subarea": "help-lines",
+   "where_in_app": "Need help now / Hadi crisis card > the country the person picks",
+   "file": "lib/features/sakina/application/sakina_providers.dart; lib/features/sakina/domain/crisis_detector.dart",
+   "key": "pickedHelpCountryProvider; CrisisResponses.regionNote(picked)",
+   "what_to_review": "The country picked under the help lines now also decides the text of the card, not only the rows. The note says the lines are for the country the person chose.",
+   "why_flagged": "R10_T10: a Bangladeshi user picked Bangladesh and the card text still named another country. The wording of the note needs a native-speaker read in each supported language.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "R10_T10"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.helplines-fixb",
+   "area": "sakina",
+   "subarea": "help-lines",
+   "where_in_app": "Help lines added in fix pass B: Egypt child hotline 16000, Egypt women's complaints hotline 15115, Saudi child helpline 116111, Canada provincial gender-based-violence directory",
+   "file": "assets/support/helplines.json; tool/support/build_helplines.py",
+   "key": "eg-16000, eg-15115, sa-116111, ca-gbv-provincial",
+   "what_to_review": "Four rows read on 2026-10-27 on official or UN pages (sources in the file). Canada has no single national line, so the row opens the Government of Canada list. The Egypt women's hotline rests on a 2020 UN interview and should be re-checked on an NCW page. Hours are left empty because the pages did not state them.",
+   "why_flagged": "R10_T9, R10_T10: Canada adult domestic violence, Bangladesh women's, Saudi and Egypt coverage were missing. Bangladesh 109 was already verified. Nothing unverified is shown.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10"
+   ],
+   "label_surface": "",
    "status": "open"
   },
   {

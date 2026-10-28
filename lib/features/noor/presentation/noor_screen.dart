@@ -2,6 +2,7 @@ import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/core/sound/sound_services.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -10,7 +11,9 @@ import '../../../app/theme/widgets/gold_button.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
-import '../../share/application/share_text.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/noor_providers.dart';
 import '../domain/noor_entry.dart';
@@ -378,36 +381,76 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
   }
 }
 
-/// Copies today's NOOR (Arabic, translation, source) so it can be pasted into
-/// a message, and says so. A 48dp tap target around the 32dp circle.
-class _ShareNoorButton extends StatelessWidget {
+/// Opens the preview for today's NOOR. An ayah is shared as its Arabic from
+/// the Qur'an registry with its reference (no translation); a hadith is
+/// shared with its English, source and the review label. A 48dp tap target
+/// around the 32dp circle.
+class _ShareNoorButton extends ConsumerWidget {
   const _ShareNoorButton({required this.entry});
 
   final NoorEntry entry;
 
-  Future<void> _copy(BuildContext context) => shareWithFeedback(
-        context,
-        composeShareText(
-          arabic: entry.arabic,
-          body: entry.english,
-          source: entry.source,
-        ),
+  Future<ShareDoc?> _doc(WidgetRef ref) async {
+    if (entry.kind == NoorKind.hadith) {
+      return ShareDoc.hadith(
         title: 'Today\u2019s NOOR',
+        arabic: entry.arabic,
+        english: entry.english,
+        source: entry.source,
+        reviewKey: 'noor',
       );
+    }
+    final List<String> parts = entry.reference.split(':');
+    if (parts.length != 2) return null;
+    final int? surah = int.tryParse(parts[0]);
+    final int? ayah = int.tryParse(parts[1]);
+    if (surah == null || ayah == null) return null;
+    final List<Surah> all = await ref.read(quranAllProvider.future);
+    return ShareService.ayahFromRegistry(all, surah, ayah);
+  }
+
+  Future<void> _share(BuildContext context, WidgetRef ref) async {
+    final ScaffoldMessengerState? messenger =
+        ScaffoldMessenger.maybeOf(context);
+    ShareDoc? doc;
+    try {
+      doc = await _doc(ref);
+    } catch (_) {
+      doc = null;
+    }
+    if (!context.mounted) return;
+    if (doc == null) {
+      messenger?.showSnackBar(
+        const SnackBar(content: Text('Could not prepare this to share.')),
+      );
+      return;
+    }
+    await showSharePreview(context, doc: doc, subject: 'today\u2019s NOOR');
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ValueListenableBuilder<bool>(
+      valueListenable: kChildMode,
+      builder: (BuildContext context, bool childMode, Widget? _) {
+        if (childMode) return const SizedBox.shrink();
+        return _button(context, ref);
+      },
+    );
+  }
+
+  Widget _button(BuildContext context, WidgetRef ref) {
     return Tooltip(
-      message: 'Copy today’s NOOR to share',
+      message: 'Share today’s NOOR',
       child: Semantics(
       button: true,
-      label: 'Copy today’s NOOR to share',
+      label: 'Share today’s NOOR',
       excludeSemantics: true,
-      onTap: () => _copy(context),
+      onTap: () => _share(context, ref),
       child: FocusableTap(
         key: const Key('noor-share'),
         behavior: HitTestBehavior.opaque,
-        onTap: () => _copy(context),
+        onTap: () => _share(context, ref),
         child: SizedBox(
           width: 48,
           height: 48,

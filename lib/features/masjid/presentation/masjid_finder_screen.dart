@@ -16,6 +16,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/prayer_providers.dart';
+import '../../share/application/share_service.dart';
+import '../../share/presentation/share_actions.dart';
 import '../../prayer/application/prayer_repository.dart';
 import '../domain/masjid_search_service.dart';
 import '../domain/masjid_search_state.dart';
@@ -449,6 +451,24 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                                 '${f['only'] == true ? 'Tagged fully halal' : 'Tagged halal'}'
                                 ' in community map data \u2014 confirm before eating, in shaa Allah',
                                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                            if (f['lat'] is double && f['lon'] is double)
+                              Align(
+                                alignment: AlignmentDirectional.centerEnd,
+                                // Name, cuisine, street, the "tagged halal,
+                                // confirm before eating" line, an OSM link
+                                // and the map credit. No distance or phone.
+                                child: ShareButton(
+                                  doc: ShareDoc.halalPlace(
+                                    name: f['name'] as String,
+                                    cuisine: f['cuisine']?.toString(),
+                                    address: f['addr']?.toString(),
+                                    lat: f['lat'] as double,
+                                    lon: f['lon'] as double,
+                                    fullyHalal: f['only'] == true,
+                                  ),
+                                  subject: 'this restaurant',
+                                ),
+                              ),
                           ],
                         ),
                       ),
@@ -535,6 +555,18 @@ class _MosqueCard extends StatelessWidget {
               onPressed: () => _openExternal(Uri.parse(
                   'https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}')),
               child: const Text('Directions', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+            ),
+            const Spacer(),
+            // Name, address, an OpenStreetMap link to the place and the map
+            // credit. No distance, phone, hours or anything about you.
+            ShareButton(
+              doc: ShareDoc.mosque(
+                name: m.name,
+                address: m.addr,
+                lat: m.lat,
+                lon: m.lon,
+              ),
+              subject: 'this masjid',
             ),
           ]),
         ]),
