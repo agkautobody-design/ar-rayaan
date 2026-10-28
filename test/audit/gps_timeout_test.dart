@@ -26,7 +26,7 @@ void main() {
       timeout: const Duration(milliseconds: 30),
     );
     expect(status, GpsStatus.error);
-    expect(c.read(prayerLocationProvider).isSet, isFalse,
+    expect(c.read(prayerLocationControllerProvider).isSet, isFalse,
         reason: 'no place is invented when the request times out');
     expect(ctl.gpsStatus, isNot(GpsStatus.locating));
   });
