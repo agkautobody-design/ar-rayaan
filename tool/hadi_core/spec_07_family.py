@@ -95,7 +95,7 @@ How it usually goes:
 If your husband is hurting you or you are afraid, tell me, and I will answer that first. This is general information, not a ruling on your own case.
 """,
   go=['/huda'],
-  review='A scholar should confirm: the claim that khul\' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 is as given by the graders in the hadith-api edition.')
+  review='A scholar should confirm: the claim that khul\' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 (hasan, per al-Tirmidhi) is as given in the hadith-api edition.')
 
 E('divorce-overview',
   m=[r'\bdivorce\b', r'\btalaq\b', r'\btalaaq\b', r'\bkhula\w*\b', r'\biddah\b', r'\biddat\b', r'\bwaiting period\b.*\b(?:divorce|widow)\b', r'\bseparat\w*\b.*\b(?:husband|wife|marriage)\b', r'\bwhat is islam s view on divorce\b'],

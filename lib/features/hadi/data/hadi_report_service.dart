@@ -42,6 +42,7 @@ abstract final class HadiReportPolicy {
   /// A greeting or thanks ("hello", "assalamu alaikum", "how are you"): the
   /// reply to it has nothing to report, so it gets no Report button.
   static bool isSmallTalk(String text) {
+    if (text.length > 80) return false;
     final List<String> words = CrisisDetector.normalize(text)
         .split(' ')
         .where((String w) => w.isNotEmpty)
