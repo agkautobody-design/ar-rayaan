@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
+import '../../../app/core/i18n/bidi.dart';
+import '../../../app/core/i18n/ui_phrases.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,6 +54,7 @@ class ProfileScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: ''),
+            const NativeReviewNote(inset: true),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -199,7 +203,11 @@ class _JourneyStampsSection extends ConsumerWidget {
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
   ];
 
-  static String _fmt(DateTime d) => '${d.day} ${_months[d.month - 1]} ${d.year}';
+  static String _fmt(DateTime d, [String lang = 'en']) {
+    final List<String> months = gregorianMonths(lang) ?? _months;
+    final String t = '${d.day} ${months[d.month - 1]} ${d.year}';
+    return kPhraseRtl.contains(lang) ? isolateLtr(t) : t;
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -243,7 +251,7 @@ class _JourneyStampsSection extends ConsumerWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Text(
-                            '${s.type == JourneyType.umrah ? 'Umrah' : 'Hajj'} — ${_fmt(s.completedAt)}',
+                            '${s.type == JourneyType.umrah ? 'Umrah' : 'Hajj'} — ${_fmt(s.completedAt, uiLang(context))}',
                             style: AppText.body,
                           ),
                         ),
@@ -335,7 +343,7 @@ class _RecordJourneyDialogState extends ConsumerState<_RecordJourneyDialog> {
             icon: const Icon(Icons.calendar_month_outlined,
                 color: AppColors.gold),
             label: Text(
-              'Completed: ${_JourneyStampsSection._fmt(_date)}',
+              'Completed: ${_JourneyStampsSection._fmt(_date, uiLang(context))}',
               style: AppText.body.copyWith(color: AppColors.sand),
             ),
           ),

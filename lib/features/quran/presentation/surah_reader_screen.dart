@@ -1,7 +1,8 @@
 import 'dart:async' show Timer, unawaited;
 
 import '../../../app/core/tight_layout.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter/rendering.dart' show ScrollDirection;
 
 import 'dart:convert';

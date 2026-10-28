@@ -2,7 +2,8 @@
 /// plus/minus up to 113 times). Uses the bundled surah index.
 library;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';

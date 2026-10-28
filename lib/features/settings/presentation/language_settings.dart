@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/i18n/app_locale.dart';
@@ -71,17 +72,7 @@ class LanguageSettingsScreen extends ConsumerWidget {
                     ),
                   const SizedBox(height: 6),
                   Text(
-                    'What is translated today: the menu and tab names, the '
-                    'titles on the Home screen, the first questions you see '
-                    'when you open the app, and the top of Settings, in '
-                    'Arabic, Bangla and Urdu. These translations are first '
-                    'drafts and are waiting for a native speaker to check '
-                    'them. Lessons, stories, hadith, Hādi\u2019s answers, '
-                    'prayer screens and every long text are still English, '
-                    'with the original Arabic for scripture. Arabic and Urdu '
-                    'also turn the layout right-to-left. Indonesian has only '
-                    'the Language & Voice labels; French, Turkish and Malay '
-                    'are not translated yet and the app stays in English.',
+                    'What is translated today, in Arabic, Bangla and Urdu: the menus and tab names, Home, the first questions, Prayer Times, Qibla, the H\u0101di screen and its buttons, the Qur\u2019an screen labels, Faith, Family, You, Settings, Support & wellbeing, Our Sources, the Need help now sheet and the main crisis and support replies. Every one of these is a machine draft that no native speaker has checked yet, and the screens that carry support, safety or religious content say so on screen. Lessons, stories, hadith, H\u0101di\u2019s answers and long religious texts are still English, with the original Arabic for scripture. Arabic and Urdu also turn the layout right-to-left. Indonesian has only the Language & Voice labels; French, Turkish and Malay are not translated yet and the app stays in English.',
                     style: AppText.bodyMuted.copyWith(height: 1.5),
                   ),
                 ]),

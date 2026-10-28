@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -81,6 +82,7 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
               Expanded(child: WholeWordText('As-salamu alaikum',
                   style: AppText.body.copyWith(fontSize: 20, fontWeight: FontWeight.w600))),
             ]),
+            const NativeReviewNote(),
             const SizedBox(height: 10),
             // Always visible, always the same words: how to leave.
             SizedBox(

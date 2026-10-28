@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart' show DocumentSnapshot;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 
 import '../../../app/core/child_mode.dart';
 import '../../../app/theme/app_colors.dart';

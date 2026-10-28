@@ -18,6 +18,7 @@
 /// - No number is ever invented. Lines come only from [HelpResources].
 library;
 
+import 'crisis_l10n.dart';
 import 'crisis_near_words.dart';
 import 'sakina_content.dart';
 
@@ -1863,22 +1864,50 @@ abstract final class CrisisResponses {
   /// worldwide directory. Only names data already in [HelpResources].
   /// [picked] is true when the person chose the country themselves (in the
   /// Need help now sheet or under an earlier card): then it says so instead.
-  static String regionNote(String? countryCode, {bool picked = false}) {
+  static String regionNote(
+    String? countryCode, {
+    bool picked = false,
+    CrisisKind? kind,
+    String lang = 'en',
+  }) {
     final String? cc = countryCode?.trim().toUpperCase();
+    String? region;
+    bool local = false;
     if (cc != null && cc.isNotEmpty) {
       for (final HelpResource r in HelpResources.shown) {
         if (r.countries.length == 1 && r.countries.first == cc) {
-          if (picked) {
-            return 'The lines above are for ${r.region}, the country you '
-                'chose. If that is not right, choose another country under '
-                'the lines, or call your local emergency number.';
-          }
-          return 'The lines above are for ${r.region}, chosen from your '
-              'device language setting, not your location. If you are '
-              'somewhere else, choose your country under the lines, or call '
-              'your local emergency number.';
+          region = r.region;
+          break;
         }
       }
+      if (region != null) {
+        // A country can be known while no line of THIS kind is saved for it:
+        // then the lines shown are the worldwide ones and the note must say
+        // so rather than claim they are for that country.
+        local = kind == null ||
+            resourcesFor(kind, cc).any((HelpResource r) =>
+                r.countries.length == 1 && r.countries.first == cc);
+      }
+    }
+    final String? t = crisisRegionNoteIn(lang,
+        region: region, picked: picked, hasLocalForKind: local);
+    if (t != null) return t;
+    if (region != null && !local) {
+      return 'We have no checked line of this kind saved for $region yet, '
+          'so the lines above work from anywhere. Choose another country '
+          'under the lines if that is wrong, and keep your local emergency '
+          'number close.';
+    }
+    if (region != null) {
+      if (picked) {
+        return 'The lines above are for $region, the country you '
+            'chose. If that is not right, choose another country under '
+            'the lines, or call your local emergency number.';
+      }
+      return 'The lines above are for $region, chosen from your '
+          'device language setting, not your location. If you are '
+          'somewhere else, choose your country under the lines, or call '
+          'your local emergency number.';
     }
     return 'I could not tell which country you are in, so these lines work '
         'from anywhere. Find your local emergency number and keep it close; '
@@ -2013,8 +2042,14 @@ abstract final class CrisisResponses {
   /// The full reply text for [kind]. Includes the help lines as plain text
   /// so that it still works when read aloud, copied, or shown without the
   /// tappable panel.
-  static String textFor(CrisisKind kind, {String? countryCode}) {
+  static String textFor(CrisisKind kind,
+      {String? countryCode, String lang = 'en'}) {
     final String lines = _lines(resourcesFor(kind, countryCode));
+    if (lang != 'en') {
+      final String? t = crisisCardIn(kind, lang, lines);
+      if (t != null) return t;
+      return '${crisisEnglishNote(lang)}${textFor(kind, countryCode: countryCode)}';
+    }
     switch (kind) {
       case CrisisKind.selfHarm:
         return 'I am really glad you told me. What you are carrying sounds '
@@ -2158,7 +2193,12 @@ abstract final class CrisisResponses {
 
   /// A short fixed follow-up when the same moment continues. Never goes to
   /// a live provider.
-  static String followUpFor(CrisisKind kind) {
+  static String followUpFor(CrisisKind kind, {String lang = 'en'}) {
+    if (lang != 'en') {
+      final String? t = crisisFollowUpIn(kind, lang);
+      if (t != null) return t;
+      return '${crisisEnglishNote(lang)}${followUpFor(kind)}';
+    }
     switch (kind) {
       case CrisisKind.abuse:
         return 'I am here. Your safety comes first. If you are in danger '

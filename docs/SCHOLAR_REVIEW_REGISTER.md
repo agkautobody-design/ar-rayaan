@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5492 items.** High priority: 1285. Normal: 3505. Low: 702.
+**5504 items.** High priority: 1289. Normal: 3513. Low: 702.
 
 ### By area
 
@@ -38,23 +38,23 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 10 | 5 |
 | Games and quizzes with religious content | 14 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 228 | 121 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 240 | 125 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5492** | **1285** |
+| **Total** | **5504** | **1289** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2448 | 1035 |
+| Hadith / aqidah scholar | 2448 | 1036 |
 | Fiqh scholar (per madhab) | 623 | 236 |
 | Women's scholar | 151 | 95 |
 | Arabic / tajweed / qira'at specialist | 524 | 196 |
-| Clinician (Sakina and health content) | 1011 | 251 |
-| Native speaker (ar / bn / ur) | 264 | 12 |
+| Clinician (Sakina and health content) | 1011 | 252 |
+| Native speaker (ar / bn / ur) | 276 | 12 |
 | Privacy lawyer | 15 | 16 |
 | Rights holder / licensing (not a scholar) | 7 | 1 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
@@ -85,7 +85,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
 | Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 228 |  |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 240 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2448 lead, 1035 also)
+### Hadith / aqidah scholar (2448 lead, 1036 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -146,17 +146,17 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1011 lead, 251 also)
+### Clinician (Sakina and health content) (1011 lead, 252 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
 - Sakina rooms, feelings, safety copy, health: 56 items (30 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 903 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (264 lead, 12 also)
+### Native speaker (ar / bn / ur) (276 lead, 12 also)
 
 - Sakina rooms, feelings, safety copy, health: 1 items (0 high). Ids start with `academy.letters-age-fit`.
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 228 items (121 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 240 items (125 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
 ### Privacy lawyer (15 lead, 16 also)
@@ -3898,7 +3898,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-228 items, 121 high priority. Area key `languages`.
+240 items, 125 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4123,9 +4123,21 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.crisis.114` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "খিঁচুনি" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
 | `lang.crisis.115` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "খিচুনি" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
 | `lang.crisis.116` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "শ্বাস নিচ্ছে না" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.phrases.faith` | Arabic, Urdu and Bangla wording of: Faith tab (Explore) and Family Trees | Every English / Arabic / Urdu / Bangla row of group "faith" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.hadi` | Arabic, Urdu and Bangla wording of: Hadi screen chrome (header, menus, composer, report and AI-account sheets) | Every English / Arabic / Urdu / Bangla row of group "hadi" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | high | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.more` | Arabic, Urdu and Bangla wording of: Qur’an bookmarks and reciter labels, Sakina hub, handout | Every English / Arabic / Urdu / Bangla row of group "more" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.prayer` | Arabic, Urdu and Bangla wording of: Prayer Times screen | Every English / Arabic / Urdu / Bangla row of group "prayer" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safe… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.qibla` | Arabic, Urdu and Bangla wording of: Qibla screen | Every English / Arabic / Urdu / Bangla row of group "qibla" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.quran` | Arabic, Urdu and Bangla wording of: Qur’an screens (labels and buttons only) | Every English / Arabic / Urdu / Bangla row of group "quran" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.settings` | Arabic, Urdu and Bangla wording of: Settings and Language & Voice screens | Every English / Arabic / Urdu / Bangla row of group "settings" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, sa… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.shell` | Arabic, Urdu and Bangla wording of: Home, Menu, Quick Access and shared buttons | Every English / Arabic / Urdu / Bangla row of group "shell" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.sources` | Arabic, Urdu and Bangla wording of: Our Sources, Elder Mode and share footer | Every English / Arabic / Urdu / Bangla row of group "sources" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, saf… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | high | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.support` | Arabic, Urdu and Bangla wording of: Support & wellbeing hub, pathways, Need help sheet, help-line tiles | Every English / Arabic / Urdu / Bangla row of group "support" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, saf… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | high | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.you` | Arabic, Urdu and Bangla wording of: You tab (Profile) and journeys | Every English / Arabic / Urdu / Bangla row of group "you" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.crisis.cards-l10n` | Crisis cards, follow-ups and the "which country" note in Arabic, Urdu and Bangla | Arabic, Urdu and Bangla wording of the fixed crisis cards (self-harm, suicide question, abuse, child safety, eating disorder, substance emergency, extremism). The verse is not translated: the card gi… | Machine draft of safety text; a native-speaking clinician must read it before it can lose its on-screen "Native-speaker review needed" line. Until then a reply without checked wording is shown in English with a note in the language. | Native speaker + Clinician, Hadith / aqidah scholar | high | docs/OWNER_ACTIONS.md item 22; OWNER_ACTIONS item 4 |
 | `lang.crisis.roman-urdu` | Crisis detector and reply cards | Roman-Urdu and Roman-Bangla crisis phrases (for example "marna chahta hoon", "jaan de dunga") | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
 | `lang.crisis.abuse-child-ed-extremism` | Crisis detector and reply cards | Non-English phrases for abuse, child safety, eating disorders and extremism in the detector, and the fixed replies | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
-| `lang.crisis.replies` | Crisis detector and reply cards | The fixed replies shown after a crisis match and the country help-line chooser, in English only today | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
+| `lang.crisis.replies` | Crisis detector and reply cards | English fixed replies shown after a crisis match and the country help-line chooser (the Arabic, Urdu and Bangla versions are the separate item lang.crisis.cards-l10n) | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
 | `lang.elder-rtl` | Arabic and Urdu UI direction and font | Right-to-left layout and fonts for Arabic and Urdu; Bangla glyphs rendered as empty boxes in headless test. | R9_T4 D5, R9_T6_elder_languages: unverified on a real device. | Native speaker | normal | R9_T6_elder_languages; R9_T4_everyday_skeptic |
 | `support.crisis-substance-lang` | Crisis phrases for the medical-emergency category in Arabic, Urdu (script and Roman) and Bangla | Short phrase lists for overdose, seizure and not breathing in Arabic, Urdu and Bangla. | Written for coverage, not read by a native-speaker clinician. English has the full list; other languages are thin and the app must say so. | Native speaker + Clinician | high | RES_H3_hadi_companion_design |
 | `support.crisis-phrases-fixb` | Crisis phrases added in fix pass B (English plus Arabic, Urdu, Bangla) | New phrases: "nobody would notice if I was gone", "I do not want to go home", "someone at home hurts me", "I am scared he will hurt me tonight", pills with alcohol, and short Arabic, Urdu and Bangla… | R10_T9, R10_T10, R10_T2: these sentences were missed. The non-English lists were written for coverage and are NOT read by a native speaker: Native-speaker review needed before they are relied on. English wording must be read by a clinician for false alarms an… | Native speaker + Clinician | high | R10_T9; R10_T10; R10_T2 |

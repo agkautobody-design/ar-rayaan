@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/content/content_sync.dart';
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/core/providers.dart';
 import '../../../app/core/scholar_review.dart';
 import '../../profile/application/profile_providers.dart';
@@ -18,6 +19,8 @@ import '../../../app/core/packages/usage_meter.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/domain/crisis_l10n.dart'
+    show crisisEnglishNote, withEnglishFallbackNote;
 import '../../sakina/domain/crisis_latch.dart';
 import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
@@ -493,7 +496,7 @@ class HadiController extends Notifier<HadiState> {
       if (!CheckinScheduler.isDue(s.checkin, now)) return messages;
       String line = kCheckinLine;
       final SupportSnippet? sn = _checkinSnippet(s, now);
-      if (s.checkin.nextDue != null && sn != null) line = sn.textIn(s.language);
+      if (s.checkin.nextDue != null && sn != null) line = sn.textIn(resolveSupportLanguage(s.language, ref.read(localeProvider).languageCode));
       Future<void>.microtask(() => n.saveCheckin(
             CheckinScheduler.after(s.checkin, CheckinAnswer.ignored, now),
           ));
@@ -889,12 +892,19 @@ class HadiController extends Notifier<HadiState> {
   /// The first card for [kind], with the lines and the note about which
   /// country they are for. Remembered so it can be rewritten if the person
   /// picks another country under the lines.
+  /// The language support replies are written in: the Language for support
+  /// lines setting, or the app language when it is on "follow the app".
+  String get _supportLang => resolveSupportLanguage(
+      ref.read(supportSettingsProvider).language,
+      ref.read(localeProvider).languageCode);
+
   String _cardText(CrisisKind kind, String? cc, bool picked) {
+    final String lang = _supportLang;
     if (_minorSession && kind == CrisisKind.abuse) {
-      return ChildDistress.disclosureCard('13-17');
+      return '${crisisEnglishNote(lang)}${ChildDistress.disclosureCard('13-17')}';
     }
-    return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
-        '${CrisisResponses.regionNote(cc, picked: picked)}';
+    return '${CrisisResponses.textFor(kind, countryCode: cc, lang: lang)}\n\n'
+        '${CrisisResponses.regionNote(cc, picked: picked, kind: kind, lang: lang)}';
   }
 
   final Set<String> _cardTexts = <String>{};
@@ -956,22 +966,25 @@ class HadiController extends Notifier<HadiState> {
         final int n = state.messages
             .where((HadiMessage m) => m.crisis == CrisisKind.selfHarm)
             .length;
-        return _selfHarmFollowUps[n % _selfHarmFollowUps.length];
+        return '${crisisEnglishNote(_supportLang)}'
+            '${_selfHarmFollowUps[n % _selfHarmFollowUps.length]}';
       case CrisisKind.suicideQuestion:
-        return 'Judgement of any person belongs to Allah alone, and His '
+        return '${crisisEnglishNote(_supportLang)}'
+            'Judgement of any person belongs to Allah alone, and His '
             'mercy is vast. For a ruling about a particular person, please '
             'ask a qualified scholar in person; Our Sources lists one. If '
             'any part of this is about you, the help lines above are still '
             'here.';
       case CrisisKind.abuse:
         return _minorSession
-            ? CrisisResponses.followUpFor(CrisisKind.childSafety)
+            ? CrisisResponses.followUpFor(CrisisKind.childSafety,
+                lang: _supportLang)
             : null;
       case CrisisKind.childSafety:
       case CrisisKind.eatingDisorder:
       case CrisisKind.extremism:
       case CrisisKind.substanceEmergency:
-        return CrisisResponses.followUpFor(kind);
+        return CrisisResponses.followUpFor(kind, lang: _supportLang);
     }
   }
 
@@ -1421,7 +1434,8 @@ class HadiController extends Notifier<HadiState> {
             : _packFor(support),
         userText: q,
         extraPacks: _extraPacksFor(q),
-        lang: prefsNow.language,
+        lang: resolveSupportLanguage(
+            prefsNow.language, ref.read(localeProvider).languageCode),
         toneSetting: prefsNow.tone,
       );
       String reply;
@@ -1463,6 +1477,9 @@ class HadiController extends Notifier<HadiState> {
         reply = online;
         ids = const <String>[];
       }
+      // A support reply with no checked wording in the chosen language is
+      // shown in English with a clear note in that language.
+      reply = withEnglishFallbackNote(reply, _supportLang);
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,

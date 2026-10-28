@@ -1117,10 +1117,31 @@ def build_languages():
             why='Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.',
             reviewer=NATIVE, also=[CLIN], source=['docs/OWNER_ACTIONS.md item 4', 'crisis_detector.dart'], priority='high',
             label_surface='Not user-visible; behaviour of the crisis card')
+    # Phrase tables (lib/app/core/i18n/ui_phrases_data.dart), one item per group.
+    pd = rd('lib/app/core/i18n/ui_phrases_data.dart')
+    groups = dict(re.findall(r"\n  '(\w+)': '((?:[^'\\]|\\.)*)',", pd.split('kUiPhraseGroups')[1].split('};')[0]))
+    for gid, title in sorted(groups.items()):
+        R.add(
+            id='lang.phrases.%s' % gid, area='languages', subarea='ui-phrases',
+            where_app='Arabic, Urdu and Bangla wording of: %s' % title,
+            file='lib/app/core/i18n/ui_phrases_data.dart', key='group "%s"' % gid,
+            what='Every English / Arabic / Urdu / Bangla row of group "%s" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible "Native-speaker review needed" note.' % gid,
+            why='Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur\u2019an, hadith and du\u2019a text is never in these tables.',
+            reviewer=NATIVE, also=[], source=['docs/OWNER_ACTIONS.md item 22', 'docs/content_needed/translation_review.md'],
+            priority='high' if gid in ('support', 'hadi', 'sources') else 'normal',
+            label_surface='NativeReviewNote on the screen' if gid in ('support', 'hadi', 'sources', 'prayer', 'qibla', 'quran', 'faith', 'you', 'settings', 'more') else 'Language settings note')
+    R.add(
+        id='lang.crisis.cards-l10n', area='languages', subarea='crisis-phrase',
+        where_app='Crisis cards, follow-ups and the "which country" note in Arabic, Urdu and Bangla',
+        file='lib/features/sakina/domain/crisis_l10n.dart', key='seven crisis cards, five follow-ups, four country notes',
+        what='Arabic, Urdu and Bangla wording of the fixed crisis cards (self-harm, suicide question, abuse, child safety, eating disorder, substance emergency, extremism). The verse is not translated: the card gives a reference only. Help-line names and numbers come from HelpResources, never from this file.',
+        why='Machine draft of safety text; a native-speaking clinician must read it before it can lose its on-screen "Native-speaker review needed" line. Until then a reply without checked wording is shown in English with a note in the language.',
+        reviewer=NATIVE, also=[CLIN, HADITH], source=['docs/OWNER_ACTIONS.md item 22', 'OWNER_ACTIONS item 4'], priority='high',
+        label_surface='Review line at the end of each card')
     rr = [
         ('lang.crisis.roman-urdu', 'Roman-Urdu and Roman-Bangla crisis phrases (for example "marna chahta hoon", "jaan de dunga")'),
         ('lang.crisis.abuse-child-ed-extremism', 'Non-English phrases for abuse, child safety, eating disorders and extremism in the detector, and the fixed replies'),
-        ('lang.crisis.replies', 'The fixed replies shown after a crisis match and the country help-line chooser, in English only today'),
+        ('lang.crisis.replies', 'English fixed replies shown after a crisis match and the country help-line chooser (the Arabic, Urdu and Bangla versions are the separate item lang.crisis.cards-l10n)'),
     ]
     for k, w in rr:
         R.add(

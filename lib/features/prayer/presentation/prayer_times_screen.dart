@@ -1,7 +1,8 @@
 import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../../app/core/open_link.dart';
@@ -63,6 +64,7 @@ class PrayerTimesScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Prayer Times'),
+            const NativeReviewNote(inset: true),
             const ScholarReviewNote(
               reviewKey: 'prayer',
               padding: const EdgeInsets.only(bottom: 8),

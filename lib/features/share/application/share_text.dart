@@ -3,6 +3,8 @@
 /// of public content, and ends with [shareFooter].
 library;
 
+import '../../../app/core/i18n/ui_phrases.dart';
+
 /// Credit line that ends everything copied or shared out of the app.
 const String kSharedFromLine = 'Shared from Ar-Rayaan';
 
@@ -16,4 +18,14 @@ const String kInviteUrl = 'https://ar-rayaan.onrender.com';
 const String kShareDownloadLine = 'Free to use, no account needed';
 
 /// The last block of every share: the credit, the download line, the link.
-String shareFooter() => '$kSharedFromLine\n$kShareDownloadLine\n$kInviteUrl';
+///
+/// With [lang] ar, ur or bn the two credit lines are written in that language
+/// (machine drafts, listed for native-speaker review); the link never changes.
+String shareFooter({String lang = 'en'}) {
+  final String from =
+      lang == 'en' ? kSharedFromLine : translatePhrase(kSharedFromLine, lang);
+  final String free = lang == 'en'
+      ? kShareDownloadLine
+      : translatePhrase(kShareDownloadLine, lang);
+  return '$from\n$free\n$kInviteUrl';
+}

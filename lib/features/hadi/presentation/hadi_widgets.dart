@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/core/i18n/bidi.dart';
+import '../../../app/theme/widgets/tr_text.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -43,17 +45,20 @@ class HadiRichText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool rtl = HadiMarkdown.isMostlyRtl(text);
+    final TextDirection? dir = rtl
+        ? TextDirection.rtl
+        : (startsWithLatin(text) ? TextDirection.ltr : null);
     // A selectable text field reaches a screen reader as an empty edit box on
     // the web. The reply's words are given as the label of a plain text node
     // instead, and the field itself stays out of the reading order.
     return Semantics(
       container: true,
       label: HadiMarkdown.plain(text),
-      textDirection: rtl ? TextDirection.rtl : null,
+      textDirection: dir,
       child: ExcludeSemantics(
         child: SelectableText.rich(
           TextSpan(style: style, children: spansFor(text, style)),
-          textDirection: rtl ? TextDirection.rtl : null,
+          textDirection: dir,
         ),
       ),
     );

@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -40,6 +41,7 @@ import '../../academy/domain/atmosphere.dart';
 import '../../academy/presentation/atmosphere_layer.dart';
 import '../../calendar/application/hijri_settings.dart';
 import '../../calendar/domain/hijri_date.dart';
+import '../../../app/core/i18n/bidi.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Screen 4 · Home — greeting, nine core tiles, "Today for You".
@@ -83,7 +85,8 @@ class HomeScreen extends ConsumerWidget {
                   final (String name, DateTime time) =
                       t.nextPrayer(DateTime.now());
                   nextPrayerLabel = '$name at ${DateFormat.jm().format(time)}';
-                  return '${prayerName(name)} · ${DateFormat.jm().format(time)}';
+                  final String clock = DateFormat.jm().format(time);
+                  return '${prayerName(name)} · ${LocaleController.isRtl(l10n.locale) ? isolateLtr(clock) : clock}';
                 },
                 loading: () => ui('sub.loadingTimes'),
                 error: (_, _) => ui('sub.timesUnavailable'),
@@ -204,8 +207,13 @@ class HomeScreen extends ConsumerWidget {
     // Today's Hijri date: pure and synchronous (no waiting on anything), and
     // re-read when the person changes the calendar basis.
     ref.watch(hijriSettingsProvider);
-    final String hijriToday =
+    final String hijriRaw =
         '${HijriDate.fromGregorian(DateTime.now()).format()} AH';
+    // Latin month names and numbers keep their order inside a right-to-left
+    // layout.
+    final String hijriToday = LocaleController.isRtl(l10n.locale)
+        ? isolateLtr(hijriRaw)
+        : hijriRaw;
     // Fixed-aspect tiles must grow with the system text size or the text
     // overflows: give them proportionally more height.
     final double textScale =

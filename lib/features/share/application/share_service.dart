@@ -21,7 +21,8 @@
 library;
 
 import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:share_plus/share_plus.dart';
 
@@ -347,6 +348,7 @@ abstract final class ShareService {
   static String build(
     ShareDoc doc, {
     Map<String, ScholarSignoff> ledger = kScholarSignoffs,
+    String lang = 'en',
   }) {
     assert(ShareKind.values.contains(doc.kind));
     bool has(String? s) => s != null && s.trim().isNotEmpty;
@@ -362,7 +364,7 @@ abstract final class ShareService {
           doc.reviewKey ?? 'share.${doc.kind.name}',
           ledger: ledger,
         ),
-      shareFooter(),
+      shareFooter(lang: lang),
     ];
     return blocks.join('\n\n');
   }
@@ -420,7 +422,7 @@ abstract final class ShareService {
   static Future<void> send(BuildContext context, ShareDoc doc) async {
     final ScaffoldMessengerState? messenger =
         ScaffoldMessenger.maybeOf(context);
-    final String text = build(doc);
+    final String text = build(doc, lang: uiLang(context));
     if (kIsWeb) {
       if (webShareSupported && await webShare(text, title: doc.title)) return;
     } else {

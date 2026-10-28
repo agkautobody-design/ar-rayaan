@@ -3,7 +3,8 @@
 /// web it prints on real pages in a new tab; everywhere it can be copied.
 library;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:go_router/go_router.dart';
 
 import '../application/web_file_save.dart';

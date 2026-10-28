@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/modules/module_status.dart';
@@ -120,6 +121,7 @@ class ExploreScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const ScreenHeader(title: '', close: true),
+            const NativeReviewNote(inset: true),
             Padding(
               padding: const EdgeInsets.only(left: 24),
               child: Text('EXPLORE AR-RAYAAN', style: AppText.eyebrow),

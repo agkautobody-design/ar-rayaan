@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' show kDebugMode, visibleForTesting;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import 'tr_text.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 
