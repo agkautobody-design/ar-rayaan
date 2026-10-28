@@ -129,7 +129,7 @@
                     .map(function (e) { return e.name; })
                     .filter(function (u) { return sameOrigin(u) || isFirebaseScript(u); });
                 } catch (e) {}
-                var w = reg.active || reg.waiting || reg.installing;
+                var w = reg && (reg.active || reg.waiting || reg.installing);
                 if (w && urls.length) w.postMessage({ type: 'cache-urls', urls: urls });
               }
               window.addEventListener('flutter-first-frame', function () { setTimeout(warm, 4000); });
