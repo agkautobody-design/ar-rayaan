@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5523 items.** High priority: 1297. Normal: 3524. Low: 702.
+**5524 items.** High priority: 1297. Normal: 3525. Low: 702.
 
 ### By area
 
@@ -38,12 +38,12 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 11 | 6 |
 | Games and quizzes with religious content | 14 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 243 | 125 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 244 | 125 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5523** | **1297** |
+| **Total** | **5524** | **1297** |
 
 ### By reviewer type
 
@@ -54,7 +54,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Women's scholar | 151 | 96 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1015 | 252 |
-| Native speaker (ar / bn / ur) | 279 | 13 |
+| Native speaker (ar / bn / ur) | 280 | 13 |
 | Privacy lawyer | 15 | 20 |
 | Rights holder / licensing (not a scholar) | 6 | 2 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
@@ -85,7 +85,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 | 1 |  | 5 |  |  |  | 4 |  |
 | Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 243 |  |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 244 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
@@ -153,10 +153,10 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Sakina rooms, feelings, safety copy, health: 60 items (34 high). Ids start with `health.ruqya-medicine`, `kids.child-reader-r3`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 903 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (279 lead, 13 also)
+### Native speaker (ar / bn / ur) (280 lead, 13 also)
 
 - Sakina rooms, feelings, safety copy, health: 1 items (0 high). Ids start with `academy.letters-age-fit`.
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 243 items (125 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 244 items (125 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
 ### Privacy lawyer (15 lead, 20 also)
@@ -3914,7 +3914,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-243 items, 125 high priority. Area key `languages`.
+244 items, 125 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4148,6 +4148,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.phrases.prayer` | Arabic, Urdu and Bangla wording of: Prayer Times screen | Every English / Arabic / Urdu / Bangla row of group "prayer" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safe… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.qibla` | Arabic, Urdu and Bangla wording of: Qibla screen | Every English / Arabic / Urdu / Bangla row of group "qibla" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.quran` | Arabic, Urdu and Bangla wording of: Qur’an screens (labels and buttons only) | Every English / Arabic / Urdu / Bangla row of group "quran" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.reading` | Arabic, Urdu and Bangla wording of: Reading support: transliteration and meaning labels, settings, onboarding… | Every English / Arabic / Urdu / Bangla row of group "reading" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, saf… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.settings` | Arabic, Urdu and Bangla wording of: Settings and Language & Voice screens | Every English / Arabic / Urdu / Bangla row of group "settings" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, sa… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.shell` | Arabic, Urdu and Bangla wording of: Home, Menu, Quick Access and shared buttons | Every English / Arabic / Urdu / Bangla row of group "shell" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.sources` | Arabic, Urdu and Bangla wording of: Our Sources, Elder Mode and share footer | Every English / Arabic / Urdu / Bangla row of group "sources" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, saf… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | high | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |

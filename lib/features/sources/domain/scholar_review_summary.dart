@@ -22,7 +22,7 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5523;
+const int kScholarReviewTotal = 5524;
 
 /// Items marked high priority.
 const int kScholarReviewHighPriority = 1297;
@@ -48,7 +48,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
     ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 11, 6),
     ScholarReviewArea('games', 'Games and quizzes with religious content', 14, 9),
-    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 243, 125),
+    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 244, 125),
     ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 10, 10),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
@@ -61,7 +61,7 @@ const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 526),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1015),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 279),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 280),
     ScholarReviewerCount('Privacy lawyer', 15),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),

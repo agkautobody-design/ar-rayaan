@@ -354,6 +354,11 @@ def build_school_screens():
         cut = re.search(r'\nclass \w+Screen\b', t)
         head = t[:cut.start()] if cut else t
         titles = [unesc(a or b) for a, b in TITLE_RX.findall(head)]
+        item_file = path
+        if sid == 'dua':
+            # The lessons moved from Dart into a registry file (unchanged).
+            titles = [l['title'] for l in rj('assets/academy/dua_lessons.json')['lessons']]
+            item_file = 'assets/academy/dua_lessons.json'
         area = 'arabic-tajweed' if sid in ('tajweed-cards', 'arabic-language') else (
             'dua-dhikr' if sid in ('dua', 'hisn') else 'academy-schools')
         route = {'aqeedah': '/academy/aqeedah', 'arabic-language': '/academy/arabic-language',
@@ -381,7 +386,7 @@ def build_school_screens():
             R.add(
                 id='school.%s.%02d' % (sid, n), area=area, subarea='static-screen',
                 where_app='%s > "%s"' % (name, clip(ti, 80)),
-                file=path, key='title: %s' % clip(ti, 80),
+                file=item_file, key='title: %s' % clip(ti, 80),
                 what='Card or section "%s" in the %s.' % (clip(ti, 100), name),
                 why='Static teaching text in a school screen; not reviewed by a named scholar.',
                 reviewer=primary, also=also, source='Screen source (no review on record)',
