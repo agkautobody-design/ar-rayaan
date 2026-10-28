@@ -55,10 +55,70 @@ The Zakat screen in this app shows both positions. If you follow no particular s
   go=['/zakat'],
   review='Jewelry positions per school are standard fiqh teaching (and match the Zakat screen); not text-checked here.')
 
+E('zakat-due',
+  m=[r'\bwhen (?:is|does|do|should|must|will|did|are)\b.*\bzakat\b.*\b(?:due|payable|pay|paid|obligatory|required|owed|fall|falls|start|starts|begin|begins|become|becomes|calculated)\b',
+     r'\bwhen (?:to|do i|should i|must i|can i|shall i) (?:pay|give|calculate|work out) (?:my |the )?zakat\b',
+     r'\bzakat\b.*\b(?:due date|deadline|hawl|lunar year|one year|a year|yearly|annual\w*|every year|each year|what date|which day|which month)\b',
+     r'\bhawl\b', r'\bwhen is it (?:due|payable)\b.*\bzakat\b'],
+  x=[r'\b(?:fitr|fitra|recipients?)\b'],
+  topic='zakat',
+  text="""
+Zakat falls due when your zakatable wealth has stayed at or above the nisab for one full lunar year (the hawl). The one-year condition is taught by all four schools, and it rests on reports such as {HW abudawud:1573|Ali reported the Prophet said when you possess two hundred dirhams and one year passes on them, five dirhams are payable, and nothing is due on gold until it reaches twenty dinars, then half a dinar once a year has passed}. Al-Albani graded the same report sahih, so the graders differ. That is why I give you the rule the schools agree on and not one proof.
+
+How to find your date:
+- Your zakat date is the day your wealth first reached the nisab. A year later, if you still hold at least the nisab, pay 2.5% of what you hold that day.
+- A lunar year is about 354 days, so the date moves about 11 days earlier in the calendar each year.
+- Many people choose one fixed day every year, such as the 1st of Ramadan, to keep it simple, and work out their zakat on that day. If you do, use the same day each year. Ask a scholar if you are changing your date.
+- If your wealth drops below the nisab part-way through the year, the schools differ: the Hanafi school looks at the two ends of the year, and the other schools restart the count when it falls below.
+- Pay it soon after it falls due. Unpaid zakat does not disappear with time; it stays owed.
+- Crops are different: their zakat is due at the harvest ({Q 6:141|give its due [zakah] on the day of its harvest}).
+
+Zakat al-fitr is a separate charity at the end of Ramadan; ask me about it by name. The Zakat screen works out the amount once you know your date.
+""",
+  go=['/zakat', '/huda/guide?id=huda-zakat'],
+  review='The one-year condition and the choice of a fixed date are standard fiqh teaching; the Hanafi versus other schools position on wealth that falls below the nisab mid-year is a school difference not text-checked here. The hawl report is cited as da\'if per Darussalam with the al-Albani grade stated as a difference.')
+
+E('zakat-debts',
+  m=[r'\bzakat\b.*\b(?:debts?|loans?|owe|owed|owing|mortgage\w*|credit cards?|liabilit\w*|borrow\w*|in debt|instal?lments?|arrears|bills)\b',
+     r'\b(?:debts?|loans?|owe|owed|owing|mortgage\w*|credit cards?|liabilit\w*|in debt|instal?lments?)\b.*\bzakat\b'],
+  x=[r'\b(?:recipients?|who can receive|who gets|eligib\w*)\b'],
+  topic='zakat',
+  text="""
+Debts you owe can reduce the wealth you pay zakat on, but only debts that are due now, and the schools differ:
+- The Hanafi, Maliki and Hanbali schools take the debts you owe away from your cash and gold before they work out whether you have reached the nisab and what you pay on. Zakat is paid on what is left.
+- The Shafi'i school's usual position is that debts do not reduce it: the full amount you hold is counted. The Zakat screen lets you choose, and shows the working for both.
+- Contemporary scholars often count only the instalments that are due within the year for a long loan such as a mortgage, not the whole loan. Ask a scholar if you have one.
+- Money other people owe you and that you can collect counts as your wealth. Money you cannot expect to get back does not, until you have it.
+- A debt does not cancel zakat if you are still over the nisab after taking it off. Repaying a debt that is due is also a duty, so do both.
+
+Allah names "those in debt" among the people who may receive zakat ({QR 9:60}). If your debts are heavy, you may be one of them.
+
+This is general guidance. For an exact figure with a business, a pension or a mortgage, ask a qualified scholar.
+""",
+  go=['/zakat', '/huda/guide?id=huda-zakat'],
+  review='The treatment of debts differs by school (Hanafi, Maliki and Hanbali deduct; the usual Shafi\'i position does not) and the contemporary view on instalments of a long loan is a modern opinion; none of it is text-checked here.')
+
+E('zakat-amount',
+  m=[r'\bnisab\b', r'\bhow (?:much|many)\b.*\bzakat\b', r'\bzakat\b.*\bhow (?:much|many)\b', r'\bzakat (?:rate|amount|percentage|percent|share)\b', r'\b(?:2.5|two and a half)\b.*\b(?:zakat|percent|%)\b',
+     r'\b(?:zakat|percent|%)\b.*\b(?:2.5|two and a half)\b', r'\bwhat (?:percent|percentage|fraction|part) .*\bzakat\b', r'\bzakat\b.*\bwhat (?:percent|percentage|fraction)\b'],
+  x=[r'\b(?:fitr|fitra|fitrana|recipients?)\b', r'\b(?:calculate|calculator|work out|app)\b'],
+  topic='zakat',
+  text="""
+The rate is 2.5% (one fortieth) of your zakatable wealth, once it has reached the nisab and a lunar year has passed on it. For example, if your zakatable wealth on your zakat date is 10,000 and that is above the nisab, you pay 250.
+
+The nisab is the minimum: the value of 85 grams of gold or 595 grams of silver. The Prophet ﷺ set the silver measure at five awqiyah, which is 200 dirhams ({H bukhari:1447|The Prophet said there is no zakat on less than five awaq of silver, nor on less than five camels or five wasqs of produce}). Silver is the lower figure, so more people reach it and more of the poor are helped. Many scholars today use the silver measure; some use gold. The Zakat calculator lets you choose, and can fill in today's gold and silver prices.
+
+Zakat is paid on what is left after the debts you owe that are due, if you follow the Hanafi, Maliki or Hanbali view; ask me "what about debts" for that. Crops and livestock have their own rates; ask a scholar.
+
+For your own figure, open the Zakat calculator. It keeps your numbers on your device.
+""",
+  go=['/zakat', '/huda/guide?id=huda-zakat'],
+  review='The rate, the nisab figures and the choice between silver and gold are standard fiqh teaching and match the Zakat screen; only Bukhari 1447 (the silver measure) is cited.')
+
 E('zakat-nisab-rate',
   m=[r'\bnisab\b', r'\bhow much zakat\b', r'\bhow (?:much|many) (?:is|do i|should i|to|zakat)\b.*\bzakat\b', r'\bzakat\b.*\bhow much\b', r'\bzakat (?:rate|amount|percentage|percent)\b', r'\b(?:2.5|two and a half)\b.*\bzakat\b',
      r'\bzakat\b.*\b(?:2.5|two and a half)\b', r'\bwho (?:must|has to|should|needs to) pay zakat\b', r'\bwho is (?:required|obliged) to pay zakat\b',
-     r'\bwhen (?:is|does|do) zakat (?:due|obligatory|required|become)\b', r'\bhawl\b', r'\bcalculate zakat\b', r'\bhow to (?:calculate|work out|pay) zakat\b',
+     r'\bcalculate zakat\b', r'\bhow to (?:calculate|work out|pay) zakat\b',
      r'\bwhat is zakat\b', r'\bzakat on (?:gold|silver|savings|money|cash|jewel\w*|business|stocks?|shares?|property|house|car|salary|crypto|investments?|rental|land|pension|retirement)\b',
      r'\bis zakat (?:due|payable|required|obligatory) on\b', r'\bzakat (?:and|for) (?:gold|silver|savings|jewel\w*)\b', r'\bdo i (?:pay|owe) zakat\b'],
   x=[r'\b(?:fitr|recipients?)\b'],

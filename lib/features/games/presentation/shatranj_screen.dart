@@ -107,15 +107,38 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
   bool _seenRoom = false;
   String? _syncError;
 
-  static const List<String> _hadiLines = <String>[
-    'Hadi studies the board patiently.',
+  // Hadi's lines, by what the move just played was, so the words fit the move.
+  static const List<String> _hadiOpening = <String>[
     'Hadi: Every opening is a doorway. Choose yours well.',
+    'Hadi: Bring your pieces out and keep the centre in sight.',
+  ];
+  static const List<String> _hadiMiddle = <String>[
     'Hadi: The middle game rewards the patient heart.',
-    'Hadi: A sacrifice for position can pay off later.',
-    'Hadi: I would rather lose beautifully than win without principle.',
     'Hadi: Your move carries intention. Make it a good one.',
     'Hadi: Even the queen bows to the plan, not the power.',
   ];
+  static const List<String> _hadiCapture = <String>[
+    'Hadi: A capture changes the balance. Check what it leaves undefended.',
+    'Hadi: Taking a piece is never free. Look at what the capture opens.',
+  ];
+  static const String _hadiCheck =
+      'Hadi: Check. Your king must answer it now: move it, block the attack or capture the attacker.';
+  static const String _hadiCastle =
+      'Hadi: Castling tucks the king away and wakes the rook.';
+  static const String _hadiPromo =
+      'Hadi: A pawn that crosses the whole board becomes a new piece.';
+
+  /// The line for move [m], just played (so [game] already holds it).
+  String _hadiLineFor(int m) {
+    final String san = game.san.isEmpty ? '' : game.san.last;
+    final int n = game.moves.length;
+    if (san.contains('=')) return _hadiPromo;
+    if (san.contains('+') || san.contains('#')) return _hadiCheck;
+    if (moveIsCastle(m)) return _hadiCastle;
+    if (moveIsCapture(m)) return _hadiCapture[(n ~/ 2) % _hadiCapture.length];
+    if (n <= 12) return _hadiOpening[(n ~/ 2) % _hadiOpening.length];
+    return _hadiMiddle[(n ~/ 2) % _hadiMiddle.length];
+  }
 
   @override
   void initState() {
@@ -476,8 +499,8 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
       aiThinking = false;
       if (m != null) game.play(m);
       _afterMove();
-      if (!game.isOver) {
-        hadiLine = _hadiLines[_rnd.nextInt(_hadiLines.length)];
+      if (!game.isOver && m != null) {
+        hadiLine = _hadiLineFor(m);
       }
     });
   }

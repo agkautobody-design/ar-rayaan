@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5468,
+ "total": 5475,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 483,
+   "items": 489,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 575,
-   "high_priority": 112
+   "items": 576,
+   "high_priority": 113
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2447,
-  "Fiqh scholar (per madhab)": 610,
+  "Hadith / aqidah scholar": 2448,
+  "Fiqh scholar (per madhab)": 616,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
   "Clinician (Sakina and health content)": 1007,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1278,
-  "normal": 3488,
+  "high": 1279,
+  "normal": 3494,
   "low": 702
  },
  "items": [
@@ -33690,6 +33690,86 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.divorce-unsafe",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"divorce-unsafe\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='divorce-unsafe'",
+   "what_to_review": "Built-in answer \"divorce-unsafe\": Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with you in confidence. Islam does not ask you to stay in a marriage where you are being hurt or frig…",
+   "why_flagged": "Khul, judicial dissolution for harm (darar) and the Abu Dawud 2226 warning are described in general terms for a woman who is not safe; the schools' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.abuse-verse-434",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"abuse-verse-434\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='abuse-verse-434'",
+   "what_to_review": "Built-in answer \"abuse-verse-434\": No. Nothing in Islam gives anyone the right to hit you, frighten you or control you by force. If he is hurting you, your safety comes first: go to a safe place and call your local emergency number if you are in danger. The help lines on this screen are for yo…",
+   "why_flagged": "Reads 4:34 with the restrictions the scholars place on it and says plainly that violence is not allowed. The attribution of \"at most symbolic\" and \"better left\" to scholars is a summary of views already in the hitting-wife answer and needs a scholar to confirm. Wording must be read by someone who works with abuse survivors.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.share-chat",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"share-chat\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='share-chat'",
+   "what_to_review": "Built-in answer \"share-chat\": No. A whole chat cannot be shared from the app, and that is on purpose: what you ask me can be personal. My side of the chat is not saved or sent anywhere. It stays on screen for this visit only, and it is gone when you leave, clear it, or close the app. So t…",
+   "why_flagged": "Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.pillars-islam",
    "area": "hadi",
    "subarea": "core-answer",
@@ -35131,6 +35211,84 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.zakat-due",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-due\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-due'",
+   "what_to_review": "Built-in answer \"zakat-due\": Zakat falls due when your zakatable wealth has stayed at or above the nisab for one full lunar year (the hawl). The one-year condition is taught by all four schools, and it rests on reports such as Sunan Abu Dawud 1573, da'if per Darussalam. Al-Albani graded…",
+   "why_flagged": "The one-year condition and the choice of a fixed date are standard fiqh teaching; the Hanafi versus other schools position on wealth that falls below the nisab mid-year is a school difference not text-checked here. The hawl report is cited as da'if per Darussalam with the al-Albani grade stated as a difference.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-debts",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-debts\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-debts'",
+   "what_to_review": "Built-in answer \"zakat-debts\": Debts you owe can reduce the wealth you pay zakat on, but only debts that are due now, and the schools differ: - The Hanafi, Maliki and Hanbali schools take the debts you owe away from your cash and gold before they work out whether you have reached the nisab…",
+   "why_flagged": "The treatment of debts differs by school (Hanafi, Maliki and Hanbali deduct; the usual Shafi'i position does not) and the contemporary view on instalments of a long loan is a modern opinion; none of it is text-checked here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-amount",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-amount\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-amount'",
+   "what_to_review": "Built-in answer \"zakat-amount\": The rate is 2.5% (one fortieth) of your zakatable wealth, once it has reached the nisab and a lunar year has passed on it. For example, if your zakatable wealth on your zakat date is 10,000 and that is above the nisab, you pay 250. The nisab is the minimum: t…",
+   "why_flagged": "The rate, the nisab figures and the choice between silver and gold are standard fiqh teaching and match the Zakat screen; only Bukhari 1447 (the silver measure) is cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.zakat-nisab-rate",
    "area": "hadi",
    "subarea": "core-answer",
@@ -36132,7 +36290,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='become-muslim'",
    "what_to_review": "Built-in answer \"become-muslim\": Welcome. Becoming a Muslim is simple: say the shahada (the declaration of faith), knowing what it means and meaning it: أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasulu Allah. \"I bear witnes…",
-   "why_flagged": "The bath on accepting Islam and what to say are standard practice; Arabic shahada is the universally known text.",
+   "why_flagged": "The bath on accepting Islam: the schools differ on whether it is required or recommended (stated as a difference, as in Path Day 1). What to say is standard practice; Arabic shahada is the universally known text.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
@@ -52926,6 +53084,25 @@
    "key": "hadith[id=h:tirmidhi-2378]",
    "what_to_review": "Jamiʿ at-Tirmidhi 2378: \"Abu Hurairah reported the Prophet said a man is upon the religion of his friend, so let one of you look at whom he befriends\" (grade Hasan, al-Albani).",
    "why_flagged": "Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-1573",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 1573",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-1573]",
+   "what_to_review": "Sunan Abu Dawud 1573: \"Ali reported the Prophet said when you possess two hundred dirhams and one year passes on them, five dirhams are payable, and nothing is due on gold…\" (grade Da'if, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Da'if (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],

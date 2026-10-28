@@ -13,6 +13,8 @@
 /// reads it) so they cannot drift apart. Pure Dart, no Flutter.
 library;
 
+import 'hadi_core.dart';
+
 abstract final class HadiGameAsk {
   static const String quizOpen =
       'I just answered a quiz question in the game and want to understand it.';
@@ -108,6 +110,41 @@ abstract final class HadiGameAsk {
       'This is the game’s own text and its source; I am not adding '
       'anything from memory. ';
 
+  /// What Hadi's own checked answers say about the topic of a quiz [question]
+  /// or its [answer], or '' when none of them is about it. The
+  /// answer is the one Hadi would give if asked the topic directly; when it
+  /// is long only its opening is shown, with the way to ask for the rest.
+  static String _checkedAnswer(String question, String answer) {
+    final List<String> tries = <String>[question, answer];
+    for (final String t in tries) {
+      if (t.trim().isEmpty) continue;
+      final CoreEntry? e = HadiCore.match(t);
+      if (e == null || e.topic.isEmpty) continue;
+      final String body = e.answer
+          .replaceAll(RegExp(r'\s*\[GO:[^\]]*\]'), '')
+          .trim();
+      final List<String> paras = body.split(RegExp(r'\n\s*\n'));
+      final StringBuffer out = StringBuffer();
+      bool cut = false;
+      for (final String para in paras) {
+        if (para.startsWith('Source:')) continue;
+        if (out.length + para.length > 900 && out.isNotEmpty) {
+          cut = true;
+          break;
+        }
+        if (out.isNotEmpty) out.write('\n\n');
+        out.write(para.trim());
+      }
+      final String src = paras.firstWhere(
+          (String p) => p.startsWith('Source:'),
+          orElse: () => '');
+      return 'More on this, from Hadi\u2019s checked answers on ${e.topic}:\n\n'
+          '$out'
+          '${cut ? '\n\nThat is the opening. Ask me \u201c${e.topic}\u201d on its own for the whole answer with every source.' : (src.isEmpty ? '' : '\n\n$src')}';
+    }
+    return '';
+  }
+
   /// The reply to a question built by one of the games, or null when
   /// [question] is not one.
   static String? answer(String question) {
@@ -119,12 +156,13 @@ abstract final class HadiGameAsk {
       final String why = _field(lines, 'What the game says');
       final String src = _field(lines, 'Source');
       if (qs.isEmpty || a.isEmpty) return null;
+      final String more = _checkedAnswer(qs, a);
       return '$replyOpen about that question, with the source it cites. '
           '$_honest\n\n'
-          'Question: $qs\n'
-          'Right answer: $a\n'
-          '${why.isEmpty ? '' : 'What the game says: $why\n'}'
-          '${src.isEmpty ? '' : 'Source: $src\n'}\n'
+          'The answer: $a\n'
+          '${why.isEmpty ? '' : 'Why: $why\n'}'
+          '${src.isEmpty ? '' : 'Source: $src\n'}'
+          '${more.isEmpty ? '' : '\n$more\n'}\n'
           'To go deeper, open the source below, or ask me about the topic in '
           'a few words (the name of the surah, the prophet or the person).'
           '${_buttons(src)}';

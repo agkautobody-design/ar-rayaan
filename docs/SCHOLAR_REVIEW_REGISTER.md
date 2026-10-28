@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5468 items.** High priority: 1278. Normal: 3488. Low: 702.
+**5475 items.** High priority: 1279. Normal: 3494. Low: 702.
 
 ### By area
 
@@ -25,8 +25,8 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 108 | 94 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 483 | 20 |
-| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 575 | 112 |
+| Hadi built-in answers | 489 | 20 |
+| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 | 113 |
 | Stories: prophets, layers and earlier accounts | 257 | 51 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 182 | 61 |
@@ -43,15 +43,15 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1642 | 111 |
-| **Total** | **5468** | **1278** |
+| **Total** | **5475** | **1279** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2447 | 1027 |
-| Fiqh scholar (per madhab) | 610 | 235 |
-| Women's scholar | 151 | 93 |
+| Hadith / aqidah scholar | 2448 | 1033 |
+| Fiqh scholar (per madhab) | 616 | 235 |
+| Women's scholar | 151 | 95 |
 | Arabic / tajweed / qira'at specialist | 523 | 195 |
 | Clinician (Sakina and health content) | 1007 | 249 |
 | Native speaker (ar / bn / ur) | 261 | 10 |
@@ -72,8 +72,8 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 303 | 180 |  |  |  |  |  |  |  |
-| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 575 |  |  |  |  |  |  |  |  |
+| Hadi built-in answers | 303 | 186 |  |  |  |  |  |  |  |
+| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 1 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 182 |  |  |  |  |  |  |  |  |
@@ -93,14 +93,14 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2447 lead, 1027 also)
+### Hadith / aqidah scholar (2448 lead, 1033 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
 - Huda guides and their madhhab notes: 16 items (3 high). Ids start with `huda.guide`.
 - Q&A bank rulings: 3 items (0 high). Ids start with `qa.07`, `qa.14`, `qa.16`.
 - Hadi built-in answers: 303 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
-- Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 575 items (112 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
+- Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 576 items (113 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
 - Stories: the unseen, signs, tales, khutbahs: 182 items (61 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
 
-### Fiqh scholar (per madhab) (610 lead, 235 also)
+### Fiqh scholar (per madhab) (616 lead, 235 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 180 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 186 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 1 items (0 high). Ids start with `kids.child-mode-stories`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
 - Zakat, will and estate, halal finance: 18 items (18 high). Ids start with `eol.will-estate`, `money.finance`, `money.will`, `money.zakat`.
@@ -128,7 +128,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 2 items (2 high). Ids start with `nasheed.catalogue`, `nasheed.music-view`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 42 items (0 high). Ids start with `support.domestic_abuse`, `support.drugs`, `support.elder_abuse`, `support.etiquette`, `support.family_of_struggling`, `support.family_parenting`.
 
-### Women's scholar (151 lead, 93 also)
+### Women's scholar (151 lead, 95 also)
 
 - Academy v3 lessons and steps: 80 items (42 high). Ids start with `lesson.wmns`.
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
@@ -1722,7 +1722,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-483 items, 20 high priority. Area key `hadi`.
+489 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1746,6 +1746,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.pray-in-english` | Hadi chat > built-in answer "pray-in-english" | Built-in answer "pray-in-english": Scholars differ, so here is the honest picture, then what to do now. - The Prophet ﷺ taught the prayer in Arabic, and the Qur'an recited in it is Arabic. Most schol… | States the difference among the schools and the Abu Hanifa narration in general terms; needs a scholar to confirm the attributions. The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani). | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.forgot-prayer-words` | Hadi chat > built-in answer "forgot-prayer-words" | Built-in answer "forgot-prayer-words": First: do not be afraid, and do not stop praying. Everyone who learns the prayer goes blank at times, and Allah sees the effort. - If you are in the prayer and… | The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani); the encouragement not to restart after a slip in recitation is general advice, not text-checked. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.sitting-in-prayer-words` | Hadi chat > built-in answer "sitting-in-prayer-words" | Built-in answer "sitting-in-prayer-words": There are two sittings, with different words. Sitting between the two prostrations (in every rak'ah): say "Rabbighfir li", meaning "My Lord, forgive me" (Su… | The transliteration is typed by hand from the Arabic shown; please have a reader check it. The second sitting of a three- or four-rak'ah prayer differs by school (some stop at the tashahhud). | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.divorce-unsafe` | Hadi chat > built-in answer "divorce-unsafe" | Built-in answer "divorce-unsafe": Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with yo… | Khul, judicial dissolution for harm (darar) and the Abu Dawud 2226 warning are described in general terms for a woman who is not safe; the schools' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wo… | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.abuse-verse-434` | Hadi chat > built-in answer "abuse-verse-434" | Built-in answer "abuse-verse-434": No. Nothing in Islam gives anyone the right to hit you, frighten you or control you by force. If he is hurting you, your safety comes first: go to a safe place and… | Reads 4:34 with the restrictions the scholars place on it and says plainly that violence is not allowed. The attribution of "at most symbolic" and "better left" to scholars is a summary of views already in the hitting-wife answer and needs a scholar to confir… | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.share-chat` | Hadi chat > built-in answer "share-chat" | Built-in answer "share-chat": No. A whole chat cannot be shared from the app, and that is on purpose: what you ask me can be personal. My side of the chat is not saved or sent anywhere. It stays on s… | Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.pillars-islam` | Hadi chat > built-in answer "pillars-islam" | Built-in answer "pillars-islam": Islam rests on five pillars. Ibn Umar reported the Prophet said Islam is based on five: to testify that none has the right to be worshipped but Allah and Muhammad is… | Plain restatement of the hadith. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.eid-festivals` | Hadi chat > built-in answer "eid-festivals" | Built-in answer "eid-festivals": Muslims have two festivals in the year, and both are days of worship, joy and giving. - Eid al-Fitr falls on the 1st of Shawwal and ends the month of fasting. Zakat a… | The dates are stated as the Hijri days; the actual day follows the moon sighting, which I say elsewhere. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.laylat-qadr` | Hadi chat > built-in answer "laylat-qadr" | Built-in answer "laylat-qadr": Laylat al-Qadr, the Night of Decree, is the night the Qur'an began to be revealed, and it falls in Ramadan. Allah says: "Indeed, We sent the Qur'an down during the Nigh… | The Laylat al-Qadr du'a report has conflicting grades from different graders; it is cited as disputed, not as firm evidence. / Tirmidhi 3513 (du'a for Laylat al-Qadr): graders disagree (Zubair Ali Za'i da'if, al-Albani sahih). | Fiqh scholar + Hadith / aqidah scholar | high | hadi_core_data.dart reviewNote (kept for the review list); FIX_HADI_REPORT (scholar review needed: Laylat al-Qadr du'a (Tirmidhi 3513, grad… |
@@ -1801,6 +1804,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.zakat-fitr` | Hadi chat > built-in answer "zakat-fitr" | Built-in answer "zakat-fitr": Zakat al-fitr (also called fitrah) is a charity every Muslim gives at the end of Ramadan, so that the poor can celebrate Eid too, and it also purifies the fast. Who pays… | The size of the sa' in kilograms, the money-value allowance per school, and when it may be paid are standard fiqh teaching, not text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.zakat-recipients` | Hadi chat > built-in answer "zakat-recipients" | Built-in answer "zakat-recipients": Allah names exactly who receives zakat: "Zakah expenditures are only for the poor and for the needy and for those employed to collect [zakah] and for bringing hear… | Non-eligible relatives, whether masjids or schools can receive zakat, and non-Muslims are school positions from standard fiqh teaching, not text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.zakat-jewelry` | Hadi chat > built-in answer "zakat-jewelry" | Built-in answer "zakat-jewelry": It depends on the school. - The Hanafi school: yes. Gold and silver jewelry that reaches the nisab (85 g of gold or 595 g of silver in total, counting your own saving… | Jewelry positions per school are standard fiqh teaching (and match the Zakat screen); not text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.zakat-due` | Hadi chat > built-in answer "zakat-due" | Built-in answer "zakat-due": Zakat falls due when your zakatable wealth has stayed at or above the nisab for one full lunar year (the hawl). The one-year condition is taught by all four schools, and… | The one-year condition and the choice of a fixed date are standard fiqh teaching; the Hanafi versus other schools position on wealth that falls below the nisab mid-year is a school difference not text-checked here. The hawl report is cited as da'if per Daruss… | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.zakat-debts` | Hadi chat > built-in answer "zakat-debts" | Built-in answer "zakat-debts": Debts you owe can reduce the wealth you pay zakat on, but only debts that are due now, and the schools differ: - The Hanafi, Maliki and Hanbali schools take the debts y… | The treatment of debts differs by school (Hanafi, Maliki and Hanbali deduct; the usual Shafi'i position does not) and the contemporary view on instalments of a long loan is a modern opinion; none of it is text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.zakat-amount` | Hadi chat > built-in answer "zakat-amount" | Built-in answer "zakat-amount": The rate is 2.5% (one fortieth) of your zakatable wealth, once it has reached the nisab and a lunar year has passed on it. For example, if your zakatable wealth on you… | The rate, the nisab figures and the choice between silver and gold are standard fiqh teaching and match the Zakat screen; only Bukhari 1447 (the silver measure) is cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.zakat-nisab-rate` | Hadi chat > built-in answer "zakat-nisab-rate" | Built-in answer "zakat-nisab-rate": Zakat is the third pillar of Islam: an obligatory charity on wealth, given to those in need. It purifies your wealth and soul. Allah pairs it with prayer again and… | The nisab figures, the rate, and what is and is not zakatable are standard fiqh teaching and match the Zakat screen; only Bukhari 1447 (the silver measure) is cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.hajj-mahram` | Hadi chat > built-in answer "hajj-mahram" | Built-in answer "hajj-mahram": A mahram is a man a woman can never marry because of blood, marriage or nursing (such as her father, brother, son, uncle, or her husband). The Prophet ﷺ said that a wom… | The school positions on the mahram for Hajj and the contemporary group-travel view are standard fiqh teaching and contested; flagged for scholar review. | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.hajj-days` | Hadi chat > built-in answer "hajj-days" | Built-in answer "hajj-days": Hajj is the pilgrimage to Makkah, the fifth pillar of Islam, obligatory once in a lifetime for every Muslim who is able. Allah says: "to Allah from the people is a pilgri… | The day-by-day order, the pillars and wajibs per school, and the forms of Hajj are standard fiqh teaching, not text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -1839,7 +1845,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.parents` | Hadi chat > built-in answer "parents" | Built-in answer "parents": Honouring parents is one of the greatest duties in Islam, second only to worship of Allah in the Qur'an: "your Lord has decreed that you not worship except Him, and to pare… | Nursing-home remarks are practical guidance, not a text ruling; flagged for scholar review. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.children-parenting` | Hadi chat > built-in answer "children-parenting" | Built-in answer "children-parenting": Children are a trust. Allah says: "O you who have believed, protect yourselves and your families from a Fire" (Qur'an 66:6), and the Prophet ﷺ showed mercy to ch… | Scholars on discipline of children: described as gentle and non-injurious; the exact allowances vary. Flagged for scholar review. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.pillars-iman` | Hadi chat > built-in answer "pillars-iman" | Built-in answer "pillars-iman": Iman (faith) has six articles. The angel Jibreel once asked the Prophet ﷺ about iman. The Prophet said that iman is to affirm your faith in Allah, in His angels, in Hi… | None beyond the cited texts; the one-line gloss of qadar is a standard summary. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.become-muslim` | Hadi chat > built-in answer "become-muslim" | Built-in answer "become-muslim": Welcome. Becoming a Muslim is simple: say the shahada (the declaration of faith), knowing what it means and meaning it: أشهد أن لا إله إلا الله وأشهد أن محمداً رسول ا… | The bath on accepting Islam and what to say are standard practice; Arabic shahada is the universally known text. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.become-muslim` | Hadi chat > built-in answer "become-muslim" | Built-in answer "become-muslim": Welcome. Becoming a Muslim is simple: say the shahada (the declaration of faith), knowing what it means and meaning it: أشهد أن لا إله إلا الله وأشهد أن محمداً رسول ا… | The bath on accepting Islam: the schools differ on whether it is required or recommended (stated as a difference, as in Path Day 1). What to say is standard practice; Arabic shahada is the universally known text. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.bismillah-meaning` | Hadi chat > built-in answer "bismillah-meaning" | Built-in answer "bismillah-meaning": Bismillah is short for "Bismillahi r-Rahmani r-Rahim": "In the name of Allah, the Entirely Merciful, the Especially Merciful" (Qur'an 1:1). It is the first verse… | Only cited texts. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.salam-meaning` | Hadi chat > built-in answer "salam-meaning" | Built-in answer "salam-meaning": "As-salamu alaykum" means "peace be upon you". The reply is "Wa alaykumu s-salam" ("and upon you peace"), and Muslims often add "wa rahmatullahi wa barakatuh" ("and A… | None beyond the cited texts. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.isra-miraj` | Hadi chat > built-in answer "isra-miraj" | Built-in answer "isra-miraj": The Isra is the night journey in which Allah took the Prophet ﷺ from the Sacred Mosque in Makkah to the Aqsa Mosque in Jerusalem: "Exalted is He who took His Servant by… | The date of the Isra and Mi'raj is described as disputed; no authentic day is given. Flagged for scholar review. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2215,7 +2221,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus
 
-575 items, 112 high priority. Area key `hadith`.
+576 items, 113 high priority. Area key `hadith`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2709,6 +2715,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadith.corpus.muslim-1866` | Hadi answers that cite Sahih Muslim 1866 | Sahih Muslim 1866: "Aisha reported that when believing women migrated to Madinah they were tested by the verse of allegiance, and whoever agreed to it, the Messenger sai…" (grade In Sahih Muslim, Inc… | Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar. | Hadith / aqidah scholar | normal | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.corpus.muslim-241` | Hadi answers that cite Sahih Muslim 241 | Sahih Muslim 241: "Abdullah ibn Amr reported that some people performed ablution hurriedly on a journey and their heels were dry, and the Prophet said woe to dry heels,…" (grade In Sahih Muslim, Incl… | Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar. | Hadith / aqidah scholar | normal | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.corpus.tirmidhi-2378` | Hadi answers that cite Jamiʿ at-Tirmidhi 2378 | Jamiʿ at-Tirmidhi 2378: "Abu Hurairah reported the Prophet said a man is upon the religion of his friend, so let one of you look at whom he befriends" (grade Hasan, al-Albani). | Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus). | Hadith / aqidah scholar | high | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
+| `hadith.corpus.abudawud-1573` | Hadi answers that cite Sunan Abu Dawud 1573 | Sunan Abu Dawud 1573: "Ali reported the Prophet said when you possess two hundred dirhams and one year passes on them, five dirhams are payable, and nothing is due on gold…" (grade Da'if, Darussalam). | Hadi grounding corpus: grade: Da'if (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus). | Hadith / aqidah scholar | high | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.grade-mismatches` | Stories, Academy, Games, Hadi: hadith grade labels | Grade labels in stories, academy, games and Hadi that differed from the corpus (examples: Tirmidhi 3513, 3404; Ibn Majah 1565, 4080, 3663). | FIX_QURAN_HADITH_REPORT "Out of scope": mismatches listed for owners; C_knowledge audit. Graders differ on several of these. / Tirmidhi 3153 and Ibn Majah 4080: repo said "Darussalam (sahih)"; the corpus has al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'i… | Hadith / aqidah scholar | high | FIX_QURAN_HADITH_REPORT; C_knowledge audit; FACT_S1_prophets (SCHOLAR REVIEW: Tirmidhi 3153, Ibn Majah 4080); FIX_HADI_REPORT (Laylat al-Qa… |
 | `hadith.grade.tirmidhi-3513` | Where Tirmidhi 3513 is cited | Tirmidhi 3513 (du'a for Laylat al-Qadr) | Graders disagree: Zubair Ali Za'i da'if; al-Albani sahih. / Tirmidhi 3513 (du'a for Laylat al-Qadr): graders disagree (Zubair Ali Za'i da'if, al-Albani sahih). | Hadith / aqidah scholar | high | FIX_HADI_REPORT; FIX_QURAN_HADITH_REPORT; FIX_HADI_REPORT (Laylat al-Qadr du'a, graders disagree) |
 | `hadith.grade.tirmidhi-3153` | Where Tirmidhi 3153 is cited | Tirmidhi 3153 (Gog and Magog, Dhul-Qarnayn) | Shakir sahih, al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'if; shown as "graders differ". / Tirmidhi 3153 and Ibn Majah 4080: repo said "Darussalam (sahih)"; the corpus has al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'if. Now "graders differ". | Hadith / aqidah scholar | high | FACT_S1_prophets; FACT_S1_prophets (SCHOLAR REVIEW: Tirmidhi 3153, Ibn Majah 4080) |
