@@ -19,7 +19,7 @@
        "type": "card",
        "arabic": "ا",
        "translit": "Alif",
-       "note": "You will see ا in words like آدَم."
+       "note": "You will see ا in words like آدَم (Aadam), which means Adam, the first human and prophet."
       },
       {
        "type": "teach",
@@ -49,13 +49,13 @@
      "steps": [
       {
        "type": "teach",
-       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ba (ب). A gentle 'b'; one dot beneath its boat. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ba (ب). A gentle 'b', as in the English word 'book'; one dot beneath its boat. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
       },
       {
        "type": "card",
        "arabic": "ب",
        "translit": "Ba",
-       "note": "You will see ب in words like بَاب."
+       "note": "You will see ب in words like بَاب (baab), which means door."
       },
       {
        "type": "teach",
@@ -91,7 +91,7 @@
        "type": "card",
        "arabic": "ت",
        "translit": "Ta",
-       "note": "You will see ت in words like تَوْبَة."
+       "note": "You will see ت in words like تَوْبَة (tawbah), which means turning back to Allah in repentance."
       },
       {
        "type": "teach",
@@ -127,7 +127,7 @@
        "type": "card",
        "arabic": "ث",
        "translit": "Tha",
-       "note": "You will see ث in words like ثَوْب."
+       "note": "You will see ث in words like ثَوْب (thawb), which means a garment."
       },
       {
        "type": "teach",
@@ -163,7 +163,7 @@
        "type": "card",
        "arabic": "ج",
        "translit": "Jeem",
-       "note": "You will see ج in words like جَنَّة."
+       "note": "You will see ج in words like جَنَّة (jannah), which means a garden; Paradise."
       },
       {
        "type": "teach",
@@ -199,7 +199,7 @@
        "type": "card",
        "arabic": "ح",
        "translit": "Ha (deep)",
-       "note": "You will see ح in words like حَقّ."
+       "note": "You will see ح in words like حَقّ (haqq), which means truth."
       },
       {
        "type": "teach",
@@ -235,7 +235,7 @@
        "type": "card",
        "arabic": "خ",
        "translit": "Kha",
-       "note": "You will see خ in words like خَيْر."
+       "note": "You will see خ in words like خَيْر (khayr), which means good."
       },
       {
        "type": "teach",
@@ -278,7 +278,7 @@
        "type": "card",
        "arabic": "د",
        "translit": "Dal",
-       "note": "You will see د in words like دِين."
+       "note": "You will see د in words like دِين (deen), which means religion, a way of life."
       },
       {
        "type": "teach",
@@ -314,7 +314,7 @@
        "type": "card",
        "arabic": "ذ",
        "translit": "Dhal",
-       "note": "You will see ذ in words like ذِكْرى."
+       "note": "You will see ذ in words like ذِكْرى (dhikraa), which means a reminder."
       },
       {
        "type": "teach",
@@ -350,7 +350,7 @@
        "type": "card",
        "arabic": "ر",
        "translit": "Ra",
-       "note": "You will see ر in words like رَبّ."
+       "note": "You will see ر in words like رَبّ (Rabb), which means Lord."
       },
       {
        "type": "teach",
@@ -386,7 +386,7 @@
        "type": "card",
        "arabic": "ز",
        "translit": "Zay",
-       "note": "You will see ز in words like زَيْتون."
+       "note": "You will see ز in words like زَيْتون (zaytoon), which means olive."
       },
       {
        "type": "teach",
@@ -422,7 +422,7 @@
        "type": "card",
        "arabic": "س",
        "translit": "Seen",
-       "note": "You will see س in words like سَمَاء."
+       "note": "You will see س in words like سَمَاء (samaa’), which means sky."
       },
       {
        "type": "teach",
@@ -458,7 +458,7 @@
        "type": "card",
        "arabic": "ش",
        "translit": "Sheen",
-       "note": "You will see ش in words like شَمْس."
+       "note": "You will see ش in words like شَمْس (shams), which means sun."
       },
       {
        "type": "teach",
@@ -494,7 +494,7 @@
        "type": "card",
        "arabic": "ص",
        "translit": "Sad",
-       "note": "You will see ص in words like صَدَقَة."
+       "note": "You will see ص in words like صَدَقَة (sadaqah), which means charity."
       },
       {
        "type": "teach",
@@ -537,7 +537,7 @@
        "type": "card",
        "arabic": "ض",
        "translit": "Dad",
-       "note": "You will see ض in words like ضَيْف."
+       "note": "You will see ض in words like ضَيْف (dayf), which means guest."
       },
       {
        "type": "teach",
@@ -573,7 +573,7 @@
        "type": "card",
        "arabic": "ط",
        "translit": "Ta (deep)",
-       "note": "You will see ط in words like طَهْ."
+       "note": "You will see ط in words like طَهْ (Taa Haa), which means the letters that open Surah Ta-Ha (20)."
       },
       {
        "type": "teach",
@@ -609,7 +609,7 @@
        "type": "card",
        "arabic": "ظ",
        "translit": "Za",
-       "note": "You will see ظ in words like ظِلّ."
+       "note": "You will see ظ in words like ظِلّ (zill), which means shade."
       },
       {
        "type": "teach",
@@ -645,7 +645,7 @@
        "type": "card",
        "arabic": "ع",
        "translit": "Ayn",
-       "note": "You will see ع in words like عِلْم."
+       "note": "You will see ع in words like عِلْم (‘ilm), which means knowledge."
       },
       {
        "type": "teach",
@@ -681,7 +681,7 @@
        "type": "card",
        "arabic": "غ",
        "translit": "Ghayn",
-       "note": "You will see غ in words like غَفُور."
+       "note": "You will see غ in words like غَفُور (Ghafoor), which means the Most Forgiving."
       },
       {
        "type": "teach",
@@ -717,7 +717,7 @@
        "type": "card",
        "arabic": "ف",
        "translit": "Fa",
-       "note": "You will see ف in words like فَجْر."
+       "note": "You will see ف in words like فَجْر (fajr), which means dawn."
       },
       {
        "type": "teach",
@@ -753,7 +753,7 @@
        "type": "card",
        "arabic": "ق",
        "translit": "Qaf",
-       "note": "You will see ق in words like قَلْب."
+       "note": "You will see ق in words like قَلْب (qalb), which means heart."
       },
       {
        "type": "teach",
@@ -796,7 +796,7 @@
        "type": "card",
        "arabic": "ك",
        "translit": "Kaf",
-       "note": "You will see ك in words like كِتَاب."
+       "note": "You will see ك in words like كِتَاب (kitaab), which means book."
       },
       {
        "type": "teach",
@@ -832,7 +832,7 @@
        "type": "card",
        "arabic": "ل",
        "translit": "Lam",
-       "note": "You will see ل in words like لَيْل."
+       "note": "You will see ل in words like لَيْل (layl), which means night."
       },
       {
        "type": "teach",
@@ -868,7 +868,7 @@
        "type": "card",
        "arabic": "م",
        "translit": "Meem",
-       "note": "You will see م in words like مَاء."
+       "note": "You will see م in words like مَاء (maa’), which means water."
       },
       {
        "type": "teach",
@@ -904,7 +904,7 @@
        "type": "card",
        "arabic": "ن",
        "translit": "Noon",
-       "note": "You will see ن in words like نُور."
+       "note": "You will see ن in words like نُور (noor), which means light."
       },
       {
        "type": "teach",
@@ -940,7 +940,7 @@
        "type": "card",
        "arabic": "ه",
        "translit": "Ha",
-       "note": "You will see ه in words like هُدى."
+       "note": "You will see ه in words like هُدى (hudaa), which means guidance."
       },
       {
        "type": "teach",
@@ -976,7 +976,7 @@
        "type": "card",
        "arabic": "و",
        "translit": "Waw",
-       "note": "You will see و in words like وَحْي."
+       "note": "You will see و in words like وَحْي (wahy), which means revelation."
       },
       {
        "type": "teach",
@@ -1012,7 +1012,7 @@
        "type": "card",
        "arabic": "ي",
        "translit": "Ya",
-       "note": "You will see ي in words like يَوْم."
+       "note": "You will see ي in words like يَوْم (yawm), which means day."
       },
       {
        "type": "teach",
