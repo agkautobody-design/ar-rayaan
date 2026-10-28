@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5480 items.** High priority: 1279. Normal: 3499. Low: 702.
+**5485 items.** High priority: 1281. Normal: 3502. Low: 702.
 
 ### By area
 
@@ -21,42 +21,42 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Academy v3 lessons and steps | 457 | 240 |
 | Academy phrase registry (transliteration, meaning, word glosses) | 131 | 131 |
 | Academy word glosses (300) | 300 | 0 |
-| Academy schools, Path lessons and static course screens | 398 | 1 |
+| Academy schools, Path lessons and static course screens | 399 | 1 |
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 108 | 94 |
 | Q&A bank rulings | 16 | 6 |
 | Hadi built-in answers | 490 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 | 113 |
-| Stories: prophets, layers and earlier accounts | 257 | 51 |
+| Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 182 | 61 |
 | Stories: modern hadith | 61 | 11 |
-| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 23 |
+| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
 | New Muslim 30-day path | 30 | 13 |
 | Sakina rooms, feelings, safety copy, health | 57 | 32 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 10 | 5 |
-| Games and quizzes with religious content | 13 | 9 |
+| Games and quizzes with religious content | 14 | 9 |
 | UI labels and crisis phrases in Arabic, Bangla, Urdu | 228 | 121 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5480** | **1279** |
+| **Total** | **5485** | **1281** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
 | Hadith / aqidah scholar | 2448 | 1035 |
-| Fiqh scholar (per madhab) | 618 | 235 |
+| Fiqh scholar (per madhab) | 621 | 235 |
 | Women's scholar | 151 | 95 |
-| Arabic / tajweed / qira'at specialist | 523 | 195 |
+| Arabic / tajweed / qira'at specialist | 524 | 196 |
 | Clinician (Sakina and health content) | 1008 | 249 |
 | Native speaker (ar / bn / ur) | 263 | 10 |
 | Privacy lawyer | 14 | 13 |
-| Rights holder / licensing (not a scholar) | 6 | 1 |
+| Rights holder / licensing (not a scholar) | 7 | 1 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
@@ -68,23 +68,23 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Academy v3 lessons and steps | 199 | 139 | 80 |  | 39 |  |  |  |  |
 | Academy phrase registry (transliteration, meaning, word glosses) |  |  |  | 131 |  |  |  |  |  |
 | Academy word glosses (300) |  |  |  | 300 |  |  |  |  |  |
-| Academy schools, Path lessons and static course screens | 299 | 61 | 25 |  | 13 |  |  |  |  |
+| Academy schools, Path lessons and static course screens | 299 | 61 | 25 | 1 | 13 |  |  |  |  |
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
 | Hadi built-in answers | 303 | 187 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 |  |  |  |  |  |  |  |  |
-| Stories: prophets, layers and earlier accounts | 256 | 1 |  |  |  |  |  |  |  |
+| Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 182 |  |  |  |  |  |  |  |  |
 | Stories: modern hadith | 61 |  |  |  |  |  |  |  |  |
-| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 |  |  |  |  |  |  |  |  |
+| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
 | Sakina rooms, feelings, safety copy, health |  |  |  |  | 53 |  | 4 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
-| Games and quizzes with religious content | 13 |  |  |  |  |  |  |  |  |
+| Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
 | UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 228 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
@@ -113,18 +113,20 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
 
-### Fiqh scholar (per madhab) (618 lead, 235 also)
+### Fiqh scholar (per madhab) (621 lead, 235 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
 - Hadi built-in answers: 187 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
-- Stories: prophets, layers and earlier accounts: 1 items (0 high). Ids start with `kids.child-mode-stories`.
+- Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
+- Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
 - Zakat, will and estate, halal finance: 18 items (18 high). Ids start with `eol.will-estate`, `money.finance`, `money.will`, `money.zakat`.
 - Prayer times, qibla, Hijri calendar, observances: 31 items (27 high). Ids start with `calendar.hijri-method`, `calendar.sunnah-fasting`, `prayer.adhan-alerts`, `prayer.approx-times-label`, `prayer.asr-school`, `prayer.auto-region`.
 - Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `kids.child-mode-surahs`.
+- Games and quizzes with religious content: 1 items (0 high). Ids start with `kids.child-games-list`.
 - Nasheeds and audio: 2 items (2 high). Ids start with `nasheed.catalogue`, `nasheed.music-view`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 43 items (0 high). Ids start with `support.domestic_abuse`, `support.drugs`, `support.elder_abuse`, `support.etiquette`, `support.family_of_struggling`, `support.family_parenting`.
 
@@ -134,10 +136,11 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
 - Stories: seerah, companions, women: 46 items (29 high). Ids start with `story.women`.
 
-### Arabic / tajweed / qira'at specialist (523 lead, 195 also)
+### Arabic / tajweed / qira'at specialist (524 lead, 196 also)
 
 - Academy phrase registry (transliteration, meaning, word glosses): 131 items (131 high). Ids start with `phrase.aqid-und-daw`, `phrase.arabic_hfz`, `phrase.eol_hlth_wmns_char`, `phrase.fam-yth-trx`, `phrase.foundation`.
 - Academy word glosses (300): 300 items (0 high). Ids start with `gloss.001`, `gloss.002`, `gloss.003`, `gloss.004`, `gloss.005`, `gloss.006`.
+- Academy schools, Path lessons and static course screens: 1 items (0 high). Ids start with `kids.alif-wording`.
 - Arabic, tajweed, Hifz and Qur'an recitation teaching: 88 items (42 high). Ids start with `arabic.arabic-script-lessons`, `arabic.colored-examples`, `arabic.hifz-method`, `arabic.sun-moon-letters`, `arabic.tajweed-jali-khafi`, `arabic.tarteel-definition`.
 - Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
@@ -159,8 +162,9 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Sakina rooms, feelings, safety copy, health: 4 items (4 high). Ids start with `support.children-age-band`, `support.memory`, `support.online-consent`, `support.privacy-storage`.
 - Privacy, terms, children's privacy, community rules: 10 items (10 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.firebase-startup`, `legal.parent-pin`.
 
-### Rights holder / licensing (not a scholar) (6 lead, 1 also)
+### Rights holder / licensing (not a scholar) (7 lead, 1 also)
 
+- Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (0 high). Ids start with `kids.translit-credit`.
 - Qur'an text, translation, transliteration, licences: 5 items (3 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.translit-59`, `quran.word-meanings-source`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.channels`.
 
@@ -1084,7 +1088,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Academy schools, Path lessons and static course screens
 
-398 items, 1 high priority. Area key `academy-schools`.
+399 items, 1 high priority. Area key `academy-schools`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1486,6 +1490,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lesson-v1.path.u9.l3` | Academy > lesson "Gardens Prepared" (v1 lesson player) | Legacy manifest lesson "Gardens Prepared" (text in academy_strings.dart keys path.u9.l3.*). | A v1 lesson that has no v3 replacement yet; authored text with no named reviewer. | Hadith / aqidah scholar + Fiqh scholar | normal | course_manifest.dart + lesson_provenance.dart |
 | `lesson-v1.path.u9.l4` | Academy > lesson "Every Soul Will Taste Death" (v1 lesson player) | Legacy manifest lesson "Every Soul Will Taste Death" (text in academy_strings.dart keys path.u9.l4.*). | A v1 lesson that has no v3 replacement yet; authored text with no named reviewer. | Hadith / aqidah scholar + Fiqh scholar | normal | course_manifest.dart + lesson_provenance.dart |
 | `eol.janazah` | End of Life > janazah lessons and phrases | Janazah teaching: washing, shrouding, the four takbirs, the dua, burial, women attending, condolence; the rulings differ by school. | S2_eol_hlth_wmns_char: janazah prayer details by school (Hadi janazah answers also flagged in FIX_HADI_REPORT). | Fiqh scholar + Women's scholar | high | S2_eol_hlth_wmns_char; FIX_HADI_REPORT |
+| `kids.alif-wording` | Ask Wasia > the letter Alif (offline answer) | The Alif answer now describes the letter at child level (tall straight line, open "aaa") without the term al-jawf. | Pronunciation wording was written without an Arabic teacher. Check it. | Arabic / tajweed / qira'at specialist | normal | FIX2_C |
 
 ### Arabic, tajweed, Hifz and Qur'an recitation teaching
 
@@ -1727,7 +1732,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
 | `hadi.core.app-free-cost` | Hadi chat > built-in answer "app-free-cost" | Built-in answer "app-free-cost": Yes, it is free today. This is what the Settings screen says, under "What is free": "Everything in this app is free today, including Hādi, and nothing asks for a card… | Quotes the Settings "What is free" card and the Privacy policy line; checked against the screens. The policy itself is still a draft awaiting a lawyer. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.app-tracking` | Hadi chat > built-in answer "app-tracking" | Built-in answer "app-tracking": Here is what the app's own Privacy policy and screens say, without adding anything: - Your settings, bookmarks, progress, reflections and your chats with me are stored… | Summarises the Privacy policy sections and screens; checked against the screens. The policy is a draft awaiting a lawyer, and has no contact address yet. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.app-tracking` | Hadi chat > built-in answer "app-tracking" | Built-in answer "app-tracking": Here is what the app's own Privacy policy and screens say, without adding anything: - Your settings, bookmarks, progress and reflections are stored on your device. Cle… | Summarises the Privacy policy sections and screens; checked against the screens. The policy is a draft awaiting a lawyer, and has no contact address yet. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.app-notifications` | Hadi chat > built-in answer "app-notifications" | Built-in answer "app-notifications": The app has two kinds of reminders, and you control each one yourself: - Prayer alerts: open Prayer Times. Each prayer has a bell next to it. Tap the bell to swit… | Checked against the Prayer Times notification card and bell labels; the zakat reminder switches are described only in general terms. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-toilet` | Hadi chat > built-in answer "dua-toilet" | Built-in answer "dua-toilet": On entering the toilet, the Prophet ﷺ used to say (Sahih al-Bukhari 142): اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ Allahumma inni a'udhu bika minal-k… | Arabic is copied from the cited hadith by the build script; the transliteration is typed by hand and needs a reader to check it. The Bismillah, foot-order and silent-recitation points are standard teaching, not text-checked here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.faith-doubt` | Hadi chat > built-in answer "faith-doubt" | Built-in answer "faith-doubt": Thank you for telling me this. It is not easy to say, and I will not rush to fix you or lecture you. Doubt is more common than people admit, and it is not the same as h… | Pastoral wording, not a ruling. The two reports and verses are checked against their sources. Would benefit from a pastoral reader (an imam or counsellor) to check the tone. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2808,7 +2813,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Stories: prophets, layers and earlier accounts
 
-257 items, 51 high priority. Area key `stories-prophets`.
+258 items, 52 high priority. Area key `stories-prophets`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2971,6 +2976,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `earlier.sulayman` | Story reader > Go deeper > Earlier accounts (sulayman), badge "Not from the Qur'an" | Earlier accounts for sulayman (Bible, Jewish and Christian tradition) and the class given to each (confirmed, silent, contradicted). | The three-class rule (confirmed / silent / contradicted) is applied by the app author; a scholar should confirm each class. FACT_S1 corrected one item (crucifixion: "two bandits"). | Hadith / aqidah scholar | high | assets/stories/earlier; FACT_S1_prophets (earlier accounts) |
 | `earlier.yusuf` | Story reader > Go deeper > Earlier accounts (yusuf), badge "Not from the Qur'an" | Earlier accounts for yusuf (Bible, Jewish and Christian tradition) and the class given to each (confirmed, silent, contradicted). | The three-class rule (confirmed / silent / contradicted) is applied by the app author; a scholar should confirm each class. FACT_S1 corrected one item (crucifixion: "two bandits"). | Hadith / aqidah scholar | high | assets/stories/earlier; FACT_S1_prophets (earlier accounts) |
 | `kids.child-mode-stories` | Child mode > the stories shown in Stories school | Seven gentle stories (Adam, Nuh, Yunus, Ayyub, Sulayman, the Sleepers of the Cave, the Two Gardens) show in child mode, with no adult theme text. | The chosen set and the one-line description are the developer's; a teacher of children and a scholar should confirm them. | Fiqh scholar | normal | R10_T2 |
+| `kids.child-stories` | Stories > reader in child mode | Seven stories (Adam, Nuh, Yunus, Ayyub, Sulayman, cave, gardens) have short child retellings, shown in child mode in place of the adult text. | Retellings were written without a scholar. Check each against the sourced story and for age fit. | Fiqh scholar | high | FIX2_C |
 
 Listed in short form (same reason and sources for the whole family; full text in the JSON):
 
@@ -3503,7 +3509,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas
 
-153 items, 23 high priority. Area key `dua-dhikr`.
+155 items, 24 high priority. Area key `dua-dhikr`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3660,6 +3666,8 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `dua.hisn-source` | Dhikr / Dua screens | Hisn al-Muslim gates: authorship and numbering | The app's Hisn screens present gates in the app author's order with source lines; no named scholar confirmed the grading of each dua. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | normal | Academy Hisn screen |
 | `dua.fatiha-linked` | Dhikr / Dua screens | Prayer guide recitations (takbir, Fatihah, tashahhud, salawat) in Arabic with transliteration | R9_T1: absent from the guide at the time; a scholar should confirm wording when added. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | normal | R9_T1_children |
 | `dua.dhikr-session` | Dhikr session screen (counts, targets) | Counts and targets (33/33/34, 100, 10) offered in the dhikr session. | Counts come from sourced reports; the screen is not reviewed by a named scholar. | Hadith / aqidah scholar | normal | Surface list (dhikr screens) |
+| `kids.child-duas` | Stories > dua reader in child mode; Kids Corner > Duas | Five duas (waking, before eating, leaving home, for parents, rain) now show a one-line child-level meaning instead of the adult paragraph. | Child meanings were written without a scholar or an educator. Check each for accuracy and age fit. | Fiqh scholar + Arabic / tajweed / qira'at specialist | high | FIX2_C |
+| `kids.translit-credit` | Dua reader > transliteration credit line | The credit line now names the open dua-dhikr collection (MIT licence), based on Hisn al-Muslim. | Confirm the credit wording meets the licence. | Rights holder / licensing | normal | FIX2_C |
 
 ### New Muslim 30-day path
 
@@ -3860,7 +3868,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Games and quizzes with religious content
 
-13 items, 9 high priority. Area key `games`.
+14 items, 9 high priority. Area key `games`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3877,6 +3885,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `games.claim.hadi-taif-armour` | Games / Hadi | Ta'if "stoned" wording and the armour-for-wheat/barley point (in Hadi) | FIX_GAMES_REPORT "Not mine (in Hadi)". | Hadith / aqidah scholar | high | FIX_GAMES_REPORT |
 | `games.claim.hidden-games` | Games / Hadi | Hidden games awaiting scholar-approved content: Islamic History, Seerah scenarios (How Would You Respond?), Arabic Spelling, Hajj Map | GAMES_CONTENT_NEEDED.md: each needs a named scholar's sign-off before it may show. | Hadith / aqidah scholar | high | FIX_GAMES_REPORT |
 | `games.claim.wudu-salah-steps` | Games / Hadi | Wudu and Salah Steps game: the guide's step order and the guide's madhhab note shown in the round | GAMES_CONTENT_NEEDED.md: the round follows the huda guides which follow no single school. | Hadith / aqidah scholar | high | FIX_GAMES_REPORT |
+| `kids.child-games-list` | Games hub in child mode | Child mode shows only five games: Arabic words, Memory, 99 Names, Salah and wudu, Order of the prophets. | The curated list is a product choice; a scholar or educator should confirm each is suitable for children. | Fiqh scholar | normal | FIX2_C |
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 

@@ -367,3 +367,28 @@ def add_all(R):
         '"A few simple doors" replaces "three doors" in all four languages.',
         'The Arabic, Bangla and Urdu lines were written without a native speaker. Native-speaker review needed.',
         NATIVE, ['R10_T6'], 'normal', sub='languages')
+    add('kids.child-duas', 'dua-dhikr', 'Stories > dua reader in child mode; Kids Corner > Duas',
+        'lib/features/kids/domain/child_duas.dart', 'kChildDuas',
+        'Five duas (waking, before eating, leaving home, for parents, rain) now show a one-line child-level meaning instead of the adult paragraph.',
+        'Child meanings were written without a scholar or an educator. Check each for accuracy and age fit.',
+        FIQH, ['FIX2_C'], 'high', also=[ARABIC], sub='children', surf='Dua reader in child mode')
+    add('kids.child-stories', 'stories-prophets', 'Stories > reader in child mode',
+        'lib/features/kids/domain/child_stories.dart', 'kChildStoryText',
+        'Seven stories (Adam, Nuh, Yunus, Ayyub, Sulayman, cave, gardens) have short child retellings, shown in child mode in place of the adult text.',
+        'Retellings were written without a scholar. Check each against the sourced story and for age fit.',
+        FIQH, ['FIX2_C'], 'high', sub='children', surf='Story reader in child mode')
+    add('kids.child-games-list', 'games', 'Games hub in child mode',
+        'lib/app/core/child_mode.dart', 'kChildGameIds',
+        'Child mode shows only five games: Arabic words, Memory, 99 Names, Salah and wudu, Order of the prophets.',
+        'The curated list is a product choice; a scholar or educator should confirm each is suitable for children.',
+        FIQH, ['FIX2_C'], 'normal', sub='children', surf='Games hub in child mode')
+    add('kids.alif-wording', 'academy-schools', 'Ask Wasia > the letter Alif (offline answer)',
+        'lib/features/academy/data/offline_wasia_provider.dart', 'alif answer',
+        'The Alif answer now describes the letter at child level (tall straight line, open "aaa") without the term al-jawf.',
+        'Pronunciation wording was written without an Arabic teacher. Check it.',
+        ARABIC, ['FIX2_C'], 'normal', sub='children', surf='Ask Wasia answer')
+    add('kids.translit-credit', 'dua-dhikr', 'Dua reader > transliteration credit line',
+        'lib/features/kids/domain/child_duas.dart', 'transliterationCreditLine',
+        'The credit line now names the open dua-dhikr collection (MIT licence), based on Hisn al-Muslim.',
+        'Confirm the credit wording meets the licence.',
+        RIGHTS, ['FIX2_C'], 'normal', sub='licence', surf='Dua reader')

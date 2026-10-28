@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5480,
+ "total": 5485,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -20,7 +20,7 @@
   },
   "academy-schools": {
    "title": "Academy schools, Path lessons and static course screens",
-   "items": 398,
+   "items": 399,
    "high_priority": 1
   },
   "arabic-tajweed": {
@@ -50,8 +50,8 @@
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
-   "items": 257,
-   "high_priority": 51
+   "items": 258,
+   "high_priority": 52
   },
   "stories-seerah": {
    "title": "Stories: seerah, companions, women",
@@ -70,8 +70,8 @@
   },
   "dua-dhikr": {
    "title": "Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas",
-   "items": 153,
-   "high_priority": 23
+   "items": 155,
+   "high_priority": 24
   },
   "new-muslim": {
    "title": "New Muslim 30-day path",
@@ -100,7 +100,7 @@
   },
   "games": {
    "title": "Games and quizzes with religious content",
-   "items": 13,
+   "items": 14,
    "high_priority": 9
   },
   "languages": {
@@ -131,18 +131,18 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2448,
-  "Fiqh scholar (per madhab)": 618,
+  "Fiqh scholar (per madhab)": 621,
   "Women's scholar": 151,
-  "Arabic / tajweed / qira'at specialist": 523,
+  "Arabic / tajweed / qira'at specialist": 524,
   "Clinician (Sakina and health content)": 1008,
   "Native speaker (ar / bn / ur)": 263,
   "Privacy lawyer": 14,
-  "Rights holder / licensing (not a scholar)": 6,
+  "Rights holder / licensing (not a scholar)": 7,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1279,
-  "normal": 3499,
+  "high": 1281,
+  "normal": 3502,
   "low": 702
  },
  "items": [
@@ -33202,7 +33202,7 @@
    "where_in_app": "Hadi chat > built-in answer \"app-tracking\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='app-tracking'",
-   "what_to_review": "Built-in answer \"app-tracking\": Here is what the app's own Privacy policy and screens say, without adding anything: - Your settings, bookmarks, progress, reflections and your chats with me are stored on your device. Clearing the app's data erases them. - \"We do not sell personal data or sho…",
+   "what_to_review": "Built-in answer \"app-tracking\": Here is what the app's own Privacy policy and screens say, without adding anything: - Your settings, bookmarks, progress and reflections are stored on your device. Clearing the app's data erases them. My conversation with you is not saved: it stays on screen…",
    "why_flagged": "Summarises the Privacy policy sections and screens; checked against the screens. The policy is a draft awaiting a lawyer, and has no contact address yet.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -82493,6 +82493,118 @@
     "R10_T6"
    ],
    "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-duas",
+   "area": "dua-dhikr",
+   "subarea": "children",
+   "where_in_app": "Stories > dua reader in child mode; Kids Corner > Duas",
+   "file": "lib/features/kids/domain/child_duas.dart",
+   "key": "kChildDuas",
+   "what_to_review": "Five duas (waking, before eating, leaving home, for parents, rain) now show a one-line child-level meaning instead of the adult paragraph.",
+   "why_flagged": "Child meanings were written without a scholar or an educator. Check each for accuracy and age fit.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Arabic / tajweed / qira'at specialist"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX2_C"
+   ],
+   "label_surface": "Dua reader in child mode",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-stories",
+   "area": "stories-prophets",
+   "subarea": "children",
+   "where_in_app": "Stories > reader in child mode",
+   "file": "lib/features/kids/domain/child_stories.dart",
+   "key": "kChildStoryText",
+   "what_to_review": "Seven stories (Adam, Nuh, Yunus, Ayyub, Sulayman, cave, gardens) have short child retellings, shown in child mode in place of the adult text.",
+   "why_flagged": "Retellings were written without a scholar. Check each against the sourced story and for age fit.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX2_C"
+   ],
+   "label_surface": "Story reader in child mode",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-games-list",
+   "area": "games",
+   "subarea": "children",
+   "where_in_app": "Games hub in child mode",
+   "file": "lib/app/core/child_mode.dart",
+   "key": "kChildGameIds",
+   "what_to_review": "Child mode shows only five games: Arabic words, Memory, 99 Names, Salah and wudu, Order of the prophets.",
+   "why_flagged": "The curated list is a product choice; a scholar or educator should confirm each is suitable for children.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "FIX2_C"
+   ],
+   "label_surface": "Games hub in child mode",
+   "status": "open"
+  },
+  {
+   "id": "kids.alif-wording",
+   "area": "academy-schools",
+   "subarea": "children",
+   "where_in_app": "Ask Wasia > the letter Alif (offline answer)",
+   "file": "lib/features/academy/data/offline_wasia_provider.dart",
+   "key": "alif answer",
+   "what_to_review": "The Alif answer now describes the letter at child level (tall straight line, open \"aaa\") without the term al-jawf.",
+   "why_flagged": "Pronunciation wording was written without an Arabic teacher. Check it.",
+   "reviewer_type": "Arabic / tajweed / qira'at specialist",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "FIX2_C"
+   ],
+   "label_surface": "Ask Wasia answer",
+   "status": "open"
+  },
+  {
+   "id": "kids.translit-credit",
+   "area": "dua-dhikr",
+   "subarea": "licence",
+   "where_in_app": "Dua reader > transliteration credit line",
+   "file": "lib/features/kids/domain/child_duas.dart",
+   "key": "transliterationCreditLine",
+   "what_to_review": "The credit line now names the open dua-dhikr collection (MIT licence), based on Hisn al-Muslim.",
+   "why_flagged": "Confirm the credit wording meets the licence.",
+   "reviewer_type": "Rights holder / licensing (not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "FIX2_C"
+   ],
+   "label_surface": "Dua reader",
    "status": "open"
   },
   {
