@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5475 items.** High priority: 1279. Normal: 3494. Low: 702.
+**5480 items.** High priority: 1279. Normal: 3499. Low: 702.
 
 ### By area
 
@@ -25,7 +25,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 108 | 94 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 489 | 20 |
+| Hadi built-in answers | 490 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 | 113 |
 | Stories: prophets, layers and earlier accounts | 257 | 51 |
 | Stories: seerah, companions, women | 164 | 128 |
@@ -38,23 +38,23 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 10 | 5 |
 | Games and quizzes with religious content | 13 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 226 | 121 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 228 | 121 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1642 | 111 |
-| **Total** | **5475** | **1279** |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
+| **Total** | **5480** | **1279** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2448 | 1033 |
-| Fiqh scholar (per madhab) | 616 | 235 |
+| Hadith / aqidah scholar | 2448 | 1035 |
+| Fiqh scholar (per madhab) | 618 | 235 |
 | Women's scholar | 151 | 95 |
 | Arabic / tajweed / qira'at specialist | 523 | 195 |
-| Clinician (Sakina and health content) | 1007 | 249 |
-| Native speaker (ar / bn / ur) | 261 | 10 |
+| Clinician (Sakina and health content) | 1008 | 249 |
+| Native speaker (ar / bn / ur) | 263 | 10 |
 | Privacy lawyer | 14 | 13 |
 | Rights holder / licensing (not a scholar) | 6 | 1 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
@@ -72,7 +72,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 303 | 186 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 303 | 187 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 576 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 1 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
@@ -85,15 +85,15 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
 | Games and quizzes with religious content | 13 |  |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 226 |  |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 228 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 214 | 42 |  |  | 902 | 35 |  |  | 449 |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 214 | 43 |  |  | 903 | 35 |  |  | 449 |
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2448 lead, 1033 also)
+### Hadith / aqidah scholar (2448 lead, 1035 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -113,20 +113,20 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
 
-### Fiqh scholar (per madhab) (616 lead, 235 also)
+### Fiqh scholar (per madhab) (618 lead, 235 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 186 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 187 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 1 items (0 high). Ids start with `kids.child-mode-stories`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
 - Zakat, will and estate, halal finance: 18 items (18 high). Ids start with `eol.will-estate`, `money.finance`, `money.will`, `money.zakat`.
 - Prayer times, qibla, Hijri calendar, observances: 31 items (27 high). Ids start with `calendar.hijri-method`, `calendar.sunnah-fasting`, `prayer.adhan-alerts`, `prayer.approx-times-label`, `prayer.asr-school`, `prayer.auto-region`.
 - Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `kids.child-mode-surahs`.
 - Nasheeds and audio: 2 items (2 high). Ids start with `nasheed.catalogue`, `nasheed.music-view`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 42 items (0 high). Ids start with `support.domestic_abuse`, `support.drugs`, `support.elder_abuse`, `support.etiquette`, `support.family_of_struggling`, `support.family_parenting`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 43 items (0 high). Ids start with `support.domestic_abuse`, `support.drugs`, `support.elder_abuse`, `support.etiquette`, `support.family_of_struggling`, `support.family_parenting`.
 
 ### Women's scholar (151 lead, 95 also)
 
@@ -142,16 +142,16 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1007 lead, 249 also)
+### Clinician (Sakina and health content) (1008 lead, 249 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
 - Sakina rooms, feelings, safety copy, health: 53 items (28 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 902 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 903 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (261 lead, 10 also)
+### Native speaker (ar / bn / ur) (263 lead, 10 also)
 
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 226 items (121 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 228 items (121 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
 ### Privacy lawyer (14 lead, 13 also)
@@ -1722,7 +1722,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-489 items, 20 high priority. Area key `hadi`.
+490 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1746,9 +1746,10 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.pray-in-english` | Hadi chat > built-in answer "pray-in-english" | Built-in answer "pray-in-english": Scholars differ, so here is the honest picture, then what to do now. - The Prophet ﷺ taught the prayer in Arabic, and the Qur'an recited in it is Arabic. Most schol… | States the difference among the schools and the Abu Hanifa narration in general terms; needs a scholar to confirm the attributions. The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani). | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.forgot-prayer-words` | Hadi chat > built-in answer "forgot-prayer-words" | Built-in answer "forgot-prayer-words": First: do not be afraid, and do not stop praying. Everyone who learns the prayer goes blank at times, and Allah sees the effort. - If you are in the prayer and… | The fallback phrase is cited from Abu Dawud 832 (graded hasan by al-Albani); the encouragement not to restart after a slip in recitation is general advice, not text-checked. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.sitting-in-prayer-words` | Hadi chat > built-in answer "sitting-in-prayer-words" | Built-in answer "sitting-in-prayer-words": There are two sittings, with different words. Sitting between the two prostrations (in every rak'ah): say "Rabbighfir li", meaning "My Lord, forgive me" (Su… | The transliteration is typed by hand from the Arabic shown; please have a reader check it. The second sitting of a three- or four-rak'ah prayer differs by school (some stop at the tashahhud). | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.divorce-unsafe` | Hadi chat > built-in answer "divorce-unsafe" | Built-in answer "divorce-unsafe": Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with yo… | Khul, judicial dissolution for harm (darar) and the Abu Dawud 2226 warning are described in general terms for a woman who is not safe; the schools' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wo… | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.divorce-unsafe` | Hadi chat > built-in answer "divorce-unsafe" | Built-in answer "divorce-unsafe": Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with yo… | Khul, judicial dissolution for harm (darar) and the Abu Dawud warning about asking for divorce without cause are described in general terms for a woman who is not safe; the schools' conditions and the claim that many courts allow dissolution for harm need a s… | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.abuse-verse-434` | Hadi chat > built-in answer "abuse-verse-434" | Built-in answer "abuse-verse-434": No. Nothing in Islam gives anyone the right to hit you, frighten you or control you by force. If he is hurting you, your safety comes first: go to a safe place and… | Reads 4:34 with the restrictions the scholars place on it and says plainly that violence is not allowed. The attribution of "at most symbolic" and "better left" to scholars is a summary of views already in the hitting-wife answer and needs a scholar to confir… | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.share-chat` | Hadi chat > built-in answer "share-chat" | Built-in answer "share-chat": No. A whole chat cannot be shared from the app, and that is on purpose: what you ask me can be personal. My side of the chat is not saved or sent anywhere. It stays on s… | Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.hadi-memory-settings` | Hadi chat > built-in answer "hadi-memory-settings" | Built-in answer "hadi-memory-settings": Here is what I keep, and where you control it. - I do not save our chat. It stays on screen for this visit only and is gone when you leave, clear it, or close… | Describes what the app does today. No religious content. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.pillars-islam` | Hadi chat > built-in answer "pillars-islam" | Built-in answer "pillars-islam": Islam rests on five pillars. Ibn Umar reported the Prophet said Islam is based on five: to testify that none has the right to be worshipped but Allah and Muhammad is… | Plain restatement of the hadith. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.eid-festivals` | Hadi chat > built-in answer "eid-festivals" | Built-in answer "eid-festivals": Muslims have two festivals in the year, and both are days of worship, joy and giving. - Eid al-Fitr falls on the 1st of Shawwal and ends the month of fasting. Zakat a… | The dates are stated as the Hijri days; the actual day follows the moon sighting, which I say elsewhere. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.laylat-qadr` | Hadi chat > built-in answer "laylat-qadr" | Built-in answer "laylat-qadr": Laylat al-Qadr, the Night of Decree, is the night the Qur'an began to be revealed, and it falls in Ramadan. Allah says: "Indeed, We sent the Qur'an down during the Nigh… | The Laylat al-Qadr du'a report has conflicting grades from different graders; it is cited as disputed, not as firm evidence. / Tirmidhi 3513 (du'a for Laylat al-Qadr): graders disagree (Zubair Ali Za'i da'if, al-Albani sahih). | Fiqh scholar + Hadith / aqidah scholar | high | hadi_core_data.dart reviewNote (kept for the review list); FIX_HADI_REPORT (scholar review needed: Laylat al-Qadr du'a (Tirmidhi 3513, grad… |
@@ -3879,7 +3880,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-226 items, 121 high priority. Area key `languages`.
+228 items, 121 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3932,6 +3933,8 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.label.home.greeting` | UI label "home.greeting" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.greeting" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.welcome` | UI label "home.welcome" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.welcome" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.blessing` | UI label "home.blessing" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.blessing" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
+| `lang.label.home.greeting.new` | UI label "home.greeting.new" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.greeting.new" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
+| `lang.label.home.blessing.new` | UI label "home.blessing.new" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.blessing.new" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.quick` | UI label "home.quick" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.quick" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.quickSub` | UI label "home.quickSub" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.quickSub" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.elder` | UI label "home.elder" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elder" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
@@ -4194,7 +4197,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)
 
-1642 items, 111 high priority. Area key `support-packs`.
+1644 items, 111 high priority. Area key `support-packs`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4699,12 +4702,13 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.new_muslim_in_recovery.islamic.005` | Hadi / Wasia support module > pack "new_muslim_in_recovery" (support) | Scholars differ on a few practical questions for new Muslims, such as old financial arrangements and family ties across faiths, and I can't give a ruling. A scholar who works with new Muslims can adv… | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off. | Fiqh scholar + Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); fiqh Scholars differ on practical questions for new Muslims; no source opened for this b… |
 | `support.new_muslim_in_recovery.family.001` | Hadi / Wasia support module > pack "new_muslim_in_recovery" (support) | If someone close to you has come to Islam, listen to why, stay kind, and let them tell you at their pace. If they are struggling with old habits, support them without shaming. | Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.porn_compulsive.ask.006` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Has any of this crossed into something that hurts someone else, or that you are afraid of? | Support-module snippet (kind ask, pack kind support, risk high, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py) |
-| `support.porn_compulsive.explain.001` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
-| `support.porn_compulsive.explain.002` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Researchers describe compulsive sexual behaviour as a pattern some people struggle to control, and it can be treated. It is not a sign that you are a bad person. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
-| `support.porn_compulsive.explain.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Blocking tools, changing where and when you use your phone, and sleeping on time can make urges easier to ride out. They help most alongside support from a person. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
-| `support.porn_compulsive.explain.004` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Urges rise and fall. Many people find that waiting fifteen minutes and doing something else makes them pass. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
-| `support.porn_compulsive.explain.005` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Slipping up is common and it doesn't wipe out the progress you made. What matters is what you do next. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
-| `support.porn_compulsive.explain.006` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Some people find therapy and a peer group each help in different ways. You can try one without the other. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
+| `support.porn_compulsive.explain.001` | Hadi / Wasia support module > pack "porn_compulsive" (support) | A note on the evidence: researchers still disagree about whether heavy pornography use is an addiction. The WHO's ICD-11 lists compulsive sexual behaviour disorder as an impulse-control problem, not… | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
+| `support.porn_compulsive.explain.002` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
+| `support.porn_compulsive.explain.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Researchers describe compulsive sexual behaviour as a pattern some people struggle to control, and it can be treated. It is not a sign that you are a bad person. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
+| `support.porn_compulsive.explain.004` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Blocking tools, changing where and when you use your phone, and sleeping on time can make urges easier to ride out. They help most alongside support from a person. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.porn_compulsive.explain.005` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Urges rise and fall. Many people find that waiting fifteen minutes and doing something else makes them pass. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.porn_compulsive.explain.006` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Slipping up is common and it doesn't wipe out the progress you made. What matters is what you do next. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.porn_compulsive.explain.007` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Some people find therapy and a peer group each help in different ways. You can try one without the other. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
 | `support.porn_compulsive.plan-step.001` | Hadi / Wasia support module > pack "porn_compulsive" (support) | One small step: choose one change to your phone or evenings that makes it a little harder, like leaving the phone outside the bedroom. Want to choose one together? | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.porn_compulsive.plan-step.002` | Hadi / Wasia support module > pack "porn_compulsive" (support) | One small step: when the urge comes, move to another room and do one thing for fifteen minutes, like a walk, wudu or a call. Shall we pick the thing now? | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.porn_compulsive.plan-step.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | One small step: write down the times it tends to happen, just as information, without judging yourself. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
@@ -4715,10 +4719,11 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.porn_compulsive.referral.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Some Muslim counsellors work with this struggle and understand the faith side. The list below shows what is available in your country. | Support-module snippet (kind referral, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py) |
 | `support.porn_compulsive.islamic.001` | Hadi / Wasia support module > pack "porn_compulsive" (support) | This struggle does not take you out of the mercy of Allah. The Qur'an tells people who have wronged themselves not to despair of His mercy. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 39:53; quran 4:28 |
 | `support.porn_compulsive.islamic.002` | Hadi / Wasia support module > pack "porn_compulsive" (support) | The Prophet taught that Allah accepts repentance, and the Qur'an describes Him as one who loves those who turn back to Him. Returning after a slip is part of that path, not the end of it. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith tirmidhi:3537; quran 2:222 |
-| `support.porn_compulsive.islamic.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | The Qur'an speaks about lowering the gaze and guarding modesty, for men and women. Many people find that practical steps, like changing their environment, go along with that teaching. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 24:30-31 |
-| `support.porn_compulsive.islamic.004` | Hadi / Wasia support module > pack "porn_compulsive" (support) | The Prophet advised a person who was struck by a sudden glance to turn the eyes away. A slip of the eye is not the end of your worth. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith muslim:2159 |
-| `support.porn_compulsive.islamic.005` | Hadi / Wasia support module > pack "porn_compulsive" (support) | You do not have to announce a private struggle to anyone. Scholars say that you can ask a trusted professional or scholar for help to the extent needed, without publicising it. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith bukhari:6069; hadith muslim:2990; fiqh Islamweb fatwa 393796 and Darul Ifta Birmi… |
-| `support.porn_compulsive.islamic.006` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Scholars differ on how to treat this, and I can't give a ruling. If you want to ask about a specific situation, a scholar you trust, ideally alongside a counsellor, can advise you. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off. | Fiqh scholar + Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); fiqh Contrast: IslamOnline fatwa by Sheikh Ahmad al-Khalili advises admitting to Allah a… |
+| `support.porn_compulsive.islamic.003` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Scholars agree that looking at pornography is not allowed. On masturbation, scholars differ. The Maliki and Shafi'i schools hold that it is forbidden. The Hanafi and Hanbali schools also forbid it, b… | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off. | Fiqh scholar + Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); fiqh Classical positions on masturbation: Maliki and Shafi'i forbid it; Hanafi and Hanba… |
+| `support.porn_compulsive.islamic.004` | Hadi / Wasia support module > pack "porn_compulsive" (support) | The Qur'an speaks about lowering the gaze and guarding modesty, for men and women. Many people find that practical steps, like changing their environment, go along with that teaching. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 24:30-31 |
+| `support.porn_compulsive.islamic.005` | Hadi / Wasia support module > pack "porn_compulsive" (support) | The Prophet advised a person who was struck by a sudden glance to turn the eyes away. A slip of the eye is not the end of your worth. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith muslim:2159 |
+| `support.porn_compulsive.islamic.006` | Hadi / Wasia support module > pack "porn_compulsive" (support) | You do not have to announce a private struggle to anyone. Scholars say that you can ask a trusted professional or scholar for help to the extent needed, without publicising it. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith bukhari:6069; hadith muslim:2990; fiqh Islamweb fatwa 393796 and Darul Ifta Birmi… |
+| `support.porn_compulsive.islamic.007` | Hadi / Wasia support module > pack "porn_compulsive" (support) | Scholars differ on how to treat this, and I can't give a ruling. If you want to ask about a specific situation, a scholar you trust, ideally alongside a counsellor, can advise you. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off. | Fiqh scholar + Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); fiqh Contrast: IslamOnline fatwa by Sheikh Ahmad al-Khalili advises admitting to Allah a… |
 | `support.porn_compulsive.family.001` | Hadi / Wasia support module > pack "porn_compulsive" (support) | If your partner has told you about this, your feelings matter too, and you don't have to cope on your own. A counsellor can help you, and you can ask for support for yourself without deciding anythin… | Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder |
 | `support.prayer_howto.howto.001` | Hadi / Wasia support module > pack "prayer_howto" (knowledge) | To pray you need to be in wudu, with a clean body, clothes and place, the awrah covered, and the time of that prayer entered. Then you face the qiblah. | Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); asset assets/guides/guides.json#huda-prayer; quran 2:144; hadith bukhari:135 |
 | `support.prayer_howto.howto.002` | Hadi / Wasia support module > pack "prayer_howto" (knowledge) | The intention for prayer is in the heart. You settle on which prayer you are praying. It is not reported that the Prophet spoke the intention aloud. | Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); asset assets/guides/guides.json#huda-prayer; hadith bukhari:1 |

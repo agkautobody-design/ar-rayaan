@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
+import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -497,6 +499,20 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
   // exam still runs, but the result screen must not claim it was recorded.
   bool _recorded = false;
 
+  /// With no child active (an adult learner), the best score is kept on this
+  /// device only, under the exam's id. Nothing leaves the phone.
+  void _keepOnDevice(String examId, int score, int total) {
+    try {
+      final SharedPreferences p = ref.read(sharedPreferencesProvider);
+      final String key = 'ar.academy.exam.best.$examId';
+      final String? old = p.getString(key);
+      final int? oldScore = old == null ? null : int.tryParse(old.split('/').first);
+      if (oldScore == null || score > oldScore) {
+        p.setString(key, '$score/$total');
+      }
+    } catch (_) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     final data = ref.watch(lettersCurriculumProvider);
@@ -590,6 +606,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                                 score: _score, total: qs.length,
                               );
                           ref.invalidate(progressProvider);
+                        } else {
+                          _keepOnDevice(widget.examId, _score, qs.length);
                         }
                         setState(() {
                           _recorded = child != null;
@@ -638,7 +656,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                       ? (pass
                           ? 'Wasia has recorded this in your child\u2019s growth (the best attempt is kept).'
                           : 'Your best attempt so far is kept in your child\u2019s growth.')
-                      : 'No child is active, so this result was not saved — add a child in the Family Wing to keep a record.'),
+                      : 'It is saved on this device (your best attempt is kept), so you can come back to it. No child profile is needed.'),
               textAlign: TextAlign.center,
               style: AppText.bodyMuted.copyWith(height: 1.55),
             ),

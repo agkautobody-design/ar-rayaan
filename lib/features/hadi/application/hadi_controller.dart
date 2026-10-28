@@ -838,6 +838,8 @@ class HadiController extends Notifier<HadiState> {
   static String _scopeFor(SupportTopic t) => switch (t) {
         SupportTopic.gambling => 'gambling',
         SupportTopic.smoking => 'smoking',
+        // Drug and alcohol lines are the wrong lines for a porn question.
+        SupportTopic.porn => 'compulsive',
         _ => 'addiction',
       };
 

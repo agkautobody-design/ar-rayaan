@@ -103,10 +103,11 @@ const List<LegalSection> kTermsSections = <LegalSection>[
 const List<LegalSection> kPrivacySections = <LegalSection>[
   LegalSection(
     'What stays on your device',
-    'Your settings, bookmarks, progress, reflections, saved Hadi '
-        'conversations and any AI key you enter are stored on your device. '
-        'You can clear them by clearing the app\'s data or by removing the '
-        'key in Hadi settings.',
+    'Your settings, bookmarks, progress, reflections and any AI key you '
+        'enter are stored on your device. Hadi conversations are not saved: '
+        'they are kept in memory while you chat and are gone when you close '
+        'the app or start a new conversation. You can clear the rest by '
+        'clearing the app\'s data or by removing the key in Hadi settings.',
   ),
   LegalSection(
     'Hadi and AI providers',

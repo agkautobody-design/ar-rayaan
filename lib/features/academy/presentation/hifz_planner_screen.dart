@@ -3,6 +3,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
@@ -35,6 +36,13 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
   int _from = 1;
   int _to = 1;
 
+  /// Lane pieces ticked as done today ("new:78:1-3"). Kept on this device for
+  /// the day only; not a count, not a streak.
+  Set<String> _laneDone = <String>{};
+
+  String get _laneDoneKey =>
+      'ar.academy.hifz.lanes.${hifzDayNumber(DateTime.now())}';
+
   int get _targetSurah => _hifz.workingSurah;
   int get _dailyAyat => _hifz.dailyNewAyat;
 
@@ -47,6 +55,16 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
     } catch (_) {
       // No device storage (a bare test harness): the default plan.
     }
+    try {
+      final SharedPreferences p = ref.read(sharedPreferencesProvider);
+      _laneDone = (p.getStringList(_laneDoneKey) ?? const <String>[]).toSet();
+      // Yesterday's ticks are dropped so the store does not grow.
+      for (final String k in p.getKeys().toList()) {
+        if (k.startsWith('ar.academy.hifz.lanes.') && k != _laneDoneKey) {
+          p.remove(k);
+        }
+      }
+    } catch (_) {}
     final int? want = widget.initialSurah;
     if (want != null && want >= 1 && want <= 114) {
       _hifz = _hifz.withPlan(surah: want);
@@ -207,12 +225,38 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
   String _chunkText(AyahChunk c) =>
       'Surah ${c.surah} (${hifzSurahName(c.surah)}), ayat ${c.from == c.to ? '${c.from}' : '${c.from}–${c.to}'}';
 
-  Widget _laneRow(int n, String name, String text, AyahChunk? open, Key key) {
+  void _toggleLane(String id) {
+    setState(() {
+      if (!_laneDone.remove(id)) _laneDone.add(id);
+    });
+    try {
+      ref
+          .read(sharedPreferencesProvider)
+          .setStringList(_laneDoneKey, _laneDone.toList());
+    } catch (_) {}
+  }
+
+  Widget _laneRow(int n, String name, String text, AyahChunk? open, Key key,
+      {String? doneId}) {
+    final bool done = doneId != null && _laneDone.contains(doneId);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          if (doneId != null)
+            Semantics(
+              label: '$name lane, ${done ? 'done today' : 'not done yet'}',
+              child: SizedBox(
+                width: 40,
+                height: 40,
+                child: Checkbox(
+                  key: Key('hifz-done-$name'),
+                  value: done,
+                  onChanged: (_) => _toggleLane(doneId),
+                ),
+              ),
+            ),
           Text('$n.  ', style: AppText.body.copyWith(color: AppColors.gold)),
           Expanded(
             child: Text.rich(
@@ -260,6 +304,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                 : _chunkText(fresh),
             fresh,
             const Key('hifz-open-new'),
+            doneId: fresh == null ? null : 'new:${fresh.surah}:${fresh.from}-${fresh.to}',
           ),
           _laneRow(
             2,
@@ -270,6 +315,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                     '${recent.length > shown ? ' and ${recent.length - shown} more' : ''}',
             recent.isEmpty ? null : recent.first,
             const Key('hifz-open-recent'),
+            doneId: recent.isEmpty ? null : 'recent:${recent.take(shown).join(',')}',
           ),
           _laneRow(
             3,
@@ -279,6 +325,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                 : _chunkText(older),
             older,
             const Key('hifz-open-older'),
+            doneId: older == null ? null : 'older:${older.surah}:${older.from}-${older.to}',
           ),
           const SizedBox(height: 6),
           Text(

@@ -2,6 +2,7 @@ import 'dart:async' show Timer, unawaited;
 
 import '../../../app/core/tight_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show ScrollDirection;
 
 import 'dart:convert';
 
@@ -239,6 +240,7 @@ class _Reader extends ConsumerStatefulWidget {
 class _ReaderState extends ConsumerState<_Reader> {
   final ScrollController _scroll = ScrollController();
   final Map<int, GlobalKey> _keys = <int, GlobalKey>{};
+  bool _userScrolled = false;
 
   /// The ayah the list is scrolling to.
   late int _target = widget.initialAyah;
@@ -261,6 +263,37 @@ class _ReaderState extends ConsumerState<_Reader> {
   void dispose() {
     _scroll.dispose();
     super.dispose();
+  }
+
+  /// When scrolling stops, remember the first ayah in view as the place to
+  /// continue from, so "Continue reading" returns to the ayah reached and not
+  /// only to the start of the surah.
+  void _rememberReached() {
+    if (!mounted || !_scroll.hasClients) return;
+    final RenderObject? viewport =
+        _scroll.position.context.notificationContext?.findRenderObject();
+    if (viewport is! RenderBox) return;
+    final double top = viewport.localToGlobal(Offset.zero).dy;
+    int? best;
+    double bestDy = double.infinity;
+    _keys.forEach((int n, GlobalKey k) {
+      final RenderObject? ro = k.currentContext?.findRenderObject();
+      if (ro is! RenderBox || !ro.attached) return;
+      final double dy = ro.localToGlobal(Offset.zero).dy - top;
+      final double bottom = dy + ro.size.height;
+      // The first ayah that still has most of itself below the top edge.
+      if (bottom > 40 && dy < bestDy) {
+        bestDy = dy;
+        best = n;
+      }
+    });
+    final int? ayah = best;
+    if (ayah == null) return;
+    final ReadingPosition? now = ref.read(readingPositionProvider);
+    if (now?.surah == widget.surah.meta.number && now?.ayah == ayah) return;
+    ref
+        .read(readingPositionProvider.notifier)
+        .save(ReadingPosition(surah: widget.surah.meta.number, ayah: ayah));
   }
 
   /// Bring the saved ayah on screen. The list is lazy, so the target may
@@ -311,7 +344,21 @@ class _ReaderState extends ConsumerState<_Reader> {
     final int n = surah.ayahs.length;
     final double arabicSize = ref.watch(arabicSizeProvider);
 
-    return ListView.builder(
+    return NotificationListener<ScrollNotification>(
+      onNotification: (ScrollNotification note) {
+        // Only the reader's own list, and only a finger, wheel or key moving
+        // it (a jump to a saved ayah is not "reading").
+        if (note.depth != 0) return false;
+        if (note is UserScrollNotification &&
+            note.direction != ScrollDirection.idle) {
+          _userScrolled = true;
+        } else if (note is ScrollEndNotification && _userScrolled) {
+          _userScrolled = false;
+          _rememberReached();
+        }
+        return false;
+      },
+      child: ListView.builder(
       controller: _scroll,
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       itemCount: n + 2,
@@ -394,6 +441,7 @@ class _ReaderState extends ConsumerState<_Reader> {
           ),
         );
       },
+      ),
     );
   }
 

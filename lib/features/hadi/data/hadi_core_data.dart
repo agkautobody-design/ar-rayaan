@@ -366,7 +366,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     answer: 'Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with you in confidence.\n\nIslam does not ask you to stay in a marriage where you are being hurt or frightened. Allah commands that a wife be kept in kindness or released with kindness, and forbids keeping her to harm her: "and do not keep them, intending harm, to transgress [against them]" (Qur\'an 2:231). "And live with them in kindness" (Qur\'an 4:19). And if a couple separates, "Allah will enrich each [of them] from His abundance" (Qur\'an 4:130).\n\nWhat a woman can do, in general terms:\n- Khul\': she asks to be released, usually by returning the mahr or what is agreed, as in the case of Thabit ibn Qais\'s wife (Sahih al-Bukhari 5273).\n- A judge or a recognised Islamic court can end a marriage in which the wife is being harmed, even if the husband refuses. Many scholars, and the family courts of many Muslim countries, allow this. The schools differ on the conditions and on whether his agreement is needed for khul\', so a scholar who knows your school and your country should confirm the steps for you.\n- The warning about a woman who asks for divorce "without a strong reason" (Thawban reported the Prophet said if any woman asks her husband for divorce without a strong reason, the odour of Paradise will be forbidden to her (Sunan Abu Dawud 2226, sahih per al-Albani)) is about asking without cause. Being harmed is a cause. It is not a warning to a woman in danger.\n- Your country\'s own law is separate and open to you: a protective order, a shelter, a lawyer or the police can help whether or not an imam is involved. You do not need anyone\'s permission to be safe.\n\nLeaving can be the most dangerous time, so plan it with a domestic violence service: where you will go, your papers and phone, and someone you trust who knows. Staying is not a failure, and neither is leaving. This is general information, not a ruling on your case, and it is waiting for scholar review. A scholar who understands abuse, or a Muslim women\'s service, can support you without pressing you to stay.\n\nSource: Qur\'an 2:231, 4:19, 4:130; Sahih al-Bukhari 5273; Sunan Abu Dawud 2226, sahih per al-Albani.\n[GO:/support]',
     topic: 'divorce',
     beforeGate: true,
-    reviewNote: 'Khul, judicial dissolution for harm (darar) and the Abu Dawud 2226 warning are described in general terms for a woman who is not safe; the schools\' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.',
+    reviewNote: 'Khul, judicial dissolution for harm (darar) and the Abu Dawud warning about asking for divorce without cause are described in general terms for a woman who is not safe; the schools\' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.',
   ),
   CoreEntry(
     id: 'abuse-verse-434',
@@ -398,6 +398,18 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     topic: 'sharing',
     beforeGate: true,
     reviewNote: 'Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content.',
+  ),
+  CoreEntry(
+    id: 'hadi-memory-settings',
+    patterns: <String>[
+      r'\b(?:where|how)\b.*\b(?:change|turn off|turn on|stop|switch|set|control|manage|see|delete|clear|forget)\b.*\b(?:remember\w*|memory|know about me|knows about me)\b',
+      r'\b(?:what|how much)\b.*\b(?:do you|does hadi|does hadi) (?:remember|know)\b.*\b(?:about me|me)\b',
+      r'\b(?:do you|does hadi) (?:remember|keep|store|save) (?:anything|things|what)\b.*\b(?:about me|i say|i tell)\b',
+    ],
+    answer: 'Here is what I keep, and where you control it.\n\n- I do not save our chat. It stays on screen for this visit only and is gone when you leave, clear it, or close the app.\n- Settings has a switch called "Hadi remembers you". It is off by default. It only lets me greet you by the name on your account, and only when I answer through an AI service you set up yourself; the name goes to that service with your question. As a guest there is no name, so it changes nothing.\n- Settings, then Support & wellbeing, holds the check-in, private mode, quick exit and the safe word.\n- To forget everything at once, say "forget everything" in this chat, or use New conversation in the menu.\n[GO:/settings]',
+    topic: 'privacy',
+    beforeGate: true,
+    reviewNote: 'Describes what the app does today. No religious content.',
   ),
   CoreEntry(
     id: 'pillars-islam',

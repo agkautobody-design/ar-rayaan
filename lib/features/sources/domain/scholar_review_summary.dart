@@ -22,7 +22,7 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5475;
+const int kScholarReviewTotal = 5480;
 
 /// Items marked high priority.
 const int kScholarReviewHighPriority = 1279;
@@ -35,7 +35,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('arabic-tajweed', 'Arabic, tajweed, Hifz and Qur\'an recitation teaching', 88, 42),
     ScholarReviewArea('huda', 'Huda guides and their madhhab notes', 108, 94),
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
-    ScholarReviewArea('hadi', 'Hadi built-in answers', 489, 20),
+    ScholarReviewArea('hadi', 'Hadi built-in answers', 490, 20),
     ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 576, 113),
     ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 257, 51),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
@@ -48,20 +48,20 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
     ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 10, 5),
     ScholarReviewArea('games', 'Games and quizzes with religious content', 13, 9),
-    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 226, 121),
+    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 228, 121),
     ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 10, 10),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
-    ScholarReviewArea('support-packs', 'Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)', 1642, 111),
+    ScholarReviewArea('support-packs', 'Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)', 1644, 111),
 ];
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Hadith / aqidah scholar', 2448),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 616),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 618),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 523),
-    ScholarReviewerCount('Clinician (Sakina and health content)', 1007),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 261),
+    ScholarReviewerCount('Clinician (Sakina and health content)', 1008),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 263),
     ScholarReviewerCount('Privacy lawyer', 14),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),

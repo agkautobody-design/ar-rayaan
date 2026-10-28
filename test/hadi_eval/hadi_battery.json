@@ -3531,5 +3531,16 @@
 "refusal": false
 }
 ]
+},
+{
+"turns": [
+"Where do I change what you remember about me?"
+],
+"expect": [
+{
+"core": "hadi-memory-settings",
+"refusal": false
+}
+]
 }
 ]

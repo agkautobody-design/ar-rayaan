@@ -20,7 +20,7 @@ What a woman can do, in general terms:
 Leaving can be the most dangerous time, so plan it with a domestic violence service: where you will go, your papers and phone, and someone you trust who knows. Staying is not a failure, and neither is leaving. This is general information, not a ruling on your case, and it is waiting for scholar review. A scholar who understands abuse, or a Muslim women's service, can support you without pressing you to stay.
 """,
   go=['/support'],
-  review='Khul, judicial dissolution for harm (darar) and the Abu Dawud 2226 warning are described in general terms for a woman who is not safe; the schools\' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.')
+  review='Khul, judicial dissolution for harm (darar) and the Abu Dawud warning about asking for divorce without cause are described in general terms for a woman who is not safe; the schools\' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.')
 
 E('abuse-verse-434',
   m=[r'\b(?:does|do|is|are|did) (?:the )?(?:quran|islam|quran say|religion|god|allah)\b.*\b(?:allow\w*|permit\w*|say|says|let\w*|right)\b.*\b(?:hit|hits|beat|beats|strike|hurt|hurts)\b.*\b(?:me|her|my wife|wife)\b',
@@ -61,3 +61,19 @@ If you want a friend or a teacher to see an answer, copy that reply, or ask them
 """,
   go=['/settings'],
   review='Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content.')
+
+E('hadi-memory-settings',
+  m=[r'\b(?:where|how)\b.*\b(?:change|turn off|turn on|stop|switch|set|control|manage|see|delete|clear|forget)\b.*\b(?:remember\w*|memory|know about me|knows about me)\b',
+     r'\b(?:what|how much)\b.*\b(?:do you|does hadi|does hadi) (?:remember|know)\b.*\b(?:about me|me)\b',
+     r'\b(?:do you|does hadi) (?:remember|keep|store|save) (?:anything|things|what)\b.*\b(?:about me|i say|i tell)\b'],
+  topic='privacy',
+  text="""
+Here is what I keep, and where you control it.
+
+- I do not save our chat. It stays on screen for this visit only and is gone when you leave, clear it, or close the app.
+- Settings has a switch called "Hadi remembers you". It is off by default. It only lets me greet you by the name on your account, and only when I answer through an AI service you set up yourself; the name goes to that service with your question. As a guest there is no name, so it changes nothing.
+- Settings, then Support & wellbeing, holds the check-in, private mode, quick exit and the safe word.
+- To forget everything at once, say "forget everything" in this chat, or use New conversation in the menu.
+""",
+  go=['/settings'],
+  review='Describes what the app does today. No religious content.')
