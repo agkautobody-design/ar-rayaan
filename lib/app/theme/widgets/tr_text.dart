@@ -168,6 +168,9 @@ class NativeReviewNote extends StatelessWidget {
   Widget build(BuildContext context) {
     final String lang = uiLang(context);
     if (!hasPhraseLanguage(lang)) return const SizedBox.shrink();
+    // The label is in the page's own language only. It used to be followed
+    // by the English words as well, which read oddly inside a right-to-left
+    // paragraph and said the same thing twice.
     return Semantics(
       container: true,
       label: translatePhrase('Native-speaker review needed', lang),

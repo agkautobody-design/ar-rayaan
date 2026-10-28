@@ -679,6 +679,19 @@ const Map<String, List<String>> _pYou = <String, List<String>>{
   'Completed: {}': <String>['اكتملت: {1}', 'مکمل: {1}', 'সম্পন্ন: {1}'],
 };
 
+const Map<String, List<String>> _pPass3c = <String, List<String>>{
+  'As-Salaamu Alaikum. I am Hādi — walking beside you as you seek authentic knowledge. Ask me about worship, the Qur\'an, or where anything lives in this app. And when the weight is heavy, tell me that too — I will stay with it.': <String>['السلام عليكم. أنا هادي — أسير بجانبك وأنت تطلب العلم الموثوق. اسألني عن العبادة أو القرآن أو مكان أي شيء في هذا التطبيق. وحين يثقل عليك الحمل، قله لي أيضًا — سأبقى معك فيه.', 'السلام علیکم۔ میں ہادی ہوں — مستند علم کی تلاش میں آپ کے ساتھ چلتا ہوں۔ مجھ سے عبادت، قرآن، یا اس ایپ میں کسی چیز کی جگہ کے بارے میں پوچھیں۔ اور جب بوجھ بھاری ہو تو وہ بھی مجھے بتائیں — میں اس کے ساتھ رہوں گا۔', 'আসসালামু আলাইকুম। আমি হাদী — প্রামাণ্য জ্ঞান খোঁজার পথে আপনার পাশে হাঁটছি। ইবাদত, কুরআন, বা এই অ্যাপে কোনো কিছু কোথায় আছে — আমাকে জিজ্ঞেস করুন। আর বোঝা ভারী হলে সেটাও আমাকে বলুন — আমি সঙ্গে থাকব।'],
+  'Small': <String>['صغير', 'چھوٹا', 'ছোট'],
+  'Normal': <String>['عادي', 'عام', 'সাধারণ'],
+  'Large': <String>['كبير', 'بڑا', 'বড়'],
+  'Extra large': <String>['كبير جدًا', 'بہت بڑا', 'অনেক বড়'],
+  'Add a child': <String>['إضافة طفل', 'بچہ شامل کریں', 'সন্তান যোগ করুন'],
+  'The Family Wing': <String>['جناح الأسرة', 'فیملی ونگ', 'পরিবার বিভাগ'],
+  'FOR PARENTS AND GUARDIANS': <String>['للوالدين والأوصياء', 'والدین اور سرپرستوں کے لیے', 'অভিভাবকদের জন্য'],
+  'I am a parent or guardian': <String>['أنا أحد الوالدين أو وصيّ', 'میں والد یا سرپرست ہوں', 'আমি অভিভাবক'],
+  'Delete all children?': <String>['حذف جميع الأطفال؟', 'تمام بچے حذف کریں؟', 'সব সন্তান মুছবেন?'],
+};
+
 /// Every phrase, all groups.
 const Map<String, List<String>> kUiPhrases = <String, List<String>>{
   ..._pFaith,
@@ -692,6 +705,7 @@ const Map<String, List<String>> kUiPhrases = <String, List<String>>{
   ..._pSources,
   ..._pSupport,
   ..._pYou,
+  ..._pPass3c,
 };
 
 /// Group id -> (screen description, phrase count), for the review register.
@@ -707,6 +721,7 @@ const Map<String, String> kUiPhraseGroups = <String, String>{
   'sources': 'Our Sources, Elder Mode and share footer',
   'support': 'Support & wellbeing hub, pathways, Need help sheet, help-line tiles',
   'you': 'You tab (Profile) and journeys',
+  'pass3c': 'Hadi welcome, text-size labels, first Family Wing strings',
 };
 
 /// The phrases of each group, by group id.
@@ -722,4 +737,5 @@ const Map<String, Map<String, List<String>>> kUiPhraseGroupTables = <String, Map
   'sources': _pSources,
   'support': _pSupport,
   'you': _pYou,
+  'pass3c': _pPass3c,
 };

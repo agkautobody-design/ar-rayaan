@@ -256,8 +256,12 @@ class HomeScreen extends ConsumerWidget {
                       children: [
                         Text(ui('home.quick'), style: AppText.body.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
-                        Text(ui('home.quickSub'),
-                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                        // At big text or on a narrow screen the card stays
+                        // (it is the way into the quick doors) but sheds its
+                        // second line so it does not push the tiles away.
+                        if (!compact)
+                          Text(ui('home.quickSub'),
+                              style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
                     const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
@@ -358,8 +362,8 @@ class HomeScreen extends ConsumerWidget {
                       SizedBox(height: compact ? 8 : 16),
               _SemanticTap(
                 label: ref.watch(elderModeProvider)
-                    ? '${ui('home.elder')}, on. Open the Elder home.'
-                    : '${ui('home.elder')}. ${ui('home.elderSub')}',
+                    ? '${ui('home.elder')}, ${ui('home.elderOn')}. Open the Elder home.'
+                    : '${ui('home.elder')}, ${ui('home.elderOff')}. ${ui('home.elderSub')}',
                 onTap: () async {
                   // Already on: just go there. Otherwise it stays on across
                   // launches, so ask first.
@@ -406,12 +410,36 @@ class HomeScreen extends ConsumerWidget {
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
+                    // On or off, in words (never by colour alone).
+                    Container(
+                      key: const Key('home-elder-state'),
+                      margin: const EdgeInsetsDirectional.only(start: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: AppColors.gold.withValues(
+                              alpha: ref.watch(elderModeProvider) ? 0.9 : 0.4),
+                        ),
+                        color: ref.watch(elderModeProvider)
+                            ? AppColors.gold.withValues(alpha: 0.18)
+                            : Colors.transparent,
+                      ),
+                      child: Text(
+                        ref.watch(elderModeProvider)
+                            ? ui('home.elderOn')
+                            : ui('home.elderOff'),
+                        style: AppText.body.copyWith(
+                            fontSize: 12, fontWeight: FontWeight.w700),
+                      ),
+                    ),
                     if (textScale <= 1.3)
                       const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
                   ]),
                 ),
               ),
-              if (!compact) quick,
+              quick,
               _NextStepCard(
                 step: step,
                 compact: compact,
@@ -487,7 +515,6 @@ class HomeScreen extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 12),
-                      if (compact) quick,
                       Wrap(
                         spacing: 8,
                         runSpacing: 4,
@@ -795,8 +822,13 @@ class _NextStepCard extends StatelessWidget {
   }
 }
 
-/// Home's top line: Back (when something is under Home), the Ask Hādi bar,
-/// Search and Menu. [stacked] puts the bar on its own line below the icons.
+/// Home's top line: the Ask Hādi bar, Search and Menu. [stacked] puts the bar
+/// on its own line below the icons.
+///
+/// There is no Back arrow here. Home is the root of the Home tab (every route
+/// to it replaces the stack), so there is never a screen under it to return
+/// to; the arrow was a node at the top of Home's reading order that did
+/// nothing useful, or bounced.
 class _Header extends StatelessWidget {
   const _Header({required this.stacked});
 
@@ -804,11 +836,6 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget back = _HeaderIcon(
-      icon: Icons.arrow_back,
-      tooltip: 'Back',
-      onTap: () => context.pop(),
-    );
     final Widget search = _HeaderIcon(
       icon: Icons.search,
       tooltip: 'Search',
@@ -819,19 +846,12 @@ class _Header extends StatelessWidget {
       tooltip: 'Menu',
       onTap: () => context.open(AppRoutes.menu),
     );
-    // Home is the root of the Home tab: there is nothing to go back to
-    // unless something was pushed over it.
-    // After the introduction there is nothing real under Home: its Back
-    // arrow only popped to the introduction, which bounced straight back.
-    final bool canGoBack =
-        context.canPop() && !OnboardingScreen.completedThisSession;
 
     if (stacked) {
       return Column(
         children: [
           Row(
             children: [
-              if (canGoBack) back,
               const Spacer(),
               search,
               const SizedBox(width: 8),
@@ -845,7 +865,6 @@ class _Header extends StatelessWidget {
     }
     return Row(
       children: [
-        if (canGoBack) ...[back, const SizedBox(width: 12)],
         const Expanded(child: HadiAskBar()),
         const SizedBox(width: 12),
         search,

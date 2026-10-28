@@ -6,6 +6,7 @@ import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
 import '../../domain/glossary.dart';
+import '../../../../app/theme/widgets/named_sheet.dart';
 
 /// Lesson text in which the glossary words (taqwa, nisab, riba, qada, tawaf
 /// ...) are underlined and tap open a short plain meaning. Under the text a
@@ -111,7 +112,8 @@ class _GlossaryTextState extends State<GlossaryText> {
 
 /// The meaning of one glossary word, in a bottom sheet.
 Future<void> showGlossarySheet(BuildContext context, GlossaryEntry e) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Word meaning',
     context: context,
     backgroundColor: Colors.transparent,
     builder: (BuildContext ctx) => Padding(

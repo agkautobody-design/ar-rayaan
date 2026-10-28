@@ -20,7 +20,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/crisis_l10n.dart'
-    show crisisEnglishNote, withEmergencyLine, withEnglishFallbackNote;
+    show crisisRepeatIn, englishWithNote, withEmergencyLine, withEnglishFallbackNote;
 import '../../sakina/domain/crisis_latch.dart';
 import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
@@ -910,7 +910,7 @@ class HadiController extends Notifier<HadiState> {
   String _cardText(CrisisKind kind, String? cc, bool picked) {
     final String lang = _supportLang;
     if (_minorSession && kind == CrisisKind.abuse) {
-      return '${crisisEnglishNote(lang)}${ChildDistress.disclosureCard('13-17')}';
+      return englishWithNote(lang, ChildDistress.disclosureCard('13-17'));
     }
     return '${CrisisResponses.textFor(kind, countryCode: cc, lang: lang)}\n\n'
         '${CrisisResponses.regionNote(cc, picked: picked, kind: kind, lang: lang)}';
@@ -975,15 +975,18 @@ class HadiController extends Notifier<HadiState> {
         final int n = state.messages
             .where((HadiMessage m) => m.crisis == CrisisKind.selfHarm)
             .length;
-        return '${crisisEnglishNote(_supportLang)}'
-            '${_selfHarmFollowUps[n % _selfHarmFollowUps.length]}';
+        return crisisRepeatIn(kind, _supportLang, n: n) ??
+            englishWithNote(
+                _supportLang, _selfHarmFollowUps[n % _selfHarmFollowUps.length]);
       case CrisisKind.suicideQuestion:
-        return '${crisisEnglishNote(_supportLang)}'
-            'Judgement of any person belongs to Allah alone, and His '
-            'mercy is vast. For a ruling about a particular person, please '
-            'ask a qualified scholar in person; Our Sources lists one. If '
-            'any part of this is about you, the help lines above are still '
-            'here.';
+        return crisisRepeatIn(kind, _supportLang) ??
+            englishWithNote(
+                _supportLang,
+                'Judgement of any person belongs to Allah alone, and His '
+                'mercy is vast. For a ruling about a particular person, please '
+                'ask a qualified scholar in person; Our Sources lists one. If '
+                'any part of this is about you, the help lines above are still '
+                'here.');
       case CrisisKind.abuse:
         return _minorSession
             ? CrisisResponses.followUpFor(CrisisKind.childSafety,

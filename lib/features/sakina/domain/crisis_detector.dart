@@ -2149,7 +2149,7 @@ abstract final class CrisisResponses {
     if (lang != 'en') {
       final String? t = crisisCardIn(kind, lang, lines);
       if (t != null) return t;
-      return '${crisisEnglishNote(lang)}${textFor(kind, countryCode: countryCode)}';
+      return englishWithNote(lang, textFor(kind, countryCode: countryCode));
     }
     switch (kind) {
       case CrisisKind.selfHarm:
@@ -2298,7 +2298,7 @@ abstract final class CrisisResponses {
     if (lang != 'en') {
       final String? t = crisisFollowUpIn(kind, lang);
       if (t != null) return t;
-      return '${crisisEnglishNote(lang)}${followUpFor(kind)}';
+      return englishWithNote(lang, followUpFor(kind));
     }
     switch (kind) {
       case CrisisKind.abuse:

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart' hide Text;
 import 'tr_text.dart';
 
+import '../../core/online_status.dart';
 import '../../core/web_offline.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
@@ -38,8 +39,24 @@ class NeedsInternetView extends StatefulWidget {
 
 class _NeedsInternetViewState extends State<NeedsInternetView> {
   Timer? _timer;
+  StreamSubscription<bool>? _sub;
   bool _checking = false;
   bool _stillFailing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // When the connection comes back while this message is up, try again by
+    // itself: nobody should have to notice that they are online again and
+    // find the button.
+    try {
+      _sub = deviceOnlineChanges().listen((bool online) {
+        if (online && mounted && !_checking) _retry();
+      });
+    } catch (_) {
+      // No connection events here (phone apps): the button is enough.
+    }
+  }
 
   /// Try again must visibly do something: show "Checking" for a moment, and
   /// if this same view is still on screen afterwards, say it is still
@@ -65,6 +82,7 @@ class _NeedsInternetViewState extends State<NeedsInternetView> {
   @override
   void dispose() {
     _timer?.cancel();
+    unawaited(_sub?.cancel());
     super.dispose();
   }
 

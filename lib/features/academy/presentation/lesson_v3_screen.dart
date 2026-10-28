@@ -38,8 +38,8 @@ import 'lesson_player_screen.dart';
 import 'v3/v3_gates.dart';
 import 'v3/v3_steps.dart';
 import 'v3/v3_widgets.dart';
-import '../../../app/theme/widgets/named_route.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Opens a lesson: the v3 player when a v3 lesson replaces it, otherwise the
 /// manifest lesson player, exactly as before. Any failure to load v3 falls
@@ -218,13 +218,12 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
     ref.read(reviewQueueProvider.notifier).addLesson(_lesson.id);
     if (!mounted) return;
     final AcademyLesson? next = nextLessonAfter(_lesson.id);
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: AcademyStrings.get('lesson.completeTitle'),
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (BuildContext sheet) => NamedRoute(
-        label: AcademyStrings.get('lesson.completeTitle'),
-        child: Padding(
+      builder: (BuildContext sheet) => Padding(
         padding: const EdgeInsets.all(20),
         child: GlassCard(
           strong: true,
@@ -269,7 +268,6 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
             ),
           ),
         ),
-        ),
       ),
     );
   }
@@ -288,7 +286,8 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
     final LessonProvenance? prov = provenanceOf(_lesson.id);
     final List<String> sources = lessonSources(_lesson, _r);
     final int flagged = _lesson.steps.where((V3Step s) => s.review != null).length;
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Where this lesson comes from',
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
