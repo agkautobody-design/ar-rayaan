@@ -657,7 +657,7 @@ void main() {
     final String html = _read('web/index.html');
     expect(html.contains('flutter-first-frame'), isTrue);
     expect(html.contains('ar-boot-retry'), isTrue);
-    expect(html.contains('20000'), isTrue);
+    expect(html.contains('12000'), isTrue);
     expect(RegExp(r'<script[^>]+gstatic').hasMatch(html), isFalse);
     for (final String wf in <String>[
       '.github/workflows/build-web.yml',
