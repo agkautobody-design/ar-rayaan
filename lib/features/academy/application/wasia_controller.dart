@@ -27,8 +27,9 @@ const String kWasiaChildLlmPref = 'ar.wasia.child_llm';
 /// runs before ANY answer (shelf or live AI), nothing the person wrote is
 /// sent anywhere, and it never invents a phone number.
 ///
-/// A child ([WasiaPersona.student]) gets [ChildDistress.disclosureCard]:
-/// full sentences, "I believe you", "it is not your fault", a plain statement
+/// A child ([WasiaPersona.student]) gets [ChildDistress.cardFor]: a short
+/// safety question for self-harm, and for harm by a person
+/// [ChildDistress.disclosureCard]: full sentences, "I believe you", "it is not your fault", a plain statement
 /// that the app tells nobody and keeps nothing but cannot promise to keep this
 /// secret from the grown-ups who help children, a choice of adults, and words
 /// that differ for ages 5-8 and 13-17. [band] is the age band the parent set
@@ -46,10 +47,10 @@ String wasiaCrisisReply(
           'is asking of you: a parent if it feels safe, a teacher, an imam '
           'or a school counsellor. You are not in trouble for telling them.';
     }
-    return ChildDistress.disclosureCard(
-      band,
-      selfHarm: kind == CrisisKind.selfHarm || kind == CrisisKind.suicideQuestion,
-    );
+    // Low mood and thoughts of self-harm get a short safety question and no
+    // "I believe you, it is not your fault" (that is for a child who says
+    // someone hurt them); everything else that is a disclosure gets the card.
+    return ChildDistress.cardFor(kind, band);
   }
   // No pointer to the Sakina section: child mode closes it. The help lines
   // are shown under this message by the thread itself.
@@ -473,7 +474,14 @@ class WasiaController extends StateNotifier<WasiaState> {
       final ChildDistressKind? d = ChildDistress.detect(q);
       if (d != null) {
         final String band = await _band();
-        final String reply = ChildDistress.reply(d, band);
+        // How many listening replies this thread already holds: school and
+        // feeling replies move to their next wording, so saying it again does
+        // not get the same sentences back.
+        final int prior = state.messages
+            .where((HadiMessage m) =>
+                m.fromHadi && m.sensitive && m.crisis == CrisisKind.childSafety)
+            .length;
+        final String reply = ChildDistress.reply(d, band, prior: prior, text: q);
         // Reading worries and a friend's vape get a kind reply and a
         // referral, not a crisis latch. The rest latch ("ok" then gets a
         // safety check) and show the child helpline button.

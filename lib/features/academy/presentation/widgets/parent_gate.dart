@@ -8,11 +8,15 @@
 /// The sum ([ParentGateChallenge]) remains only as a fixed-question fallback
 /// for tests and for the rare case where the device storage cannot be read.
 ///
-/// A solved gate stays open for [kParentGateWindow] (two minutes), is closed
-/// when Kids Corner or child mode starts, and the Family Wing has a Lock
-/// button.
+/// A solved gate stays open for [kParentGateWindow] (five minutes) and the
+/// window slides: every tap inside the Family Wing and every step that asks
+/// for the gate again ([requireParent]) keeps it open, so a parent is not
+/// asked for the PIN again in the middle of adding a child. It is closed when
+/// Kids Corner or child mode starts, when the window runs out (the screen says
+/// so, see [ParentGateGuard]) and by the Lock button.
 library;
 
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -43,8 +47,8 @@ class ParentGateChallenge {
   bool accepts(String input) => int.tryParse(input.trim()) == answer;
 }
 
-/// How long a solved gate stays open.
-const Duration kParentGateWindow = Duration(minutes: 2);
+/// How long a solved gate stays open after the last thing the parent did.
+const Duration kParentGateWindow = Duration(minutes: 5);
 
 /// Until when the gate is open (null = locked).
 class ParentGateNotifier extends StateNotifier<DateTime?> {
@@ -59,6 +63,18 @@ class ParentGateNotifier extends StateNotifier<DateTime?> {
       state = (now ?? DateTime.now()).add(kParentGateWindow);
 
   void lock() => state = null;
+
+  /// The parent is still here: slide the window. Does nothing when the gate
+  /// is closed (a tap never opens it). Throttled so a busy screen does not
+  /// rebuild on every pointer event.
+  void touch([DateTime? now]) {
+    final DateTime n = now ?? DateTime.now();
+    final DateTime? until = state;
+    if (until == null || !n.isBefore(until)) return;
+    final DateTime next = n.add(kParentGateWindow);
+    if (next.difference(until) < const Duration(seconds: 10)) return;
+    state = next;
+  }
 }
 
 final StateNotifierProvider<ParentGateNotifier, DateTime?>
@@ -358,8 +374,62 @@ Future<bool> requireParent(
   ParentGateChallenge? challenge,
 }) async {
   final ParentGateNotifier gate = ref.read(parentGateProvider.notifier);
-  if (gate.isOpen()) return true;
+  if (gate.isOpen()) {
+    gate.touch();
+    return true;
+  }
   final bool ok = await showParentGate(context, challenge: challenge);
   if (ok) gate.unlock();
   return ok;
+}
+
+/// Wraps a grown-up screen. A tap inside keeps the gate open; when the window
+/// runs out the gate closes and a message says so, instead of the screen
+/// quietly asking for the PIN in the middle of the next step.
+class ParentGateGuard extends ConsumerStatefulWidget {
+  const ParentGateGuard({required this.child, super.key});
+
+  final Widget child;
+
+  @override
+  ConsumerState<ParentGateGuard> createState() => _ParentGateGuardState();
+}
+
+class _ParentGateGuardState extends ConsumerState<ParentGateGuard> {
+  Timer? _tick;
+
+  @override
+  void initState() {
+    super.initState();
+    _tick = Timer.periodic(const Duration(seconds: 5), (_) => _check());
+  }
+
+  @override
+  void dispose() {
+    _tick?.cancel();
+    super.dispose();
+  }
+
+  void _check() {
+    if (!mounted) return;
+    final ParentGateNotifier gate = ref.read(parentGateProvider.notifier);
+    if (ref.read(parentGateProvider) != null && !gate.isOpen()) {
+      gate.lock();
+      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+        const SnackBar(
+          key: Key('parent-gate-timeout'),
+          content: Text(
+            'Locked again after a few quiet minutes. Enter the PIN to carry on.',
+          ),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => Listener(
+        behavior: HitTestBehavior.translucent,
+        onPointerDown: (_) => ref.read(parentGateProvider.notifier).touch(),
+        child: widget.child,
+      );
 }

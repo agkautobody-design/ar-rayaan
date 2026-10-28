@@ -156,6 +156,12 @@ class GameDef {
 
   /// True when more than one person can play on one device.
   bool get canPassAndPlay => modes.contains(PlayMode.passAndPlay);
+
+  /// Whether [m] is offered on screen. A child in child mode is never shown
+  /// "With a friend online": the online hall is a parent's choice, so the
+  /// label must not invite something the child cannot do.
+  bool offersMode(PlayMode m, {bool child = false}) =>
+      modes.contains(m) && !(child && m == PlayMode.friends);
 }
 
 /// The most hints a person gets in one game. Hints are free, never bought,

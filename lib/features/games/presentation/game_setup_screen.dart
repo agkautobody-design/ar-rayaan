@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
@@ -56,7 +57,10 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     final GameDef? g = gameById(widget.gameId);
     if (g != null) {
       for (final PlayMode m in PlayMode.values) {
-        if (m.name == widget.initialMode && g.modes.contains(m)) _mode = m;
+        if (m.name == widget.initialMode &&
+            g.offersMode(m, child: kChildMode.value)) {
+          _mode = m;
+        }
       }
     }
   }
@@ -209,7 +213,7 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
               runSpacing: 8,
               children: <Widget>[
                 for (final PlayMode m in PlayMode.values)
-                  if (g.modes.contains(m))
+                  if (g.offersMode(m, child: kChildMode.value))
                     GameChip(
                       label: _modeLabel(g, m),
                       selected: _mode == m,

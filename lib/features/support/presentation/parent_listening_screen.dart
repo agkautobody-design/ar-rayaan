@@ -17,6 +17,12 @@ class ListeningSection {
   final List<String> points;
 }
 
+/// The source of the hadith in the faith line, from the app's hadith
+/// register (tool/hadith_verdicts: both references have an `ok` verdict).
+const String kListeningHadithSource =
+    'Source: Sahih al-Bukhari 5997; Sahih Muslim 2318. Scholar review of the '
+    'wording is still needed.';
+
 /// "How to listen to a child who is hurting": for a parent whose child is
 /// bullied, afraid of school, or has said something worrying. Plain words, no
 /// diagnosis, no ruling. It points to the school, a doctor and child-protection
@@ -61,7 +67,8 @@ const List<ListeningSection> kParentListeningSections = <ListeningSection>[
     'Contact a child-protection service or a child helpline for advice before you act. They can help you make a safe plan.',
   ]),
   ListeningSection('A WORD FROM THE FAITH', <String>[
-    'The Prophet (peace be upon him) taught that mercy is for the young, and that whoever is not merciful will not be shown mercy. Listening to a hurting child is part of that mercy.',
+    'Abu Huraira reported that the Prophet (peace be upon him) kissed his grandson al-Hasan. A man said he had ten children and had never kissed any of them, and the Prophet said: whoever is not merciful will not be shown mercy. Listening to a hurting child is part of that mercy.',
+    kListeningHadithSource,
   ]),
 ];
 

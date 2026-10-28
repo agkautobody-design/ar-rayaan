@@ -84,6 +84,15 @@ Future<void> activateHelpResource(
   }
 }
 
+/// The address of a web page without the scheme and a trailing slash, for
+/// showing under a help line that is a page.
+String _shortAddress(String url) {
+  String t = url.replaceFirst(RegExp(r'^https?://'), '');
+  if (t.startsWith('www.')) t = t.substring(4);
+  if (t.endsWith('/')) t = t.substring(0, t.length - 1);
+  return t;
+}
+
 /// One help line: name, who it is for, what it is, and the number in plain
 /// selectable-looking text — with a copy button that always works.
 class HelpLineTile extends StatelessWidget {
@@ -142,6 +151,28 @@ class HelpLineTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+                      // A row that is a web page (a directory such as the
+                      // Government of Canada list) shows its address, so it
+                      // is plain that tapping opens a page and not a call.
+                      if (resource.dial == null && resource.url != null)
+                        Row(
+                          children: <Widget>[
+                            const Icon(Icons.open_in_new,
+                                size: 14, color: AppColors.sand),
+                            const SizedBox(width: 4),
+                            Expanded(
+                              child: Text(
+                                _shortAddress(resource.url!),
+                                key: const Key('help-line-address'),
+                                style: AppText.caption.copyWith(
+                                  color: AppColors.sand.withValues(alpha: 0.85),
+                                  fontSize: 12,
+                                  height: 1.3,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       if (!resource.verified)
                         Text(
                           'Not re-checked recently. If it does not connect, '

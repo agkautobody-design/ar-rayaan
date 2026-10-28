@@ -43,13 +43,13 @@ void main() {
       expect(answers.length, greaterThan(10));
     });
 
-    test('the gate opens for two minutes, then closes', () {
+    test('the gate opens for five minutes, then closes', () {
       final ParentGateNotifier g = ParentGateNotifier();
       final DateTime t = DateTime(2026, 10, 20, 12);
       expect(g.isOpen(t), isFalse);
       g.unlock(t);
       expect(g.isOpen(t.add(const Duration(minutes: 1))), isTrue);
-      expect(g.isOpen(t.add(const Duration(minutes: 3))), isFalse);
+      expect(g.isOpen(t.add(const Duration(minutes: 6))), isFalse);
       g.unlock(t);
       g.lock();
       expect(g.isOpen(t), isFalse);

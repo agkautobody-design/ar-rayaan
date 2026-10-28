@@ -16,7 +16,12 @@ import 'parent_gate.dart';
 /// screen. It shows only when it is due, once per interval, and never as a
 /// notification. Its answer is not stored and no parent can read it.
 class WasiaCheckinCard extends ConsumerStatefulWidget {
-  const WasiaCheckinCard({super.key});
+  const WasiaCheckinCard({super.key, this.register});
+
+  /// Who is looking: `'adult'` on the Academy home when a grown-up is using
+  /// the Adult or Parent track, `'13-17'` on the Teen track, or null for the
+  /// active child's own band (Kids Corner and lessons).
+  final String? register;
 
   @override
   ConsumerState<WasiaCheckinCard> createState() => _WasiaCheckinCardState();
@@ -29,7 +34,15 @@ class _WasiaCheckinCardState extends ConsumerState<WasiaCheckinCard> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final bool parentOpen = ref.read(parentGateProvider.notifier).isOpen();
-      ref.read(wasiaCheckinProvider.notifier).maybeShow(parentOpen: parentOpen);
+      final WasiaCheckinNotifier n = ref.read(wasiaCheckinProvider.notifier);
+      // A card written for a grown-up never stays up for a child, or the
+      // other way round (the track was switched).
+      final WasiaCheckinState cur = ref.read(wasiaCheckinProvider);
+      if ((cur.line != null || cur.reply != null) &&
+          cur.adult != (widget.register == 'adult')) {
+        n.reset();
+      }
+      n.maybeShow(parentOpen: parentOpen, register: widget.register);
     });
   }
 
@@ -75,12 +88,13 @@ class _WasiaCheckinCardState extends ConsumerState<WasiaCheckinCard> {
             Text(s.reply!, key: const Key('wasia-checkin-reply'), style: AppText.body.copyWith(fontSize: 14, height: 1.5)),
             if (s.hard) ...<Widget>[
               const SizedBox(height: 8),
+              // An adult is shown the adult lines; a child the child lines.
               NeedHelpNowButton(
                 key: const Key('wasia-checkin-help'),
-                kind: CrisisKind.childSafety,
+                kind: s.adult ? CrisisKind.selfHarm : CrisisKind.childSafety,
                 label: 'Show help lines',
-                showSakinaLink: false,
-                forChild: true,
+                showSakinaLink: s.adult,
+                forChild: !s.adult,
               ),
             ],
             const SizedBox(height: 6),

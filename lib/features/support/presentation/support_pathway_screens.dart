@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../hadi/application/hadi_controller.dart';
 import '../application/support_settings.dart';
 import '../data/pack_repository.dart';
 import '../domain/support_pack.dart';
@@ -42,13 +43,33 @@ const List<SupportPathway> kSupportPathways = <SupportPathway>[
   SupportPathway('drugs', 'Drugs and medicines', 'Safety information and who can help.', 'drugs', 'addiction'),
   SupportPathway('gambling', 'Gambling', 'Money, shame and a way forward.', 'gambling', 'gambling'),
   SupportPathway('porn', 'Pornography and compulsive habits',
-      'Without shame, and without detail.', 'porn_compulsive', 'addiction'),
+      'Without shame, and without detail.', 'porn_compulsive', 'compulsive'),
   SupportPathway('smoking', 'Smoking and vaping', 'Wanting to quit, and how.', 'smoking_vaping', 'smoking'),
   SupportPathway('family', 'Someone close to me is struggling',
-      'For the person who is worn out by loving them.', 'family_of_struggling', 'addiction'),
+      'For the person who is worn out by loving them.', 'family_of_struggling', 'addiction-family'),
   SupportPathway('student', 'School and learning',
       'Hard days, bullying, worry and learning differences.', 'student_problems', 'child'),
 ];
+
+/// How Hadi opens when the person comes from a support page: it knows which
+/// page, says so in a line, and does not start with the general greeting.
+/// Fixed words, never sent anywhere. CLINICIAN / SAFEGUARDING REVIEW NEEDED.
+String hadiOpenerFor(SupportPathway? p) {
+  if (p == null) {
+    return 'I am here. You came from the Support pages. Tell me as much or as '
+        'little as you like, and we can go at your pace.';
+  }
+  if (p.urgent) {
+    return 'I can see you came from the page “${p.title}”. First: are you '
+        'safe right now? If not, call your local emergency number, and use '
+        '“Exit now” if someone may see this screen. If you are safe, tell me '
+        'what is happening, as much or as little as you like. I will not '
+        'push for details.';
+  }
+  return 'I can see you came from the page “${p.title}”. I am here to listen '
+      'and to point you to people who can help; I am not a doctor or a '
+      'counsellor. Where would you like to start?';
+}
 
 SupportPathway? pathwayById(String id) {
   for (final SupportPathway p in kSupportPathways) {
@@ -211,7 +232,12 @@ class SupportPathwayScreen extends ConsumerWidget {
                         const SizedBox(height: 12),
                         OutlinedButton.icon(
                           key: const Key('support-talk-to-hadi'),
-                          onPressed: () => context.open(AppRoutes.hadi),
+                          onPressed: () async {
+                            await ref
+                                .read(hadiControllerProvider.notifier)
+                                .openFromSupport(hadiOpenerFor(path));
+                            if (context.mounted) context.open(AppRoutes.hadi);
+                          },
                           style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
                           icon: const Icon(Icons.chat_bubble_outline, size: 18),
                           label: const Text('Talk it through with Hadi'),

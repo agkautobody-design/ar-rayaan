@@ -26,6 +26,12 @@ enum ChildDistressKind {
   /// Has seen, or keeps looking at, things online they should not, and feels
   /// ashamed. No details are asked for.
   porn,
+
+  /// Someone touched them in a way that felt wrong ("someone touched me where
+  /// I did not like"). Body-safety wording: the body belongs to the child, it
+  /// is never their fault, keep telling until someone listens. Does not assume
+  /// the home, and asks for no details.
+  touch,
 }
 
 /// Plain word matching, English only (CLINICIAN AND SAFEGUARDING REVIEW
@@ -64,6 +70,21 @@ abstract final class ChildDistress {
     'my uncle touched me', 'dont feel safe at home', 'do not feel safe at home',
     'i dont feel safe', 'i do not feel safe', 'afraid to go home',
     'scared to go home', 'dont want to go back home',
+  ];
+
+  static const List<String> _touch = <String>[
+    'touched me', 'touches me', 'touching me', 'touched my private',
+    'touch my private', 'touched my body', 'touch my body', 'touch me where',
+    'touched me where', 'touch me in a way', 'touched me in a way',
+    'made me touch', 'tried to touch me', 'wants to touch me',
+    'private parts', 'showed me their private', 'showed me his private',
+    'showed me her private', 'my uncle touched me', 'my uncle touches me',
+    'someone touched me', 'somebody touched me',
+  ];
+
+  /// Words that say "touched me" is about a story or a verse, not a person.
+  static const List<String> _notTouch = <String>[
+    'story', 'poem', 'verse', 'ayah', 'nasheed', 'song', 'lesson',
   ];
 
   static const List<String> _learning = <String>[
@@ -120,6 +141,9 @@ abstract final class ChildDistress {
   /// What the message is about, or null.
   static ChildDistressKind? detect(String text) {
     final String n = ' ${CrisisDetector.normalize(text)} ';
+    // Someone touching the child comes before "keep it secret": a child who
+    // says both is telling, not just asking.
+    if (_any(n, _touch) && !_any(n, _notTouch)) return ChildDistressKind.touch;
     if (_any(n, _secret)) return ChildDistressKind.secret;
     if (_any(n, _home)) return ChildDistressKind.home;
     if (_any(n, _porn)) return ChildDistressKind.porn;
@@ -143,29 +167,77 @@ abstract final class ChildDistress {
   /// The fixed reply, by [band] ('5-8', '9-12', '13-17'). It listens, offers
   /// choices, names a child helpline (the button under the message opens the
   /// lines for the country) and never steers back to lessons.
-  static String reply(ChildDistressKind kind, String band) {
+  ///
+  /// [prior] is how many such replies the thread already holds: school and
+  /// feeling replies have several wordings and move to the next one each time,
+  /// so a child who says it again is not answered word for word. [text] is
+  /// what the child wrote, used only to tell "promise you will keep it secret"
+  /// from "will you tell my mum", which get different answers.
+  /// (CLINICIAN AND SAFEGUARDING REVIEW NEEDED for every wording.)
+  static String reply(
+    ChildDistressKind kind,
+    String band, {
+    int prior = 0,
+    String text = '',
+  }) {
     final bool small = band == '5-8';
     final bool teen = band == '13-17';
     final String adults = small ? _adults5 : CrisisResponses.trustedAdultForChild;
+    final int v = prior < 0 ? 0 : prior;
     switch (kind) {
       case ChildDistressKind.school:
-        if (small) {
-          return 'I am sorry. That sounds sad, and it is not your fault. '
-              'You can tell $adults. You choose who. There is also a helpline '
-              'children can call or text. The button is just below.';
-        }
-        if (teen) {
-          return 'I am sorry that is happening. It sounds really hard, and it '
-              'is not your fault. If you want, tell me more about what '
-              'happens. You do not have to. It is worth telling $adults, '
-              'and you choose who. If it feels easier to talk to someone '
-              'outside school or home, the help lines below are for young '
-              'people.';
-        }
-        return 'I am sorry. That sounds really hard, and it is not your '
-            'fault. Would you like to tell me a bit more about what happens? '
-            'You do not have to. It is a good idea to tell $adults. You '
-            'choose who. The help lines for children are just below.';
+        final List<String> options = small
+            ? <String>[
+                'I am sorry. That sounds sad, and it is not your fault. '
+                    'You can tell $adults. You choose who. There is also a '
+                    'helpline children can call or text. The button is just '
+                    'below.',
+                'Thank you for telling me. Being laughed at or left out hurts, '
+                    'and you did nothing wrong. Is there a grown-up at school '
+                    'you like? You could tell them. You could tell a parent '
+                    'too, if it feels safe. You choose who. The button below '
+                    'has a helpline for children.',
+                'I am glad you told me. It is not okay when people are unkind '
+                    'to you. A grown-up can help to make it stop. You choose '
+                    'who to tell: $adults. A helpline for children is just '
+                    'below.',
+              ]
+            : teen
+                ? <String>[
+                    'I am sorry that is happening. It sounds really hard, and '
+                        'it is not your fault. If you want, tell me more about '
+                        'what happens. You do not have to. It is worth telling '
+                        '$adults, and you choose who. If it feels easier to '
+                        'talk to someone outside school or home, the help lines '
+                        'below are for young people.',
+                    'That sounds exhausting, and it makes sense that it is '
+                        'getting to you. Nobody deserves to be treated that '
+                        'way. You could tell $adults, or ask for a practical '
+                        'change, like a different seat or group. You choose '
+                        'who. The help lines below are for young people.',
+                    'I am glad you are still talking about it. If it keeps '
+                        'happening, it is worth telling $adults, and writing '
+                        'down dates and what was said, so they can act on it. '
+                        'You choose who. The help lines below are for young '
+                        'people, if you want someone outside school.',
+                  ]
+                : <String>[
+                    'I am sorry. That sounds really hard, and it is not your '
+                        'fault. Would you like to tell me a bit more about what '
+                        'happens? You do not have to. It is a good idea to tell '
+                        '$adults. You choose who. The help lines for children '
+                        'are just below.',
+                    'That sounds painful, and I am glad you said it out loud. '
+                        'Being treated badly is never your fault. Who could '
+                        'you tell? $adults. You choose who. The help lines for '
+                        'children are just below.',
+                    'Thank you for trusting me with that again. You do not '
+                        'have to put up with being treated like that. One '
+                        'small step is to tell $adults. Writing down what '
+                        'happened can make it easier to say. You choose who. '
+                        'The help lines are just below.',
+                  ];
+        return options[v % options.length];
       case ChildDistressKind.home:
         if (small) {
           return 'Thank you for telling me. You are not in trouble, and it is '
@@ -181,16 +253,45 @@ abstract final class ChildDistress {
             'home. I cannot call anyone for you, so a child helpline is a good '
             'place to start. The help lines are just below. If you are in '
             'danger right now, call your country’s emergency number.';
-      case ChildDistressKind.scared:
+      case ChildDistressKind.touch:
         if (small) {
-          return 'I am sorry you feel like that. Thank you for telling me. '
-              'It is okay to feel this way. You can tell $adults. You choose '
-              'who. The helpline button is just below.';
+          return 'Thank you for telling me. I believe you. Your body belongs '
+              'to you. Nobody should touch you in a way that feels wrong, and '
+              'it is never your fault. You are not in trouble. Please tell '
+              '$adults, and keep telling until someone listens. A children’s '
+              'helpline is in the button just below. If you are in danger '
+              'right now, tell a grown-up near you.';
         }
-        return 'I am sorry you feel like that, and thank you for telling me. '
-            'You are not in trouble for feeling this way. Would you like to '
-            'say a little more? It also helps to tell $adults. You choose '
-            'who. The help lines are just below.';
+        return 'Thank you for telling me. I believe you. Your body belongs to '
+            'you, and nobody is allowed to touch you in a way that feels '
+            'wrong, or to ask you to keep it a secret. It is never your '
+            'fault, whoever it was, and you are not in trouble. Please tell '
+            '$adults. If the first person does not listen, keep telling until '
+            'someone does. I will not ask you for details. I cannot call '
+            'anyone for you, so a child helpline is a good place to start. '
+            'The help lines are just below. If you are in danger right now, '
+            'call your country’s emergency number.';
+      case ChildDistressKind.scared:
+        final List<String> feel = small
+            ? <String>[
+                'I am sorry you feel like that. Thank you for telling me. '
+                    'It is okay to feel this way. You can tell $adults. You '
+                    'choose who. The helpline button is just below.',
+                'I am glad you told me. Feeling like this is hard, and you '
+                    'are not in trouble. A grown-up can help. You choose who '
+                    'to tell: $adults. The helpline button is just below.',
+              ]
+            : <String>[
+                'I am sorry you feel like that, and thank you for telling me. '
+                    'You are not in trouble for feeling this way. Would you '
+                    'like to say a little more? It also helps to tell '
+                    '$adults. You choose who. The help lines are just below.',
+                'Thank you for telling me how you feel. Feelings like this are '
+                    'hard, and you do not have to go through them alone. '
+                    'Talking to $adults can help. You choose who. The help '
+                    'lines are just below.',
+              ];
+        return feel[v % feel.length];
       case ChildDistressKind.learning:
         if (small) {
           return 'Thank you for telling me. Nothing is wrong with you, and you '
@@ -248,20 +349,103 @@ abstract final class ChildDistress {
             'pictures, tell a grown-up today. That is never your fault. The '
             'help lines for young people are in the button just below.';
       case ChildDistressKind.secret:
+        // "Will you tell my mum?" and "promise you will keep it secret" are
+        // different questions and get different answers.
+        final String t = ' ${CrisisDetector.normalize(text)} ';
+        final bool asksTell = t.contains(' will you tell ') ||
+            t.contains(' are you going to tell ') ||
+            t.contains(' going to tell ') ||
+            t.contains(' do not tell ') ||
+            t.contains(' dont tell ');
+        final bool second = asksTell ? (v.isEven) : v.isOdd;
         if (small) {
-          return 'I will not tell anyone. I do not keep what you write, and I '
-              'cannot call anyone. But I cannot promise to keep a secret '
-              'if someone is hurting you, because you need help to be safe. '
-              'You choose who to tell: $adults. A helpline for children is '
-              'just below.';
+          return second
+              ? 'I will not tell anyone, not even your mum. I am only an app, '
+                  'and I do not keep what you write. I cannot call anyone '
+                  'either. But if someone is hurting you, a grown-up needs to '
+                  'know so that you can be safe. You choose who to tell: '
+                  '$adults. A helpline for children is just below.'
+              : 'I will not tell anyone. I do not keep what you write, and I '
+                  'cannot call anyone. But I cannot promise to keep a secret '
+                  'if someone is hurting you, because you need help to be '
+                  'safe. You choose who to tell: $adults. A helpline for '
+                  'children is just below.';
         }
-        return 'Here is the honest answer. I will not tell anyone myself, I do '
-            'not keep what you write, and I cannot call anyone. But I cannot '
-            'promise to keep a secret if someone is in danger, because you '
-            'deserve to be safe, and for that a grown-up has to know. You '
-            'choose who to tell: $adults. If it is hard to start, a child '
-            'helpline can help you find the words. The help lines are just '
-            'below.';
+        return second
+            ? 'Short answer: I will not tell anyone. I am an app, I do not '
+                'keep what you write, and I cannot call or message your '
+                'parents or anybody else. What happens next is up to you. The '
+                'one thing I cannot promise is that a secret stays secret if '
+                'someone is hurting you or you are in danger, because then a '
+                'grown-up who can help needs to know. You choose who: '
+                '$adults. The help lines are just below.'
+            : 'Here is the honest answer. I will not tell anyone myself, I do '
+                'not keep what you write, and I cannot call anyone. But I '
+                'cannot promise to keep a secret if someone is in danger, '
+                'because you deserve to be safe, and for that a grown-up has '
+                'to know. You choose who to tell: $adults. If it is hard to '
+                'start, a child helpline can help you find the words. The help '
+                'lines are just below.';
+    }
+  }
+
+  /// What a child gets when they say they want to die or to hurt themselves
+  /// (or ask about suicide). Short, safety question first, no "I believe you,
+  /// it is not your fault" (that belongs to a child who says someone hurt
+  /// them, not to low mood). Shorter for the youngest. It always names a
+  /// grown-up they trust and points to the "Show help lines" button, which for
+  /// the United States and Canada opens the 988 lines.
+  /// (CLINICIAN REVIEW NEEDED.)
+  static String selfHarmCard(String band) {
+    final bool small = band == '5-8';
+    final bool teen = band == '13-17';
+    if (small) {
+      return 'Thank you for telling me. Are you safe right now? Please tell a '
+          'grown-up you trust, one who is near you, right now. You are not in '
+          'trouble for feeling this way. The button just below shows a '
+          'helpline, and a grown-up can call it with you.';
+    }
+    if (teen) {
+      return 'Thank you for telling me. Before anything else: are you safe '
+          'right now? If you might hurt yourself, or you are in danger, tell a '
+          'grown-up you trust who is near you, or call your country’s '
+          'emergency number. Feeling this way does not mean something is '
+          'wrong with you, and it can get better with help. I cannot call '
+          'anyone for you, and I do not keep what you write. The "Show help '
+          'lines" button just below has lines you can call or text, any time.';
+    }
+    return 'Thank you for telling me. Are you safe right now? If you might hurt '
+        'yourself, please tell a grown-up you trust who is near you, or ask '
+        'them to call the emergency number. You are not in trouble for feeling '
+        'this way, and you do not have to carry it alone. The "Show help '
+        'lines" button just below has lines you can call or text.';
+  }
+
+  /// The fixed reply for a child when the crisis detector fires, by kind:
+  /// self-harm and questions about suicide get [selfHarmCard]; someone
+  /// hurting, pressuring or touching the child gets [disclosureCard].
+  static String cardFor(CrisisKind? kind, String band) {
+    switch (kind) {
+      case CrisisKind.selfHarm:
+      case CrisisKind.suicideQuestion:
+        return selfHarmCard(band);
+      case CrisisKind.eatingDisorder:
+        return 'Thank you for telling me. What you are going through with food '
+            'sounds hard, and you are not in trouble. A doctor can help with '
+            'this, and so can a grown-up you trust: a parent if it feels safe, '
+            'a teacher, or a school counsellor. You choose who. The "Show '
+            'help lines" button just below has lines for children.';
+      case CrisisKind.substanceEmergency:
+        return 'If someone has taken too much of something, is very sleepy or '
+            'hard to wake, or is breathing in a strange way, tell a grown-up '
+            'right now, or call your country’s emergency number. You are not '
+            'in trouble for asking. The "Show help lines" button just below '
+            'has the lines.';
+      case CrisisKind.abuse:
+      case CrisisKind.childSafety:
+      case CrisisKind.extremism:
+      case null:
+        return disclosureCard(band);
     }
   }
 
@@ -271,23 +455,16 @@ abstract final class ChildDistress {
   /// fault"; it says plainly that the app tells nobody and keeps nothing, and
   /// that it cannot promise to keep this secret from the grown-ups who help
   /// children; it gives a choice of adults and does not pressure; and the
-  /// words differ for 5-8 and 13-17. [selfHarm] adds a first question: are
-  /// you safe. The help-line button sits under the message (this text says so
+  /// words differ for 5-8 and 13-17. [selfHarm] returns [selfHarmCard] (the
+  /// safety question first, shorter, no "I believe you"). The help-line button sits under the message (this text says so
   /// in the words the button carries).
   static String disclosureCard(String band, {bool selfHarm = false}) {
+    if (selfHarm) return selfHarmCard(band);
     final bool small = band == '5-8';
     final bool teen = band == '13-17';
     final String adults = small ? _adults5 : CrisisResponses.trustedAdultForChild;
-    final String safe = selfHarm
-        ? (small
-            ? 'Are you safe right now? If you want to hurt yourself, tell a '
-                'grown-up near you right now. '
-            : 'Before anything else: are you safe right now? If you might '
-                'hurt yourself, or you are in danger, tell a grown-up near '
-                'you right now, or call your country’s emergency number. ')
-        : '';
     if (small) {
-      return 'Thank you for telling me. $safe'
+      return 'Thank you for telling me. '
           'I believe you. It is not your fault, and you are not in trouble. '
           'You deserve to feel safe. Please tell $adults. You choose who. '
           'I do not tell anyone, and I do not keep what you write. But I '
@@ -297,7 +474,7 @@ abstract final class ChildDistress {
           'right now, tell a grown-up near you.';
     }
     if (teen) {
-      return 'Thank you for telling me. $safe'
+      return 'Thank you for telling me. '
           'I believe you. This is not your fault, and you are not in trouble. '
           'You deserve to be safe. It would help to tell $adults, and you '
           'choose who. I do not tell anyone and I do not keep what you '
@@ -308,7 +485,7 @@ abstract final class ChildDistress {
           'lines for young people that you can call or text. If you are in '
           'danger right now, call your country’s emergency number.';
     }
-    return 'Thank you for telling me. $safe'
+    return 'Thank you for telling me. '
         'I believe you. It is not your fault, and you are not in trouble. '
         'You deserve to be safe. Please tell $adults. You choose who. I do '
         'not tell anyone and I do not keep what you write, and I cannot call '

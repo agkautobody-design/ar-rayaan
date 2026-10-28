@@ -344,6 +344,47 @@ def add_all(R):
         'Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6).',
         CLIN, ['R10_T2'], 'high', also=[LAWYER], sub='children')
 
+    # ------------------------------------------------ round 2, fix pass B (support, safety, kids)
+    add('support.child-distress-r2', 'sakina', 'Wasia > school unhappiness (three variants per age band), "someone touched me", secrecy questions, the shorter self-harm card for a child',
+        'lib/features/support/domain/child_distress.dart', 'ChildDistress.reply (prior, text); selfHarmCard; cardFor',
+        'Round 2: "I believe you, not your fault" is only for abuse or harm disclosures; touching has its own body-safety wording; school replies vary by how many came before; two secrecy answers chosen by the question asked; the self-harm card asks about safety first and is shorter for 5-8.',
+        'R11_T2: the same card for a bad day and for abuse; identical secrecy answers; a long self-harm card for a five-year-old. No child-protection specialist or clinician has read the new wording.',
+        CLIN, ['R11_T2'], 'high', also=[LAWYER, NATIVE], sub='children',
+        surf='Wasia thread and Kids Corner')
+    add('support.leaving-question', 'sakina', 'Hadi > "Can a woman ask khula / divorce if she is not safe?" and the 4:34 question asked with a safety worry',
+        'lib/features/support/domain/safe_replies.dart; lib/features/hadi/application/hadi_controller.dart', 'LeavingQuestion.options',
+        'Safety first, then four options (safety, a domestic abuse service, a scholar or imam who has worked with abuse, a lawyer), with the help lines under it. No ruling and no verse given in place of safety.',
+        'R11_T9, R11_T10: the question got only the generic crisis card. A scholar must confirm that sending the religious question to a qualified scholar is acceptable wording; a safeguarding specialist must read the options.',
+        FIQH, ['R11_T9', 'R11_T10'], 'high', also=[CLIN, LAWYER], sub='support',
+        surf='Under the reply in Hadi')
+    add('support.hadi-support-opener', 'sakina', 'Support pages > "Talk it through with Hadi": the opening line',
+        'lib/features/support/presentation/support_pathway_screens.dart', 'hadiOpenerFor',
+        'Hadi opens knowing which support page the person came from; on a danger page the first question is whether they are safe. Fixed words, never sent anywhere.',
+        'R11_T9: the button opened the general greeting. A clinician should read the wording.',
+        CLIN, ['R11_T9'], 'normal', sub='support')
+    add('support.teacher-guidance', 'sakina', 'Academy (Adult and Parent tracks) > For teachers and mentors',
+        'lib/features/support/presentation/teacher_guidance_screen.dart', 'kTeacherGuidanceSections',
+        'Guidance for a teacher or mentor: what to notice, what to do if a young person tells them something, writing it down, passing it on, and what is not an emergency. Collects, stores and sends nothing.',
+        'R11_T2, R11_T9: nothing told a teacher what to do. Child-protection duties differ by country; a safeguarding specialist must read it and a lawyer must check the reporting lines. The faith line needs a scholar.',
+        CLIN, ['R11_T2', 'R11_T9'], 'high', also=[LAWYER, FIQH], sub='children',
+        surf='Teacher guidance page')
+    add('support.kids-grownups-page', 'sakina', 'Kids Corner > What can grown-ups see?',
+        'lib/features/kids/presentation/kids_pages.dart', 'kGrownupsCanSee; kGrownupsAdvice',
+        'A page in a child\'s words saying what a parent can see (nickname, lessons finished, test scores), what nobody can see (what is typed to Wasia, how the child answers a check-in), and what to do if something is wrong. Matches children_privacy.dart; no privacy version bump was needed.',
+        'R11_T2: a child could not find out who sees what. A lawyer must confirm it matches the policy; a child-protection specialist must read the wording.',
+        LAWYER, ['R11_T2'], 'high', also=[CLIN, NATIVE], sub='children',
+        surf='Kids Corner')
+    add('academy.letters-age-fit', 'sakina', 'Letters lessons > how much of a teaching step a child of 5-8 sees first',
+        'lib/features/academy/presentation/wasia_lessons.dart', 'ageFitTeaching',
+        'For band 5-8 the first two sentences of a teaching step are shown with "Tell me more" for the rest; 9-12 and 13-17 see the whole step. Only the text is cut, not rewritten.',
+        'R11_T1 D11: the teacher spoke the same way to every age. An early-years educator should check the cut and rewrite the longest steps.',
+        NATIVE, ['R11_T1'], 'normal', sub='children')
+    add('academy.wasia-memorise-answer', 'sakina', 'Wasia > the answer to "how do I memorise the Qur\'an?"',
+        'lib/features/academy/data/offline_wasia_provider.dart', '_knowledge (memorisation entry)',
+        'A short answer on repeating a little each day, listening to a reciter, and learning with a qualified teacher; no ruling, no fixed method.',
+        'R11_T1: the question got "Shall we get back to your letters?". A Qur\'an teacher should read it.',
+        FIQH, ['R11_T1'], 'normal', sub='children')
+
     # ------------------------------------------------ fix pass C (child mode, privacy, elder)
     add('kids.child-mode-surahs', 'quran-text', 'Child mode > the short surahs a child can open',
         'lib/app/core/child_mode.dart', 'kChildSurahs',

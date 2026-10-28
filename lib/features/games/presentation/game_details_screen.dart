@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -91,7 +92,7 @@ class GameDetailsScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 for (final PlayMode m in PlayMode.values)
-                  if (g.modes.contains(m))
+                  if (g.offersMode(m, child: kChildMode.value))
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: Column(
