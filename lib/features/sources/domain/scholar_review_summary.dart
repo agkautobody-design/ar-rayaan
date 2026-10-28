@@ -59,10 +59,10 @@ const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Hadith / aqidah scholar', 2448),
     ScholarReviewerCount('Fiqh scholar (per madhab)', 623),
     ScholarReviewerCount('Women\'s scholar', 151),
-    ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 524),
+    ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 525),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1015),
     ScholarReviewerCount('Native speaker (ar / bn / ur)', 279),
     ScholarReviewerCount('Privacy lawyer', 15),
-    ScholarReviewerCount('Rights holder / licensing (not a scholar)', 7),
+    ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),
 ];

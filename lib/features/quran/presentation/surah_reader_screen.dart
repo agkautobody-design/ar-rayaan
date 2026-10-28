@@ -40,7 +40,12 @@ import '../../downloads/presentation/surah_download_button.dart';
 import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
+import '../../../app/core/scholar_review.dart' show kScholarReviewNeeded;
+import '../application/quran_translit.dart';
 import '../application/test_me_provider.dart';
+import '../../reading/application/reading_prefs.dart';
+import '../../reading/presentation/arabic_block.dart';
+import '../../reading/presentation/reading_settings.dart';
 import '../application/translation_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
@@ -477,6 +482,23 @@ class _ReaderState extends ConsumerState<_Reader> {
             style: AppText.bodyMuted.copyWith(fontSize: 12),
             textAlign: TextAlign.center,
           ),
+          Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? _) {
+              final ReadingPrefs p = ref.watch(readingPrefsProvider);
+              if (!p.showTranslit) return const SizedBox.shrink();
+              return Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Text(
+                  'The Latin letters are a reading aid made by a program from '
+                  'the Arabic. $kScholarReviewNeeded. Listen to a reciter for '
+                  'the exact sound.',
+                  key: const Key('reader-translit-note'),
+                  style: AppText.caption.copyWith(fontSize: 12, height: 1.4),
+                  textAlign: TextAlign.center,
+                ),
+              );
+            },
+          ),
           if (showBismillah) ...[
             const SizedBox(height: 14),
             Divider(
@@ -631,6 +653,20 @@ class _ReaderToolbar extends ConsumerWidget {
                 size: 18,
               ),
               label: Text(hiding ? 'Show text' : 'Hide text / test me'),
+            ),
+          ),
+          if (!kid)
+          Tooltip(
+            message: 'Choose what is shown with the Arabic',
+            child: TextButton.icon(
+              key: const Key('reader-reading-support'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: AppColors.gold,
+              ),
+              onPressed: () => unawaited(showReadingSupportSheet(context)),
+              icon: const Icon(Icons.translate_outlined, size: 18),
+              label: const Text('Reading support'),
             ),
           ),
           if (!kid && count != null && count > 1)
@@ -890,7 +926,14 @@ class _AyahBlock extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final Map<String, String> trAll =
         ref.watch(transliterationProvider).value ?? const <String, String>{};
-    final String? tr = trAll['$surahNumber:${ayah.number}'];
+    // The full set (every ayah) first; the older short list only if the full
+    // set could not be read.
+    final Map<String, String> trFull =
+        ref.watch(quranTranslitProvider).value ?? const <String, String>{};
+    final String? tr =
+        trFull['$surahNumber:${ayah.number}'] ??
+        trAll['$surahNumber:${ayah.number}'];
+    final ReadingPrefs reading = ref.watch(readingPrefsProvider);
     final bool playing = ref.watch(
       recitationServiceProvider.select(
         (RecitationState s) => s.surah == surahNumber && s.ayah == ayah.number,
@@ -904,6 +947,8 @@ class _AyahBlock extends ConsumerWidget {
     final bool saved = mark?.bookmarked ?? false;
     final bool hasNote = mark?.note.isNotEmpty ?? false;
     final bool elder = ref.watch(elderModeProvider);
+    LayerView trView = reading.translit();
+    if (elder && trView == LayerView.button) trView = LayerView.shown;
     // "Hide text / test me" covers the transliteration and the translation
     // too, until the ayah is tapped open.
     final bool covered = ayahIsCovered(ref, surahNumber, ayah.number);
@@ -955,24 +1000,22 @@ class _AyahBlock extends ConsumerWidget {
                 ),
               ),
               ),
-              if (covered)
+              if (covered || trView == LayerView.hidden || !_usable(tr))
                 const SizedBox(height: 8)
-              else if (_usable(tr)) ...[
+              else ...[
                 const SizedBox(height: 4),
-                Text(
-                  tr!,
-                  style: AppText.body.copyWith(
-                    fontSize: 12.5 * follow,
-                    height: 1.6,
-                    fontStyle: FontStyle.italic,
-                    color: const Color(0xFFCFBE92),
-                  ),
+                TranslitLayer(
+                  text: tr!,
+                  view: trView,
+                  fontSize: 12.5 * follow,
+                  // The full set is machine-made (see the note under the
+                  // surah); the short older list is not flagged per ayah.
+                  needsReview: false,
                 ),
                 const SizedBox(height: 6),
-              ] else
-                const SizedBox(height: 8),
+              ],
               // Urdu and Arabic packs read right to left.
-              if (!covered)
+              if (!covered && reading.showMeaning)
               Directionality(
                 textDirection: ref.watch(translationRtlProvider)
                     ? TextDirection.rtl

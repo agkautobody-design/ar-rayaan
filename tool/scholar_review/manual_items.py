@@ -30,11 +30,12 @@ def add_all(R):
         'Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched.',
         'OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk).',
         RIGHTS, ['docs/OWNER_ACTIONS.md item 5'], 'normal', sub='licence')
-    add('quran.translit-59', 'quran-text', "Qur'an reader > transliteration, and search",
-        'assets/quran (transliteration)', 'transliteration 59 of 6,236 ayahs',
-        "The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy.",
-        'FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist.',
-        RIGHTS, ['FIX_QURAN_HADITH_REPORT (transliteration 59/6236)'], 'high', also=[ARABIC], sub='transliteration')
+    add('quran.translit-generated', 'quran-text', "Qur'an reader > transliteration under every ayah; Home daily verse; Academy",
+        'assets/quran/translit_en.json; tool/translit/build_quran_translit.py', 'transliteration of all 6,236 ayahs',
+        "The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrophe for ayn, and the licence need a check.",
+        'The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide.',
+        ARABIC, ['docs/DATA_SOURCES.md T1', 'docs/OWNER_ACTIONS.md item 23'], 'high', also=[RIGHTS], sub='transliteration',
+        surf='Under every ayah in the reader')
     add('quran.translit-accuracy', 'quran-text', "Qur'an reader > transliteration; lesson say-steps",
         'assets/academy/phrases/*.json; assets/adhkar/adhkar.json; assets/finance/ramadan.json', 'all transliterations',
         'Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author\'s own learning aid.',

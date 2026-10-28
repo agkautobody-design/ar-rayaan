@@ -133,11 +133,11 @@
   "Hadith / aqidah scholar": 2448,
   "Fiqh scholar (per madhab)": 623,
   "Women's scholar": 151,
-  "Arabic / tajweed / qira'at specialist": 524,
+  "Arabic / tajweed / qira'at specialist": 525,
   "Clinician (Sakina and health content)": 1015,
   "Native speaker (ar / bn / ur)": 279,
   "Privacy lawyer": 15,
-  "Rights holder / licensing (not a scholar)": 7,
+  "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
@@ -80549,24 +80549,25 @@
    "status": "open"
   },
   {
-   "id": "quran.translit-59",
+   "id": "quran.translit-generated",
    "area": "quran-text",
    "subarea": "transliteration",
-   "where_in_app": "Qur'an reader > transliteration, and search",
-   "file": "assets/quran (transliteration)",
-   "key": "transliteration 59 of 6,236 ayahs",
-   "what_to_review": "The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy.",
-   "why_flagged": "FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist.",
-   "reviewer_type": "Rights holder / licensing (not a scholar)",
+   "where_in_app": "Qur'an reader > transliteration under every ayah; Home daily verse; Academy",
+   "file": "assets/quran/translit_en.json; tool/translit/build_quran_translit.py",
+   "key": "transliteration of all 6,236 ayahs",
+   "what_to_review": "The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrophe for ayn, and the licence need a check.",
+   "why_flagged": "The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide.",
+   "reviewer_type": "Arabic / tajweed / qira'at specialist",
    "also_reviewers": [
-    "Arabic / tajweed / qira'at specialist"
+    "Rights holder / licensing (not a scholar)"
    ],
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "FIX_QURAN_HADITH_REPORT (transliteration 59/6236)"
+    "docs/DATA_SOURCES.md T1",
+    "docs/OWNER_ACTIONS.md item 23"
    ],
-   "label_surface": "",
+   "label_surface": "Under every ayah in the reader",
    "status": "open"
   },
   {
