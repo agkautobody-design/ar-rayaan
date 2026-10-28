@@ -44,13 +44,21 @@ abstract final class FirebaseBootstrap {
         )
       : null;
 
+  static const Duration initTimeout = Duration(seconds: 8);
+
   /// Initializes Firebase when configured; returns whether Firebase is
   /// live. Never throws — any misconfiguration falls back to local mode.
+  ///
+  /// On the web the Firebase SDK is a script fetched from Google's servers at
+  /// start-up. When that fetch cannot complete (offline, a blocked domain, a
+  /// captive portal) the SDK's future never finishes, and the app sat on its
+  /// splash forever. Waiting longer than [initTimeout] means "not available":
+  /// the app starts in local mode, as it does for any other Firebase failure.
   static Future<bool> maybeInit() async {
     final FirebaseOptions? options = _options;
     if (options == null) return false;
     try {
-      await Firebase.initializeApp(options: options);
+      await Firebase.initializeApp(options: options).timeout(initTimeout);
       return true;
     } catch (_) {
       return false;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -60,12 +60,8 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
         );
       },
     );
-    await Clipboard.setData(ClipboardData(text: text));
-    if (mounted) {
-      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-        const SnackBar(content: Text('Copied as text')),
-      );
-    }
+    if (!mounted) return;
+    await copyWithFeedback(context, text, message: 'Copied as text');
   }
 
   @override

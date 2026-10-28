@@ -26,7 +26,16 @@ Future<void> copyHelpContact(
   try {
     await Clipboard.setData(ClipboardData(text: text));
   } catch (_) {
-    // Clipboard blocked: the number is still on screen in plain text.
+    // Clipboard blocked: say so, and point at the number on screen. A
+    // "Copied" message over a failed copy would be a lie.
+    messenger?.showSnackBar(
+      SnackBar(
+        content: Text(
+          'Could not copy. The number is on this screen: ${resource.contact}',
+        ),
+      ),
+    );
+    return;
   }
   messenger?.showSnackBar(
     SnackBar(

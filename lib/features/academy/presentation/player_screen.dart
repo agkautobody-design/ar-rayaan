@@ -376,8 +376,14 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
       ];
       final int at = entries.indexWhere(
           (StreamEntry e) => e.title == t.title && e.artist == t.artist);
-      await playStreamEntries(ref, entries, at < 0 ? 0 : at);
+      final bool started =
+          await playStreamEntries(ref, entries, at < 0 ? 0 : at);
       if (!mounted) return;
+      if (!started) {
+        _say('Could not open the player for \u201c${t.title}\u201d. Check '
+            'your connection, or allow pop-ups for this site, then try again.');
+        return;
+      }
       _say('Playing \u201c${t.title}\u201d in the player at the top of the '
           'page.');
       return;

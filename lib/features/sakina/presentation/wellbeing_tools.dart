@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -172,13 +172,11 @@ class _MoodCheckInScreenState extends ConsumerState<MoodCheckInScreen> {
             TextButton.icon(
               icon: const Icon(Icons.copy_outlined, size: 16),
               label: const Text('Copy my check-ins'),
-              onPressed: () async {
-                final ScaffoldMessengerState m = ScaffoldMessenger.of(context);
-                try {
-                  await Clipboard.setData(ClipboardData(text: _store.exportText()));
-                } catch (_) {}
-                m.showSnackBar(const SnackBar(content: Text('Copied.')));
-              },
+              onPressed: () => copyWithFeedback(
+                context,
+                _store.exportText(),
+                message: 'Copied.',
+              ),
             ),
             TextButton.icon(
               icon: const Icon(Icons.delete_outline, size: 16),
@@ -438,15 +436,11 @@ class _SafetyPlanScreenState extends ConsumerState<SafetyPlanScreen> {
               child: const Text('Save'),
             ),
             OutlinedButton(
-              onPressed: () async {
-                final ScaffoldMessengerState m = ScaffoldMessenger.of(context);
-                try {
-                  await Clipboard.setData(
-                    ClipboardData(text: _current().exportText()),
-                  );
-                } catch (_) {}
-                m.showSnackBar(const SnackBar(content: Text('Copied.')));
-              },
+              onPressed: () => copyWithFeedback(
+                context,
+                _current().exportText(),
+                message: 'Copied.',
+              ),
               child: const Text('Copy'),
             ),
             TextButton(

@@ -6,15 +6,15 @@
 library;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/open_link.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 import '../application/nasheed_request_provider.dart';
 import '../domain/nasheed_request.dart';
 
@@ -65,14 +65,13 @@ class _RequestNasheedScreenState extends ConsumerState<RequestNasheedScreen> {
         query: 'subject=${Uri.encodeComponent('Nasheed request: ${r.title}')}'
             '&body=${Uri.encodeComponent(r.shareText)}',
       );
-      await launchUrl(mail);
+      await openLinkWithFeedback(context, mail);
     } else {
-      await Clipboard.setData(ClipboardData(text: r.shareText));
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Request copied — paste it to the founder')),
-        );
-      }
+      await copyWithFeedback(
+        context,
+        r.shareText,
+        message: 'Request copied — paste it to the founder',
+      );
     }
   }
 
