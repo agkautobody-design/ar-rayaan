@@ -55,6 +55,41 @@ The Zakat screen in this app shows both positions. If you follow no particular s
   go=['/zakat'],
   review='Jewelry positions per school are standard fiqh teaching (and match the Zakat screen); not text-checked here.')
 
+E('zakat-installments',
+  m=[r'\b(?:pay|paying|give|giving|spread|split|divide|dividing)\b.*\bzakat\b.*\b(?:in|by|over|into)\b.*\b(?:instal?lments?|parts?|pieces|stages|portions|months|monthly|weeks|weekly|slowly|bits|chunks|payments)\b',
+     r'\bzakat\b.*\b(?:instal?lments?|in parts|monthly|bit by bit|little by little|spread out|paid slowly|pay late|pay later|pay it late|pay it later|delay\w*|postpon\w*)\b',
+     r'\b(?:pay|paying|give|giving)\b.*\bin instal?lments?\b.*\bzakat\b', r'\bzakat\b.*\bin advance\b', r'\b(?:pay|paying|give|giving) zakat (?:early|before)\b'],
+  x=[r'\b(?:mortgage\w*|loans?|credit cards?|car payments?|rent|bills|debts?)\b', r'\b(?:fitr|fitra|recipients?)\b'],
+  topic='zakat',
+  text="""
+Paying in parts depends on whether it is before the due date or after it.
+
+Before it is due, yes. It is reported that Al-Abbas asked the Prophet ﷺ about paying his zakat early, before the year was complete, and that he allowed it ({HW tirmidhi:678|Ali reported that Al-Abbas asked the Messenger of Allah about paying his zakat early, before it was due, and he gave him permission}). Al-Albani and Ahmad Shakir graded this report hasan, so the graders differ, and most scholars accept the early payment. So you may set an amount aside each month and give it as zakat, saying in your heart that it is your zakat when you give it. On your zakat date, work out the full amount. If what you gave is less, give the rest then. If it is more, ask a scholar whether the extra may count towards next year. The schools differ on how far ahead you may pay, so a scholar of your school should confirm.
+
+After it is due, no: once the year has passed, zakat is owed, and most scholars say it should be paid promptly. Delaying it without a reason is wrong, and unpaid zakat stays owed. If you cannot pay it all at once, for example because your money is tied up, pay what you can now and the rest as soon as you can, and ask a scholar who knows your case what is allowed.
+
+The Zakat calculator keeps your numbers on your device and works out the full amount for your date.
+""",
+  go=['/zakat', '/huda/guide?id=huda-zakat'],
+  review='Early payment (ta\'jil) is taken from the report of Al-Abbas and the majority view; how far ahead, and whether an overpayment may be set against next year, differ by school and are not text-checked here. The rule that a delay without a reason is wrong, and that a person who cannot pay at once should pay what they can and ask a scholar, is a general statement of the majority position.')
+
+E('zakat-sum',
+  m=[r'\bzakat\b.*\b\d{2,}\b', r'\b\d{2,}\b.*\bzakat\b'],
+  x=[r'\b(?:fitr|fitra|fitrana|recipients?)\b', r'\b(?:grams?|gms?|tola|carat|karat|jewel\w*|gold|silver|hajj|umrah|days?|years?|months?|rakahs?|ayah|surah|verse|hadith|chapter|page|lesson)\b', r'\bpay (?:it )?in (?:instal?lments?|parts)\b', r'\b(?:mortgage\w*|loans?|credit cards?|debts?)\b'],
+  topic='zakat',
+  text="""
+To find your zakat, take 2.5% of the zakatable wealth you hold on your zakat date, which is the same as dividing it by 40. That is your figure only when three things are true:
+- It is at or above the nisab: the value of 85 grams of gold or 595 grams of silver in your own currency. The Prophet ﷺ set the silver measure at five awqiyah ({H bukhari:1447|The Prophet said there is no zakat on less than five awaq of silver, nor on less than five camels or five wasqs of produce}). The Zakat calculator can fill in today's gold and silver prices.
+- It has stayed at or above the nisab for one full lunar year (the hawl).
+- It is wealth that is yours to use: savings, cash, gold and silver, and goods you hold to sell count. The home you live in and the things you use every day do not.
+
+Debts that are due now may be taken off first, depending on your school; ask me "what about debts". Money you spent before the year ended is not counted.
+
+For your exact figure with today's prices, open the Zakat calculator. It keeps your numbers on your device.
+""",
+  go=['/zakat', '/huda/guide?id=huda-zakat'],
+  review='Rate, nisab and the hawl are standard fiqh teaching and match the Zakat screen. The figure worked out in the line above this answer is arithmetic only (amount divided by 40).')
+
 E('zakat-due',
   m=[r'\bwhen (?:is|does|do|should|must|will|did|are)\b.*\bzakat\b.*\b(?:due|payable|pay|paid|obligatory|required|owed|fall|falls|start|starts|begin|begins|become|becomes|calculated)\b',
      r'\bwhen (?:to|do i|should i|must i|can i|shall i) (?:pay|give|calculate|work out) (?:my |the )?zakat\b',
@@ -79,8 +114,8 @@ Zakat al-fitr is a separate charity at the end of Ramadan; ask me about it by na
   review='The one-year condition and the choice of a fixed date are standard fiqh teaching; the Hanafi versus other schools position on wealth that falls below the nisab mid-year is a school difference not text-checked here. The hawl report is cited as da\'if per Darussalam with the al-Albani grade stated as a difference.')
 
 E('zakat-debts',
-  m=[r'\bzakat\b.*\b(?:debts?|loans?|owe|owed|owing|mortgage\w*|credit cards?|liabilit\w*|borrow\w*|in debt|instal?lments?|arrears|bills)\b',
-     r'\b(?:debts?|loans?|owe|owed|owing|mortgage\w*|credit cards?|liabilit\w*|in debt|instal?lments?)\b.*\bzakat\b'],
+  m=[r'\bzakat\b.*\b(?:debts?|loans?|owe money|owed money|money i owe|i owe (?:people|someone|the bank|a lot)|owing money|mortgage\w*|credit cards?|liabilit\w*|borrow\w*|in debt|arrears|bills)\b',
+     r'\b(?:debts?|loans?|owe money|owed money|money i owe|i owe (?:people|someone|the bank|a lot)|owing money|mortgage\w*|credit cards?|liabilit\w*|in debt)\b.*\bzakat\b'],
   x=[r'\b(?:recipients?|who can receive|who gets|eligib\w*)\b'],
   topic='zakat',
   text="""

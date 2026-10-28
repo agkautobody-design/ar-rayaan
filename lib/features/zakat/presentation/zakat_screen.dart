@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
@@ -128,10 +130,74 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
     _c['penalty']!.text = '30';
     _initCurrency();
     _loadSaved();
+    _restoreTypedPrices();
     for (final c in _c.values) {
       c.addListener(() => setState(() {}));
     }
     _c['currency']!.addListener(_onCurrencyChanged);
+    _c['goldPrice']!.addListener(_onPriceTyped);
+    _c['silverPrice']!.addListener(_onPriceTyped);
+  }
+
+  static const String _typedPricesPrefix = 'zakat.typed_prices.v1.';
+  bool _restoringTyped = false;
+
+  String get _typedKey => '$_typedPricesPrefix${_code ?? ''}';
+
+  /// Prices the person typed (not fetched) are kept on this device, per
+  /// currency, so the next visit does not start from empty boxes. Balances
+  /// are never kept.
+  void _onPriceTyped() {
+    if (_restoringTyped) return;
+    // Typing the prices is the way out of a "could not get prices" message.
+    if (_priceNoteIsError &&
+        _c['goldPrice']!.text.trim().isNotEmpty &&
+        _c['silverPrice']!.text.trim().isNotEmpty) {
+      setState(() {
+        _priceNote = null;
+        _priceNoteIsError = false;
+      });
+    }
+    if (_code == null || _livePricesInUse) return;
+    final String g = _c['goldPrice']!.text.trim();
+    final String sv = _c['silverPrice']!.text.trim();
+    try {
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      if (g.isEmpty && sv.isEmpty) {
+        unawaited(prefs.remove(_typedKey));
+      } else {
+        unawaited(prefs.setString(_typedKey, '$g|$sv'));
+      }
+    } catch (_) {
+      // Remembering them is a convenience.
+    }
+  }
+
+  /// Puts back the prices typed here last time in the current currency, if
+  /// the boxes are empty (or hold typed prices of another currency), and says
+  /// so.
+  void _restoreTypedPrices() {
+    if (_code == null || _livePricesInUse) return;
+    String? raw;
+    try {
+      raw = ref.read(sharedPreferencesProvider).getString(_typedKey);
+    } catch (_) {
+      raw = null;
+    }
+    if (raw == null) return;
+    final List<String> parts = raw.split('|');
+    if (parts.length != 2 || (parts[0].isEmpty && parts[1].isEmpty)) return;
+    _restoringTyped = true;
+    try {
+      _c['goldPrice']!.text = parts[0];
+      _c['silverPrice']!.text = parts[1];
+    } finally {
+      _restoringTyped = false;
+    }
+    _priceNoteIsError = false;
+    _priceNote = 'The gold and silver prices you typed here last time in '
+        '${_code!} are back in the boxes. They are not live; check them '
+        'before relying on the result.';
   }
 
   /// The phone's region: the first language in the device list that carries
@@ -192,6 +258,17 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   void _onCurrencyChanged() {
     final String code = _code ?? '';
     if (code == _savedFor) return;
+    // A message about getting prices in the old currency is not about this
+    // one: clear it, and put back any prices typed before in this currency.
+    if (mounted) {
+      setState(() {
+        if (_priceNoteIsError) {
+          _priceNote = null;
+          _priceNoteIsError = false;
+        }
+        _restoreTypedPrices();
+      });
+    }
     _loadSaved();
   }
 

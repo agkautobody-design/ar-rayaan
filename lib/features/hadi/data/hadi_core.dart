@@ -212,6 +212,11 @@ abstract final class HadiCore {
 
   static final RegExp _tokenRe = RegExp(r'\s*\[GO:[^\]]*\]');
 
+  static final String _zakatSumBody = <String>[
+    for (final CoreEntry e in kHadiCoreEntries)
+      if (e.id == 'zakat-sum') _body(e.answer),
+  ].join();
+
   static String _body(String s) =>
       s.replaceAll(_tokenRe, '').replaceAll(RegExp(r'\s+'), ' ').trim();
 
@@ -247,9 +252,11 @@ abstract final class HadiCore {
   static bool isCoreAnswer(String reply) {
     final String b = _body(reply);
     if (_answerBodies.contains(b)) return true;
-    // A note added under the answer (the general-ruling footer) does not make
-    // it a different answer.
-    return _answerBodies.any(b.startsWith);
+    // A note added under the answer (the general-ruling footer), or the line
+    // of arithmetic above the zakat answer, does not make it a different
+    // answer.
+    return _answerBodies.any(b.startsWith) ||
+        (b.contains(_zakatSumBody) && _zakatSumBody.isNotEmpty);
   }
 
   // ── Short follow-ups ("how much?", "what breaks it?") ────────────────
@@ -391,13 +398,57 @@ abstract final class HadiCore {
       );
     }
     final CoreEntry? e = _find(c);
-    if (e != null) return CoreHit(e, e.answer);
+    if (e != null) return CoreHit(e, _personal(e, question));
     final String? expanded = expandFollowUp(question, history);
     if (expanded != null) {
       final CoreEntry? f = _find(expanded);
-      if (f != null) return CoreHit(f, f.answer);
+      if (f != null) return CoreHit(f, _personal(f, question));
     }
     return null;
+  }
+
+  /// The entry's answer, with one line of arithmetic above it for the
+  /// "how much zakat on 10,000" question. Nothing else is changed, and the
+  /// entry's own text is still the answer (see [isCoreAnswer]).
+  static String _personal(CoreEntry e, String question) {
+    if (e.id != 'zakat-sum') return e.answer;
+    final String? line = zakatLine(question);
+    return line == null ? e.answer : '$line\n\n${e.answer}';
+  }
+
+  static final RegExp _amountRe = RegExp(
+    r'(\d[\d,]*)(\.\d+)?\s*(k|thousand|million)?(?![a-z\d])',
+    caseSensitive: false,
+  );
+
+  /// "2.5% of 10,000 is 250" for the first amount in [question], or null when
+  /// it has none that could be savings. Plain arithmetic; the nisab, the year
+  /// and the debts are in the answer under it.
+  static String? zakatLine(String question) {
+    for (final Match m in _amountRe.allMatches(question)) {
+      final String digits = (m.group(1) ?? '').replaceAll(',', '');
+      double? v = double.tryParse('$digits${m.group(2) ?? ''}');
+      if (v == null) continue;
+      final String suffix = (m.group(3) ?? '').toLowerCase();
+      if (suffix == 'k' || suffix == 'thousand') v *= 1000;
+      if (suffix == 'million') v *= 1000000;
+      if (v < 50 || v > 1e12) continue;
+      return 'For ${_money(v)}: 2.5% is ${_money(v / 40)}. That is your zakat '
+          'only if the whole ${_money(v)} is savings you have held for a '
+          'full lunar year and it is at or above the nisab, as below.';
+    }
+    return null;
+  }
+
+  static String _money(double v) {
+    final String s =
+        v == v.roundToDouble() ? v.round().toString() : v.toStringAsFixed(2);
+    final List<String> parts = s.split('.');
+    final String whole = parts[0].replaceAllMapped(
+      RegExp(r'\B(?=(\d{3})+(?!\d))'),
+      (Match _) => ',',
+    );
+    return parts.length > 1 ? '$whole.${parts[1]}' : whole;
   }
 }
 

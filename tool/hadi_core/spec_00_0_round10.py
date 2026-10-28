@@ -30,7 +30,7 @@ E('app-tracking',
   topic='privacy',
   text="""
 Here is what the app's own Privacy policy and screens say, without adding anything:
-- Your settings, bookmarks, progress, reflections and your chats with me are stored on your device. Clearing the app's data erases them.
+- Your settings, bookmarks, progress and reflections are stored on your device. Clearing the app's data erases them. My conversation with you is not saved: it stays on screen for this visit only.
 - "We do not sell personal data or show advertising based on it."
 - The Sources screen and the Support and wellbeing screen both say that nothing there is sent to analytics, and I know of no analytics or advertising service in the app.
 - My answers come from a library built into the app. Only if you add your own AI key do your messages go to that provider. Messages that look like a personal crisis are answered on the device and are not sent or saved.

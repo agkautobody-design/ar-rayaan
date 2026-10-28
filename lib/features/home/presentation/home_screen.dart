@@ -15,7 +15,7 @@ import '../../../app/core/modules/module_status.dart';
 import '../../../app/core/providers.dart';
 import '../../onboarding/presentation/onboarding_screen.dart';
 import '../domain/next_step.dart';
-import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen;
+import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen, pathRevisionProvider;
 import '../../academy/application/academy_providers.dart';
 import '../../academy/application/family_service.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
@@ -232,13 +232,13 @@ class HomeScreen extends ConsumerWidget {
     // tile is not pushed below the fold.
     final bool compact =
         textScale > 1.3 || MediaQuery.sizeOf(context).width < 380;
-    bool newToIslam = false;
-    try {
-      newToIslam = ref
-              .read(sharedPreferencesProvider)
-              .getString(OnboardingScreen.needPref) ==
-          'new';
-    } catch (_) {}
+    // The goal chosen in the introduction. Watched, so a Home built before
+    // the choice shows the choice's next step as soon as it is back in view.
+    final String? needNow = ref.watch(homeNeedProvider);
+    final bool newToIslam = needNow == 'new';
+    // Someone who is new to Islam, or only here to learn about it, gets a
+    // plain greeting: no prayer for a blessing on a day they did not ask for.
+    final bool plainGreeting = needNow == 'new' || needNow == 'learn';
     final NextStep step = _nextStepFor(
       ref,
       academyOn: showAcademy,
@@ -337,7 +337,7 @@ class HomeScreen extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                ui(newToIslam ? 'home.greeting.new' : 'home.greeting'),
+                                ui(plainGreeting ? 'home.greeting.new' : 'home.greeting'),
                                 style: AppText.bodyMuted.copyWith(fontSize: 12),
                               ),
                               Text(
@@ -358,7 +358,7 @@ class HomeScreen extends ConsumerWidget {
                               if (textScale <= 1.3) ...[
                                 const SizedBox(height: 8),
                                 Text(
-                                  ui(newToIslam ? 'home.blessing.new' : 'home.blessing'),
+                                  ui(plainGreeting ? 'home.blessing.new' : 'home.blessing'),
                                   style: AppText.bodyMuted.copyWith(
                                     fontSize: 12,
                                     height: 1.5,
@@ -370,6 +370,14 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       SizedBox(height: compact ? 8 : 16),
+              // Someone new to Islam sees the 30-day road first, ahead of
+              // Elder Mode and Quick Access.
+              if (newToIslam)
+                _NextStepCard(
+                  step: step,
+                  compact: compact,
+                  label: ui('home.nextStep'),
+                ),
               _SemanticTap(
                 label: ref.watch(elderModeProvider)
                     ? '${ui('home.elder')}, ${ui('home.elderOn')}. Open the Elder home.'
@@ -450,11 +458,12 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               quick,
-              _NextStepCard(
-                step: step,
-                compact: compact,
-                label: ui('home.nextStep'),
-              ),
+              if (!newToIslam)
+                _NextStepCard(
+                  step: step,
+                  compact: compact,
+                  label: ui('home.nextStep'),
+                ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Semantics(
@@ -707,11 +716,12 @@ NextStep _nextStepFor(
   required int? adhkarLeft,
   required String? quranResume,
 }) {
-  String? need;
+  final String? need = ref.watch(homeNeedProvider);
+  // Ticking a day of the road, here or inside the day, re-reads this.
+  ref.watch(pathRevisionProvider);
   int newMuslimDone = 0;
   try {
     final SharedPreferences p = ref.read(sharedPreferencesProvider);
-    need = p.getString(OnboardingScreen.needPref);
     if (need == 'new') {
       for (final String k in p.getKeys()) {
         if (k.startsWith(NewMuslimPathScreen.donePrefix) &&

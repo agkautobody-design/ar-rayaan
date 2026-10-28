@@ -1170,8 +1170,11 @@ class _CrisisHelpPanelState extends ConsumerState<_CrisisHelpPanel> {
 /// citation, the Arabic and translation, and for a hadith its grade and who
 /// gave it. Tapping it opens the surah for a verse, or Our Sources for a
 /// hadith, and the card says so.
-class _PassageCard extends StatelessWidget {
-  const _PassageCard({required this.passage});
+/// A verse or hadith printed from the app's own library, with its Arabic,
+/// translation and (for a hadith) grade. Shared by the chat and by the
+/// "Ask Hadi about this" sheet in the games.
+class HadiPassageCard extends StatelessWidget {
+  const HadiPassageCard({required this.passage});
 
   final Passage passage;
 
@@ -1412,7 +1415,7 @@ class _Bubble extends ConsumerWidget {
                             color: AppColors.sand.withValues(alpha: 0.9),
                           ),
                         ),
-                        for (final Passage p in passages) _PassageCard(passage: p),
+                        for (final Passage p in passages) HadiPassageCard(passage: p),
                         const ScholarReviewNote(
                           key: Key('hadi-review-note'),
                           reviewKey: 'hadi',

@@ -14,6 +14,12 @@ import '../../../app/router.dart';
 import '../data/stories_repository.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
+/// Bumped whenever a day of the New Muslim Path is ticked or un-ticked,
+/// wherever that happens (the road list, or inside the day itself), so the
+/// road, Home's next step and the count all re-read at once.
+final StateProvider<int> pathRevisionProvider =
+    StateProvider<int>((Ref ref) => 0);
+
 /// The New Muslim 30-Day Path — the same thirty lessons that live in the
 /// Stories library, walked here as a guided road: one gentle step a day,
 /// progress remembered on this device, and a door back to the library
@@ -53,10 +59,14 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
     final SharedPreferences p = await SharedPreferences.getInstance();
     await p.setBool('${NewMuslimPathScreen.donePrefix}$id', value);
     await _load();
+    if (mounted) ref.read(pathRevisionProvider.notifier).state++;
   }
 
   @override
   Widget build(BuildContext context) {
+    // A day ticked inside the lesson changes the count the moment the lesson
+    // is closed, not the next time this road is opened.
+    ref.listen<int>(pathRevisionProvider, (int? _, int __) => _load());
     final stories = ref.watch(storiesProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,

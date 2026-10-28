@@ -113,8 +113,8 @@ const String kRingEmptyLine = 'Start whenever you like.';
 
 const String kRingExplanation =
     'This ring starts empty, and that is fine: start whenever you like. It '
-    'fills as you do five things: count your '
-    'adhkar today (up to 45%), save a reflection (15%), finish a lesson (15%), '
-    'open a surah (10%), and write down ayat you have memorised (up to 15%, '
-    'in proportion to the ayat in your Hifz plan, so 564 ayat of Juz Amma '
-    'fill it). It is a starting guide, not a score.';
+    'fills as you do five things: count your adhkar today (the largest '
+    'part), save a reflection, finish a lesson, open a surah, and write down '
+    'ayat you have memorised (in proportion to the ayat in your Hifz plan, '
+    'so 564 ayat of Juz Amma fill that part). It is a starting guide, not a '
+    'score.';
