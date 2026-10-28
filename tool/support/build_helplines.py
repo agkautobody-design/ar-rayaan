@@ -107,6 +107,7 @@ v('nz-refuge', 'NZ', 'Women\'s Refuge', '0800 733 843', ['domestic-abuse'], '24/
 v('nz-safetotalk', 'NZ', 'Safe to talk (sexual harm)', '0800 044 334', ['sexual-violence'], '24/7', 'https://www.safetotalk.nz/contact-us/', text='Text 4334')
 v('nz-111', 'NZ', 'Emergency services', '111', ['emergency'], '24/7', 'https://www.govt.nz/browse/law-crime-and-justice/crimes-and-emergencies/111-emergency-service/', note='Cost and hours not stated on the page.')
 # ---------------------------------------------------------------- Saudi Arabia
+v('ca-gbv-provincial', 'CA', 'Find your province or territory\u2019s crisis line for gender-based violence', None, ['domestic-abuse', 'sexual-violence'], None, 'https://www.canada.ca/en/women-gender-equality/gender-based-violence/get-help-now.html', ['en', 'fr'], text='Open the Government of Canada list', url='https://www.canada.ca/en/women-gender-equality/gender-based-violence/get-help-now.html', aud='adult-or-concerned', note='Canada has no single national line for this. The Government of Canada page lists the provincial and territorial lines and says to call 911 in an emergency (read 2026-10-27).')
 v('sa-937', 'SA', 'Ministry of Health 937 (health information line)', '937', ['general'], '24/7 for medical consultations', 'https://www.moh.gov.sa/Ministry/MediaCenter/Ads/Documents/937%20BOOKLET-V2.pdf',
   ['ar'], note='Health information and consultation. The booklet does not mention mental-health counselling: do not present as a suicide or crisis line.')
 v('sa-1919', 'SA', 'Domestic Violence Reporting Centre', '1919', ['domestic-abuse', 'child', 'elder'], None, 'https://www.hrsd.gov.sa/en/ministry-services/services/%D8%A7%D9%84%D8%A5%D8%A8%D9%84%D8%A7%D8%BA-%D8%B9%D9%86-%D8%A7%D9%84%D8%B9%D9%86%D9%81-%D8%A7%D9%84%D8%A3%D8%B3%D8%B1%D9%8A',
@@ -143,6 +144,9 @@ v('in-181', 'IN', 'Women Helpline', '181', ['domestic-abuse', 'sexual-violence']
 v('in-1098', 'IN', 'CHILDLINE', '1098', ['child'], None, 'https://www.childlineindia.org/', aud='child', note='Hours and cost not stated on the page; it points to 112 for immediate danger.')
 v('in-112', 'IN', 'Emergency (single number)', '112', ['emergency'], '24/7', 'https://112.gov.in/')
 # ---------------------------------------------------------------- Egypt
+v('sa-116111', 'SA', 'Child Helpline (National Family Safety Program)', '116111', ['child'], None, 'https://mngha.med.sa/english/MediaCenter/News/Pages/international-child-helpline-day.aspx', ['ar', 'en'], aud='child', note='Government page writes it as 116 111 and names the National Family Safety Program as operator. Hours not stated there.')
+v('eg-16000', 'EG', 'Child Rescue Hotline (National Council for Childhood and Motherhood)', '16000', ['child'], None, 'https://www.cairo.gov.eg/en/news/news-eng/2025/9e6d9746382148bea8cc161d0bbda758', ['ar'], aud='child', note='Number and operator read on the Cairo governorate page about NCCM. Hours not stated on that page.')
+v('eg-15115', 'EG', 'National Council for Women complaints office hotline', '15115', ['domestic-abuse'], None, 'https://unodc.org/romena/en/Stories/2020/December/egypt_-on-the-other-side-of-the-hotline---interview-with-the-head-of-complaints-office-at-the-national-council-for-women-ncw.html', ['ar'], aud='adult-or-concerned', note='UNODC interview (2020) gives the hotline as 15115 for psychological and legal advice. Hours not stated. Re-check against a National Council for Women page when reachable.')
 v('eg-122', 'EG', 'Police emergency (Nagda)', '122', ['emergency'], None, 'https://moi.gov.eg/home/EmergancyNumber', ['ar'], note='Interior Ministry list also gives 180 for civil protection. No ambulance number or 112 on the page.')
 # ---------------------------------------------------------------- Turkey
 v('tr-183', 'TR', 'ALO 183 Social Support Line', '183', ['domestic-abuse', 'child', 'elder', 'general'], '24/7', 'https://aile.gov.tr/yalova/haberler/alo-183-destek-hatti-ile-bizlere-7-24-ulasabilirsiniz/', ['tr'], aud='adult-or-concerned', note='Free from within Turkey. Page dated 2021.')
@@ -166,7 +170,6 @@ t('us-anad', 'US', 'ANAD Eating Disorders Helpline', '1-888-375-7767', ['eating'
 t('sg-sos', 'SG', 'Samaritans of Singapore', '1767', ['suicide', 'general'], 'In the app; not re-confirmed today.')
 t('ca-911', 'CA', 'Emergency services', '911', ['emergency'], 'RCMP page blocked automated reads; not confirmed on an official page.')
 t('ca-smokers', 'CA', 'Smokers\' Helpline', None, ['smoking'], 'Operator page returned no content when fetched.', 'https://www.smokershelpline.ca/')
-t('ca-dv', 'CA', 'Assaulted Women\'s Helpline / provincial DV lines', None, ['domestic-abuse'], 'No national line confirmed; use findahelpline.')
 t('gb-mch', 'GB', 'Muslim Community Helpline', '020 8904 8193', ['muslim', 'general'], 'In the app (checked 2026-10-20); not re-confirmed on an operator page today.')
 t('gb-beat', 'GB', 'Beat Eating Disorders', '0808 801 0677', ['eating'], 'In the app; not re-confirmed today.')
 t('gb-elder', 'GB', 'Action on Elder Abuse helpline', None, ['elder'], 'Operator page blocked automated reads.', 'https://www.elderabuse.org.uk/reporting-options')
@@ -176,7 +179,6 @@ t('au-poison', 'AU', 'Poisons Information Centre', '13 11 26', ['poison'], 'Only
 t('au-butterfly', 'AU', 'Butterfly Foundation', '1800 33 4673', ['eating'], 'In the app; not re-confirmed today.')
 t('nz-elder', 'NZ', 'Elder Abuse Response Service', None, ['elder'], 'Age Concern page gave no number for it.', 'https://ageconcern.org.nz/get-support/elder-abuse-and-neglect-prevention/')
 t('sa-emergency', 'SA', 'Emergency numbers (911, 997, 999)', None, ['emergency'], 'my.gov.sa lists services without digits; numbers not confirmed on an official page.', 'https://my.gov.sa/en/emergency-contact')
-t('sa-child', 'SA', 'Child protection line 116111', '116111', ['child'], 'Not confirmed on an official page.')
 t('ae-hope', 'AE', 'National Mental Health Support Line (800 HOPE)', '800 4673', ['suicide', 'general'], 'No official page found; u.ae mental-health page lists no helpline.', 'https://u.ae/en/information-and-services/health-and-fitness/Health-and-wellbeing/mental-health')
 t('kw-112', 'KW', 'Emergency services', '112', ['emergency'], 'Official e.gov.kw page returned an error.', 'https://e.gov.kw/sites/kgoenglish/Pages/Visitors/TourismInKuwait/EssintialServicesEmergencies.aspx')
 t('kw-mh', 'KW', 'Kuwait mental-health / family lines', None, ['suicide', 'domestic-abuse'], 'No official number found.')
@@ -187,7 +189,6 @@ t('bd-drug', 'BD', 'Department of Narcotics Control', '+880 1908888888', ['addic
 t('in-ncb', 'IN', 'NCB MANAS helpline', '14446', ['addiction'], 'Government page showed no number.', 'https://nmba.dosje.gov.in/toll-free')
 t('in-telemanas-page', 'IN', 'Tele-MANAS operator site', None, ['suicide'], 'telemanas.mohfw.gov.in blocks automated reads; number confirmed via PIB instead.', 'https://telemanas.mohfw.gov.in/')
 t('eg-mh', 'EG', 'Egypt mental-health hotline', None, ['suicide', 'general'], 'Ministry page blocked automated reads.', 'https://nmhp.mohp.gov.eg/mental/web/en', ['ar'])
-t('eg-child', 'EG', 'Child helpline', '16000', ['child'], 'Government page blocked automated reads.', 'https://sis.gov.eg/en/media-center/news/nccm-keen-to-protect-children-s-rights/', ['ar'], aud='child')
 t('eg-ambulance', 'EG', 'Ambulance 123 / unified 112', '123', ['emergency'], 'Interior Ministry page lists neither; 112 reported only unofficially.', 'https://moi.gov.eg/home/EmergancyNumber', ['ar'])
 t('tr-112', 'TR', 'Emergency 112', '112', ['emergency'], 'Both official pages blocked automated reads.', 'https://www.112.gov.tr/', ['tr'])
 t('tr-mh', 'TR', 'Turkey crisis / mental-health line', None, ['suicide', 'general'], 'No official suicide-prevention line confirmed.', None, ['tr'])

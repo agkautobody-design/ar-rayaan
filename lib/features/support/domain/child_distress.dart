@@ -14,6 +14,18 @@ enum ChildDistressKind {
 
   /// "Promise you will keep it secret", "do not tell my mum".
   secret,
+
+  /// Cannot read well, "I am stupid", "something is wrong with me". Answered
+  /// with a kind reply and a referral (teacher, school counsellor, doctor),
+  /// never a diagnosis.
+  learning,
+
+  /// A friend vapes or smokes, "is vaping bad", "they want me to try it".
+  vape,
+
+  /// Has seen, or keeps looking at, things online they should not, and feels
+  /// ashamed. No details are asked for.
+  porn,
 }
 
 /// Plain word matching, English only (CLINICIAN AND SAFEGUARDING REVIEW
@@ -42,6 +54,40 @@ abstract final class ChildDistress {
     'they hit me', 'touched me', 'touches me', 'at home is scary',
     'home is not safe', 'i am not safe', 'i feel unsafe', 'im not safe',
     'someone is hurting me', 'somebody is hurting me',
+    'someone at home hurts me', 'somebody at home hurts me',
+    'someone at home hits me', 'somebody at home hits me',
+    'someone at home is hurting me', 'hurt me at home', 'hurts me at home',
+    'hit me at home', 'hits me at home', 'someone hurt me', 'somebody hurt me',
+    'my dad hits me', 'my mum hits me', 'my mom hits me', 'my dad hurts me',
+    'my mum hurts me', 'my mom hurts me', 'my brother hits me',
+    'my step dad hits me', 'my stepdad hits me', 'my uncle touches me',
+    'my uncle touched me', 'dont feel safe at home', 'do not feel safe at home',
+    'i dont feel safe', 'i do not feel safe', 'afraid to go home',
+    'scared to go home', 'dont want to go back home',
+  ];
+
+  static const List<String> _learning = <String>[
+    'cant read', 'cannot read', 'cant read well', 'dont read well',
+    'bad at reading', 'cant read like', 'reading is hard', 'hard to read',
+    'letters jump', 'letters move', 'dyslexia', 'dyslexic',
+    'something is wrong with me', 'something wrong with me',
+    'wrong with me', 'i am stupid', 'im stupid', 'i am so stupid',
+    'im so stupid', 'i am dumb', 'im dumb',     'everyone else can read',
+  ];
+
+  static const List<String> _vape = <String>[
+    'vape', 'vapes', 'vaping', 'e cigarette', 'e cigarettes', 'ecigarette',
+    'smoke weed', 'smoking weed', 'cigarette', 'cigarettes', 'smoke cigarettes',
+    'friends smoke', 'friends vape', 'try smoking', 'try vaping',
+    'want me to smoke',
+  ];
+
+  static const List<String> _porn = <String>[
+    'porn', 'pornography', 'naked pictures', 'naked photos', 'naked videos',
+    'look at stuff online i should not', 'look at things online i should not',
+    'looked at things i should not', 'watching bad things online',
+    'inappropriate videos', 'inappropriate websites', 'saw something rude online',
+    'keep watching bad videos',
   ];
 
   static const List<String> _school = <String>[
@@ -54,7 +100,8 @@ abstract final class ChildDistress {
     'no friends', 'nobody plays with me', 'no one plays with me',
     'they leave me out', 'leave me out', 'everyone hates me', 'bullies',
     'nobody wants to play with me', 'scared of school', 'afraid of school',
-    'scared to go to school',
+    'scared to go to school', 'everyone laughs', 'they all laugh',
+    'they laugh', 'kids laugh', 'children laugh',
   ];
 
   static const List<String> _scared = <String>[
@@ -75,6 +122,12 @@ abstract final class ChildDistress {
     final String n = ' ${CrisisDetector.normalize(text)} ';
     if (_any(n, _secret)) return ChildDistressKind.secret;
     if (_any(n, _home)) return ChildDistressKind.home;
+    if (_any(n, _porn)) return ChildDistressKind.porn;
+    if (_any(n, _vape)) return ChildDistressKind.vape;
+    // A reading or "something is wrong with me" worry comes before the school
+    // list: "I cannot read well and everyone laughs" is first of all about
+    // reading, and it gets a referral as well as comfort.
+    if (_any(n, _learning)) return ChildDistressKind.learning;
     if (_any(n, _school)) return ChildDistressKind.school;
     // Exam nerves are a school-worry for the student pack, not distress.
     if (n.contains(' exam') || n.contains(' quiz') || n.contains(' test ')) {
@@ -138,6 +191,62 @@ abstract final class ChildDistress {
             'You are not in trouble for feeling this way. Would you like to '
             'say a little more? It also helps to tell $adults. You choose '
             'who. The help lines are just below.';
+      case ChildDistressKind.learning:
+        if (small) {
+          return 'Thank you for telling me. Nothing is wrong with you, and you '
+              'are not stupid. Reading is hard for lots of children, and clever '
+              'children find it hard too. Please tell $adults. They can find '
+              'someone who knows how to help children read. It is not your '
+              'fault, and you can come back to your letters whenever you want.';
+        }
+        if (teen) {
+          return 'Thank you for telling me. Finding reading hard does not mean '
+              'something is wrong with you, and it says nothing about how '
+              'clever you are. Some people read differently, and it can be '
+              'helped. I cannot tell what is causing it, so I will not guess. '
+              'The best next step is to tell $adults, and ask for your reading '
+              'to be looked at properly: a teacher, the school learning-support '
+              'person or counsellor, or a doctor can do that. And if people '
+              'laugh at you, that is not okay, and it is worth telling someone '
+              'about too.';
+        }
+        return 'Thank you for telling me. Nothing is wrong with you, and you are '
+            'not stupid. Many children find reading hard, including very clever '
+            'ones, and it can be helped. I cannot tell what is making it hard, '
+            'so I will not guess. Please tell $adults, and ask them to have your '
+            'reading looked at: a teacher, the school learning-support person or '
+            'a doctor can do that. If people laugh at you, that is not okay, and '
+            'it is worth telling a grown-up about that as well.';
+      case ChildDistressKind.vape:
+        if (small) {
+          return 'Thank you for asking me. You are allowed to say no, even to '
+              'friends. You can say, "No thanks, not for me." Smoke and vapes '
+              'can be bad for a growing body. Please tell $adults if you are '
+              'worried, or if someone wants you to try it.';
+        }
+        return 'Thank you for asking me. You are allowed to say no, even to '
+            'friends, and a simple "No thanks, not for me" is enough. Vapes '
+            'and cigarettes can contain nicotine, which is addictive, and they '
+            'can harm a growing body. If you have already tried it, you are not '
+            'in trouble, and it is not too late to stop. It helps to tell '
+            '$adults, or a school nurse or doctor, who can help you stop. For a '
+            'ruling about it in Islam, a scholar is the right person to ask, '
+            'not me.';
+      case ChildDistressKind.porn:
+        if (small) {
+          return 'Thank you for telling me. You are not in trouble. Some things '
+              'online are not for children, and it is not your fault if you '
+              'saw them. Please tell $adults. A children’s helpline is in the '
+              'button just below.';
+        }
+        return 'Thank you for telling me. You are not in trouble, and you are '
+            'not a bad person. Many young people come across things online '
+            'they did not choose to see, and some find it hard to stop '
+            'looking. I will not ask for details. It is worth telling $adults, '
+            'or a school counsellor or doctor, who can help without judging '
+            'you. If someone showed you something, or asked you to send '
+            'pictures, tell a grown-up today. That is never your fault. The '
+            'help lines for young people are in the button just below.';
       case ChildDistressKind.secret:
         if (small) {
           return 'I will not tell anyone. I do not keep what you write, and I '
@@ -154,5 +263,60 @@ abstract final class ChildDistress {
             'helpline can help you find the words. The help lines are just '
             'below.';
     }
+  }
+
+  /// The fixed card a child gets when the crisis detector fires (someone is
+  /// hurting them, they are being pressured, or they are thinking of hurting
+  /// themselves). Full sentences; it says "I believe you" and "it is not your
+  /// fault"; it says plainly that the app tells nobody and keeps nothing, and
+  /// that it cannot promise to keep this secret from the grown-ups who help
+  /// children; it gives a choice of adults and does not pressure; and the
+  /// words differ for 5-8 and 13-17. [selfHarm] adds a first question: are
+  /// you safe. The help-line button sits under the message (this text says so
+  /// in the words the button carries).
+  static String disclosureCard(String band, {bool selfHarm = false}) {
+    final bool small = band == '5-8';
+    final bool teen = band == '13-17';
+    final String adults = small ? _adults5 : CrisisResponses.trustedAdultForChild;
+    final String safe = selfHarm
+        ? (small
+            ? 'Are you safe right now? If you want to hurt yourself, tell a '
+                'grown-up near you right now. '
+            : 'Before anything else: are you safe right now? If you might '
+                'hurt yourself, or you are in danger, tell a grown-up near '
+                'you right now, or call your country’s emergency number. ')
+        : '';
+    if (small) {
+      return 'Thank you for telling me. $safe'
+          'I believe you. It is not your fault, and you are not in trouble. '
+          'You deserve to feel safe. Please tell $adults. You choose who. '
+          'I do not tell anyone, and I do not keep what you write. But I '
+          'cannot promise to keep this a secret, because grown-ups who help '
+          'children need to know. The button just below says "Show help '
+          'lines". It has a helpline for children. If you are in danger '
+          'right now, tell a grown-up near you.';
+    }
+    if (teen) {
+      return 'Thank you for telling me. $safe'
+          'I believe you. This is not your fault, and you are not in trouble. '
+          'You deserve to be safe. It would help to tell $adults, and you '
+          'choose who. I do not tell anyone and I do not keep what you '
+          'write, and I cannot call anyone for you. I also cannot promise to '
+          'keep this a secret from the grown-ups whose job is to keep young '
+          'people safe, because they cannot help if they do not know. When '
+          'you are ready, the "Show help lines" button just below opens '
+          'lines for young people that you can call or text. If you are in '
+          'danger right now, call your country’s emergency number.';
+    }
+    return 'Thank you for telling me. $safe'
+        'I believe you. It is not your fault, and you are not in trouble. '
+        'You deserve to be safe. Please tell $adults. You choose who. I do '
+        'not tell anyone and I do not keep what you write, and I cannot call '
+        'anyone for you. I also cannot promise to keep this a secret from the '
+        'grown-ups who help children, because they cannot help if they do '
+        'not know. The "Show help lines" button just below opens a helpline '
+        'for children that you can call or text. If you are in danger right '
+        'now, tell a grown-up near you or call your country’s emergency '
+        'number.';
   }
 }

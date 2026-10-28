@@ -1238,6 +1238,28 @@
    "notes": "Cost and hours not stated on the page."
   },
   {
+   "id": "ca-gbv-provincial",
+   "country": "CA",
+   "service": "Find your province or territory’s crisis line for gender-based violence",
+   "number": null,
+   "text": "Open the Government of Canada list",
+   "url": "https://www.canada.ca/en/women-gender-equality/gender-based-violence/get-help-now.html",
+   "hours": null,
+   "scope": [
+    "domestic-abuse",
+    "sexual-violence"
+   ],
+   "language": [
+    "en",
+    "fr"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.canada.ca/en/women-gender-equality/gender-based-violence/get-help-now.html",
+   "status": "verified",
+   "notes": "Canada has no single national line for this. The Government of Canada page lists the provincial and territorial lines and says to call 911 in an emergency (read 2026-10-27)."
+  },
+  {
    "id": "sa-937",
    "country": "SA",
    "service": "Ministry of Health 937 (health information line)",
@@ -1763,6 +1785,67 @@
    "notes": null
   },
   {
+   "id": "sa-116111",
+   "country": "SA",
+   "service": "Child Helpline (National Family Safety Program)",
+   "number": "116111",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "ar",
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://mngha.med.sa/english/MediaCenter/News/Pages/international-child-helpline-day.aspx",
+   "status": "verified",
+   "notes": "Government page writes it as 116 111 and names the National Family Safety Program as operator. Hours not stated there."
+  },
+  {
+   "id": "eg-16000",
+   "country": "EG",
+   "service": "Child Rescue Hotline (National Council for Childhood and Motherhood)",
+   "number": "16000",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.cairo.gov.eg/en/news/news-eng/2025/9e6d9746382148bea8cc161d0bbda758",
+   "status": "verified",
+   "notes": "Number and operator read on the Cairo governorate page about NCCM. Hours not stated on that page."
+  },
+  {
+   "id": "eg-15115",
+   "country": "EG",
+   "service": "National Council for Women complaints office hotline",
+   "number": "15115",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://unodc.org/romena/en/Stories/2020/December/egypt_-on-the-other-side-of-the-hotline---interview-with-the-head-of-complaints-office-at-the-national-council-for-women-ncw.html",
+   "status": "verified",
+   "notes": "UNODC interview (2020) gives the hotline as 15115 for psychological and legal advice. Hours not stated. Re-check against a National Council for Women page when reachable."
+  },
+  {
    "id": "eg-122",
    "country": "EG",
    "service": "Police emergency (Nagda)",
@@ -2117,26 +2200,6 @@
    "notes": "Operator page returned no content when fetched."
   },
   {
-   "id": "ca-dv",
-   "country": "CA",
-   "service": "Assaulted Women's Helpline / provincial DV lines",
-   "number": null,
-   "text": null,
-   "url": null,
-   "hours": null,
-   "scope": [
-    "domestic-abuse"
-   ],
-   "language": [
-    "en"
-   ],
-   "audience": "adult",
-   "verifiedOn": null,
-   "source": null,
-   "status": "unverified",
-   "notes": "No national line confirmed; use findahelpline."
-  },
-  {
    "id": "gb-mch",
    "country": "GB",
    "service": "Muslim Community Helpline",
@@ -2316,26 +2379,6 @@
    "source": "https://my.gov.sa/en/emergency-contact",
    "status": "unverified",
    "notes": "my.gov.sa lists services without digits; numbers not confirmed on an official page."
-  },
-  {
-   "id": "sa-child",
-   "country": "SA",
-   "service": "Child protection line 116111",
-   "number": "116111",
-   "text": null,
-   "url": null,
-   "hours": null,
-   "scope": [
-    "child"
-   ],
-   "language": [
-    "en"
-   ],
-   "audience": "adult",
-   "verifiedOn": null,
-   "source": null,
-   "status": "unverified",
-   "notes": "Not confirmed on an official page."
   },
   {
    "id": "ae-hope",
@@ -2540,26 +2583,6 @@
    "source": "https://nmhp.mohp.gov.eg/mental/web/en",
    "status": "unverified",
    "notes": "Ministry page blocked automated reads."
-  },
-  {
-   "id": "eg-child",
-   "country": "EG",
-   "service": "Child helpline",
-   "number": "16000",
-   "text": null,
-   "url": null,
-   "hours": null,
-   "scope": [
-    "child"
-   ],
-   "language": [
-    "ar"
-   ],
-   "audience": "child",
-   "verifiedOn": null,
-   "source": "https://sis.gov.eg/en/media-center/news/nccm-keen-to-protect-children-s-rights/",
-   "status": "unverified",
-   "notes": "Government page blocked automated reads."
   },
   {
    "id": "eg-ambulance",

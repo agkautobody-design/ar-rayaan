@@ -36,6 +36,7 @@ import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../support/presentation/privacy_shield.dart';
+import '../../support/application/support_settings.dart';
 import '../../support/presentation/support_widgets.dart';
 
 /// The items under the More options button in the header.
@@ -835,8 +836,14 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
               ),
             ),
-            if (hadi.messages.any((HadiMessage m) =>
-                m.fromHadi && (m.support != null || m.crisis != null)))
+            // Within reach whenever the person switched it on in Settings,
+            // from their first message on (not only after a support reply):
+            // nobody should have to say something hard to find the way out.
+            // Before they have typed anything there is nothing to hide, and
+            // the room is kept for the chat on a small or zoomed screen.
+            if (ref.watch(supportSettingsProvider).quickExit &&
+                hadi.messages.any((HadiMessage m) =>
+                    !m.fromHadi || m.support != null || m.crisis != null))
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: QuickExitButton(),
@@ -1076,12 +1083,11 @@ class _CrisisHelpPanel extends ConsumerStatefulWidget {
 }
 
 class _CrisisHelpPanelState extends ConsumerState<_CrisisHelpPanel> {
-  /// A country the person picked here; wins over the device language.
-  String? _picked;
-
   @override
   Widget build(BuildContext context) {
-    final String? country = _picked ?? ref.watch(deviceCountryProvider);
+    // The country picked here is shared with the Need help now sheet and with
+    // the text of every card: one choice, kept for this visit.
+    final String? country = ref.watch(helpCountryProvider);
     final List<HelpResource> rows = CrisisResponses.resourcesFor(
       widget.kind,
       country,
@@ -1114,7 +1120,11 @@ class _CrisisHelpPanelState extends ConsumerState<_CrisisHelpPanel> {
                 ),
             ],
             onChanged: (String? v) {
-              if (v != null) setState(() => _picked = v);
+              if (v == null) return;
+              ref.read(pickedHelpCountryProvider.notifier).state = v;
+              // The text of the card names lines too: rewrite it for the
+              // country just chosen, so the card never contradicts itself.
+              ref.read(hadiControllerProvider.notifier).rewriteCrisisCards(v);
             },
           ),
           TextButton(
@@ -1388,7 +1398,8 @@ class _Bubble extends ConsumerWidget {
                         if (message.supportIds.isNotEmpty)
                           SupportProvenanceButton(ids: message.supportIds),
                         if (message.helpScope != null &&
-                            message.supportIds.isNotEmpty)
+                            (message.supportIds.isNotEmpty ||
+                                message.support == null))
                           SupportHelpLines(scope: message.helpScope!),
                         if (onOnlineMode != null &&
                             !message.live &&

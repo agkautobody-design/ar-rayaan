@@ -294,6 +294,7 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
                   kind: CrisisKind.childSafety,
                   label: 'Need to talk to someone?',
                   showSakinaLink: false,
+                  forChild: true,
                 ),
               ),
             ),

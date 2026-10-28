@@ -9,6 +9,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../support/application/support_settings.dart';
+import '../../support/presentation/privacy_shield.dart';
 import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
@@ -34,6 +35,10 @@ class SakinaScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Sakina · سكينة'),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: QuickExitButton(),
+            ),
             const ScholarReviewNote(
               reviewKey: 'sakina',
               padding: const EdgeInsets.only(bottom: 8),
@@ -154,6 +159,13 @@ class SakinaScreen extends ConsumerWidget {
                         onPressed: () => context.push(AppRoutes.sakinaMood),
                       ),
                       ActionChip(
+                        key: const Key('sakina-support-hub'),
+                        avatar: const Icon(Icons.volunteer_activism_outlined,
+                            size: 16),
+                        label: const Text('Support & who to call'),
+                        onPressed: () => context.push(AppRoutes.support),
+                      ),
+                      ActionChip(
                         avatar: const Icon(Icons.shield_outlined, size: 16),
                         label: const Text('My safety plan'),
                         onPressed: () => context.push(AppRoutes.sakinaSafety),
@@ -181,7 +193,7 @@ class SakinaScreen extends ConsumerWidget {
                   const SizedBox(height: 8),
 
                   // Human help — always on screen, never buried.
-                  _HelpSection(countryCode: ref.watch(deviceCountryProvider)),
+                  _HelpSection(countryCode: ref.watch(helpCountryProvider)),
                   const SizedBox(height: 16),
                   Text(
                     'SAKINA DOES NOT DIAGNOSE · YOUR CHECK-INS AND VISITS '
@@ -221,7 +233,7 @@ class _RoomCard extends ConsumerWidget {
     final List<HelpResource> roomHelp = room.helpKinds.isEmpty
         ? const <HelpResource>[]
         : HelpResources.forCountry(
-            ref.watch(deviceCountryProvider),
+            ref.watch(helpCountryProvider),
             kinds: room.helpKinds,
           ).take(4).toList();
     return GlassCard(
@@ -257,6 +269,19 @@ class _RoomCard extends ConsumerWidget {
             ],
           ),
           children: [
+            // Safety first: before any verse or word of comfort in a room
+            // about a hard home, the line about being safe comes first.
+            if (safety != null) ...<Widget>[
+              Text(
+                safety,
+                key: Key('room-safety-${room.id}'),
+                style: AppText.label.copyWith(
+                  color: AppColors.sand,
+                  height: 1.5,
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
             Text(
               room.doorLine,
               style: AppText.body.copyWith(
@@ -273,16 +298,6 @@ class _RoomCard extends ConsumerWidget {
                 style: AppText.caption.copyWith(
                   fontSize: 12,
                   color: AppColors.gold.withValues(alpha: 0.9),
-                ),
-              ),
-            ],
-            if (safety != null) ...<Widget>[
-              const SizedBox(height: 10),
-              Text(
-                safety,
-                style: AppText.caption.copyWith(
-                  color: AppColors.sand.withValues(alpha: 0.85),
-                  height: 1.5,
                 ),
               ),
             ],

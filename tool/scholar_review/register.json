@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5429,
+ "total": 5464,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 53,
-   "high_priority": 29
+   "items": 57,
+   "high_priority": 32
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -105,8 +105,8 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 194,
-   "high_priority": 90
+   "items": 225,
+   "high_priority": 121
   },
   "legal": {
    "title": "Privacy, terms, children's privacy, community rules",
@@ -134,15 +134,15 @@
   "Fiqh scholar (per madhab)": 608,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 1003,
-  "Native speaker (ar / bn / ur)": 229,
+  "Clinician (Sakina and health content)": 1007,
+  "Native speaker (ar / bn / ur)": 260,
   "Privacy lawyer": 13,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1243,
-  "normal": 3484,
+  "high": 1277,
+  "normal": 3485,
   "low": 702
  },
  "items": [
@@ -77297,6 +77297,468 @@
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
    "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('اريد ان اختفي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"اريد ان اختفي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.049",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('اتمني ان اختفي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"اتمني ان اختفي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.050",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا احد سيفتقدني')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا احد سيفتقدني\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.051",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لن يفتقدني احد')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لن يفتقدني احد\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.052",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا احد سيلاحظ لو اختفيت')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا احد سيلاحظ لو اختفيت\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.053",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا اريد ان اكون هنا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا اريد ان اكون هنا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.054",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('لا اريد ان ابقي علي قيد الحياة')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"لا اريد ان ابقي علي قيد الحياة\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.055",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('سئمت الحياة')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"سئمت الحياة\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.056",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('كرهت نفسي واريد ان اموت')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"كرهت نفسي واريد ان اموت\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.057",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('غائب ہو جانا چاہتا ہوں')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"غائب ہو جانا چاہتا ہوں\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.058",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('غائب ہو جانا چاہتی ہوں')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"غائب ہو جانا چاہتی ہوں\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.059",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('کوئی مجھے یاد نہیں کرے گا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"کوئی مجھے یاد نہیں کرے گا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.060",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('کسی کو میرے جانے کا پتہ نہیں چلے گا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"کسی کو میرے جانے کا پتہ نہیں چلے گا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.061",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زندہ نہیں رہنا چاہتا')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زندہ نہیں رہنا چاہتا\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.062",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زندہ نہیں رہنا چاہتی')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زندہ نہیں رہنا چاہتی\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.063",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('কেউ আমাকে মিস করবে না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"কেউ আমাকে মিস করবে না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.064",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('কেউ টের পাবে না আমি নেই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"কেউ টের পাবে না আমি নেই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.065",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('বাঁচতে ইচ্ছা করে না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"বাঁচতে ইচ্ছা করে না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.066",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('বেঁচে থাকতে চাই না')",
+   "what_to_review": "Crisis phrase in Bengali script: \"বেঁচে থাকতে চাই না\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.067",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('হারিয়ে যেতে চাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"হারিয়ে যেতে চাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.068",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('আমি মরে যেতে চাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"আমি মরে যেতে চাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.069",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
    "key": "_Pat('می خواهم بمیرم')",
    "what_to_review": "Crisis phrase in Arabic/Urdu script: \"می خواهم بمیرم\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
    "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
@@ -77314,7 +77776,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.049",
+   "id": "lang.crisis.070",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77336,7 +77798,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.050",
+   "id": "lang.crisis.071",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77358,7 +77820,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.051",
+   "id": "lang.crisis.072",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77380,7 +77842,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.052",
+   "id": "lang.crisis.073",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77402,7 +77864,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.053",
+   "id": "lang.crisis.074",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77424,7 +77886,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.054",
+   "id": "lang.crisis.075",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77446,7 +77908,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.055",
+   "id": "lang.crisis.076",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77468,7 +77930,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.056",
+   "id": "lang.crisis.077",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77490,7 +77952,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.057",
+   "id": "lang.crisis.078",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77512,7 +77974,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.058",
+   "id": "lang.crisis.079",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77534,7 +77996,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.059",
+   "id": "lang.crisis.080",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77556,7 +78018,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.060",
+   "id": "lang.crisis.081",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77578,7 +78040,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.061",
+   "id": "lang.crisis.082",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77600,7 +78062,205 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.062",
+   "id": "lang.crisis.083",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('زوجي يؤذيني')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"زوجي يؤذيني\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.084",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('خائفة من زوجي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"خائفة من زوجي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.085",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('خايفة من زوجي')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"خايفة من زوجي\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.086",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('شوہر مارتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"شوہر مارتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.087",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('شوہر مجھے مارتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"شوہر مجھے مارتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.088",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('مجھے اپنے شوہر سے ڈر لگتا ہے')",
+   "what_to_review": "Crisis phrase in Arabic/Urdu script: \"مجھے اپنے شوہر سے ڈر لگتا ہے\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.089",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('স্বামী আমাকে মারে')",
+   "what_to_review": "Crisis phrase in Bengali script: \"স্বামী আমাকে মারে\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.090",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('আমার স্বামী আমাকে মারে')",
+   "what_to_review": "Crisis phrase in Bengali script: \"আমার স্বামী আমাকে মারে\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.091",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_Pat('স্বামীকে ভয় পাই')",
+   "what_to_review": "Crisis phrase in Bengali script: \"স্বামীকে ভয় পাই\" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms?",
+   "why_flagged": "Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 4",
+    "crisis_detector.dart"
+   ],
+   "label_surface": "Not user-visible; behaviour of the crisis card",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.092",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77622,7 +78282,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.063",
+   "id": "lang.crisis.093",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77644,7 +78304,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.064",
+   "id": "lang.crisis.094",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77666,7 +78326,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.065",
+   "id": "lang.crisis.095",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77688,7 +78348,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.066",
+   "id": "lang.crisis.096",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77710,7 +78370,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.067",
+   "id": "lang.crisis.097",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77732,7 +78392,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.068",
+   "id": "lang.crisis.098",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77754,7 +78414,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.069",
+   "id": "lang.crisis.099",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77776,7 +78436,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.070",
+   "id": "lang.crisis.100",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77798,7 +78458,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.071",
+   "id": "lang.crisis.101",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77820,7 +78480,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.072",
+   "id": "lang.crisis.102",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77842,7 +78502,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.073",
+   "id": "lang.crisis.103",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77864,7 +78524,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.074",
+   "id": "lang.crisis.104",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77886,7 +78546,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.075",
+   "id": "lang.crisis.105",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77908,7 +78568,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.076",
+   "id": "lang.crisis.106",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77930,7 +78590,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.077",
+   "id": "lang.crisis.107",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77952,7 +78612,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.078",
+   "id": "lang.crisis.108",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77974,7 +78634,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.079",
+   "id": "lang.crisis.109",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -77996,7 +78656,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.080",
+   "id": "lang.crisis.110",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78018,7 +78678,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.081",
+   "id": "lang.crisis.111",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78040,7 +78700,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.082",
+   "id": "lang.crisis.112",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78062,7 +78722,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.083",
+   "id": "lang.crisis.113",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78084,7 +78744,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.084",
+   "id": "lang.crisis.114",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78106,7 +78766,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.085",
+   "id": "lang.crisis.115",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -78128,7 +78788,7 @@
    "status": "open"
   },
   {
-   "id": "lang.crisis.086",
+   "id": "lang.crisis.116",
    "area": "languages",
    "subarea": "crisis-phrase",
    "where_in_app": "Hadi / Sakina crisis detector (fires the help-line card)",
@@ -81365,6 +82025,124 @@
     "R10_T2"
    ],
    "label_surface": "Family Wing and search",
+   "status": "open"
+  },
+  {
+   "id": "support.safe-replies",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Hadi > refused taper schedule; controlling husband; a child who told a parent; a struggling teenager; a quiet student; \"are you a therapist?\"; \"be my only friend\"",
+   "file": "lib/features/support/domain/safe_replies.dart",
+   "key": "TaperRequest, CoerciveMarriage, ChildConcern, AboutHadi (word lists and fixed replies)",
+   "what_to_review": "Fixed on-device replies for moments that are neither a crisis card nor a ruling: no taper schedule (a doctor decides), listening and a safety question before any patience or duty, what a parent does when a child tells them something, how to open a conversation with a withdrawn teenager, what a teacher does about a quiet student, and honest answers that Hadi is an app and not a therapist or a friend.",
+   "why_flagged": "R10_T9 and R10_T10: a taper request got a ruling card, a controlling-husband question got a patience verse, and \"are you a therapist\" got a lesson-shelf answer. No clinician, safeguarding specialist or scholar has read them.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Fiqh scholar (per madhab)",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10",
+    "R10_T2"
+   ],
+   "label_surface": "Under each of these replies in Hadi and Wasia",
+   "status": "open"
+  },
+  {
+   "id": "support.crisis-phrases-fixb",
+   "area": "languages",
+   "subarea": "crisis-phrases",
+   "where_in_app": "Crisis phrases added in fix pass B (English plus Arabic, Urdu, Bangla)",
+   "file": "lib/features/sakina/domain/crisis_detector.dart",
+   "key": "_selfHarm, _abuse, _substance (added phrases)",
+   "what_to_review": "New phrases: \"nobody would notice if I was gone\", \"I do not want to go home\", \"someone at home hurts me\", \"I am scared he will hurt me tonight\", pills with alcohol, and short Arabic, Urdu and Bangla lists for the same ideas.",
+   "why_flagged": "R10_T9, R10_T10, R10_T2: these sentences were missed. The non-English lists were written for coverage and are NOT read by a native speaker: Native-speaker review needed before they are relied on. English wording must be read by a clinician for false alarms and misses.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10",
+    "R10_T2"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.child-disclosure-card",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia, Kids > the card a child sees when they tell something serious (ages 5-8, 9-12, 13-17); cards for reading difficulty, vaping, pornography",
+   "file": "lib/features/support/domain/child_distress.dart; lib/features/academy/application/wasia_controller.dart",
+   "key": "ChildDistress.disclosureCard; learning, vape, porn replies",
+   "what_to_review": "Full-sentence, age-banded wording: \"I believe you\", \"it is not your fault\", Wasia cannot keep secrets from the grown-ups who help, the child chooses who to tell, the help-line button. A reading-difficulty line goes to a teacher or a doctor, vaping and pornography to a trusted adult, with no shaming and no diagnosis.",
+   "why_flagged": "R10_T2: the old card was a broken sentence that told a child what to do under pressure. A child-protection specialist and a clinician should read the wording for each age band.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.help-country-choice",
+   "area": "sakina",
+   "subarea": "help-lines",
+   "where_in_app": "Need help now / Hadi crisis card > the country the person picks",
+   "file": "lib/features/sakina/application/sakina_providers.dart; lib/features/sakina/domain/crisis_detector.dart",
+   "key": "pickedHelpCountryProvider; CrisisResponses.regionNote(picked)",
+   "what_to_review": "The country picked under the help lines now also decides the text of the card, not only the rows. The note says the lines are for the country the person chose.",
+   "why_flagged": "R10_T10: a Bangladeshi user picked Bangladesh and the card text still named another country. The wording of the note needs a native-speaker read in each supported language.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "R10_T10"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.helplines-fixb",
+   "area": "sakina",
+   "subarea": "help-lines",
+   "where_in_app": "Help lines added in fix pass B: Egypt child hotline 16000, Egypt women's complaints hotline 15115, Saudi child helpline 116111, Canada provincial gender-based-violence directory",
+   "file": "assets/support/helplines.json; tool/support/build_helplines.py",
+   "key": "eg-16000, eg-15115, sa-116111, ca-gbv-provincial",
+   "what_to_review": "Four rows read on 2026-10-27 on official or UN pages (sources in the file). Canada has no single national line, so the row opens the Government of Canada list. The Egypt women's hotline rests on a 2020 UN interview and should be re-checked on an NCW page. Hours are left empty because the pages did not state them.",
+   "why_flagged": "R10_T9, R10_T10: Canada adult domestic violence, Bangladesh women's, Saudi and Egypt coverage were missing. Bangladesh 109 was already verified. Nothing unverified is shown.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T9",
+    "R10_T10"
+   ],
+   "label_surface": "",
    "status": "open"
   },
   {

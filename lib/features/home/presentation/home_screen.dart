@@ -450,6 +450,12 @@ class HomeScreen extends ConsumerWidget {
                             label: ui('home.names99'),
                             onTap: () => context.open(AppRoutes.names99),
                           ),
+                          // One tap from Home: help with a struggle, with
+                          // people to call. Not hidden inside another room.
+                          _AlsoLink(
+                            label: 'Support & wellbeing',
+                            onTap: () => context.open(AppRoutes.support),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 16),

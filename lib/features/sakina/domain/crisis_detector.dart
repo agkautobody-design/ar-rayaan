@@ -372,6 +372,42 @@ abstract final class CrisisDetector {
     const _Pat('suicidial'),
     const _Pat('suicde'),
     const _Pat('suiside'),
+    // Round 10 (T10): the plain way a teenager says it. Whole-phrase matches.
+    const _Pat('nobody would notice if i was gone'),
+    const _Pat('nobody would notice if i were gone'),
+    const _Pat('nobody would notice if im gone'),
+    const _Pat('nobody would notice if i disappeared'),
+    const _Pat('nobody would notice if i died'),
+    const _Pat('nobody would notice if i wasnt here'),
+    const _Pat('no one would notice if i was gone'),
+    const _Pat('no one would notice if i were gone'),
+    const _Pat('no one would notice if im gone'),
+    const _Pat('no one would notice if i disappeared'),
+    const _Pat('no one would notice if i died'),
+    const _Pat('no one would notice if i wasnt here'),
+    const _Pat('would anyone notice if i was gone'),
+    const _Pat('would anyone notice if i were gone'),
+    const _Pat('would anyone notice if i died'),
+    const _Pat('would anyone notice if i disappeared'),
+    const _Pat('nobody would care if i was gone'),
+    const _Pat('nobody would care if i disappeared'),
+    const _Pat('nobody would care if im gone'),
+    const _Pat('no one would care if i was gone'),
+    const _Pat('no one would care if i disappeared'),
+    const _Pat('no one would care if im gone'),
+    const _Pat('nobody would miss me if i was gone'),
+    const _Pat('everyone would be happier without me'),
+    const _Pat('everyone would be happier if i was gone'),
+    const _Pat('everyone would be happier if i were gone'),
+    const _Pat('everyone would be happier if i disappeared'),
+    const _Pat('would be happier without me'),
+    const _Pat('wish i wasnt born'),
+    const _Pat('wish i was not born'),
+    const _Pat('wish i were not born'),
+    const _Pat('wish i could vanish'),
+    const _Pat('want to vanish'),
+    const _Pat('go to sleep and not wake up'),
+    const _Pat('sleep and not wake up'),
     // Arabic
     const _Pat('اريد ان اموت'),
     const _Pat('ابغي اموت'),
@@ -579,6 +615,36 @@ abstract final class CrisisDetector {
     const _Pat('tak mahu hidup'),
     const _Pat('capek hidup'),
     const _Pat('penat hidup'),
+    // Round 10 additions: Arabic, Urdu (script and Roman), Bangla.
+    // NATIVE-SPEAKER CLINICIAN REVIEW NEEDED (docs/SCHOLAR_REVIEW_REGISTER.md,
+    // support.crisis-distress-lang). Written for coverage, not yet read by a
+    // native speaker. A phrase that misses costs far more than one that fires.
+    const _Pat('اريد ان اختفي'),
+    const _Pat('اتمني ان اختفي'),
+    const _Pat('لا احد سيفتقدني'),
+    const _Pat('لن يفتقدني احد'),
+    const _Pat('لا احد سيلاحظ لو اختفيت'),
+    const _Pat('لا اريد ان اكون هنا'),
+    const _Pat('لا اريد ان ابقي علي قيد الحياة'),
+    const _Pat('سئمت الحياة'),
+    const _Pat('كرهت نفسي واريد ان اموت'),
+    const _Pat('غائب ہو جانا چاہتا ہوں'),
+    const _Pat('غائب ہو جانا چاہتی ہوں'),
+    const _Pat('کوئی مجھے یاد نہیں کرے گا'),
+    const _Pat('کسی کو میرے جانے کا پتہ نہیں چلے گا'),
+    const _Pat('زندہ نہیں رہنا چاہتا'),
+    const _Pat('زندہ نہیں رہنا چاہتی'),
+    const _Pat('mar jaun to kisi ko farq nahi'),
+    const _Pat('zinda nahi rehna chahta'),
+    const _Pat('zinda nahi rehna chahti'),
+    const _Pat('ghayab ho jana chahta'),
+    const _Pat('ghayab ho jana chahti'),
+    const _Pat('কেউ আমাকে মিস করবে না'),
+    const _Pat('কেউ টের পাবে না আমি নেই'),
+    const _Pat('বাঁচতে ইচ্ছা করে না'),
+    const _Pat('বেঁচে থাকতে চাই না'),
+    const _Pat('হারিয়ে যেতে চাই'),
+    const _Pat('আমি মরে যেতে চাই'),
     // Persian
     const _Pat('می خواهم بمیرم'),
     const _Pat('میخواهم بمیرم'),
@@ -885,6 +951,66 @@ abstract final class CrisisDetector {
     const _Pat('wants to kill me'),
     const _Pat('locked me in'),
     const _Pat('locks me in'),
+    // Round 10 (T9, T10): fear of what will happen tonight, and the plain
+    // sentences a child or an adult uses for someone at home. Whole phrases.
+    const _Pat('he will hurt me'),
+    const _Pat('she will hurt me'),
+    const _Pat('they will hurt me'),
+    const _Pat('he might hurt me'),
+    const _Pat('she might hurt me'),
+    const _Pat('he is going to hurt me'),
+    const _Pat('hes going to hurt me'),
+    const _Pat('she is going to hurt me'),
+    const _Pat('shes going to hurt me'),
+    const _Pat('they are going to hurt me'),
+    const _Pat('theyre going to hurt me'),
+    const _Pat('he will kill me'),
+    const _Pat('she will kill me'),
+    const _Pat('he is going to kill me'),
+    const _Pat('hes going to kill me'),
+    const _Pat('she is going to kill me'),
+    const _Pat('shes going to kill me'),
+    const _Pat('will hurt me tonight'),
+    const _Pat('going to hurt me tonight'),
+    const _Pat('someone hurts me'),
+    const _Pat('somebody hurts me'),
+    const _Pat('someone is hurting me'),
+    const _Pat('somebody is hurting me'),
+    const _Pat('someone at home hurts me'),
+    const _Pat('somebody at home hurts me'),
+    const _Pat('someone at home hits me'),
+    const _Pat('somebody at home hits me'),
+    const _Pat('someone at home is hurting me'),
+    const _Pat('hurts me at home'),
+    const _Pat('hurt me at home'),
+    const _Pat('hits me at home'),
+    const _Pat('hit me at home'),
+    const _Pat('hurting me at home'),
+    const _Pat(
+      'dont want to go home',
+      notFollowedBy: <String>['yet', 'from', 'early', 'without', 'until'],
+    ),
+    const _Pat(
+      'do not want to go home',
+      notFollowedBy: <String>['yet', 'from', 'early', 'without', 'until'],
+    ),
+    const _Pat(
+      'dont wanna go home',
+      notFollowedBy: <String>['yet', 'from', 'early', 'without', 'until'],
+    ),
+    // Arabic, Urdu, Roman Urdu, Bangla: NATIVE-SPEAKER CLINICIAN REVIEW NEEDED.
+    const _Pat('زوجي يؤذيني'),
+    const _Pat('خائفة من زوجي'),
+    const _Pat('خايفة من زوجي'),
+    const _Pat('شوہر مارتا ہے'),
+    const _Pat('شوہر مجھے مارتا ہے'),
+    const _Pat('مجھے اپنے شوہر سے ڈر لگتا ہے'),
+    const _Pat('shohar marta hai'),
+    const _Pat('shohar mujhe marta hai'),
+    const _Pat('mujhe apne shohar se dar lagta hai'),
+    const _Pat('স্বামী আমাকে মারে'),
+    const _Pat('আমার স্বামী আমাকে মারে'),
+    const _Pat('স্বামীকে ভয় পাই'),
     const _Pat('زوجي يضربني'),
     const _Pat('يضربني'),
     const _Pat('ابي يضربني'),
@@ -1114,6 +1240,30 @@ abstract final class CrisisDetector {
     const _Pat('mixed valium and alcohol'),
     const _Pat('mixed opioids and alcohol'),
     const _Pat('drank and took pills'),
+    const _Pat('took pills and alcohol'),
+    const _Pat('taken pills and alcohol'),
+    const _Pat('took pills with alcohol'),
+    const _Pat('took pills and drank'),
+    const _Pat('took tablets and alcohol'),
+    const _Pat('took tablets with alcohol'),
+    const _Pat('pills and alcohol'),
+    const _Pat('pills with alcohol'),
+    const _Pat('alcohol and pills'),
+    const _Pat('alcohol with pills'),
+    const _Pat('tablets and alcohol'),
+    const _Pat('alcohol and tablets'),
+    const _Pat('painkillers and alcohol'),
+    const _Pat('painkillers with alcohol'),
+    const _Pat('alcohol and painkillers'),
+    const _Pat('sleeping pills and alcohol'),
+    const _Pat('alcohol and sleeping pills'),
+    const _Pat('pills and wine'),
+    const _Pat('pills and vodka'),
+    const _Pat('pills and beer'),
+    const _Pat('xanax and alcohol'),
+    const _Pat('valium and alcohol'),
+    const _Pat('tramadol and alcohol'),
+    const _Pat('mixed drugs and alcohol'),
     // Someone cannot be woken or is not breathing
     const _Pat(
       'wont wake up',
@@ -1709,11 +1859,18 @@ abstract final class CrisisResponses {
   /// from the person's location, so it can be wrong (a London phone set to
   /// US English). With no covered country it says so and points to the
   /// worldwide directory. Only names data already in [HelpResources].
-  static String regionNote(String? countryCode) {
+  /// [picked] is true when the person chose the country themselves (in the
+  /// Need help now sheet or under an earlier card): then it says so instead.
+  static String regionNote(String? countryCode, {bool picked = false}) {
     final String? cc = countryCode?.trim().toUpperCase();
     if (cc != null && cc.isNotEmpty) {
       for (final HelpResource r in HelpResources.shown) {
         if (r.countries.length == 1 && r.countries.first == cc) {
+          if (picked) {
+            return 'The lines above are for ${r.region}, the country you '
+                'chose. If that is not right, choose another country under '
+                'the lines, or call your local emergency number.';
+          }
           return 'The lines above are for ${r.region}, chosen from your '
               'device language setting, not your location. If you are '
               'somewhere else, choose your country under the lines, or call '
@@ -1726,30 +1883,82 @@ abstract final class CrisisResponses {
         'findahelpline.com lists lines by country.';
   }
 
-  /// The tappable rows for [kind] in [countryCode] (null = unknown).
-  static List<HelpResource> resourcesFor(
-    CrisisKind kind,
-    String? countryCode,
-  ) {
-    final List<HelpResource> rows =
-        HelpResources.forCountry(countryCode, kinds: kindsFor(kind));
-    if (kind == CrisisKind.childSafety) {
-      // A child sees the child lines first.
-      return <HelpResource>[
-        for (final HelpResource r in rows)
-          if (r.kinds.contains(HelpKind.child)) r,
-        for (final HelpResource r in rows)
-          if (!r.kinds.contains(HelpKind.child)) r,
+  /// The order in which kinds of line are listed for [kind]. The first kind
+  /// that a row serves decides its place; rows serving none go last.
+  ///  * A moment of distress starts with the suicide and crisis line (988 in
+  ///    the United States), then the emergency number.
+  ///  * Danger from a person, or a medical emergency, starts with the
+  ///    emergency number.
+  ///  * A child starts with the lines made for children.
+  static List<HelpKind> _order(CrisisKind kind, {required bool child}) {
+    if (child || kind == CrisisKind.childSafety) {
+      return <HelpKind>[
+        HelpKind.child,
+        if (kind == CrisisKind.selfHarm || kind == CrisisKind.suicideQuestion)
+          HelpKind.suicide,
+        HelpKind.emergency,
+        HelpKind.abuse,
       ];
     }
-    if (kind != CrisisKind.substanceEmergency) return rows;
-    // A medical emergency starts with the emergency number.
-    return <HelpResource>[
-      for (final HelpResource r in rows)
-        if (r.kinds.contains(HelpKind.emergency)) r,
-      for (final HelpResource r in rows)
-        if (!r.kinds.contains(HelpKind.emergency)) r,
+    switch (kind) {
+      case CrisisKind.selfHarm:
+      case CrisisKind.suicideQuestion:
+        return <HelpKind>[
+          HelpKind.suicide,
+          HelpKind.emergency,
+          HelpKind.muslim,
+        ];
+      case CrisisKind.abuse:
+      case CrisisKind.extremism:
+      case CrisisKind.substanceEmergency:
+        return <HelpKind>[HelpKind.emergency, HelpKind.abuse];
+      case CrisisKind.eatingDisorder:
+        return <HelpKind>[
+          HelpKind.eating,
+          HelpKind.suicide,
+          HelpKind.emergency,
+        ];
+      case CrisisKind.childSafety:
+        return <HelpKind>[HelpKind.child, HelpKind.emergency];
+    }
+  }
+
+  /// The tappable rows for [kind] in [countryCode] (null = unknown), in the
+  /// order [_order] gives. With [child] true the person is a child: child
+  /// lines come first and are always included, whatever the kind. An adult
+  /// who describes abuse is not shown lines made only for children.
+  static List<HelpResource> resourcesFor(
+    CrisisKind kind,
+    String? countryCode, {
+    bool child = false,
+  }) {
+    final Set<HelpKind> kinds = <HelpKind>{
+      ...kindsFor(kind),
+      if (child) HelpKind.child,
+    };
+    List<HelpResource> rows =
+        HelpResources.forCountry(countryCode, kinds: kinds);
+    if (kind == CrisisKind.abuse && !child) {
+      rows = <HelpResource>[
+        for (final HelpResource r in rows)
+          if (!r.childOnly) r,
+      ];
+    }
+    final List<HelpKind> order = _order(kind, child: child);
+    final List<List<HelpResource>> buckets = <List<HelpResource>>[
+      for (int i = 0; i <= order.length; i++) <HelpResource>[],
     ];
+    for (final HelpResource r in rows) {
+      int at = order.length;
+      for (int i = 0; i < order.length; i++) {
+        if (r.kinds.contains(order[i])) {
+          at = i;
+          break;
+        }
+      }
+      buckets[at].add(r);
+    }
+    return <HelpResource>[for (final List<HelpResource> b in buckets) ...b];
   }
 
   static String _lines(List<HelpResource> rows, {int max = 5}) {
@@ -1803,11 +2012,11 @@ abstract final class CrisisResponses {
             'If you might act on these thoughts, call your local emergency '
             'number now.';
       case CrisisKind.abuse:
-        return 'I am sorry. What you describe is not okay, and it is not '
-            'your fault. Nothing, not marriage, not family, not honour, '
-            'makes it acceptable for someone to hurt, threaten or force '
-            'you. Your safety comes first, and you do not have to decide '
-            'anything tonight.\n\n'
+        return 'I am sorry. If someone is hurting, threatening or forcing '
+            'you, that is not okay, and it is not your fault. Nothing, not '
+            'marriage, not family, not honour, makes it acceptable. Your '
+            'safety comes first, and you do not have to decide anything '
+            'tonight.\n\n'
             'If you are in danger right now, call your local emergency '
             'number. If you can leave safely, go to someone you trust. '
             'These lines are for people in your situation:\n\n'

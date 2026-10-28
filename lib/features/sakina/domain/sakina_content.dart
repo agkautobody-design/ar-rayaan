@@ -351,6 +351,7 @@ class HelpResource {
     this.kinds = const <HelpKind>{HelpKind.general},
     this.verifiedOn,
     this.source,
+    this.childOnly = false,
   });
 
   final String name;
@@ -377,6 +378,11 @@ class HelpResource {
   /// official page"; the screen then says so.
   final String? verifiedOn;
   final String? source;
+
+  /// True for a line the operator made for young people only (Kids Help
+  /// Phone, Childline). An adult describing abuse is not shown these; a child
+  /// is shown them first.
+  final bool childOnly;
 
   bool get verified => verifiedOn != null && source != null;
 }
@@ -502,6 +508,7 @@ abstract final class HelpResources {
       kinds: _child,
       verifiedOn: checked,
       source: 'https://kidshelpphone.ca/',
+      childOnly: true,
     ),
     HelpResource(
       name: 'SAMHSA National Helpline',
@@ -625,6 +632,7 @@ abstract final class HelpResources {
       kinds: _child,
       verifiedOn: checked,
       source: 'https://www.childline.org.uk/get-support/contacting-childline/',
+      childOnly: true,
     ),
     HelpResource(
       name: 'FRANK',
@@ -712,6 +720,7 @@ abstract final class HelpResources {
       kinds: _child,
       verifiedOn: checked,
       source: 'https://www.kidshelpline.com.au/',
+      childOnly: true,
     ),
     HelpResource(
       name: 'Butterfly Foundation Helpline',
@@ -790,6 +799,7 @@ abstract final class HelpResources {
       kinds: _child,
       verifiedOn: checked,
       source: 'https://www.childlineindia.org/',
+      childOnly: true,
     ),
     HelpResource(
       name: 'Emergency Services',

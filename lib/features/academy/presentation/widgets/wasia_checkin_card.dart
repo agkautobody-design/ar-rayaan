@@ -80,6 +80,7 @@ class _WasiaCheckinCardState extends ConsumerState<WasiaCheckinCard> {
                 kind: CrisisKind.childSafety,
                 label: 'Show help lines',
                 showSakinaLink: false,
+                forChild: true,
               ),
             ],
             const SizedBox(height: 6),
