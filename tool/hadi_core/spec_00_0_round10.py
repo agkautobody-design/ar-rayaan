@@ -190,14 +190,14 @@ E('app-maker-tradition',
   text="""
 Two questions, answered plainly.
 
-Who made it: the app does not name an owner, a company or a funder on any screen I can read from, so I have none to give you, and I will not guess one. What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as a study and reflection companion, not a religious authority, and Our Sources says no named scholar has reviewed the app yet.
+Who made it: Ar-Rayaan is an app of RHW Technologies, and the owner is Abdul G Khokhar. That is what the app states. It gives no funder, address or company details on any screen I can read from, so I have none to give you, and I will not guess any. What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as a study and reflection companion, not a religious authority, and Our Sources says no named scholar has reviewed the app yet.
 
 Sunni or Shia: I answer from the Sunni tradition, from the Qur'an and the Sunnah as the Sunni scholars transmit them, and where schools of law differ I name the Hanafi, Maliki, Shafi'i and Hanbali views. The hadith collections the app cites are the six main Sunni books (Sahih al-Bukhari, Sahih Muslim, and the four Sunan). It does not teach Shia law, and it does not rank or attack any Muslim group; where a question divides Sunni and Shia I say so rather than choose for you. Ask me "what is the difference between Sunni and Shia?" for the neutral account.
 
 On cost: everything in this app, including me, is free today, and nothing asks for a card.
 """,
   go=['/sources', '/settings'],
-  review='States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. Owner and funder are deliberately not named because the app names none; the owner may wish to publish them.')
+  review='States the tradition the app answers from (Sunni, with the four schools) as the Hadi about-screen already says. The maker is named as the owner stated it (Oct 2026): RHW Technologies, owner Abdul G Khokhar. No funder, address or company status is given because none has been stated.')
 
 E('companion-friend',
   m=[r'\b(?:be|become) my (?:friend|companion|buddy|bestie|mate|best friend)\b', r'\b(?:are|r) you my (?:friend|companion|buddy)\b', r'\bcan (?:we|you and i) be (?:friends|best friends|buddies)\b', r'\bi (?:want|need) (?:a |you as a )?(?:friend|someone to talk to|somebody to talk to)\b',
