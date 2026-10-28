@@ -406,7 +406,7 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
           ..add(const SizedBox(height: 4))
           ..add(
             TranslitLayer(
-              text: tlText!.trim(),
+              text: tlText.trim(),
               view: tv,
               fontSize: tlSize,
               needsReview: tlReview,

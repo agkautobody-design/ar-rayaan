@@ -237,7 +237,6 @@ class _ProgressCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(adhkarProgressProvider);
-    final ReadingPrefs rp = ref.watch(readingPrefsProvider);
     final int done = ref
         .read(adhkarProgressProvider.notifier)
         .completedInSet(set);
@@ -329,6 +328,7 @@ class _DhikrCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(adhkarProgressProvider);
+    final ReadingPrefs rp = ref.watch(readingPrefsProvider);
     final int done = ref
         .read(adhkarProgressProvider.notifier)
         .doneFor(set.id, dhikr.number);
