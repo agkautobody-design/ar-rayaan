@@ -20,6 +20,7 @@ import '../application/noor_providers.dart';
 import '../domain/noor_entry.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Screen 7 · Today's NOOR — daily ayah/hadith + reflection.
 ///
@@ -63,7 +64,8 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
   Future<void> _openReflectionSheet() async {
     final TextEditingController controller = TextEditingController();
     final ValueNotifier<String?> emptyHint = ValueNotifier<String?>(null);
-    final String? saved = await showModalBottomSheet<String>(
+    final String? saved = await showNamedSheet<String>(
+      label: 'Your reflection',
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,

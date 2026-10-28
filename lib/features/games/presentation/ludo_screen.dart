@@ -17,6 +17,7 @@ import '../ui/games_theme.dart';
 import 'ludo_board_view.dart';
 import 'online_lobby.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// LUDO. The board is the owner's picture (`assets/games/ludo/board.webp`, the
 /// standard 15 x 15 board), the rules are in `data/ludo_rules.dart` (52-square
@@ -523,7 +524,8 @@ class _LudoState extends State<LudoScreen> {
 
   void _showSheet(String title, List<Widget> children) {
     unawaited(
-      showModalBottomSheet<void>(
+      showNamedSheet<void>(
+        label: title,
         context: context,
         isScrollControlled: true,
         backgroundColor: const Color(0xFF0A0F18),

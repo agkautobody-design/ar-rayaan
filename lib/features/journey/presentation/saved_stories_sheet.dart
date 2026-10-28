@@ -14,13 +14,15 @@ import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The Bookmarks surface: the stories saved on this device (Hadi saves them
 /// on request). Journey and Profile both open this - "Bookmarks" used to
 /// just open the whole Stories library, which showed nothing of what was
 /// saved.
 Future<void> showSavedStories(BuildContext context) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Saved stories',
     context: context,
     isScrollControlled: true,
     backgroundColor: const Color(0xFF0A0F18),

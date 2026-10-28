@@ -14,6 +14,7 @@ import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The text COPIED to the person's own clipboard for one ayah: Arabic, the
 /// translation, the reference and where both texts come from. Nothing is
@@ -42,7 +43,8 @@ Future<void> showAyahActions(
   required int surah,
   required Ayah ayah,
 }) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Ayah actions',
     context: context,
     backgroundColor: AppColors.navy,
     isScrollControlled: true,

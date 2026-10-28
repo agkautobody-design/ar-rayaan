@@ -11,6 +11,7 @@ import '../../quran/domain/quran_index.dart';
 import '../../quran/domain/quran_models.dart';
 import '../../quran/domain/surah_search.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The name of surah [number] ("Al-Kahf"), or '' when out of range.
 String hifzSurahName(int number) =>
@@ -30,7 +31,8 @@ class HifzSurahPicker extends StatelessWidget {
   final ValueChanged<int> onChanged;
 
   Future<void> _open(BuildContext context) async {
-    final int? picked = await showModalBottomSheet<int>(
+    final int? picked = await showNamedSheet<int>(
+      label: 'Choose a surah',
       context: context,
       isScrollControlled: true,
       showDragHandle: true,

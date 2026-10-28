@@ -35,7 +35,12 @@ void _focusLater(State<StatefulWidget> state, FocusNode? node) {
 /// The result of a check, spoken as soon as it appears (a polite live region)
 /// and a place focus can be sent to. [spoken] is the whole sentence read out;
 /// the visible [child] is hidden from the reader so it is not said twice.
-class _Result extends StatelessWidget {
+///
+/// The labelled node is itself the thing that takes focus: when [node] is
+/// focused the node says so (focusable + focused), so a screen reader that
+/// follows focus lands on the result sentence and reads it, instead of on the
+/// question group above it. The words are also sent as an announcement.
+class _Result extends StatefulWidget {
   const _Result({
     required this.node,
     required this.spoken,
@@ -47,19 +52,55 @@ class _Result extends StatelessWidget {
   final Widget child;
 
   @override
+  State<_Result> createState() => _ResultState();
+}
+
+class _ResultState extends State<_Result> {
+  bool _focused = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.node.addListener(_onFocus);
+  }
+
+  @override
+  void didUpdateWidget(_Result old) {
+    super.didUpdateWidget(old);
+    if (old.node != widget.node) {
+      old.node.removeListener(_onFocus);
+      widget.node.addListener(_onFocus);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.node.removeListener(_onFocus);
+    super.dispose();
+  }
+
+  void _onFocus() {
+    final bool f = widget.node.hasFocus;
+    if (f != _focused && mounted) setState(() => _focused = f);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Focus(
-      focusNode: node,
-      skipTraversal: true,
-      // Also sent as an announcement: the live-region label alone stayed
-      // silent in the browser.
-      child: Announce(
-        message: spoken,
-        child: Semantics(
-          liveRegion: true,
-          container: true,
-          label: spoken,
-          child: ExcludeSemantics(child: child),
+    // Also sent as an announcement: the live-region label alone stayed
+    // silent in the browser.
+    return Announce(
+      message: widget.spoken,
+      child: Semantics(
+        liveRegion: true,
+        container: true,
+        focusable: true,
+        focused: _focused,
+        label: widget.spoken,
+        child: Focus(
+          focusNode: widget.node,
+          skipTraversal: true,
+          includeSemantics: false,
+          child: ExcludeSemantics(child: widget.child),
         ),
       ),
     );

@@ -11,11 +11,13 @@ import 'chess_board_view.dart';
 import 'chess_settings.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Chess Settings, opened from the board or the table menu: board theme,
 /// piece style and the switches. Saved on this device the moment they change.
 Future<void> showChessSettings(BuildContext context) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Chess settings',
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.night,

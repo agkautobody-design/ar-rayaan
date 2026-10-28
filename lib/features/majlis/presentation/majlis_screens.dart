@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/majlis_service.dart';
 import '../domain/majlis_policy.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 final majlisServiceProvider = Provider<MajlisService>((ref) => MajlisService());
 
@@ -455,7 +456,8 @@ class _ReportButton extends ConsumerWidget {
   }
 
   Future<void> _open(BuildContext context, WidgetRef ref) async {
-    final reason = await showModalBottomSheet<String>(
+    final reason = await showNamedSheet<String>(
+      label: 'Report',
       context: context,
       builder: (ctx) => SafeArea(
         child: Column(
