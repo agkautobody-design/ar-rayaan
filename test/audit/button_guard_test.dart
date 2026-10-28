@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:ar_rayaan/app/core/open_link.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// BUTTON AUDIT GUARD. Source-level checks that keep the controls honest:
@@ -112,8 +113,20 @@ void main() {
   });
 
   testWidgets('a link that cannot be opened says so', (WidgetTester t) async {
-    // No url_launcher plugin exists in the test host, so the call fails; the
+    // The system refuses to open the link (no browser, blocked pop-up): the
     // person must still be told.
+    final TestDefaultBinaryMessenger messenger =
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+    messenger.setMockMethodCallHandler(
+      const MethodChannel('plugins.flutter.io/url_launcher'),
+      (MethodCall call) async => false,
+    );
+    addTearDown(
+      () => messenger.setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/url_launcher'),
+        null,
+      ),
+    );
     bool? result;
     await t.pumpWidget(
       MaterialApp(
