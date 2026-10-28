@@ -5,6 +5,17 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../application/test_me_provider.dart';
 
+/// True while "Hide text / test me" is on and this ayah has not been tapped
+/// open. The transliteration and the translation are covered with the Arabic:
+/// a learner who reads the Latin letters would otherwise be handed the answer.
+bool ayahIsCovered(WidgetRef ref, int surah, int ayah) {
+  if (!ref.watch(testMeProvider)) return false;
+  final String key = ayahKey(surah, ayah);
+  return !ref.watch(
+    revealedAyahsProvider.select((Set<String> s) => s.contains(key)),
+  );
+}
+
 /// Shows [child] (the Arabic of one ayah) as it is, or, while "Hide text /
 /// test me" is on, a quiet box that shows the ayah when tapped.
 class HideableArabic extends ConsumerWidget {

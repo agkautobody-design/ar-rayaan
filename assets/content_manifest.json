@@ -41,9 +41,9 @@
    "version": 9
   },
   "stories/dailyduas.json": {
-   "bytes": 58499,
-   "sha256": "0cfd7825467739df10d2674df241f6813bf1fc991989bf03ee28a00a0ac87bba",
-   "version": 9
+   "bytes": 58429,
+   "sha256": "9187e0d3302dbf75eb898cedc19ae923d06449f80a9e225b89e6f0f31dc483f3",
+   "version": 10
   },
   "stories/ghayb.json": {
    "bytes": 96022,
@@ -61,9 +61,9 @@
    "version": 16
   },
   "stories/newmuslim.json": {
-   "bytes": 59023,
-   "sha256": "fa4d96edfc204756368e7bbcad367b0d4cad1b46ea16a1fee8c143ec7b2c0fe9",
-   "version": 6
+   "bytes": 62330,
+   "sha256": "99836c3dfadf7faecdcf58b4084d46fadb9de49c25ca3b9160de9500eced2bc1",
+   "version": 7
   },
   "stories/prophets.json": {
    "bytes": 90422,
