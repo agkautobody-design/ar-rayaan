@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "arSource": "Tanzil Uthmani text (tanzil.net)",
+ "tlSource": "quran-json romaniser, CC BY-SA 4.0 (assets/quran/translit_en.json)",
+ "review": "Machine-generated transliteration (quran-json, CC BY-SA 4.0); Scholar review needed.",
+ "bismillah": {
+  "ref": "1:1",
+  "ar": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ",
+  "tl": "Bismillaahir-rahmaanir-raheem",
+  "en": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+  "enSource": "Saheeh International via Tanzil (as in the reader)"
+ },
+ "knowledge": {
+  "ref": "39:9",
+  "ar": "قُلۡ هَلۡ يَسۡتَوِي ٱلَّذِينَ يَعۡلَمُونَ وَٱلَّذِينَ لَا يَعۡلَمُونَ",
+  "tl": "qul hal yastawil-ladheena ya'lamoona wal-ladheena laa ya'lamoon",
+  "en": "Are those who know equal to those who do not know?",
+  "enSource": "The app's own short wording of this part of the verse (not the Saheeh text, which exists only for the whole ayah)"
+ }
+}
