@@ -21,6 +21,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../../elder/application/elder_mode.dart';
+import '../application/generated_translit.dart';
 import '../application/reading_prefs.dart';
 
 /// The colour of a transliteration line.
@@ -341,8 +342,22 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
 
     final double tlSize = _size(widget.arabicSize * 0.62, elder, 13);
     final double enSize = _size(widget.arabicSize * 0.62, elder, 14);
-    final bool hasTl =
-        widget.translit != null && widget.translit!.trim().isNotEmpty;
+    // A registry's own transliteration wins; otherwise a program-made one from
+    // the generated file (labelled Scholar review needed), otherwise nothing.
+    String? tlText = widget.translit;
+    String? tlSource = widget.translitSource;
+    bool tlReview = widget.needsReview;
+    if (tlText == null || tlText.trim().isEmpty) {
+      final Map<String, String>? gen =
+          ref.watch(generatedTranslitProvider).valueOrNull;
+      final String? hit = gen?[normaliseArabicKey(widget.arabic)];
+      if (hit != null) {
+        tlText = hit;
+        tlSource = kGeneratedTranslitSource;
+        tlReview = true;
+      }
+    }
+    final bool hasTl = tlText != null && tlText.trim().isNotEmpty;
     final bool hasMeaning =
         widget.meaning != null && widget.meaning!.trim().isNotEmpty;
 
@@ -391,11 +406,11 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
           ..add(const SizedBox(height: 4))
           ..add(
             TranslitLayer(
-              text: widget.translit!.trim(),
+              text: tlText.trim(),
               view: tv,
               fontSize: tlSize,
-              needsReview: widget.needsReview,
-              source: widget.translitSource,
+              needsReview: tlReview,
+              source: tlSource,
               centered: widget.centered,
             ),
           );

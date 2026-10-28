@@ -16,6 +16,8 @@ import '../../habits/application/return_loop.dart';
 import '../../habits/presentation/quiet_done.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
+import '../../reading/application/reading_prefs.dart';
+import '../../reading/presentation/arabic_block.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -326,6 +328,7 @@ class _DhikrCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(adhkarProgressProvider);
+    final ReadingPrefs rp = ref.watch(readingPrefsProvider);
     final int done = ref
         .read(adhkarProgressProvider.notifier)
         .doneFor(set.id, dhikr.number);
@@ -348,18 +351,36 @@ class _DhikrCard extends ConsumerWidget {
           textDirection: TextDirection.rtl,
         ),
         const SizedBox(height: 8),
-        if (dhikr.transliteration != null) ...[
-          Text(
-            dhikr.transliteration!,
-            key: Key('dhikr-${set.id}-${dhikr.number}-tl'),
-            style: AppText.bodyMuted.copyWith(
+        if (rp.translit() != LayerView.hidden) ...[
+          if (dhikr.transliteration == null)
+            Text(
+              kTranslitMissing,
+              key: Key('dhikr-${set.id}-${dhikr.number}-tl-missing'),
+              style: AppText.caption.copyWith(fontSize: 12),
+            )
+          else if (rp.translit() == LayerView.button)
+            TranslitLayer(
+              text: dhikr.transliteration!,
+              view: LayerView.button,
               fontSize: 13,
-              height: 1.55,
-              fontStyle: FontStyle.italic,
-              color: AppColors.goldLight.withValues(alpha: complete ? 0.4 : 0.9),
+            )
+          else
+            Text(
+              dhikr.transliteration!,
+              key: Key('dhikr-${set.id}-${dhikr.number}-tl'),
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.left,
+              locale: kLatinLocale,
+              style: AppText.bodyMuted.copyWith(
+                fontSize: 13,
+                height: 1.55,
+                fontStyle: FontStyle.italic,
+                color: AppColors.goldLight.withValues(alpha: complete ? 0.4 : 0.9),
+              ),
             ),
-          ),
-          if (dhikr.transliterationSource != null)
+          if (dhikr.transliteration != null &&
+              dhikr.transliterationSource != null &&
+              rp.translit() == LayerView.shown)
             Text(
               'Transliteration: ${dhikr.transliterationSource!}',
               key: Key('dhikr-${set.id}-${dhikr.number}-tl-source'),
@@ -371,17 +392,8 @@ class _DhikrCard extends ConsumerWidget {
             ),
           const SizedBox(height: 6),
         ],
-        if (dhikr.translation != null) ...[
-          Text(
-            dhikr.translation!,
-            style: AppText.bodyMuted.copyWith(
-              fontSize: 12,
-              height: 1.55,
-              color: complete
-                  ? AppColors.sand.withValues(alpha: 0.35)
-                  : AppColors.sand.withValues(alpha: 0.75),
-            ),
-          ),
+        if (dhikr.translation != null && rp.showMeaning) ...[
+          MeaningLine(dhikr.translation!, fontSize: 13),
           const SizedBox(height: 6),
         ],
         if (dhikr.source != null) ...[
@@ -410,6 +422,8 @@ class _DhikrCard extends ConsumerWidget {
                       doc: ShareDoc.dhikr(
                         title: set.titleEn,
                         arabic: dhikr.arabic,
+                        translit: dhikr.transliteration,
+                        translitSource: dhikr.transliterationSource,
                         translation: dhikr.translation!,
                         source: dhikr.source,
                         reviewKey: 'dua.adhkar',

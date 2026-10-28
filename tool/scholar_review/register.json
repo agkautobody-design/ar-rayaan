@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5522,
+ "total": 5523,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -95,8 +95,8 @@
   },
   "quran-text": {
    "title": "Qur'an text, translation, transliteration, licences",
-   "items": 10,
-   "high_priority": 5
+   "items": 11,
+   "high_priority": 6
   },
   "games": {
    "title": "Games and quizzes with religious content",
@@ -133,7 +133,7 @@
   "Hadith / aqidah scholar": 2451,
   "Fiqh scholar (per madhab)": 631,
   "Women's scholar": 151,
-  "Arabic / tajweed / qira'at specialist": 525,
+  "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1015,
   "Native speaker (ar / bn / ur)": 279,
   "Privacy lawyer": 15,
@@ -141,7 +141,7 @@
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1296,
+  "high": 1297,
   "normal": 3524,
   "low": 702
  },
@@ -80834,6 +80834,25 @@
     "docs/OWNER_ACTIONS.md item 23"
    ],
    "label_surface": "Under every ayah in the reader",
+   "status": "open"
+  },
+  {
+   "id": "translit.program-made-gap-fill",
+   "area": "quran-text",
+   "subarea": "transliteration",
+   "where_in_app": "Any Arabic phrase with no transliteration of its own (duas, labels, Academy words)",
+   "file": "assets/translit/generated.json; tool/translit/build_generated_translit.py",
+   "key": "program-made transliteration of fully vowelled phrases",
+   "what_to_review": "A rule-based program (quran-json, CC BY-SA 4.0) wrote a transliteration for fully vowelled Arabic phrases that had none. Check the spellings, joining of Allah, and the apostrophe for hamza and ayn.",
+   "why_flagged": "Only fully vowelled phrases of up to 60 words get an entry; hadith, unvowelled words and Qur'an text are left alone and say \"Transliteration not available yet\".",
+   "reviewer_type": "Arabic / tajweed / qira'at specialist",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/DATA_SOURCES.md T2"
+   ],
+   "label_surface": "Under the Arabic, with the Scholar review needed note",
    "status": "open"
   },
   {

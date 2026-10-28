@@ -51,6 +51,21 @@ enum ShareKind {
 /// Credit for the Arabic of an ayah. The translation is not shared.
 const String kAyahArabicCredit = 'Arabic: Tanzil Uthmani (tanzil.net).';
 
+/// The transliteration of an item for a share, or null. Null when it is
+/// empty, or when it comes from the Qur'an transliteration dataset (CC BY-SA,
+/// kept in the app only until the owner confirms the licence for shares).
+String? shareableTranslit(String? translit, String? source) {
+  if (translit == null || translit.trim().isEmpty) return null;
+  final String src = (source ?? '').toLowerCase();
+  if (src.contains('qur\u2019an transliteration') ||
+      src.contains("qur'an transliteration") ||
+      src.contains('quran-json') ||
+      src.contains('tanzil')) {
+    return null;
+  }
+  return translit.trim();
+}
+
 /// Map data credit, required by the OpenStreetMap licence (ODbL).
 const String kOsmAttribution =
     'Map data: OpenStreetMap contributors (openstreetmap.org/copyright)';
@@ -75,6 +90,7 @@ class ShareDoc {
     required this.kind,
     this.title,
     this.arabic,
+    this.translit,
     this.body = '',
     this.source,
     this.extras = const <String>[],
@@ -88,6 +104,12 @@ class ShareDoc {
   /// Arabic exactly as the app's own data holds it. For the Qur'an it comes
   /// from the registry only.
   final String? arabic;
+
+  /// The Arabic in Latin letters, for kinds whose own registry carries one
+  /// with its source. Never set for a Qur'an ayah (owner's rule until the
+  /// translation licence is settled), nor for a text whose transliteration is
+  /// the Qur'an dataset's: see [shareableTranslit].
+  final String? translit;
   final String body;
 
   /// Printed as `— source`.
@@ -123,6 +145,8 @@ class ShareDoc {
   factory ShareDoc.hadith({
     String? title,
     String? arabic,
+    String? translit,
+    String? translitSource,
     required String english,
     String? source,
     required String reviewKey,
@@ -131,6 +155,7 @@ class ShareDoc {
         kind: ShareKind.hadith,
         title: title,
         arabic: arabic,
+        translit: shareableTranslit(translit, translitSource),
         body: english,
         source: source,
         carriesReview: true,
@@ -140,6 +165,8 @@ class ShareDoc {
   factory ShareDoc.dua({
     required String title,
     String? arabic,
+    String? translit,
+    String? translitSource,
     required String meaning,
     String? when,
     String? source,
@@ -149,6 +176,7 @@ class ShareDoc {
         kind: ShareKind.dua,
         title: title,
         arabic: arabic,
+        translit: shareableTranslit(translit, translitSource),
         body: when == null || when.trim().isEmpty
             ? meaning
             : '$meaning\n\nWhen: ${when.trim()}',
@@ -160,6 +188,8 @@ class ShareDoc {
   factory ShareDoc.dhikr({
     required String title,
     String? arabic,
+    String? translit,
+    String? translitSource,
     required String translation,
     String? source,
     required String reviewKey,
@@ -168,6 +198,7 @@ class ShareDoc {
         kind: ShareKind.dhikr,
         title: title,
         arabic: arabic,
+        translit: shareableTranslit(translit, translitSource),
         body: translation,
         source: source,
         carriesReview: true,
@@ -179,6 +210,8 @@ class ShareDoc {
   factory ShareDoc.story({
     required String title,
     String? arabic,
+    String? translit,
+    String? translitSource,
     required String body,
     String? source,
     required String reviewKey,
@@ -187,6 +220,7 @@ class ShareDoc {
         kind: ShareKind.story,
         title: title,
         arabic: arabic,
+        translit: shareableTranslit(translit, translitSource),
         body: body,
         source: source,
         carriesReview: true,
@@ -222,6 +256,8 @@ class ShareDoc {
   factory ShareDoc.lesson({
     required String title,
     String? arabic,
+    String? translit,
+    String? translitSource,
     required String body,
     String? source,
     String? note,
@@ -231,6 +267,7 @@ class ShareDoc {
         kind: ShareKind.lesson,
         title: title,
         arabic: arabic,
+        translit: shareableTranslit(translit, translitSource),
         body: body,
         source: source,
         extras: <String>[
@@ -355,6 +392,8 @@ abstract final class ShareService {
     final List<String> blocks = <String>[
       if (has(doc.title)) doc.title!.trim(),
       if (has(doc.arabic)) doc.arabic!.trim(),
+      if (has(doc.translit) && doc.kind != ShareKind.ayah)
+        'Transliteration: ${doc.translit!.trim()}',
       if (has(doc.body)) doc.body.trim(),
       if (has(doc.source)) '— ${doc.source!.trim()}',
       for (final String e in doc.extras)

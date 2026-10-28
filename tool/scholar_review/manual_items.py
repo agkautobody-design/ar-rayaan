@@ -36,6 +36,12 @@ def add_all(R):
         'The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide.',
         ARABIC, ['docs/DATA_SOURCES.md T1', 'docs/OWNER_ACTIONS.md item 23'], 'high', also=[RIGHTS], sub='transliteration',
         surf='Under every ayah in the reader')
+    add('translit.program-made-gap-fill', 'quran-text', 'Any Arabic phrase with no transliteration of its own (duas, labels, Academy words)',
+        'assets/translit/generated.json; tool/translit/build_generated_translit.py', 'program-made transliteration of fully vowelled phrases',
+        'A rule-based program (quran-json, CC BY-SA 4.0) wrote a transliteration for fully vowelled Arabic phrases that had none. Check the spellings, joining of Allah, and the apostrophe for hamza and ayn.',
+        'Only fully vowelled phrases of up to 60 words get an entry; hadith, unvowelled words and Qur\'an text are left alone and say "Transliteration not available yet".',
+        ARABIC, ['docs/DATA_SOURCES.md T2'], 'high', sub='transliteration',
+        surf='Under the Arabic, with the Scholar review needed note')
     add('quran.translit-accuracy', 'quran-text', "Qur'an reader > transliteration; lesson say-steps",
         'assets/academy/phrases/*.json; assets/adhkar/adhkar.json; assets/finance/ramadan.json', 'all transliterations',
         'Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author\'s own learning aid.',
