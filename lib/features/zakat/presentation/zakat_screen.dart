@@ -1,9 +1,6 @@
 import '../../../app/core/scholar_review.dart';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -11,6 +8,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../auth/presentation/widgets/auth_text_field.dart';
 import '../application/zakat_history_provider.dart';
+import '../domain/live_price_service.dart';
 import '../domain/live_prices.dart';
 import '../domain/nisab.dart';
 import '../domain/zakat_calculation.dart';
@@ -24,7 +22,11 @@ import '../../../app/theme/widgets/focus_ring.dart';
 /// the obligation live. Madhab-aware; scholarly positions labeled, never
 /// ruled on. Live metal prices are a convenience — manual entry always works.
 class ZakatScreen extends ConsumerStatefulWidget {
-  const ZakatScreen({super.key});
+  const ZakatScreen({super.key, this.livePriceService});
+
+  /// Where the live-price button gets its numbers. Tests pass one built on a
+  /// fake HTTP client; the app uses the default.
+  final LivePriceService? livePriceService;
 
   @override
   ConsumerState<ZakatScreen> createState() => _ZakatScreenState();
@@ -55,6 +57,12 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   RetirementPosition _retPos = RetirementPosition.annualNetAccessible;
   bool _fetchingPrices = false;
   String? _priceNote;
+  // True when [_priceNote] reports a failure (shown in the error colour).
+  bool _priceNoteIsError = false;
+  LivePriceService? _ownedService;
+  MetalPrices? _saved;
+  LivePriceService get _service =>
+      widget.livePriceService ?? (_ownedService ??= LivePriceService());
   // The per-gram prices the live fetch last wrote (US dollars). While the
   // price boxes still hold exactly these, the prices are dollar prices.
   String _liveGold = '';
@@ -86,13 +94,20 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   void initState() {
     super.initState();
     _c['penalty']!.text = '30';
+    _loadSaved();
     for (final c in _c.values) {
       c.addListener(() => setState(() {}));
     }
   }
 
+  Future<void> _loadSaved() async {
+    final MetalPrices? p = await _service.lastSaved();
+    if (mounted && p != null) setState(() => _saved = p);
+  }
+
   @override
   void dispose() {
+    _ownedService?.close();
     for (final c in _c.values) {
       c.dispose();
     }
@@ -135,50 +150,74 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
         silverPricePerGram: _v('silverPrice'),
       );
 
+  String _usd(double v) => '\$${v.toStringAsFixed(2)}';
+
+  void _applyPrices(MetalPrices p) {
+    _liveGold = p.goldPerGram.toStringAsFixed(2);
+    _liveSilver = p.silverPerGram.toStringAsFixed(2);
+    _c['goldPrice']!.text = _liveGold;
+    _c['silverPrice']!.text = _liveSilver;
+  }
+
   Future<void> _fetchLivePrices() async {
-    // Live prices are in US dollars: only use them for dollar balances.
+    // Live prices are in US dollars: only use them for dollar balances. The
+    // button stays tappable so this is always explained, never silent.
     final String? block = _currencyBlock;
     if (block != null) {
-      setState(() => _priceNote = block);
+      setState(() {
+        _priceNote = block;
+        _priceNoteIsError = true;
+      });
       return;
     }
     setState(() {
       _fetchingPrices = true;
       _priceNote = null;
+      _priceNoteIsError = false;
     });
     try {
-      final results = await Future.wait([
-        http
-            .get(Uri.parse('https://api.gold-api.com/price/XAU'))
-            .timeout(const Duration(seconds: 8)),
-        http
-            .get(Uri.parse('https://api.gold-api.com/price/XAG'))
-            .timeout(const Duration(seconds: 8)),
-      ]);
-      if (results[0].statusCode != 200 || results[1].statusCode != 200) {
-        throw const FormatException('price service unavailable');
-      }
-      final perGram = LivePrices.perGram(
-        utf8.decode(results[0].bodyBytes),
-        utf8.decode(results[1].bodyBytes),
-      );
+      final MetalPrices p = await _service.fetch();
       if (!mounted) return;
       setState(() {
-        _liveGold = perGram.gold.toStringAsFixed(2);
-        _liveSilver = perGram.silver.toStringAsFixed(2);
-        _c['goldPrice']!.text = _liveGold;
-        _c['silverPrice']!.text = _liveSilver;
-        _priceNote = 'Live prices (USD per gram) — gold-api.com';
+        _applyPrices(p);
+        _saved = p.asSavedCopy();
+        _priceNoteIsError = false;
+        _priceNote = 'Live prices in US dollars per gram: gold '
+            '${_usd(p.goldPerGram)}, silver ${_usd(p.silverPerGram)}. '
+            'Source: ${p.source}, '
+            '${p.dailyOnly ? 'rate for' : 'as of'} ${p.whenText()}.'
+            '${p.dailyOnly ? ' This source updates once a day.' : ''}';
       });
+    } on LivePriceException catch (e) {
+      _fail(e.message);
     } catch (_) {
-      if (mounted) {
-        setState(() {
-          _priceNote = 'Could not reach live prices — enter them manually.';
-        });
-      }
+      _fail('Something went wrong while getting prices.');
     } finally {
       if (mounted) setState(() => _fetchingPrices = false);
     }
+  }
+
+  void _fail(String reason) {
+    if (!mounted) return;
+    setState(() {
+      _priceNoteIsError = true;
+      _priceNote = 'Could not get live prices. $reason You can type the '
+          'gold and silver prices yourself instead.';
+    });
+  }
+
+  void _useSaved() {
+    final MetalPrices? p = _saved;
+    if (p == null) return;
+    setState(() {
+      _applyPrices(p);
+      _priceNoteIsError = false;
+      _priceNote = 'Saved prices in US dollars per gram: gold '
+          '${_usd(p.goldPerGram)}, silver ${_usd(p.silverPerGram)}. '
+          'Source: ${p.source}, '
+          '${p.dailyOnly ? 'rate for' : 'as of'} ${p.whenText()}. '
+          'These are not live; check them before relying on the result.';
+    });
   }
 
   /// Saves today's result (never the balances) to this device.
@@ -403,9 +442,8 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
           Align(
             alignment: Alignment.centerLeft,
             child: TextButton.icon(
-              onPressed: (_fetchingPrices || _currencyBlock != null)
-                  ? null
-                  : _fetchLivePrices,
+              key: const Key('live-prices-button'),
+              onPressed: _fetchingPrices ? null : _fetchLivePrices,
               icon: _fetchingPrices
                   ? const SizedBox(
                       width: 14,
@@ -420,8 +458,31 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
             ),
           ),
           if (_priceNote != null)
-            Text(_priceNote!,
-                style: AppText.bodyMuted.copyWith(fontSize: 12)),
+            Semantics(
+              liveRegion: true,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Text(_priceNote!,
+                    key: const Key('live-price-status'),
+                    style: AppText.bodyMuted.copyWith(
+                        fontSize: 12,
+                        color: _priceNoteIsError
+                            ? AppColors.destructive
+                            : null)),
+              ),
+            ),
+          if (_saved != null && !_fetchingPrices && !_livePricesInUse)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                key: const Key('use-saved-prices'),
+                onPressed: _useSaved,
+                child: Text(
+                  'Use saved prices from ${_saved!.whenText()}',
+                  style: AppText.label.copyWith(color: AppColors.gold),
+                ),
+              ),
+            ),
           _note(_currencyBlock ??
               'Live prices are in US dollars, which matches the currency '
                   'you set.'),
