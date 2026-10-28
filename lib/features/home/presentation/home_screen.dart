@@ -67,9 +67,12 @@ class HomeScreen extends ConsumerWidget {
         noor?.english ?? 'And remember your Lord when you forget.';
     // Transliteration for a Qur'an item comes from the dataset (never typed);
     // a hadith has none yet and the card says so.
-    final String? todayTranslit = (noor != null && noor.kind == NoorKind.quran)
-        ? ref.watch(quranTranslitProvider).valueOrNull?[noor.reference]
-        : null;
+    final Map<String, String>? translitMap =
+        ref.watch(quranTranslitProvider).valueOrNull;
+    String? todayTranslit;
+    if (noor != null && noor.kind == NoorKind.quran && translitMap != null) {
+      todayTranslit = translitMap[noor.reference];
+    }
     final String todaySource =
         noor?.source.toUpperCase() ?? 'QUR\u2019AN 18:24';
     // A prayer name in the person's language (the six names are translated;
