@@ -259,7 +259,7 @@ class SourcesScreen extends ConsumerWidget {
                         _SourceRow(
                           title: 'Prayer Times · Aladhan',
                           subtitle:
-                              'Times are worked out for your city and the method you pick, using the Aladhan service',
+                              'Times are calculated on your device for your city and the method you pick. The angles for each authority follow the list the Aladhan prayer-times project publishes.',
                         ),
                         _Divider(),
                         _SourceRow(

@@ -87,6 +87,19 @@ void main() {
       expect(all, closeTo(1, 1e-9));
     });
 
+    test('memorised ayat count in proportion to the Hifz plan', () {
+      // 5 of the 564 ayat of Juz Amma is a sliver, not the whole 15%.
+      expect(
+        ringValue(const RingInputs(ayatMemorised: 5, ayatPlanTotal: 564)),
+        closeTo(0.15 * 5 / 564, 1e-9),
+      );
+      expect(
+        ringValue(const RingInputs(ayatMemorised: 564, ayatPlanTotal: 564)),
+        closeTo(0.15, 1e-9),
+      );
+      expect(kRingExplanation, isNot(contains('(15% each)')));
+    });
+
     test('never goes past 100% and handles bad totals', () {
       expect(
         ringValue(const RingInputs(adhkarDone: 900, adhkarTotal: 600)),

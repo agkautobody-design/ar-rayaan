@@ -214,6 +214,13 @@ class HomeScreen extends ConsumerWidget {
     // tile is not pushed below the fold.
     final bool compact =
         textScale > 1.3 || MediaQuery.sizeOf(context).width < 380;
+    bool newToIslam = false;
+    try {
+      newToIslam = ref
+              .read(sharedPreferencesProvider)
+              .getString(OnboardingScreen.needPref) ==
+          'new';
+    } catch (_) {}
     final NextStep step = _nextStepFor(
       ref,
       academyOn: showAcademy,
@@ -308,7 +315,7 @@ class HomeScreen extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                ui('home.greeting'),
+                                ui(newToIslam ? 'home.greeting.new' : 'home.greeting'),
                                 style: AppText.bodyMuted.copyWith(fontSize: 12),
                               ),
                               Text(
@@ -329,7 +336,7 @@ class HomeScreen extends ConsumerWidget {
                               if (textScale <= 1.3) ...[
                                 const SizedBox(height: 8),
                                 Text(
-                                  ui('home.blessing'),
+                                  ui(newToIslam ? 'home.blessing.new' : 'home.blessing'),
                                   style: AppText.bodyMuted.copyWith(
                                     fontSize: 12,
                                     height: 1.5,

@@ -5,6 +5,10 @@ import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/router.dart';
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/speak_button.dart';
+import '../../hadi/application/hadi_controller.dart';
 import '../data/game_settings.dart';
 import 'games_art.dart';
 import 'games_theme.dart';
@@ -103,19 +107,132 @@ class GameBoardBackdrop extends StatelessWidget {
   }
 }
 
-/// "Ask Hadi about this": opens Hadi with [question] already asked. It uses
-/// the existing Hadi route and makes no network call of its own.
-class AskHadiAboutButton extends StatelessWidget {
+/// "Ask Hadi about this": Hadi explains the question, in a sheet over the
+/// game. The game stays underneath, so closing the sheet returns to exactly
+/// where the person was (opening Hadi's own tab would have replaced the
+/// screens behind it, so Back landed on Home), and the question, the answer
+/// and the explanation never travel in an address. It makes no network call
+/// of its own: Hadi answers from the game's text and his checked answers.
+class AskHadiAboutButton extends ConsumerWidget {
   const AskHadiAboutButton({required this.question, super.key});
 
   final String question;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return OutlineAction(
       label: 'Ask Hadi about this',
       icon: Icons.chat_bubble_outline,
-      onPressed: () => context.open(AppRoutes.hadiAsk(question)),
+      onPressed: () => showModalBottomSheet<void>(
+        context: context,
+        isScrollControlled: true,
+        useSafeArea: true,
+        backgroundColor: AppColors.night,
+        builder: (BuildContext c) => _AskHadiSheet(question: question),
+      ),
+    );
+  }
+}
+
+class _AskHadiSheet extends ConsumerStatefulWidget {
+  const _AskHadiSheet({required this.question});
+  final String question;
+
+  @override
+  ConsumerState<_AskHadiSheet> createState() => _AskHadiSheetState();
+}
+
+class _AskHadiSheetState extends ConsumerState<_AskHadiSheet> {
+  String? _reply;
+  bool _failed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_ask());
+  }
+
+  Future<void> _ask() async {
+    try {
+      final String a = await ref
+          .read(hadiControllerProvider.notifier)
+          .ask(widget.question);
+      if (!mounted) return;
+      setState(() {
+        _reply = a.trim().isEmpty ? null : a;
+        _failed = a.trim().isEmpty;
+      });
+    } catch (_) {
+      if (mounted) setState(() => _failed = true);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final String? reply = _reply;
+    final List<String> routes =
+        reply == null ? const <String>[] : HadiTokens.routesOf(reply);
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text('HADI EXPLAINS', style: AppText.eyebrow),
+                ),
+                if (reply != null) SpeakButton(text: HadiTokens.strip(reply)),
+                IconButton(
+                  key: const Key('ask-hadi-sheet-close'),
+                  tooltip: 'Close and return to the game',
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(Icons.close, color: AppColors.gold),
+                ),
+              ],
+            ),
+            Flexible(
+              child: SingleChildScrollView(
+                child: reply == null && !_failed
+                    ? const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                              color: AppColors.gold),
+                        ),
+                      )
+                    : Text(
+                        _failed
+                            ? 'Hadi could not answer just now. Your game is '
+                                'where you left it; try again in a moment.'
+                            : HadiTokens.strip(reply!),
+                        style: AppText.body.copyWith(height: 1.6),
+                      ),
+              ),
+            ),
+            if (routes.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                children: <Widget>[
+                  for (final String r in routes)
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        context.open(r);
+                      },
+                      child: Text(HadiTokens.labelFor(r),
+                          style: AppText.bodyMuted
+                              .copyWith(color: AppColors.gold)),
+                    ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
     );
   }
 }

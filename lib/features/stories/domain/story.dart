@@ -2,6 +2,11 @@
 /// Every story carries its source label and references per the
 /// Content Integrity law.
 
+/// Where a walked day of the New Muslim Path is remembered: this prefix plus
+/// the day's story id, set to true. Shared by the Path screen, the story
+/// reader's "Mark this day as walked" button and the Home next-step card.
+const kNewMuslimDonePrefix = 'ar.nm.done.';
+
 /// The honesty labels a story (or one chapter of it) may carry.
 const kLabelEstablished = 'Established';
 const kLabelInterpretive = 'Interpretive';

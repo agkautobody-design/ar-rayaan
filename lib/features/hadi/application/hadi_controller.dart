@@ -82,7 +82,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
   '/tasbeeh', '/settings/language', '/quran/bookmarks',
   '/kids', '/games/history', '/games/memory', '/games/ludo',
-  '/games/shatranj', '/support/listening-to-your-child',
+  '/games/shatranj', '/support/listening-to-your-child', '/support',
 };
 
 /// Short names for the screens Hādi offers as buttons. A route that is not
@@ -128,6 +128,7 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/sources/policy': 'How we handle religious content',
   '/support/listening-to-your-child':
       'the guide to listening to a child who is hurting',
+  '/support': 'Support and wellbeing',
   '/tasbeeh': 'the Tasbeeh counter',
   '/settings/language': 'Language and Voice',
   '/quran/bookmarks': 'your Qur’an bookmarks',
@@ -837,6 +838,8 @@ class HadiController extends Notifier<HadiState> {
   static String _scopeFor(SupportTopic t) => switch (t) {
         SupportTopic.gambling => 'gambling',
         SupportTopic.smoking => 'smoking',
+        // Drug and alcohol lines are the wrong lines for a porn question.
+        SupportTopic.porn => 'compulsive',
         _ => 'addiction',
       };
 
@@ -907,6 +910,17 @@ class HadiController extends Notifier<HadiState> {
       }
     }
     if (changed) state = state.copy(messages: out);
+  }
+
+  /// The built-in faith answer to a question asked inside an abuse message
+  /// ("can a woman ask for khula if she is not safe", "what about 4:34"), or
+  /// null. Only the two answers written for this, only for an adult.
+  String? _abuseFaithInfo(String q, CrisisKind crisis) {
+    if (crisis != CrisisKind.abuse || _minorSession) return null;
+    final CoreEntry? e = HadiCore.match(q);
+    if (e == null) return null;
+    if (e.id != 'divorce-unsafe' && e.id != 'abuse-verse-434') return null;
+    return e.answer;
   }
 
   /// The fixed reply for a crisis message, or null when the message should
@@ -1190,24 +1204,38 @@ class HadiController extends Notifier<HadiState> {
             : detected;
     if (crisis != null) {
       final String? fixed = _crisisReply(detected!);
-      if (fixed != null) {
+      // A woman who is not safe and asks what Islam allows her (khul',
+      // divorce, 4:34) gets the safety card first and, right under it, the
+      // faith answer to what she asked. A card alone told her nothing about
+      // her options, and a second question got the same card again. On the
+      // device only, like the card.
+      final String? faith = _abuseFaithInfo(q, crisis);
+      if (fixed != null || faith != null) {
         state = state.copy(
           messages: <HadiMessage>[
             ...state.messages,
             HadiMessage(fromHadi: false, text: q, sensitive: true),
-            HadiMessage(
-              fromHadi: true,
-              text: fixed,
-              crisis: crisis,
-              sensitive: true,
-            ),
+            if (fixed != null)
+              HadiMessage(
+                fromHadi: true,
+                text: fixed,
+                crisis: crisis,
+                sensitive: true,
+              ),
+            if (faith != null)
+              HadiMessage(
+                fromHadi: true,
+                text: faith,
+                sensitive: true,
+                routes: HadiTokens.routesOf(faith),
+              ),
           ],
           typing: false,
         );
         // From here the conversation is latched (see [_latch]).
         if (crisis != CrisisKind.extremism) _latch = crisis;
         await _stat(HadiAnswerKind.safety);
-        return fixed;
+        return <String>[?fixed, ?faith].join('\n\n');
       }
     }
 

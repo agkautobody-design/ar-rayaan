@@ -97,13 +97,32 @@ class _LudoState extends State<LudoScreen> {
   bool _seenRoom = false;
   String? _syncError;
 
-  static const List<String> _hadiLudo = <String>[
+  // Hadi's lines, by what just happened on the board, so the words fit the
+  // move (a capture is not met with "patience, the six will come").
+  static const List<String> _hadiQuiet = <String>[
     'Hadi: The dice decide the roll; you decide the move.',
-    'Hadi: A pawn sent home is not an ending; the board always invites return.',
-    'Hadi: Patience. The six will come.',
     'Hadi: I protect my stars. Do you protect yours?',
     'Hadi: One careful step beats three hurried ones.',
   ];
+  static const List<String> _hadiPassed = <String>[
+    'Hadi: Nothing to move with that roll. Patience, the six will come.',
+    'Hadi: No move this time. The board waits for you.',
+  ];
+  static const List<String> _hadiCapture = <String>[
+    'Hadi: A pawn sent back to its yard is not an ending; the board always invites return.',
+    'Hadi: A capture. Mind your own pawns that stand alone.',
+  ];
+  static const String _hadiHome = 'Hadi: One pawn is home. Bring the others the same careful way.';
+  static const String _hadiSix = 'Hadi: A six, and another turn. Use it well.';
+
+  String _ludoLine({required int seat, required int roll, LudoMoveResult? res}) {
+    final int k = (seat + roll + lastRoll) % 6;
+    if (res == null) return _hadiPassed[k % _hadiPassed.length];
+    if (res.captured.isNotEmpty) return _hadiCapture[k % _hadiCapture.length];
+    if (res.reachedHome) return _hadiHome;
+    if (res.extraTurn) return _hadiSix;
+    return _hadiQuiet[k % _hadiQuiet.length];
+  }
 
   @override
   void initState() {
@@ -328,7 +347,7 @@ class _LudoState extends State<LudoScreen> {
     if (legal.isEmpty) {
       setState(() {
         status = '${_label(seat)} rolled $r — no move';
-        hadiLine = _hadiLudo[_hadiIndex(seat, r)];
+        hadiLine = _ludoLine(seat: seat, roll: r);
       });
       await Future<void>.delayed(const Duration(milliseconds: 800));
       if (!mounted || gen != _gen) return;
@@ -337,13 +356,10 @@ class _LudoState extends State<LudoScreen> {
     }
     final int t = LudoBot.choose(tok, seats, seat, r, legal);
     setState(() {
-      hadiLine = _hadiLudo[_hadiIndex(seat, r)];
-      _play(seat, t, r);
+      final LudoMoveResult res = _play(seat, t, r);
+      hadiLine = _ludoLine(seat: seat, roll: r, res: res);
     });
   }
-
-  // A fixed pick, so the line does not need a second source of randomness.
-  int _hadiIndex(int seat, int r) => (seat + r + lastRoll) % _hadiLudo.length;
 
   // ---------------------------------------------------------------- online
 

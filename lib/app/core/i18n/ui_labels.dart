@@ -254,6 +254,20 @@ kUiLabels = <String, Map<String, String>>{
     'bn': 'আল্লাহ এটিকে আপনার দিনের\nবরকতের উৎস করুন!',
     'ur': 'اللہ اسے آپ کے دن کی\nبرکت کا ذریعہ بنائے!',
   },
+  // For someone who said they are new to Islam or just curious: no prayer
+  // for blessing on their day, and the greeting is plain.
+  'home.greeting.new': {
+    'en': 'Hello,',
+    'ar': 'مرحبًا،',
+    'bn': 'হ্যালো,',
+    'ur': 'ہیلو،',
+  },
+  'home.blessing.new': {
+    'en': 'Look around at your own pace.\nNothing here is pushed on you.',
+    'ar': 'تجوّل على مهلك.\nلا شيء هنا يُفرض عليك.',
+    'bn': 'নিজের গতিতে ঘুরে দেখুন।\nএখানে কিছুই আপনার ওপর চাপানো হয় না।',
+    'ur': 'اپنی رفتار سے دیکھیں۔\nیہاں کچھ بھی آپ پر مسلط نہیں کیا جاتا۔',
+  },
   'home.quick': {
     'en': 'Quick Access',
     'ar': 'وصول سريع',

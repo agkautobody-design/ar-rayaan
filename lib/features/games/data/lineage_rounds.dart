@@ -138,7 +138,9 @@ List<LineageRound> buildLineageRounds(
       prompt: 'Which of these is a parent of ${n['name']}?',
       options: options,
       answer: options.indexOf(answerName),
-      why: '${n['name']} is the child of $parentNames — ${n['era']}.',
+      why: (n['name'] as String).contains(' & ')
+          ? '${n['name']} are the children of $parentNames — ${n['era']}.'
+          : '${n['name']} is the child of $parentNames — ${n['era']}.',
       subject: n['name'] as String,
       isRiver: false,
     ));

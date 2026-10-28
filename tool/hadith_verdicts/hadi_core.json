@@ -27,6 +27,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "abudawud:1573": {
+  "verdict": "ok",
+  "grade": "Da'if",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "abudawud:162": {
   "verdict": "ok",
   "grade": "Da'if",

@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5468,
+ "total": 5480,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 483,
+   "items": 490,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 575,
-   "high_priority": 112
+   "items": 576,
+   "high_priority": 113
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -105,7 +105,7 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 226,
+   "items": 228,
    "high_priority": 121
   },
   "legal": {
@@ -125,24 +125,24 @@
   },
   "support-packs": {
    "title": "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)",
-   "items": 1642,
+   "items": 1644,
    "high_priority": 111
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2447,
-  "Fiqh scholar (per madhab)": 610,
+  "Hadith / aqidah scholar": 2448,
+  "Fiqh scholar (per madhab)": 618,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 1007,
-  "Native speaker (ar / bn / ur)": 261,
+  "Clinician (Sakina and health content)": 1008,
+  "Native speaker (ar / bn / ur)": 263,
   "Privacy lawyer": 14,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1278,
-  "normal": 3488,
+  "high": 1279,
+  "normal": 3499,
   "low": 702
  },
  "items": [
@@ -33690,6 +33690,112 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.divorce-unsafe",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"divorce-unsafe\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='divorce-unsafe'",
+   "what_to_review": "Built-in answer \"divorce-unsafe\": Your safety comes first. If you are in danger now, go to a safe place and call your local emergency number. The help lines on this screen can talk it through with you in confidence. Islam does not ask you to stay in a marriage where you are being hurt or frig…",
+   "why_flagged": "Khul, judicial dissolution for harm (darar) and the Abu Dawud warning about asking for divorce without cause are described in general terms for a woman who is not safe; the schools' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.abuse-verse-434",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"abuse-verse-434\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='abuse-verse-434'",
+   "what_to_review": "Built-in answer \"abuse-verse-434\": No. Nothing in Islam gives anyone the right to hit you, frighten you or control you by force. If he is hurting you, your safety comes first: go to a safe place and call your local emergency number if you are in danger. The help lines on this screen are for yo…",
+   "why_flagged": "Reads 4:34 with the restrictions the scholars place on it and says plainly that violence is not allowed. The attribution of \"at most symbolic\" and \"better left\" to scholars is a summary of views already in the hitting-wife answer and needs a scholar to confirm. Wording must be read by someone who works with abuse survivors.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.share-chat",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"share-chat\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='share-chat'",
+   "what_to_review": "Built-in answer \"share-chat\": No. A whole chat cannot be shared from the app, and that is on purpose: what you ask me can be personal. My side of the chat is not saved or sent anywhere. It stays on screen for this visit only, and it is gone when you leave, clear it, or close the app. So t…",
+   "why_flagged": "Describes what the app does today (nothing is saved; Copy this reply copies one reply). No religious content.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadi-memory-settings",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadi-memory-settings\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadi-memory-settings'",
+   "what_to_review": "Built-in answer \"hadi-memory-settings\": Here is what I keep, and where you control it. - I do not save our chat. It stays on screen for this visit only and is gone when you leave, clear it, or close the app. - Settings has a switch called \"Hadi remembers you\". It is off by default. It only lets me…",
+   "why_flagged": "Describes what the app does today. No religious content.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.pillars-islam",
    "area": "hadi",
    "subarea": "core-answer",
@@ -35131,6 +35237,84 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.zakat-due",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-due\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-due'",
+   "what_to_review": "Built-in answer \"zakat-due\": Zakat falls due when your zakatable wealth has stayed at or above the nisab for one full lunar year (the hawl). The one-year condition is taught by all four schools, and it rests on reports such as Sunan Abu Dawud 1573, da'if per Darussalam. Al-Albani graded…",
+   "why_flagged": "The one-year condition and the choice of a fixed date are standard fiqh teaching; the Hanafi versus other schools position on wealth that falls below the nisab mid-year is a school difference not text-checked here. The hawl report is cited as da'if per Darussalam with the al-Albani grade stated as a difference.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-debts",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-debts\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-debts'",
+   "what_to_review": "Built-in answer \"zakat-debts\": Debts you owe can reduce the wealth you pay zakat on, but only debts that are due now, and the schools differ: - The Hanafi, Maliki and Hanbali schools take the debts you owe away from your cash and gold before they work out whether you have reached the nisab…",
+   "why_flagged": "The treatment of debts differs by school (Hanafi, Maliki and Hanbali deduct; the usual Shafi'i position does not) and the contemporary view on instalments of a long loan is a modern opinion; none of it is text-checked here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-amount",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-amount\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-amount'",
+   "what_to_review": "Built-in answer \"zakat-amount\": The rate is 2.5% (one fortieth) of your zakatable wealth, once it has reached the nisab and a lunar year has passed on it. For example, if your zakatable wealth on your zakat date is 10,000 and that is above the nisab, you pay 250. The nisab is the minimum: t…",
+   "why_flagged": "The rate, the nisab figures and the choice between silver and gold are standard fiqh teaching and match the Zakat screen; only Bukhari 1447 (the silver measure) is cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.zakat-nisab-rate",
    "area": "hadi",
    "subarea": "core-answer",
@@ -36132,7 +36316,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='become-muslim'",
    "what_to_review": "Built-in answer \"become-muslim\": Welcome. Becoming a Muslim is simple: say the shahada (the declaration of faith), knowing what it means and meaning it: أشهد أن لا إله إلا الله وأشهد أن محمداً رسول الله Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasulu Allah. \"I bear witnes…",
-   "why_flagged": "The bath on accepting Islam and what to say are standard practice; Arabic shahada is the universally known text.",
+   "why_flagged": "The bath on accepting Islam: the schools differ on whether it is required or recommended (stated as a difference, as in Path Day 1). What to say is standard practice; Arabic shahada is the universally known text.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
@@ -52926,6 +53110,25 @@
    "key": "hadith[id=h:tirmidhi-2378]",
    "what_to_review": "Jamiʿ at-Tirmidhi 2378: \"Abu Hurairah reported the Prophet said a man is upon the religion of his friend, so let one of you look at whom he befriends\" (grade Hasan, al-Albani).",
    "why_flagged": "Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-1573",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 1573",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-1573]",
+   "what_to_review": "Sunan Abu Dawud 1573: \"Ali reported the Prophet said when you possess two hundred dirhams and one year passes on them, five dirhams are payable, and nothing is due on gold…\" (grade Da'if, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Da'if (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
@@ -75165,6 +75368,46 @@
    "file": "lib/app/core/i18n/ui_labels.dart",
    "key": "home.blessing",
    "what_to_review": "Arabic, Bangla and Urdu wording of UI label \"home.blessing\" against the English; direction (RTL for ar/ur).",
+   "why_flagged": "docs/content_needed/translation_review.md: \"MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER\"; the Language screen says these are first drafts (OWNER_ACTIONS item 15).",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/content_needed/translation_review.md",
+    "FIX_FLOWS_REPORT (owner action 2)"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
+   "id": "lang.label.home.greeting.new",
+   "area": "languages",
+   "subarea": "ui-label",
+   "where_in_app": "UI label \"home.greeting.new\" (navigation, Home, onboarding, Menu)",
+   "file": "lib/app/core/i18n/ui_labels.dart",
+   "key": "home.greeting.new",
+   "what_to_review": "Arabic, Bangla and Urdu wording of UI label \"home.greeting.new\" against the English; direction (RTL for ar/ur).",
+   "why_flagged": "docs/content_needed/translation_review.md: \"MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER\"; the Language screen says these are first drafts (OWNER_ACTIONS item 15).",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/content_needed/translation_review.md",
+    "FIX_FLOWS_REPORT (owner action 2)"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
+   "id": "lang.label.home.blessing.new",
+   "area": "languages",
+   "subarea": "ui-label",
+   "where_in_app": "UI label \"home.blessing.new\" (navigation, Home, onboarding, Menu)",
+   "file": "lib/app/core/i18n/ui_labels.dart",
+   "key": "home.blessing.new",
+   "what_to_review": "Arabic, Bangla and Urdu wording of UI label \"home.blessing.new\" against the English; direction (RTL for ar/ur).",
    "why_flagged": "docs/content_needed/translation_review.md: \"MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER\"; the Language screen says these are first drafts (OWNER_ACTIONS item 15).",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [],
@@ -100497,7 +100740,7 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.001",
-   "what_to_review": "Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that.",
+   "what_to_review": "A note on the evidence: researchers still disagree about whether heavy pornography use is an addiction. The WHO's ICD-11 lists compulsive sexual behaviour disorder as an impulse-control problem, not as an addiction, and there is little strong research on any one fix. What is clearer is that it can be treated, and that support from a person helps more than willpower alone.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [],
@@ -100517,7 +100760,7 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.002",
-   "what_to_review": "Researchers describe compulsive sexual behaviour as a pattern some people struggle to control, and it can be treated. It is not a sign that you are a bad person.",
+   "what_to_review": "Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [],
@@ -100537,7 +100780,7 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.003",
-   "what_to_review": "Blocking tools, changing where and when you use your phone, and sleeping on time can make urges easier to ride out. They help most alongside support from a person.",
+   "what_to_review": "Researchers describe compulsive sexual behaviour as a pattern some people struggle to control, and it can be treated. It is not a sign that you are a bad person.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [],
@@ -100545,7 +100788,7 @@
    "priority": "normal",
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)",
-    "background "
+    "study Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -100557,7 +100800,7 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.004",
-   "what_to_review": "Urges rise and fall. Many people find that waiting fifteen minutes and doing something else makes them pass.",
+   "what_to_review": "Blocking tools, changing where and when you use your phone, and sleeping on time can make urges easier to ride out. They help most alongside support from a person.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [],
@@ -100577,7 +100820,7 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.005",
-   "what_to_review": "Slipping up is common and it doesn't wipe out the progress you made. What matters is what you do next.",
+   "what_to_review": "Urges rise and fall. Many people find that waiting fifteen minutes and doing something else makes them pass.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [],
@@ -100597,6 +100840,26 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.explain.006",
+   "what_to_review": "Slipping up is common and it doesn't wipe out the progress you made. What matters is what you do next.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.porn_compulsive.explain.007",
+   "area": "support-packs",
+   "subarea": "porn_compulsive",
+   "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
+   "file": "assets/support/packs/porn_compulsive.json",
+   "key": "porn_compulsive.explain.007",
    "what_to_review": "Some people find therapy and a peer group each help in different ways. You can try one without the other.",
    "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
    "reviewer_type": "Clinician (Sakina and health content)",
@@ -100818,6 +101081,33 @@
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
    "key": "porn_compulsive.islamic.003",
+   "what_to_review": "Scholars agree that looking at pornography is not allowed. On masturbation, scholars differ. The Maliki and Shafi'i schools hold that it is forbidden. The Hanafi and Hanbali schools also forbid it, but allow it where a person fears falling into zina and cannot marry (Ibn 'Abidin, Ibn Qudama). Ibn Hazm called it disliked, not forbidden. None of them calls a person who struggles beyond Allah's mercy, and I can't give a ruling for you. A scholar you trust can.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "fiqh Classical positions on masturbation: Maliki and Shafi'i forbid it; Hanafi and Hanbali forbid it except where zina is feared (Ibn Abidin, Ibn Qudama); Ibn Hazm, al-Muhalla, calls it makruh. Summarised from memory, no source opened for this brief"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.porn_compulsive.islamic.004",
+   "area": "support-packs",
+   "subarea": "porn_compulsive",
+   "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
+   "file": "assets/support/packs/porn_compulsive.json",
+   "key": "porn_compulsive.islamic.004",
    "what_to_review": "The Qur'an speaks about lowering the gaze and guarding modesty, for men and women. Many people find that practical steps, like changing their environment, go along with that teaching.",
    "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -100832,12 +101122,12 @@
    "status": "open"
   },
   {
-   "id": "support.porn_compulsive.islamic.004",
+   "id": "support.porn_compulsive.islamic.005",
    "area": "support-packs",
    "subarea": "porn_compulsive",
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
-   "key": "porn_compulsive.islamic.004",
+   "key": "porn_compulsive.islamic.005",
    "what_to_review": "The Prophet advised a person who was struck by a sudden glance to turn the eyes away. A slip of the eye is not the end of your worth.",
    "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -100852,12 +101142,12 @@
    "status": "open"
   },
   {
-   "id": "support.porn_compulsive.islamic.005",
+   "id": "support.porn_compulsive.islamic.006",
    "area": "support-packs",
    "subarea": "porn_compulsive",
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
-   "key": "porn_compulsive.islamic.005",
+   "key": "porn_compulsive.islamic.006",
    "what_to_review": "You do not have to announce a private struggle to anyone. Scholars say that you can ask a trusted professional or scholar for help to the extent needed, without publicising it.",
    "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -100874,12 +101164,12 @@
    "status": "open"
   },
   {
-   "id": "support.porn_compulsive.islamic.006",
+   "id": "support.porn_compulsive.islamic.007",
    "area": "support-packs",
    "subarea": "porn_compulsive",
    "where_in_app": "Hadi / Wasia support module > pack \"porn_compulsive\" (support)",
    "file": "assets/support/packs/porn_compulsive.json",
-   "key": "porn_compulsive.islamic.006",
+   "key": "porn_compulsive.islamic.007",
    "what_to_review": "Scholars differ on how to treat this, and I can't give a ruling. If you want to ask about a specific situation, a scholar you trust, ideally alongside a counsellor, can advise you.",
    "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off.",
    "reviewer_type": "Fiqh scholar (per madhab)",
