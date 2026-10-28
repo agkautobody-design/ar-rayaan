@@ -145,6 +145,9 @@ class AskHadiPill extends StatelessWidget {
 
   static const String label = 'Ask Hādi';
 
+  /// The word under the icon when the pill is the small round one.
+  static const String shortLabel = 'Hādi';
+
   @override
   Widget build(BuildContext context) {
     void open() => context.go(AppRoutes.hadi);
@@ -176,13 +179,38 @@ class AskHadiPill extends StatelessWidget {
             onTap: open,
             borderRadius: BorderRadius.circular(24),
             child: compact
-                ? const SizedBox(
-                    width: 48,
-                    height: 48,
-                    child: Icon(
-                      Icons.auto_awesome,
-                      size: 22,
-                      color: AppColors.goldLight,
+                // Icon over a short word: an icon alone told a sighted person
+                // nothing ("the sparkle button"). The word is held at its
+                // normal size (12) so it never grows the pill.
+                ? ConstrainedBox(
+                    constraints:
+                        const BoxConstraints(minWidth: 56, minHeight: 52),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 6),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          const Icon(
+                            Icons.auto_awesome,
+                            size: 18,
+                            color: AppColors.goldLight,
+                          ),
+                          MediaQuery.withClampedTextScaling(
+                            maxScaleFactor: 1.0,
+                            child: Text(
+                              shortLabel,
+                              maxLines: 1,
+                              style: AppText.body.copyWith(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.goldLight,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 : ConstrainedBox(

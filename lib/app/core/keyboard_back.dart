@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -52,25 +54,34 @@ bool handleEscapeBack(GoRouter router, KeyEvent event) {
   final HardwareKeyboard kb = HardwareKeyboard.instance;
   if (kb.isControlPressed || kb.isAltPressed || kb.isMetaPressed) return false;
 
-  // Typing: leave the field with Tab; Escape must not throw a draft away.
-  final BuildContext? focusContext =
-      FocusManager.instance.primaryFocus?.context;
-  if (focusContext != null &&
-      (focusContext.widget is EditableText ||
-          focusContext.findAncestorWidgetOfExactType<EditableText>() != null)) {
-    return false;
-  }
-
   try {
-    // A dialog, sheet or menu is on top: its own Escape closes it.
+    // A dialog, sheet or menu is on top: Escape closes it, wherever keyboard
+    // focus happens to be (focus can still be on the page underneath, or in
+    // a text box inside the sheet). A dialog that cannot be dismissed by
+    // tapping outside (a choice that must be made) is left alone.
     final NavigatorState? nav = router.routerDelegate.navigatorKey.currentState;
     if (nav != null) {
-      Route<dynamic>? top;
+      Route<dynamic>? found;
       nav.popUntil((Route<dynamic> r) {
-        top = r;
+        found = r;
         return true;
       });
-      if (top is PopupRoute<dynamic>) return false;
+      final Route<dynamic>? top = found;
+      if (top is PopupRoute<dynamic>) {
+        if (!top.barrierDismissible) return false;
+        unawaited(nav.maybePop());
+        return true;
+      }
+    }
+
+    // Typing: leave the field with Tab; Escape must not throw a draft away.
+    final BuildContext? focusContext =
+        FocusManager.instance.primaryFocus?.context;
+    if (focusContext != null &&
+        (focusContext.widget is EditableText ||
+            focusContext.findAncestorWidgetOfExactType<EditableText>() !=
+                null)) {
+      return false;
     }
 
     if (router.canPop()) {

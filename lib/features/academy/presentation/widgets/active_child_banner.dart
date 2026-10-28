@@ -7,6 +7,7 @@ import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
 import '../../application/family_service.dart';
 import 'parent_gate.dart';
+import '../../../../app/theme/widgets/named_sheet.dart';
 
 /// Who is learning? Shown on every Letters screen once a parent has added a
 /// child. Lessons and exams are saved to the ACTIVE child, so on a shared
@@ -23,7 +24,8 @@ class ActiveChildBanner extends ConsumerWidget {
     if (!context.mounted) return;
     final List<Map<String, dynamic>> kids = ref.read(childrenProvider).valueOrNull ??
         const <Map<String, dynamic>>[];
-    final String? picked = await showModalBottomSheet<String>(
+    final String? picked = await showNamedSheet<String>(
+      label: 'Who is learning?',
       context: context,
       backgroundColor: const Color(0xFF0A0F18),
       builder: (BuildContext ctx) => SafeArea(

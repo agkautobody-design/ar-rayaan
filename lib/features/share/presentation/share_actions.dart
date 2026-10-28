@@ -18,6 +18,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/core/child_mode.dart';
 import '../../elder/application/elder_mode.dart';
 import '../application/share_service.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Shown after a successful copy.
 const String kCopiedMessage = kShareCopiedMessage;
@@ -63,7 +64,8 @@ Future<void> showSharePreview(
   required ShareDoc doc,
   String subject = 'this',
 }) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Share preview',
     context: context,
     isScrollControlled: true,
     showDragHandle: true,

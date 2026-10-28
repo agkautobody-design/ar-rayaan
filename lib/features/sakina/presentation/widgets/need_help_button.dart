@@ -11,6 +11,7 @@ import '../../application/sakina_providers.dart';
 import '../../domain/crisis_detector.dart';
 import '../../domain/sakina_content.dart';
 import 'help_line_tile.dart';
+import '../../../../app/theme/widgets/named_sheet.dart';
 
 /// Opens the help sheet: the person's own country first, then the lines that
 /// work anywhere. Used on Sakina, Feelings, Notes, Hādi and Elder Care so a
@@ -22,7 +23,8 @@ Future<void> showNeedHelpSheet(
   bool showSakinaLink = true,
   bool child = false,
 }) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Need help now',
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.night,

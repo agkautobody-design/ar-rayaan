@@ -13,6 +13,7 @@ import '../../hadi/application/hadi_controller.dart';
 import '../data/game_settings.dart';
 import 'games_art.dart';
 import 'games_theme.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The colours of the cards and boards in the learning games, for one of the
 /// three themes a person can choose in Game Settings. Every text colour has
@@ -124,7 +125,8 @@ class AskHadiAboutButton extends ConsumerWidget {
     return OutlineAction(
       label: 'Ask Hadi about this',
       icon: Icons.chat_bubble_outline,
-      onPressed: () => showModalBottomSheet<void>(
+      onPressed: () => showNamedSheet<void>(
+        label: 'Ask Hadi about this',
         context: context,
         isScrollControlled: true,
         useSafeArea: true,

@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -76,6 +78,29 @@ class _FocusSafeSemanticsState extends State<FocusSafeSemantics> {
     if (found != _focusable) setState(() => _focusable = found);
   }
 
+  /// A control that takes keyboard focus while it is off screen is brought
+  /// into view. When a screen reader drives Tab, the browser moves focus to
+  /// the control's element but nothing scrolls the canvas, so the focus ring
+  /// and the control sat above or below the visible part of the page (the
+  /// "Support and wellbeing" row in Settings). Does nothing when the control
+  /// is already fully visible.
+  void _scrollIntoView() {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      try {
+        if (Scrollable.maybeOf(context) == null) return;
+        unawaited(Scrollable.ensureVisible(
+          context,
+          duration: const Duration(milliseconds: 120),
+          curve: Curves.easeOut,
+          alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+        ));
+      } catch (_) {
+        // Not inside anything that scrolls, or already gone: nothing to do.
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!_scheduled && !_focusable) {
@@ -89,6 +114,7 @@ class _FocusSafeSemanticsState extends State<FocusSafeSemantics> {
       includeSemantics: false,
       onFocusChange: (bool f) {
         if (f != _focused && mounted) setState(() => _focused = f);
+        if (f) _scrollIntoView();
       },
       child: Semantics(
         button: widget.button,
