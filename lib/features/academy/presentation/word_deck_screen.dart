@@ -11,6 +11,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../domain/word_gloss.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 /// A card in the plain flashcard viewer (the spaced-repetition deck lives in
 /// domain/word_deck.dart and is practised at /academy/review).
@@ -123,10 +124,13 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
                     border: Border.all(color: AppColors.gold.withValues(alpha: 0.4)),
                   ),
                   child: Column(children: [
-                    Text(c.arabic,
-                        textDirection: TextDirection.rtl,
-                        style: const TextStyle(fontFamily: 'Amiri', fontSize: 58,
-                            height: 1.6, color: Color(0xFFEAD9A8))),
+                    // The word, with its reading when the app has one (it says so
+                    // when not). The meaning stays behind the tap: it is the test.
+                    ArabicBlock(
+                      arabic: c.arabic,
+                      arabicSize: 58,
+                      centered: true,
+                    ),
                     if (_flipped) ...[
                       const SizedBox(height: 14),
                       if (c.hasMeaning)

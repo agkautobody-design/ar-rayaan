@@ -19,6 +19,7 @@ import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class Feeling {
   final String id;
@@ -221,22 +222,13 @@ class FeelingScreen extends ConsumerWidget {
                 ),
                 child: Column(
                   children: [
-                    Text(
-                      f.dua.arabic,
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      style: const TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 24,
-                        height: 1.9,
-                        color: Color(0xFFEAD9A8),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      f.dua.body,
-                      textAlign: TextAlign.center,
-                      style: AppText.body.copyWith(height: 1.6, fontSize: 14),
+                    // Arabic, then transliteration, then the labelled meaning.
+                    ArabicBlock(
+                      key: Key('feeling-dua-${f.id}'),
+                      arabic: f.dua.arabic,
+                      meaning: f.dua.body,
+                      arabicSize: 24,
+                      centered: true,
                     ),
                     const SizedBox(height: 8),
                     Text(

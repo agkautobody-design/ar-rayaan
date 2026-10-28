@@ -17,6 +17,7 @@ import '../application/journey_providers.dart';
 import '../domain/journey_progress.dart';
 import 'saved_stories_sheet.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../reading/presentation/quran_snippet_views.dart';
 
 /// Screen 8 · My Journey — progress ring + what you have done + My Path.
 ///
@@ -152,17 +153,7 @@ class JourneyScreen extends ConsumerWidget {
                   ),
                   const HabitsCard(),
                   const SizedBox(height: 32),
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Text(
-                      'وَقُل رَّبِّ زِدْنِي عِلْمًا',
-                      style: AppText.arabicLarge.copyWith(
-                        fontSize: 24,
-                        color: AppColors.gold.withValues(alpha: 0.9),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
+                  const QuranSnippetView(name: 'increase', arabicSize: 24),
                 ],
               ),
             ),

@@ -9,8 +9,10 @@ import 'package:go_router/go_router.dart';
 
 import '../application/web_file_save.dart';
 import '../application/web_print.dart';
+import '../../reading/presentation/arabic_block.dart' show kLatinLocale, kTranslitMissing;
 import '../domain/handout.dart';
 import 'share_actions.dart';
+import '../application/share_service.dart';
 
 /// Opens the handout page for [data].
 void openHandout(BuildContext context, HandoutData data) =>
@@ -197,6 +199,21 @@ class _Page extends StatelessWidget {
                       fontFamily: 'Amiri',
                       fontSize: 24,
                       height: 1.9),
+                ),
+              ),
+            if (s.arabic != null && s.arabic!.trim().isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Text(
+                  shareableTranslit(s.translit, s.translitSource) ??
+                      kTranslitMissing,
+                  key: const Key('handout-translit'),
+                  textDirection: TextDirection.ltr,
+                  locale: kLatinLocale,
+                  style: const TextStyle(
+                      color: Colors.black54,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 14),
                 ),
               ),
             if (s.body.trim().isNotEmpty) Text(s.body),

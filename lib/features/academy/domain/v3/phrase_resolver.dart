@@ -27,6 +27,8 @@ class ResolvedLine {
     this.surah,
     this.ayah,
     this.meaningCredit,
+    this.translitSource,
+    this.translitReview = false,
   });
 
   final String arabic;
@@ -40,6 +42,12 @@ class ResolvedLine {
 
   /// Who the meaning is from, when it is not the app author's own wording.
   final String? meaningCredit;
+
+  /// Where a program-made or unreviewed transliteration came from, if so.
+  final String? translitSource;
+
+  /// True when the transliteration still needs a scholar's check.
+  final bool translitReview;
 
   bool get isAyah => surah != null && ayah != null;
 }
@@ -102,6 +110,7 @@ class PhraseResolver {
       lines.add(ResolvedLine(
         arabic: ar,
         translit: p.translit,
+        translitReview: p.needsScholarReview,
         meaning: p.meaning,
         words: _zip(ar, p.words),
       ));
@@ -130,6 +139,10 @@ class PhraseResolver {
       lines.add(ResolvedLine(
         arabic: v.arabic,
         translit: quran.transliteration(q.surah, a),
+        translitSource: quran.transliterationIsGenerated(q.surah, a)
+            ? 'quran-json'
+            : null,
+        translitReview: quran.transliterationIsGenerated(q.surah, a),
         meaning: v.english,
         meaningCredit: kSaheehCredit,
         words: q.isRange ? null : _zip(v.arabic, words),

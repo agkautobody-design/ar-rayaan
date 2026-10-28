@@ -43,6 +43,8 @@ import '../../support/application/support_settings.dart';
 import '../../support/presentation/support_widgets.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
+import '../../quran/application/quran_translit.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 /// The items under the More options button in the header.
 enum _HadiMenu { newConversation, school, advanced, about }
@@ -1173,7 +1175,7 @@ class _CrisisHelpPanelState extends ConsumerState<_CrisisHelpPanel> {
 /// A verse or hadith printed from the app's own library, with its Arabic,
 /// translation and (for a hadith) grade. Shared by the chat and by the
 /// "Ask Hadi about this" sheet in the games.
-class HadiPassageCard extends StatelessWidget {
+class HadiPassageCard extends ConsumerWidget {
   const HadiPassageCard({required this.passage});
 
   final Passage passage;
@@ -1190,8 +1192,18 @@ class HadiPassageCard extends StatelessWidget {
     return AppRoutes.sources;
   }
 
+  /// The Qur'an transliteration for a verse passage, from the dataset; a hadith
+  /// has none yet (the block says so).
+  String? _translit(WidgetRef ref) {
+    if (passage.kind != PassageKind.quran) return null;
+    final List<String> parts = passage.id.split(':');
+    if (parts.length < 3) return null;
+    final Map<String, String>? m = ref.watch(quranTranslitProvider).valueOrNull;
+    return m == null ? null : m['${parts[1]}:${parts[2]}'];
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final String? grade = passage.gradeLine;
     final String route = _route;
     return SizedBox(
@@ -1221,24 +1233,26 @@ class HadiPassageCard extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  if (passage.arabic != null) ...<Widget>[
-                    const SizedBox(height: 6),
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        passage.arabic!,
-                        style: AppText.body.copyWith(fontSize: 18, height: 1.8),
+                  const SizedBox(height: 6),
+                  if (passage.arabic != null)
+                    ArabicBlock(
+                      key: const Key('hadi-passage-block'),
+                      arabic: passage.arabic!,
+                      translit: _translit(ref),
+                      translitSource: 'quran-json',
+                      needsReview: true,
+                      meaning: passage.english,
+                      arabicSize: 18,
+                      density: ArabicBlockDensity.compact,
+                    )
+                  else
+                    Text(
+                      passage.english,
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sand.withValues(alpha: 0.85),
+                        height: 1.5,
                       ),
                     ),
-                  ],
-                  const SizedBox(height: 6),
-                  Text(
-                    passage.english,
-                    style: AppText.caption.copyWith(
-                      color: AppColors.sand.withValues(alpha: 0.85),
-                      height: 1.5,
-                    ),
-                  ),
                   if (grade != null) ...<Widget>[
                     const SizedBox(height: 6),
                     Text(

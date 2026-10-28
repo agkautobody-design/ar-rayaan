@@ -20,6 +20,7 @@ import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 /// The teaching layer for the Forty: one entry per hadith in sequence.
 /// Each lesson names the Forty hadith it teaches (`nawawi`) or its own
@@ -415,11 +416,9 @@ class HadithSchoolScreen extends ConsumerWidget {
                                     color: AppColors.night,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
-                                  child: Text(
-                                    hit.first.arabic,
-                                    textAlign: TextAlign.right,
-                                    style: AppText.arabic.copyWith(
-                                        fontSize: 18, color: AppColors.goldLight),
+                                  child: ArabicBlock(
+                                    arabic: hit.first.arabic,
+                                    arabicSize: 18,
                                   ),
                                 ),
                                 const SizedBox(height: 4),

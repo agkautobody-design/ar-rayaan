@@ -11,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
+import '../../../reading/presentation/arabic_block.dart';
 import '../../application/academy_strings.dart';
 import '../../application/recitation_player_provider.dart';
 import '../../domain/recitation_audio.dart';
@@ -157,33 +158,19 @@ class _LineBlock extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          ArabicText(line.arabic),
-          if (line.translit != null) ...<Widget>[
-            const SizedBox(height: 4),
-            Text(
-              line.translit!,
-              textAlign: TextAlign.center,
-              style: AppText.body.copyWith(
-                fontStyle: FontStyle.italic,
-                color: AppColors.gold,
-                height: 1.5,
-              ),
-            ),
-          ],
-          if (line.meaning != null) ...<Widget>[
-            const SizedBox(height: 4),
-            Text(
-              line.meaning!,
-              textAlign: TextAlign.center,
-              style: AppText.body.copyWith(height: 1.5),
-            ),
-            if (line.meaningCredit != null)
-              Text(
-                'Translation: ${line.meaningCredit}',
-                textAlign: TextAlign.center,
-                style: AppText.caption,
-              ),
-          ],
+          // Arabic, then transliteration, then the meaning, per the reading
+          // settings (Show transliteration / Show meaning).
+          ArabicBlock(
+            arabic: line.arabic,
+            translit: line.translit,
+            translitSource: line.translitSource,
+            needsReview: line.translitReview,
+            meaning: line.meaning,
+            meaningCredit:
+                line.meaningCredit == null ? null : 'Translation: ${line.meaningCredit}',
+            arabicSize: 30,
+            centered: true,
+          ),
           if (line.words != null) ...<Widget>[
             const SizedBox(height: 10),
             Text(t('v3.wordByWord'), style: AppText.eyebrow),

@@ -8,6 +8,9 @@ library;
 import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
+import 'dart:convert';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -15,11 +18,15 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/core/content_loader.dart';
+import '../../reading/presentation/arabic_block.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 
-class _DuaLesson {
-  const _DuaLesson({
+/// One lesson of the Dua school. The data is in `assets/academy/dua_lessons.json`
+/// (moved there unchanged from this file), so the Arabic is in a registry.
+class DuaLesson {
+  const DuaLesson({
     required this.title,
     required this.arabic,
     required this.meaning,
@@ -39,160 +46,55 @@ class _DuaLesson {
   /// named source ([translitSource]); null otherwise.
   final String? translit;
   final String? translitSource;
+
+  static List<DuaLesson> parse(String raw) {
+    try {
+      final Object? top = json.decode(raw);
+      if (top is! Map || top['lessons'] is! List) return const <DuaLesson>[];
+      final List<DuaLesson> out = <DuaLesson>[];
+      for (final Object? e in top['lessons'] as List<Object?>) {
+        if (e is! Map) continue;
+        final Object? t = e['title'];
+        final Object? a = e['arabic'];
+        final Object? m = e['meaning'];
+        final Object? w = e['when'];
+        final Object? s = e['source'];
+        if (t is! String || a is! String || m is! String || w is! String || s is! String) {
+          continue;
+        }
+        final Object? tl = e['translit'];
+        final Object? ts = e['translitSource'];
+        out.add(DuaLesson(
+          title: t,
+          arabic: a,
+          meaning: m,
+          when: w,
+          source: s,
+          translit: tl is String && tl.trim().isNotEmpty ? tl : null,
+          translitSource: ts is String && ts.trim().isNotEmpty ? ts : null,
+        ));
+      }
+      return out;
+    } catch (_) {
+      return const <DuaLesson>[];
+    }
+  }
 }
 
-const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
-  _DuaLesson(
-    title: 'Ayat al-Kursi — protection at night',
-    arabic:
-        'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَـُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ',
-    meaning:
-        'Allah — there is no god but He, the Ever-Living, the Sustainer of all existence. Neither drowsiness nor sleep overtakes Him… (2:255). In the story of Abu Huraira and the thief, he was told that whoever recites it on going to bed has a guardian from Allah over him, and Satan will not come near him until morning (Bukhari 2311).',
-    when: 'On going to bed.',
-    source: 'Qur’an 2:255 · Sahih al-Bukhari 2311',
-    translit: 'Allaahu laa \'ilaaha \'illaa Huwal-Hayyul-Qayyoom. Laa ta\'khudhuhu sinatunw-wa laa nawm. Lahu maa fis-samaawaati wa maa fil-\'ard. Man dhal-ladhee yashfa\'u \'indahoo \'illaa bi\'idhnih. Ya\'lamu maa bayna \'aydeehim wa maa khalfahum, wa laa yuheetoona bishay\'im-min \'ilmihee \'illaa bimaa shaa\'. Wasi\'a kursiyyuhus-samaawaati wal-\'ard, wa laa ya\'ooduhoo hifzuhumaa, wa Huwal-\'Aliyyul-\'Azeem',
-    translitSource: 'Qur’an 2:255 (the Qur’an transliteration already approved in this app)',
-  ),
-  _DuaLesson(
-    title: 'Sayyid al-Istighfar — the master of seeking forgiveness',
-    arabic:
-        'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ',
-    meaning:
-        'O Allah, You are my Lord; there is no god but You. You created me and I am Your servant… Whoever says it with conviction morning or evening and dies that day enters Paradise (Bukhari 6306).',
-    when: 'Morning and evening.',
-    source: 'Bukhari 6306',
-    translit:
-        'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
-    translitSource: 'Hisn 79 (sunnah.com/hisn:79), lines 1-2',
-  ),
-  _DuaLesson(
-    title: 'Before sleeping',
-    arabic:
-        'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا',
-    meaning:
-        'In Your name, O Allah, I die and I live. The Prophet ﷺ would place his right hand under his cheek and say it (Bukhari 6314).',
-    when: 'On lying down to sleep.',
-    source: 'Bukhari 6314',
-  ),
-  _DuaLesson(
-    title: 'Before eating',
-    arabic: 'بِسْمِ اللَّهِ',
-    meaning:
-        'In the name of Allah. The Prophet ﷺ said: mention Allah’s name, eat with your right hand, and eat from what is nearest (Muslim 2022).',
-    when: 'Before the first bite.',
-    source: 'Muslim 2022',
-  ),
-  // --- Morning & evening -----------------------------------------------
-  _DuaLesson(
-    title: 'The Three Quls — the evening shield',
-    arabic:
-        'قُلۡ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّـٰثَٰتِ فِي ٱلۡعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ مَلِكِ ٱلنَّاسِ إِلَٰهِ ٱلنَّاسِ مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ',
-    meaning:
-        'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ told a Companion to say them three times in the morning and evening, and that they would serve him for every purpose (Abu Dawud 5082, hasan per al-Albani).',
-    when: 'Morning and evening, three times each.',
-    source: 'Abu Dawud 5082, hasan per al-Albani; Tirmidhi 3575, hasan per Darussalam',
-    translit:
-        'Qul huwal-laahu \'ahad. Allaahus-samad. Lam yalid wa lam yoolad. Wa lam yakul-lahoo kufuwan \'ahad. Qul \'a\'oozu birabbil-falaq. Min sharri maa khalaq. Wa min sharri ghaasiqin \'izaa waqab. Wa min sharrin-naffaasaati fil-\'uqad. Wa min sharri haasidin \'izaa hasad. Qul \'a\'oozu birabbin-naas. Malikin-naas. \'Ilaahin-naas. Min sharril-waswaasil-khannaas. Allazee yuwaswisu fee sudoorin-naas. Minal-jinnati wan-naas.',
-    translitSource: 'Qur’an 112:1-4, 113:1-5, 114:1-6 (the Qur’an transliteration already approved in this app)',
-  ),
-  _DuaLesson(
-    title: 'Leaving the home — the morning departure',
-    arabic:
-        'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
-    meaning:
-        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095, sahih per al-Albani). Taught as the morning\'s first sentence when the foot crosses the threshold.',
-    when: 'When leaving the house.',
-    source: 'Abu Dawud 5095, sahih per al-Albani',
-    translit:
-        'Bismillāhi, tawakkaltu `alallāhi, wa lā ḥawla wa lā quwwata illā billāh.',
-    translitSource: 'Hisn 16 (sunnah.com/hisn:16)',
-  ),
+const String kDuaLessonsAsset = 'assets/academy/dua_lessons.json';
 
-  // --- Home & table ------------------------------------------------------
-  _DuaLesson(
-    title: 'After eating — the thanked meal',
-    arabic:
-        'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ',
-    meaning:
-        'Praise be to Allah who fed us, gave us drink, and made us Muslims (Tirmidhi 3457, weak per Darussalam). The meal becomes worship when the end matches the beginning.',
-    when: 'After finishing a meal.',
-    source: 'Tirmidhi 3457, weak per Darussalam',
-  ),
-  _DuaLesson(
-    title: 'Entering the home — the threshold greeting',
-    arabic:
-        'بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ',
-    meaning:
-        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096, weak per al-Albani). The home is entered with His name, not with the day\'s residue.',
-    when: 'When entering the house.',
-    source: 'Abu Dawud 5096, weak per al-Albani',
-  ),
+final FutureProvider<List<DuaLesson>> duaLessonsProvider =
+    FutureProvider<List<DuaLesson>>((Ref ref) async {
+      return DuaLesson.parse(await ContentLoader.loadString(kDuaLessonsAsset));
+    });
 
-  // --- Masjid ------------------------------------------------------------
-  _DuaLesson(
-    title: 'Entering the mosque — asking the doors of mercy',
-    arabic: 'اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
-    meaning:
-        'O Allah, open for me the doors of Your mercy (Muslim 713). Said with the right foot at the mosque\'s door.',
-    when: 'Entering the mosque.',
-    source: 'Sahih Muslim 713',
-    translit:
-        "Allāhummaftaḥ lī 'abwāba raḥmatik.",
-    translitSource: 'Hisn 20 (sunnah.com/hisn:20), line 6',
-  ),
-  _DuaLesson(
-    title: 'After the prayer — the closing words',
-    arabic:
-        'أَسْتَغْفِرُ اللَّهَ (×٣) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ',
-    meaning:
-        'I seek Allah\'s forgiveness (three times). O Allah, You are Peace and from You comes peace… (Muslim 591). The prayer does not end; it hands you to the next worship.',
-    when: 'After each obligatory prayer.',
-    source: 'Sahih Muslim 591',
-    translit:
-        'Astaghfirullāh (×3). Allāhumma antas-salām, wa minkas-salām.',
-    translitSource: 'Hisn 66 (sunnah.com/hisn:66), lines 1-3',
-  ),
-
-  // --- Travel & hardship -------------------------------------------------
-  _DuaLesson(
-    title: 'Boarding any transport — the borrowed ride',
-    arabic:
-        'سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ',
-    meaning:
-        'Glory to Him who subjected this to us, and we could never have accomplished it ourselves (43:13). The Prophet ﷺ recited it mounting his ride, then said Allahu Akbar three times (Muslim 1342).',
-    when: 'Boarding a vehicle, mount, or seat of travel.',
-    source: 'Qur\'an 43:13; Sahih Muslim 1342',
-    translit:
-        "Subḥāna 'l-ladhi sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn.",
-    translitSource: 'Hisn 207 (sunnah.com/hisn:207), lines 2-3',
-  ),
-  _DuaLesson(
-    title: 'In distress — the dua of the afflicted',
-    arabic:
-        'لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ',
-    meaning:
-        'There is no god but Allah, the Magnificent, the Forbearing; there is no god but Allah, Lord of the Mighty Throne (Bukhari 6346). Ibn Abbas reported that the Prophet ﷺ used to say words like these at a time of distress.',
-    when: 'In any hardship, anxiety, or tightness of the chest.',
-    source: 'Sahih al-Bukhari 6346',
-    translit:
-        "Lā ilāha illallāh al-`Aẓīmul-Ḥalīm, lā ilāha illallāh Rabbu 'l-`Arshi 'l-`Aẓīm.",
-    translitSource: 'Hisn 122 (sunnah.com/hisn:122), lines 1-4 (one apostrophe in the source typed for the letter ayn is written as ayn)',
-  ),
-  _DuaLesson(
-    title: 'Hasbunallahu wa ni\'mal wakil — the sufficiency clause',
-    arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
-    meaning:
-        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of the believers in 3:173 when they were warned that people had gathered against them. Spoken, the chest loosens.',
-    when: 'When facing what you cannot control.',
-    source: "Qur'an 3:173",
-  ),
-];
-
-class DuaSchoolScreen extends StatelessWidget {
+class DuaSchoolScreen extends ConsumerWidget {
   const DuaSchoolScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<DuaLesson> lessons =
+        ref.watch(duaLessonsProvider).valueOrNull ?? const <DuaLesson>[];
     return Scaffold(
       body: ScenicScaffold.pattern(
         body: SafeArea(
@@ -211,7 +113,7 @@ class DuaSchoolScreen extends StatelessWidget {
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
               ),
-              for (final _DuaLesson l in kDuaLessons)
+              for (final DuaLesson l in lessons)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: GlassCard(
@@ -223,40 +125,16 @@ class DuaSchoolScreen extends StatelessWidget {
                             style: AppText.titleMedium
                                 .copyWith(color: AppColors.gold)),
                         const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            l.arabic,
-                            textDirection: TextDirection.rtl,
-                            style: const TextStyle(
-                              fontFamily: 'Amiri',
-                              fontSize: 22,
-                              height: 1.6,
-                              color: AppColors.sand,
-                            ),
-                          ),
+                        // Arabic, then transliteration, then the labelled meaning.
+                        ArabicBlock(
+                          key: Key('dua-lesson-block-${l.title}'),
+                          arabic: l.arabic,
+                          translit: l.translit,
+                          translitSource: l.translitSource,
+                          needsReview: true,
+                          meaning: l.meaning,
+                          arabicSize: 22,
                         ),
-                        if (l.translit != null) ...<Widget>[
-                          const SizedBox(height: 6),
-                          Text(
-                            l.translit!,
-                            key: Key('dua-lesson-tl-${l.title}'),
-                            style: AppText.bodyMuted.copyWith(
-                              fontSize: 14,
-                              height: 1.5,
-                              fontStyle: FontStyle.italic,
-                              color: AppColors.goldLight,
-                            ),
-                          ),
-                          if (l.translitSource != null)
-                            Text(
-                              'Transliteration: ${l.translitSource!}',
-                              style: AppText.caption,
-                            ),
-                        ],
-                        const SizedBox(height: 8),
-                        Text(l.meaning,
-                            style: AppText.body.copyWith(height: 1.5)),
                         const SizedBox(height: 8),
                         Text('When: ${l.when}',
                             style: AppText.caption),
@@ -269,6 +147,8 @@ class DuaSchoolScreen extends StatelessWidget {
                             doc: ShareDoc.dua(
                               title: l.title,
                               arabic: l.arabic,
+                              translit: l.translit,
+                              translitSource: l.translitSource,
                               meaning: l.meaning,
                               when: l.when,
                               source: l.source,

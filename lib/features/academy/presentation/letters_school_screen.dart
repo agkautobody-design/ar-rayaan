@@ -15,6 +15,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/letter_audio_provider.dart';
 import '../domain/letters_data.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class LettersSchoolScreen extends StatelessWidget {
   const LettersSchoolScreen({super.key});
@@ -128,17 +129,7 @@ class _LetterSheet extends StatelessWidget {
                   Text('In the Qur’an',
                       style: AppText.caption.copyWith(color: AppColors.gold)),
                   const SizedBox(height: 6),
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Text(
-                      letter.example,
-                      style: const TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 28,
-                        color: AppColors.sand,
-                      ),
-                    ),
-                  ),
+                  ArabicBlock(arabic: letter.example, arabicSize: 28),
                 ],
               ),
             ),

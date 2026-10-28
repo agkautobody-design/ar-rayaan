@@ -17,6 +17,7 @@ import '../application/sfx_provider.dart';
 import '../domain/dhikr_session.dart';
 import '../domain/sfx.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class DhikrSessionScreen extends ConsumerStatefulWidget {
   const DhikrSessionScreen({super.key});
@@ -241,13 +242,13 @@ class _DhikrSessionScreenState
                               .copyWith(color: AppColors.gold),
                           textAlign: TextAlign.center),
                       const SizedBox(height: 6),
-                      Text(_set.arabic,
-                          textDirection: TextDirection.rtl,
-                          style: const TextStyle(
-                            fontFamily: 'Amiri',
-                            fontSize: 30,
-                            color: AppColors.sand,
-                          )),
+                      // The meaning is already shown above; the block adds the
+                      // transliteration under the Arabic.
+                      ArabicBlock(
+                        arabic: _set.arabic,
+                        arabicSize: 30,
+                        centered: true,
+                      ),
                       const SizedBox(height: 10),
                       if (_state.phase == DhikrPhase.complete) ...[
                         Text(

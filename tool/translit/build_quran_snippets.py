@@ -47,7 +47,7 @@ def whole(q, tl, s, a):
     }
 
 
-def part(q, tl, s, a, key, en):
+def part(q, tl, s, a, key, en, en_source=None):
     v = q[s - 1]['v'][a - 1]
     ar_parts = [p.strip() for p in STOP.split(v[1])]
     tl_parts = [p.strip() for p in tl['%d:%d' % (s, a)].split(', ')]
@@ -59,7 +59,7 @@ def part(q, tl, s, a, key, en):
         'ar': ar_parts[idx[0]],
         'tl': tl_parts[idx[0]],
         'en': en,
-        'enSource': "The app's own short wording of this part of the verse (not the Saheeh text, which exists only for the whole ayah)",
+        'enSource': en_source or "The app's own short wording of this part of the verse (not the Saheeh text, which exists only for the whole ayah)",
     }
 
 
@@ -72,11 +72,14 @@ def main():
         'review': REVIEW,
         'bismillah': whole(q, tl, 1, 1),
         'knowledge': part(q, tl, 39, 9, KNOWLEDGE_KEY, KNOWLEDGE_EN),
+        # 20:114, last clause: the English is the matching slice of the Saheeh line.
+        'increase': part(q, tl, 20, 114, 'وقل رب زدني', 'And say, \u201cMy Lord, increase me in knowledge.\u201d',
+                         'Saheeh International via Tanzil (the last clause of the ayah, as in the reader)'),
     }
     with open(OUT, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=1)
         f.write('\n')
-    for k in ('bismillah', 'knowledge'):
+    for k in ('bismillah', 'knowledge', 'increase'):
         print(k, d[k]['ar'], '|', d[k]['tl'])
 
 

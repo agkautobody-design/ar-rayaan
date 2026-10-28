@@ -126,9 +126,13 @@ void main() {
 
     test('Dua School lessons: transliteration names its source', () {
       int withTl = 0;
-      for (final dynamic l in kDuaLessons) {
-        final String? tl = l.translit as String?;
-        final String? src = l.translitSource as String?;
+      final List<DuaLesson> lessons = DuaLesson.parse(
+        File('assets/academy/dua_lessons.json').readAsStringSync(),
+      );
+      expect(lessons.length, greaterThan(10));
+      for (final DuaLesson l in lessons) {
+        final String? tl = l.translit;
+        final String? src = l.translitSource;
         if (tl == null) continue;
         withTl++;
         expect(latinOnly.hasMatch(tl), isTrue, reason: tl);
