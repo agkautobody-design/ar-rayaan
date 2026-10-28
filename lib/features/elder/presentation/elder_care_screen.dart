@@ -11,6 +11,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../hadi/grounding/corpus.dart';
 import '../../hadi/grounding/passage.dart';
+import '../../reading/presentation/arabic_block.dart' show ArabicBlockDensity;
+import '../../reading/presentation/quran_snippet_views.dart' show QuranTranslitBlock;
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
@@ -118,17 +120,14 @@ class _ElderCareState extends ConsumerState<ElderCareScreen> {
                 Text('AYAT AL-KURSI \u00b7 ${kursi.reference.toUpperCase()}',
                     style: AppText.eyebrow.copyWith(fontSize: 12)),
                 const SizedBox(height: 10),
-                Text(
-                  kursi.arabic ?? '',
-                  textDirection: TextDirection.rtl,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontFamily: 'Amiri', fontSize: 26, height: 2,
-                      color: Color(0xFFEAD9A8)),
+                QuranTranslitBlock(
+                  arabic: kursi.arabic ?? '',
+                  english: kursi.english,
+                  ayahKey: '2:255',
+                  arabicSize: 26,
+                  centered: true,
+                  density: ArabicBlockDensity.regular,
                 ),
-                const SizedBox(height: 8),
-                Text(kursi.english,
-                    textAlign: TextAlign.center,
-                    style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.6)),
               ]),
             ),
           const SizedBox(height: 12),

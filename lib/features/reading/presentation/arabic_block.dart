@@ -47,21 +47,27 @@ enum ArabicBlockDensity {
 
 /// A transliteration line. Always left to right.
 class TranslitLine extends StatelessWidget {
-  const TranslitLine(this.text, {super.key, this.fontSize = 14});
+  const TranslitLine(
+    this.text, {
+    super.key,
+    this.fontSize = 14,
+    this.centered = false,
+  });
 
   final String text;
   final double fontSize;
+  final bool centered;
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Align(
-        alignment: Alignment.centerLeft,
+        alignment: centered ? Alignment.center : Alignment.centerLeft,
         child: m.Text(
           text,
           key: const Key('arabic-block-translit'),
-          textAlign: TextAlign.left,
+          textAlign: centered ? TextAlign.center : TextAlign.left,
           locale: kLatinLocale,
           semanticsLabel: 'Transliteration: $text',
           style: AppText.body.copyWith(
@@ -84,11 +90,13 @@ class MeaningLine extends StatelessWidget {
     this.fontSize = 14,
     this.compact = false,
     this.rtl = false,
+    this.centered = false,
   });
 
   final String text;
   final double fontSize;
   final bool compact;
+  final bool centered;
 
   /// True for a translation that reads right to left (Urdu, Arabic).
   final bool rtl;
@@ -103,7 +111,7 @@ class MeaningLine extends StatelessWidget {
           Directionality(
             textDirection: TextDirection.ltr,
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: centered ? Alignment.center : Alignment.centerLeft,
               child: Text(
                 'Meaning',
                 style: AppText.eyebrow.copyWith(
@@ -116,10 +124,13 @@ class MeaningLine extends StatelessWidget {
         Directionality(
           textDirection: rtl ? TextDirection.rtl : TextDirection.ltr,
           child: Align(
-            alignment: rtl ? Alignment.centerRight : Alignment.centerLeft,
+            alignment: centered
+                ? Alignment.center
+                : (rtl ? Alignment.centerRight : Alignment.centerLeft),
             child: m.Text(
               text,
               key: const Key('arabic-block-meaning'),
+              textAlign: centered ? TextAlign.center : null,
               semanticsLabel: 'Meaning: $text',
               style: AppText.bodyMuted.copyWith(fontSize: size, height: 1.55),
             ),
@@ -133,10 +144,11 @@ class MeaningLine extends StatelessWidget {
 /// The small "Scholar review needed" line under a machine-made or
 /// author-made transliteration.
 class TranslitReviewNote extends StatelessWidget {
-  const TranslitReviewNote({super.key, this.source});
+  const TranslitReviewNote({super.key, this.source, this.centered = false});
 
   /// Where the transliteration came from, in a few words.
   final String? source;
+  final bool centered;
 
   @override
   Widget build(BuildContext context) {
@@ -146,10 +158,11 @@ class TranslitReviewNote extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Align(
-        alignment: Alignment.centerLeft,
+        alignment: centered ? Alignment.center : Alignment.centerLeft,
         child: m.Text(
           '$kScholarReviewNeeded$s',
           key: const Key('arabic-block-review'),
+          textAlign: centered ? TextAlign.center : null,
           style: AppText.caption.copyWith(fontSize: 12, height: 1.4),
         ),
       ),
@@ -167,6 +180,7 @@ class TranslitLayer extends StatefulWidget {
     this.fontSize = 14,
     this.needsReview = false,
     this.source,
+    this.centered = false,
     super.key,
   });
 
@@ -175,6 +189,7 @@ class TranslitLayer extends StatefulWidget {
   final double fontSize;
   final bool needsReview;
   final String? source;
+  final bool centered;
 
   @override
   State<TranslitLayer> createState() => _TranslitLayerState();
@@ -188,7 +203,7 @@ class _TranslitLayerState extends State<TranslitLayer> {
     final bool button = widget.view == LayerView.button;
     if (button && !_open) {
       return Align(
-        alignment: Alignment.centerLeft,
+        alignment: widget.centered ? Alignment.center : Alignment.centerLeft,
         child: TextButton(
           key: const Key('arabic-block-read-it'),
           style: TextButton.styleFrom(
@@ -203,11 +218,17 @@ class _TranslitLayerState extends State<TranslitLayer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        TranslitLine(widget.text, fontSize: widget.fontSize),
-        if (widget.needsReview) TranslitReviewNote(source: widget.source),
+        TranslitLine(
+          widget.text,
+          fontSize: widget.fontSize,
+          centered: widget.centered,
+        ),
+        if (widget.needsReview)
+          TranslitReviewNote(source: widget.source, centered: widget.centered),
         if (button)
           Align(
-            alignment: Alignment.centerLeft,
+            alignment:
+                widget.centered ? Alignment.center : Alignment.centerLeft,
             child: TextButton(
               key: const Key('arabic-block-hide-it'),
               style: TextButton.styleFrom(
@@ -238,6 +259,7 @@ class ArabicBlock extends ConsumerStatefulWidget {
     this.testMode = false,
     this.meaningRtl = false,
     this.showMissingNote = true,
+    this.centered = false,
     super.key,
   });
 
@@ -273,6 +295,9 @@ class ArabicBlock extends ConsumerStatefulWidget {
 
   /// Say "Transliteration not available yet" when there is none.
   final bool showMissingNote;
+
+  /// Centre every line (a banner), instead of starting each at its own edge.
+  final bool centered;
 
   @override
   ConsumerState<ArabicBlock> createState() => _ArabicBlockState();
@@ -332,6 +357,7 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
           widget.arabic,
           key: const Key('arabic-block-arabic'),
           locale: const Locale('ar'),
+          textAlign: widget.centered ? TextAlign.center : null,
           style: AppText.arabicLarge.copyWith(
             fontSize: widget.arabicSize,
             height: 1.8,
@@ -349,7 +375,8 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
               Directionality(
                 textDirection: TextDirection.ltr,
                 child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment:
+                      widget.centered ? Alignment.center : Alignment.centerLeft,
                   child: Text(
                     kTranslitMissing,
                     key: const Key('arabic-block-missing'),
@@ -369,6 +396,7 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
               fontSize: tlSize,
               needsReview: widget.needsReview,
               source: widget.translitSource,
+              centered: widget.centered,
             ),
           );
       }
@@ -383,6 +411,7 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
             fontSize: enSize,
             compact: compact,
             rtl: widget.meaningRtl,
+            centered: widget.centered,
           ),
         );
       final String? credit = widget.meaningCredit;
@@ -391,7 +420,8 @@ class _ArabicBlockState extends ConsumerState<ArabicBlock> {
           Directionality(
             textDirection: TextDirection.ltr,
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment:
+                  widget.centered ? Alignment.center : Alignment.centerLeft,
               child: m.Text(
                 credit.trim(),
                 style: AppText.caption.copyWith(fontSize: 12),

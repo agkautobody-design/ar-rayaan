@@ -245,6 +245,7 @@ const List<TextPackSpec> kTextPackSpecs = <TextPackSpec>[
       'assets/quran/quran.json',
       'assets/quran/transliteration.json',
       'assets/quran/translit_en.json',
+      'assets/quran/snippets.json',
       'assets/quran/texts.json',
     ],
   ),

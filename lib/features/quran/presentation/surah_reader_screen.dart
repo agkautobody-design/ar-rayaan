@@ -37,6 +37,7 @@ import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../../../app/core/scholar_review.dart' show kScholarReviewNeeded;
+import '../../reading/presentation/quran_snippet_views.dart' show BismillahView;
 import '../application/quran_translit.dart';
 import '../application/test_me_provider.dart';
 import '../../reading/application/reading_prefs.dart';
@@ -65,8 +66,6 @@ class SurahReaderScreen extends ConsumerStatefulWidget {
   /// Open at this ayah instead of the saved place (from "?ayah=" links such
   /// as the Ayat al-Kursi shortcut). Out-of-range values are clamped.
   final int? startAyah;
-
-  static const String _bismillah = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
 
   static const List<String> _arabicIndic = <String>[
     '٠',
@@ -502,12 +501,7 @@ class _ReaderState extends ConsumerState<_Reader> {
               endIndent: 40,
             ),
             const SizedBox(height: 12),
-            Text(
-              SurahReaderScreen._bismillah,
-              style: AppText.arabicLarge.copyWith(fontSize: 22, height: 1.7),
-              textAlign: TextAlign.center,
-              textDirection: TextDirection.rtl,
-            ),
+            const BismillahView(arabicSize: 22),
           ],
         ],
       ),
