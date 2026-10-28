@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5504,
+ "total": 5515,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 490,
+   "items": 498,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 576,
-   "high_priority": 113
+   "items": 579,
+   "high_priority": 116
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2448,
-  "Fiqh scholar (per madhab)": 623,
+  "Hadith / aqidah scholar": 2451,
+  "Fiqh scholar (per madhab)": 631,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 524,
   "Clinician (Sakina and health content)": 1011,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1289,
-  "normal": 3513,
+  "high": 1292,
+  "normal": 3521,
   "low": 702
  },
  "items": [
@@ -35237,6 +35237,58 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.zakat-installments",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-installments\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-installments'",
+   "what_to_review": "Built-in answer \"zakat-installments\": Paying in parts depends on whether it is before the due date or after it. Before it is due, yes. It is reported that Al-Abbas asked the Prophet ﷺ about paying his zakat early, before the year was complete, and that he allowed it (Jami' at-Tirmidhi 678, da'if…",
+   "why_flagged": "Early payment (ta'jil) is taken from the report of Al-Abbas and the majority view; how far ahead, and whether an overpayment may be set against next year, differ by school and are not text-checked here. The rule that a delay without a reason is wrong, and that a person who cannot pay at once should pay what they can and ask a scholar, is a general statement of the majority position.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-sum",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-sum\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-sum'",
+   "what_to_review": "Built-in answer \"zakat-sum\": To find your zakat, take 2.5% of the zakatable wealth you hold on your zakat date, which is the same as dividing it by 40. That is your figure only when three things are true: - It is at or above the nisab: the value of 85 grams of gold or 595 grams of silver…",
+   "why_flagged": "Rate, nisab and the hawl are standard fiqh teaching and match the Zakat screen. The figure worked out in the line above this answer is arithmetic only (amount divided by 40).",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.core.zakat-due",
    "area": "hadi",
    "subarea": "core-answer",
@@ -35585,7 +35637,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='alcohol'",
    "what_to_review": "Built-in answer \"alcohol\": Alcohol is forbidden in Islam. Allah says: \"intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful\" (Qur'an 5:90). The Prophet ﷺ said: e…",
-   "why_flagged": "Contemporary rulings on perfumes, sanitiser, and 0.0% drinks are described as differences; not text-checked here.",
+   "why_flagged": "Contemporary rulings on perfumes, sanitiser, and 0.0% drinks are described as differences; not text-checked here. The advice to start leaving it today but with a doctor when drinking is heavy, and that scholars accept prescribed treatment to get through withdrawal, applies the preservation-of-life principle (4:29) and needs a scholar to confirm; the medical warning about sudden withdrawal is general safety wording that a clinician should read.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -36082,6 +36134,59 @@
    "key": "CoreEntry id='nikah-basics'",
    "what_to_review": "Built-in answer \"nikah-basics\": Marriage (nikah) is a sunnah the Prophet ﷺ encouraged, and he forbade giving up marriage for worship (Sunan Ibn Majah 1849, sahih per Darussalam). It is a strong covenant: Allah calls it a solemn covenant (Qur'an 4:21), and \"He placed between you affection an…",
    "why_flagged": "The detail of conditions (witnesses, wali, Hanafi view on a woman contracting herself) varies by school; described in general terms. Flagged for scholar review.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.khula-what",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"khula-what\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='khula-what'",
+   "what_to_review": "Built-in answer \"khula-what\": Khul' is when a wife asks to be released from the marriage and gives something back, usually the mahr or what the couple agree on, and the husband accepts. It is the wife's own way of ending a marriage, as talaq is the husband's. The word means \"taking off\",…",
+   "why_flagged": "Definition, the 2:229 basis and the Thabit case are standard; the statement that most scholars count khul' as a single irrevocable separation, and the three ways of ending a marriage, are general outlines not text-checked here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.khula-woman",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"khula-woman\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='khula-woman'",
+   "what_to_review": "Built-in answer \"khula-woman\": A wife can ask for khul' whether or not there is a fault in her husband. The Prophet's ruling in the case of Thabit ibn Qais's wife did not ask her to prove mistreatment; it was enough that she could not stay in the marriage as she was. But she should not ask…",
+   "why_flagged": "A scholar should confirm: the claim that khul' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 is as given by the graders in the hadith-api edition.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Women's scholar",
@@ -36804,6 +36909,110 @@
     "hadi_core_data.dart reviewNote (kept for the review list)",
     "FIX_HADI_REPORT (scholar review needed: other religions)",
     "FIX_HADI_REPORT"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadi-who",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadi-who\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadi-who'",
+   "what_to_review": "Built-in answer \"hadi-who\": I am Hadi, the guide in Ar-Rayaan. The name means \"the guide\". I answer from a library built into the app: the Qur'an, the six hadith collections and the app's own guides, and every answer shows where it comes from. I am an app, not a person, and not a schola…",
+   "why_flagged": "Statements about what Hadi is only.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadi-maker",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadi-maker\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadi-maker'",
+   "what_to_review": "Built-in answer \"hadi-maker\": I am part of Ar-Rayaan, which is an app of RHW Technologies. Its owner is Abdul G Khokhar. That is what the app states, and it is all I know about who is behind me: it gives no funder, address or company details, so I will not guess any. My answers are not wr…",
+   "why_flagged": "Restates the maker line the app already gives (Terms, Privacy, Our Sources).",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadi-model",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadi-model\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadi-model'",
+   "what_to_review": "Built-in answer \"hadi-model\": No. I am not made by OpenAI or by any other AI company, and the app names no model for me. By default my answers come from a library built into the app: the Qur'an, the six hadith collections and the app's own guides, matched to your question on your device,…",
+   "why_flagged": "Describes how Hadi works today: built-in library by default; the user's own AI account and the support-chat online model are optional and off until the person turns them on (Settings > Support and wellbeing). No religious content.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hadi-fatwa",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hadi-fatwa\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hadi-fatwa'",
+   "what_to_review": "Built-in answer \"hadi-fatwa\": I cannot give a fatwa. A fatwa is a ruling from a qualified mufti who knows your situation and can ask you questions, and I am an app with a library, not a mufti. What I can do is show you what the Qur'an and the hadith say on a question, with the source and…",
+   "why_flagged": "Statement of what Hadi does not do.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
    ],
    "label_surface": "Hadi answer bubble (built-in library)",
    "status": "open"
@@ -47461,7 +47670,7 @@
    "where_in_app": "Hadi answers that cite Sahih Muslim 2003",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:muslim-2003]",
-   "what_to_review": "Sahih Muslim 2003: \"Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden, and whoever drinks wine in this world and dies addict…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "what_to_review": "Sahih Muslim 2003: \"Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53128,6 +53337,63 @@
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:abudawud-1573]",
    "what_to_review": "Sunan Abu Dawud 1573: \"Ali reported the Prophet said when you possess two hundred dirhams and one year passes on them, five dirhams are payable, and nothing is due on gold…\" (grade Da'if, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Da'if (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-2229",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 2229",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-2229]",
+   "what_to_review": "Sunan Abu Dawud 2229: \"Ibn Abbas reported that the wife of Thabit ibn Qais separated from him for compensation and the Prophet made her waiting period one menstrual cycle\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-1187",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 1187",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-1187]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 1187: \"Thawban reported that the Prophet said if a woman asks her husband for khul' without any harm or cause, the scent of Paradise will be unlawful for her\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-678",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 678",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-678]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 678: \"Ali reported that Al-Abbas asked the Messenger of Allah about paying his zakat early, before it was due, and he gave him permission\" (grade Da'if, Darussalam).",
    "why_flagged": "Hadi grounding corpus: grade: Da'if (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
