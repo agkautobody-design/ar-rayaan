@@ -140,7 +140,9 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.textContaining('not the same'), findsOneWidget);
       expect(results, isEmpty);
-
+      // Both boxes are emptied on a mismatch, so the parent types both again.
+      expect(find.text('4827'), findsNothing);
+      await tester.enterText(find.byKey(const Key('parent-pin-input')), '4827');
       await tester.enterText(find.byKey(const Key('parent-pin-confirm')), '4827');
       await tester.tap(find.text('Save PIN'));
       await tester.pumpAndSettle();

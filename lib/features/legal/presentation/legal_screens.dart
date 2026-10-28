@@ -75,8 +75,8 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'before you sign in or send anything. We do not send your reading, '
         'progress or messages at that point, but Google can see your IP '
         'address if the software contacts its servers. Firebase is used for '
-        'accounts, Hadi answer reports, online game tables (only when a '
-        'grown-up switches them on) and, once it opens, the Majlis.',
+        'accounts, Hadi answer reports, online game tables (only for '
+        'grown-ups, never for a child profile) and, once it opens, the Majlis.',
   ),
   LegalSection(
     'Your account',

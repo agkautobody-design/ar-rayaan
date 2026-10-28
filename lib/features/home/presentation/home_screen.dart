@@ -417,6 +417,38 @@ class HomeScreen extends ConsumerWidget {
                 compact: compact,
                 label: ui('home.nextStep'),
               ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Semantics(
+                  button: true,
+                  label: 'Support and wellbeing. Help with a struggle, and people to call.',
+                  excludeSemantics: true,
+                  child: InkWell(
+                    key: const Key('home-support-card'),
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () => context.open(AppRoutes.support),
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
+                        child: Row(children: [
+                          const Icon(Icons.favorite_border,
+                              color: AppColors.gold, size: 22),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                                'Support & wellbeing: help with a struggle, and people to call',
+                                style: AppText.body.copyWith(fontSize: 14)),
+                          ),
+                          const Icon(Icons.chevron_right,
+                              color: AppColors.gold, size: 22),
+                        ]),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               GridView.count(
                         // Adaptive: phones keep three tiles; wide screens
                         // gain columns so nothing stretches into emptiness.

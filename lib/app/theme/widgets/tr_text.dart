@@ -170,7 +170,7 @@ class NativeReviewNote extends StatelessWidget {
     if (!hasPhraseLanguage(lang)) return const SizedBox.shrink();
     return Semantics(
       container: true,
-      label: 'Native-speaker review needed',
+      label: translatePhrase('Native-speaker review needed', lang),
       child: Container(
         key: const Key('native-review-note'),
         margin: EdgeInsets.symmetric(vertical: 8, horizontal: inset ? 20 : 0),
@@ -202,12 +202,6 @@ class NativeReviewNote extends StatelessWidget {
                 style: const TextStyle(fontSize: 12, height: 1.4),
               ),
             ],
-            const SizedBox(height: 2),
-            const m.Text(
-              'Native-speaker review needed',
-              textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: 12),
-            ),
           ],
         ),
       ),

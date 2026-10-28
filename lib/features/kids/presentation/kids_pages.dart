@@ -105,7 +105,7 @@ class KidsAskWasiaScreen extends ConsumerWidget {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
                   Text('ASK WASIA', style: AppText.eyebrow),
                   const SizedBox(height: 6),
-                  const WasiaAiCaption(),
+                  const WasiaAiCaption(inLesson: false),
                   const WasiaAskBox(),
                 ]),
               ),

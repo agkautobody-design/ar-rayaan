@@ -91,6 +91,18 @@ class OfflineWasiaProvider implements HadiProvider {
       'choose who. You are not in trouble for feeling this way, and you are '
       'not alone. When you feel ready, I am here for your letters.';
 
+  /// For a child who is nervous about a test or exam. Not a safety matter: a
+  /// kind word, one calming idea, and a grown-up if the worry is very big.
+  static const String examNerves =
+      'Lots of children feel nervous before a test, and it does not mean you '
+      'are not clever. Try one slow breath: in for four, out for four. Then '
+      'do a little practice, and rest. If the worry feels very big, or it '
+      'keeps you awake, tell a grown-up you trust. You can practise your '
+      'letters here whenever you like.';
+
+  static final RegExp _examWord =
+      RegExp(r' (?:exam|exams|test|tests|quiz|quizzes) ');
+
   /// For a child asking about a sad family member.
   static const String familyFeelings =
       'It sounds like you care about them very much. The kindest thing is to '
@@ -172,6 +184,7 @@ class OfflineWasiaProvider implements HadiProvider {
   /// identity, hello and goodbye. Null when none applies.
   static String? care(String normalisedQuestion) {
     final String q = normalisedQuestion;
+    if (_examWord.hasMatch(q) && _scared.hasMatch(q)) return examNerves;
     if (_scared.hasMatch(q)) return trustedAdult;
     if (_familySad.hasMatch(q)) return familyFeelings;
     if (_bigQ.hasMatch(q)) return bigQuestion;

@@ -409,6 +409,44 @@ abstract final class CrisisDetector {
     const _Pat('want to vanish'),
     const _Pat('go to sleep and not wake up'),
     const _Pat('sleep and not wake up'),
+    // Round 12 (T10): passive wishes that it would all end, said without the
+    // word "die". A listening reply with the safety question is the cheaper
+    // mistake, so these fire. "I want it to stop" alone is NOT here (it is also
+    // said about a habit); it needs a weariness cue, see _stopCue.
+    const _Pat('tired of everything'),
+    const _Pat('sick of everything'),
+    const _Pat('tired of it all'),
+    const _Pat('sick of it all'),
+    const _Pat('tired of all of it'),
+    const _Pat('sick and tired of everything'),
+    const _Pat('tired of being me'),
+    const _Pat('tired of being alive'),
+    const _Pat('want it all to stop'),
+    const _Pat('want everything to stop'),
+    const _Pat('want it all to end'),
+    const _Pat('want everything to end'),
+    const _Pat('wish it would all end'),
+    const _Pat('wish it would all stop'),
+    const _Pat('wish everything would stop'),
+    const _Pat('want to stop existing'),
+    const _Pat('wish i could stop existing'),
+    const _Pat('want to stop being here'),
+    const _Pat('dont want to do this anymore'),
+    const _Pat('do not want to do this anymore'),
+    const _Pat('dont want to go on'),
+    const _Pat('do not want to go on'),
+    const _Pat('cant keep going'),
+    const _Pat('cant keep doing this'),
+    const _Pat('cant carry on'),
+    const _Pat('dont want to carry on'),
+    const _Pat('whats the point anymore'),
+    const _Pat('what is the point anymore'),
+    const _Pat('nothing matters anymore'),
+    const _Pat('want out of this life'),
+    const _Pat('want to be gone'),
+    const _Pat('wish i was gone'),
+    const _Pat('wish i were gone'),
+    const _Pat('just want to sleep and never'),
     // Arabic
     const _Pat('اريد ان اموت'),
     const _Pat('ابغي اموت'),
@@ -655,6 +693,50 @@ abstract final class CrisisDetector {
     const _Pat('نمی خواهم زندگی کنم'),
     const _Pat('نمی خوام زندگی کنم'),
     const _Pat('از زندگی خسته شدم'),
+  ];
+
+  /// A weariness cue. On its own it is ordinary; together with a [_stopCue]
+  /// it is a wish for everything to end ("I am so tired and I just want it to
+  /// stop").
+  static const List<String> _weary = <String>[
+    'so tired',
+    'too tired',
+    'exhausted',
+    'worn out',
+    'fed up',
+    'had enough',
+    'cant take',
+    'cant cope',
+    'cant do',
+    'cant face',
+    'drained',
+    'hopeless',
+    'worthless',
+    'empty',
+    'numb',
+    'broken',
+    'done',
+    'overwhelmed',
+  ];
+
+  /// A wish for it to stop or end. Fires only together with a [_weary] cue,
+  /// because "I want it to stop" is also said about a habit or a noise.
+  static const List<String> _stopCue = <String>[
+    'want it to stop',
+    'want it to just stop',
+    'want this to stop',
+    'want it to end',
+    'want this to end',
+    'want it to be over',
+    'want it over',
+    'want the pain to stop',
+    'want the pain to end',
+    'wish it would stop',
+    'wish it would end',
+    'wish it was over',
+    'wish it were over',
+    'make it stop',
+    'make it all stop',
   ];
 
   /// Words that, alone, mean the subject of suicide has come up. Whether
@@ -1629,6 +1711,13 @@ abstract final class CrisisDetector {
     return false;
   }
 
+  static bool _hasAny(String padded, List<String> phrases) {
+    for (final String m in phrases) {
+      if (_containsPhrase(padded, m)) return true;
+    }
+    return false;
+  }
+
   static bool _containsPhrase(String padded, String phrase) =>
       padded.contains(' $phrase ');
 
@@ -1650,6 +1739,11 @@ abstract final class CrisisDetector {
     }
 
     if (_anyMatch(tokens, lists.selfHarm, near)) return CrisisKind.selfHarm;
+
+    // Weariness plus a wish for it to stop: passive ideation.
+    if (_hasAny(padded, lists.stopCue) && _hasAny(padded, lists.weary)) {
+      return CrisisKind.selfHarm;
+    }
 
     if (_anyMatch(tokens, lists.concept, near)) {
       bool personal = false;
@@ -1755,6 +1849,12 @@ class _Lists {
         ],
         personal = <String>[
           for (final String m in CrisisDetector._personalMarkers) norm(m),
+        ],
+        weary = <String>[
+          for (final String m in CrisisDetector._weary) norm(m),
+        ],
+        stopCue = <String>[
+          for (final String m in CrisisDetector._stopCue) norm(m),
         ] {
     final List<List<_Pat>> all = <List<_Pat>>[
       selfHarm,
@@ -1791,6 +1891,8 @@ class _Lists {
   final List<_Pat> bystander;
   final List<String> question;
   final List<String> personal;
+  final List<String> weary;
+  final List<String> stopCue;
 
   /// Every word the phrases use.
   final Set<String> words = <String>{};

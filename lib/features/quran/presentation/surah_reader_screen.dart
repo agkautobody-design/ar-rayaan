@@ -12,6 +12,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../academy/application/academy_providers.dart';
+import '../../academy/application/hifz_providers.dart';
+import '../../academy/domain/hifz_progress.dart';
+import '../../../app/core/child_mode.dart';
+import '../../../app/core/providers.dart' show sharedPreferencesProvider;
 import '../../academy/presentation/verse_range_player_bar.dart';
 
 import '../../../app/core/sound/sound_services.dart';
@@ -376,7 +380,8 @@ class _ReaderState extends ConsumerState<_Reader> {
                   onJump: jumpTo,
                   showSize: MediaQuery.sizeOf(context).width < 300,
                 ),
-                _MadinahLink(surah: surah.meta.number, ayahCount: n),
+                if (!kChildMode.value)
+                  _MadinahLink(surah: surah.meta.number, ayahCount: n),
                 _heading(surah, showBismillah),
               ],
             ),
@@ -554,19 +559,43 @@ class _ReaderToolbar extends ConsumerWidget {
     if (ayah != null) onJump(ayah);
   }
 
+  /// In child mode "Memorise this surah" adds the surah to the memorising
+  /// plan kept on this device (the planner itself is for a grown-up) and says
+  /// so. No score, no streak.
+  Future<void> _memoriseForChild(BuildContext context, WidgetRef ref) async {
+    String message;
+    try {
+      final prefs = ref.read(sharedPreferencesProvider);
+      final HifzState now = HifzState.decode(prefs.getString(kHifzPref));
+      await prefs.setString(
+          kHifzPref, now.withPlan(surah: surah, juzAmma: false).encode());
+      ref.read(hifzTickProvider.notifier).state++;
+      message = 'Added to your memorising plan. Say a few words out loud, '
+          'again and again. A grown-up can open the Hifz Planner to see it.';
+    } catch (_) {
+      message = 'I could not save that just now. Please ask a grown-up.';
+    }
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
     final double sizeNow = ref.watch(arabicSizeProvider);
     final int? count = ayahCount;
     final bool hiding = ref.watch(testMeProvider);
+    // Child mode: no downloads, bookmarks, notes collections or jumping.
+    final bool kid = kChildMode.value;
     final Widget tools = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Wrap(
         alignment: WrapAlignment.end,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
-          SurahDownloadButton(surah: surah),
+          if (!kid) SurahDownloadButton(surah: surah),
           Tooltip(
             message: 'Open the Hifz planner on this surah',
             child: TextButton.icon(
@@ -575,7 +604,9 @@ class _ReaderToolbar extends ConsumerWidget {
                 minimumSize: const Size(48, 48),
                 foregroundColor: AppColors.gold,
               ),
-              onPressed: () => context.open('/academy/hifz?surah=$surah'),
+              onPressed: kid
+                  ? () => unawaited(_memoriseForChild(context, ref))
+                  : () => context.open('/academy/hifz?surah=$surah'),
               icon: const Icon(Icons.psychology_outlined, size: 18),
               label: const Text('Memorise this surah'),
             ),
@@ -602,7 +633,7 @@ class _ReaderToolbar extends ConsumerWidget {
               label: Text(hiding ? 'Show text' : 'Hide text / test me'),
             ),
           ),
-          if (count != null && count > 1)
+          if (!kid && count != null && count > 1)
             Tooltip(
               message: 'Jump to an ayah in this surah',
               child: TextButton.icon(
@@ -639,6 +670,7 @@ class _ReaderToolbar extends ConsumerWidget {
             icon: const Icon(Icons.text_increase, color: AppColors.gold),
           ),
           ],
+          if (!kid)
           IconButton(
             tooltip: 'My bookmarks, collections and notes',
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -781,6 +813,17 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
   Widget build(BuildContext context) {
     final QuranTexts texts =
         ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
+    if (kChildMode.value) {
+      // No outside link in child mode: the source is named, not opened.
+      return Padding(
+        padding: const EdgeInsets.only(top: 24, bottom: 8),
+        child: Text(
+          texts.footerLine,
+          style: AppText.caption,
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
     return Padding(
       padding: const EdgeInsets.only(top: 24),
       child: Column(
@@ -950,7 +993,33 @@ class _AyahBlock extends ConsumerWidget {
                     style: AppText.caption.copyWith(color: AppColors.gold),
                   ),
                 ),
-              if (elder)
+              if (kChildMode.value)
+                // Child mode: listening only. No bookmark, no notes, no more.
+                Wrap(
+                  alignment: WrapAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      constraints: const BoxConstraints(
+                        minWidth: 48,
+                        minHeight: 48,
+                      ),
+                      tooltip: playing ? 'Stop' : 'Play this ayah',
+                      onPressed: () async {
+                        await ref
+                            .read(recitationServiceProvider.notifier)
+                            .toggle(surahNumber, ayah.number);
+                      },
+                      icon: Icon(
+                        playing
+                            ? Icons.stop_circle_outlined
+                            : Icons.play_circle_outline,
+                        size: 32,
+                        color: AppColors.gold,
+                      ),
+                    ),
+                  ],
+                )
+              else if (elder)
                 // Elder Mode: three big buttons that say what they do.
                 Wrap(
                   alignment: WrapAlignment.end,

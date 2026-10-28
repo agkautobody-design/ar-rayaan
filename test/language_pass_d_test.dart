@@ -216,7 +216,7 @@ void main() {
           expect(t, isNot(contains('{lines}')));
           expect(t, isNot(contains('{quran}')));
           expect(t, endsWith(crisisReviewLine(l)), reason: '$k $l');
-          expect(crisisReviewLine(l), contains('Native-speaker review needed'));
+          expect(crisisReviewLine(l), translatePhrase('Native-speaker review needed', l));
         }
       }
     });
@@ -246,9 +246,9 @@ void main() {
       for (final String l in kCrisisLanguages) {
         final String t = CrisisResponses.textFor(CrisisKind.abuse,
             countryCode: 'US', lang: l);
-        expect(t, contains('Native-speaker review needed'));
+        expect(t, contains(translatePhrase('Native-speaker review needed', l)));
         expect(CrisisResponses.followUpFor(CrisisKind.abuse, lang: l),
-            contains('Native-speaker review needed'));
+            contains(translatePhrase('Native-speaker review needed', l)));
       }
     });
 

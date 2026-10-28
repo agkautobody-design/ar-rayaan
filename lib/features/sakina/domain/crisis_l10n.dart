@@ -193,7 +193,7 @@ const Map<String, String> _regionNoKind = <String, String>{
 
 /// The visible review line that ends every translated support card.
 String crisisReviewLine(String lang) =>
-    '${translatePhrase('Native-speaker review needed', lang)} · Native-speaker review needed';
+    translatePhrase('Native-speaker review needed', lang);
 
 /// The translated card for [kind] in [lang] with [lines] (the plain-text help
 /// lines from HelpResources) in place; null when there is no wording, so the
@@ -225,6 +225,26 @@ String? crisisRegionNoteIn(
   if (!hasLocalForKind) return _regionNoKind[lang]!.replaceAll('{region}', region);
   return (picked ? _regionPicked : _regionDevice)[lang]!
       .replaceAll('{region}', region);
+}
+
+/// One plain emergency sentence in each language, for a support reply whose
+/// body is only in English: the number to call is never left out. The words
+/// are the same as the sentence in the cards above (MACHINE DRAFT, native
+/// review needed). No number is typed here.
+const Map<String, String> _emergencyLine = <String, String>{
+  'ar': 'إن كنت في خطر الآن فاتصل برقم الطوارئ المحلي.',
+  'ur': 'اگر آپ ابھی خطرے میں ہیں تو اپنے مقامی ایمرجنسی نمبر پر کال کریں۔',
+  'bn': 'আপনি এখনই বিপদে থাকলে স্থানীয় জরুরি নম্বরে ফোন করুন।',
+};
+
+/// [reply] with the emergency sentence in [lang] added when [lang] is ar, ur
+/// or bn and the reply does not already carry it, whatever language the body
+/// is in. English gets the same sentence in English. Other languages: as is.
+String withEmergencyLine(String reply, String lang) {
+  final String? line = _emergencyLine[lang];
+  if (line == null) return reply;
+  if (reply.contains(line)) return reply;
+  return '$reply\n\n$line\nIf you are in danger right now, call your local emergency number.';
 }
 
 /// A reply that has no checked wording in [lang] is shown in English with this

@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
+import '../../../app/core/parent_pin.dart';
 import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -48,6 +49,22 @@ class FamilyScreen extends ConsumerWidget {
     final name = TextEditingController();
     String? problem;
     String band = FamilyService.defaultAgeBand;
+    // Two children with the same name, in any age band, cannot be told apart
+    // in "Who is it for?" and on the cards, so the second one is not added.
+    final List<Map<String, dynamic>> existing = await fam.children();
+    if (!context.mounted) return;
+    String? duplicateOf(String typed) {
+      final String t = typed.trim();
+      final String key = (t.length > 30 ? t.substring(0, 30) : t).toLowerCase();
+      for (final Map<String, dynamic> c in existing) {
+        if ('${c['name']}'.trim().toLowerCase() == key) return '${c['name']}';
+      }
+      return null;
+    }
+
+    String dupMessage(String other) =>
+        'You already have a child called $other. Please use a different '
+        'name or nickname, for example add an initial.';
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => StatefulBuilder(
@@ -70,9 +87,15 @@ class FamilyScreen extends ConsumerWidget {
                   hintText: 'First name or nickname',
                   errorText: problem,
                 ),
+                onChanged: (_) {
+                  if (problem != null) setInner(() => problem = null);
+                },
                 onSubmitted: (_) {
+                  final String? dup = duplicateOf(name.text);
                   if (name.text.trim().isEmpty) {
                     setInner(() => problem = 'Type a first name or a nickname.');
+                  } else if (dup != null) {
+                    setInner(() => problem = dupMessage(dup));
                   } else {
                     Navigator.pop(ctx, true);
                   }
@@ -113,6 +136,11 @@ class FamilyScreen extends ConsumerWidget {
                     setInner(() => problem = 'Type a first name or a nickname.');
                     return;
                   }
+                  final String? dup = duplicateOf(name.text);
+                  if (dup != null) {
+                    setInner(() => problem = dupMessage(dup));
+                    return;
+                  }
                   Navigator.pop(ctx, true);
                 },
                 child: const Text('Add',
@@ -142,6 +170,7 @@ class FamilyScreen extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           const ScreenHeader(title: 'The Family Wing', close: true),
+          const ParentGateStatus(),
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 6),
             child: Text('PARENTS \u00b7 WATCH THEM GROW', style: AppText.eyebrow),
@@ -230,6 +259,27 @@ class FamilyScreen extends ConsumerWidget {
                         style: AppText.titleMedium.copyWith(fontSize: 15)),
                     const SizedBox(height: 2),
                     Text('Bullying, school worries or something at home: what to say, what not to say, and when to get help.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                  ]),
+                ),
+              ]),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: GlassCard(
+              key: const Key('family-teachers-card'),
+              onTap: () => context.push(AppRoutes.teacherGuidance),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              child: Row(children: <Widget>[
+                const Icon(Icons.school_outlined, color: AppColors.goldLight),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                    Text('For teachers and mentors',
+                        style: AppText.titleMedium.copyWith(fontSize: 15)),
+                    const SizedBox(height: 2),
+                    Text('For a madrasa teacher, tutor or mentor: what to do when a student seems to be struggling or tells you something worrying.',
                         style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   ]),
                 ),
@@ -353,10 +403,6 @@ class _ChildCard extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 8),
-            _OnlineGamesSwitch(
-              childId: child['id'] as String,
-              childName: name,
-            ),
             AgeBandChooser(childId: child['id'] as String, childName: name),
             _ParentWasiaBox(childName: name),
           ],
@@ -693,6 +739,15 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
 class FamilyLockedView extends ConsumerWidget {
   const FamilyLockedView({super.key});
 
+  /// True once a parent has chosen a PIN on this device.
+  static bool _pinIsSet(WidgetRef ref) {
+    try {
+      return ParentPin(ref.read(sharedPreferencesProvider)).isSet;
+    } catch (_) {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -708,9 +763,17 @@ class FamilyLockedView extends ConsumerWidget {
               children: [
                 Text('FOR PARENTS AND GUARDIANS', style: AppText.eyebrow),
                 const SizedBox(height: 8),
+                if (ref.watch(parentGateTimedOutProvider)) ...<Widget>[
+                  Text(
+                    'It locked again after a few quiet minutes.',
+                    key: const Key('family-locked-timeout'),
+                    style: AppText.body.copyWith(color: AppColors.goldLight),
+                  ),
+                  const SizedBox(height: 6),
+                ],
                 Text(
                   'This area holds your children\u2019s profiles and progress. '
-                  'Please enter your parent PIN to continue.',
+                  '${_pinIsSet(ref) ? 'Please enter your parent PIN to continue.' : 'You will choose a PIN of 4 to 6 digits first. Only a grown-up should do this.'}',
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
                 const SizedBox(height: 10),
@@ -1034,62 +1097,6 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-/// The guardian's switch for online game tables, per child. Off for every
-/// new child; changing it needs the parent check. The room stores no name
-/// either way (see `game_rooms_service.dart`).
-class _OnlineGamesSwitch extends ConsumerStatefulWidget {
-  const _OnlineGamesSwitch({required this.childId, required this.childName});
-
-  final String childId;
-  final String childName;
-
-  @override
-  ConsumerState<_OnlineGamesSwitch> createState() => _OnlineGamesSwitchState();
-}
-
-class _OnlineGamesSwitchState extends ConsumerState<_OnlineGamesSwitch> {
-  bool _on = false;
-
-  @override
-  void initState() {
-    super.initState();
-    unawaited(
-      ref
-          .read(familyServiceProvider)
-          .onlineGamesAllowed(widget.childId)
-          .then((bool v) {
-        if (mounted) setState(() => _on = v);
-      }),
-    );
-  }
-
-  Future<void> _set(bool v) async {
-    if (!await requireParent(context, ref)) return;
-    await ref
-        .read(familyServiceProvider)
-        .setOnlineGamesAllowed(widget.childId, v);
-    if (mounted) setState(() => _on = v);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SwitchListTile(
-      key: Key('online-games-${widget.childId}'),
-      contentPadding: EdgeInsets.zero,
-      value: _on,
-      onChanged: _set,
-      title: Text('Online game tables', style: AppText.body),
-      subtitle: Text(
-        'Off (the default): ${widget.childName} can play Ludo and Shatranj '
-        'only on this device. On: ${widget.childName} can create or join a '
-        'table with a six-letter code. The table shows only \u201cPlayer 1\u201d '
-        'and \u201cPlayer 2\u201d: no name is sent, and there is no chat.',
-        style: AppText.caption,
       ),
     );
   }
