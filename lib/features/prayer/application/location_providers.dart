@@ -98,11 +98,16 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
   /// [fetch] keeps geolocator out of unit tests.
   Future<GpsStatus> useGps({
     Future<({double lat, double lng})> Function()? fetch,
+    Duration timeout = kGpsTimeout,
   }) async {
     gpsStatus = GpsStatus.locating;
     state = state; // poke listeners
     try {
-      final ({double lat, double lng}) pos = await (fetch ?? _deviceGps)();
+      // A browser permission prompt that is closed without an answer, or a
+      // device that never gets a fix, would leave "Locating..." (and a
+      // disabled button) on screen for good. Give up after a while and say so.
+      final ({double lat, double lng}) pos =
+          await (fetch ?? _deviceGps)().timeout(timeout);
       final PrayerLocation loc = PrayerLocation(
         city: PrayerLocation.gpsCity,
         country: '',
@@ -143,6 +148,9 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
     return (lat: p.latitude, lng: p.longitude);
   }
 }
+
+/// How long "My location" waits for the permission answer and a fix.
+const Duration kGpsTimeout = Duration(seconds: 25);
 
 /// Typed failure so the UI can tell "denied" from "GPS off" from "error".
 class GpsException implements Exception {
