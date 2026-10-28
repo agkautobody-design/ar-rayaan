@@ -58,6 +58,45 @@ A couple living together without a valid nikah is not married, whatever the civi
 """,
   review='The detail of conditions (witnesses, wali, Hanafi view on a woman contracting herself) varies by school; described in general terms. Flagged for scholar review.')
 
+E('khula-what',
+  m=[r'\bwhat (?:is|s|does) (?:a |the )?khul\w*\b', r'\bkhul\w* (?:meaning|means|definition|mean)\b', r'\b(?:meaning|definition) of khul\w*\b', r'\bexplain khul\w*\b', r'\bkhul\w* (?:vs|versus|or|and) (?:talaq|divorce|faskh)\b', r'\b(?:talaq|divorce|faskh) (?:vs|versus|or|and) khul\w*\b', r'\bdifference between (?:talaq|divorce|faskh)\b.*\bkhul\w*\b', r'\bdifference between khul\w*\b', r'^khul\w*$'],
+  gate=False,
+  topic='divorce',
+  text="""
+Khul' is when a wife asks to be released from the marriage and gives something back, usually the mahr or what the couple agree on, and the husband accepts. It is the wife's own way of ending a marriage, as talaq is the husband's. The word means "taking off", as if she takes the marriage off.
+
+Where it comes from:
+- The Qur'an allows it when the couple fear they cannot keep within Allah's limits: {Q 2:229|there is no blame upon either of them concerning that by which she ransoms herself}.
+- The Prophet ﷺ applied it for the wife of Thabit ibn Qais: she said she had no complaint about his character or religion, but she did not want to live in a way that went against Islam if she stayed. He asked her to give back the garden she had received, and told Thabit to take it and release her ({H bukhari:5273|The wife of Thabit ibn Qais said she did not blame him for his character or religion but disliked behaving in an un-Islamic manner if she stayed with him, and the Prophet asked her to give back the garden and told Thabit to accept it}).
+
+How it differs from the other ways a marriage ends:
+- Talaq: the husband pronounces the divorce, and he owes the wife her mahr.
+- Khul': the wife asks, gives something back, and the husband agrees. It ends the marriage in one step, and is counted as a single irrevocable separation by most scholars.
+- A judge's decree: when a husband harms his wife or refuses what he owes her, a judge or a recognised Islamic court can end the marriage even if he does not agree. The schools differ on the grounds.
+
+Ask me "can a woman ask for khula" for who decides, what she gives back and the waiting period. This is general information, not a ruling on your case.
+""",
+  go=['/huda'],
+  review='Definition, the 2:229 basis and the Thabit case are standard; the statement that most scholars count khul\' as a single irrevocable separation, and the three ways of ending a marriage, are general outlines not text-checked here.')
+
+E('khula-woman',
+  m=[r'\bkhul\w*\b'],
+  gate=False,
+  topic='divorce',
+  text="""
+A wife can ask for khul' whether or not there is a fault in her husband. The Prophet's ruling in the case of Thabit ibn Qais's wife did not ask her to prove mistreatment; it was enough that she could not stay in the marriage as she was. But she should not ask lightly: {HS tirmidhi:1187|Thawban reported that the Prophet said if a woman asks her husband for khul' without any harm or cause, the scent of Paradise will be unlawful for her}. A cause can be harm, unkindness, or a deep dislike that makes living together a sin.
+
+How it usually goes:
+- She tells her husband, or the family who help them, that she wants khul', and what she is ready to return. The usual amount is the mahr she received, and not more: the Prophet asked only for the garden back.
+- If he agrees, the khul' is made, preferably in front of witnesses and with a record, because a civil divorce is a separate step in most countries.
+- If he refuses, the schools and the courts differ. Many scholars, and the family courts or Islamic councils of many Muslim countries, allow a judge to dissolve the marriage, with or without his consent, when the wife shows a good reason. Ask a scholar of your school, and a lawyer, how it works where you live.
+- Her waiting period (iddah) follows. The Prophet ordered one menstrual cycle for a woman who had made khul' ({H abudawud:2229|Ibn Abbas reported that the wife of Thabit ibn Qais separated from him for compensation and the Prophet made her waiting period one menstrual cycle}). Many scholars hold to the full three cycles; the schools differ.
+
+If your husband is hurting you or you are afraid, tell me, and I will answer that first. This is general information, not a ruling on your own case.
+""",
+  go=['/huda'],
+  review='A scholar should confirm: the claim that khul\' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 is as given by the graders in the hadith-api edition.')
+
 E('divorce-overview',
   m=[r'\bdivorce\b', r'\btalaq\b', r'\btalaaq\b', r'\bkhula\w*\b', r'\biddah\b', r'\biddat\b', r'\bwaiting period\b.*\b(?:divorce|widow)\b', r'\bseparat\w*\b.*\b(?:husband|wife|marriage)\b', r'\bwhat is islam s view on divorce\b'],
   gate=False,

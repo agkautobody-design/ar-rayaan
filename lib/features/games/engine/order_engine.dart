@@ -377,8 +377,33 @@ typedef GuideSteps = ({
 });
 
 const Map<String, String> _fullLabels = <String, String>{
+  // The prayer guide's long steps, each given a whole-act label so a card
+  // never ends in an ellipsis that hides part of the act.
+  'Before you begin: be in wudu':
+      'Before you begin: wudu, a clean place, the awrah covered, facing the '
+          'qiblah, and the intention in the heart',
+  'Stand and say Allahu Akbar':
+      'Stand, say Allahu Akbar with the hands raised, and place the right '
+          'hand over the left',
   'Recite the opening supplication':
-      'Recite the opening supplication, then Surah al-Fatihah',
+      'Recite the opening supplication, seek refuge, then Surah al-Fatihah '
+          'and Amin',
+  'Ruku\'': 'Ruku\': say Allahu Akbar and bow with the back straight, saying '
+      'Subhana Rabbiyal-\'Azim',
+  'Rise saying':
+      'Rise saying Sami\'allahu liman hamidah, and stand fully upright',
+  'Sujud:': 'Sujud: go down on seven parts, saying Subhana Rabbiyal-A\'la, '
+      'then sit and prostrate again',
+  'Stand for the next rak':
+      'Stand for the next rak\'ah and pray it the same way, with the first '
+          'tashahhud after the second rak\'ah in a longer prayer',
+  'The last sitting':
+      'The last sitting: the tashahhud, blessings on the Prophet ﷺ, then a '
+          'du\'a',
+  'The salaam':
+      'The salaam: say As-salamu \'alaykum wa rahmatullah, turning the face '
+          'to the right and then to the left',
+  // Older wording of the same steps.
   'Sujud — prostrate on seven limbs':
       'Sujud — prostrate on seven limbs: forehead (with nose), two hands, '
           'two knees, two feet',
@@ -404,9 +429,16 @@ String stepLabel(String step) {
   while (s.endsWith('.') || s.endsWith(',') || s.endsWith(':')) {
     s = s.substring(0, s.length - 1).trimRight();
   }
-  if (s.length > 90) {
-    final int cut = s.lastIndexOf(' ', 90);
-    s = '${s.substring(0, cut > 40 ? cut : 90)} …';
+  if (s.length > 120) {
+    // Cut where a clause ends, so the card reads as a whole phrase and not
+    // as a sentence that stops in the middle.
+    final int comma = s.lastIndexOf(', ', 120);
+    if (comma > 40) {
+      s = s.substring(0, comma);
+    } else {
+      final int cut = s.lastIndexOf(' ', 120);
+      s = '${s.substring(0, cut > 40 ? cut : 120)} …';
+    }
   }
   return s;
 }

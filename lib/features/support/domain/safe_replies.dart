@@ -137,10 +137,17 @@ abstract final class CoerciveMarriage {
     final String p = _Words.pad(text);
     final bool partner = _Words.any(p, _partner);
     if (!partner) return false;
+    // The verse alone ("does Islam allow a husband to hit his wife?") is a
+    // question about the religion, not a disclosure: the person is taken for
+    // someone it is happening to only when they put themselves in it.
     return _Words.any(p, _control) ||
         _Words.any(p, _stayOrObey) ||
-        _Words.any(p, _verse);
+        (_Words.any(p, _verse) && _Words.any(p, _firstPerson));
   }
+
+  static const List<String> _firstPerson = <String>[
+    'me', 'my', 'i', 'im', 'mine', 'myself',
+  ];
 
   /// True when the person also asks about the verse people quote (4:34).
   static bool asksAboutVerse(String text) =>

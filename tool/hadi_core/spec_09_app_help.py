@@ -2,10 +2,63 @@
 # (test/hadi_eval/app_help_facts_test.dart reads the screens and fails if they drift).
 # Game rules are not here: they are built at runtime from the game list (hadi_game_help.dart).
 
+E('hadi-who',
+  m=[r'\bwho are you\b', r'\bwho is hadi\b', r'\bwhat (?:is|s) hadi\b', r'\bwhat are you\b', r'^hadi$', r'\bwhat does hadi mean\b', r'\btell me about (?:yourself|hadi)\b', r'\bintroduce yourself\b'],
+  x=[r'\b(?:hits?|beats?|divorce|talaq|my husband|my wife)\b'],
+  topic='about hadi',
+  text="""
+I am Hadi, the guide in Ar-Rayaan. The name means "the guide". I answer from a library built into the app: the Qur'an, the six hadith collections and the app's own guides, and every answer shows where it comes from.
+
+I am an app, not a person, and not a scholar. If you want to know what I can help with, ask "what can you do".
+""",
+  go=['/sources'],
+  review='Statements about what Hadi is only.')
+
+E('hadi-maker',
+  m=[r'\bwho made you\b', r'\bwho (?:built|created|developed|designed|programmed|wrote|coded|owns|trained|invented) (?:you|hadi)\b', r'\bwho is your (?:maker|creator|developer|owner|author)\b', r'\bwho are your (?:makers?|creators?|developers?|owners?)\b', r'\bwho is behind (?:you|hadi)\b', r'\bwho (?:wrote|writes) your answers\b'],
+  topic='about hadi',
+  text="""
+I am part of Ar-Rayaan, which is an app of RHW Technologies. Its owner is Abdul G Khokhar. That is what the app states, and it is all I know about who is behind me: it gives no funder, address or company details, so I will not guess any.
+
+My answers are not written one by one by a person while we talk. They come from a library built into the app, and each one shows the Qur'an verse or hadith it rests on. No scholar has reviewed the library yet, and the app says so on its Sources page.
+""",
+  go=['/sources'],
+  review='Restates the maker line the app already gives (Terms, Privacy, Our Sources).')
+
+E('hadi-model',
+  m=[r'\b(?:are you|is hadi|is this|r u)\b.*\b(?:openai|open ai|chatgpt|chat gpt|gpt|gemini|claude|anthropic|grok|llama|deepseek|copilot|bard|mistral|an llm|a language model)\b',
+     r'\b(?:you|hadi|this app|the app)\b.*\b(?:made|built|powered|run|running|trained|based|created|developed|using|uses|use)\b.*\b(?:openai|open ai|chatgpt|chat gpt|gpt|gemini|claude|anthropic|grok|llama|deepseek|copilot|bard|mistral)\b',
+     r'\bwhat (?:ai|model|llm|language model|technology|engine) (?:are you|do you use|is this|is hadi|are you using|powers you|do you run on|is behind you)\b',
+     r'\bwhich (?:ai|model|llm|language model) (?:are you|do you use|is this|is hadi|powers you)\b', r'\bwhat powers you\b', r'\bare you (?:powered|run) by\b', r'\bare you (?:an? )?(?:llm|large language model|neural network)\b'],
+  topic='about hadi',
+  text="""
+No. I am not made by OpenAI or by any other AI company, and the app names no model for me. By default my answers come from a library built into the app: the Qur'an, the six hadith collections and the app's own guides, matched to your question on your device, with the source printed under each answer.
+
+Two things are optional, and both are off unless you turn them on:
+- If you add your own AI account (in my menu, "Your own AI account"), your questions then go to the provider you chose, under that provider's terms. Those replies are not from the library and have not been reviewed.
+- In Settings, under Support and wellbeing, "Use the online model for support chats" is off by default. Only if you turn it on can what you type in a support chat be sent to the online model Ar-Rayaan is connected to. It is never used when a message looks like an emergency or abuse, or when a child is speaking, and your own AI key is never used for it.
+
+The Privacy policy in Settings lists every outside service the app can reach.
+""",
+  go=['/settings', '/sources'],
+  review='Describes how Hadi works today: built-in library by default; the user\'s own AI account and the support-chat online model are optional and off until the person turns them on (Settings > Support and wellbeing). No religious content.')
+
+E('hadi-fatwa',
+  m=[r'\bcan you (?:issue|give|make) (?:me )?(?:a )?fatwa\b', r'\b(?:give|issue|make|write) (?:me )?(?:a )?fatwa\b', r'\bi (?:want|need) (?:a )?fatwa\b', r'\bwhat is a fatwa\b.*\byou\b', r'\bdo you give fatwas?\b', r'\bcan you give (?:islamic )?rulings?\b', r'\bare you (?:a )?(?:mufti|qualified to give fatwas?)\b'],
+  topic='about hadi',
+  text="""
+I cannot give a fatwa. A fatwa is a ruling from a qualified mufti who knows your situation and can ask you questions, and I am an app with a library, not a mufti.
+
+What I can do is show you what the Qur'an and the hadith say on a question, with the source and the hadith grade, and say where the four schools differ. That is a study aid, not a ruling for your case.
+
+For a ruling on your own situation, such as a marriage, a debt, an inheritance or whether your worship is valid, ask a qualified scholar of your school in person. "Your school of law" in my menu lets me name your school when I point you to one, and the Huda guides show each guide's school note.
+""",
+  go=['/huda', '/sources'],
+  review='Statement of what Hadi does not do.')
+
 E('hadi-about',
-  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b', r'\bwhat are you\b', r'\bwho are you\b', r'\bwho is hadi\b', r'\bwho made you\b', r'\bwho (?:built|created|developed) (?:you|hadi)\b', r'\bhow can you help\b', r'\bwhat (?:is|s) hadi\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b', r'\bhow (?:do|does) (?:you|hadi) work\b',
-     r'\bare you (?:an? )?(?:ai|bot|robot|human|real|person|chatgpt|scholar|sheikh|shaykh|imam|mufti|alim)\b', r'\bis this (?:an? )?(?:ai|bot|human|person)\b', r'\bcan i trust you\b', r'\bare you reliable\b', r'\bare your answers (?:correct|right|accurate|reliable)\b', r'\bcan you make mistakes\b', r'\bdo you make mistakes\b',
-     r'\bcan you (?:issue|give|make) (?:me )?(?:a )?fatwa\b', r'\bwhat is a fatwa\b.*\byou\b', r'\bdo you give fatwas?\b', r'\bcan you give (?:islamic )?rulings?\b'],
+  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b', r'\bhow can you help\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b', r'\bhow (?:do|does) (?:you|hadi) work\b',
+     r'\bare you (?:an? )?(?:ai|bot|robot|human|real|person|scholar|sheikh|shaykh|imam|mufti|alim)\b', r'\bis this (?:an? )?(?:ai|bot|human|person)\b', r'\bcan i trust you\b', r'\bare you reliable\b', r'\bare your answers (?:correct|right|accurate|reliable)\b', r'\bcan you make mistakes\b', r'\bdo you make mistakes\b'],
   x=[r'\b(?:hits?|beats?|divorce|talaq|my husband|my wife)\b'],
   topic='about hadi',
   text="""

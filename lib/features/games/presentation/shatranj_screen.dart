@@ -110,26 +110,62 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
   bool _seenRoom = false;
   String? _syncError;
 
-  // Hadi's lines, by what the move just played was, so the words fit the move.
+  // Hadi's lines, by what the move just played was, so the words fit the
+  // move: a capture, a check, a castle, or the piece that moved. A line is
+  // never shown twice in a row.
   static const List<String> _hadiOpening = <String>[
     'Hadi: Every opening is a doorway. Choose yours well.',
     'Hadi: Bring your pieces out and keep the centre in sight.',
+    'Hadi: In the opening, develop your pieces, claim the centre, and get your king to safety.',
+    'Hadi: Moving the same piece twice in the opening usually costs a move you could have used elsewhere.',
   ];
   static const List<String> _hadiMiddle = <String>[
     'Hadi: The middle game rewards the patient heart.',
     'Hadi: Your move carries intention. Make it a good one.',
     'Hadi: Even the queen bows to the plan, not the power.',
+    'Hadi: Before each move, ask what the other side threatens now.',
+    'Hadi: A quiet move that improves your worst piece is often the strongest.',
   ];
   static const List<String> _hadiCapture = <String>[
     'Hadi: A capture changes the balance. Check what it leaves undefended.',
     'Hadi: Taking a piece is never free. Look at what the capture opens.',
+    'Hadi: After a capture, ask: can it be taken back? An even trade leaves both sides equal.',
+    'Hadi: Count the attackers and the defenders on that square before you trade.',
   ];
+  static const Map<String, List<String>> _hadiByPiece = <String, List<String>>{
+    'P': <String>[
+      'Hadi: Pawns cannot step backwards. Each pawn move changes the board for good.',
+      'Hadi: A pawn in the centre gives your other pieces room to move.',
+    ],
+    'N': <String>[
+      'Hadi: A knight reaches more squares from the centre than from the edge.',
+      'Hadi: The knight is the only piece that jumps. Look for the squares it forks.',
+    ],
+    'B': <String>[
+      'Hadi: A bishop on an open diagonal sees across the board. Check what it points at.',
+      'Hadi: A bishop stays on one colour of square all game.',
+    ],
+    'R': <String>[
+      'Hadi: Rooks like open files, with no pawns in the way.',
+      'Hadi: Two rooks that guard each other are stronger than two apart.',
+    ],
+    'Q': <String>[
+      'Hadi: The queen is strong, but a queen that is chased loses time. Bring her out with a purpose.',
+      'Hadi: Do not trade your queen for less than her worth.',
+    ],
+    'K': <String>[
+      'Hadi: A king that walks forward early is exposed. Keep him sheltered.',
+      'Hadi: In the endgame the king becomes a fighting piece; before it, he hides.',
+    ],
+  };
   static const String _hadiCheck =
       'Hadi: Check. Your king must answer it now: move it, block the attack or capture the attacker.';
   static const String _hadiCastle =
       'Hadi: Castling tucks the king away and wakes the rook.';
   static const String _hadiPromo =
       'Hadi: A pawn that crosses the whole board becomes a new piece.';
+
+  int _lineCount = 0;
 
   /// The line for move [m], just played (so [game] already holds it).
   String _hadiLineFor(int m) {
@@ -138,9 +174,18 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
     if (san.contains('=')) return _hadiPromo;
     if (san.contains('+') || san.contains('#')) return _hadiCheck;
     if (moveIsCastle(m)) return _hadiCastle;
-    if (moveIsCapture(m)) return _hadiCapture[(n ~/ 2) % _hadiCapture.length];
-    if (n <= 12) return _hadiOpening[(n ~/ 2) % _hadiOpening.length];
-    return _hadiMiddle[(n ~/ 2) % _hadiMiddle.length];
+    final String first = san.isEmpty ? 'P' : san[0];
+    final String piece = 'NBRQK'.contains(first) ? first : 'P';
+    final List<String> pool = moveIsCapture(m)
+        ? _hadiCapture
+        : <String>[
+            ...(n <= 12 ? _hadiOpening : _hadiMiddle),
+            ...?_hadiByPiece[piece],
+          ];
+    final int k = n + piece.codeUnitAt(0) + _lineCount++;
+    String line = pool[k % pool.length];
+    if (line == hadiLine) line = pool[(k + 1) % pool.length];
+    return line;
   }
 
   @override

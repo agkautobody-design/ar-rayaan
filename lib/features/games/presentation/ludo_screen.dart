@@ -100,30 +100,59 @@ class _LudoState extends State<LudoScreen> {
   String? _syncError;
 
   // Hadi's lines, by what just happened on the board, so the words fit the
-  // move (a capture is not met with "patience, the six will come").
+  // move (a capture is not met with "patience, the six will come"). Each
+  // group has several lines, and a line is never shown twice in a row.
   static const List<String> _hadiQuiet = <String>[
     'Hadi: The dice decide the roll; you decide the move.',
     'Hadi: I protect my stars. Do you protect yours?',
     'Hadi: One careful step beats three hurried ones.',
-  ];
-  static const List<String> _hadiPassed = <String>[
-    'Hadi: Nothing to move with that roll. Patience, the six will come.',
-    'Hadi: No move this time. The board waits for you.',
+    'Hadi: A pawn on a star square cannot be captured. Remember where they are.',
+    'Hadi: Two pawns on one square stand together. Keep a friend beside a lone pawn.',
+    'Hadi: Look behind you before you step ahead: who could land on your pawn?',
+    'Hadi: Moving the pawn that is nearest home is not always the best move.',
+    'Hadi: Every roll is a small question. Take a breath before you answer it.',
   ];
   static const List<String> _hadiCapture = <String>[
     'Hadi: A pawn sent back to its yard is not an ending; the board always invites return.',
     'Hadi: A capture. Mind your own pawns that stand alone.',
+    'Hadi: Captured pawns start again, and so can you. Play on kindly.',
+    'Hadi: That capture changes the board. Check which of your pawns is now in reach.',
   ];
-  static const String _hadiHome = 'Hadi: One pawn is home. Bring the others the same careful way.';
-  static const String _hadiSix = 'Hadi: A six, and another turn. Use it well.';
+  static const List<String> _hadiHomeLines = <String>[
+    'Hadi: One pawn is home. Bring the others the same careful way.',
+    'Hadi: Home at last. The others still need your attention.',
+    'Hadi: A pawn home is one fewer to worry about, and three more to guide.',
+  ];
+  static const List<String> _hadiSixLines = <String>[
+    'Hadi: A six, and another turn. Use it well.',
+    'Hadi: A six gives you a second roll. A good time to bring a pawn out.',
+    'Hadi: Another turn. Do not rush it because it came easily.',
+  ];
+
+  /// The lines for a roll with no legal move, naming who rolled so the line
+  /// is not read as being about whoever plays next.
+  static List<String> _hadiPassedLines(String who) => <String>[
+        'Hadi: $who had no move with that roll. The six will come.',
+        'Hadi: Nothing to move for $who this time. The board waits.',
+        'Hadi: $who passes this turn. Patience is part of the game.',
+      ];
+
+  int _lineCount = 0;
 
   String _ludoLine({required int seat, required int roll, LudoMoveResult? res}) {
-    final int k = (seat + roll + lastRoll) % 6;
-    if (res == null) return _hadiPassed[k % _hadiPassed.length];
-    if (res.captured.isNotEmpty) return _hadiCapture[k % _hadiCapture.length];
-    if (res.reachedHome) return _hadiHome;
-    if (res.extraTurn) return _hadiSix;
-    return _hadiQuiet[k % _hadiQuiet.length];
+    final List<String> pool = res == null
+        ? _hadiPassedLines(_label(seat))
+        : res.captured.isNotEmpty
+            ? _hadiCapture
+            : res.reachedHome
+                ? _hadiHomeLines
+                : res.extraTurn
+                    ? _hadiSixLines
+                    : _hadiQuiet;
+    final int k = seat + roll + lastRoll + _lineCount++;
+    String line = pool[k % pool.length];
+    if (line == hadiLine) line = pool[(k + 1) % pool.length];
+    return line;
   }
 
   @override

@@ -452,8 +452,9 @@ class HadiController extends Notifier<HadiState> {
     try {
       ref.read(localKnowledgeProvider);
     } catch (_) {}
-    List<HadiMessage> messages = const <HadiMessage>[
-      HadiMessage(fromHadi: true, text: kHadiGreeting),
+    _greetingIndex = DateTime.now().millisecondsSinceEpoch % kHadiGreetings.length;
+    List<HadiMessage> messages = <HadiMessage>[
+      HadiMessage(fromHadi: true, text: kHadiGreetings[_greetingIndex]),
     ];
     try {
       final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
@@ -594,13 +595,18 @@ class HadiController extends Notifier<HadiState> {
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
     _lastSupportTopic = null;
     _hardCheckin = false;
+    // The welcome differs from the one just shown, so a fresh start never
+    // reads as the same canned line.
+    _greetingIndex = (_greetingIndex + 1) % kHadiGreetings.length;
     state = HadiState(
-      messages: const <HadiMessage>[
-        HadiMessage(fromHadi: true, text: kHadiGreeting),
+      messages: <HadiMessage>[
+        HadiMessage(fromHadi: true, text: kHadiGreetings[_greetingIndex]),
       ],
       live: _apiKey != null,
     );
   }
+
+  int _greetingIndex = 0;
 
   /// Starts a fresh conversation that opens from the support page the person
   /// came from, instead of the usual greeting. Nothing is saved or sent; the
@@ -1984,6 +1990,21 @@ const String kHadiGreeting =
     'authentic knowledge. Ask me about worship, the Qur\'an, or where '
     'anything lives in this app. And when the weight is heavy, tell me '
     'that too — I will stay with it.';
+
+/// The welcomes Hādi opens with. A new conversation never repeats the one
+/// before it.
+const List<String> kHadiGreetings = <String>[
+  kHadiGreeting,
+  'As-Salaamu Alaikum. I am Hādi, the guide in this app. Ask me about '
+      'prayer, the Qur\'an, a du\'a, or where to find something here. If '
+      'something is weighing on you, you can tell me that too.',
+  'Peace be upon you. Hādi here. Ask what you like about worship, the '
+      'Qur\'an or the app, and I will answer with the source. If it is a '
+      'heavy day, you can say so.',
+  'As-Salaamu Alaikum, and welcome. I can help with a question about '
+      'Islam, a verse, a hadith or a du\'a, or take you to the right place '
+      'in the app. And if you just need to talk, I am listening.',
+];
 
 final NotifierProvider<HadiController, HadiState> hadiControllerProvider =
     NotifierProvider<HadiController, HadiState>(HadiController.new);

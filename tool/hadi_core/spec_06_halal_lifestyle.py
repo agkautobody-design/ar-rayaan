@@ -18,7 +18,7 @@ E('alcohol',
   x=[r'\b(?:game|story|stories)\b'],
   topic='alcohol',
   text="""
-Alcohol is forbidden in Islam. Allah says: {Q 5:90|intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful}. The Prophet ﷺ said: every intoxicant is khamr and every intoxicant is forbidden ({H muslim:2003|Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden, and whoever drinks wine in this world and dies addicted to it without repenting will not be given a drink in the Hereafter}). This includes beer, wine, spirits, and drugs that intoxicate.
+Alcohol is forbidden in Islam. Allah says: {Q 5:90|intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful}. The Prophet ﷺ said: every intoxicant is khamr and every intoxicant is forbidden ({H muslim:2003|Ibn Umar reported the Prophet said every intoxicant is khamr and every intoxicant is forbidden}). This includes beer, wine, spirits, and drugs that intoxicate.
 
 Questions people often have:
 - Cooking with alcohol: avoid it; if it is a recipe that keeps the alcohol in the dish, the dish is forbidden. Many scholars do not allow cooking it away either.
@@ -29,8 +29,14 @@ Questions people often have:
 - Medicine: if there is no alternative, medicine containing alcohol is allowed by necessity; ask your doctor for a non-alcoholic form.
 
 If you slipped, repent and do not return. Allah is forgiving ({QR 39:53}).
+
+If you drink now and want to stop:
+- Start today. Repentance is to leave it, to regret it, and to decide not to go back, and Allah says {Q 39:53|do not despair of the mercy of Allah. Indeed, Allah forgives all sins}. Pour it away, keep none at home, and tell one person you trust.
+- If you drink a lot or every day, do not stop all at once on your own. Sudden withdrawal from heavy drinking can cause seizures and can kill. Speak to a doctor or a pharmacist today and tell them how much you drink; they can help you stop safely. Scholars apply {Q 4:29|do not kill yourselves} to protecting your life, and accept the treatment a doctor prescribes to get through withdrawal. Look after your health first, and keep the intention to leave it.
+- You do not have to do this alone. The "Need help now" button at the top of this chat shows help lines for your country, and the Support and wellbeing page has a page on alcohol. You can also tell me how it is going.
 """,
-  review='Contemporary rulings on perfumes, sanitiser, and 0.0% drinks are described as differences; not text-checked here.')
+  go=['/support'],
+  review='Contemporary rulings on perfumes, sanitiser, and 0.0% drinks are described as differences; not text-checked here. The advice to start leaving it today but with a doctor when drinking is heavy, and that scholars accept prescribed treatment to get through withdrawal, applies the preservation-of-life principle (4:29) and needs a scholar to confirm; the medical warning about sudden withdrawal is general safety wording that a clinician should read.')
 
 E('seafood-shrimp',
   m=[r'\b(?:shrimp|prawn|prawns|crab|lobster|oyster|oysters|clam|clams|mussel|mussels|squid|calamari|octopus|shellfish|seafood|sea food|eel|catfish|crustacean\w*|scallop\w*|fish)\b.*\b(?:halal|haram|allowed|permissible|permitted|eat|forbidden|makruh|islam)\b',

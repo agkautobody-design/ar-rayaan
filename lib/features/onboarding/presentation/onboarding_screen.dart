@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/i18n/app_locale.dart';
+import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -13,6 +14,18 @@ import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+
+/// The goal chosen in the introduction ('new', 'learn', 'pray'...), or null.
+/// Home watches it, so a Home that was already built before the choice (the
+/// introduction opens over it) shows the choice's next step as soon as the
+/// person is back, not after a restart.
+final StateProvider<String?> homeNeedProvider = StateProvider<String?>((Ref ref) {
+  try {
+    return ref.read(sharedPreferencesProvider).getString(OnboardingScreen.needPref);
+  } catch (_) {
+    return null;
+  }
+});
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -119,6 +132,9 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
       await p.setBool(OnboardingScreen.pref, true);
       if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
     } catch (_) {}
+    if (_need != null && mounted) {
+      ref.read(homeNeedProvider.notifier).state = _need;
+    }
     OnboardingScreen.completedThisSession = true;
     final String route =
         skipped ? AppRoutes.home : await OnboardingScreen.homeRouteFor(_need);

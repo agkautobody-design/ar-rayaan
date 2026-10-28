@@ -340,6 +340,13 @@ class _AcademyHomeScreenState
                 const SizedBox(height: 12),
               ],
 
+              // An adult who wants to read Arabic finds Letters first, in
+              // view without scrolling, not below the three beginner doors.
+              if (track == 'adult') ...<Widget>[
+                const _LettersHero(adult: true),
+                const SizedBox(height: 12),
+              ],
+
               // Continue hero -------------------------------------------------
               if (showDoor)
                 const _FrontDoorCard()
@@ -523,6 +530,18 @@ class _AcademyHomeScreenState
                   ],
                 ),
               ),
+              if (!layout.simpleCopy)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 8, 4, 0),
+                  child: Text(
+                    'This counts lessons finished in the Academy. The 30-day '
+                    'road for new Muslims is a separate list of days you tick '
+                    'yourself, and keeps its own count.',
+                    key: const Key('academy-count-note'),
+                    style: AppText.caption,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               const SizedBox(height: 16),
 
               // Daily verse -----------------------------------------------------
@@ -917,7 +936,11 @@ class _FrontDoorCard extends ConsumerWidget {
 
 /// The child's home starts here: the next unfinished Letters lesson.
 class _LettersHero extends ConsumerWidget {
-  const _LettersHero();
+  const _LettersHero({this.adult = false});
+
+  /// Adult wording ("Learn to read Arabic") for the Adult track, where the
+  /// card sits above the beginner doors so Letters is seen without scrolling.
+  final bool adult;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -936,12 +959,18 @@ class _LettersHero extends ConsumerWidget {
     for (final Lesson l in list) {
       if (l.id == nextId) nextTitle = l.title;
     }
-    final String heading = allDone
-        ? AcademyStrings.get('child.lettersDone')
-        : AcademyStrings.get(
-            started ? 'child.lettersContinue' : 'child.lettersStart');
+    final String heading = adult
+        ? (allDone
+            ? 'You have finished the letters. Open them any time to review.'
+            : (started
+                ? 'Continue the letters'
+                : 'Start with the letters'))
+        : allDone
+            ? AcademyStrings.get('child.lettersDone')
+            : AcademyStrings.get(
+                started ? 'child.lettersContinue' : 'child.lettersStart');
     return GlassCard(
-      key: const Key('letters-hero'),
+      key: Key(adult ? 'adult-letters-hero' : 'letters-hero'),
       strong: true,
       onTap: () => context.go(nextId == null
           ? '/academy/letters'
@@ -956,7 +985,10 @@ class _LettersHero extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(AcademyStrings.get('child.lettersTitle'),
+                Text(
+                    adult
+                        ? 'Learn to read Arabic'
+                        : AcademyStrings.get('child.lettersTitle'),
                     style: AppText.caption),
                 const SizedBox(height: 4),
                 Text(heading, style: AppText.titleMedium),

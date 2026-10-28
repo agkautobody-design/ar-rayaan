@@ -174,7 +174,7 @@ class _AyahState extends ConsumerState<AyahCompletionScreen> {
         final words = (row[1] as String).split(RegExp(r'\s+'))
             .where((w) => w.length > 3 && !w.contains('۟')).toList();
         if (words.length >= 3 && words.length <= 8) {
-          candidates.add({'surah': s['tl'], 'ayah': row[0], 'text': row[1], 'words': words});
+          candidates.add({'surah': s['tl'], 'ayah': row[0], 'text': row[1], 'words': words, 'en': row.length > 2 ? '${row[2]}' : ''});
         }
       }
     }
@@ -195,7 +195,7 @@ class _AyahState extends ConsumerState<AyahCompletionScreen> {
       ));
       // rebuild: store the real options separately
       rounds.last = _Round(rounds.last.prompt, opts, opts.indexOf(blanked),
-          'The ayah reads: ${c['text']}');
+          'The ayah reads: ${c['text']}${(c['en'] as String).isEmpty ? '' : '\n\nIn English: ${c['en']}'}');
     }
     setState(() => _rounds = rounds);
   }

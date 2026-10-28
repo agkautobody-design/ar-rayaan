@@ -118,6 +118,16 @@ class CourseOverviewScreen extends ConsumerWidget {
                     style: AppText.caption,
                     textAlign: TextAlign.center,
                   ),
+                  if (courseId == 'the-path')
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Text(
+                        'These lessons keep their own count. The 30-day road '
+                        'is a separate list of days you tick yourself.',
+                        style: AppText.caption,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   const SizedBox(height: 16),
                   GlassCard(
                     strong: true,
@@ -164,7 +174,7 @@ class CourseOverviewScreen extends ConsumerWidget {
                       icon: const Icon(Icons.menu_book_outlined, size: 18),
                       label: Text(link.label),
                     ),
-                  if (course.id == 'the-path') ...<Widget>[
+                  if (courseId == 'the-path') ...<Widget>[
                     OutlinedButton.icon(
                       key: const Key('course-30day'),
                       onPressed: () => context.push(AppRoutes.newMuslimPath),

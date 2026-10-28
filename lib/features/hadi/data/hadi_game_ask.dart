@@ -98,6 +98,41 @@ abstract final class HadiGameAsk {
     caseSensitive: false,
   );
 
+  static final RegExp _quranSrc = RegExp(
+    r'(?:Qur.an|Quran|Surah|Sura)\s*(\d{1,3}):(\d{1,3})(?:\s*[-\u2013]\s*(\d{1,3}))?',
+    caseSensitive: false,
+  );
+  static final RegExp _hadithSrc = RegExp(
+    r'\b(Bukhari|Muslim|Abu\s+Daw\w*|Tirmidhi|Nasa.i|Ibn\s+Majah)\s*(?:no\.?\s*)?(\d{1,5})\b',
+    caseSensitive: false,
+  );
+
+  /// The library ids (`q:26:198`, `h:bukhari-1`) named in the "Source:" line
+  /// of a question built by a game, so the sheet can print those passages
+  /// from the app's own library under Hadi's reply. Ids that the library
+  /// does not hold are dropped by the caller.
+  static List<String> sourceIds(String question) {
+    final String src = _field(question.split('\n'), 'Source');
+    if (src.isEmpty) return const <String>[];
+    final List<String> ids = <String>[];
+    for (final RegExpMatch m in _quranSrc.allMatches(src)) {
+      final String to = m.group(3) ?? '';
+      ids.add('q:${m.group(1)}:${m.group(2)}${to.isEmpty ? '' : '-$to'}');
+    }
+    for (final RegExpMatch m in _hadithSrc.allMatches(src)) {
+      final String name = (m.group(1) ?? '').toLowerCase();
+      final String book = name.startsWith('abu')
+          ? 'abudawud'
+          : name.startsWith('nasa')
+              ? 'nasai'
+              : name.startsWith('ibn')
+                  ? 'ibnmajah'
+                  : name;
+      ids.add('h:$book-${m.group(2)}');
+    }
+    return ids.take(3).toList();
+  }
+
   static String _buttons(String source) {
     final StringBuffer b = StringBuffer();
     if (_quranRef.hasMatch(source)) b.write('\n[GO:/quran]');

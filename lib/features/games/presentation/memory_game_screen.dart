@@ -40,7 +40,6 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
   GameResult? _result;
   Name99? _lastMatch;
   final ScrollController _scroll = ScrollController();
-  final GlobalKey _matchKey = GlobalKey();
 
   @override
   void dispose() {
@@ -61,27 +60,17 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
     if (g.awaitingClear) _clear();
     final FlipOutcome out = g.flip(i);
     if (out == FlipOutcome.ignored) return;
+    _lastMatch = null;
     if (out == FlipOutcome.match) {
       final int n = g.cards[i].pairId;
       Name99? found;
       for (final Name99 e in names) {
         if (e.n == n) found = e;
       }
+      // The meaning and where the Name is found show in a panel fixed under
+      // the grid, so the page does not scroll and the matched cards stay
+      // where they were.
       _lastMatch = found;
-      // The meaning and where the Name is found sit below the grid: on a
-      // phone they would be off the screen, so bring them into view.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        final BuildContext? c = _matchKey.currentContext;
-        if (c != null && c.mounted) {
-          unawaited(
-            Scrollable.ensureVisible(
-              c,
-              duration: const Duration(milliseconds: 250),
-              alignment: 1,
-            ),
-          );
-        }
-      });
     } else if (out == FlipOutcome.mismatch) {
       _timer?.cancel();
       _timer = Timer(const Duration(milliseconds: 1600), _clear);
@@ -221,45 +210,53 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
               ),
             ),
           ],
-          if (_lastMatch != null && !g.awaitingClear) ...<Widget>[
-            const SizedBox(height: 14),
-            GamePanel(
-              key: _matchKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('A match', style: AppText.eyebrow),
-                  const SizedBox(height: 4),
-                  if (_lastMatch!.arabic != null)
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: Text(
-                        _lastMatch!.arabic!,
-                        style: names99ArabicStyle(30),
-                      ),
-                    ),
-                  Text(
-                    _lastMatch!.name,
-                    style: AppText.titleMedium.copyWith(
-                      color: GamesTheme.champagne,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    _lastMatch!.meaning,
-                    style: AppText.body.copyWith(height: 1.5),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Source: ${names99RefLabel(_lastMatch!.ref)}',
-                    style: AppText.bodyMuted,
-                  ),
-                ],
-              ),
-            ),
-          ],
         ],
       ),
+      bottomNavigationBar: _lastMatch != null && !g.awaitingClear
+          ? SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxHeight: 190),
+                  child: SingleChildScrollView(
+                    child: GamePanel(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text('A match', style: AppText.eyebrow),
+                          const SizedBox(height: 4),
+                          if (_lastMatch!.arabic != null)
+                            Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Text(
+                                _lastMatch!.arabic!,
+                                style: names99ArabicStyle(30),
+                              ),
+                            ),
+                          Text(
+                            _lastMatch!.name,
+                            style: AppText.titleMedium.copyWith(
+                              color: GamesTheme.champagne,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            _lastMatch!.meaning,
+                            style: AppText.body.copyWith(height: 1.5),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'Source: ${names99RefLabel(_lastMatch!.ref)}',
+                            style: AppText.bodyMuted,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 
@@ -399,10 +396,12 @@ class _CardView extends StatelessWidget {
                                 ),
                               ),
                       )
-                    : const Icon(
-                        Icons.stars_outlined,
-                        color: AppColors.gold,
-                        size: 30,
+                    : CustomPaint(
+                        key: const ValueKey<String>('memory-card-back'),
+                        size: const Size(40, 40),
+                        painter: _CardBackPainter(
+                          AppColors.gold.withValues(alpha: 0.75),
+                        ),
                       ),
               ),
             ),
@@ -411,4 +410,36 @@ class _CardView extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The back of a card: nested diamonds around a small ring. A plain
+/// geometric pattern; it is not a star and shows no figure.
+class _CardBackPainter extends CustomPainter {
+  const _CardBackPainter(this.color);
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint line = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.4;
+    final Offset c = size.center(Offset.zero);
+    final double s = size.shortestSide;
+    for (int i = 1; i <= 3; i++) {
+      final double r = s * 0.16 * i;
+      final Path diamond = Path()
+        ..moveTo(c.dx, c.dy - r)
+        ..lineTo(c.dx + r, c.dy)
+        ..lineTo(c.dx, c.dy + r)
+        ..lineTo(c.dx - r, c.dy)
+        ..close();
+      canvas.drawPath(diamond, line);
+    }
+    canvas.drawCircle(c, s * 0.07, line);
+  }
+
+  @override
+  bool shouldRepaint(_CardBackPainter old) => old.color != color;
 }

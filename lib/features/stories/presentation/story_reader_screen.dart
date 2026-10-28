@@ -25,6 +25,7 @@ import '../application/saved_stories_controller.dart';
 import '../application/story_text_size.dart';
 import '../data/stories_repository.dart';
 import '../domain/story.dart';
+import 'new_muslim_path_screen.dart' show pathRevisionProvider;
 import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 import 'story_listen_bar.dart';
@@ -421,6 +422,12 @@ String _bodyFor(Story story, StoryChapter chapter) {
 String storyChapterShareText(Story story, StoryChapter chapter) =>
     ShareService.build(storyChapterShareDoc(story, chapter));
 
+bool _sameName(String heading, String title) {
+  String n(String s) => s.toLowerCase().replaceAll(RegExp(r'\s+'), ' ').trim();
+  final String h = n(heading);
+  return h.isEmpty || h == n(title) || n(title).contains(h);
+}
+
 /// The share for the chapter on screen: text only, never an image. A story or
 /// khutbah that is not "Established" says so, and carries "Scholar review
 /// needed" until a named scholar is recorded.
@@ -428,7 +435,9 @@ ShareDoc storyChapterShareDoc(Story story, StoryChapter chapter) {
   final String label = chapter.label ?? story.sourceLabel;
   final String sources = story.sources.join('; ');
   return ShareDoc.story(
-    title: chapter.heading.isEmpty
+    // A one-chapter page (a daily dua) names itself in both places: say the
+    // title once.
+    title: _sameName(chapter.heading, story.title)
         ? story.title
         : '${story.title}: ${chapter.heading}',
     arabic: chapter.arabic,
@@ -503,15 +512,15 @@ class _SaveStoryButton extends ConsumerWidget {
 
 /// "Mark this day as walked" at the end of a day of the New Muslim Path. The
 /// same flag the Path list's tick sets, so the two always agree.
-class _PathWalkedCard extends StatefulWidget {
+class _PathWalkedCard extends ConsumerStatefulWidget {
   const _PathWalkedCard({required this.storyId});
   final String storyId;
 
   @override
-  State<_PathWalkedCard> createState() => _PathWalkedCardState();
+  ConsumerState<_PathWalkedCard> createState() => _PathWalkedCardState();
 }
 
-class _PathWalkedCardState extends State<_PathWalkedCard> {
+class _PathWalkedCardState extends ConsumerState<_PathWalkedCard> {
   bool? _walked;
 
   String get _key => '$kNewMuslimDonePrefix${widget.storyId}';
@@ -538,6 +547,9 @@ class _PathWalkedCardState extends State<_PathWalkedCard> {
       final SharedPreferences p = await SharedPreferences.getInstance();
       await p.setBool(_key, next);
     } catch (_) {}
+    // Tell the road and Home at once, so their count is right when this
+    // lesson is closed.
+    if (mounted) ref.read(pathRevisionProvider.notifier).state++;
   }
 
   @override

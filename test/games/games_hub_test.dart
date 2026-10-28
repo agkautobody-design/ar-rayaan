@@ -490,11 +490,11 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.textContaining('PAIRS FOUND 0 OF 6'), findsOneWidget);
       // Twelve cards, all face down.
-      expect(find.byIcon(Icons.stars_outlined), findsNWidgets(12));
-      await tester.tap(find.byIcon(Icons.stars_outlined).first);
+      expect(find.byKey(const ValueKey<String>('memory-card-back')), findsNWidgets(12));
+      await tester.tap(find.byKey(const ValueKey<String>('memory-card-back')).first);
       await tester.pump();
-      expect(find.byIcon(Icons.stars_outlined), findsNWidgets(11));
-      await tester.tap(find.byIcon(Icons.stars_outlined).first);
+      expect(find.byKey(const ValueKey<String>('memory-card-back')), findsNWidgets(11));
+      await tester.tap(find.byKey(const ValueKey<String>('memory-card-back')).first);
       await tester.pump();
       final bool matched = find.text('A match').evaluate().isNotEmpty;
       final bool missed = find.text('Turn the cards back').evaluate().isNotEmpty;

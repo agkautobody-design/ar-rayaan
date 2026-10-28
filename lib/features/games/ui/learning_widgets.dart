@@ -10,6 +10,10 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
+import '../../hadi/data/hadi_game_ask.dart';
+import '../../hadi/grounding/corpus.dart';
+import '../../hadi/grounding/passage.dart';
+import '../../hadi/presentation/hadi_screen.dart' show HadiPassageCard;
 import '../data/game_settings.dart';
 import 'games_art.dart';
 import 'games_theme.dart';
@@ -146,11 +150,30 @@ class _AskHadiSheet extends ConsumerStatefulWidget {
 class _AskHadiSheetState extends ConsumerState<_AskHadiSheet> {
   String? _reply;
   bool _failed = false;
+  List<Passage> _passages = const <Passage>[];
 
   @override
   void initState() {
     super.initState();
     unawaited(_ask());
+    unawaited(_loadPassages());
+  }
+
+  /// The verse or hadith the game cites, printed from the app's own library
+  /// (Arabic, translation and grade), so the explanation has the source in
+  /// front of the person and not only its name.
+  Future<void> _loadPassages() async {
+    final List<String> ids = HadiGameAsk.sourceIds(widget.question);
+    if (ids.isEmpty) return;
+    try {
+      final HadiCorpus corpus = await ref.read(hadiCorpusProvider.future);
+      final List<Passage> found = <Passage>[
+        for (final String id in ids)
+          if (corpus.resolve(id) != null) corpus.resolve(id)!,
+      ];
+      if (!mounted || found.isEmpty) return;
+      setState(() => _passages = found);
+    } catch (_) {}
   }
 
   Future<void> _ask() async {
@@ -204,12 +227,20 @@ class _AskHadiSheetState extends ConsumerState<_AskHadiSheet> {
                               color: AppColors.gold),
                         ),
                       )
-                    : Text(
-                        _failed
-                            ? 'Hadi could not answer just now. Your game is '
-                                'where you left it; try again in a moment.'
-                            : HadiTokens.strip(reply!),
-                        style: AppText.body.copyWith(height: 1.6),
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            _failed
+                                ? 'Hadi could not answer just now. Your game '
+                                    'is where you left it; try again in a '
+                                    'moment.'
+                                : HadiTokens.strip(reply!),
+                            style: AppText.body.copyWith(height: 1.6),
+                          ),
+                          for (final Passage p in _passages)
+                            HadiPassageCard(passage: p),
+                        ],
                       ),
               ),
             ),

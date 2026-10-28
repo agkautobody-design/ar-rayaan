@@ -29,6 +29,28 @@ enum HadiReportReason {
 /// person ticks. A report about such an exchange can still be made in words
 /// of the person's own, outside the app.
 abstract final class HadiReportPolicy {
+  static const Set<String> _smallTalk = <String>{
+    'hi', 'hello', 'hey', 'salam', 'salaam', 'assalamu', 'assalamualaikum',
+    'asalamualaikum', 'assalamoalaikum', 'alaikum', 'alaykum', 'wa', 'wr',
+    'wb', 'rahmatullah', 'wabarakatuh', 'barakatuh', 'peace', 'be', 'upon',
+    'you', 'thanks', 'thank', 'jazakallah', 'jazak', 'allah', 'khayran',
+    'khair', 'shukran', 'bye', 'goodbye', 'ok', 'okay', 'how', 'are', 'r',
+    'u', 'good', 'morning', 'evening', 'afternoon', 'there', 'hadi', 'dear',
+    'brother', 'sister', 'sir',
+  };
+
+  /// A greeting or thanks ("hello", "assalamu alaikum", "how are you"): the
+  /// reply to it has nothing to report, so it gets no Report button.
+  static bool isSmallTalk(String text) {
+    final List<String> words = CrisisDetector.normalize(text)
+        .split(' ')
+        .where((String w) => w.isNotEmpty)
+        .toList();
+    return words.isNotEmpty &&
+        words.length <= 8 &&
+        words.every(_smallTalk.contains);
+  }
+
   static bool mayInclude(String text) =>
       CrisisDetector.detect(text) == null &&
       SupportSignal.classify(text) == null &&

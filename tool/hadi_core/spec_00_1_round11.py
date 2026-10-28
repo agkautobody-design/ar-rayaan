@@ -23,9 +23,9 @@ Leaving can be the most dangerous time, so plan it with a domestic violence serv
   review='Khul, judicial dissolution for harm (darar) and the Abu Dawud warning about asking for divorce without cause are described in general terms for a woman who is not safe; the schools\' conditions and the claim that many courts allow dissolution for harm need a scholar and a lawyer to confirm. Wording must be read by someone who works with abuse survivors.')
 
 E('abuse-verse-434',
-  m=[r'\b(?:does|do|is|are|did) (?:the )?(?:quran|islam|quran say|religion|god|allah)\b.*\b(?:allow\w*|permit\w*|say|says|let\w*|right)\b.*\b(?:hit|hits|beat|beats|strike|hurt|hurts)\b.*\b(?:me|her|my wife|wife)\b',
-     r'\b(?:husband|he|man) (?:is |was )?(?:allowed|permitted|right) to (?:hit|beat|strike|hurt) (?:me|her|his wife|my wife)\b',
-     r'\b(?:allowed|permitted) to (?:hit|beat|strike) me\b', r'\b4 ?:? ?34\b.*\b(?:hits|hit|beats|beat|hurts|abus\w*|me|my husband)\b', r'\b(?:hits|hit|beats|beat|hurts|abus\w*)\b.*\b4 ?:? ?34\b'],
+  m=[r'\b(?:does|do|is|are|did) (?:the )?(?:quran|islam|quran say|religion|god|allah)\b.*\b(?:allow\w*|permit\w*|say|says|let\w*|right)\b.*\b(?:hit|hits|beat|beats|strike|hurt|hurts)\b.*\bme\b',
+     r'\b(?:husband|he|man) (?:is |was )?(?:allowed|permitted|right) to (?:hit|beat|strike|hurt) me\b',
+     r'\b(?:allowed|permitted) to (?:hit|beat|strike) me\b', r'\b4 ?:? ?34\b.*\b(?:hits me|hit me|beats me|beat me|hurts me|abuses me|my husband)\b', r'\b(?:hits me|hit me|beats me|beat me|hurts me|abuses me|my husband)\b.*\b4 ?:? ?34\b'],
   x=[r'\b(?:what does 4 ?:? ?34 mean|explain 4 ?:? ?34|meaning of 4 ?:? ?34|tafsir)\b'],
   topic='abuse',
   text="""
