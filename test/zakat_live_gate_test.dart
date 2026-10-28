@@ -39,10 +39,7 @@ void main() {
     await tester.tap(find.byKey(const Key('live-prices-button')));
     await tester.pump();
     expect(find.byKey(const Key('live-price-status')), findsOneWidget);
-    expect(
-        find.descendant(
-            of: find.byKey(const Key('live-price-status')),
-            matching: find.textContaining('your currency is set to PKR')),
-        findsOneWidget);
+    expect(tester.widget<Text>(find.byKey(const Key('live-price-status'))).data,
+        contains('your currency is set to PKR'));
   });
 }
