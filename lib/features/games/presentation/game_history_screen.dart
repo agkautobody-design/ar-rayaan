@@ -29,6 +29,7 @@ class _GameHistoryState extends ConsumerState<GameHistoryScreen> {
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'Clear game history?',
         backgroundColor: AppColors.navy,
         title: Text('Clear game history?', style: AppText.titleMedium),
         content: Text(

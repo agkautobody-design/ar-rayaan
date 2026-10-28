@@ -61,7 +61,7 @@ const List<KidsDoor> kKidsDoors = <KidsDoor>[
   KidsDoor(
     id: 'games',
     title: 'Games',
-    subtitle: 'Play and learn. A grown-up opens this door.',
+    subtitle: 'Play and learn',
     route: AppRoutes.games,
     icon: Icons.sports_esports_outlined,
     needsParent: true,
@@ -79,15 +79,15 @@ const List<KidsDoor> kKidsDoors = <KidsDoor>[
 /// The doors to show: all of them, or without the Academy ones when the
 /// Academy is switched off.
 ///
-/// In child mode the doors that lead out of Kids Corner (Games) are left out:
-/// a child on a handed-over device only has what is for children.
+/// In child mode every door stays: Games opens without the PIN because child
+/// mode only reaches the offline games with no chat (see [kChildAllowed]).
 List<KidsDoor> kidsDoorsFor({
   required bool showAcademy,
   bool childMode = false,
 }) =>
     <KidsDoor>[
       for (final KidsDoor d in kKidsDoors)
-        if ((showAcademy || !d.isAcademy) && !(childMode && d.needsParent)) d,
+        if (showAcademy || !d.isAcademy) d,
     ];
 
 /// A parent hands the device to a child: the PIN check (the first time it
@@ -105,6 +105,7 @@ Future<void> startChildMode(BuildContext context, WidgetRef ref) async {
     final String? picked = await showDialog<String>(
       context: context,
       builder: (BuildContext ctx) => SimpleDialog(
+        semanticLabel: 'Who is it for?',
         backgroundColor: const Color(0xFF0A0F18),
         title: Text('Who is it for?', style: AppText.titleMedium),
         children: <Widget>[
@@ -197,7 +198,7 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
   }
 
   Future<void> _openDoor(KidsDoor d) async {
-    if (d.needsParent) {
+    if (d.needsParent && !kChildMode.value) {
       if (!await requireParent(context, ref)) return;
       if (!mounted) return;
       kKidsMode.value = false;

@@ -19,6 +19,7 @@ import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 const String _wordSource = 'The glossary of the Huda guides in the app: the '
     'plain, literal meanings it gives for these terms. Nothing here states '
@@ -322,7 +323,7 @@ class _GridCell extends StatelessWidget {
           '${found ? ', part of a found word' : ''}',
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
         child: Container(
           width: size,
@@ -346,7 +347,7 @@ class _GridCell extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      )),
     );
   }
 }
@@ -691,11 +692,11 @@ class _Tile extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(borderRadius: 10, child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(10),
         child: Opacity(opacity: dim ? 0.35 : 1, child: box),
-      ),
+      )),
     );
   }
 }

@@ -14,6 +14,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
 import '../../../app/theme/widgets/whole_word_text.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Screen 5 · Explore Ar-Rayaan — the full menu panel.
 class ExploreScreen extends ConsumerWidget {
@@ -217,7 +218,7 @@ class _Row extends StatelessWidget {
       enabled: !comingSoon,
       child: Material(
         type: MaterialType.transparency,
-        child: InkWell(
+        child: FocusRing(borderRadius: 12, child: InkWell(
           onTap: onTap,
           child: Opacity(
             opacity: comingSoon ? 0.7 : 1,
@@ -260,7 +261,7 @@ class _Row extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        )),
       ),
     );
   }

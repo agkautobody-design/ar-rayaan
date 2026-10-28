@@ -358,7 +358,7 @@ class _CardView extends StatelessWidget {
         borderRadius: 16,
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 12, child: InkWell(
             onTap: onTap,
             borderRadius: radius,
             child: Container(
@@ -404,7 +404,7 @@ class _CardView extends StatelessWidget {
                       ),
               ),
             ),
-          ),
+          )),
         ),
       ),
     );

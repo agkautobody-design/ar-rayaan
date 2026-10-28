@@ -44,8 +44,15 @@ class SettingsScreen extends ConsumerWidget {
               children: [
                 ScreenHeader(title: l10n.ui('ui.settings'), showSettings: false),
                 Expanded(
-                  child: ListView(
+                  // A SingleChildScrollView, not a lazy ListView: a lazy list
+                  // only builds the rows near the screen, so Tab could not
+                  // reach (or scroll to) "Support and wellbeing" and
+                  // everything below. Here every row exists, so Tab walks
+                  // the whole page and brings each control into view.
+                  child: SingleChildScrollView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+                    child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
@@ -512,6 +519,7 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       ),
                     ],
+                    ),
                   ),
                 ),
               ],

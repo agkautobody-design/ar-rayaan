@@ -7,6 +7,7 @@ library;
 import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -703,6 +704,19 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
 
 
 
+/// The gentle stories shown while child mode is on. The others (a man who
+/// killed, a woman who sinned, the sermons, the last days) are for older
+/// learners; a grown-up opens them after leaving child mode.
+const Set<String> kChildStoryIds = <String>{
+  'prophet-adam',
+  'prophet-nuh',
+  'prophet-yunus',
+  'prophet-ayyub',
+  'prophet-sulayman',
+  'tale-cave-people',
+  'tale-two-gardens',
+};
+
 class StoriesSchoolScreen extends StatelessWidget {
   const StoriesSchoolScreen({super.key});
 
@@ -727,15 +741,19 @@ class StoriesSchoolScreen extends StatelessWidget {
                 style: AppText.bodyMuted,
               ),
               const SizedBox(height: 18),
-              for (final _StoriesUnit unit in kStoriesUnits) ...<Widget>[
+              for (final _StoriesUnit unit in kStoriesUnits)
+                if (!kChildMode.value ||
+                    unit.chapters.any((c) => kChildStoryIds.contains(c.storyId))) ...<Widget>[
                 Text(unit.title.toUpperCase(), style: AppText.eyebrow),
                 const SizedBox(height: 6),
+                if (!kChildMode.value)
                 Padding(
                   padding: const EdgeInsets.only(left: 4, bottom: 8),
                   child: Text(unit.frame,
                       style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.55)),
                 ),
                 for (final _StoryChapter ch in unit.chapters)
+                  if (!kChildMode.value || kChildStoryIds.contains(ch.storyId))
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: GlassCard(
@@ -756,6 +774,11 @@ class StoriesSchoolScreen extends StatelessWidget {
                                 size: 18, color: AppColors.gold),
                           ]),
                           const SizedBox(height: 4),
+                          if (kChildMode.value)
+                            Text('A story to read together.',
+                                style: AppText.bodyMuted
+                                    .copyWith(fontSize: 12, height: 1.5))
+                          else ...<Widget>[
                           Text(ch.virtue, style: AppText.bodyMuted.copyWith(
                               fontSize: 12, height: 1.5)),
                           const SizedBox(height: 6),
@@ -771,6 +794,7 @@ class StoriesSchoolScreen extends StatelessWidget {
                                 style: AppText.bodyMuted.copyWith(
                                     fontSize: 12, height: 1.5, color: AppColors.gold)),
                           ),
+                          ],
                         ],
                       ),
                     ),

@@ -15,6 +15,7 @@ import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// One tracked course: its lessons, what is done, one button to continue.
 ///
@@ -218,7 +219,7 @@ class _LessonRow extends StatelessWidget {
       label: '$title, ${done ? 'done' : 'not done yet'}',
       excludeSemantics: true,
       onTap: () => context.push(lessonRoute(lesson)),
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: () => context.push(lessonRoute(lesson)),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
@@ -246,7 +247,7 @@ class _LessonRow extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      )),
     );
   }
 }

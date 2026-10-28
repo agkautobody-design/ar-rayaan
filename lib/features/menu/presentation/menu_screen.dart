@@ -14,6 +14,7 @@ import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../auth/application/auth_providers.dart';
 import '../../academy/application/academy_providers.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// One menu row: icon, label, route. A null route means "not built yet": the
 /// row is shown dimmed with a "Coming soon" caption instead of a dead tap.
@@ -229,6 +230,7 @@ Future<bool> _confirmLogOut(BuildContext context) async {
   final bool? ok = await showDialog<bool>(
     context: context,
     builder: (BuildContext ctx) => AlertDialog(
+      semanticLabel: 'Log out?',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('Log out?', style: AppText.titleMedium),
       content: Text(
@@ -281,7 +283,7 @@ class _MenuRow extends StatelessWidget {
       enabled: !soon,
       child: Material(
         type: MaterialType.transparency,
-        child: InkWell(
+        child: FocusRing(borderRadius: 12, child: InkWell(
           onTap: onTap,
           child: Opacity(
             opacity: soon ? 0.7 : 1,
@@ -337,7 +339,7 @@ class _MenuRow extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        )),
       ),
     );
   }

@@ -38,6 +38,7 @@ Future<bool> ensureCanWrite(
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (BuildContext c) => AlertDialog(
+        semanticLabel: 'Show your name?',
         title: const Text('Show your name?'),
         content: const Text(
           'To write in the community, your display name is shown on your '

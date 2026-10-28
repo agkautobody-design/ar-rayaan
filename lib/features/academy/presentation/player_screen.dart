@@ -518,7 +518,7 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
             ),
           ],
           const SizedBox(height: 8),
-          TextField(
+          Semantics(label: 'Search title or artist', child: TextField(
             key: const Key('player-search'),
             decoration: const InputDecoration(
               isDense: true,
@@ -529,7 +529,7 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
               _query = v;
               _limit = _page;
             }),
-          ),
+          )),
           const SizedBox(height: 6),
           Wrap(spacing: 6, runSpacing: 4, children: <Widget>[
             FilterChip(

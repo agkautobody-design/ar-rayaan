@@ -85,22 +85,53 @@
   </div>
   <noscript>Ar-Rayaan needs JavaScript to run.</noscript>
 
-  <!-- Cache-busting. Every deploy is built with a unique build number (the
-       workflow run number), published in version.json. When it differs from
-       the build this browser last ran, drop the old service worker and its
-       caches and reload once, so a new deploy is never masked by a stale
-       offline copy. Any failure here is ignored: the app just loads.
+  <!-- Offline shell and cache-busting.
 
-       DECISION (do not reverse without the owner): the web app does NOT
-       register a caching service worker. flutter_service_worker.js is the
-       self-unregistering stub that Flutter itself ships, and this page also
-       clears any old worker and caches on a new build (commit 1717dfc,
-       "version-driven SW cache bust"). A caching worker can keep serving an
-       old build after a deploy, and a stale build here means stale content
-       and stale safety text. The price is that the web app needs an internet
-       connection to open; the screens say so (see lib/app/core/web_offline.dart). -->
+       The web app registers ar_sw.js, a small worker that keeps the app's own
+       files so the app opens again with no internet once it has been opened
+       online in this browser. It is NETWORK FIRST: whenever a connection
+       exists the newest build is fetched and kept, and the kept copy is used
+       only when the network fails or takes more than 6 seconds. That keeps the
+       reason the earlier version had no caching worker (a stale build means
+       stale content and stale safety text) while ending the "No internet"
+       browser page on reopen. Flutter's own worker is not used: it is the
+       deprecated stub that removes itself (see web/flutter_bootstrap.js).
+
+       Every deploy is built with a unique build number (the workflow run
+       number), published in version.json. When it differs from the build this
+       browser last ran, drop the old Flutter-era workers and the caches of
+       earlier builds (not the offline shell, not recitation the person chose
+       to download) and reload once. Any failure here is ignored: the app just
+       loads. -->
   <script>
     (function () {
+      var SW = 'ar_sw.js';
+      function sameOrigin(u) {
+        try { return new URL(u, location.href).origin === location.origin; }
+        catch (e) { return false; }
+      }
+      try {
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+          window.addEventListener('load', function () {
+            // The copy is refreshed after the first frame, when the list of
+            // files the app really used is known.
+            navigator.serviceWorker.register(SW, { updateViaCache: 'none' }).then(function (reg) {
+              function warm() {
+                var urls = [];
+                try {
+                  urls = performance.getEntriesByType('resource')
+                    .map(function (e) { return e.name; })
+                    .filter(sameOrigin);
+                } catch (e) {}
+                var w = reg.active || reg.waiting || reg.installing;
+                if (w && urls.length) w.postMessage({ type: 'cache-urls', urls: urls });
+              }
+              window.addEventListener('flutter-first-frame', function () { setTimeout(warm, 4000); });
+              setTimeout(warm, 15000);
+            }).catch(function () {});
+          });
+        }
+      } catch (e) {}
       try {
         fetch('version.json?cb=' + Date.now(), { cache: 'no-store' })
           .then(function (r) { return r.ok ? r.json() : null; })
@@ -112,18 +143,15 @@
             try { localStorage.setItem('ar.build', current); } catch (e) {}
             if (seen === null || seen === current) return;
             var jobs = [];
-            if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
-              jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
-                return Promise.all(rs.map(function (r) { return r.unregister(); }));
-              }));
-            }
             if (window.caches && caches.keys) {
               // Caches named ar-dl-* hold recitation the person chose to
               // download; recorded audio does not change with the app, so
-              // they are kept (Settings > Downloads can delete them).
+              // they are kept (Settings > Downloads can delete them). The
+              // offline shell (ar-app-*) replaces its own files, network
+              // first, so it is kept too.
               jobs.push(caches.keys().then(function (ks) {
                 return Promise.all(ks.filter(function (k) {
-                  return k.indexOf('ar-dl-') !== 0;
+                  return k.indexOf('ar-dl-') !== 0 && k.indexOf('ar-app-') !== 0;
                 }).map(function (k) { return caches.delete(k); }));
               }));
             }

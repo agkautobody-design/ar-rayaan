@@ -69,13 +69,17 @@ class SwitchRow extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    Switch.adaptive(
-                      value: value,
-                      activeTrackColor: AppColors.gold.withValues(alpha: 0.5),
-                      thumbColor: const WidgetStatePropertyAll<Color>(
-                        AppColors.gold,
+                    // The row is the one Tab stop (and carries the focus ring);
+                    // the switch inside it is not a second and third stop.
+                    ExcludeFocus(
+                      child: Switch.adaptive(
+                        value: value,
+                        activeTrackColor: AppColors.gold.withValues(alpha: 0.5),
+                        thumbColor: const WidgetStatePropertyAll<Color>(
+                          AppColors.gold,
+                        ),
+                        onChanged: change,
                       ),
-                      onChanged: change,
                     ),
                   ],
                 ),

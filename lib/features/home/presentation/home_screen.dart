@@ -580,10 +580,11 @@ Future<bool> _confirmElderMode(BuildContext context) async {
   final bool? ok = await showDialog<bool>(
     context: context,
     builder: (BuildContext ctx) => AlertDialog(
+      semanticLabel: 'Turn on Elder Mode?',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('Turn on Elder Mode?', style: AppText.titleMedium),
       content: Text(
-        'The app will open on a simple home with big words and three doors '
+        'The app will open on a simple home with big words and a few simple doors '
         'every time, until you turn Elder Mode off (on that home, or in '
         'Settings).',
         style: AppText.bodyMuted,
@@ -895,7 +896,7 @@ class _HeaderIcon extends StatelessWidget {
           borderRadius: 22,
           child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 12, child: InkWell(
             onTap: onTap,
             customBorder: const CircleBorder(),
             // 48 px touch target around the 36 px circle.
@@ -921,7 +922,7 @@ class _HeaderIcon extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          )),
           ),
         ),
       ),

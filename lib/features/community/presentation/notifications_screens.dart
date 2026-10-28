@@ -276,7 +276,7 @@ class _NoticeCardState extends ConsumerState<_NoticeCard> {
                 child: const Text('Appeal this decision'),
               )
             else ...<Widget>[
-              TextField(
+              Semantics(label: 'Tell us what you think we got wrong', child: TextField(
                 controller: _statement,
                 minLines: 3,
                 maxLines: 6,
@@ -284,7 +284,7 @@ class _NoticeCardState extends ConsumerState<_NoticeCard> {
                 decoration: const InputDecoration(
                   hintText: 'Tell us what you think we got wrong',
                 ),
-              ),
+              )),
               TextButton(
                 onPressed: () async {
                   final bool? ok = await runAction<bool>(context, () async {

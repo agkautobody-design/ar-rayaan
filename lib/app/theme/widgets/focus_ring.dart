@@ -63,8 +63,13 @@ class FocusableTap extends StatefulWidget {
     required this.child,
     this.borderRadius = 14,
     this.behavior = HitTestBehavior.opaque,
+    this.autofocus = false,
     super.key,
   });
+
+  /// Takes keyboard focus when the screen opens, so Enter or Space works at
+  /// once without a first Tab. Use only where this is the one thing to do.
+  final bool autofocus;
 
   /// Null makes the region inert (nothing to activate, no hand cursor).
   final VoidCallback? onTap;
@@ -82,6 +87,7 @@ class _FocusableTapState extends State<FocusableTap> {
   @override
   Widget build(BuildContext context) {
     return FocusableActionDetector(
+      autofocus: widget.autofocus,
       enabled: widget.onTap != null,
       mouseCursor: widget.onTap != null
           ? SystemMouseCursors.click

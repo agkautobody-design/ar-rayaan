@@ -787,7 +787,7 @@ class _TodayFastingBadge extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(top: 10),
-      child: InkWell(
+      child: FocusRing(borderRadius: 20, child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () =>
             showFastingKnowledgeSheet(context, markers, date: todayHijri),
@@ -815,7 +815,7 @@ class _TodayFastingBadge extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      )),
     );
   }
 }
@@ -849,7 +849,7 @@ class _FastingMonthCard extends StatelessWidget {
           for (int i = 0; i < days.length; i++) ...[
             if (i > 0)
               Divider(height: 14, color: AppColors.gold.withValues(alpha: 0.1)),
-            InkWell(
+            FocusRing(borderRadius: 12, child: InkWell(
               onTap: () => showFastingKnowledgeSheet(
                 context,
                 days[i].$2,
@@ -889,7 +889,7 @@ class _FastingMonthCard extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            )),
           ],
           const SizedBox(height: 4),
         ],
@@ -1167,7 +1167,7 @@ class _ObservanceRow extends StatelessWidget {
         : 'in $daysAway days';
 
     final String gregorian = '${g.day} ${months[g.month - 1]} ${g.year}';
-    return InkWell(
+    return FocusRing(borderRadius: 12, child: InkWell(
       key: Key('observance-${observance.nameEn}'),
       onTap: () =>
           showObservanceSheet(context, observance, date, gregorian, when),
@@ -1209,6 +1209,6 @@ class _ObservanceRow extends StatelessWidget {
         ),
       ],
       ),
-    );
+    ));
   }
 }

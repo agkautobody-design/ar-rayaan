@@ -22,10 +22,10 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5464;
+const int kScholarReviewTotal = 5468;
 
 /// Items marked high priority.
-const int kScholarReviewHighPriority = 1277;
+const int kScholarReviewHighPriority = 1278;
 
 const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
@@ -37,7 +37,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
     ScholarReviewArea('hadi', 'Hadi built-in answers', 483, 20),
     ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 575, 112),
-    ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 256, 51),
+    ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 257, 51),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
     ScholarReviewArea('stories-unseen', 'Stories: the unseen, signs, tales, khutbahs', 182, 61),
     ScholarReviewArea('stories-modern', 'Stories: modern hadith', 61, 11),
@@ -46,10 +46,10 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 57, 32),
     ScholarReviewArea('money', 'Zakat, will and estate, halal finance', 18, 18),
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
-    ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 9, 5),
+    ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 10, 5),
     ScholarReviewArea('games', 'Games and quizzes with religious content', 13, 9),
-    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 225, 121),
-    ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 9, 9),
+    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 226, 121),
+    ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 10, 10),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
     ScholarReviewArea('support-packs', 'Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)', 1642, 111),
@@ -57,12 +57,12 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Hadith / aqidah scholar', 2447),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 608),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 610),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 523),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1007),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 260),
-    ScholarReviewerCount('Privacy lawyer', 13),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 261),
+    ScholarReviewerCount('Privacy lawyer', 14),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),
 ];

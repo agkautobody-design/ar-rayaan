@@ -174,7 +174,7 @@ void main() {
         find.textContaining('Settings > Save Qur’an for offline'),
         findsOneWidget,
       );
-      expect(find.textContaining('work without internet'), findsOneWidget);
+      expect(find.textContaining('reopen without internet'), findsOneWidget);
     });
 
     testWidgets('the hint is not shown on the phone app', (tester) async {

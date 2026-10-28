@@ -218,115 +218,115 @@ const List<_Entry> _knowledge = <_Entry>[
   // tells the learner to practise with a teacher.
   // Letter 1 of 28
   _Entry(<String>['alif', 'letter alif', 'the alif'],
-    'Alif (ا) — Its sound comes from the empty space of the mouth and throat (al-jawf). Open the Letters school in the Academy and start the lesson for Alif: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Alif (ا) — Its sound comes from the empty space of the mouth and throat (the Arabic term is al-jawf). Open the Letters school in the Academy and start the lesson for Alif: you will see the letter, practise it and answer a gentle question. Say its name slowly. Alif is the very first letter, so there is none before it.',
   ),
   // Letter 2 of 28
   _Entry(<String>['ba', 'baa', 'letter ba', 'the ba'],
-    'Bā (ب) — It is made with both lips together. Open the Letters school in the Academy and start the lesson for Bā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Bā (ب) — It is made with both lips together. Open the Letters school in the Academy and start the lesson for Bā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 3 of 28
   _Entry(<String>['ta', 'taa', 'letter ta', 'the ta'],
-    'Tā (ت) — It is made with the tip of the tongue touching the gum just above the upper front teeth. Open the Letters school in the Academy and start the lesson for Tā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Tā (ت) — It is made with the tip of the tongue touching the gum just above the upper front teeth. Open the Letters school in the Academy and start the lesson for Tā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 4 of 28
   _Entry(<String>['tha', 'letter tha', 'the tha'],
-    'Thā (ث) — It is made with the tip of the tongue just touching the edge of the upper front teeth. Open the Letters school in the Academy and start the lesson for Thā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Thā (ث) — It is made with the tip of the tongue just touching the edge of the upper front teeth. Open the Letters school in the Academy and start the lesson for Thā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 5 of 28
   _Entry(<String>['jim', 'jeem', 'letter jim', 'the jim'],
-    'Jīm (ج) — It is made with the middle of the tongue rising to the roof of the mouth. Open the Letters school in the Academy and start the lesson for Jīm: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Jīm (ج) — It is made with the middle of the tongue rising to the roof of the mouth. Open the Letters school in the Academy and start the lesson for Jīm: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 6 of 28
   _Entry(<String>['ha deep', 'deep ha', 'ḥā', 'heavy ha', 'letter ḥā', 'the ḥā'],
-    'Ḥā (ح) — It is made in the middle of the throat. Open the Letters school in the Academy and start the lesson for Ḥā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ḥā (ح) — It is made in the middle of the throat. Open the Letters school in the Academy and start the lesson for Ḥā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 7 of 28
   _Entry(<String>['kha', 'letter kha', 'the kha'],
-    'Khā (خ) — It is made at the top of the throat, nearest the mouth, and it is a heavy letter. Open the Letters school in the Academy and start the lesson for Khā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Khā (خ) — It is made at the top of the throat, nearest the mouth, and it is a heavy letter. Open the Letters school in the Academy and start the lesson for Khā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 8 of 28
   _Entry(<String>['dal', 'daal', 'letter dal', 'the dal'],
-    'Dāl (د) — It is made with the tip of the tongue touching the gum above the upper front teeth. Open the Letters school in the Academy and start the lesson for Dāl: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Dāl (د) — It is made with the tip of the tongue touching the gum above the upper front teeth. Open the Letters school in the Academy and start the lesson for Dāl: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 9 of 28
   _Entry(<String>['dhal', 'dhaal', 'letter dhal', 'the dhal'],
-    'Dhāl (ذ) — It is made with the tip of the tongue at the edge of the upper front teeth. Open the Letters school in the Academy and start the lesson for Dhāl: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Dhāl (ذ) — It is made with the tip of the tongue at the edge of the upper front teeth. Open the Letters school in the Academy and start the lesson for Dhāl: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 10 of 28
   _Entry(<String>['ra', 'letter ra', 'the ra'],
-    'Rā (ر) — It is made with the tip of the tongue touching the roof of the mouth a little behind the front teeth. Open the Letters school in the Academy and start the lesson for Rā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Rā (ر) — It is made with the tip of the tongue touching the roof of the mouth a little behind the front teeth. Open the Letters school in the Academy and start the lesson for Rā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 11 of 28
   _Entry(<String>['zay', 'zain', 'letter zay', 'the zay'],
-    'Zāy (ز) — It is made with the tip of the tongue near the lower front teeth, with a buzzing sound. Open the Letters school in the Academy and start the lesson for Zāy: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Zāy (ز) — It is made with the tip of the tongue near the lower front teeth, with a buzzing sound. Open the Letters school in the Academy and start the lesson for Zāy: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 12 of 28
   _Entry(<String>['sin', 'seen', 'letter sin', 'the sin'],
-    'Sīn (س) — It is made with the tip of the tongue near the lower front teeth, with a hissing breath. Open the Letters school in the Academy and start the lesson for Sīn: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Sīn (س) — It is made with the tip of the tongue near the lower front teeth, with a hissing breath. Open the Letters school in the Academy and start the lesson for Sīn: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 13 of 28
   _Entry(<String>['shin', 'sheen', 'letter shin', 'the shin'],
-    'Shīn (ش) — It is made with the middle of the tongue against the roof of the mouth, the breath spreading out. Open the Letters school in the Academy and start the lesson for Shīn: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Shīn (ش) — It is made with the middle of the tongue against the roof of the mouth, the breath spreading out. Open the Letters school in the Academy and start the lesson for Shīn: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 14 of 28
   _Entry(<String>['sad heavy', 'heavy sad', 'ṣad', 'suad', 'letter ṣad', 'the ṣad'],
-    'Ṣād (ص) — It is a heavy letter: the back of the tongue rises towards the roof of the mouth, so the sound is full. Open the Letters school in the Academy and start the lesson for Ṣād: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ṣād (ص) — It is a heavy letter: the back of the tongue rises towards the roof of the mouth, so the sound is full. Open the Letters school in the Academy and start the lesson for Ṣād: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 15 of 28
   _Entry(<String>['dad heavy', 'heavy dad', 'ḍad', 'duad', 'letter ḍad', 'the ḍad'],
-    'Ḍād (ض) — It is a heavy letter, made with the side of the tongue against the upper molars. Open the Letters school in the Academy and start the lesson for Ḍād: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ḍād (ض) — It is a heavy letter, made with the side of the tongue against the upper molars. Open the Letters school in the Academy and start the lesson for Ḍād: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 16 of 28
   _Entry(<String>['ta heavy', 'heavy ta', 'ṭa', 'toa', 'letter ṭa', 'the ṭa'],
-    'Ṭā (ط) — It is a heavy letter: the tongue tip touches where Tā does, but the tongue rises and the sound is full. Open the Letters school in the Academy and start the lesson for Ṭā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ṭā (ط) — It is a heavy letter: the tongue tip touches where Tā does, but the tongue rises and the sound is full. Open the Letters school in the Academy and start the lesson for Ṭā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 17 of 28
   _Entry(<String>['za heavy', 'dha heavy', 'ẓa', 'zoha', 'letter ẓa', 'the ẓa'],
-    'Ẓā (ظ) — It is a heavy letter: the tongue tip is at the edge of the upper front teeth and the tongue rises. Open the Letters school in the Academy and start the lesson for Ẓā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ẓā (ظ) — It is a heavy letter: the tongue tip is at the edge of the upper front teeth and the tongue rises. Open the Letters school in the Academy and start the lesson for Ẓā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 18 of 28
   _Entry(<String>['ayn', 'ain', 'letter ayn', 'the ayn'],
-    'ʿAyn (ع) — It is made in the middle of the throat. Open the Letters school in the Academy and start the lesson for ʿAyn: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'ʿAyn (ع) — It is made in the middle of the throat. Open the Letters school in the Academy and start the lesson for ʿAyn: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 19 of 28
   _Entry(<String>['ghayn', 'ghain', 'letter ghayn', 'the ghayn'],
-    'Ghayn (غ) — It is made at the top of the throat, nearest the mouth, and it is a heavy letter. Open the Letters school in the Academy and start the lesson for Ghayn: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ghayn (غ) — It is made at the top of the throat, nearest the mouth, and it is a heavy letter. Open the Letters school in the Academy and start the lesson for Ghayn: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 20 of 28
   _Entry(<String>['fa', 'letter fa', 'the fa'],
-    'Fā (ف) — It is made with the upper front teeth touching the inside of the lower lip. Open the Letters school in the Academy and start the lesson for Fā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Fā (ف) — It is made with the upper front teeth touching the inside of the lower lip. Open the Letters school in the Academy and start the lesson for Fā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 21 of 28
   _Entry(<String>['qaf', 'letter qaf', 'the qaf'],
-    'Qāf (ق) — It is a heavy letter, made at the very back of the tongue against the soft palate. Open the Letters school in the Academy and start the lesson for Qāf: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Qāf (ق) — It is a heavy letter, made at the very back of the tongue against the soft palate. Open the Letters school in the Academy and start the lesson for Qāf: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 22 of 28
   _Entry(<String>['kaf', 'letter kaf', 'the kaf'],
-    'Kāf (ك) — It is made with the back of the tongue, a little further forward than Qāf. Open the Letters school in the Academy and start the lesson for Kāf: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Kāf (ك) — It is made with the back of the tongue, a little further forward than Qāf. Open the Letters school in the Academy and start the lesson for Kāf: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 23 of 28
   _Entry(<String>['lam', 'laam', 'letter lam', 'the lam'],
-    'Lām (ل) — It is made with the edge of the tongue against the gum above the upper front teeth. Open the Letters school in the Academy and start the lesson for Lām: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Lām (ل) — It is made with the edge of the tongue against the gum above the upper front teeth. Open the Letters school in the Academy and start the lesson for Lām: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 24 of 28
   _Entry(<String>['mim', 'meem', 'letter mim', 'the mim'],
-    'Mīm (م) — It is made with both lips together, with a hum through the nose. Open the Letters school in the Academy and start the lesson for Mīm: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Mīm (م) — It is made with both lips together, with a hum through the nose. Open the Letters school in the Academy and start the lesson for Mīm: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 25 of 28
   _Entry(<String>['nun', 'letter nun', 'the nun'],
-    'Nūn (ن) — It is made with the tip of the tongue touching the gum above the upper front teeth, with a hum through the nose. Open the Letters school in the Academy and start the lesson for Nūn: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Nūn (ن) — It is made with the tip of the tongue touching the gum above the upper front teeth, with a hum through the nose. Open the Letters school in the Academy and start the lesson for Nūn: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 26 of 28
   _Entry(<String>['ha light', 'light ha', 'soft ha', 'hā'],
-    'Hā (ه) — It is made at the bottom of the throat, a light easy breath. Open the Letters school in the Academy and start the lesson for Hā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Hā (ه) — It is made at the bottom of the throat, a light easy breath. Open the Letters school in the Academy and start the lesson for Hā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 27 of 28
   _Entry(<String>['waw', 'waww', 'letter waw', 'the waw'],
-    'Wāw (و) — It is made by rounding the lips. Open the Letters school in the Academy and start the lesson for Wāw: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Wāw (و) — It is made by rounding the lips. Open the Letters school in the Academy and start the lesson for Wāw: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
   // Letter 28 of 28
   _Entry(<String>['ya', 'letter ya', 'the ya'],
-    'Yā (ي) — It is made with the middle of the tongue rising towards the roof of the mouth. Open the Letters school in the Academy and start the lesson for Yā: you will see the letter, practise it and answer a gentle question. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Yā (ي) — It is made with the middle of the tongue rising towards the roof of the mouth. Open the Letters school in the Academy and start the lesson for Yā: you will see the letter, practise it and answer a gentle question. Say its name slowly. Which letter did you learn just before this one?',
   ),
 
   // --- The curriculum: units, exams, pacing --------------------------------

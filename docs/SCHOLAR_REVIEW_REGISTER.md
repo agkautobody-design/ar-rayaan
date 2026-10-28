@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5464 items.** High priority: 1277. Normal: 3485. Low: 702.
+**5468 items.** High priority: 1278. Normal: 3488. Low: 702.
 
 ### By area
 
@@ -27,7 +27,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Q&A bank rulings | 16 | 6 |
 | Hadi built-in answers | 483 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 575 | 112 |
-| Stories: prophets, layers and earlier accounts | 256 | 51 |
+| Stories: prophets, layers and earlier accounts | 257 | 51 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 182 | 61 |
 | Stories: modern hadith | 61 | 11 |
@@ -36,26 +36,26 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Sakina rooms, feelings, safety copy, health | 57 | 32 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
-| Qur'an text, translation, transliteration, licences | 9 | 5 |
+| Qur'an text, translation, transliteration, licences | 10 | 5 |
 | Games and quizzes with religious content | 13 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 225 | 121 |
-| Privacy, terms, children's privacy, community rules | 9 | 9 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 226 | 121 |
+| Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1642 | 111 |
-| **Total** | **5464** | **1277** |
+| **Total** | **5468** | **1278** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
 | Hadith / aqidah scholar | 2447 | 1027 |
-| Fiqh scholar (per madhab) | 608 | 235 |
+| Fiqh scholar (per madhab) | 610 | 235 |
 | Women's scholar | 151 | 93 |
 | Arabic / tajweed / qira'at specialist | 523 | 195 |
 | Clinician (Sakina and health content) | 1007 | 249 |
-| Native speaker (ar / bn / ur) | 260 | 10 |
-| Privacy lawyer | 13 | 13 |
+| Native speaker (ar / bn / ur) | 261 | 10 |
+| Privacy lawyer | 14 | 13 |
 | Rights holder / licensing (not a scholar) | 6 | 1 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
 
@@ -74,7 +74,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
 | Hadi built-in answers | 303 | 180 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 575 |  |  |  |  |  |  |  |  |
-| Stories: prophets, layers and earlier accounts | 256 |  |  |  |  |  |  |  |  |
+| Stories: prophets, layers and earlier accounts | 256 | 1 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 182 |  |  |  |  |  |  |  |  |
 | Stories: modern hadith | 61 |  |  |  |  |  |  |  |  |
@@ -83,10 +83,10 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Sakina rooms, feelings, safety copy, health |  |  |  |  | 53 |  | 4 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
-| Qur'an text, translation, transliteration, licences | 1 |  |  | 3 |  |  |  | 5 |  |
+| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
 | Games and quizzes with religious content | 13 |  |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 225 |  |  |  |
-| Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 9 |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 226 |  |  |  |
+| Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 214 | 42 |  |  | 902 | 35 |  |  | 449 |
@@ -113,16 +113,18 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
 
-### Fiqh scholar (per madhab) (608 lead, 235 also)
+### Fiqh scholar (per madhab) (610 lead, 235 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
 - Hadi built-in answers: 180 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Stories: prophets, layers and earlier accounts: 1 items (0 high). Ids start with `kids.child-mode-stories`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
 - Zakat, will and estate, halal finance: 18 items (18 high). Ids start with `eol.will-estate`, `money.finance`, `money.will`, `money.zakat`.
 - Prayer times, qibla, Hijri calendar, observances: 31 items (27 high). Ids start with `calendar.hijri-method`, `calendar.sunnah-fasting`, `prayer.adhan-alerts`, `prayer.approx-times-label`, `prayer.asr-school`, `prayer.auto-region`.
+- Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `kids.child-mode-surahs`.
 - Nasheeds and audio: 2 items (2 high). Ids start with `nasheed.catalogue`, `nasheed.music-view`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 42 items (0 high). Ids start with `support.domestic_abuse`, `support.drugs`, `support.elder_abuse`, `support.etiquette`, `support.family_of_struggling`, `support.family_parenting`.
 
@@ -147,15 +149,15 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Sakina rooms, feelings, safety copy, health: 53 items (28 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 902 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (260 lead, 10 also)
+### Native speaker (ar / bn / ur) (261 lead, 10 also)
 
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 225 items (121 high). Ids start with `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`, `support.crisis-phrases-fixb`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 226 items (121 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
-### Privacy lawyer (13 lead, 13 also)
+### Privacy lawyer (14 lead, 13 also)
 
 - Sakina rooms, feelings, safety copy, health: 4 items (4 high). Ids start with `support.children-age-band`, `support.memory`, `support.online-consent`, `support.privacy-storage`.
-- Privacy, terms, children's privacy, community rules: 9 items (9 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.parent-pin`, `legal.privacy`.
+- Privacy, terms, children's privacy, community rules: 10 items (10 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.firebase-startup`, `legal.parent-pin`.
 
 ### Rights holder / licensing (not a scholar) (6 lead, 1 also)
 
@@ -2798,7 +2800,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Stories: prophets, layers and earlier accounts
 
-256 items, 51 high priority. Area key `stories-prophets`.
+257 items, 51 high priority. Area key `stories-prophets`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2960,6 +2962,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `earlier.nuh` | Story reader > Go deeper > Earlier accounts (nuh), badge "Not from the Qur'an" | Earlier accounts for nuh (Bible, Jewish and Christian tradition) and the class given to each (confirmed, silent, contradicted). | The three-class rule (confirmed / silent / contradicted) is applied by the app author; a scholar should confirm each class. FACT_S1 corrected one item (crucifixion: "two bandits"). | Hadith / aqidah scholar | high | assets/stories/earlier; FACT_S1_prophets (earlier accounts) |
 | `earlier.sulayman` | Story reader > Go deeper > Earlier accounts (sulayman), badge "Not from the Qur'an" | Earlier accounts for sulayman (Bible, Jewish and Christian tradition) and the class given to each (confirmed, silent, contradicted). | The three-class rule (confirmed / silent / contradicted) is applied by the app author; a scholar should confirm each class. FACT_S1 corrected one item (crucifixion: "two bandits"). | Hadith / aqidah scholar | high | assets/stories/earlier; FACT_S1_prophets (earlier accounts) |
 | `earlier.yusuf` | Story reader > Go deeper > Earlier accounts (yusuf), badge "Not from the Qur'an" | Earlier accounts for yusuf (Bible, Jewish and Christian tradition) and the class given to each (confirmed, silent, contradicted). | The three-class rule (confirmed / silent / contradicted) is applied by the app author; a scholar should confirm each class. FACT_S1 corrected one item (crucifixion: "two bandits"). | Hadith / aqidah scholar | high | assets/stories/earlier; FACT_S1_prophets (earlier accounts) |
+| `kids.child-mode-stories` | Child mode > the stories shown in Stories school | Seven gentle stories (Adam, Nuh, Yunus, Ayyub, Sulayman, the Sleepers of the Cave, the Two Gardens) show in child mode, with no adult theme text. | The chosen set and the one-line description are the developer's; a teacher of children and a scholar should confirm them. | Fiqh scholar | normal | R10_T2 |
 
 Listed in short form (same reason and sources for the whole family; full text in the JSON):
 
@@ -3829,7 +3832,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Qur'an text, translation, transliteration, licences
 
-9 items, 5 high priority. Area key `quran-text`.
+10 items, 5 high priority. Area key `quran-text`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3841,6 +3844,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `quran.arabic-diacritics` | Qur'an reader (Arabic text) | Arabic diacritics were compared with a reference Uthmani text; differences were reported in the pass and no text was changed. | FIX_QURAN_HADITH_REPORT: consonantal skeleton matched; diacritic differences exist and are unreviewed. | Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (diacritics vs Uthmani) |
 | `quran.riwaya` | Qur'an reader; recitation audio | Confirm the text edition (Hafs an Asim, Madinah mushaf pagination of 604 pages) and any claim about it. | Qira'at are a specialist matter; no qira'at specialist has reviewed the choice. | Arabic / tajweed / qira'at specialist | normal | Reviewer list: Arabic / tajweed / qira'at |
 | `quran.word-meanings-source` | Academy word deck (hidden) | The 300-word deck is hidden because no licence-checked source of meanings and roots is in place. | OWNER_ACTIONS item 7: the sources found carry GPL or unstated data terms. | Rights holder / licensing + Arabic / tajweed / qira'at specialist | normal | docs/OWNER_ACTIONS.md item 7 |
+| `kids.child-mode-surahs` | Child mode > the short surahs a child can open | Surahs 1, 103, 105-110 and 112-114 open in locked child mode; other surahs send the child back to Kids Corner. | Round 10: child mode blocked every surah and dua. The set is a first choice made by the developer; a teacher of children should confirm it. | Fiqh scholar | normal | R10_T2 |
 
 Listed in short form (same reason and sources for the whole family; full text in the JSON):
 
@@ -3868,7 +3872,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-225 items, 121 high priority. Area key `languages`.
+226 items, 121 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4097,10 +4101,11 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.elder-rtl` | Arabic and Urdu UI direction and font | Right-to-left layout and fonts for Arabic and Urdu; Bangla glyphs rendered as empty boxes in headless test. | R9_T4 D5, R9_T6_elder_languages: unverified on a real device. | Native speaker | normal | R9_T6_elder_languages; R9_T4_everyday_skeptic |
 | `support.crisis-substance-lang` | Crisis phrases for the medical-emergency category in Arabic, Urdu (script and Roman) and Bangla | Short phrase lists for overdose, seizure and not breathing in Arabic, Urdu and Bangla. | Written for coverage, not read by a native-speaker clinician. English has the full list; other languages are thin and the app must say so. | Native speaker + Clinician | high | RES_H3_hadi_companion_design |
 | `support.crisis-phrases-fixb` | Crisis phrases added in fix pass B (English plus Arabic, Urdu, Bangla) | New phrases: "nobody would notice if I was gone", "I do not want to go home", "someone at home hurts me", "I am scared he will hurt me tonight", pills with alcohol, and short Arabic, Urdu and Bangla… | R10_T9, R10_T10, R10_T2: these sentences were missed. The non-English lists were written for coverage and are NOT read by a native speaker: Native-speaker review needed before they are relied on. English wording must be read by a clinician for false alarms an… | Native speaker + Clinician | high | R10_T9; R10_T10; R10_T2 |
+| `i18n.elder-doors` | Home > Elder Mode card wording in Arabic, Bangla and Urdu | "A few simple doors" replaces "three doors" in all four languages. | The Arabic, Bangla and Urdu lines were written without a native speaker. Native-speaker review needed. | Native speaker | normal | R10_T6 |
 
 ### Privacy, terms, children's privacy, community rules
 
-9 items, 9 high priority. Area key `legal`.
+10 items, 10 high priority. Area key `legal`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4113,6 +4118,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `legal.data-sync` | Sign-in, sync, notes, Firestore rules | Data collection and deletion promises on the privacy screens. | OWNER_ACTIONS item 2: rules reviewed by reading, not executed. | Privacy lawyer | high | docs/OWNER_ACTIONS.md items 2, 6, 17, 18 |
 | `legal.religious-disclaimer` | Sources > How we handle religious content; "not a mufti" | The disclaimers about rulings and scholars. | Needs a lawyer to confirm the disclaimers are enough for store review. | Privacy lawyer | high | docs/OWNER_ACTIONS.md items 2, 6, 17, 18 |
 | `legal.rights-streaks-ads` | What is free; ads and paid plan wording | Free and paid plan wording; ads. | R9_T2 / R9_T4 noted a "paid plan planned" line; confirm with a lawyer before billing. | Privacy lawyer | high | docs/OWNER_ACTIONS.md items 2, 6, 17, 18 |
+| `legal.firebase-startup` | Privacy Policy > Google services at start-up | The policy now says the Firebase software starts at launch when the build is connected, and lists what Firebase is used for. | Written from reading the code; a lawyer should confirm the wording. | Privacy lawyer | high | R10_T4 |
 
 ### Noor, share cards, Home daily cards
 

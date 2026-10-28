@@ -112,6 +112,7 @@ class _ParentGateDialogState extends State<ParentGateDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'For parents',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('For parents', style: AppText.titleMedium),
       content: Column(
@@ -125,14 +126,14 @@ class _ParentGateDialogState extends State<ParentGateDialog> {
           const SizedBox(height: 14),
           Text(_challenge.question, style: AppText.titleMedium),
           const SizedBox(height: 8),
-          TextField(
+          Semantics(label: 'Your answer', child: TextField(
             controller: _input,
             autofocus: true,
             keyboardType: TextInputType.number,
             style: AppText.body,
             decoration: const InputDecoration(hintText: 'Your answer'),
             onSubmitted: (_) => _submit(),
-          ),
+          )),
           if (_wrong)
             Padding(
               padding: const EdgeInsets.only(top: 8),
@@ -231,6 +232,7 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
   Widget build(BuildContext context) {
     final InputDecoration deco = const InputDecoration(counterText: '');
     return AlertDialog(
+      semanticLabel: 'For parents',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('For parents', style: AppText.titleMedium),
       content: SingleChildScrollView(

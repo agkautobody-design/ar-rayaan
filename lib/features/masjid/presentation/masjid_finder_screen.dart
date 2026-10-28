@@ -280,13 +280,13 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
-                Expanded(child: TextField(
+                Expanded(child: Semantics(label: 'Search a city or area\u2026', child: TextField(
                   controller: _search,
                   style: AppText.body,
                   decoration: const InputDecoration(
                       hintText: 'Search a city or area\u2026'),
                   onSubmitted: (_) => _searchCity(),
-                )),
+                ))),
                 const SizedBox(width: 8),
                 IconButton(tooltip: 'Search this place',
                   icon: const Icon(Icons.search, color: AppColors.gold),

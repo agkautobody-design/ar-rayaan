@@ -312,9 +312,14 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
       // learner on the last step because the family record failed.
     }
     if (!mounted) return;
-    context.go(nextId == null
-        ? '/academy/letters'
-        : '/academy/letters/lesson/$nextId');
+    // Lesson to lesson REPLACES the page (and its browser history entry):
+    // with go() every lesson added an entry, so getting back to the list
+    // took one Back press per lesson done.
+    if (nextId == null) {
+      context.go('/academy/letters');
+    } else {
+      context.pushReplacement('/academy/letters/lesson/$nextId');
+    }
   }
 
   @override
@@ -421,7 +426,9 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       child: Column(children: [
                         Text('SAY IT OUT LOUD', style: AppText.eyebrow.copyWith(fontSize: 12)),
                         const SizedBox(height: 4),
-                        Text('Look at the shape and say the name three times, slowly. A teacher you trust can say it with you.',
+                        Text(_step <= 1
+                            ? 'Look at the shape and say its name out loud, slowly. A teacher you trust can say it with you.'
+                            : 'Now say the sound again, in your own time. Say it with someone if you can.',
                             textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5)),
                       ]),
@@ -622,11 +629,11 @@ class _WasiaBoxState extends ConsumerState<_WasiaBox> {
       const SizedBox(height: 8),
       Row(children: [
         Expanded(
-          child: TextField(
+          child: Semantics(label: 'Ask Wasia\u2026', child: TextField(
             controller: _input,
             style: AppText.body,
             decoration: const InputDecoration(hintText: 'Ask Wasia\u2026'),
-          ),
+          )),
         ),
         const SizedBox(width: 8),
         CircleAvatar(

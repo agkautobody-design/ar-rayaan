@@ -37,6 +37,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        semanticLabel: 'Delete this reflection?',
         title: const Text('Delete this reflection?'),
         content: const Text('It will be removed from this device.'),
         actions: [
@@ -101,7 +102,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                 ValueListenableBuilder<String?>(
                   valueListenable: emptyHint,
                   builder: (BuildContext _, String? hint, Widget? _) =>
-                      TextField(
+                      Semantics(label: 'What did this NOOR stir in your heart?', child: TextField(
                   controller: controller,
                   autofocus: true,
                   maxLines: 4,
@@ -128,7 +129,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                       ),
                     ),
                   ),
-                  ),
+                  )),
                 ),
                 const SizedBox(height: 12),
                 GoldButton(

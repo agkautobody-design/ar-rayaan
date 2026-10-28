@@ -205,6 +205,10 @@ void main() {
         '/academy/letters/lesson/alif',
         '/academy/stories',
         '/stories/read',
+        '/games',
+        '/games/memory',
+        '/quran/112',
+        '/quran/1?ayah=2',
       ]) {
         expect(childModeAllows(ok), isTrue, reason: ok);
       }
@@ -221,8 +225,11 @@ void main() {
         '/academy/family-life',
         '/academy/youth',
         '/community/hub',
-        '/games',
+        '/games/ludo',
+        '/games/community',
         '/quran',
+        '/quran/2',
+        '/quran/111',
         '/kidsandmore',
         '/stories',
       ]) {
@@ -253,11 +260,11 @@ void main() {
       expect(kChildMode.value, isFalse);
     });
 
-    test('the games door is left out in child mode', () {
+    test('the games door stays in child mode', () {
       expect(
         kidsDoorsFor(showAcademy: true, childMode: true)
             .map((KidsDoor d) => d.id),
-        <String>['letters', 'stories'],
+        <String>['letters', 'games', 'stories'],
       );
       expect(
         kidsDoorsFor(showAcademy: true).map((KidsDoor d) => d.id),
@@ -283,17 +290,20 @@ void main() {
         '/academy/family-life',
         '/academy/family',
         '/community/hub',
-        '/games',
+        '/games/ludo',
+        '/games/community',
         '/quran',
+        '/quran/2',
+        '/quran/111',
       ]) {
         await AppHarness.go(tester, anchor(), p);
         expect(AppHarness.location(tester, anchor()), '/kids', reason: p);
       }
-      // No bottom navigation, no Settings gear, no Ask Hadi pill, no Games.
+      // No bottom navigation, no Settings gear, no Ask Hadi pill.
       expect(find.text('Faith'), findsNothing);
       expect(find.byTooltip('Settings'), findsNothing);
       expect(find.text('Ask Hādi'), findsNothing);
-      expect(find.text('Games'), findsNothing);
+      expect(find.text('Games'), findsOneWidget);
       expect(find.text('Arabic letters'), findsOneWidget);
       expect(find.text('Stories school'), findsOneWidget);
       expect(find.byKey(const Key('kids-child-mode')), findsNothing);
@@ -346,7 +356,7 @@ void main() {
       expect(kChildMode.value, isTrue);
       expect(h.prefs.getBool('ar.childMode.v1'), isTrue);
       expect(ParentPin(h.prefs).isSet, isTrue);
-      expect(find.text('Games'), findsNothing);
+      expect(find.text('Games'), findsOneWidget);
       expect(find.text('Faith'), findsNothing);
       expect(find.byKey(const Key('kids-child-mode')), findsNothing);
     });

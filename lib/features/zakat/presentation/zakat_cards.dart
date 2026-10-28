@@ -344,7 +344,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
               const SizedBox(width: 8),
               if (_mode == _FitrMode.announced)
                 Expanded(
-                  child: TextField(
+                  child: Semantics(label: 'Per person', child: TextField(
                     key: const Key('fitr-amount'),
                     controller: _amount,
                     style: AppText.body,
@@ -352,7 +352,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
                       decimal: true,
                     ),
                     decoration: const InputDecoration(hintText: 'Per person'),
-                  ),
+                  )),
                 ),
             ],
           ),
@@ -360,7 +360,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
             Row(
               children: [
                 Expanded(
-                  child: TextField(
+                  child: Semantics(label: 'kg per person (from them)', child: TextField(
                     key: const Key('fitr-kg'),
                     controller: _kg,
                     style: AppText.body,
@@ -370,11 +370,11 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
                     decoration: const InputDecoration(
                       hintText: 'kg per person (from them)',
                     ),
-                  ),
+                  )),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: TextField(
+                  child: Semantics(label: 'Price per kg', child: TextField(
                     key: const Key('fitr-price'),
                     controller: _price,
                     style: AppText.body,
@@ -384,7 +384,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
                     decoration: const InputDecoration(
                       hintText: 'Price per kg',
                     ),
-                  ),
+                  )),
                 ),
               ],
             ),

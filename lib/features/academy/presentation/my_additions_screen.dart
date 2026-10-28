@@ -139,6 +139,7 @@ class MyAdditionsScreen extends ConsumerWidget {
       context: context,
       builder: (BuildContext ctx) => StatefulBuilder(
         builder: (BuildContext ctx, StateSetter set) => AlertDialog(
+          semanticLabel: 'Add by URL',
           backgroundColor: AppColors.navy,
           title: Text('Add by URL', style: AppText.titleMedium),
           content: SingleChildScrollView(

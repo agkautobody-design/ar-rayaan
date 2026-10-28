@@ -15,6 +15,7 @@ import '../../quran/domain/quran_models.dart';
 import '../application/journey_providers.dart';
 import '../domain/journey_progress.dart';
 import 'saved_stories_sheet.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Screen 8 · My Journey — progress ring + what you have done + My Path.
 ///
@@ -107,7 +108,7 @@ class JourneyScreen extends ConsumerWidget {
                             ),
                           Material(
                             type: MaterialType.transparency,
-                            child: InkWell(
+                            child: FocusRing(borderRadius: 12, child: InkWell(
                               onTap: _path[i].$3 == null
                                   ? null
                                   : _path[i].$3 == _bookmarks
@@ -142,7 +143,7 @@ class JourneyScreen extends ConsumerWidget {
                                   ],
                                 ),
                               ),
-                            ),
+                            )),
                           ),
                         ],
                       ],
@@ -268,8 +269,8 @@ class _DoneCard extends ConsumerWidget {
       ('Review cards due now', '${stats.reviewsDue}', '/academy/review'),
       ('Lessons finished', '${stats.lessonsDone}', AppRoutes.academy),
       (
-        'Adhkar counted today',
-        '${stats.adhkarDone} of ${stats.adhkarTotal}',
+        'Adhkar counted today (all sets)',
+        '${stats.adhkarDone} of ${stats.adhkarTotal} repetitions',
         AppRoutes.adhkar,
       ),
       ('Reflections saved', '${stats.reflections}', AppRoutes.noorReflections),
@@ -321,7 +322,7 @@ class _DoneCard extends ConsumerWidget {
               for (final (String, String, String) r in rows)
                 Material(
                   type: MaterialType.transparency,
-                  child: InkWell(
+                  child: FocusRing(borderRadius: 12, child: InkWell(
                     onTap: () => context.open(r.$3),
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(minHeight: 48),
@@ -359,7 +360,7 @@ class _DoneCard extends ConsumerWidget {
                         ),
                       ),
                     ),
-                  ),
+                  )),
                 ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),

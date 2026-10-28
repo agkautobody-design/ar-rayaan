@@ -28,6 +28,8 @@ import '../../share/presentation/share_actions.dart';
 import 'widgets/glossary_text.dart';
 import 'widgets/wasia_checkin_card.dart';
 import 'widgets/wasia_thread.dart';
+import '../../../app/theme/widgets/named_route.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
 /// resume, inline knowledge checks with dignity-first feedback, and a
@@ -114,7 +116,9 @@ class _LessonPlayerScreenState
         await showModalBottomSheet<void>(
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context) => Padding(
+          builder: (BuildContext context) => NamedRoute(
+            label: AcademyStrings.get('lesson.completeTitle'),
+            child: Padding(
             padding: const EdgeInsets.all(20),
             child: GlassCard(
               strong: true,
@@ -152,7 +156,7 @@ class _LessonPlayerScreenState
                       key: const Key('next-lesson'),
                       onPressed: () {
                         Navigator.of(context).pop();
-                        context.go(lessonRoute(next));
+                        context.pushReplacement(lessonRoute(next));
                       },
                       child: Text(
                           '${AcademyStrings.get('lesson.nextLesson')}: '
@@ -173,6 +177,7 @@ class _LessonPlayerScreenState
                 ],
               ),
             ),
+          ),
           ),
         );
       }
@@ -213,9 +218,12 @@ class _LessonPlayerScreenState
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (BuildContext ctx) => Padding(
-        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
-        child: _LessonWasiaSheet(lesson: g),
+      builder: (BuildContext ctx) => NamedRoute(
+        label: 'Ask Wasia about this lesson',
+        child: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
+          child: _LessonWasiaSheet(lesson: g),
+        ),
       ),
     );
   }
@@ -432,7 +440,7 @@ class _LessonPlayerScreenState
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: InkWell(
+                          child: FocusRing(borderRadius: 12, child: InkWell(
                             onTap: _showSources,
                             child: ConstrainedBox(
                               constraints:
@@ -452,7 +460,7 @@ class _LessonPlayerScreenState
                                 ],
                               ),
                             ),
-                          ),
+                          )),
                         ),
                         ShareButton(
                           doc: lessonShareDoc(_lesson),
@@ -912,9 +920,12 @@ Future<void> showLessonWasiaSheet(
     context: context,
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
-    builder: (BuildContext ctx) => Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
-      child: _LessonWasiaSheet(lesson: lesson),
+    builder: (BuildContext ctx) => NamedRoute(
+      label: 'Ask Wasia about this lesson',
+      child: Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
+        child: _LessonWasiaSheet(lesson: lesson),
+      ),
     ),
   );
 }
@@ -977,7 +988,7 @@ class _LessonWasiaSheetState extends ConsumerState<_LessonWasiaSheet> {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: TextField(
+                    child: Semantics(label: 'Ask about this lesson\u2026', child: TextField(
                       key: const Key('lesson-wasia-field'),
                       controller: _input,
                       style: AppText.body,
@@ -985,7 +996,7 @@ class _LessonWasiaSheetState extends ConsumerState<_LessonWasiaSheet> {
                       onSubmitted: (_) => _send(),
                       decoration: const InputDecoration(
                           hintText: 'Ask about this lesson\u2026'),
-                    ),
+                    )),
                   ),
                   const SizedBox(width: 8),
                   IconButton.filled(

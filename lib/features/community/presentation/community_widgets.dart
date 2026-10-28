@@ -549,14 +549,14 @@ class _ReportSheetState extends ConsumerState<_ReportSheet> {
             ],
           ),
         ),
-        TextField(
+        Semantics(label: 'Anything else we should know (optional)', child: TextField(
           controller: _details,
           maxLength: 1000,
           maxLines: 3,
           decoration: const InputDecoration(
             hintText: 'Anything else we should know (optional)',
           ),
-        ),
+        )),
         if (_error != null) ...<Widget>[
           const SizedBox(height: 8),
           Text(_error!, style: const TextStyle(color: AppColors.destructive)),

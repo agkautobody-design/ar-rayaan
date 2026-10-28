@@ -5,6 +5,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../academy/application/recitation_player_provider.dart';
 import '../../academy/domain/recitation_audio.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Opens the reciter list. Changing reciter stops the current recitation
 /// (a half-finished plan must never switch voices mid-ayah).
@@ -46,7 +47,7 @@ class ReciterPickerSheet extends ConsumerWidget {
                 button: true,
                 selected: pack.id == selected.id,
                 label: '${pack.displayName}, ${pack.style}',
-                child: InkWell(
+                child: FocusRing(borderRadius: 12, child: InkWell(
                   onTap: () async {
                     await ref.read(recitationPlayerProvider.notifier).stop();
                     await ref
@@ -79,7 +80,7 @@ class ReciterPickerSheet extends ConsumerWidget {
                       ],
                     ),
                   ),
-                ),
+                )),
               ),
             const SizedBox(height: 8),
             Text(

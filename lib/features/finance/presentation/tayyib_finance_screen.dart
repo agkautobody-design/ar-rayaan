@@ -66,14 +66,15 @@ class _TayyibState extends State<TayyibFinanceScreen> {
     final name = TextEditingController();
     final note = TextEditingController();
     final ok = await showDialog<bool>(context: context, builder: (ctx) => AlertDialog(
+      semanticLabel: 'Add to watchlist',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('Add to watchlist', style: AppText.titleMedium),
       content: Column(mainAxisSize: MainAxisSize.min, children: [
-        TextField(controller: name, style: AppText.body,
-            decoration: const InputDecoration(hintText: 'Name or ticker')),
+        Semantics(label: 'Name or ticker', child: TextField(controller: name, style: AppText.body,
+            decoration: const InputDecoration(hintText: 'Name or ticker'))),
         const SizedBox(height: 8),
-        TextField(controller: note, style: AppText.body,
-            decoration: const InputDecoration(hintText: 'e.g. passes screens / under review')),
+        Semantics(label: 'e.g. passes screens / under review', child: TextField(controller: note, style: AppText.body,
+            decoration: const InputDecoration(hintText: 'e.g. passes screens / under review'))),
       ]),
       actions: [
         TextButton(onPressed: () => Navigator.pop(ctx, false),
@@ -228,13 +229,13 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   Text('If a stock passes the screens with a tolerated haram portion, you donate that portion of your dividends \u2014 purifying the income, keeping the investment.',
                       style: AppText.bodyMuted.copyWith(height: 1.5, fontSize: 12)),
                   const SizedBox(height: 10),
-                  TextField(controller: _dividend, keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  Semantics(label: 'Annual dividends received (\$)', child: TextField(controller: _dividend, keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       style: AppText.body,
-                      decoration: const InputDecoration(hintText: 'Annual dividends received (\$)')),
+                      decoration: const InputDecoration(hintText: 'Annual dividends received (\$)'))),
                   const SizedBox(height: 8),
-                  TextField(controller: _haramPct, keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  Semantics(label: 'Haram revenue % (from the screen above)', child: TextField(controller: _haramPct, keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       style: AppText.body,
-                      decoration: const InputDecoration(hintText: 'Haram revenue % (from the screen above)')),
+                      decoration: const InputDecoration(hintText: 'Haram revenue % (from the screen above)'))),
                   const SizedBox(height: 10),
                   SizedBox(width: double.infinity,
                     child: ElevatedButton(

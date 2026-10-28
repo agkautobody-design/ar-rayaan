@@ -69,6 +69,14 @@ abstract final class AppTheme {
       outlinedButtonTheme: const OutlinedButtonThemeData(
         style: _focusRingStyle,
       ),
+      // Gold-filled buttons ("Use my location", "Begin") hide a gold ring, so
+      // theirs is white; without it the keyboard focus was barely visible.
+      elevatedButtonTheme: const ElevatedButtonThemeData(
+        style: _focusRingOnFillStyle,
+      ),
+      filledButtonTheme: const FilledButtonThemeData(
+        style: _focusRingOnFillStyle,
+      ),
     );
   }
 
@@ -77,6 +85,21 @@ abstract final class AppTheme {
   static const ButtonStyle _focusRingStyle = ButtonStyle(
     side: _FocusRingSide(),
   );
+
+  /// The same, in white, for buttons with a solid fill.
+  static const ButtonStyle _focusRingOnFillStyle = ButtonStyle(
+    side: _FocusRingOnFillSide(),
+  );
+}
+
+class _FocusRingOnFillSide extends WidgetStateBorderSide {
+  const _FocusRingOnFillSide();
+
+  @override
+  BorderSide? resolve(Set<WidgetState> states) =>
+      states.contains(WidgetState.focused)
+      ? const BorderSide(color: Color(0xFFFFFFFF), width: 3)
+      : null;
 }
 
 class _FocusRingSide extends WidgetStateBorderSide {

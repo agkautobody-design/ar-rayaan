@@ -14,6 +14,7 @@ import '../data/room_moves.dart';
 import '../ui/games_theme.dart';
 import 'ludo_board_view.dart';
 import 'online_lobby.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// LUDO. The board is the owner's picture (`assets/games/ludo/board.webp`, the
 /// standard 15 x 15 board), the rules are in `data/ludo_rules.dart` (52-square
@@ -1183,7 +1184,7 @@ class _SmallAction extends StatelessWidget {
       child: ExcludeSemantics(
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 16, child: InkWell(
             onTap: onTap,
             borderRadius: BorderRadius.circular(16),
             child: Container(
@@ -1210,7 +1211,7 @@ class _SmallAction extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+          )),
         ),
       ),
     );

@@ -12,6 +12,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../quran/domain/quran_texts.dart';
 import '../../academy/domain/recitation_audio.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Our Sources — every text, translation, recitation, and scholarly
 /// reference used in Ar-Rayaan, chosen by the Founder.
@@ -260,7 +261,7 @@ class SourcesScreen extends ConsumerWidget {
                         _SourceRow(
                           title: 'Prayer Times · Aladhan',
                           subtitle:
-                              'Live calculation by your city and method (Founder-approved source)',
+                              'Times are worked out for your city and the method you pick, using the Aladhan service',
                         ),
                         _Divider(),
                         _SourceRow(
@@ -441,7 +442,7 @@ class _SourceRow extends StatelessWidget {
     return Semantics(
       button: true,
       label: link != null ? '$title, opens $link' : title,
-      child: InkWell(onTap: onTap ?? _open, child: row),
+      child: FocusRing(borderRadius: 12, child: InkWell(onTap: onTap ?? _open, child: row)),
     );
   }
 }

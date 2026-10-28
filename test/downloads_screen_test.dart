@@ -120,7 +120,7 @@ void main() {
       bundled: false,
     );
     expect(find.textContaining('cannot tell Wi-Fi'), findsOneWidget);
-    expect(find.textContaining('still needs internet to open'), findsOneWidget);
+    expect(find.textContaining('reopen with no internet'), findsOneWidget);
     expect(find.text('Save for offline'), findsWidgets);
   });
 

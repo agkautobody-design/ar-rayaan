@@ -37,6 +37,8 @@ import 'lesson_player_screen.dart';
 import 'v3/v3_gates.dart';
 import 'v3/v3_steps.dart';
 import 'v3/v3_widgets.dart';
+import '../../../app/theme/widgets/named_route.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Opens a lesson: the v3 player when a v3 lesson replaces it, otherwise the
 /// manifest lesson player, exactly as before. Any failure to load v3 falls
@@ -219,7 +221,9 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (BuildContext sheet) => Padding(
+      builder: (BuildContext sheet) => NamedRoute(
+        label: AcademyStrings.get('lesson.completeTitle'),
+        child: Padding(
         padding: const EdgeInsets.all(20),
         child: GlassCard(
           strong: true,
@@ -245,7 +249,7 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                     style: FilledButton.styleFrom(minimumSize: const Size(0, 48)),
                     onPressed: () {
                       Navigator.of(sheet).pop();
-                      context.go(lessonRoute(next));
+                      context.pushReplacement(lessonRoute(next));
                     },
                     child: Text(
                       '${AcademyStrings.get('lesson.nextLesson')}: '
@@ -263,6 +267,7 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
               ],
             ),
           ),
+        ),
         ),
       ),
     );
@@ -424,7 +429,7 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: InkWell(
+                          child: FocusRing(borderRadius: 12, child: InkWell(
                             onTap: _showSources,
                             child: ConstrainedBox(
                               constraints: const BoxConstraints(minHeight: 48),
@@ -443,7 +448,7 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                                 ],
                               ),
                             ),
-                          ),
+                          )),
                         ),
                         ShareButton(
                           doc: _shareDoc(),

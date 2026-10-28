@@ -48,13 +48,14 @@ class FamilyScreen extends ConsumerWidget {
       context: context,
       builder: (ctx) => StatefulBuilder(
         builder: (BuildContext ctx, StateSetter setInner) => AlertDialog(
+          semanticLabel: 'Add a child',
           backgroundColor: const Color(0xFF0A0F18),
           title: Text('Add a child', style: AppText.titleMedium),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
+              Semantics(label: 'First name or nickname', child: TextField(
                 key: const Key('add-child-name'),
                 controller: name,
                 // The name box has the cursor on open, so typing is not lost.
@@ -72,7 +73,7 @@ class FamilyScreen extends ConsumerWidget {
                     Navigator.pop(ctx, true);
                   }
                 },
-              ),
+              )),
               Text(
                 'A nickname is enough. It stays on this device only.',
                 style: AppText.caption,
@@ -369,6 +370,7 @@ class _ChildCard extends ConsumerWidget {
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        semanticLabel: 'Delete $name?',
         backgroundColor: const Color(0xFF0A0F18),
         title: Text('Delete $name?', style: AppText.titleMedium),
         content: Text(
@@ -421,7 +423,7 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
       const SizedBox(height: 6),
       Row(children: [
         Expanded(
-          child: TextField(
+          child: Semantics(label: 'How can we practise the letters at home?', child: TextField(
             controller: _input,
             style: AppText.body.copyWith(fontSize: 13),
             decoration: const InputDecoration(
@@ -430,7 +432,7 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                     'progress, so she answers in general. Please do not '
                     'type the name.',
                 helperMaxLines: 3),
-          ),
+          )),
         ),
         const SizedBox(width: 8),
         CircleAvatar(
@@ -813,6 +815,7 @@ class _ConsentDialogState extends State<_ConsentDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'I am this child\u2019s parent or guardian, and I agree.',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text(kChildrenPrivacyTitle, style: AppText.titleMedium),
       // The long text scrolls; the tick box and the reason Continue is not
@@ -925,6 +928,7 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
+        semanticLabel: 'Delete all children?',
         backgroundColor: const Color(0xFF0A0F18),
         title: Text('Delete all children?', style: AppText.titleMedium),
         content: Text(

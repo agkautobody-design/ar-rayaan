@@ -221,7 +221,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
             children: <Widget>[
           Material(
             color: Colors.transparent,
-            child: InkWell(
+            child: FocusRing(borderRadius: 12, child: InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () => _openNode(context, data, node),
               child: LayoutBuilder(
@@ -329,7 +329,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
               );
                 },
               ),
-            ),
+            )),
           ),
           if (spouses.isNotEmpty)
             Padding(
@@ -339,7 +339,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                 runSpacing: 4,
                 children: <Widget>[
                   for (final FamilyNode sp in spouses)
-                    InkWell(
+                    FocusRing(borderRadius: 20, child: InkWell(
                       borderRadius: BorderRadius.circular(20),
                       onTap: () => _openNode(context, data, sp),
                       child: Container(
@@ -356,7 +356,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                           style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
                       ),
-                    ),
+                    )),
                 ],
               ),
             ),
@@ -466,7 +466,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                   runSpacing: 4,
                   children: <Widget>[
                     for (final FamilyRelation r in relations)
-                      InkWell(
+                      FocusRing(borderRadius: 20, child: InkWell(
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           final FamilyNode? other = data.byId[r.id];
@@ -492,7 +492,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                             ),
                           ),
                         ),
-                      ),
+                      )),
                   ],
                 ),
               ],

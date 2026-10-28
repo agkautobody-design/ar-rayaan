@@ -133,6 +133,7 @@ class _PlacementQuizDialogState extends State<PlacementQuizDialog> {
     if (_done) {
       final String? start = PlacementQuiz.recommend(_correct);
       return AlertDialog(
+        semanticLabel: 'Where to begin',
         title: const Text('Where to begin'),
         content: Text(
           start == null
@@ -161,6 +162,7 @@ class _PlacementQuizDialogState extends State<PlacementQuizDialog> {
     final int i = _correct.length;
     final PlacementQuestion q = PlacementQuiz.questions[i];
     return AlertDialog(
+      semanticLabel: 'Question ${i + 1} of ${PlacementQuiz.questions.length}',
       title: Text('Question ${i + 1} of ${PlacementQuiz.questions.length}'),
       content: Column(
         mainAxisSize: MainAxisSize.min,

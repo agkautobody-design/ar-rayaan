@@ -67,7 +67,7 @@ To do it, open Downloads (from the menu). Pick a reciter and download a surah or
 - Downloads are for the reciter you have chosen only; change the reciter on that screen if you want another.
 - "Wi-Fi only" is a switch so that big downloads wait for Wi-Fi and do not use mobile data. Your phone only guesses which network it is on, so check before a big download.
 - You can pause at any time and delete any download later to free the space.
-- In a web browser, downloads are kept in the browser's storage, and the app still needs the internet to open. The Android app keeps everything on the phone and opens with no internet.
+- In a web browser, downloads are kept in the browser's storage. Once you have opened the app online, the browser also keeps a copy of the app itself, so it can reopen with no internet (not in a private window, and not after you clear the site data). The Android app keeps everything on the phone and opens with no internet.
 """,
   go=['/downloads'],
   review='Checked against the Downloads screen by test/hadi_eval/app_help_facts_test.dart.')

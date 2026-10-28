@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5464,
+ "total": 5468,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -50,7 +50,7 @@
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
-   "items": 256,
+   "items": 257,
    "high_priority": 51
   },
   "stories-seerah": {
@@ -95,7 +95,7 @@
   },
   "quran-text": {
    "title": "Qur'an text, translation, transliteration, licences",
-   "items": 9,
+   "items": 10,
    "high_priority": 5
   },
   "games": {
@@ -105,13 +105,13 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 225,
+   "items": 226,
    "high_priority": 121
   },
   "legal": {
    "title": "Privacy, terms, children's privacy, community rules",
-   "items": 9,
-   "high_priority": 9
+   "items": 10,
+   "high_priority": 10
   },
   "noor-cards": {
    "title": "Noor, share cards, Home daily cards",
@@ -131,18 +131,18 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2447,
-  "Fiqh scholar (per madhab)": 608,
+  "Fiqh scholar (per madhab)": 610,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
   "Clinician (Sakina and health content)": 1007,
-  "Native speaker (ar / bn / ur)": 260,
-  "Privacy lawyer": 13,
+  "Native speaker (ar / bn / ur)": 261,
+  "Privacy lawyer": 14,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1277,
-  "normal": 3485,
+  "high": 1278,
+  "normal": 3488,
   "low": 702
  },
  "items": [
@@ -82162,6 +82162,92 @@
    "priority": "high",
    "source_of_flag": [
     "R10_T2"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-mode-surahs",
+   "area": "quran-text",
+   "subarea": "children",
+   "where_in_app": "Child mode > the short surahs a child can open",
+   "file": "lib/app/core/child_mode.dart",
+   "key": "kChildSurahs",
+   "what_to_review": "Surahs 1, 103, 105-110 and 112-114 open in locked child mode; other surahs send the child back to Kids Corner.",
+   "why_flagged": "Round 10: child mode blocked every surah and dua. The set is a first choice made by the developer; a teacher of children should confirm it.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Kids Corner in child mode",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-mode-stories",
+   "area": "stories-prophets",
+   "subarea": "children",
+   "where_in_app": "Child mode > the stories shown in Stories school",
+   "file": "lib/features/academy/presentation/stories_school_screen.dart",
+   "key": "kChildStoryIds",
+   "what_to_review": "Seven gentle stories (Adam, Nuh, Yunus, Ayyub, Sulayman, the Sleepers of the Cave, the Two Gardens) show in child mode, with no adult theme text.",
+   "why_flagged": "The chosen set and the one-line description are the developer's; a teacher of children and a scholar should confirm them.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Stories school in child mode",
+   "status": "open"
+  },
+  {
+   "id": "legal.firebase-startup",
+   "area": "legal",
+   "subarea": "legal",
+   "where_in_app": "Privacy Policy > Google services at start-up",
+   "file": "lib/features/legal/presentation/legal_screens.dart",
+   "key": "kPrivacySections",
+   "what_to_review": "The policy now says the Firebase software starts at launch when the build is connected, and lists what Firebase is used for.",
+   "why_flagged": "Written from reading the code; a lawyer should confirm the wording.",
+   "reviewer_type": "Privacy lawyer",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T4"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "i18n.elder-doors",
+   "area": "languages",
+   "subarea": "languages",
+   "where_in_app": "Home > Elder Mode card wording in Arabic, Bangla and Urdu",
+   "file": "lib/app/core/i18n/ui_labels.dart",
+   "key": "home.elderSub",
+   "what_to_review": "\"A few simple doors\" replaces \"three doors\" in all four languages.",
+   "why_flagged": "The Arabic, Bangla and Urdu lines were written without a native speaker. Native-speaker review needed.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "R10_T6"
    ],
    "label_surface": "",
    "status": "open"
