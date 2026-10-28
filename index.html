@@ -107,6 +107,11 @@
   <script>
     (function () {
       var SW = 'ar_sw.js';
+      // The Firebase script the app loads at start-up; the worker keeps a copy
+      // so the app can also start with no internet.
+      function isFirebaseScript(u) {
+        return /^https:\/\/www\.gstatic\.com\/firebasejs\/[^?#]+\.js(\?|#|$)/.test(String(u));
+      }
       function sameOrigin(u) {
         try { return new URL(u, location.href).origin === location.origin; }
         catch (e) { return false; }
@@ -122,7 +127,7 @@
                 try {
                   urls = performance.getEntriesByType('resource')
                     .map(function (e) { return e.name; })
-                    .filter(sameOrigin);
+                    .filter(function (u) { return sameOrigin(u) || isFirebaseScript(u); });
                 } catch (e) {}
                 var w = reg.active || reg.waiting || reg.installing;
                 if (w && urls.length) w.postMessage({ type: 'cache-urls', urls: urls });
@@ -190,14 +195,21 @@
       }
       var retry = el('ar-boot-retry');
       if (retry) retry.addEventListener('click', function () { location.reload(); });
+      function offline() {
+        try { return navigator.onLine === false; } catch (e) { return false; }
+      }
       window.arBootFail = function () {
-        show('Ar-Rayaan could not start. Check your internet connection and try again.');
+        show(offline()
+          ? 'You are offline, and this browser has no saved copy of Ar-Rayaan yet. Connect once and open the app, and it will open without internet after that.'
+          : 'Ar-Rayaan could not start. Check your internet connection and try again.');
       };
       setTimeout(function () {
         if (!started && !shown) {
-          show('Ar-Rayaan is taking longer than expected to start. Check your internet connection, then try again.');
+          show(offline()
+            ? 'You are offline. Ar-Rayaan is still looking for its saved copy. If nothing appears, connect once and open the app, and it will open without internet after that.'
+            : 'Ar-Rayaan is taking longer than expected to start. Check your internet connection, then try again.');
         }
-      }, 20000);
+      }, 12000);
     })();
   </script>
   <script src="flutter_bootstrap.js" async onerror="window.arBootFail && window.arBootFail()"></script>
