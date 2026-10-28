@@ -33,6 +33,17 @@ abstract final class SupportKeys {
 /// and reviewed: English first, then Arabic, Urdu, Bangla.
 const List<String> kSupportLanguages = <String>['en', 'ar', 'ur', 'bn'];
 
+/// The setting value meaning "follow the app language" (the default).
+const String kSupportLanguageAuto = 'auto';
+
+/// The language support lines are really shown in: the person's own choice
+/// when they made one, otherwise the app language when it is Arabic, Urdu or
+/// Bangla, otherwise English.
+String resolveSupportLanguage(String setting, String appLanguage) {
+  if (kSupportLanguages.contains(setting)) return setting;
+  return kSupportLanguages.contains(appLanguage) ? appLanguage : 'en';
+}
+
 class SupportSettings {
   const SupportSettings({
     this.checkin = const CheckinState(),
@@ -41,7 +52,7 @@ class SupportSettings {
     this.privateMode = false,
     this.quickExit = true,
     this.quickExitLeft = false,
-    this.language = 'en',
+    this.language = kSupportLanguageAuto,
     this.showSakina = true,
     this.tone = 'auto',
   });
@@ -110,7 +121,7 @@ class SupportSettings {
       privateMode: p.getBool(SupportKeys.privateMode) ?? false,
       quickExit: p.getBool(SupportKeys.quickExit) ?? true,
       quickExitLeft: p.getBool(SupportKeys.quickExitLeft) ?? false,
-      language: kSupportLanguages.contains(lang) ? lang : 'en',
+      language: kSupportLanguages.contains(lang) ? lang : kSupportLanguageAuto,
       showSakina: p.getBool(SupportKeys.showSakina) ?? true,
       tone: p.getString(SupportKeys.tone) ?? 'auto',
     );
@@ -205,9 +216,9 @@ class SupportSettingsNotifier extends Notifier<SupportSettings> {
   }
 
   Future<void> setLanguage(String l) async {
-    if (!kSupportLanguages.contains(l)) return;
+    if (l != kSupportLanguageAuto && !kSupportLanguages.contains(l)) return;
     state = state.copy(language: l);
-    await _str(SupportKeys.language, l);
+    await _str(SupportKeys.language, l == kSupportLanguageAuto ? null : l);
   }
 
   Future<void> setShowSakina(bool v) async {

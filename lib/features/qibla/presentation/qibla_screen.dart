@@ -2,7 +2,8 @@ import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -50,6 +51,7 @@ class QiblaScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: [
                 const ScreenHeader(title: 'Qibla', close: true),
+                const NativeReviewNote(),
                 const ScholarReviewNote(
                   reviewKey: 'prayer.qibla',
                   padding: const EdgeInsets.only(bottom: 8),
@@ -284,6 +286,7 @@ class _QiblaNeedsLocationState extends ConsumerState<_QiblaNeedsLocation> {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: [
                 const ScreenHeader(title: 'Qibla', close: true),
+                const NativeReviewNote(),
                 const ScholarReviewNote(
                   reviewKey: 'prayer.qibla',
                   padding: const EdgeInsets.only(bottom: 8),

@@ -1,7 +1,8 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../theme/widgets/tr_text.dart';
 import 'package:go_router/go_router.dart';
 
 import '../router.dart';

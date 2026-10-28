@@ -4,7 +4,8 @@
 library;
 
 import '../../downloads/domain/download_catalog.dart' show kNasheedNoDownloadNote;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 

@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../app/core/open_link.dart';
@@ -75,6 +76,7 @@ class SourcesScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Our Sources'),
+            const NativeReviewNote(inset: true),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -323,9 +325,7 @@ class _TrustCard extends StatelessWidget {
     ),
     (
       'What stays on your device',
-      'Your settings, bookmarks, progress, reflections and saved Hādi '
-          'conversations. We do not sell your data. See the Privacy '
-          'Policy (still a draft) for the services the app contacts.',
+      'Your settings, bookmarks, progress and reflections. Hādi conversations are not saved: they stay on screen for the visit only. We do not sell your data. See the Privacy Policy (still a draft) for the services the app contacts.',
     ),
   ];
 

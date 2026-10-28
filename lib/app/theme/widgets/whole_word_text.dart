@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' show visibleForTesting;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import 'tr_text.dart';
 
 /// A [Text] that never breaks a word in the middle.
 ///

@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5487,
+ "total": 5499,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -105,8 +105,8 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 228,
-   "high_priority": 121
+   "items": 240,
+   "high_priority": 125
   },
   "legal": {
    "title": "Privacy, terms, children's privacy, community rules",
@@ -135,14 +135,14 @@
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
   "Clinician (Sakina and health content)": 1011,
-  "Native speaker (ar / bn / ur)": 264,
+  "Native speaker (ar / bn / ur)": 276,
   "Privacy lawyer": 15,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1283,
-  "normal": 3502,
+  "high": 1287,
+  "normal": 3510,
   "low": 702
  },
  "items": [
@@ -79053,6 +79053,249 @@
    "status": "open"
   },
   {
+   "id": "lang.phrases.faith",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Faith tab (Explore) and Family Trees",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"faith\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"faith\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.hadi",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Hadi screen chrome (header, menus, composer, report and AI-account sheets)",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"hadi\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"hadi\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.more",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Qur’an bookmarks and reciter labels, Sakina hub, handout",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"more\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"more\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.prayer",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Prayer Times screen",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"prayer\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"prayer\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.qibla",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Qibla screen",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"qibla\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"qibla\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.quran",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Qur’an screens (labels and buttons only)",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"quran\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"quran\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.settings",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Settings and Language & Voice screens",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"settings\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"settings\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.shell",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Home, Menu, Quick Access and shared buttons",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"shell\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"shell\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.sources",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Our Sources, Elder Mode and share footer",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"sources\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"sources\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.support",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Support & wellbeing hub, pathways, Need help sheet, help-line tiles",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"support\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"support\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.phrases.you",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: You tab (Profile) and journeys",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"you\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"you\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 21. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "NativeReviewNote on the screen",
+   "status": "open"
+  },
+  {
+   "id": "lang.crisis.cards-l10n",
+   "area": "languages",
+   "subarea": "crisis-phrase",
+   "where_in_app": "Crisis cards, follow-ups and the \"which country\" note in Arabic, Urdu and Bangla",
+   "file": "lib/features/sakina/domain/crisis_l10n.dart",
+   "key": "seven crisis cards, five follow-ups, four country notes",
+   "what_to_review": "Arabic, Urdu and Bangla wording of the fixed crisis cards (self-harm, suicide question, abuse, child safety, eating disorder, substance emergency, extremism). The verse is not translated: the card gives a reference only. Help-line names and numbers come from HelpResources, never from this file.",
+   "why_flagged": "Machine draft of safety text; a native-speaking clinician must read it before it can lose its on-screen \"Native-speaker review needed\" line. Until then a reply without checked wording is shown in English with a note in the language.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 21",
+    "OWNER_ACTIONS item 4"
+   ],
+   "label_surface": "Review line at the end of each card",
+   "status": "open"
+  },
+  {
    "id": "lang.crisis.roman-urdu",
    "area": "languages",
    "subarea": "crisis-phrase",
@@ -79101,7 +79344,7 @@
    "where_in_app": "Crisis detector and reply cards",
    "file": "lib/features/sakina/domain/crisis_detector.dart; lib/features/sakina/presentation/widgets/",
    "key": "lang.crisis.replies",
-   "what_to_review": "The fixed replies shown after a crisis match and the country help-line chooser, in English only today",
+   "what_to_review": "English fixed replies shown after a crisis match and the country help-line chooser (the Arabic, Urdu and Bangla versions are the separate item lang.crisis.cards-l10n)",
    "why_flagged": "OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only.",
    "reviewer_type": "Native speaker (ar / bn / ur)",
    "also_reviewers": [

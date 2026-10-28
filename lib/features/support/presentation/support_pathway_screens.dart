@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/scholar_review.dart';
@@ -155,7 +156,9 @@ class SupportPathwayScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final SupportPathway? path = pathwayById(id);
-    final String lang = ref.watch(supportSettingsProvider).language;
+    final String lang = resolveSupportLanguage(
+        ref.watch(supportSettingsProvider).language,
+        Localizations.localeOf(context).languageCode);
     final SupportPack? pack = path == null ? null : SupportPackRepository.byName(path.pack);
     final bool expired = pack != null && pack.expiredAt(DateTime.now());
 

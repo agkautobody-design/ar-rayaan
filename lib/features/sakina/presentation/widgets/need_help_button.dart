@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -192,14 +193,21 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
                       ? 'Lines for the country you picked come first.'
                       : 'There are no lines saved for that country yet, so '
                           'these work from anywhere.')
-                  : (!hasLocal
+                  : (cc == null || !pickedKnown
                       ? 'We could not tell which country you are in, so '
                           'these lines work from anywhere.'
-                      : 'Lines for the region $cc come first. That comes '
-                          'from your device language setting, not your '
-                          'location.'),
+                      : (hasLocal
+                          ? 'Lines for the region $cc come first. That comes '
+                              'from your device language setting, not your '
+                              'location.'
+                          : 'We have no checked line of this kind saved for '
+                              '${choices.firstWhere(((String, String) c) => c.$1 == cc).$2} '
+                              'yet, so these lines work from anywhere. '
+                              'Choose another country below if that is '
+                              'wrong.')),
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
+            const NativeReviewNote(safety: true),
             const SizedBox(height: 10),
             Text('Not your country? Choose yours:', style: AppText.caption),
             const SizedBox(height: 4),
@@ -208,7 +216,10 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
               isExpanded: true,
               dropdownColor: AppColors.night,
               hint: const Text('Choose your country'),
-              value: pickedKnown ? cc : null,
+              // Only a country the person chose is shown as chosen; one taken from
+              // the device language is not pre-selected, so the note above and
+              // the box never disagree.
+              value: (picked != null && choices.any(((String, String) c) => c.$1 == picked.trim().toUpperCase())) ? picked.trim().toUpperCase() : null,
               items: <DropdownMenuItem<String>>[
                 for (final (String code, String name) in choices)
                   DropdownMenuItem<String>(

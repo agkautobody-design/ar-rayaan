@@ -1,3 +1,5 @@
+import 'dart:ui' as ui show PlatformDispatcher;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -7,8 +9,27 @@ import 'ui_labels.dart';
 /// LANGUAGE SETTINGS — the founder's law: a user chooses their language;
 /// GPS never decides it for them.
 class LocaleController extends StateNotifier<Locale> {
-  LocaleController() : super(const Locale('en')) {
+  LocaleController() : super(deviceChoice()) {
     _load();
+  }
+
+  /// The first-run language the device's own language setting points to
+  /// (Arabic, Urdu or Bangla; otherwise English). This is the language the
+  /// phone or browser is set to, never the person's location. It only
+  /// preselects: nothing is saved until the person picks a language.
+  static Locale deviceChoice([List<Locale>? preferred]) {
+    List<Locale> prefs = preferred ?? const <Locale>[];
+    if (preferred == null) {
+      try {
+        prefs = ui.PlatformDispatcher.instance.locales;
+      } catch (_) {}
+    }
+    for (final Locale l in prefs) {
+      for (final Locale c in firstRunChoices) {
+        if (c.languageCode == l.languageCode) return c;
+      }
+    }
+    return const Locale('en');
   }
 
   static const _pref = 'ar.locale';
@@ -64,8 +85,8 @@ class LocaleController extends StateNotifier<Locale> {
     final String c = l.languageCode;
     if (c == 'en') return 'Everything is in English';
     if (kUiLabelLanguages.contains(c)) {
-      return 'Menus, the Home screen words, the introduction and the first '
-          'questions are translated (not yet checked by a native speaker). '
+      return 'The main screens, support and safety wording are translated '
+          '(machine drafts, not yet checked by a native speaker). '
           'Everything else is English';
     }
     if (L10n._strings.containsKey(c)) {

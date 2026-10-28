@@ -1,6 +1,7 @@
 import 'dart:async' show unawaited;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
@@ -43,6 +44,7 @@ class SettingsScreen extends ConsumerWidget {
             child: Column(
               children: [
                 ScreenHeader(title: l10n.ui('ui.settings'), showSettings: false),
+                const NativeReviewNote(inset: true),
                 Expanded(
                   // A SingleChildScrollView, not a lazy ListView: a lazy list
                   // only builds the rows near the screen, so Tab could not
@@ -157,11 +159,7 @@ class SettingsScreen extends ConsumerWidget {
                                     style: AppText.body.copyWith(fontSize: 14),
                                   ),
                                   Text(
-                                    'Choose your language. Menus and home '
-                                    'titles are translated for Arabic, '
-                                    'Bangla and Urdu; other languages are not '
-                                    'translated yet. Lessons, stories and '
-                                    'answers stay in English.',
+                                    'Choose your language. Arabic, Bangla and Urdu now cover the main screens and the support and safety wording. Every translation is a machine draft that a native speaker has not checked yet. Lessons, stories and H\u0101di\u2019s answers stay in English. Other languages are not translated yet.',
                                     style: AppText.bodyMuted,
                                   ),
                                 ],

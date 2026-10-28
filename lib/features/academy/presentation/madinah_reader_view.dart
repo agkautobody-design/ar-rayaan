@@ -6,7 +6,8 @@
 /// line lights up; the verse-range bar sits in the thumb zone.
 library;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../application/academy_providers.dart';

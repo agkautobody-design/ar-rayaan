@@ -2,7 +2,9 @@ import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
 import '../../../app/core/tight_layout.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/core/i18n/bidi.dart';
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter/services.dart';
 import '../../share/application/share_text.dart';
 import '../../share/presentation/share_actions.dart';
@@ -672,6 +674,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  const NativeReviewNote(safety: true, inset: true),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
                     child: Row(
@@ -1518,7 +1521,9 @@ class _Bubble extends ConsumerWidget {
                       message.text,
                       textDirection: HadiMarkdown.isMostlyRtl(message.text)
                           ? TextDirection.rtl
-                          : null,
+                          : (startsWithLatin(message.text)
+                              ? TextDirection.ltr
+                              : null),
                       style: AppText.body.copyWith(
                         color: AppColors.night,
                         height: 1.4,

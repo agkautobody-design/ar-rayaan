@@ -8,7 +8,8 @@ library;
 
 import 'dart:async' show unawaited;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -82,7 +83,7 @@ class SharePreviewSheet extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bool elder = ref.watch(elderModeProvider);
     final double minTap = elder ? 64 : 48;
-    final String text = ShareService.build(doc);
+    final String text = ShareService.build(doc, lang: uiLang(context));
     final bool sheet = ShareService.hasShareSheet;
     return SafeArea(
       child: ConstrainedBox(
@@ -96,6 +97,7 @@ class SharePreviewSheet extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text('PREVIEW', style: AppText.eyebrow),
+              const NativeReviewNote(),
               const SizedBox(height: 8),
               Container(
                 key: const Key('share-preview-card'),

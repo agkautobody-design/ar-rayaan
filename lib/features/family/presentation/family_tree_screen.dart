@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/router.dart';
@@ -117,6 +118,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'Family Trees', close: true),
+              const NativeReviewNote(),
               Padding(
                 padding: const EdgeInsets.only(left: 4, bottom: 6),
                 child: Text('IBRAHIM\u2019S TWO RIVERS', style: AppText.eyebrow),

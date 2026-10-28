@@ -1,6 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/core/i18n/bidi.dart';
+import '../../../app/theme/widgets/tr_text.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -44,8 +46,9 @@ class HadiRichText extends StatelessWidget {
   Widget build(BuildContext context) {
     return SelectableText.rich(
       TextSpan(style: style, children: spansFor(text, style)),
-      textDirection:
-          HadiMarkdown.isMostlyRtl(text) ? TextDirection.rtl : null,
+      textDirection: HadiMarkdown.isMostlyRtl(text)
+          ? TextDirection.rtl
+          : (startsWithLatin(text) ? TextDirection.ltr : null),
     );
   }
 }

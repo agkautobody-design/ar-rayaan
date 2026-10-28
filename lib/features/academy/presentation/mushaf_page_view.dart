@@ -4,7 +4,8 @@
 /// lines scale, they never re-wrap (visual memorizers' recall contract).
 library;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../domain/mushaf_layout.dart';

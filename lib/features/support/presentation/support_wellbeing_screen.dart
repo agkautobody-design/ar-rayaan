@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 
@@ -23,6 +24,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
   const SupportWellbeingScreen({super.key});
 
   static const Map<String, String> _languageNames = <String, String>{
+    'auto': 'Follow the app language (default)',
     'en': 'English',
     'ar': 'Arabic',
     'ur': 'Urdu',
@@ -53,6 +55,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
             child: Column(
               children: <Widget>[
                 const ScreenHeader(title: 'Support & wellbeing', showSettings: false),
+                const NativeReviewNote(safety: true, inset: true),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
@@ -266,7 +269,10 @@ class SupportWellbeingScreen extends ConsumerWidget {
                               dropdownColor: AppColors.night,
                               value: s.language,
                               items: <DropdownMenuItem<String>>[
-                                for (final String l in kSupportLanguages)
+                                for (final String l in <String>[
+                                  kSupportLanguageAuto,
+                                  ...kSupportLanguages,
+                                ])
                                   DropdownMenuItem<String>(
                                       value: l, child: Text(_languageNames[l] ?? l)),
                               ],
@@ -275,7 +281,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
                               },
                             ),
                             _note('Arabic, Urdu and Bangla wording for emergencies and help '
-                                'lines was written for coverage and has not been read by a '
+                                'lines is a machine draft and has not been read by a '
                                 'native-speaking clinician yet. English has the most.'),
                           ],
                         ),

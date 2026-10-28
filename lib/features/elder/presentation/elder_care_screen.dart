@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -76,6 +77,7 @@ class _ElderCareState extends ConsumerState<ElderCareScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           const ScreenHeader(title: 'Elder Care', close: true),
+          const NativeReviewNote(),
           Center(child: Text('BIG WORDS \u00b7 GENTLE HEARTS', style: AppText.eyebrow)),
           const SizedBox(height: 16),
           FocusableTap(

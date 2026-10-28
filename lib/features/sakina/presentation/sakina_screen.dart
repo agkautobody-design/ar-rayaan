@@ -1,5 +1,6 @@
 import '../../../app/core/scholar_review.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,6 +36,7 @@ class SakinaScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Sakina · سكينة'),
+            const NativeReviewNote(safety: true, inset: true),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: QuickExitButton(),

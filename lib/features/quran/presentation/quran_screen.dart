@@ -1,7 +1,8 @@
 import '../../../app/core/tight_layout.dart';
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Text;
+import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -83,6 +84,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
         child: Column(
           children: [
             const ScreenHeader(title: 'Qur\'an'),
+            const NativeReviewNote(inset: true),
             Expanded(
               child: index.when(
                 // A retry must show the loading state again (not freeze on
