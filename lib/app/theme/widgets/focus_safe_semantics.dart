@@ -85,6 +85,10 @@ class _FocusSafeSemanticsState extends State<FocusSafeSemantics> {
   /// "Support and wellbeing" row in Settings). Does nothing when the control
   /// is already fully visible.
   void _scrollIntoView() {
+    // Only for keyboard / screen-reader focus, never a tap or a script.
+    if (FocusManager.instance.highlightMode != FocusHighlightMode.traditional) {
+      return;
+    }
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       try {

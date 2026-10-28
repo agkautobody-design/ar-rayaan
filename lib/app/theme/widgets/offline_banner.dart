@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui' show SemanticsRole;
 
 import 'package:flutter/material.dart' hide Text;
 import 'tr_text.dart';
@@ -99,7 +98,6 @@ class _OfflineBannerState extends State<OfflineBanner> {
                         message: kOfflineBannerText,
                         child: Semantics(
                           key: const Key('offline-banner-message'),
-                          role: SemanticsRole.status,
                           liveRegion: true,
                           container: true,
                           label: kOfflineBannerText,
