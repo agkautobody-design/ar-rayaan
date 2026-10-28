@@ -15,6 +15,7 @@ import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 class FamilyTreeScreen extends ConsumerStatefulWidget {
   const FamilyTreeScreen({super.key, this.initiallyExpanded = const <String>{}});
@@ -426,7 +427,8 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
       for (final FamilyRelation r in node.relations)
         if (data.byId.containsKey(r.id)) r,
     ];
-    showModalBottomSheet<void>(
+    showNamedSheet<void>(
+      label: 'Family member',
       context: context,
       isScrollControlled: true,
       backgroundColor: const Color(0xFF0A0F18),

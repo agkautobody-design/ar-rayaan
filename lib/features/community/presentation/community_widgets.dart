@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/community_state.dart';
 import 'join_panel.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The frame every community screen shares: the app's dark pattern
 /// background, the usual header, and a body that never runs under it.
@@ -379,7 +380,8 @@ Future<void> showReportSheet(
   String? authorProfileId,
   String? authorName,
 }) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Report',
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.navy,

@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../academy/presentation/widgets/parent_gate.dart';
 import '../data/game_rooms_service.dart';
 import '../data/online_access.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The Online Hall lobby — create a room and share the code, or join one.
 /// Pops {'code','side'} on success; null on cancel.
@@ -51,7 +52,8 @@ class OnlineLobby extends StatefulWidget {
       final bool ok = await showParentGate(context);
       if (!ok || !context.mounted) return null;
     }
-    return showModalBottomSheet<Map<String, String>>(
+    return showNamedSheet<Map<String, String>>(
+      label: 'Play online',
       context: context,
       isScrollControlled: true,
       backgroundColor: const Color(0xFF0A0F18),

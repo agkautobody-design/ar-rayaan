@@ -55,6 +55,19 @@ bool startsWithRtlScript(String text) {
 /// right-to-left sentence.
 String isolateLtr(String text) => '$kLri$text$kPdi';
 
+/// Wraps every line of [text] in its own left-to-right isolate.
+///
+/// For English that follows a note written in Arabic or Urdu (a reply that has
+/// no checked translation): the paragraph then starts with a right-to-left
+/// letter, so the English inside it was laid out right-to-left and its
+/// punctuation moved (an opening quotation mark next to the symbol after
+/// "the Prophet", a full stop at the wrong end). An isolate closes at the end
+/// of a line, so each line carries its own.
+String isolateLtrLines(String text) => text
+    .split('\n')
+    .map((String line) => line.trim().isEmpty ? line : '$kLri$line$kPdi')
+    .join('\n');
+
 final RegExp _timeLike = RegExp(r'^\d{1,2}:\d{2}(\s?[AaPp]\.?[Mm]\.?)?$');
 
 /// True for a bare clock time ("4:39", "4:39 AM", "16:05").

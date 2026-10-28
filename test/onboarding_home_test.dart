@@ -272,9 +272,8 @@ void main() {
 
   group('small phone and big text', () {
     // The test font is wider than a phone's, so absolute positions are not
-    // meaningful; the ORDER of the blocks is. On a narrow phone the tiles
-    // come straight after Elder Mode and the next-step card, and the long
-    // Quick Access row moves below them.
+    // meaningful; the ORDER of the blocks is. On a narrow phone Quick Access
+    // stays under the Elder Mode card (a slimmer one-line card).
     // The test font is much wider than a phone's, so only overflows inside
     // the pieces of Home this change touched (tiles, next-step card, Elder
     // Mode, greeting) are counted; other cards are not under test here.
@@ -297,19 +296,29 @@ void main() {
       expect(found.join(', '), '');
     });
 
-    testWidgets('320px: tiles come before Quick Access', (tester) async {
+    testWidgets('320px: Quick Access stays on Home, under the Elder card', (
+      tester,
+    ) async {
       await AppHarness.boot(tester);
       tester.view.physicalSize = const Size(320, 3200);
       await AppHarness.settle(tester);
       tester.takeException();
       final double elder = tester.getTopLeft(find.text('ELDER MODE')).dy;
-      final double step =
-          tester.getTopLeft(find.byKey(const Key('home-next-step'))).dy;
-      final double tile = tester.getTopLeft(find.text('Prayer Times')).dy;
       final double quick = tester.getTopLeft(find.text('Quick Access')).dy;
-      expect(elder, lessThan(step));
-      expect(step, lessThan(tile));
-      expect(tile, lessThan(quick));
+      final double tile = tester.getTopLeft(find.text('Prayer Times')).dy;
+      expect(elder, lessThan(quick));
+      expect(quick, lessThan(tile));
+    });
+
+    testWidgets('large text: Quick Access is still there', (tester) async {
+      await AppHarness.boot(tester);
+      tester.view.physicalSize = const Size(260, 4000);
+      tester.platformDispatcher.textScaleFactorTestValue = 1.5;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      await AppHarness.settle(tester);
+      tester.takeException();
+      expect(find.text('Quick Access'), findsOneWidget);
+      expect(find.byKey(const Key('home-elder-state')), findsOneWidget);
     });
 
     testWidgets('wide phone keeps Quick Access above the tiles', (

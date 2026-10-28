@@ -7,11 +7,13 @@ import '../../../app/theme/app_typography.dart';
 import '../../academy/application/recitation_player_provider.dart';
 import '../../academy/domain/recitation_audio.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Opens the reciter list. Changing reciter stops the current recitation
 /// (a half-finished plan must never switch voices mid-ayah).
 Future<void> showReciterPicker(BuildContext context, WidgetRef ref) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Choose a reciter',
     context: context,
     backgroundColor: AppColors.navy,
     isScrollControlled: true,

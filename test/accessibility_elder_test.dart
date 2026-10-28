@@ -483,6 +483,8 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('Ask Hādi'), findsNothing);
+      // A short visible word under the icon, not an icon alone.
+      expect(find.text('Hādi'), findsOneWidget);
       final Size s = tester.getSize(find.byType(AskHadiPill));
       expect(s.width, lessThan(80));
       expect(s.height, greaterThanOrEqualTo(48));

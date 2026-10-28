@@ -12,6 +12,7 @@ import '../../tracking/application/tracking_providers.dart';
 import '../../tracking/domain/encouragement.dart';
 import '../application/habits_providers.dart';
 import '../application/return_loop.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Kill switch for the quiet completion cards. See docs/product/return_loop.md.
 const bool kQuietDoneEnabled = true;
@@ -156,7 +157,8 @@ Future<void> showQuietDone(
       day: oncePerDay ? DateTime.now() : null,
     );
     if (!fresh || !context.mounted) return;
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'A quiet moment',
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
