@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../app/core/open_link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/safe_url.dart';
 import '../../../app/theme/app_colors.dart';
@@ -389,12 +389,15 @@ class _HadithCard extends StatelessWidget {
               minimumSize: const Size(48, 48),
               alignment: Alignment.centerLeft,
             ),
-            onPressed: () => openLinkWithFeedback(
-              context,
-              SafeUrl.web(hadith.sunnahUrl),
-              message: 'Could not open sunnah.com. The reference above is the '
-                  'hadith to look up.',
-            ),
+            onPressed: () async {
+              try {
+                final Uri? u = SafeUrl.web(hadith.sunnahUrl);
+                if (u == null) return;
+                await launchUrl(u, mode: LaunchMode.externalApplication);
+              } catch (_) {
+                // No browser available: the reference above is still shown.
+              }
+            },
             child: const Text(
               'Read the full text on sunnah.com',
               style: TextStyle(color: AppColors.goldLight, fontSize: 13.5),

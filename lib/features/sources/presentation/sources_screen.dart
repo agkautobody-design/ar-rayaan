@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../../../app/core/open_link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/safe_url.dart';
 import '../../../app/router.dart';
@@ -62,8 +62,10 @@ class SourcesScreen extends ConsumerWidget {
     ),
   ];
 
-  Future<void> _openChannel(BuildContext context) async {
-    await openLinkWithFeedback(context, _shaykhChannel);
+  Future<void> _openChannel() async {
+    try {
+      await launchUrl(_shaykhChannel, mode: LaunchMode.externalApplication);
+    } catch (_) {}
   }
 
   @override
@@ -195,7 +197,7 @@ class SourcesScreen extends ConsumerWidget {
                   // ---------------- KNOWLEDGE & GUIDANCE ----------------
                   _SectionLabel('KNOWLEDGE & GUIDANCE'),
                   GlassCard(
-                    onTap: () => _openChannel(context),
+                    onTap: _openChannel,
                     padding: const EdgeInsets.all(16),
                     child: Row(
                       children: [
@@ -390,10 +392,14 @@ class _SourceRow extends StatelessWidget {
   /// In-app destination; takes precedence over [link].
   final VoidCallback? onTap;
 
-  Future<void> _open(BuildContext context) async {
+  Future<void> _open() async {
     final String? l = link;
     if (l == null) return;
-    await openLinkWithFeedback(context, SafeUrl.web(l));
+    try {
+      final Uri? u = SafeUrl.web(l);
+      if (u == null) return;
+      await launchUrl(u, mode: LaunchMode.externalApplication);
+    } catch (_) {}
   }
 
   @override
@@ -436,7 +442,7 @@ class _SourceRow extends StatelessWidget {
     return Semantics(
       button: true,
       label: link != null ? '$title, opens $link' : title,
-      child: FocusRing(borderRadius: 12, child: InkWell(onTap: onTap ?? () => _open(context), child: row)),
+      child: FocusRing(borderRadius: 12, child: InkWell(onTap: onTap ?? _open, child: row)),
     );
   }
 }
