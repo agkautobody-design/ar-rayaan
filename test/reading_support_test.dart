@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
+import 'package:ar_rayaan/features/quran/application/quran_snippets.dart';
 import 'package:ar_rayaan/features/quran/application/quran_translit.dart';
+import 'package:ar_rayaan/features/reading/presentation/quran_snippet_views.dart';
 import 'package:ar_rayaan/features/reading/application/reading_prefs.dart';
 import 'package:ar_rayaan/features/reading/presentation/arabic_block.dart';
 import 'package:flutter/material.dart';
@@ -320,6 +322,66 @@ void main() {
       expect(parseQuranTranslit('not json'), isEmpty);
       expect(parseQuranTranslit('[1,2]'), isEmpty);
       expect(parseQuranTranslit('{"map": 3}'), isEmpty);
+    });
+  });
+
+  group('Qur\'an snippets (Bismillah, 39:9 part)', () {
+    final String raw = File('assets/quran/snippets.json').readAsStringSync();
+    final List<dynamic> quran = jsonDecode(
+      File('assets/quran/quran.json').readAsStringSync(),
+    ) as List<dynamic>;
+    final Map<String, String> tl = parseQuranTranslit(
+      File('assets/quran/translit_en.json').readAsStringSync(),
+    );
+
+    test('the Bismillah is 1:1 exactly as the registry has it', () {
+      final QuranSnippet b = QuranSnippet.parse(raw, 'bismillah')!;
+      final List<dynamic> v =
+          ((quran[0] as Map<String, dynamic>)['v'] as List<dynamic>)[0] as List<dynamic>;
+      expect(b.arabic, v[1]);
+      expect(b.english, v[2]);
+      expect(b.translit, tl['1:1']);
+    });
+
+    test('the 39:9 part is cut from the ayah and its transliteration', () {
+      final QuranSnippet k = QuranSnippet.parse(raw, 'knowledge')!;
+      final List<dynamic> v =
+          ((quran[38] as Map<String, dynamic>)['v'] as List<dynamic>)[8] as List<dynamic>;
+      expect((v[1] as String).contains(k.arabic), isTrue);
+      expect(tl['39:9']!.contains(k.translit), isTrue);
+      expect(k.ref, '39:9');
+    });
+
+    test('a bad file gives nothing, not a crash', () {
+      expect(QuranSnippet.parse('nope', 'bismillah'), isNull);
+      expect(QuranSnippet.parse('{"bismillah": {"ref": "1:1"}}', 'bismillah'), isNull);
+    });
+
+    testWidgets('the knowledge verse shows Arabic, transliteration, meaning',
+        (WidgetTester tester) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final QuranSnippet k = QuranSnippet.parse(raw, 'knowledge')!;
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(prefs),
+            quranSnippetsProvider.overrideWith(
+              (ref) async => <String, QuranSnippet>{'knowledge': k},
+            ),
+          ],
+          child: MaterialApp(
+            theme: AppTheme.dark(),
+            home: const Scaffold(body: SingleChildScrollView(child: KnowledgeVerseView())),
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump();
+      expect(find.text(k.arabic), findsOneWidget);
+      expect(find.text(k.translit), findsOneWidget);
+      expect(find.text(k.english), findsOneWidget);
+      expect(find.textContaining('39:9'), findsOneWidget);
     });
   });
 }

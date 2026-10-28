@@ -20,6 +20,7 @@ import '../domain/academy_models.dart';
 import '../domain/continue_hero.dart';
 import '../domain/daily_verse.dart';
 import 'wasia_lessons.dart' show Lesson, lettersLessonsProvider;
+import '../../reading/presentation/quran_snippet_views.dart';
 import 'widgets/course_browser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
@@ -460,28 +461,7 @@ class _AcademyHomeScreenState
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
                 ),
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      '\u0642\u064f\u0644\u0652 \u0647\u064e\u0644\u0652 \u064a\u064e\u0633\u0652\u062a\u064e\u0648\u0650\u064a \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e \u0648\u064e\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0644\u0627 \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e',
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      style: const TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 19,
-                        height: 1.9,
-                        color: Color(0xFFEAD9A8),
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      '\u201cAre those who know equal to those who do not '
-                      'know?\u201d \u2014 Qur\u2019an 39:9',
-                      textAlign: TextAlign.center,
-                      style: AppText.bodyMuted.copyWith(fontSize: 12),
-                    ),
-                  ],
-                ),
+                child: const KnowledgeVerseView(arabicSize: 19),
               ),
               const SizedBox(height: 18),
 

@@ -15,6 +15,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../hadi/grounding/corpus.dart';
 import '../../hadi/grounding/passage.dart';
 import '../../support/presentation/privacy_shield.dart';
+import '../../reading/presentation/quran_snippet_views.dart' show QuranTranslitBlock;
 import '../application/wellbeing_store.dart';
 import 'widgets/need_help_button.dart';
 
@@ -323,15 +324,14 @@ class _SteadyScreenState extends ConsumerState<SteadyScreen> {
                 ),
                 const SizedBox(height: 6),
                 if (ayah.arabic != null)
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Text(
-                      ayah.arabic!,
-                      style: AppText.body.copyWith(fontSize: 20, height: 1.8),
-                    ),
-                  ),
-                const SizedBox(height: 6),
-                Text(ayah.english, style: AppText.body.copyWith(height: 1.6)),
+                  QuranTranslitBlock(
+                    arabic: ayah.arabic!,
+                    english: ayah.english,
+                    ayahKey: '13:28',
+                    arabicSize: 20,
+                  )
+                else
+                  Text(ayah.english, style: AppText.body.copyWith(height: 1.6)),
               ],
             ),
           ),

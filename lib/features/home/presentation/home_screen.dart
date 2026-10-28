@@ -23,6 +23,8 @@ import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../noor/application/noor_providers.dart';
 import '../../noor/domain/noor_entry.dart';
+import '../../quran/application/quran_translit.dart';
+import '../../reading/presentation/arabic_block.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../tracking/presentation/tracking_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -63,6 +65,14 @@ class HomeScreen extends ConsumerWidget {
     final String todayArabic = noor?.arabic ?? 'وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ';
     final String todayEnglish =
         noor?.english ?? 'And remember your Lord when you forget.';
+    // Transliteration for a Qur'an item comes from the dataset (never typed);
+    // a hadith has none yet and the card says so.
+    final Map<String, String>? translitMap =
+        ref.watch(quranTranslitProvider).valueOrNull;
+    String? todayTranslit;
+    if (noor != null && noor.kind == NoorKind.quran && translitMap != null) {
+      todayTranslit = translitMap[noor.reference];
+    }
     final String todaySource =
         noor?.source.toUpperCase() ?? 'QUR\u2019AN 18:24';
     // A prayer name in the person's language (the six names are translated;
@@ -597,24 +607,15 @@ class HomeScreen extends ConsumerWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Directionality(
-                                        textDirection: TextDirection.rtl,
-                                        child: Text(
-                                          todayArabic,
-                                          style: AppText.arabicLarge.copyWith(
-                                            fontSize: 20,
-                                            height: 1.6,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Text(
-                                        todayEnglish,
-                                        style: AppText.bodyMuted.copyWith(
-                                          fontSize: 12,
-                                          fontStyle: FontStyle.italic,
-                                          height: 1.5,
-                                        ),
+                                      ArabicBlock(
+                                        key: const Key('home-daily-verse'),
+                                        arabic: todayArabic,
+                                        translit: todayTranslit,
+                                        meaning: todayEnglish,
+                                        needsReview: todayTranslit != null,
+                                        translitSource: 'quran-json',
+                                        arabicSize: 20,
+                                        density: ArabicBlockDensity.compact,
                                       ),
                                       const SizedBox(height: 4),
                                       Text(

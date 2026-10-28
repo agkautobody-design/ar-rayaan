@@ -12,6 +12,8 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/quran_marks_controller.dart';
 import '../application/quran_providers.dart';
+import '../application/quran_translit.dart';
+import '../../reading/presentation/arabic_block.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
@@ -69,6 +71,9 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
   Widget build(BuildContext context) {
     final QuranMarks marks = ref.watch(quranMarksProvider);
     final AsyncValue<List<Surah>> all = ref.watch(quranAllProvider);
+    final Map<String, String> tlAll =
+        ref.watch(quranTranslitProvider).valueOrNull ??
+        const <String, String>{};
     if (_collectionId != null && marks.collection(_collectionId!) == null) {
       _collectionId = null;
     }
@@ -195,21 +200,15 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
                                     ],
                                   ),
                                   if (ayah != null) ...<Widget>[
-                                    Text(
-                                      ayah.arabic,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      textDirection: TextDirection.rtl,
-                                      textAlign: TextAlign.right,
-                                      style: AppText.arabicLarge
-                                          .copyWith(fontSize: 20, height: 1.8),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      ayah.english,
-                                      maxLines: 3,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: AppText.bodyMuted,
+                                    ArabicBlock(
+                                      arabic: ayah.arabic,
+                                      translit: tlAll['${m.surah}:${m.ayah}'],
+                                      meaning: ayah.english,
+                                      needsReview: tlAll
+                                          .containsKey('${m.surah}:${m.ayah}'),
+                                      translitSource: 'quran-json',
+                                      arabicSize: 20,
+                                      density: ArabicBlockDensity.compact,
                                     ),
                                   ],
                                   if (m.note.isNotEmpty) ...<Widget>[

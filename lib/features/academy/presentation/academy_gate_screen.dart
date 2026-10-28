@@ -10,6 +10,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../reading/presentation/quran_snippet_views.dart';
 
 /// The gate of Wasia Academy — entered the way Ar-Rayaan itself is entered:
 /// a threshold of light. Bismillah in calligraphy, the knowledge verse,
@@ -156,17 +157,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
                 child: Column(
                   children: [
                     const Spacer(flex: 2),
-                    Text(
-                      '\u0628\u0650\u0633\u0652\u0645\u0650 \u0627\u0644\u0644\u0651\u064e\u0647\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0652\u0645\u064e\u0670\u0646\u0650 \u0627\u0644\u0631\u0651\u064e\u062d\u0650\u064a\u0645\u0650',
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      style: const TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 34,
-                        height: 1.8,
-                        color: Color(0xFFEAD9A8),
-                      ),
-                    ),
+                    const BismillahView(arabicSize: 32),
                     const SizedBox(height: 26),
                     Text(
                       'WASIA ACADEMY',
@@ -189,28 +180,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
                           color: AppColors.gold.withValues(alpha: 0.3),
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          Text(
-                            '\u0642\u064f\u0644\u0652 \u0647\u064e\u0644\u0652 \u064a\u064e\u0633\u0652\u062a\u064e\u0648\u0650\u064a \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e \u0648\u064e\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0644\u0627 \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e',
-                            textAlign: TextAlign.center,
-                            textDirection: TextDirection.rtl,
-                            style: const TextStyle(
-                              fontFamily: 'Amiri',
-                              fontSize: 21,
-                              height: 1.9,
-                              color: Color(0xFFEAD9A8),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '\u201cAre those who know equal to those who '
-                            'do not know?\u201d \u2014 Qur\u2019an 39:9',
-                            textAlign: TextAlign.center,
-                            style: AppText.bodyMuted.copyWith(fontSize: 12),
-                          ),
-                        ],
-                      ),
+                      child: const KnowledgeVerseView(arabicSize: 21),
                     ),
                     const Spacer(flex: 3),
                     Text(

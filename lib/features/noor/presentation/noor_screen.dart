@@ -13,6 +13,8 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../quran/application/quran_providers.dart';
+import '../../quran/application/quran_translit.dart';
+import '../../reading/presentation/arabic_block.dart';
 import '../../quran/domain/quran_models.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
@@ -240,30 +242,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Directionality(
-                                        textDirection: TextDirection.rtl,
-                                        child: Text(
-                                          entry.arabic,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                          textAlign: TextAlign.right,
-                                          style: AppText.arabicLarge.copyWith(
-                                            fontSize: 17,
-                                            height: 1.7,
-                                            color: AppColors.goldLight,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Text(
-                                        entry.english,
-                                        maxLines: 3,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: AppText.titleMedium.copyWith(
-                                          fontSize: 16,
-                                          height: 1.5,
-                                        ),
-                                      ),
+                                      NoorEntryBlock(entry: entry),
                                       const SizedBox(height: 10),
                                       Row(
                                         children: [
@@ -479,6 +458,36 @@ class _ShareNoorButton extends ConsumerWidget {
         ),
       ),
       ),
+    );
+  }
+}
+
+/// A NOOR entry as Arabic, then transliteration, then meaning. A Qur'an entry
+/// takes its transliteration from the dataset; a hadith has none yet and the
+/// block says so.
+class NoorEntryBlock extends ConsumerWidget {
+  const NoorEntryBlock({required this.entry, this.arabicSize = 18, super.key});
+
+  final NoorEntry entry;
+  final double arabicSize;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Map<String, String>? translitMap =
+        ref.watch(quranTranslitProvider).valueOrNull;
+    String? tl;
+    if (entry.kind == NoorKind.quran && translitMap != null) {
+      tl = translitMap[entry.reference];
+    }
+    return ArabicBlock(
+      key: const Key('noor-entry-block'),
+      arabic: entry.arabic,
+      translit: tl,
+      meaning: entry.english,
+      needsReview: tl != null,
+      translitSource: 'quran-json',
+      arabicSize: arabicSize,
+      density: ArabicBlockDensity.compact,
     );
   }
 }
