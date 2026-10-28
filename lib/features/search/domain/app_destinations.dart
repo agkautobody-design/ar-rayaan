@@ -48,6 +48,18 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     ],
   ),
   AppDestination(
+    id: 'teacher-guidance',
+    title: 'For teachers and mentors',
+    subtitle: 'What to do when a student seems to be struggling or tells you something worrying',
+    route: '/support/teachers',
+    keywords: <String>[
+      'teacher', 'teachers', 'for teachers', 'madrasa', 'madrassa', 'mentor',
+      'mentors', 'classroom', 'a student told me', 'student is struggling',
+      'safeguarding', 'child disclosed', 'imam teacher', 'quran teacher',
+      'teacher guidance', 'sunday school',
+    ],
+  ),
+  AppDestination(
     id: 'support-hub',
     title: 'Support',
     subtitle: 'When something is hard: alcohol, drugs, abuse, school and more',

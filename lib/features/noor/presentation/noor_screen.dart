@@ -473,9 +473,12 @@ class NoorEntryBlock extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String? tl = entry.kind == NoorKind.quran
-        ? ref.watch(quranTranslitProvider).valueOrNull?[entry.reference]
-        : null;
+    final Map<String, String>? translitMap =
+        ref.watch(quranTranslitProvider).valueOrNull;
+    String? tl;
+    if (entry.kind == NoorKind.quran && translitMap != null) {
+      tl = translitMap[entry.reference];
+    }
     return ArabicBlock(
       key: const Key('noor-entry-block'),
       arabic: entry.arabic,

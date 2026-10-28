@@ -12,6 +12,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../application/support_settings.dart';
 import '../data/pack_repository.dart';
+import '../domain/safe_replies.dart' show LeavingQuestion;
 import '../domain/support_pack.dart';
 import 'privacy_shield.dart';
 import 'support_widgets.dart';
@@ -123,6 +124,31 @@ class SupportHubScreen extends ConsumerWidget {
                         ]),
                       ),
                     ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: GlassCard(
+                      key: const Key('support-hub-teachers'),
+                      onTap: () => context.open(AppRoutes.teacherGuidance),
+                      semanticsLabel: 'For teachers and mentors. What to do when a '
+                          'student seems to be struggling or tells you something worrying.',
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      child: Row(children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text('For teachers and mentors',
+                                  style: AppText.body.copyWith(fontSize: 15)),
+                              Text(
+                                  'What to do when a student seems to be struggling or tells you something worrying.',
+                                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                        const Icon(Icons.chevron_right, size: 18),
+                      ]),
+                    ),
+                  ),
                   ...supportReviewLabels('support.pathways', 'support.pathways')
                       .map((String l) => Text(l, style: AppText.caption)),
                 ],
@@ -230,6 +256,19 @@ class SupportPathwayScreen extends ConsumerWidget {
                           section('FOR FAMILY AND FRIENDS', _of(pack, 'family', lang, max: 3)),
                           section('PEOPLE TO TURN TO', _of(pack, 'referral', lang, max: 4)),
                           section('FAITH', _of(pack, 'islamic', lang, max: 4)),
+                        ],
+                        if (path.id == 'domestic-abuse') ...<Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16, bottom: 8, left: 4),
+                            child: Text('THINKING ABOUT LEAVING, KHULA OR DIVORCE',
+                                style: AppText.eyebrow),
+                          ),
+                          GlassCard(
+                            key: const Key('pathway-leaving-section'),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                            child: Text(LeavingQuestion.pathwaySection,
+                                style: AppText.body.copyWith(fontSize: 14, height: 1.5)),
+                          ),
                         ],
                         SupportHelpLines(scope: path.scope),
                         const SizedBox(height: 12),

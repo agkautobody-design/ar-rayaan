@@ -228,6 +228,41 @@ abstract final class LeavingQuestion {
       'it often matters for your safety, your children and your money.\n\n'
       'Staying is not a failure and neither is leaving. Are you safe right '
       'now?';
+
+  /// True when the message names the verse people quote (4:34).
+  static bool mentionsVerse(String text) {
+    final String p = _Words.pad(text);
+    return p.contains(' 4 34 ') || p.contains(' 434 ');
+  }
+
+  /// A short, plain paragraph on 4:34 for a woman who is not safe. Only what
+  /// the app's reviewed-pending answers already say: no ruling on her case.
+  /// (SCHOLAR AND SAFEGUARDING REVIEW NEEDED, support.leaving-question.)
+  static const String verseNote =
+      'You asked about 4:34. That verse is not a permission to hurt you. '
+      'Scholars place hard limits on it, and the Prophet ﷺ never struck a '
+      'woman (Sahih Muslim 2328). Nothing in Islam gives anyone the right to '
+      'hit you, frighten you or control you by force.';
+
+  /// The options, with the verse note first when the question names 4:34.
+  static String optionsFor(String text) =>
+      mentionsVerse(text) ? '$verseNote\n\n$options' : options;
+
+  /// For the domestic-abuse pathway page: the same four options in short, so
+  /// a person who comes to the page with this question finds them there.
+  static const String pathwaySection =
+      'If you are wondering about leaving, or about khula or divorce: you do '
+      'not have to decide tonight, and you do not have to wait for a ruling to '
+      'get safe. 1) Your safety first. 2) Talk it through in confidence with a '
+      'domestic abuse service, who help you plan whether you stay or go. '
+      '3) Ask a qualified scholar or imam who has worked with abuse about '
+      'khula and divorce, ideally a woman scholar if you prefer. 4) Ask a '
+      'lawyer or legal advice service about your rights where you live. The '
+      'verse people quote (4:34) is not a permission to hurt you; the Prophet ﷺ '
+      'never struck a woman '
+      '(Sahih Muslim 2328). Staying is not a failure and neither is leaving. '
+      'General information, not a ruling on your case. Scholar and '
+      'safeguarding review needed.';
 }
 
 // ── "Are you a therapist?" and "Can you be my only friend?" ───────────────

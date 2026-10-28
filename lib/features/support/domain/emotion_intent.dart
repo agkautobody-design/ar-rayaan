@@ -61,7 +61,11 @@ abstract final class EmotionIntentDetector {
   static const Map<String, List<String>> _emotion = <String, List<String>>{
     'shame': <String>[
       'ashamed', 'shame', 'disgusting', 'disgusted', 'hypocrite', 'filthy',
-      'embarrassed', 'worthless', 'pathetic', 'ashamed of',
+      'embarrassed', 'worthless', 'pathetic', 'ashamed of', 'hate myself',
+      'i hate myself', 'hate who i am', 'disgusted with myself',
+      'disgusted by myself', 'despise myself', 'loathe myself',
+      'cant stand myself', 'sick of myself', 'im a bad person',
+      'i am a bad person', 'im a failure', 'i am a failure',
     ],
     'despair': <String>[
       'hopeless', 'no point', 'give up', 'cant go on', 'nothing helps',

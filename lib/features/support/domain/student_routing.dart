@@ -65,6 +65,13 @@ abstract final class StudentRouting {
       if (any(_parentCoaching)) return StudentConcern.parentCoaching;
       return null;
     }
+    // Fear of a test or exam, in any wording, is exam nerves.
+    final bool examWord = n.contains(' exam ') || n.contains(' exams ') ||
+        n.contains(' test ') || n.contains(' tests ') || n.contains(' quiz ');
+    final bool fearWord = n.contains(' scared ') || n.contains(' afraid ') ||
+        n.contains(' nervous ') || n.contains(' worried ') ||
+        n.contains(' anxious ') || n.contains(' frightened ');
+    if (examWord && fearWord) return StudentConcern.anxiety;
     for (final MapEntry<StudentConcern, List<String>> e in _words.entries) {
       if (any(e.value)) return e.key;
     }

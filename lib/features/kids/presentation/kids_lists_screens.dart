@@ -20,6 +20,32 @@ class _KidSurah {
   /// A well-known English name for it, or empty.
   final String gloss;
   final int ayat;
+
+  /// How long it is for a child, in a word: the fewer the ayat, the easier
+  /// it is to start with. Al-Fatihah is the first surah in the Qur'an.
+  String get cue {
+    if (number == 1) return 'the first surah';
+    if (ayat <= 3) return 'very short';
+    if (ayat <= 5) return 'short';
+    return 'a little longer';
+  }
+}
+
+/// Al-Fatihah first, then from the shortest to the longest (the same length:
+/// the later surah first, the way children learn Juz Amma).
+List<_KidSurah> get _ordered {
+  final List<_KidSurah> rest = <_KidSurah>[
+    for (final _KidSurah s in _surahs)
+      if (s.number != 1) s,
+  ]..sort((_KidSurah a, _KidSurah b) {
+      final int c = a.ayat.compareTo(b.ayat);
+      return c != 0 ? c : b.number.compareTo(a.number);
+    });
+  return <_KidSurah>[
+    for (final _KidSurah s in _surahs)
+      if (s.number == 1) s,
+    ...rest,
+  ];
 }
 
 // The numbers are exactly [kChildSurahs]; a test keeps the two together.
@@ -63,7 +89,7 @@ class KidsSurahsScreen extends StatelessWidget {
                 style: AppText.body.copyWith(fontSize: 17, height: 1.4),
               ),
             ),
-            for (final _KidSurah s in _surahs)
+            for (final _KidSurah s in _ordered)
               if (kChildSurahs.contains(s.number))
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
@@ -72,7 +98,7 @@ class KidsSurahsScreen extends StatelessWidget {
                     strong: true,
                     semanticsLabel: '${s.name}'
                         '${s.gloss.isEmpty ? '' : ', ${s.gloss}'}. '
-                        '${s.ayat} ayat.',
+                        '${s.ayat} ayat, ${s.cue}.',
                     onTap: () => context.open(AppRoutes.surah(s.number)),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 18,
@@ -98,8 +124,8 @@ class KidsSurahsScreen extends StatelessWidget {
                               const SizedBox(height: 2),
                               Text(
                                 s.gloss.isEmpty
-                                    ? '${s.ayat} ayat'
-                                    : '${s.gloss} · ${s.ayat} ayat',
+                                    ? '${s.ayat} ayat · ${s.cue}'
+                                    : '${s.gloss} · ${s.ayat} ayat · ${s.cue}',
                                 style:
                                     AppText.bodyMuted.copyWith(fontSize: 14),
                               ),

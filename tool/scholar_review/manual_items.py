@@ -358,6 +358,31 @@ def add_all(R):
         'R11_T2: the same card for a bad day and for abuse; identical secrecy answers; a long self-harm card for a five-year-old. No child-protection specialist or clinician has read the new wording.',
         CLIN, ['R11_T2'], 'high', also=[LAWYER, NATIVE], sub='children',
         surf='Wasia thread and Kids Corner')
+    # ------------------------------------------------ round 3, fix pass B
+    add('support.child-distress-r3', 'sakina', 'Wasia > "I hate myself", "bullied", "mean" replies per age band; exam nerves; ambiguous "tired of everything" for adults and children',
+        'lib/features/support/domain/child_distress.dart', 'ChildDistressKind.selfHate / bullied / mean; CrisisDetector passive ideation',
+        'Round 3: three new child reply kinds with a grown-up and helpline choice; exam nerves no longer get the scared-child reply; passive ideation phrases ("tired of everything ... want it to stop") get the safety check.',
+        'R12: the sentences got the wrong card or none. No clinician or child-protection specialist has read the wording; the passive-ideation phrase list needs clinical review.',
+        CLIN, ['R12_T2', 'R12_T10'], 'high', also=[LAWYER, NATIVE], sub='children',
+        surf='Wasia thread, Hadi and Sakina')
+    add('support.help-sheet-bands', 'sakina', 'Need help now sheet > different lists for 5-8, 9-12, 13-17 and adults',
+        'lib/features/sakina/presentation/widgets/need_help_button.dart', 'NeedHelpButton sheet',
+        'Round 3: 5-8 shows only dial-able lines; adults see emergency numbers (911 in the US) first. Verified numbers only.',
+        'R12: one sheet for every age. A safeguarding specialist should confirm the lines shown for each band.',
+        CLIN, ['R12_T2'], 'high', also=[LAWYER], sub='children',
+        surf='Need help now sheet')
+    add('teacher.guidance-entry', 'sakina', 'Teachers and mentors page reachable from Academy, Family, Quick Access, the support hub and search',
+        'lib/features/support/presentation/support_pathway_screens.dart', 'support-hub-teachers',
+        'Round 3: a "For teachers and mentors" entry on five surfaces.',
+        'R12_T1: the page existed but could not be found. Safeguarding specialist should read the page text.',
+        CLIN, ['R12_T1'], 'high', also=[LAWYER], sub='children',
+        surf='Support hub')
+    add('kids.child-reader-r3', 'sakina', 'Child surah reader, dua and story pages without adult chrome; Memorise this surah; short-surah difficulty cue',
+        'lib/features/quran/presentation/surah_reader_screen.dart', 'child mode reader',
+        'Round 3: in child mode the reader hides downloads, bookmarks, notes and links; the surah list says how long each surah is.',
+        'R12_T2: adult controls were reachable by a child. A parent-safety reviewer should confirm.',
+        CLIN, ['R12_T2'], 'high', also=[LAWYER], sub='children',
+        surf='Kids Corner')
     add('support.leaving-question', 'sakina', 'Hadi > "Can a woman ask khula / divorce if she is not safe?" and the 4:34 question asked with a safety worry',
         'lib/features/support/domain/safe_replies.dart; lib/features/hadi/application/hadi_controller.dart', 'LeavingQuestion.options',
         'Safety first, then four options (safety, a domestic abuse service, a scholar or imam who has worked with abuse, a lawyer), with the help lines under it. No ruling and no verse given in place of safety.',

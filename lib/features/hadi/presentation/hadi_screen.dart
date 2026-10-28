@@ -900,6 +900,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               !hadi.messages[i].sensitive &&
                               hadi.messages[i].support == null &&
                               hadi.messages[i].crisis == null &&
+                              !hadi.messages[i].checkin &&
+                              !hadi.messages[i].ephemeral &&
+                              !_isHello(hadi.messages[i - 1].text) &&
                               HadiReportPolicy.mayInclude(
                                   hadi.messages[i - 1].text)
                           ? () => _openReportSheet(
@@ -1721,4 +1724,18 @@ class _SubscriptionPanel extends ConsumerWidget {
       ),
     );
   }
+}
+
+
+/// A greeting or small talk ("hello", "salam", "how are you"): the reply to
+/// it is not an answer that could be wrong, so it has no Report button.
+bool _isHello(String text) {
+  final String t = text.toLowerCase().replaceAll(RegExp(r'[^a-z ]'), ' ').trim();
+  if (t.isEmpty || t.split(RegExp(r'\s+')).length > 7) return false;
+  return RegExp(
+    r'^(hi|hello|hey|hiya|salam|salaam|assalamu alaikum|assalamualaikum|'
+    r'as salamu alaykum|peace be upon you|good morning|good evening|'
+    r'good afternoon|how are you|how r u|whats up|thanks|thank you|ok|okay)'
+    r'( hadi| there| brother| sister)?( how are you| how are you doing)?$',
+  ).hasMatch(t);
 }
