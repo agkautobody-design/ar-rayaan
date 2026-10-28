@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -936,13 +937,16 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
         Icons.people_outline,
         () => setState(() => _begin(2)),
       ),
-      const SizedBox(height: 10),
-      _modeButton(
-        'Play a friend online',
-        'Create a table, share the code. Across the street or the ocean.',
-        Icons.wifi,
-        _onlineSetup,
-      ),
+      // A child is never offered the online table: it is a parent's choice.
+      if (!kChildMode.value) ...<Widget>[
+        const SizedBox(height: 10),
+        _modeButton(
+          'Play a friend online',
+          'Create a table, share the code. Across the street or the ocean.',
+          Icons.wifi,
+          _onlineSetup,
+        ),
+      ],
       const SizedBox(height: 10),
       GamePanel(
         child: Column(

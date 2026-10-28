@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../application/academy_providers.dart';
+import '../application/child_age_band.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/academy_models.dart' show LessonProgress;
@@ -222,7 +223,7 @@ class LettersLessonsScreen extends ConsumerWidget {
                                       fontSize: 22, color: Color(0xFFEAD9A8))),
                             ),
                             const SizedBox(width: 12),
-                            Expanded(child: Text(lesson.title, style: AppText.body.copyWith(
+                            Expanded(child: arabicAwareText(lesson.title, AppText.body.copyWith(
                                 fontSize: 13.5, fontWeight: FontWeight.w600))),
                             if (progress[lesson.id]?.completed ?? false)
                               const Padding(
@@ -285,6 +286,24 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
   // The current quiz is answered correctly. A wrong pick can be retried, so
   // nobody gets past a question by skipping it or by guessing once.
   bool _solved = false;
+
+  /// Ask Wasia is open on a step that is not the last.
+  bool _askOpen = false;
+
+  /// The active child's age band (parent-set), which decides how much of a
+  /// teaching step is shown at first. Read once; nothing else is read.
+  String _band = ChildAgeBand.fallback;
+
+  /// The step whose full text the child has asked for ("Tell me more").
+  int _moreFor = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    ChildAgeBand.active().then((String b) {
+      if (mounted) setState(() => _band = b);
+    });
+  }
   // True once any quiz in this run was answered wrongly (drives 'walked').
   bool _quizMissed = false;
   bool _finishing = false;
@@ -363,7 +382,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
               const ScreenHeader(title: 'Letters lesson', close: true),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-                child: Text(lesson.title, style: AppText.titleMedium),
+                child: arabicAwareText(lesson.title, AppText.titleMedium),
               ),
               const ActiveChildBanner(),
               Row(children: [
@@ -390,8 +409,25 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         ),
                       ]),
                       const SizedBox(height: 8),
-                      Text(current.text ?? '',
-                          style: AppText.body.copyWith(height: 1.65, fontSize: 14.5)),
+                      Builder(builder: (BuildContext _) {
+                        final String full = current.text ?? '';
+                        final String shown = _moreFor == _step
+                            ? full
+                            : ageFitTeaching(full, _band);
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(shown,
+                                style: AppText.body.copyWith(height: 1.65, fontSize: 14.5)),
+                            if (shown.length < full.length)
+                              TextButton(
+                                key: const Key('lesson-tell-me-more'),
+                                onPressed: () => setState(() => _moreFor = _step),
+                                child: const Text('Tell me more'),
+                              ),
+                          ],
+                        );
+                      }),
                     ],
                   ),
                 )
@@ -546,7 +582,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                     ],
                   ),
                 ),
-              if (last)
+              if (last || _askOpen)
                 Padding(
                   padding: const EdgeInsets.only(top: 14),
                   child: GlassCard(
@@ -556,10 +592,25 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       children: [
                         Text('ASK WASIA', style: AppText.eyebrow),
                         const SizedBox(height: 6),
-                        const _WasiaAiCaption(),
-                        const _WasiaBox(),
+                        const WasiaAiCaption(),
+                        const WasiaAskBox(),
                       ],
                     ),
+                  ),
+                ),
+              // Any step, not only the last: a child can ask when the
+              // question comes, and the box can be put away again.
+              if (!last)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    key: const Key('lesson-ask-wasia-toggle'),
+                    onPressed: () => setState(() => _askOpen = !_askOpen),
+                    icon: Icon(
+                      _askOpen ? Icons.expand_less : Icons.chat_bubble_outline,
+                      size: 18,
+                    ),
+                    label: Text(_askOpen ? 'Hide Ask Wasia' : 'Ask Wasia a question'),
                   ),
                 ),
             ],
@@ -572,14 +623,14 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
 
 /// What the Ask Wasia box says about the AI, true to the parent's switch: off
 /// means Wasia answers only from her lesson shelf, on this device.
-class _WasiaAiCaption extends StatefulWidget {
-  const _WasiaAiCaption();
+class WasiaAiCaption extends StatefulWidget {
+  const WasiaAiCaption({super.key});
 
   @override
-  State<_WasiaAiCaption> createState() => _WasiaAiCaptionState();
+  State<WasiaAiCaption> createState() => WasiaAiCaptionState();
 }
 
-class _WasiaAiCaptionState extends State<_WasiaAiCaption> {
+class WasiaAiCaptionState extends State<WasiaAiCaption> {
   bool _on = false;
 
   @override
@@ -604,6 +655,44 @@ class _WasiaAiCaptionState extends State<_WasiaAiCaption> {
   }
 }
 
+/// How much of a teaching step is shown first, by age band: a child of 5-8
+/// gets the first two sentences with "Tell me more" for the rest; older
+/// children and teenagers get the whole step. Only the text is cut; nothing is
+/// rewritten. EDUCATOR REVIEW NEEDED (`academy.letters.age-fit`).
+String ageFitTeaching(String text, String band) {
+  if (band != '5-8') return text;
+  final List<RegExpMatch> ends = RegExp(r'[.!?](\s+|$)').allMatches(text).toList();
+  if (ends.length <= 2) return text;
+  return text.substring(0, ends[1].end).trimRight();
+}
+
+/// A title with Arabic letters in it (for example the lesson about the Alif):
+/// the Arabic runs are drawn in Amiri with enough line height that the tall
+/// letters are not clipped, the rest in the given style.
+Widget arabicAwareText(String text, TextStyle style, {Key? key}) {
+  final RegExp run = RegExp('[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF][\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF\u064B-\u065F ]*');
+  if (!run.hasMatch(text)) return Text(text, key: key, style: style);
+  final List<InlineSpan> spans = <InlineSpan>[];
+  int at = 0;
+  for (final RegExpMatch m in run.allMatches(text)) {
+    if (m.start > at) spans.add(TextSpan(text: text.substring(at, m.start)));
+    spans.add(TextSpan(
+      text: m.group(0),
+      style: TextStyle(
+        fontFamily: 'Amiri',
+        fontSize: (style.fontSize ?? 18) * 1.15,
+        height: 1.8,
+      ),
+    ));
+    at = m.end;
+  }
+  if (at < text.length) spans.add(TextSpan(text: text.substring(at)));
+  return Padding(
+    padding: const EdgeInsets.only(top: 4),
+    child: Text.rich(TextSpan(children: spans), key: key, style: style.copyWith(height: 1.6)),
+  );
+}
+
 final RegExp _arabicScript = RegExp('[\u0600-\u06FF]');
 
 /// Arabic options are drawn large in Amiri; Latin names (the shape to name
@@ -613,13 +702,13 @@ TextStyle quizOptionStyle(String option) => _arabicScript.hasMatch(option)
         fontFamily: 'Amiri', fontSize: 26, color: Color(0xFFEAD9A8))
     : AppText.body.copyWith(fontSize: 18, fontWeight: FontWeight.w600);
 
-class _WasiaBox extends ConsumerStatefulWidget {
-  const _WasiaBox();
+class WasiaAskBox extends ConsumerStatefulWidget {
+  const WasiaAskBox({super.key});
   @override
-  ConsumerState<_WasiaBox> createState() => _WasiaBoxState();
+  ConsumerState<WasiaAskBox> createState() => WasiaAskBoxState();
 }
 
-class _WasiaBoxState extends ConsumerState<_WasiaBox> {
+class WasiaAskBoxState extends ConsumerState<WasiaAskBox> {
   final _input = TextEditingController();
 
   @override

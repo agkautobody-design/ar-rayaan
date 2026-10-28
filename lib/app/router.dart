@@ -61,6 +61,8 @@ import '../features/home/presentation/home_screen.dart';
 import '../features/journey/presentation/journey_screen.dart';
 import '../features/kids/presentation/kids_corner_screen.dart';
 import '../features/kids/presentation/kids_lists_screens.dart';
+import '../features/kids/presentation/kids_pages.dart';
+import '../features/support/presentation/teacher_guidance_screen.dart';
 import '../features/noor/presentation/reflections_screen.dart';
 import '../features/menu/presentation/menu_screen.dart';
 import '../features/noor/presentation/noor_screen.dart';
@@ -234,6 +236,9 @@ abstract final class AppRoutes {
   static const String support = '/support';
   static const String supportSettings = '/settings/support';
   static const String parentListening = '/support/listening-to-your-child';
+  static const String teacherGuidance = '/support/teachers';
+  static const String kidsGrownups = '/kids/grownups';
+  static const String kidsAsk = '/kids/ask';
   static const String sakinaSteady = '/sakina/steady';
   static const String sakinaMood = '/sakina/mood';
   static const String sakinaSafety = '/sakina/safety';
@@ -282,6 +287,8 @@ String parentRouteOf(String path) {
   if (p.startsWith('${AppRoutes.feelings}/')) return AppRoutes.feelings;
   if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
   if (p == AppRoutes.parentListening) return AppRoutes.family;
+  if (p == AppRoutes.teacherGuidance) return AppRoutes.academy;
+  if (p == AppRoutes.kidsGrownups || p == AppRoutes.kidsAsk) return AppRoutes.kids;
   if (p.startsWith('${AppRoutes.support}/')) return AppRoutes.support;
   if (p == AppRoutes.supportSettings) return AppRoutes.settings;
   if (p.startsWith('${AppRoutes.games}/')) return AppRoutes.games;
@@ -756,6 +763,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               _fade(const KidsDuasScreen(), pill: false),
         ),
         GoRoute(
+          path: AppRoutes.kidsGrownups,
+          pageBuilder: (context, state) =>
+              _fade(const KidsGrownupsScreen(), pill: false),
+        ),
+        GoRoute(
+          path: AppRoutes.kidsAsk,
+          pageBuilder: (context, state) =>
+              _fade(const KidsAskWasiaScreen(), pill: false),
+        ),
+        GoRoute(
           path: AppRoutes.stories,
           pageBuilder: (context, state) =>
               _fade(const StoriesScreen()),
@@ -907,6 +924,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.support,
         pageBuilder: (c, s) => _fade(const SupportHubScreen(), pill: false),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherGuidance,
+        pageBuilder: (c, s) => _fade(const TeacherGuidanceScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.parentListening,

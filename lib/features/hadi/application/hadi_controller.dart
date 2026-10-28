@@ -599,6 +599,23 @@ class HadiController extends Notifier<HadiState> {
     );
   }
 
+  /// Starts a fresh conversation that opens from the support page the person
+  /// came from, instead of the usual greeting. Nothing is saved or sent; the
+  /// message is marked sensitive and is never written to the device.
+  Future<void> openFromSupport(String opener) async {
+    await clearThread();
+    state = state.copy(
+      messages: <HadiMessage>[
+        HadiMessage(
+          fromHadi: true,
+          text: opener,
+          sensitive: true,
+          ephemeral: true,
+        ),
+      ],
+    );
+  }
+
   /// Effective key: the user's own key wins; otherwise an active
   /// subscription's managed key (per-user, server-issued — never a
   /// founder key shipped in the app). Offline shelf when both are absent.
@@ -1202,6 +1219,37 @@ class HadiController extends Notifier<HadiState> {
         (_minorSession && detected == CrisisKind.abuse)
             ? CrisisKind.childSafety
             : detected;
+    // "Can a woman ask khula if she is not safe?": the generic crisis card is
+    // not an answer to that question. Safety first, then real options, with
+    // the help lines under it. No ruling is given.
+    if (!_minorSession &&
+        (detected == null || detected == CrisisKind.abuse) &&
+        LeavingQuestion.detect(q)) {
+      final String? cc = ref.read(helpCountryProvider);
+      final bool picked = ref.read(pickedHelpCountryProvider) != null;
+      final String text = _crisisShownRecently()
+          ? LeavingQuestion.options
+          : '${_cardText(CrisisKind.abuse, cc, picked)}\n\n'
+              '${LeavingQuestion.options}';
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q, sensitive: true),
+          HadiMessage(
+            fromHadi: true,
+            text: text,
+            crisis: CrisisKind.abuse,
+            sensitive: true,
+            notes: supportReviewLabels(
+                'support.safe-replies', 'support.safe-replies'),
+          ),
+        ],
+        typing: false,
+      );
+      _latch = CrisisKind.abuse;
+      await _stat(HadiAnswerKind.safety);
+      return text;
+    }
     if (crisis != null) {
       final String? fixed = _crisisReply(detected!);
       // A woman who is not safe and asks what Islam allows her (khul',

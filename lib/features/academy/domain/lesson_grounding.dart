@@ -106,11 +106,13 @@ abstract final class LessonAnswerer {
     });
     final List<int> pick = scored.take(2).map(((int, int) e) => e.$1).toList()
       ..sort();
+    // One sentence to a paragraph, with a blank line between, so a sentence
+    // that ends in a bracket or a quotation never runs into the next one.
     final String body = pick
         .map((int i) => sents[i].length > 320
             ? '${sents[i].substring(0, 317)}...'
             : sents[i])
-        .join(' ');
+        .join('\n\n');
     return 'From this lesson: $body';
   }
 }

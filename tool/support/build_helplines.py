@@ -17,7 +17,7 @@ OUT = os.path.join(ROOT, 'assets', 'support', 'helplines.json')
 ON = '2026-10-27'
 E = ['en']
 SC = ['suicide', 'addiction', 'domestic-abuse', 'child', 'sexual-violence', 'general', 'emergency',
-      'smoking', 'gambling', 'elder', 'eating', 'poison', 'muslim', 'compulsive']
+      'smoking', 'gambling', 'elder', 'eating', 'poison', 'muslim', 'compulsive', 'addiction-family']
 
 V = []   # verified rows
 T = []   # to verify rows
@@ -42,8 +42,9 @@ v('us-ndvh', 'US', 'National Domestic Violence Hotline', '1-800-799-7233', ['dom
 v('us-rainn', 'US', 'RAINN National Sexual Assault Hotline', '1-800-656-4673', ['sexual-violence'], '24/7', 'https://rainn.org/learn-about-rainn/contact-us/', ['en', 'es'], text='Text HOPE to 64673')
 v('us-childhelp', 'US', 'Childhelp National Child Abuse Hotline', '1-800-422-4453', ['child'], None, 'https://www.childhelphotline.org/', ['en', 'es'], text='Text GO to 800-422-4453',
   aud='child-or-adult-concerned', note='Not a reporting line and not connected to 911. Hours not stated.')
-v('us-samhsa', 'US', 'SAMHSA National Helpline', '1-800-662-4357', ['addiction', 'general'], '24/7', 'https://www.samhsa.gov/find-help/helplines/national-helpline', ['en', 'es'], note='Treatment referral and information, not a crisis line.')
-v('us-poison', 'US', 'Poison Help', '1-800-222-1222', ['poison', 'emergency'], '24/7', 'https://www.poison.org/need-immediate-assistance')
+v('us-samhsa', 'US', 'SAMHSA National Helpline', '1-800-662-4357', ['addiction', 'general', 'addiction-family'], '24/7', 'https://www.samhsa.gov/find-help/helplines/national-helpline', ['en', 'es'], note='Treatment referral and information, not a crisis line.')
+v('us-poison', 'US', 'Poison Help', '1-800-222-1222', ['poison'], '24/7', 'https://www.poison.org/need-immediate-assistance',
+  note='Shown only for a possible poisoning or overdose, never on an abuse, child or distress list.')
 v('us-gambling', 'US', 'National Problem Gambling Helpline', '1-800-697-3738', ['gambling'], '24/7', 'https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/',
   text='Text 1-800-MY-RESET', note='The older 1-800-GAMBLER is not on the operator page; use 1-800-MY-RESET.')
 v('us-quit', 'US', '1-800-QUIT-NOW', '1-800-784-8669', ['smoking'], None, 'https://www.cdc.gov/tobacco/hcp/patient-care/quitlines-and-other-resources.html',
@@ -69,7 +70,7 @@ v('gb-childline', 'GB', 'Childline', '0800 1111', ['child'], '24/7', 'https://ww
 v('gb-nspcc', 'GB', 'NSPCC Helpline (adults worried about a child)', '0808 800 5000', ['child'], 'Mon-Fri 10:00-16:00', 'https://www.nspcc.org.uk/about-us/our-services/nspcc-helpline/', aud='adult-concerned')
 v('gb-frank', 'GB', 'FRANK (drugs)', '0300 123 6600', ['addiction'], '24/7', 'https://talktofrank.com/contact-frank', text='Text 82111')
 v('gb-drinkline', 'GB', 'Drinkline', '0300 123 1110', ['addiction'], 'Weekdays 09:00-20:00, weekends 11:00-16:00', 'https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/')
-v('gb-nacoa', 'GB', 'Nacoa (children of alcohol-dependent parents)', '0800 358 3456', ['addiction', 'child'], None, 'https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/', aud='child-or-adult-concerned')
+v('gb-nacoa', 'GB', 'Nacoa (children of alcohol-dependent parents)', '0800 358 3456', ['addiction-family', 'child'], None, 'https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/', aud='child-or-adult-concerned')
 v('gb-gamcare', 'GB', 'GamCare / National Gambling Treatment Service', '0808 80 20 133', ['gambling'], '24/7', 'https://www.gamcare.org.uk/get-support/')
 v('gb-smoke-eng', 'GB', 'Smokefree National Helpline (England)', '0300 123 1044', ['smoking'], None, 'https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/')
 v('gb-smoke-sco', 'GB', 'Quit Your Way Scotland', '0800 84 84 84', ['smoking'], None, 'https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/')
@@ -90,7 +91,7 @@ v('au-lifeline', 'AU', 'Lifeline', '13 11 14', ['suicide', 'general'], '24/7', '
 v('au-1800respect', 'AU', '1800RESPECT', '1800 737 732', ['domestic-abuse', 'sexual-violence'], '24/7', 'https://1800respect.org.au/calling-1800respect', text='Text 0458 737 732')
 v('au-kids', 'AU', 'Kids Helpline', '1800 55 1800', ['child'], '24/7', 'https://www.kidshelpline.com.au/get-help/phone-counselling/', aud='child', note='Ages 5-25 per health.gov.au.')
 v('au-nadh', 'AU', 'National Alcohol and Other Drug Hotline', '1800 250 015', ['addiction'], None, 'https://www.health.gov.au/our-work/drug-help/how-to-find-help', note='Hours not stated on the fetched page.')
-v('au-fds', 'AU', 'Family Drug Support', '1300 368 186', ['addiction'], '24/7', 'https://www.health.gov.au/our-work/drug-help/how-to-find-help', note='For families.')
+v('au-fds', 'AU', 'Family Drug Support', '1300 368 186', ['addiction', 'addiction-family'], '24/7', 'https://www.health.gov.au/our-work/drug-help/how-to-find-help', note='For families.')
 v('au-quit', 'AU', 'Quitline', '13 7848', ['smoking'], 'Varies by state; mostly Mon-Fri 08:00-20:00', 'https://www.quit.org.au/en/support-and-resources/ways-to-get-in-touch')
 v('au-elder', 'AU', '1800 ELDERHelp', '1800 353 374', ['elder'], 'Varies by state', 'https://www.health.gov.au/contacts/elder-abuse-phone-line', note='Routes to the state service; not a crisis line.')
 v('au-000', 'AU', 'Triple Zero', '000', ['emergency'], '24/7', 'https://www.triplezero.gov.au/triple-zero/How-to-Call-000', note='Text-based service 106 for speech or hearing difficulty.')
@@ -161,7 +162,7 @@ v('za-childline', 'ZA', 'Childline South Africa', '116', ['child'], None, 'https
 v('ng-surpin', 'NG', 'SURPIN helpline', '+234-908-021-7555', ['suicide', 'general'], '24/7 (per site)', 'https://www.surpinng.com/', note='Site lists four numbers (+234-903-440-0009, +234-814-224-1007, +234-8000787746); does not say which is toll-free. Non-governmental.')
 v('ng-ndlea', 'NG', 'NDLEA hotline', '0800 1020 3040', ['addiction'], None, 'https://ndlea.gov.ng/contact', note='Law-enforcement reporting line for drug activity, not a counselling service. Hours not stated.')
 # ---------------------------------------------------------------- International
-v('int-findahelpline', 'INT', 'Find A Helpline (ThroughLine)', None, ['suicide', 'general', 'domestic-abuse', 'addiction', 'compulsive'], None, 'https://findahelpline.com/', ['multiple'], url='https://findahelpline.com/', note='Free directory covering 175+ countries, by topic. A directory, not a service.')
+v('int-findahelpline', 'INT', 'Find A Helpline (ThroughLine)', None, ['suicide', 'general', 'domestic-abuse', 'addiction', 'compulsive', 'addiction-family'], None, 'https://findahelpline.com/', ['multiple'], url='https://findahelpline.com/', note='Free directory covering 175+ countries, by topic. A directory, not a service.')
 v('int-befrienders', 'INT', 'Befrienders Worldwide', None, ['suicide', 'general'], None, 'https://befrienders.org/find-support-now/suicide-prevention-services/', ['multiple'], url='https://befrienders.org/find-support-now/suicide-prevention-services/', note='Directory of emotional-support centres by country and language.')
 v('int-chi', 'INT', 'Child Helpline International', None, ['child'], None, 'https://childhelplineinternational.org/helplines/', ['multiple'], url='https://childhelplineinternational.org/helplines/', aud='child-or-adult-concerned', note='Directory of national child helplines.')
 
@@ -178,7 +179,7 @@ t('au-gho', 'AU', 'Gambling Help Online', '1800 858 858', ['gambling'], 'Operato
 t('au-poison', 'AU', 'Poisons Information Centre', '13 11 26', ['poison'], 'Only the NSW centre page was read; national coverage not confirmed.', 'https://www.poisonsinfo.nsw.gov.au/')
 t('au-butterfly', 'AU', 'Butterfly Foundation', '1800 33 4673', ['eating'], 'In the app; not re-confirmed today.')
 t('nz-elder', 'NZ', 'Elder Abuse Response Service', None, ['elder'], 'Age Concern page gave no number for it.', 'https://ageconcern.org.nz/get-support/elder-abuse-and-neglect-prevention/')
-t('sa-emergency', 'SA', 'Emergency numbers (911, 997, 999)', None, ['emergency'], 'my.gov.sa lists services without digits; numbers not confirmed on an official page.', 'https://my.gov.sa/en/emergency-contact')
+t('sa-emergency', 'SA', 'Emergency numbers (911, 997, 999)', None, ['emergency'], 'my.gov.sa lists services without digits; numbers not confirmed on an official page (searched again 2026-10-27: only non-official pages found).', 'https://my.gov.sa/en/emergency-contact')
 t('ae-hope', 'AE', 'National Mental Health Support Line (800 HOPE)', '800 4673', ['suicide', 'general'], 'No official page found; u.ae mental-health page lists no helpline.', 'https://u.ae/en/information-and-services/health-and-fitness/Health-and-wellbeing/mental-health')
 t('kw-112', 'KW', 'Emergency services', '112', ['emergency'], 'Official e.gov.kw page returned an error.', 'https://e.gov.kw/sites/kgoenglish/Pages/Visitors/TourismInKuwait/EssintialServicesEmergencies.aspx')
 t('kw-mh', 'KW', 'Kuwait mental-health / family lines', None, ['suicide', 'domestic-abuse'], 'No official number found.')
@@ -188,7 +189,7 @@ t('pk-emergency', 'PK', 'Rescue 1122 and Police 15', '1122', ['emergency'], 'Off
 t('bd-drug', 'BD', 'Department of Narcotics Control', '+880 1908888888', ['addiction'], 'Source page not re-confirmed in this pass.')
 t('in-ncb', 'IN', 'NCB MANAS helpline', '14446', ['addiction'], 'Government page showed no number.', 'https://nmba.dosje.gov.in/toll-free')
 t('in-telemanas-page', 'IN', 'Tele-MANAS operator site', None, ['suicide'], 'telemanas.mohfw.gov.in blocks automated reads; number confirmed via PIB instead.', 'https://telemanas.mohfw.gov.in/')
-t('eg-mh', 'EG', 'Egypt mental-health hotline', None, ['suicide', 'general'], 'Ministry page blocked automated reads.', 'https://nmhp.mohp.gov.eg/mental/web/en', ['ar'])
+t('eg-mh', 'EG', 'Egypt mental-health hotline', None, ['suicide', 'general'], 'Ministry page blocked automated reads; the Cairo governorate page read on 2026-10-27 lists no mental-health phone line.', 'https://nmhp.mohp.gov.eg/mental/web/en', ['ar'])
 t('eg-ambulance', 'EG', 'Ambulance 123 / unified 112', '123', ['emergency'], 'Interior Ministry page lists neither; 112 reported only unofficially.', 'https://moi.gov.eg/home/EmergancyNumber', ['ar'])
 t('tr-112', 'TR', 'Emergency 112', '112', ['emergency'], 'Both official pages blocked automated reads.', 'https://www.112.gov.tr/', ['tr'])
 t('tr-mh', 'TR', 'Turkey crisis / mental-health line', None, ['suicide', 'general'], 'No official suicide-prevention line confirmed.', None, ['tr'])

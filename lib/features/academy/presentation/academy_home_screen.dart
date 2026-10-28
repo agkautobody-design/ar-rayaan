@@ -321,7 +321,19 @@ class _AcademyHomeScreenState
               ScreenHeader(title: s, showSettings: !layout.simpleCopy),
               const _TrackSwitcher(),
               const SizedBox(height: 8),
-              const WasiaCheckinCard(),
+              // The words match the person: a grown-up on the Adult or Parent
+              // track is asked in adult words, the Teen track in teen words,
+              // and only the Child track uses the child's own band.
+              WasiaCheckinCard(
+                key: ValueKey<String>('checkin-$track'),
+                register: track == 'adult' || track == 'parent'
+                    ? 'adult'
+                    : (track == 'teen' ? '13-17' : null),
+              ),
+              if ((track == 'adult' || track == 'parent') && !showDoor) ...<Widget>[
+                const _TeacherCard(),
+                const SizedBox(height: 12),
+              ],
               if (layout.familyCard && !showDoor) ...<Widget>[
                 const _FamilyCard(),
                 const SizedBox(height: 12),
@@ -963,6 +975,43 @@ class _LettersHero extends ConsumerWidget {
 }
 
 /// A parent's home starts with the Family Wing.
+/// A teacher, madrasa leader or mentor: guidance on what to do when a young
+/// person seems to be struggling. Text only; nothing is collected or sent.
+class _TeacherCard extends StatelessWidget {
+  const _TeacherCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      key: const Key('teacher-card'),
+      onTap: () => context.open('/support/teachers'),
+      semanticsLabel: 'For teachers and mentors. What to do when a student '
+          'seems to be struggling. Guidance only.',
+      child: Row(
+        children: <Widget>[
+          const Icon(Icons.school_outlined, color: AppColors.gold, size: 28),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('For teachers and mentors', style: AppText.titleMedium),
+                const SizedBox(height: 4),
+                Text(
+                  'What to do when a student seems to be struggling or tells '
+                  'you something worrying. Guidance only; review needed.',
+                  style: AppText.bodyMuted.copyWith(fontSize: 14),
+                ),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right, color: AppColors.gold),
+        ],
+      ),
+    );
+  }
+}
+
 class _FamilyCard extends StatelessWidget {
   const _FamilyCard();
 

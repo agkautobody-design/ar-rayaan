@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart' show DocumentSnapshot;
 import 'package:flutter/material.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
@@ -866,13 +867,16 @@ class _LudoState extends State<LudoScreen> {
           ],
         ),
       ],
-      const SizedBox(height: 10),
-      _modeCard(
-        'Play a friend online',
-        'Create a table, share the six-letter code. Two players, no names.',
-        Icons.wifi,
-        _onlineSetup,
-      ),
+      // A child is never offered the online table: it is a parent's choice.
+      if (!kChildMode.value) ...<Widget>[
+        const SizedBox(height: 10),
+        _modeCard(
+          'Play a friend online',
+          'Create a table, share the six-letter code. Two players, no names.',
+          Icons.wifi,
+          _onlineSetup,
+        ),
+      ],
       const SizedBox(height: 14),
       LudoBoardView(
         seats: LudoRules.seatColours(p),
@@ -880,7 +884,9 @@ class _LudoState extends State<LudoScreen> {
       ),
       const SizedBox(height: 8),
       Text(
-        'Online tables are for two players. Local tables take two to four.',
+        kChildMode.value
+            ? 'Local tables take two to four.'
+            : 'Online tables are for two players. Local tables take two to four.',
         style: AppText.bodyMuted.copyWith(fontSize: 12),
         textAlign: TextAlign.center,
       ),

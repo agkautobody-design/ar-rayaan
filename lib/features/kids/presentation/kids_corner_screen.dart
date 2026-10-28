@@ -199,6 +199,9 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
   Future<void> _leave() async {
     if (!await requireParent(context, ref)) return;
     if (!mounted) return;
+    // The PIN was just entered: it stays good for the window, so the Family
+    // Wing does not ask a second time on the way out.
+    ref.read(parentGateProvider.notifier).unlock();
     // Leaving also ends child mode (the PIN was the way out).
     if (kChildMode.value) {
       await setChildMode(ref.read(sharedPreferencesProvider), false);
@@ -299,6 +302,40 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
                   ),
                 ),
               ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: GlassCard(
+                key: const Key('kids-ask-wasia'),
+                semanticsLabel: 'Ask Wasia. Ask your teacher a question.',
+                onTap: () => context.open(AppRoutes.kidsAsk),
+                child: Row(children: <Widget>[
+                  const Icon(Icons.chat_bubble_outline, color: AppColors.goldLight),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Text('Ask Wasia a question',
+                        style: AppText.body.copyWith(fontSize: 17, fontWeight: FontWeight.w600)),
+                  ),
+                  Icon(Icons.chevron_right, color: AppColors.gold.withValues(alpha: 0.7)),
+                ]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: GlassCard(
+                key: const Key('kids-grownups'),
+                semanticsLabel: 'What can grown-ups see?',
+                onTap: () => context.open(AppRoutes.kidsGrownups),
+                child: Row(children: <Widget>[
+                  const Icon(Icons.visibility_outlined, color: AppColors.goldLight),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Text('What can grown-ups see?',
+                        style: AppText.body.copyWith(fontSize: 17, fontWeight: FontWeight.w600)),
+                  ),
+                  Icon(Icons.chevron_right, color: AppColors.gold.withValues(alpha: 0.7)),
+                ]),
+              ),
+            ),
             // Always there: a child who is scared or hurt can find real help
             // lines here without Sakina, which child mode closes.
             const Padding(

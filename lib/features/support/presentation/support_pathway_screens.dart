@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../hadi/application/hadi_controller.dart';
 import '../application/support_settings.dart';
 import '../data/pack_repository.dart';
 import '../domain/support_pack.dart';
@@ -45,28 +46,30 @@ const List<SupportPathway> kSupportPathways = <SupportPathway>[
       'Without shame, and without detail.', 'porn_compulsive', 'compulsive'),
   SupportPathway('smoking', 'Smoking and vaping', 'Wanting to quit, and how.', 'smoking_vaping', 'smoking'),
   SupportPathway('family', 'Someone close to me is struggling',
-      'For the person who is worn out by loving them.', 'family_of_struggling', 'addiction'),
+      'For the person who is worn out by loving them.', 'family_of_struggling', 'addiction-family'),
   SupportPathway('student', 'School and learning',
       'Hard days, bullying, worry and learning differences.', 'student_problems', 'child'),
 ];
 
-/// What is put to Hadi when someone taps "Talk it through with Hadi" on a
-/// pathway page, so Hadi starts from the subject of the page and not from the
-/// generic welcome. It is shown as the first message and the person can
-/// delete or change it before sending.
-const Map<String, String> kPathwayOpeners = <String, String>{
-  'domestic-abuse': 'I need to talk about someone at home who hurts or frightens me.',
-  'child-abuse': 'I am worried about a child who is being hurt or is afraid.',
-  'sexual-violence': 'I want to talk about something sexual that was done to me.',
-  'elder-abuse': 'I am worried about an older person who is being hurt or neglected.',
-  'alcohol': 'I want to talk about my drinking.',
-  'drugs': 'I want to talk about drugs or medicines I am struggling with.',
-  'gambling': 'I want to talk about my gambling.',
-  'porn': 'I want to talk about a habit with pornography that I want to stop.',
-  'smoking': 'I want to talk about quitting smoking or vaping.',
-  'family': 'Someone close to me is struggling and I am worn out.',
-  'student': 'I want to talk about a hard time at school.',
-};
+/// How Hadi opens when the person comes from a support page: it knows which
+/// page, says so in a line, and does not start with the general greeting.
+/// Fixed words, never sent anywhere. CLINICIAN / SAFEGUARDING REVIEW NEEDED.
+String hadiOpenerFor(SupportPathway? p) {
+  if (p == null) {
+    return 'I am here. You came from the Support pages. Tell me as much or as '
+        'little as you like, and we can go at your pace.';
+  }
+  if (p.urgent) {
+    return 'I can see you came from the page “${p.title}”. First: are you '
+        'safe right now? If not, call your local emergency number, and use '
+        '“Exit now” if someone may see this screen. If you are safe, tell me '
+        'what is happening, as much or as little as you like. I will not '
+        'push for details.';
+  }
+  return 'I can see you came from the page “${p.title}”. I am here to listen '
+      'and to point you to people who can help; I am not a doctor or a '
+      'counsellor. Where would you like to start?';
+}
 
 SupportPathway? pathwayById(String id) {
   for (final SupportPathway p in kSupportPathways) {
@@ -229,12 +232,12 @@ class SupportPathwayScreen extends ConsumerWidget {
                         const SizedBox(height: 12),
                         OutlinedButton.icon(
                           key: const Key('support-talk-to-hadi'),
-                          // The opener travels as the route extra, never in the address, so
-                          // a sensitive subject does not sit in the URL or history.
-                          onPressed: () => context.open(
-                            AppRoutes.hadi,
-                            extra: kPathwayOpeners[path.id],
-                          ),
+                          onPressed: () async {
+                            await ref
+                                .read(hadiControllerProvider.notifier)
+                                .openFromSupport(hadiOpenerFor(path));
+                            if (context.mounted) context.open(AppRoutes.hadi);
+                          },
                           style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
                           icon: const Icon(Icons.chat_bubble_outline, size: 18),
                           label: const Text('Talk it through with Hadi'),

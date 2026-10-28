@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/router.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
+import '../../../academy/application/child_age_band.dart';
 import '../../application/sakina_providers.dart';
 import '../../domain/crisis_detector.dart';
 import '../../domain/sakina_content.dart';
@@ -76,16 +77,36 @@ class _NeedHelpSheet extends ConsumerStatefulWidget {
 }
 
 class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
+  /// The parent-set age band of the child using the phone ('5-8', '9-12',
+  /// '13-17'). Read only to decide which lines a child is shown. Null until
+  /// read, and for an adult.
+  String? _band;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.child) {
+      ChildAgeBand.active().then((String b) {
+        if (mounted) setState(() => _band = b);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // The country the person picked here (kept for the whole visit, so a
     // crisis card shown afterwards agrees) wins over the device language.
     final String? picked = ref.watch(pickedHelpCountryProvider);
     final String? country = ref.watch(helpCountryProvider);
+    // A child sees the child lines first. Until the band is read, the
+    // youngest band's list is used, so an adult line is never flashed to a
+    // small child.
+    final String? band = widget.child ? (_band ?? '5-8') : null;
     final List<HelpResource> rows = CrisisResponses.resourcesFor(
       widget.kind,
       country,
       child: widget.child,
+      band: band,
     ).take(6).toList();
     final String? cc = country?.trim().toUpperCase();
     // The general sheet also lists the lines for someone at home who hurts or
@@ -101,6 +122,25 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
                 in CrisisResponses.resourcesFor(CrisisKind.abuse, country))
               if (r.kinds.contains(HelpKind.abuse) &&
                   !r.kinds.contains(HelpKind.emergency) &&
+                  shownKeys.add('${r.dial ?? r.url ?? r.contact}'))
+                r,
+          ].take(3).toList()
+        : const <HelpResource>[];
+    // A child who is very sad, or thinking of hurting themselves, is also
+    // shown the crisis and text lines for their country (988 and the Crisis
+    // Text Line in the United States, 9-8-8 in Canada), once, under their own
+    // heading. A kind that already lists them (self-harm) does not repeat them.
+    final List<HelpResource> distress = widget.child
+        ? <HelpResource>[
+            for (final HelpResource r in CrisisResponses.resourcesFor(
+              CrisisKind.selfHarm,
+              country,
+              child: true,
+              band: band,
+            ))
+              if (r.kinds.contains(HelpKind.suicide) &&
+                  !r.kinds.contains(HelpKind.emergency) &&
+                  !r.kinds.contains(HelpKind.child) &&
                   shownKeys.add('${r.dial ?? r.url ?? r.contact}'))
                 r,
           ].take(3).toList()
@@ -186,6 +226,22 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
             for (final HelpResource r in rows) ...<Widget>[
               HelpLineTile(resource: r),
               const SizedBox(height: 8),
+            ],
+            if (distress.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 4),
+              Text(
+                'If you feel very sad, or you want to hurt yourself',
+                key: const Key('need-help-distress-heading'),
+                style: AppText.caption.copyWith(
+                  color: AppColors.sand,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 6),
+              for (final HelpResource r in distress) ...<Widget>[
+                HelpLineTile(resource: r),
+                const SizedBox(height: 8),
+              ],
             ],
             if (danger.isNotEmpty) ...<Widget>[
               const SizedBox(height: 4),

@@ -135,7 +135,7 @@ class FamilyScreen extends ConsumerWidget {
       return const FamilyLockedView();
     }
     final children = ref.watch(childrenProvider);
-    return Scaffold(
+    return ParentGateGuard(child: Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
@@ -260,7 +260,7 @@ class FamilyScreen extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
 
