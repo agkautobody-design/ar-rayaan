@@ -84,7 +84,7 @@ E('khula-woman',
   gate=False,
   topic='divorce',
   text="""
-A wife can ask for khul' whether or not there is a fault in her husband. The Prophet's ruling in the case of Thabit ibn Qais's wife did not ask her to prove mistreatment; it was enough that she could not stay in the marriage as she was. But she should not ask lightly: {HS tirmidhi:1187|Thawban reported that the Prophet said if a woman asks her husband for khul' without any harm or cause, the scent of Paradise will be unlawful for her}. A cause can be harm, unkindness, or a deep dislike that makes living together a sin.
+A wife can ask for khul' whether or not there is a fault in her husband. The Prophet's ruling in the case of Thabit ibn Qais's wife did not ask her to prove mistreatment; it was enough that she could not stay in the marriage as she was. But she should not ask lightly: {HS tirmidhi:1187|Thawban reported that the Prophet said if a woman asks her husband for khul' without any harm or cause, the scent of Paradise will be unlawful for her}. (Al-Tirmidhi called it hasan.) A cause can be harm, unkindness, or a deep dislike that makes living together a sin.
 
 How it usually goes:
 - She tells her husband, or the family who help them, that she wants khul', and what she is ready to return. The usual amount is the mahr she received, and not more: the Prophet asked only for the garden back.

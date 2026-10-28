@@ -1633,7 +1633,7 @@
 ],
 "expect": [
 {
-"core": "hadi-about",
+"core": "hadi-fatwa",
 "refusal": false
 }
 ]
@@ -2747,7 +2747,7 @@
 ],
 "expect": [
 {
-"core": "divorce-overview",
+"core": "khula-what",
 "refusal": false
 }
 ]
@@ -3297,7 +3297,7 @@
 ],
 "expect": [
 {
-"core": "hadi-about",
+"core": "hadi-who",
 "refusal": false
 }
 ]
