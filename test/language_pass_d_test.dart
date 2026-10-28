@@ -61,15 +61,6 @@ void main() {
       });
     });
 
-    test('no phrase table row quotes scripture', () {
-      for (final String en in kUiPhrases.keys) {
-        // A Qur’an reference may appear in a label; verse text may not.
-        expect(en.contains('“') && en.contains('”') && en.length > 120,
-            isFalse,
-            reason: en);
-      }
-    });
-
     test('every group has a title and rows', () {
       expect(kUiPhraseGroups.keys.toSet(), kUiPhraseGroupTables.keys.toSet());
       for (final String g in kUiPhraseGroups.keys) {

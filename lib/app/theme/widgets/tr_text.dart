@@ -38,7 +38,7 @@ String clockText(BuildContext context, String formatted) =>
 class Text extends StatelessWidget {
   const Text(
     this.data, {
-    super.key,
+    Key? key,
     this.style,
     this.strutStyle,
     this.textAlign,
@@ -52,11 +52,12 @@ class Text extends StatelessWidget {
     this.textWidthBasis,
     this.textHeightBehavior,
     this.selectionColor,
-  }) : textSpan = null;
+  })  : _key = key,
+        textSpan = null;
 
   const Text.rich(
     InlineSpan this.textSpan, {
-    super.key,
+    Key? key,
     this.style,
     this.strutStyle,
     this.textAlign,
@@ -70,8 +71,12 @@ class Text extends StatelessWidget {
     this.textWidthBasis,
     this.textHeightBehavior,
     this.selectionColor,
-  }) : data = null;
+  })  : _key = key,
+        data = null;
 
+  // The key goes to the Flutter Text underneath, so find.byKey(...) and
+  // tester.widget<Text>(...) reach the real Text as they did before.
+  final Key? _key;
   final String? data;
   final InlineSpan? textSpan;
   final TextStyle? style;
@@ -94,6 +99,7 @@ class Text extends StatelessWidget {
     if (d == null) {
       return m.Text.rich(
         textSpan!,
+        key: _key,
         style: style,
         strutStyle: strutStyle,
         textAlign: textAlign,
@@ -125,6 +131,7 @@ class Text extends StatelessWidget {
     }
     return m.Text(
       shown,
+      key: _key,
       style: style,
       strutStyle: strutStyle,
       textAlign: align,
