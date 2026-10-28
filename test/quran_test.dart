@@ -9,6 +9,7 @@ import 'package:ar_rayaan/features/academy/data/mushaf_layout_pack.dart'
     show kMadinahLayoutSha256;
 import 'package:ar_rayaan/features/academy/domain/recitation_audio.dart';
 import 'package:ar_rayaan/features/quran/application/quran_providers.dart';
+import 'package:ar_rayaan/features/quran/application/quran_translit.dart';
 import 'package:ar_rayaan/features/quran/data/bundled_quran_repository.dart';
 import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
 import 'package:ar_rayaan/features/quran/presentation/surah_reader_screen.dart';
@@ -212,6 +213,12 @@ void main() {
           recitationPlayerProvider.overrideWith((ref) => player),
           // No verified Madinah pack is bundled: the toggle must stay hidden.
           mushafLayoutProvider.overrideWith((ref) async => null),
+          // The dataset is read from the bundle in the app; a fixed pair here.
+          quranTranslitProvider.overrideWith(
+            (ref) async => <String, String>{
+              '1:2': "Al-hamdu lillaahi rabbil-'aalameen",
+            },
+          ),
         ],
         child: MaterialApp(
           theme: AppTheme.dark(),
@@ -260,7 +267,7 @@ void main() {
       // Ayah 2 of Al-Fatihah: its transliteration is in the row (the curated
       // reading where the app has one, else the program-made dataset), and the
       // reader says the Latin letters are a program-made reading aid.
-      expect(find.textContaining('Al-hamdu lillaahi'), findsWidgets);
+      expect(find.text("Al-hamdu lillaahi rabbil-'aalameen"), findsOneWidget);
       expect(find.byKey(const Key('reader-translit-note')), findsOneWidget);
       expect(find.textContaining('Scholar review needed'), findsWidgets);
       expect(find.textContaining('Sovereign of the Day'), findsOneWidget);
