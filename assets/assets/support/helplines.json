@@ -15,7 +15,8 @@
   "elder",
   "eating",
   "poison",
-  "muslim"
+  "muslim",
+  "compulsive"
  ],
  "helplines": [
   {
@@ -303,7 +304,8 @@
    "scope": [
     "muslim",
     "suicide",
-    "general"
+    "general",
+    "compulsive"
    ],
    "language": [
     "en",
@@ -374,7 +376,8 @@
    "scope": [
     "muslim",
     "general",
-    "suicide"
+    "suicide",
+    "compulsive"
    ],
    "language": [
     "en"
@@ -2064,7 +2067,8 @@
     "suicide",
     "general",
     "domestic-abuse",
-    "addiction"
+    "addiction",
+    "compulsive"
    ],
    "language": [
     "multiple"
