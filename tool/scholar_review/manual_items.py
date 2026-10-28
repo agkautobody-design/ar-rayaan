@@ -40,7 +40,7 @@ def add_all(R):
         'assets/translit/generated.json; tool/translit/build_generated_translit.py', 'program-made transliteration of fully vowelled phrases',
         'A rule-based program (quran-json, CC BY-SA 4.0) wrote a transliteration for fully vowelled Arabic phrases that had none. Check the spellings, joining of Allah, and the apostrophe for hamza and ayn.',
         'Only fully vowelled phrases of up to 60 words get an entry; hadith, unvowelled words and Qur\'an text are left alone and say "Transliteration not available yet".',
-        ARABIC, ['docs/DATA_SOURCES.md T2'], 'medium', sub='transliteration',
+        ARABIC, ['docs/DATA_SOURCES.md T2'], 'high', sub='transliteration',
         surf='Under the Arabic, with the Scholar review needed note')
     add('quran.translit-accuracy', 'quran-text', "Qur'an reader > transliteration; lesson say-steps",
         'assets/academy/phrases/*.json; assets/adhkar/adhkar.json; assets/finance/ramadan.json', 'all transliterations',

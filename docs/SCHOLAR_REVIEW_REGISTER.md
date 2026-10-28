@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5511 items.** High priority: 1293. Normal: 3516. Low: 702.
+**5512 items.** High priority: 1294. Normal: 3516. Low: 702.
 
 ### By area
 
@@ -36,14 +36,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Sakina rooms, feelings, safety copy, health | 68 | 40 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
-| Qur'an text, translation, transliteration, licences | 10 | 5 |
+| Qur'an text, translation, transliteration, licences | 11 | 6 |
 | Games and quizzes with religious content | 14 | 9 |
 | UI labels and crisis phrases in Arabic, Bangla, Urdu | 243 | 125 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5511** | **1293** |
+| **Total** | **5512** | **1294** |
 
 ### By reviewer type
 
@@ -52,7 +52,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Hadith / aqidah scholar | 2448 | 1036 |
 | Fiqh scholar (per madhab) | 623 | 236 |
 | Women's scholar | 151 | 95 |
-| Arabic / tajweed / qira'at specialist | 525 | 195 |
+| Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1015 | 252 |
 | Native speaker (ar / bn / ur) | 279 | 13 |
 | Privacy lawyer | 15 | 20 |
@@ -83,7 +83,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 60 | 1 | 5 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
-| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 4 |  |  |  | 4 |  |
+| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 5 |  |  |  | 4 |  |
 | Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
 | UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 243 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
@@ -137,13 +137,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
 - Stories: seerah, companions, women: 46 items (29 high). Ids start with `story.women`.
 
-### Arabic / tajweed / qira'at specialist (525 lead, 195 also)
+### Arabic / tajweed / qira'at specialist (526 lead, 195 also)
 
 - Academy phrase registry (transliteration, meaning, word glosses): 131 items (131 high). Ids start with `phrase.aqid-und-daw`, `phrase.arabic_hfz`, `phrase.eol_hlth_wmns_char`, `phrase.fam-yth-trx`, `phrase.foundation`.
 - Academy word glosses (300): 300 items (0 high). Ids start with `gloss.001`, `gloss.002`, `gloss.003`, `gloss.004`, `gloss.005`, `gloss.006`.
 - Academy schools, Path lessons and static course screens: 1 items (0 high). Ids start with `kids.alif-wording`.
 - Arabic, tajweed, Hifz and Qur'an recitation teaching: 88 items (42 high). Ids start with `arabic.arabic-script-lessons`, `arabic.colored-examples`, `arabic.hifz-method`, `arabic.sun-moon-letters`, `arabic.tajweed-jali-khafi`, `arabic.tarteel-definition`.
-- Qur'an text, translation, transliteration, licences: 4 items (3 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`.
+- Qur'an text, translation, transliteration, licences: 5 items (4 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`, `translit.program-made-gap-fill`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
 ### Clinician (Sakina and health content) (1015 lead, 252 also)
@@ -3861,7 +3861,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Qur'an text, translation, transliteration, licences
 
-10 items, 5 high priority. Area key `quran-text`.
+11 items, 6 high priority. Area key `quran-text`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3869,6 +3869,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `quran.clear-quran-pack` | Qur'an reader > default English translation | The publisher's written authorisation for The Clear Quran (distribution, offline use, sharing, credit line), and the text file itself, which is not in the repo. | The app is built to use The Clear Quran by default but ships the interim translation until the file and the authorisation exist. | Rights holder / licensing | high | docs/content_needed/CLEAR_QURAN_PACK.md; docs/OWNER_ACTIONS.md item 5 |
 | `quran.foundation-terms` | Qur'an reader; translations fetched online | Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched. | OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk). | Rights holder / licensing | normal | docs/OWNER_ACTIONS.md item 5 |
 | `quran.translit-generated` | Qur'an reader > transliteration under every ayah; Home daily verse; Academy | The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrop… | The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide. | Arabic / tajweed / qira'at specialist + Rights holder / licensing | high | docs/DATA_SOURCES.md T1; docs/OWNER_ACTIONS.md item 23 |
+| `translit.program-made-gap-fill` | Any Arabic phrase with no transliteration of its own (duas, labels, Academy words) | A rule-based program (quran-json, CC BY-SA 4.0) wrote a transliteration for fully vowelled Arabic phrases that had none. Check the spellings, joining of Allah, and the apostrophe for hamza and ayn. | Only fully vowelled phrases of up to 60 words get an entry; hadith, unvowelled words and Qur'an text are left alone and say "Transliteration not available yet". | Arabic / tajweed / qira'at specialist | high | docs/DATA_SOURCES.md T2 |
 | `quran.translit-accuracy` | Qur'an reader > transliteration; lesson say-steps | Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author's own learning aid. | FIX_WORSHIP_REPORT and phrases files: "all transliterations and meanings are learning aids"; docs/content_needed/dua_transliteration.md lists the gaps. | Arabic / tajweed / qira'at specialist | high | FIX_WORSHIP_REPORT; docs/content_needed/dua_transliteration.md |
 | `quran.arabic-diacritics` | Qur'an reader (Arabic text) | Arabic diacritics were compared with a reference Uthmani text; differences were reported in the pass and no text was changed. | FIX_QURAN_HADITH_REPORT: consonantal skeleton matched; diacritic differences exist and are unreviewed. | Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (diacritics vs Uthmani) |
 | `quran.riwaya` | Qur'an reader; recitation audio | Confirm the text edition (Hafs an Asim, Madinah mushaf pagination of 604 pages) and any claim about it. | Qira'at are a specialist matter; no qira'at specialist has reviewed the choice. | Arabic / tajweed / qira'at specialist | normal | Reviewer list: Arabic / tajweed / qira'at |
