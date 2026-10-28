@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../../app/core/open_link.dart';
 
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
 import '../../../app/core/notifications/web_notifier.dart';
@@ -1653,14 +1653,12 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
   }
 
   Future<void> _openBatteryHelp() async {
-    try {
-      await launchUrl(
-        Uri.parse('https://dontkillmyapp.com'),
-        mode: LaunchMode.externalApplication,
-      );
-    } catch (_) {
-      // No browser available; the text above still explains.
-    }
+    await openLinkWithFeedback(
+      context,
+      Uri.parse('https://dontkillmyapp.com'),
+      message: 'Could not open dontkillmyapp.com. The steps above still '
+          'explain what to change.',
+    );
   }
 
   @override

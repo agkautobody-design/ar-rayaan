@@ -14,7 +14,8 @@ import '../../academy/presentation/verse_range_player_bar.dart';
 
 import '../../../app/core/sound/sound_services.dart';
 
-import 'package:url_launcher/url_launcher.dart';
+import '../../../app/core/open_link.dart';
+import '../../../app/core/safe_url.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -724,9 +725,7 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
   }
 
   Future<void> _open(String url) async {
-    try {
-      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
-    } catch (_) {}
+    await openLinkWithFeedback(context, SafeUrl.web(url));
   }
 
   @override

@@ -140,7 +140,11 @@ class ThemeDemoScreen extends StatelessWidget {
                   GoldButton(
                     label: l10n.continueLabel,
                     trailing: const Icon(Icons.chevron_right),
-                    onPressed: () {},
+                    // Founder tool: shows the pressed state is wired.
+                    onPressed: () => ScaffoldMessenger.maybeOf(context)
+                        ?.showSnackBar(
+                          const SnackBar(content: Text('Gold button pressed')),
+                        ),
                   ),
                   const SizedBox(height: 12),
                   Text(

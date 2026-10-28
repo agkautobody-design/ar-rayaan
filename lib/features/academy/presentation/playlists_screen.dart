@@ -8,7 +8,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../../app/core/open_link.dart';
 
 import '../../../app/core/safe_url.dart';
 import '../../../app/theme/app_colors.dart';
@@ -326,7 +326,9 @@ class _Items extends ConsumerWidget {
             ? 'Plays in Ar-Rayaan'
             : entry != null
                 ? 'Plays from ${entry.link.serviceLabel}'
-                : 'Not available in the app yet — opens a YouTube search';
+                : outside != null
+                    ? 'Not available in the app yet — opens a YouTube search'
+                    : 'No link for this one yet';
 
     return ListTile(
       dense: true,
@@ -338,12 +340,18 @@ class _Items extends ConsumerWidget {
       ),
       trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
         IconButton(
-          tooltip: bundled || entry != null ? 'Play' : 'Open outside the app',
+          tooltip: bundled || entry != null
+              ? 'Play'
+              : outside != null
+                  ? 'Open outside the app'
+                  : 'No link for this one yet',
           icon: Icon(
             bundled || entry != null ? Icons.play_arrow : Icons.open_in_new,
             color: AppColors.gold,
           ),
-          onPressed: () async {
+          onPressed: !(bundled || entry != null || outside != null)
+              ? null
+              : () async {
             if (bundled) {
               ref.read(streamQueueProvider.notifier).stop();
               await ref
@@ -352,9 +360,14 @@ class _Items extends ConsumerWidget {
             } else if (entry != null) {
               final int at = entries.indexWhere((StreamEntry x) =>
                   x.link == entry.link && x.title == entry.title);
-              await playStreamEntries(ref, entries, at < 0 ? 0 : at);
+              final bool started =
+                  await playStreamEntries(ref, entries, at < 0 ? 0 : at);
+              if (!started && context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text(kLinkNotOpenedMessage)));
+              }
             } else if (outside != null) {
-              await launchUrl(outside, mode: LaunchMode.externalApplication);
+              await openLinkWithFeedback(context, outside);
             }
           },
         ),

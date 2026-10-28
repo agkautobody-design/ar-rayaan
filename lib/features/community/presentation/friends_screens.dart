@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/backend/backend_exception.dart';
@@ -352,17 +352,11 @@ class _InviteScreenState extends ConsumerState<InviteScreen> {
                     ),
                     const SizedBox(height: 8),
                     OutlinedButton.icon(
-                      onPressed: () async {
-                        final ScaffoldMessengerState m = ScaffoldMessenger.of(
-                          context,
-                        );
-                        await Clipboard.setData(
-                          ClipboardData(text: _created!.link),
-                        );
-                        m.showSnackBar(
-                          const SnackBar(content: Text('Link copied.')),
-                        );
-                      },
+                      onPressed: () => copyWithFeedback(
+                        context,
+                        _created!.link,
+                        message: 'Link copied.',
+                      ),
                       icon: const Icon(Icons.copy, size: 18),
                       label: const Text('Copy link'),
                     ),

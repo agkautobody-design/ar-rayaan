@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -488,13 +488,11 @@ class WhatHadiKnowsScreen extends ConsumerWidget {
                     OutlinedButton(
                       key: const Key('memory-export'),
                       style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
-                      onPressed: () async {
-                        await Clipboard.setData(ClipboardData(text: n.exportMemory()));
-                        if (context.mounted) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Copied. You can paste it anywhere to keep it.')));
-                        }
-                      },
+                      onPressed: () => copyWithFeedback(
+                        context,
+                        n.exportMemory(),
+                        message: 'Copied. You can paste it anywhere to keep it.',
+                      ),
                       child: const Text('Export (copy as text)'),
                     ),
                     OutlinedButton(

@@ -16,7 +16,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
-import 'package:url_launcher/url_launcher.dart';
+import '../../../app/core/open_link.dart';
+import '../../../app/core/safe_url.dart';
 
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
@@ -327,14 +328,10 @@ class _TextCredit extends ConsumerWidget {
       link: true,
       label: 'Arabic text and translation source: Tanzil.net',
       child: FocusRing(borderRadius: 12, child: InkWell(
-        onTap: () async {
-          try {
-            await launchUrl(
-              Uri.parse(texts.arabic.url),
-              mode: LaunchMode.externalApplication,
-            );
-          } catch (_) {}
-        },
+        onTap: () => openLinkWithFeedback(
+          context,
+          SafeUrl.web(texts.arabic.url),
+        ),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
           child: Center(

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/open_link.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -15,13 +16,15 @@ import '../domain/stream_link.dart';
 import 'stream_embed.dart';
 
 /// Start playing [entries] from [index]. On the web the embedded player
-/// opens in the panel; elsewhere the service's own app opens.
-Future<void> playStreamEntries(
+/// opens in the panel; elsewhere the service's own app opens. Returns false
+/// when nothing could be started (no entries, or the service's app/browser
+/// would not open), so the caller can say so instead of claiming "Playing".
+Future<bool> playStreamEntries(
   WidgetRef ref,
   List<StreamEntry> entries,
   int index,
 ) async {
-  if (entries.isEmpty) return;
+  if (entries.isEmpty) return false;
   final int i = index < 0
       ? 0
       : index >= entries.length
@@ -31,9 +34,13 @@ Future<void> playStreamEntries(
   await ref.read(playerQueueProvider.notifier).pause();
   if (streamEmbedSupported) {
     ref.read(streamQueueProvider.notifier).play(entries, i);
-  } else {
-    await launchUrl(entries[i].link.openUri,
+    return true;
+  }
+  try {
+    return await launchUrl(entries[i].link.openUri,
         mode: LaunchMode.externalApplication);
+  } catch (_) {
+    return false;
   }
 }
 
@@ -93,8 +100,7 @@ class StreamPlayerPanel extends ConsumerWidget {
             ],
           ),
           TextButton.icon(
-            onPressed: () => launchUrl(e.link.openUri,
-                mode: LaunchMode.externalApplication),
+            onPressed: () => openLinkWithFeedback(context, e.link.openUri),
             icon: const Icon(Icons.open_in_new, color: AppColors.gold, size: 18),
             label: Text('Open in ${e.link.serviceLabel}',
                 style: const TextStyle(color: AppColors.gold)),
