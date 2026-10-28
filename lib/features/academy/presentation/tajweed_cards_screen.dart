@@ -14,6 +14,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class TajweedCard {
   const TajweedCard({
@@ -145,17 +146,10 @@ class TajweedCardsScreen extends StatelessWidget {
                       for (final String ex in c.examples)
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 2),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              ex,
-                              textDirection: TextDirection.rtl,
-                              style: const TextStyle(
-                                fontFamily: 'Amiri',
-                                fontSize: 24,
-                                color: AppColors.sand,
-                              ),
-                            ),
+                          child: ArabicBlock(
+                            arabic: ex,
+                            arabicSize: 24,
+                            density: ArabicBlockDensity.compact,
                           ),
                         ),
                       const SizedBox(height: 10),

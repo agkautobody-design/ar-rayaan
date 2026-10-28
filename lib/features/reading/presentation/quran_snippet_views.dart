@@ -82,6 +82,49 @@ class BismillahView extends ConsumerWidget {
   }
 }
 
+/// Any named snippet from the registry ('increase' is 20:114, the last clause),
+/// with its reference. Shows [fallback] if the registry cannot be read.
+class QuranSnippetView extends ConsumerWidget {
+  const QuranSnippetView({
+    required this.name,
+    this.arabicSize = 22,
+    this.fallback,
+    super.key,
+  });
+
+  final String name;
+  final double arabicSize;
+  final Widget? fallback;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final QuranSnippet? v = ref.watch(quranSnippetsProvider).valueOrNull?[name];
+    if (v == null) return fallback ?? const SizedBox.shrink();
+    return Column(
+      key: Key('quran-snippet-$name'),
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ArabicBlock(
+          arabic: v.arabic,
+          translit: v.translit,
+          meaning: v.english,
+          needsReview: true,
+          translitSource: 'quran-json',
+          arabicSize: arabicSize,
+          density: ArabicBlockDensity.compact,
+          centered: true,
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Qur’an ${v.ref}',
+          textAlign: TextAlign.center,
+          style: AppText.bodyMuted.copyWith(fontSize: 12),
+        ),
+      ],
+    );
+  }
+}
+
 /// Qur'an Arabic and meaning that the caller already has (from the registry),
 /// with the transliteration of the ayah [ayahKey] ('2:255') added from the
 /// dataset. If the dataset is not loaded the block says it is not available.

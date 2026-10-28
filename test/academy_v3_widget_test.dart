@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/academy/domain/v3/lesson_v3_model.dart';
 import 'package:ar_rayaan/features/academy/domain/v3/lesson_v3_state.dart';
 import 'package:ar_rayaan/features/academy/domain/v3/lessons_v3.dart';
@@ -9,7 +10,9 @@ import 'package:ar_rayaan/features/academy/domain/v3/quran_verses.dart';
 import 'package:ar_rayaan/features/academy/presentation/v3/v3_gates.dart';
 import 'package:ar_rayaan/features/academy/presentation/v3/v3_steps.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 LessonsV3 _load() {
   List<String> read(String d) => <String>[
@@ -76,10 +79,15 @@ void main() {
   testWidgets('a say step shows Arabic, transliteration and meaning',
       (WidgetTester tester) async {
     final SayStep say = data['path.u0.l1']!.steps.whereType<SayStep>().first;
-    await tester.pumpWidget(MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: SayView(step: say, resolver: data.resolver),
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await tester.pumpWidget(ProviderScope(
+      overrides: <Override>[sharedPreferencesProvider.overrideWithValue(prefs)],
+      child: MaterialApp(
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: SayView(step: say, resolver: data.resolver),
+          ),
         ),
       ),
     ));

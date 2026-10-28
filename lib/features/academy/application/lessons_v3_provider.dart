@@ -19,6 +19,7 @@ import '../domain/v3/lesson_v3_model.dart';
 import '../domain/v3/lessons_v3.dart';
 import '../domain/v3/phrase_registry.dart';
 import '../domain/v3/quran_verses.dart';
+import '../../quran/application/quran_translit.dart' show kQuranTranslitAsset;
 
 const String kLessonsV3Dir = 'assets/academy/lessons_v3/';
 const String kPhrasesDir = 'assets/academy/phrases/';
@@ -74,6 +75,15 @@ final lessonsV3Provider = FutureProvider<LessonsV3>((Ref ref) async {
   final QuranVerses quran = QuranVerses.parse(
     await ContentLoader.loadString(kQuranAsset),
     transliterationJson: await ContentLoader.loadString(kTransliterationAsset),
+    fallbackTransliterationJson: await _optionalString(kQuranTranslitAsset),
   );
   return LessonsV3.build(files, PhraseRegistry.parseAll(phraseTexts), quran);
 });
+
+Future<String?> _optionalString(String key) async {
+  try {
+    return await ContentLoader.loadString(key);
+  } catch (_) {
+    return null;
+  }
+}

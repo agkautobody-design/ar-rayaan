@@ -1,44 +1,23 @@
 {
 "license": "CC BY-SA 4.0 project; machine-generated",
 "map": {
-"آمِينَ": {
-"tl": "Aameen"
-},
 "آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ": {
 "tl": "Aayibuna taa'ibuna 'aabiduna lirabbinaa haamidun"
-},
-"أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ أَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاوُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا": {
-"tl": "Adhhibil-baasa rabban-naasishfi antash-shaafee laa shifaa'a illaa shifaawuka shifaa'an laa yughaadiru saqamaa"
 },
 "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ وَاشْفِ أَنْتَ الشَّافِي": {
 "tl": "Adhhibil-baasa rabban-naasi washfi antash-shaafee"
 },
-"أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاوُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا": {
-"tl": "Adhhibil-baasa rabban-naasishfi antash-shaafee laa shifaa'a illaa shifaawuka shifaa'an laa yughaadiru saqamaa"
-},
-"أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ وَأَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا": {
-"tl": "Adhhibil-baasa rabban-naasishfi wa'antash-shaafee l'a shifaa'a i'a shifaa'uka shifaa'an l'a yughaadiru saqamaa"
-},
 "أَسْتَغْفِرُ اللَّهَ": {
 "tl": "Astaghfiru l-lah"
+},
+"أَسْتَغْفِرُ اللَّهَ (×٣) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ": {
+"tl": "Astaghfiru l-laha l-lahumma antas-salaamu waminkas-salaam"
 },
 "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ": {
 "tl": "Astaghfiru l-lahal-ladhee laa ilaaha illaa huwal-hayyul-qayyumu wa'atubu ilayh"
 },
 "أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ": {
 "tl": "Astaghfiru l-laha astaghfiru l-laha astaghfiru l-laha l-lahumma antas-salaamu waminkas-salaamu tabaarakta yaa dhal-jalaali wal-ikraam"
-},
-"أَسْتَغْفِرُ اللَّهَ (ثَلاَثَاً) اللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَالْإِكْرَامِ.": {
-"tl": "Astaghfiru l-laha thal'atha'an l-lahumma antas-sal'amu waminkas-sal'amu tabaarakta yaa dhal-jal'ali wal-ikraam"
-},
-"أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ (مِائَةَ مَرَّةٍ فِي الْيَوْمِ).": {
-"tl": "Astaghfiru l-laha wa'atubu ilayhi mi'ata marratin fil-yawm"
-},
-"أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ": {
-"tl": "Ashhadu an l'a ilaha i'a l-lahu wa'ashhadu anna muhammadan rasulu l-lah"
-},
-"أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ": {
-"tl": "Ashhadu an l'a ilaha i'a l-lahu wahdahu l'a shareeka lahu wa'ashhadu anna muhammadan 'abduhu warasuluh"
 },
 "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ:فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ.": {
 "tl": "Asbahnaa wa'asbahal-mulku lillahi rabbil-'aalameena l-lahumma innee as'aluka khayra hadhal-yawmifathahu wanasrahu wanwrahu wabarakatahu wahudaahu wa'a'udhu bika min sharri maa feehi washarri maa ba'dah"
@@ -52,9 +31,6 @@
 "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ": {
 "tl": "A'udhu bil-lahi minash-shaytaanir-rajeem"
 },
-"أَعُوذُ بِاللَّهِ مِنَ الشَّيطَانِ الرَّجِيمِ ﴿اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَوَاتِ وَالْأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾.": {
-"tl": "A'udhu bil-lahi minash-shaytaanir-rajeemi l-lahu l'a ilaha i'a huwal-hayyul-qayyumu l'a ta'khudhuhu sinatun wal'a nawmul lahu maa fis-samawaati wamaa fil'ardi man dhal-ladhee yashfa'u 'indahu i'a bi'idhnihi ya'lamu maa bayna aydeehim wamaa khalfahum wal'a yuheetuna bishay'im min 'ilmihi i'a bimaa shaa' wasi'a kursiyyuhus-samawaati wal-arda wal'a ya'uduhu hifzuhumaa wahuwal-'aliyyul-'azeem"
-},
 "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ": {
 "tl": "A'udhu bikalimaati l-lahit-taammaati min sharri maa khalaq"
 },
@@ -67,209 +43,104 @@
 "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيْلَةِ: فَتْحَهَا، وَنَصْرَهَا، وَنُورَهَا، وَبَرَكَتَهَا، وَهُدَاهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهَا وَشَرِّ مَا بَعْدَهَا.": {
 "tl": "Amsaynaa wa'amsal-mulku lillahi rabbil-'aalameena l-lahumma innee as'aluka khayra hadhihi l-laylati fathahaa wanasrahaa wanurahaa wabarakatahaa wahudaahaa wa'a'udhu bika min sharri maa feehaa washarri maa ba'dahaa"
 },
-"أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ": {
-"tl": "Amsaynaa wa'amsal-mulku lillahi wal-hamdu lillahi l'a ilaha i'a l-lahu wahdahu l'a shareeka lah"
-},
 "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ": {
 "tl": "U'eedhukumaa bikalimaati l-lahit-taammah"
-},
-"أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ": {
-"tl": "U'eedhukumaa bikalimaati l-lahit-taammati min kulli shaytaanin wahaammatin wamin kulli 'aynin lammah"
-},
-"إِنسَانٌ": {
-"tl": "Insaan"
 },
 "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ": {
 "tl": "Inna l-laha ma'as-saabireen"
 },
-"إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا": {
-"tl": "Innaa lillahi wa'innaa ilayhi raaji'una l-lahumma jurnee fee museebatee wakhluf lee khayran minhaa"
-},
-"إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا": {
-"tl": "Innaa lillahi wa'innaa ilayhi raaji'una l-lahumma jurnee fee museebatee wakhluf lee khayran minhaa"
-},
-"إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا": {
-"tl": "Innaa lillahi wa'innaa ilayhi raaji'una l-lahumma jurnee fee museebatee wa'akhlif lee khayran minhaa"
-},
-"التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ": {
-"tl": "At-tahiyyaatu lillahi was-salawaatu wat-tayyibaatus-sal'amu 'alayka ayyuhan-nabiyyu warahmatu l-lahi wabarakaatuhus-sal'amu 'alaynaa wa'alaa 'ibaadi l-lahis-saaliheena ashhadu an l'a ilaha i'a l-lahu wa'ashhadu anna muhammadan 'abduhu warasuluh"
-},
-"التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ": {
-"tl": "At-tahiyyaatu lillahi was-salawaatu wat-tayyibaatus-sal'amu 'alayka ayyuhan-nabiyyu warahmatu l-lahi wabarakaatuhus-sal'amu 'alaynaa wa'alaa 'ibaadi l-lahis-saaliheena ashhadu an l'a ilaha i'a l-lahu wa'ashhadu anna muhammadan 'abduhu warasuluhus-sal'amu 'alaykum warahmatu l-lah"
-},
-"التَّلَاوَة": {
-"tl": "At-talaawah"
-},
-"الزَّكَاة": {
-"tl": "Az-zakaah"
-},
-"السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ": {
-"tl": "As-sal'amu 'alaykum warahmatu l-lah"
-},
-"السُّوَر": {
-"tl": "As-suwar"
-},
-"العَرَبِيَّةُ القُرْآنِيَّة": {
-"tl": "Al'arabiyyatulqur'aaniyyah"
-},
-"الكِتَابُ": {
-"tl": "Alkitaab"
-},
 "اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ": {
-"tl": "L-lahu akbaru l-lahu akbaru l-lahu akbaru subhaanal-ladhee sakhkhara lanaa haadhaa wamaa kunnaa lahu muqrineena wa'innaa ilaa rabbinaa lamunqalibun"
+"tl": "Allahu akbaru l-lahu akbaru l-lahu akbaru subhaanal-ladhee sakhkhara lanaa haadhaa wamaa kunnaa lahu muqrineena wa'innaa ilaa rabbinaa lamunqalibun"
 },
 "اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ": {
-"tl": "L-lahu akbaru l-lahu akbaru l-lahu akbaru subhaanal-ladhee sakhkhara lanaa haadhaa wamaa kunnaa lahu muqrineena wa'innaa ilaa rabbinaa lamunqalibun"
+"tl": "Allahu akbaru l-lahu akbaru l-lahu akbaru subhaanal-ladhee sakhkhara lanaa haadhaa wamaa kunnaa lahu muqrineena wa'innaa ilaa rabbinaa lamunqalibun"
 },
 "اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَٰهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، وَلِلَّهِ الْحَمْدُ": {
-"tl": "L-lahu akbaru l-lahu akbaru laa ilaaha illaa l-lahu wal-lahu akbaru l-lahu akbaru walillahil-hamd"
+"tl": "Allahu akbaru l-lahu akbaru laa ilaaha illaa l-lahu wal-lahu akbaru l-lahu akbaru walillahil-hamd"
 },
 "اللَّهُمَّ أَعِنَّا عَلَى الْعِتْقِ فِي رَمَضَانَ": {
-"tl": "L-lahumma a'innaa 'alal-'itqi fee ramadaan"
+"tl": "Allahumma a'innaa 'alal-'itqi fee ramadaan"
 },
 "اللَّهُمَّ أَعِنَّا عَلَى صِيَامِهِ وَقِيَامِهِ": {
-"tl": "L-lahumma a'innaa 'alaa siyaamihi waqiyaamih"
+"tl": "Allahumma a'innaa 'alaa siyaamihi waqiyaamih"
 },
 "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ": {
-"tl": "L-lahumma a'innee 'alaa dhikrika washukrik"
+"tl": "Allahumma a'innee 'alaa dhikrika washukrik"
 },
 "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ": {
-"tl": "L-lahumma a'innee 'alaa dhikrika washukrika wahusni 'ibaadatik"
+"tl": "Allahumma a'innee 'alaa dhikrika washukrika wahusni 'ibaadatik"
 },
 "اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا": {
-"tl": "L-lahumma aghithnaa l-lahumma aghithnaa l-lahumma aghithnaa"
-},
-"اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ": {
-"tl": "L-lahumma antas-salaamu waminkas-salaam"
-},
-"اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَىَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ": {
-"tl": "L-lahumma anta rabbee l'a ilaha i'a anta khalaqtanee wa'anaa 'abduka wa'anaa 'alaa 'ahdika wawa'dika mastata'tu a'udhu bika min sharri maa sana'tu abu'u laka bini'matika 'alaya wa'abu'u laka bidhanbee faghfir lee fa'innahu l'a yaghfirudh-dhunuba i'a ant"
+"tl": "Allahumma aghithnaa l-lahumma aghithnaa l-lahumma aghithnaa"
 },
 "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ": {
-"tl": "L-lahumma anta rabbee laa ilaaha illaa anta khalaqtanee wa'anaa 'abduk"
+"tl": "Allahumma anta rabbee laa ilaaha illaa anta khalaqtanee wa'anaa 'abduk"
 },
 "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ": {
-"tl": "L-lahumma anta rabbee laa ilaaha illaa anta khalaqtanee wa'anaa 'abduka wa'anaa 'alaa 'ahdika wawa'dika mastata'tu a'udhu bika min sharri maa sana'tu abu'u laka bini'matika 'alayya wa'abu'u laka bidhanbee faghfir lee fa'innahu laa yaghfirudh-dhunuba illaa ant"
+"tl": "Allahumma anta rabbee laa ilaaha illaa anta khalaqtanee wa'anaa 'abduka wa'anaa 'alaa 'ahdika wawa'dika mastata'tu a'udhu bika min sharri maa sana'tu abu'u laka bini'matika 'alayya wa'abu'u laka bidhanbee faghfir lee fa'innahu laa yaghfirudh-dhunuba illaa ant"
 },
 "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْيُمْنِ وَالْإِيمَانِ وَالسَّلَامَةِ وَالْإِسْلَامِ رَبِّي وَرَبُّكَ اللَّهُ": {
-"tl": "L-lahumma ahillahu 'alaynaa bil-yumni wal-eemaani was-salaamati wal-islaami rabbee warabbuka l-lah"
-},
-"اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي": {
-"tl": "L-lahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'annee"
+"tl": "Allahumma ahillahu 'alaynaa bil-yumni wal-eemaani was-salaamati wal-islaami rabbee warabbuka l-lah"
 },
 "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ": {
-"tl": "L-lahumma innee as'alukal-'afwa wal-'aafiyata fid-dunyaa wal'aakhirah"
+"tl": "Allahumma innee as'alukal-'afwa wal-'aafiyata fid-dunyaa wal'aakhirah"
 },
 "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَىٰ وَالتُّقَىٰ وَالْعَفَافَ وَالْغِنَىٰ": {
-"tl": "L-lahumma innee as'alukal-hudaa wat-tuqaa wal-'afaafa wal-ghinaa"
-},
-"اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلاً مُتَقَبَّلاً": {
-"tl": "L-lahumma innee as'aluka 'ilman naafi'an warizqan tayyiban wa'amal'an mutaqabbal'aa"
+"tl": "Allahumma innee as'alukal-hudaa wat-tuqaa wal-'afaafa wal-ghinaa"
 },
 "اللَّهُمَّ إِنِّي أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ وَتَرْكَ الْمُنْكَرَاتِ وَحُبَّ الْمَسَاكِينِ": {
-"tl": "L-lahumma innee as'aluka fi'lal-khayraati watarkal-munkaraati wahubbal-masaakeen"
+"tl": "Allahumma innee as'aluka fi'lal-khayraati watarkal-munkaraati wahubbal-masaakeen"
 },
 "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ": {
-"tl": "L-lahumma innee a'udhu bika minal-hammi wal-hazan"
+"tl": "Allahumma innee a'udhu bika minal-hammi wal-hazan"
 },
 "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْبُخْلِ وَالْجُبْنِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ": {
-"tl": "L-lahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-bukhli wal-jubni wadala'id-dayni waghalabatir-rijaal"
+"tl": "Allahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-bukhli wal-jubni wadala'id-dayni waghalabatir-rijaal"
 },
 "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ": {
-"tl": "L-lahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-bukhli wal-jubni wadala'id-dayni waghalabatir-rijaal"
-},
-"اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي": {
-"tl": "L-lahumma in kunta ta'lamu anna haadhal-amra khayrun lee fee deenee wama'aashee wa'aaqibati amree faqdurhu lee wayassirhu lee"
-},
-"اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي ثُمَّ بَارِكْ لِي فِيهِ وَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ": {
-"tl": "L-lahumma in kunta ta'lamu anna haadhal-amra khayrun lee fee deenee wama'aashee wa'aaqibati amree faqdurhu lee wayassirhu lee thumma baarik lee feehi wa'in kunta ta'lamu anna haadhal-amra sharrun lee fee deenee wama'aashee wa'aaqibati amree fasrifhu 'annee wasrifnee 'anhu waqdur liyal-khayra haythu kaan"
+"tl": "Allahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-bukhli wal-jubni wadala'id-dayni waghalabatir-rijaal"
 },
 "اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا": {
-"tl": "L-lahummaj'alil-qur'aana rabee'a qulubinaa"
+"tl": "Allahummaj'alil-qur'aana rabee'a qulubinaa"
 },
 "اللَّهُمَّ ارْحَمْنِي بِالْقُرْآنِ": {
-"tl": "L-lahummarhamnee bil-qur'aan"
+"tl": "Allahummarhamnee bil-qur'aan"
 },
 "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ": {
-"tl": "L-lahummaftah lee abwaaba rahmatik"
+"tl": "Allahummaftah lee abwaaba rahmatik"
 },
 "اللَّهُمَّ اكْشِفِ الْبَلَاءَ عَنِ الْمُسْلِمِينَ": {
-"tl": "L-lahummakshifil-balaa'a 'anil-muslimeen"
+"tl": "Allahummakshifil-balaa'a 'anil-muslimeen"
 },
 "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ": {
-"tl": "L-lahummakfinee bihalaalika 'an haraamika wa'aghninee bifadlika 'amman siwaak"
+"tl": "Allahummakfinee bihalaalika 'an haraamika wa'aghninee bifadlika 'amman siwaak"
 },
 "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ": {
-"tl": "L-lahummakfinee bihalaalika 'an haraamika wa'aghninee bifadlika 'amman siwaak"
+"tl": "Allahummakfinee bihalaalika 'an haraamika wa'aghninee bifadlika 'amman siwaak"
 },
 "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ، وَبَارِكْ لِي فِيمَا أَعْطَيْتَ، وَقِنِي شَرَّ مَا قَضَيْتَ، فَإِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ، وَإِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ": {
-"tl": "L-lahummahdinee feeman hadayta wa'aafinee feeman 'aafayta watawallanee feeman tawallayta wabaarik lee feemaa a'tayta waqinee sharra maa qadayta fa'innaka taqdee walaa yuqdaa 'alayka wa'innahu laa yadhillu man waalayta tabaarakta rabbanaa wata'aalayt"
+"tl": "Allahummahdinee feeman hadayta wa'aafinee feeman 'aafayta watawallanee feeman tawallayta wabaarik lee feemaa a'tayta waqinee sharra maa qadayta fa'innaka taqdee walaa yuqdaa 'alayka wa'innahu laa yadhillu man waalayta tabaarakta rabbanaa wata'aalayt"
 },
 "اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ.": {
-"tl": "L-lahumma bika amsaynaa wabika asbahnaa  wabika nahyaa wabika namutu wa'ilaykal-maseer"
-},
-"اللَّهُمَّ صَيِّبًا نَافِعًا": {
-"tl": "L-lahumma sayyiban naafi'aa"
-},
-"اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الْفَلاَحِ قَدْ قَامَتِ الصَّلاَةُ قَدْ قَامَتِ الصَّلاَةُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لاَ إِلَهَ إِلاَّ اللَّهُ": {
-"tl": "L-lahu akbaru l-lahu akbaru ashhadu an l'a ilaha i'a l-lahu ashhadu anna muhammadan rasulu l-lahi haya 'alas-sal'ati haya 'alal-fal'ahi qad qaamatis-sal'atu qad qaamatis-sal'atu l-lahu akbaru l-lahu akbaru l'a ilaha i'a l-lah"
-},
-"اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الْفَلاَحِ حَىَّ عَلَى الْفَلاَحِ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لاَ إِلَهَ إِلاَّ اللَّهُ": {
-"tl": "L-lahu akbaru l-lahu akbaru l-lahu akbaru l-lahu akbaru ashhadu an l'a ilaha i'a l-lahu ashhadu an l'a ilaha i'a l-lahu ashhadu anna muhammadan rasulu l-lahi ashhadu anna muhammadan rasulu l-lahi haya 'alas-sal'ati haya 'alas-sal'ati haya 'alal-fal'ahi haya 'alal-fal'ahi l-lahu akbaru l-lahu akbaru l'a ilaha i'a l-lah"
+"tl": "Allahumma bika amsaynaa wabika asbahnaa wabika nahyaa wabika namutu wa'ilaykal-maseer"
 },
 "اللَّهُ أَكْبَرُ سُبْحَانَ رَبِّيَ الْعَظِيمِ": {
-"tl": "L-lahu akbaru subhaana rabbiyal-'azeem"
-},
-"اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ.": {
-"tl": "L-lahumma anta rabbee laa ilaha i'a anta khalaqtanee wa'anaa 'abduka wa'anaa 'alaa 'ahdika wawa'dika mastata'tu a'udhu bika min sharri maa sana'tu abu'u laka bini'matika 'alayya wa'abu'u bidhanbee faghfir lee fa'innahu l'a yaghfirudh-dhunwba i'a ant"
-},
-"اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي": {
-"tl": "L-lahumma innaka 'afuwwun kareemun tuhibbul-'afwa fa'fu 'annee"
+"tl": "Allahu akbaru subhaana rabbiyal-'azeem"
 },
 "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ: فِي دِينِي وَدُنْيَايَ وَأَهْلِي، وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَينِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي.": {
-"tl": "L-lahumma innee as'alukal-'afwa wal-'aafiyata fid-dunyaa wal'aakhirati l-lahumma innee as'alukal-'afwa wal-'aafiyata fee deenee wadunyaaya wa'ahlee wamaalee l-lahummastur 'awraatee waamin raw'aatee l-lahummahfaznee min bayni yadayya wamin khalfee wa'an yameenee wa'an shimaalee wamin fawqee wa'a'udhu bi'azamatika an ughtaala min tahtee"
+"tl": "Allahumma innee as'alukal-'afwa wal-'aafiyata fid-dunyaa wal'aakhirati l-lahumma innee as'alukal-'afwa wal-'aafiyata fee deenee wadunyaaya wa'ahlee wamaalee l-lahummastur 'awraatee waamin raw'aatee l-lahummahfaznee min bayni yadayya wamin khalfee wa'an yameenee wa'an shimaalee wamin fawqee wa'a'udhu bi'azamatika an ughtaala min tahtee"
 },
 "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ": {
-"tl": "L-lahumma innee as'aluka min fadlik"
+"tl": "Allahumma innee as'aluka min fadlik"
 },
 "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ": {
-"tl": "L-lahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-jubni wal-bukhli wadala'id-dayni waghalabatir-rijaal"
+"tl": "Allahumma innee a'udhu bika minal-hammi wal-hazani wal-'ajzi wal-kasali wal-jubni wal-bukhli wadala'id-dayni waghalabatir-rijaal"
 },
 "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ": {
-"tl": "L-lahummaftah lee abwaaba rahmatik"
-},
-"اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ": {
-"tl": "L-lahummakfinee bihal'alika 'an haraamika wa'aghninee bifadlika 'amman siwaak"
-},
-"اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ وَبَارِكْ لِي فِيمَا أَعْطَيْتَ وَقِنِي شَرَّ مَا قَضَيْتَ إِنَّكَ تَقْضِي وَلاَ يُقْضَى عَلَيْكَ وَإِنَّهُ لاَ يَذِلُّ مَنْ وَالَيْتَ وَلاَ يَعِزُّ مَنْ عَادَيْتَ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ": {
-"tl": "L-lahummahdinee feeman hadayta wa'aafinee feeman 'aafayta watawallanee feeman tawallayta wabaarik lee feemaa a'tayta waqinee sharra maa qadayta innaka taqdee wal'a yuqdaa 'alayka wa'innahu l'a yadhillu man waalayta wal'a ya'izzu man 'aadayta tabaarakta rabbanaa wata'aalayt"
+"tl": "Allahummaftah lee abwaaba rahmatik"
 },
 "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ.": {
-"tl": "L-lahumma bika asbahnaa wabika amsaynaa  wabika nahyaa wabika namutu wa'ilaykan-nushur"
-},
-"اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ": {
-"tl": "L-lahumma rabba hadhihid-da'watit-taammati was-sal'atil-qaa'imati aati muhammadanil-waseelata wal-fadeelata wab'athhu maqaaman mahmudanil-ladhee wa'adtah"
-},
-"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ": {
-"tl": "L-lahumma salli 'alaa muhammadin wa'alaa aali muhammadin kamaa sallayta 'alaa ibraaheema wa'alaa aali ibraaheema innaka hameedun majeed"
-},
-"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ": {
-"tl": "L-lahumma salli 'alaa muhammadin wa'alaa aali muhammadin kamaa sallayta 'alaa ibraaheema wa'alaa aali ibraaheema innaka hameedun majeedunis-sal'amu 'alaykum warahmatu l-lah"
-},
-"اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ": {
-"tl": "L-lahumma salli 'alaa muhammadin wa'alaa aali muhammadin kamaa sallayta 'alaa ibraaheema wa'alaa aali ibraaheema innaka hameedun majeedun l-lahumma baarik 'alaa muhammadin wa'alaa aali muhammadin kamaa baarakta 'alaa ibraaheema wa'alaa aali ibraaheema innaka hameedun majeed"
-},
-"اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ (عشرَ مرَّاتٍ).": {
-"tl": "L-lahumma salli wasallim 'alaa nabayyinaa muhammadin 'shra mrraat"
-},
-"اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطانِ وَشَرَكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءاً، أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ.": {
-"tl": "L-lahumma 'aalimalghaybi wash-shahaadati faatiras-samawaati wal-ardi rabba kulli shay'in wamaleekahu ashhadu an l'a ilaha i'a anta a'udhu bika min sharri nafsee wamin sharrish-shaytni washarakihi wa'an aqtarifa 'alaa nafsee su''an aw ajurrahu ilaa muslim"
-},
-"اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ.": {
-"tl": "L-lahumma maa asbaha bee min ni'matin aw bi'ahadin min khalqika faminka wahdaka l'a shareeka laka falakal-hamdu walakash-shukr"
-},
-"اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ.": {
-"tl": "L-lahumma maa amsaa bee min ni'matin aw bi'ahadin min khalqika faminka wahdaka l'a shareeka laka falakal-hamdu walakash-shukr"
+"tl": "Allahumma bika asbahnaa wabika amsaynaa wabika nahyaa wabika namutu wa'ilaykan-nushur"
 },
 "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ": {
 "tl": "Al-hamdu lillahil-ladhee ahyaanaa ba'da maa amaatanaa wa'ilayhin-nushur"
@@ -277,17 +148,8 @@
 "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ": {
 "tl": "Al-hamdu lillahil-ladhee at'amanaa wasaqaanaa waja'alanaa muslimeen"
 },
-"الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي مِمَّا ابْتَلَاكَ بِهِ وَفَضَّلَنِي عَلَى كَثِيرٍ مِمَّنْ خَلَقَ تَفْضِيلًا": {
-"tl": "Al-hamdu lillahil-ladhee 'aafaanee mimmabtalaaka bihi wafaddalanee 'alaa katheerin mimman khalaqa tafdeelaa"
-},
 "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ": {
 "tl": "Al-hamdu lillahil-ladhee ahyaanaa ba'da maa amaatanaa wa'ilayhin-nushur"
-},
-"الْحَمْدُ لِلَّهِ كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ غَيْرَ مَكْفِيٍّ وَلاَ مُوَدَّعٍ وَلاَ مُسْتَغْنًى عَنْهُ رَبَّنَا": {
-"tl": "Al-hamdu lillahi katheeran tayyiban mubaarakan feehi ghayra makfiyyin wal'a muwadda'in wal'a mustaghnan 'anhu rabbanaa"
-},
-"بِاسْمِ اللَّهِ اللَّهُمَّ تَقَبَّلْ مِنْ مُحَمَّدٍ وَآلِ مُحَمَّدٍ وَمِنْ أُمَّةِ مُحَمَّدٍ": {
-"tl": "Bismi l-lahi l-lahumma taqabbal min muhammadin waali muhammadin wamin ummati muhammad"
 },
 "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا": {
 "tl": "Bismika l-lahumma amutu wa'ahyaa"
@@ -316,9 +178,6 @@
 "بِسْمِ اللَّهِ وَعَلَى سُنَّةِ رَسُولِ اللَّهِ": {
 "tl": "Bismi l-lahi wa'alaa sunnati rasuli l-lah"
 },
-"تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً": {
-"tl": "Tasahharu fa'inna fis-sahuri barakah"
-},
 "تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ": {
 "tl": "Taqabbala l-lahu minnaa waminkum"
 },
@@ -331,26 +190,11 @@
 "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ": {
 "tl": "Dhahabaz-zama'u wabtallatil-'uruqu wathabatal'ajru in shaa'a l-lah"
 },
-"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ": {
-"tl": "Rabbanaa aatinaa fid-dunyaa hasanatan wafil-aakhirati hasanatan waqinaa 'adhaaban-naar"
-},
-"رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ": {
-"tl": "Rabbanaa hab lanaa min azwaajinaa wadhurriyyaatinaa qurrata a'yun"
-},
-"رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا": {
-"tl": "Rabbanaa hab lanaa min azwaajinaa wadhurriyyaatinaa qurrata a'yunin waj'alnaa lil-muttaqeena imaamaa"
-},
 "رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي": {
 "tl": "Rabbighfir lee rabbighfir lee"
 },
 "رَبِّي وَرَبُّكَ وَرَبُّنَا": {
 "tl": "Rabbee warabbuka warabbunaa"
-},
-"رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ رَسُولًا": {
-"tl": "Radeetu bil-lahi rabban wabil-islaami deenan wabimuhammadin rasulaa"
-},
-"زَكَاة": {
-"tl": "Zakaah"
 },
 "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ رَبَّنَا وَلَكَ الْحَمْدُ": {
 "tl": "Sami'a l-lahu liman hamidahu rabbanaa walakal-hamd"
@@ -360,9 +204,6 @@
 },
 "سُبْحَانَ اللَّهِ": {
 "tl": "Subhaana l-lah"
-},
-"سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ": {
-"tl": "Subhaana l-lahi wal-hamdu lillahi wal'a ilaha i'a l-lahu wal-lahu akbaru wal'a hawla wal'a quwwata i'a bil-lah"
 },
 "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ": {
 "tl": "Subhaana l-lahi wabihamdih"
@@ -388,42 +229,6 @@
 "سُبْحَانَ رَبِّيَ الْعَظِيمِ": {
 "tl": "Subhaana rabbiyal-'azeem"
 },
-"صَلَاة": {
-"tl": "Salaah"
-},
-"عُدْوَانٍۢ فِيهِ": {
-"tl": "'Udwaanim feeh"
-},
-"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا": {
-"tl": "Fa'inna ma'al-'usri yusran  inna ma'al-'usri yusraa"
-},
-"قَدْ أَفْلَحَ مَنْ أَسْلَمَ وَرُزِقَ كَفَافًا وَقَنَّعَهُ اللَّهُ بِمَا آتَاهُ": {
-"tl": "Qad aflaha man aslama waruziqa kafaafan waqanna'ahu l-lahu bimaa aataah"
-},
-"قُلْ هُوَ اللَّهُ أَحَدٌ، قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ، قُلْ أَعُوذُ بِرَبِّ النَّاسِ": {
-"tl": "Qul huwa l-lahu ahadun qul a'udhu birabbil-falaqi qul a'udhu birabbin-naas"
-},
-"قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ": {
-"tl": "Qul yaa 'ibaadiyal-ladheena asrafu 'alaa anfusihim laa taqnatu mir rahmati l-lah"
-},
-"قُلۡ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّـٰثَٰتِ فِي ٱلۡعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ مَلِكِ ٱلنَّاسِ إِلَٰهِ ٱلنَّاسِ مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ": {
-"tl": "Qul huwa l-lahu ahadun l-lahu s-samadu lam yalid walam yulad walam yakul lahu kufuwan ahadu  qul a'udhu birabbi lfalaqi min sharri maa khalaqa wamin sharri ghaasiqin idhaa waqaba wamin sharri n-naffaathaati fee l'uqadi wamin sharri haasidin idhaa hasada  qul a'udhu birabbi n-naasi maliki n-naasi ilaahi n-naasi min sharri lwaswaasi lkhannaasi lladhee yuwaswisu fee suduri n-naasi mina ljinnati wan-naas"
-},
-"لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ": {
-"tl": "L'a ilaha i'a anta subhaanaka innee kuntu minaz-zaalimeen"
-},
-"لاَ إِلَهَ إِلاَّ اللَّهُ الْعَظِيمُ الْحَلِيمُ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ السَّمَوَاتِ وَرَبُّ الأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ": {
-"tl": "L'a ilaha i'a l-lahul-'azeemul-haleemu l'a ilaha i'a l-lahu rabbul-'arshil-'azeemi l'a ilaha i'a l-lahu rabbus-samawaati warabbul'ardi warabbul-'arshil-kareem"
-},
-"لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ": {
-"tl": "L'a ilaha i'a l-lahu wahdahu l'a shareeka lahu lahul-mulku walahul-hamdu wahuwa 'alaa kulli shay'in qadeer"
-},
-"لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ يُحْيِي وَيُمِيتُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ عَشْرَ مَرّاتٍ بَعْدَ صَلاةِ الْمَغْرِبِ وَالصُّبْحِ.": {
-"tl": "L'a ilaha i'a l-lahu wahdahu l'a shareeka lahu lahul-mulku walahul-hamdu yuhyee wayumeetu wahuwa 'alaa kulli shay'in qadeerun 'ashra marrtin ba'da saltil-maghribi was-subh"
-},
-"لَا إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ، وَلَهُ الْحَمدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ. لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ، وَلاَ نَعْبُدُ إِلاَّ إِيَّاهُ, لَهُ النِّعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لَا إِلَهَ إِلاَّ اللَّهُ مُخْلِصِينَ لَهُ الدِّينَ وَلَوْ كَرِهَ الكَافِرُونَ.": {
-"tl": "Laa ilaha i'a l-lahu wahdahu l'a shareeka lahu lahul-mulku walahul-hamdu wahuwa 'alaa kulli shay'in qadeerun l'a hawla wal'a quwwata i'a bil-lahi l'a ilaha i'a l-lahu wal'a na'budu i'a iyyaahu lahun-ni'matu walahul-fadlu walahuth-thanaa'ul-hasanu laa ilaha i'a l-lahu mukhliseena lahud-deena walaw karihalkaafirun"
-},
 "لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ": {
 "tl": "Laa ilaaha illaa l-lahul-'azeemul-haleemu laa ilaaha illaa l-lahu rabbul-'arshil-'azeemi laa ilaaha illaa l-lahu rabbus-samaawaati warabbul-ardi warabbul-'arshil-kareem"
 },
@@ -433,20 +238,11 @@
 "لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ": {
 "tl": "Laa ilaaha illaa l-lahul-'azeemul-haleemu laa ilaaha illaa l-lahu rabbul-'arshil-'azeemi laa ilaaha illaa l-lahu rabbus-samaawaati warabbul-ardi warabbul-'arshil-kareem"
 },
-"لَا بَأْسَ، طَهُورٌ إِنْ شَاءَ اللَّهُ": {
-"tl": "Laa ba'sa tahurun in shaa'a l-lah"
-},
 "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ": {
 "tl": "Laa hawla walaa quwwata illaa bil-lah"
 },
-"لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لاَ شَرِيكَ لَكَ": {
-"tl": "Labbayka l-lahumma labbayka labbayka l'a shareeka laka labbayka innal-hamda wan-ni'mata laka wal-mulka l'a shareeka lak"
-},
 "مَدْرَسَةُ الْحُرُوفِ": {
 "tl": "Madrasatul-huruf"
-},
-"مُؤْمِنٌ وَمُؤْمِنَةٌ": {
-"tl": "Mu'minun wamu'minah"
 },
 "نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّي وَعَمَّنْ أَعُولُ": {
 "tl": "Nawaytu an ukhrija zakaatal-fitri 'annee wa'amman a'ul"
@@ -454,20 +250,8 @@
 "نَوَيْتُ الِاعْتِكَافَ لِلَّهِ": {
 "tl": "Nawaytuli'tikaafa lillah"
 },
-"وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ": {
-"tl": "Wabisawmi ghadin nawaytu min shahri ramadaan"
-},
-"وَرَتِّلِ القُرْآنَ تَرْتِيلاً": {
-"tl": "Warattililqur'aana tarteel'aa"
-},
-"وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ": {
-"tl": "Wa'asaa an takrahu shay'an wahuwa khayrul lakum"
-},
 "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ ۚ وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ": {
 "tl": "Wahuwa ma'akum ayna maa kuntum, wanahnu aqrabu ilayhi min hablil-wareed"
-},
-"يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ.": {
-"tl": "Yaa hayyu yaa qayyumu birahmatika astaghythu aslih lee sha'niya kullahu wal'a takilnee ilaa nafsee tarfata 'ayn"
 },
 "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ": {
 "tl": "Yaa muqallibal-qulubi thabbit qalbee 'alaa deenik"
@@ -477,9 +261,6 @@
 },
 "يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ": {
 "tl": "Yahdeekumu l-lahu wayuslihu baalakum"
-},
-"﴿اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾ عَقِبَ كلِّ صَلاَةٍ.": {
-"tl": "L-lahu l'a ilaha i'a huwal-hayyul-qayyumu l'a ta'khudhuhu sinatun wal'a nawmul lahu maa fis-samawaati wamaa fil'ardi man dhal-ladhee yashfa'u 'indahu i'a bi'idhnihi ya'lamu maa bayna aydeehim wamaa khalfahum wal'a yuheetuna bishay'im min 'ilmihi i'a bimaa shaa'a wasi'a kursiyyuhus-samawaati wal'arda wal'a ya'uduhu hifzuhumaa wahuwal-'aliyyul-'azeemu 'aqiba klli sal'ah"
 }
 },
 "review": "Machine-generated; not reviewed by a qualified reader. Scholar review needed.",

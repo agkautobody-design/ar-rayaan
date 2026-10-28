@@ -118,16 +118,30 @@ def build(engine_src):
     q = json.load(open(os.path.join(ROOT, 'assets', 'quran', 'quran.json'), encoding='utf-8'))
     qtext = ' '.join(plain(v[1]) for s in q for v in s['v'])
     out = {}
+    # Single words are not generated: read alone, the program gives pause forms and
+    # a different vowel spelling from the Qur'an file (ya'lamun vs ya'lamoon).
     for a in candidates():
-        if not usable(a):
+        if not usable(a) or len(a.split()) < 2:
             continue
         if plain(a) in qtext:
             continue  # Qur'an text: shown with the Qur'an transliteration or none
         # Allah / Allahumma written with a plain alif: read it as the joining alif
         # (a spelling aid for the program only; the Arabic shown is not changed).
-        src = re.sub('\u0627(?=\u0644\u0644)', '\u0671', a)
+        src = re.sub('(?<=\\s)\u0627(?=\u0644\u0644)', '\u0671', a)
         tl = romanize.romanize_verse(src, 'en-simple', chapter=1, verse=1).replace('`', "'").strip()
         if not tl or re.search(r"[^A-Za-z\s',.\-]", tl):
+            continue
+        tl = ' '.join(re.sub(r'^Al-lah', 'Allah', tl).split())
+        if any(len(w) > 22 and '-' not in w for w in tl.split()):
+            continue  # two words run together: the program could not split them
+        # Spellings the program reads wrongly outside the Qur'an's own text: alif + short
+        # vowel mark (lA), waw + dagger alif (salah, hayah), hamza-alif + maddah, and
+        # a lone letter + apostrophe + vowel in the output.
+        if re.search('\u0627[\u064e\u064f\u0650]|\u0648\u0670|[\u0623\u0625]\u0653', a) or re.search(r"\b[a-z]'[aeiou]\b", tl.lower()):
+            continue
+        # Tanwin and the Qur'anic small tanwin forms, the silent alif after waw, and a
+        # pause-form doubled final consonant are not read correctly: leave those out.
+        if re.search(r'[\u064b-\u064d\u0656\u0657\u065e\u08f0-\u08f2]|\u0648\u0627\u0652?(\s|$)', a) or re.search(r'([b-df-hj-np-tv-z])\1$', tl.lower()):
             continue
         # Sparse vowelling means the program is guessing: need marks on half the letters.
         def _sparse(a):

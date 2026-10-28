@@ -692,6 +692,30 @@ const Map<String, List<String>> _pPass3c = <String, List<String>>{
   'Delete all children?': <String>['حذف جميع الأطفال؟', 'تمام بچے حذف کریں؟', 'সব সন্তান মুছবেন?'],
 };
 
+const Map<String, List<String>> _pReading = <String, List<String>>{
+  'Meaning': <String>['المعنى', 'مطلب', 'অর্থ'],
+  'Read it': <String>['اقرأه', 'پڑھیں', 'পড়ুন'],
+  'Hide it': <String>['أخفِه', 'چھپائیں', 'লুকান'],
+  'Transliteration not available yet': <String>['النطق بالحروف اللاتينية غير متوفر بعد', 'لاطینی حروف میں تلفظ ابھی دستیاب نہیں', 'ল্যাটিন হরফে উচ্চারণ এখনো নেই'],
+  'Reading support': <String>['مساعدة القراءة', 'پڑھنے میں مدد', 'পড়ার সহায়তা'],
+  'ARABIC READING SUPPORT': <String>['مساعدة قراءة العربية', 'عربی پڑھنے میں مدد', 'আরবি পড়ার সহায়তা'],
+  'Show transliteration': <String>['إظهار النطق بالحروف اللاتينية', 'لاطینی حروف میں تلفظ دکھائیں', 'ল্যাটিন হরফে উচ্চারণ দেখান'],
+  'Show meaning': <String>['إظهار المعنى', 'مطلب دکھائیں', 'অর্থ দেখান'],
+  'Arabic written in Latin letters, so you can read it aloud.': <String>['العربية مكتوبة بالحروف اللاتينية لتقرأها بصوت عالٍ.', 'عربی لاطینی حروف میں، تاکہ آپ بلند آواز سے پڑھ سکیں۔', 'আরবি ল্যাটিন হরফে, যাতে আপনি জোরে পড়তে পারেন।'],
+  'What the Arabic says, in English.': <String>['ما تقوله العربية، بالإنجليزية.', 'عربی کیا کہتی ہے، انگریزی میں۔', 'আরবি কী বলছে, ইংরেজিতে।'],
+  'Show everything': <String>['إظهار كل شيء', 'سب کچھ دکھائیں', 'সব দেখান'],
+  'Fade as I learn': <String>['يخفت كلما تعلمت', 'جیسے سیکھوں، مدھم ہو', 'শেখার সাথে সাথে ম্লান হোক'],
+  'I read Arabic': <String>['أقرأ العربية', 'میں عربی پڑھ لیتا ہوں', 'আমি আরবি পড়তে পারি'],
+  'Arabic, the Arabic in Latin letters, and the meaning, always.': <String>['العربية، ثم العربية بالحروف اللاتينية، ثم المعنى، دائمًا.', 'عربی، پھر لاطینی حروف میں عربی، پھر مطلب، ہمیشہ۔', 'আরবি, তারপর ল্যাটিন হরফে আরবি, তারপর অর্থ, সবসময়।'],
+  'Like Show everything, but the Latin letters step back behind a Read it button for what you already know.': <String>['مثل إظهار كل شيء، لكن الحروف اللاتينية تتراجع خلف زر اقرأه لما تعرفه.', 'سب کچھ دکھائیں کی طرح، مگر جو آپ جانتے ہیں اس کے لیے لاطینی حروف پڑھیں کے بٹن کے پیچھے چلے جاتے ہیں۔', 'সব দেখান-এর মতো, তবে যা আপনি জানেন তার ল্যাটিন হরফ পড়ুন বোতামের পেছনে সরে যায়।'],
+  'Arabic and the meaning. The Latin letters are one tap away.': <String>['العربية والمعنى. الحروف اللاتينية على بعد نقرة.', 'عربی اور مطلب۔ لاطینی حروف ایک ٹیپ کی دوری پر ہیں۔', 'আরবি ও অর্থ। ল্যাটিন হরফ এক ট্যাপ দূরে।'],
+  'CAN YOU READ ARABIC?': <String>['هل تقرأ العربية؟', 'کیا آپ عربی پڑھ سکتے ہیں؟', 'আপনি কি আরবি পড়তে পারেন?'],
+  'No, not yet': <String>['لا، ليس بعد', 'نہیں، ابھی نہیں', 'না, এখনো না'],
+  'A little': <String>['قليلًا', 'تھوڑی سی', 'অল্প অল্প'],
+  'This only decides how much help you see with the Arabic. You can change it in Settings.': <String>['هذا يحدد فقط مقدار المساعدة التي تراها مع العربية. يمكنك تغييره من الإعدادات.', 'یہ صرف طے کرتا ہے کہ عربی کے ساتھ آپ کو کتنی مدد نظر آئے۔ آپ اسے سیٹنگز میں بدل سکتے ہیں۔', 'এটি শুধু ঠিক করে আরবির সাথে আপনি কতটা সহায়তা দেখবেন। আপনি সেটিংসে বদলাতে পারেন।'],
+  'Hidden while you test yourself. Tap to show.': <String>['مخفي أثناء اختبار نفسك. المس لإظهاره.', 'خود کو آزمانے کے دوران چھپا ہے۔ دکھانے کے لیے ٹیپ کریں۔', 'নিজেকে যাচাই করার সময় লুকানো। দেখাতে ট্যাপ করুন।'],
+};
+
 /// Every phrase, all groups.
 const Map<String, List<String>> kUiPhrases = <String, List<String>>{
   ..._pFaith,
@@ -706,6 +730,7 @@ const Map<String, List<String>> kUiPhrases = <String, List<String>>{
   ..._pSupport,
   ..._pYou,
   ..._pPass3c,
+  ..._pReading,
 };
 
 /// Group id -> (screen description, phrase count), for the review register.
@@ -722,6 +747,7 @@ const Map<String, String> kUiPhraseGroups = <String, String>{
   'support': 'Support & wellbeing hub, pathways, Need help sheet, help-line tiles',
   'you': 'You tab (Profile) and journeys',
   'pass3c': 'Hadi welcome, text-size labels, first Family Wing strings',
+  'reading': 'Reading support: transliteration and meaning labels, settings, onboarding question',
 };
 
 /// The phrases of each group, by group id.
@@ -738,4 +764,5 @@ const Map<String, Map<String, List<String>>> kUiPhraseGroupTables = <String, Map
   'support': _pSupport,
   'you': _pYou,
   'pass3c': _pPass3c,
+  'reading': _pReading,
 };

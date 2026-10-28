@@ -20,6 +20,7 @@ import '../domain/hadith_marks.dart';
 import '../domain/hadith_models.dart';
 import 'daily_hadith_card.dart';
 import 'hadith_note_dialog.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 /// Hadith — the Forty Hadith of Imam an-Nawawi (bundled, offline).
 /// New screen designed within the locked system — pending Founder approval.
@@ -339,16 +340,13 @@ class _HadithBlock extends ConsumerWidget {
             ),
           ],
           const SizedBox(height: 12),
-          Text(
-            hadith.arabic,
-            style: AppText.arabicLarge.copyWith(fontSize: 19, height: 2.0),
-            textAlign: TextAlign.right,
-            textDirection: TextDirection.rtl,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            hadith.english,
-            style: AppText.bodyMuted.copyWith(fontSize: 12.5, height: 1.6),
+          // Arabic, then transliteration (a hadith has none yet: the block
+          // says so), then the meaning, per the reading settings.
+          ArabicBlock(
+            key: ValueKey<String>('hadith-block-${hadith.number}'),
+            arabic: hadith.arabic,
+            meaning: hadith.english,
+            arabicSize: 19,
           ),
           if (note.isNotEmpty) ...[
             const SizedBox(height: 8),

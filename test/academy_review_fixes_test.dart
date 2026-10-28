@@ -448,6 +448,7 @@ void main() {
         'lib/features/academy/presentation/history_school_screen.dart',
         'lib/features/academy/presentation/stories_school_screen.dart',
         'lib/features/academy/presentation/dua_school_screen.dart',
+        'assets/academy/dua_lessons.json',
         'assets/guides/guides.json',
       ])
         File(f).readAsStringSync(),

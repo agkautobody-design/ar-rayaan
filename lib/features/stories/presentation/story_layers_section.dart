@@ -13,6 +13,8 @@ import '../../quran/domain/quran_texts.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story_layers.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../reading/presentation/arabic_block.dart' show ArabicBlockDensity;
+import '../../reading/presentation/quran_snippet_views.dart';
 
 /// "Go deeper": the layers beneath a story, each kind kept apart and
 /// labelled. Renders nothing when the story has no layers file, so every
@@ -301,25 +303,17 @@ class _QuranPassage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   for (final Ayah a in ayahs) ...<Widget>[
-                    Text(
-                      a.arabic,
-                      textDirection: TextDirection.rtl,
-                      textAlign: TextAlign.right,
-                      style: const TextStyle(
-                        fontFamily: 'Amiri',
-                        fontSize: 22,
-                        height: 1.9,
-                        color: Color(0xFFEAD9A8),
-                      ),
+                    QuranTranslitBlock(
+                      arabic: a.arabic,
+                      english: a.english,
+                      ayahKey: '${s.meta.number}:${a.number}',
+                      arabicSize: 22,
+                      density: ArabicBlockDensity.regular,
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 2),
                     Text(
-                      '${s.meta.number}:${a.number}  ${a.english}',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        height: 1.6,
-                        color: AppColors.sand,
-                      ),
+                      'Qur\u2019an ${s.meta.number}:${a.number}',
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                     const SizedBox(height: 10),
                   ],

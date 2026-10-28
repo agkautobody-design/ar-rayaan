@@ -18,6 +18,7 @@ import '../application/share_service.dart';
 import 'share_actions.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class ShareCard {
   final String id, kind, arabic, text, ref;
@@ -168,10 +169,7 @@ class _ShareState extends State<ShareScreen> {
                 ),
                 child: Column(children: [
                   if (c.arabic.isNotEmpty)
-                    Text(c.arabic, textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(fontFamily: 'Amiri', fontSize: 28,
-                            height: 1.9, color: Color(0xFFEAD9A8))),
+                    ArabicBlock(arabic: c.arabic, arabicSize: 28, centered: true),
                   if (c.arabic.isNotEmpty) const SizedBox(height: 14),
                   Text('\u201c${c.text}\u201d', textAlign: TextAlign.center,
                       style: AppText.body.copyWith(fontSize: 16.5, height: 1.6)),

@@ -6,10 +6,22 @@ import '../../../app/core/scholar_review.dart';
 import '../application/share_text.dart';
 
 class HandoutSection {
-  const HandoutSection({this.heading = '', this.arabic, required this.body});
+  const HandoutSection({
+    this.heading = '',
+    this.arabic,
+    this.translit,
+    this.translitSource,
+    required this.body,
+  });
 
   final String heading;
   final String? arabic;
+
+  /// Transliteration of [arabic] and where it came from. The handout prints it
+  /// only when it may travel (see `shareableTranslit`); otherwise it says none
+  /// is available yet.
+  final String? translit;
+  final String? translitSource;
   final String body;
 }
 

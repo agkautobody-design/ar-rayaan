@@ -14,6 +14,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../reading/presentation/arabic_block.dart';
 
 class _ArLesson {
   const _ArLesson({
@@ -220,10 +221,7 @@ class ArabicLanguageSchoolScreen extends StatelessWidget {
                               color: AppColors.night,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Text(l.arabic,
-                                textAlign: TextAlign.right,
-                                style: AppText.arabic
-                                    .copyWith(fontSize: 22, color: AppColors.goldLight)),
+                            child: ArabicBlock(arabic: l.arabic, arabicSize: 22),
                           ),
                           const SizedBox(height: 8),
                           Text(l.body, style: AppText.body.copyWith(height: 1.65)),

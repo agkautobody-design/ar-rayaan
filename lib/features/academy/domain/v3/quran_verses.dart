@@ -49,12 +49,16 @@ class QuranRef {
 }
 
 class QuranVerses {
-  QuranVerses._(this._verses, this._translit);
+  QuranVerses._(this._verses, this._translit, [this._generated = const <String>{}]);
 
   /// [quranJson] is the content of assets/quran/quran.json;
   /// [transliterationJson] the content of assets/quran/transliteration.json
   /// (optional: an ayah without one simply shows none).
-  factory QuranVerses.parse(String quranJson, {String? transliterationJson}) {
+  factory QuranVerses.parse(
+    String quranJson, {
+    String? transliterationJson,
+    String? fallbackTransliterationJson,
+  }) {
     final List<dynamic> data = jsonDecode(quranJson) as List<dynamic>;
     final Map<int, List<Verse>> verses = <int, List<Verse>>{};
     for (final dynamic raw in data) {
@@ -76,11 +80,30 @@ class QuranVerses {
       final Map<String, dynamic> map = t['map'] as Map<String, dynamic>;
       map.forEach((String k, dynamic v) => tr[k] = v as String);
     }
-    return QuranVerses._(verses, tr);
+    // The program-made transliteration of every ayah fills what the curated
+    // list does not have; those ayat are marked so screens say "Scholar review needed".
+    final Set<String> generated = <String>{};
+    if (fallbackTransliterationJson != null) {
+      try {
+        final Map<String, dynamic> t =
+            jsonDecode(fallbackTransliterationJson) as Map<String, dynamic>;
+        final Map<String, dynamic> map = t['map'] as Map<String, dynamic>;
+        map.forEach((String k, dynamic v) {
+          if (!tr.containsKey(k) && v is String && v.trim().isNotEmpty) {
+            tr[k] = v;
+            generated.add(k);
+          }
+        });
+      } catch (_) {
+        // Unreadable: those ayat simply have no transliteration.
+      }
+    }
+    return QuranVerses._(verses, tr, generated);
   }
 
   final Map<int, List<Verse>> _verses;
   final Map<String, String> _translit;
+  final Set<String> _generated;
 
   int get surahCount => _verses.length;
 
@@ -95,6 +118,10 @@ class QuranVerses {
 
   /// The app's transliteration of the ayah, or null when it has none.
   String? transliteration(int surah, int ayah) => _translit['$surah:$ayah'];
+
+  /// True when the ayah's transliteration was made by a program (not curated).
+  bool transliterationIsGenerated(int surah, int ayah) =>
+      _generated.contains('$surah:$ayah');
 
   /// True when every ayah of [ref] exists.
   bool has(QuranRef ref) {

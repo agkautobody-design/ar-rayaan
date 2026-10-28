@@ -496,7 +496,13 @@ HandoutData storyHandout(Story story) => HandoutData(
               '${storyLabelMeaning(story.sourceLabel)}',
       sections: <HandoutSection>[
         for (final StoryChapter c in story.chapters)
-          HandoutSection(heading: c.heading, arabic: c.arabic, body: c.body),
+          HandoutSection(
+            heading: c.heading,
+            arabic: c.arabic,
+            translit: c.tl,
+            translitSource: c.tlSource,
+            body: c.body,
+          ),
       ],
       sources: story.sources,
       questions: <String>[
