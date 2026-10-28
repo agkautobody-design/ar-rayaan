@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/quran/application/quran_snippets.dart';
+import 'package:ar_rayaan/features/reading/application/generated_translit.dart';
 import 'package:ar_rayaan/features/quran/application/quran_translit.dart';
 import 'package:ar_rayaan/features/reading/presentation/quran_snippet_views.dart';
 import 'package:ar_rayaan/features/reading/application/reading_prefs.dart';
@@ -61,6 +62,8 @@ Future<void> _pump(
 }
 
 void main() {
+  generatedTranslitTests();
+  generatedFillWidgetTest();
   group('ReadingPrefs', () {
     test('the defaults show everything', () {
       const ReadingPrefs p = ReadingPrefs();
@@ -383,5 +386,50 @@ void main() {
       expect(find.text(k.english), findsOneWidget);
       expect(find.textContaining('39:9'), findsOneWidget);
     });
+  });
+}
+
+void generatedTranslitTests() {
+  group('generated transliteration', () {
+    test('every entry is Latin, non-empty and keyed by tidy Arabic', () {
+      final String raw = File('assets/translit/generated.json').readAsStringSync();
+      final Map<String, String> m = parseGeneratedTranslit(raw);
+      expect(m, isNotEmpty);
+      m.forEach((String k, String v) {
+        expect(normaliseArabicKey(k), k);
+        expect(RegExp(r"^[A-Za-z\s',.\-]+$").hasMatch(v), isTrue, reason: v);
+      });
+      expect(json.decode(raw)['review'], contains('Scholar review needed'));
+    });
+  });
+}
+
+void generatedFillWidgetTest() {
+  testWidgets('a block with no transliteration of its own uses the generated one', (
+    WidgetTester tester,
+  ) async {
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          generatedTranslitProvider.overrideWith(
+            (ref) async => <String, String>{'سُبْحَانَ اللَّهِ': 'Subhaana l-lah'},
+          ),
+        ],
+        child: MaterialApp(
+          theme: AppTheme.dark(),
+          home: const Scaffold(
+            body: ArabicBlock(arabic: 'سُبْحَانَ  اللَّهِ', meaning: 'Glory be to Allah'),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('Subhaana l-lah'), findsOneWidget);
+    expect(find.byKey(const Key('arabic-block-review')), findsOneWidget);
+    expect(find.byKey(const Key('arabic-block-missing')), findsNothing);
   });
 }

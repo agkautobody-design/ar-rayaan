@@ -60,6 +60,7 @@ flutter:
     - assets/images/tiles/
     - assets/quran/
     - assets/quran/translations/
+    - assets/translit/
     - assets/academy/
     - assets/academy/lessons_v3/
     - assets/academy/phrases/

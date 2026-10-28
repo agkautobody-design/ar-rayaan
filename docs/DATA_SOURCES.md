@@ -169,6 +169,16 @@ typed by hand: both come from the datasets below.
   yet". Nothing is invented.
 - Not verified: the redistribution terms of the sunnah.com Hisn pages.
 
+### T2a. Program-made gap-fill
+
+`assets/translit/generated.json` holds transliteration made by the quran-json
+rule-based romaniser (CC BY-SA 4.0, machine-generated) for Arabic phrases in
+the app that had none. Built by `tool/translit/build_generated_translit.py`;
+nothing is typed by hand. Gates: fully vowelled (marks on at least half the
+letters), at most 60 words, no hadith, no Qur'an text, no word the program
+could not give a vowel. Every use shows "Scholar review needed" and is listed
+in the scholar register as `translit.program-made-gap-fill`. Not added to shares.
+
 ## T3. Meaning
 
 - Qur'an: Saheeh International via Tanzil (interim; rights-holder permission

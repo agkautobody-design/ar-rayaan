@@ -25,6 +25,8 @@ import '../application/saved_stories_controller.dart';
 import '../application/story_text_size.dart';
 import '../data/stories_repository.dart';
 import '../domain/story.dart';
+import '../../reading/application/reading_prefs.dart';
+import '../../reading/presentation/arabic_block.dart' show TranslitLayer, kTranslitMissing, kLatinLocale;
 import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 import 'story_listen_bar.dart';
@@ -115,6 +117,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
     final current = story.chapters[_chapter];
     final last = story.chapters.length - 1;
     final bool big = ref.watch(storyBigTextProvider);
+    final LayerView tlView = ref.watch(readingPrefsProvider).translit();
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
@@ -249,32 +252,53 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 ),
               ),
             ),
-            if (current.tl != null) ...[
-              Text(
-                current.tl!,
-                key: const Key('story-chapter-tl'),
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 15,
-                  height: 1.6,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.goldLight,
-                ),
-              ),
-              if (current.tlSource != null)
+            if (tlView != LayerView.hidden) ...[
+              if (current.tl == null)
                 Padding(
-                  padding: const EdgeInsets.only(top: 4, bottom: 14),
+                  padding: const EdgeInsets.only(bottom: 14),
                   child: Text(
-                    transliterationCreditLine(current.tlSource!),
-                    key: const Key('story-chapter-tl-source'),
+                    kTranslitMissing,
+                    key: const Key('story-chapter-tl-missing'),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12,
-                      height: 1.4,
-                      color: AppColors.sand.withValues(alpha: 0.55),
-                    ),
+                    style: AppText.caption.copyWith(fontSize: 12),
+                  ),
+                )
+              else if (tlView == LayerView.button)
+                TranslitLayer(
+                  text: current.tl!,
+                  view: LayerView.button,
+                  fontSize: 15,
+                  centered: true,
+                )
+              else ...[
+                Text(
+                  current.tl!,
+                  key: const Key('story-chapter-tl'),
+                  textAlign: TextAlign.center,
+                  textDirection: TextDirection.ltr,
+                  locale: kLatinLocale,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    height: 1.6,
+                    fontStyle: FontStyle.italic,
+                    color: AppColors.goldLight,
                   ),
                 ),
+                if (current.tlSource != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4, bottom: 14),
+                    child: Text(
+                      transliterationCreditLine(current.tlSource!),
+                      key: const Key('story-chapter-tl-source'),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12,
+                        height: 1.4,
+                        color: AppColors.sand.withValues(alpha: 0.55),
+                      ),
+                    ),
+                  ),
+              ],
             ],
             if (arabicIsElided(current.arabic!))
               _ElidedArabicNote(sources: story.sources),
@@ -432,6 +456,8 @@ ShareDoc storyChapterShareDoc(Story story, StoryChapter chapter) {
         ? story.title
         : '${story.title}: ${chapter.heading}',
     arabic: chapter.arabic,
+    translit: chapter.tl,
+    translitSource: chapter.tlSource,
     body: chapter.body,
     source: label == kLabelEstablished
         ? sources
