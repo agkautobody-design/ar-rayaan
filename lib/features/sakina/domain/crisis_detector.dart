@@ -413,12 +413,6 @@ abstract final class CrisisDetector {
     // word "die". A listening reply with the safety question is the cheaper
     // mistake, so these fire. "I want it to stop" alone is NOT here (it is also
     // said about a habit); it needs a weariness cue, see _stopCue.
-    const _Pat('tired of everything'),
-    const _Pat('sick of everything'),
-    const _Pat('tired of it all'),
-    const _Pat('sick of it all'),
-    const _Pat('tired of all of it'),
-    const _Pat('sick and tired of everything'),
     const _Pat('tired of being me'),
     const _Pat('tired of being alive'),
     const _Pat('want it all to stop'),
@@ -700,6 +694,11 @@ abstract final class CrisisDetector {
   /// stop").
   static const List<String> _weary = <String>[
     'so tired',
+    'tired of everything',
+    'sick of everything',
+    'tired of it all',
+    'sick of it all',
+    'tired of all of it',
     'too tired',
     'exhausted',
     'worn out',
