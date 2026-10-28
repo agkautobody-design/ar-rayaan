@@ -118,7 +118,7 @@ void main() {
 
     test('covers the Qur’an text, transliteration and credits', () {
       expect(kQuranOfflineAssets, contains('assets/quran/quran.json'));
-      expect(kQuranOfflineAssets.length, 3);
+      expect(kQuranOfflineAssets.length, 4);
     });
   });
 

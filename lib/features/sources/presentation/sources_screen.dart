@@ -102,6 +102,17 @@ class SourcesScreen extends ConsumerWidget {
                           link: texts.translation.url,
                         ),
                         const _Divider(),
+                        const _SourceRow(
+                          title: 'Qur’an transliteration · quran-json',
+                          subtitle:
+                              'The Arabic written in Latin letters, for people who cannot read Arabic yet. '
+                              'Made by a rule-based program from the Arabic text (quran-json, CC BY-SA 4.0), '
+                              'with one change: the ayn is written as an apostrophe. '
+                              'It is a reading aid, not a recitation guide, and no qualified reader has '
+                              'checked it yet: Scholar review needed. Listen to a reciter for the exact sound.',
+                          link: 'https://github.com/risan/quran-json',
+                        ),
+                        const _Divider(),
                         _SourceRow(
                           title: 'Recitation · ${ReciterPack.all.length} reciters',
                           subtitle:

@@ -240,10 +240,11 @@ const List<TextPackSpec> kTextPackSpecs = <TextPackSpec>[
     id: 'text-quran',
     title: 'Qur’an text',
     subtitle: 'Arabic, English and transliteration',
-    estimatedBytes: 2300000,
+    estimatedBytes: 3000000,
     entries: <String>[
       'assets/quran/quran.json',
       'assets/quran/transliteration.json',
+      'assets/quran/translit_en.json',
       'assets/quran/texts.json',
     ],
   ),
