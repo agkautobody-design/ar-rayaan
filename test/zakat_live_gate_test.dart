@@ -25,22 +25,21 @@ void main() {
     await tester.pump();
   }
 
-  testWidgets('live prices stay off, with a plain message, until USD',
+  testWidgets('wrong or empty currency: the button explains, never silent',
       (tester) async {
     await open(tester);
-    // Empty currency: not assumed to be dollars.
-    expect(tester.widget<TextButton>(liveButton()).onPressed, isNull);
+    // Empty currency: not assumed to be dollars. The button stays tappable.
+    expect(tester.widget<TextButton>(liveButton()).onPressed, isNotNull);
     expect(find.textContaining('type USD in the currency box'),
-        findsOneWidget);
+        findsWidgets);
 
     await tester.enterText(find.byKey(const Key('currency-label')), 'PKR');
     await tester.pump();
-    expect(tester.widget<TextButton>(liveButton()).onPressed, isNull);
-    expect(find.textContaining('your currency is set to PKR'),
-        findsOneWidget);
-
-    await tester.enterText(find.byKey(const Key('currency-label')), 'USD');
+    await tester.ensureVisible(find.byKey(const Key('live-prices-button')));
+    await tester.tap(find.byKey(const Key('live-prices-button')));
     await tester.pump();
-    expect(tester.widget<TextButton>(liveButton()).onPressed, isNotNull);
+    expect(find.byKey(const Key('live-price-status')), findsOneWidget);
+    expect(tester.widget<Text>(find.byKey(const Key('live-price-status'))).data,
+        contains('your currency is set to PKR'));
   });
 }
