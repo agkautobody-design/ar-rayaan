@@ -51,6 +51,7 @@ abstract final class HelplinesLoader {
     'elder': <HelpKind>{HelpKind.counselling},
     'eating': <HelpKind>{HelpKind.eating},
     'muslim': <HelpKind>{HelpKind.muslim},
+    'compulsive': <HelpKind>{HelpKind.counselling},
   };
 
   /// The scopes of a parsed row, kept for [forScope].

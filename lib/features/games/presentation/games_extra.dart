@@ -55,6 +55,46 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
     setState(() => _rounds = rounds);
   }
 
+  /// One choice. Before an answer it is a plain card. After it, the right
+  /// choice shows a tick and the words "Correct answer", and a wrong pick shows
+  /// a cross and "Your answer", so the result never depends on colour alone.
+  Widget _lineageOption(_Round r, int o) {
+    final bool answered = _picked != null;
+    final bool right = answered && o == r.answer;
+    final bool wrong = answered && o == _picked && o != r.answer;
+    final String? tag = right
+        ? (o == _picked ? 'Correct answer \u00b7 your answer' : 'Correct answer')
+        : (wrong ? 'Your answer' : null);
+    final Color? edge = right
+        ? const Color(0xFF7FD1A8)
+        : (wrong ? const Color(0xFFE8A07F) : null);
+    final Widget card = GlassCard(
+      onTap: answered ? null : () => setState(() => _picked = o),
+      semanticsLabel: tag == null ? null : '${r.options[o]}. $tag',
+      child: Row(children: [
+        if (answered && edge != null) ...[
+          Icon(right ? Icons.check_circle : Icons.cancel, size: 20, color: edge),
+          const SizedBox(width: 8),
+        ],
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(r.options[o], style: AppText.body.copyWith(fontSize: 13)),
+            if (tag != null)
+              Text(tag, style: AppText.bodyMuted.copyWith(fontSize: 12, color: edge)),
+          ]),
+        ),
+      ]),
+    );
+    if (edge == null) return card;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: edge, width: 2),
+      ),
+      child: card,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_rounds == null) {
@@ -73,10 +113,7 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
         const SizedBox(height: 12),
         for (var o = 0; o < r.options.length; o++)
           Padding(padding: const EdgeInsets.only(bottom: 8),
-            child: GlassCard(
-              onTap: _picked == null ? () => setState(() => _picked = o) : null,
-              child: Text(r.options[o], style: AppText.body.copyWith(fontSize: 13)),
-            )),
+            child: _lineageOption(r, o)),
         if (_picked != null)
           Padding(padding: const EdgeInsets.only(top: 4),
             child: Text(_picked == r.answer ? 'Correct! ${r.why}' : 'Not quite — ${r.why}',

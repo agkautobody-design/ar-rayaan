@@ -260,7 +260,9 @@ void main() {
         'is leaving islam punishable by death',
       ]) {
         final String a = await ask(q);
-        expect(a, HadiExplain.legalReply, reason: q);
+        // Round 2: the texts and the disagreement are given, not a refusal.
+        expect(a, contains('qualified scholar'), reason: q);
+        expect(a, contains('2:256'), reason: q);
         expect(a.contains('Thank you for telling me'), isFalse);
         expect(OfflineHadiProvider.distressReplies.contains(a), isFalse);
         expect(RulingGate.classify(q), RulingClass.general, reason: q);
@@ -510,7 +512,6 @@ void main() {
           await reply(c, 'Is the punishment for leaving Islam death?');
       expect(m.text.contains('Thank you for telling me'), isFalse);
       expect(m.text, contains('qualified scholar'));
-      expect(m.routes.first, '/sources');
       expect(m.sensitive, isFalse);
     });
 

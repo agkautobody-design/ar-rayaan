@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
@@ -370,7 +371,25 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
           ),
           // No free-text box on a dua (it is not a story to ask about), and none
           // in child mode (a child has no open question box).
-          if (story.collection != 'dailyduas' && !kChildMode.value) ...<Widget>[
+          if (story.collection == 'newmuslim') ...<Widget>[
+            // A day of the Path is a lesson, not a story: it gets a way to
+            // mark it walked and a plain door to Hadi, not "ask about this
+            // story".
+            const SizedBox(height: 12),
+            _PathWalkedCard(storyId: story.id),
+            if (!kChildMode.value) ...<Widget>[
+              const SizedBox(height: 8),
+              TextButton.icon(
+                key: const Key('path-ask-hadi'),
+                onPressed: () => context.open(AppRoutes.hadi),
+                icon: const Icon(Icons.chat_bubble_outline,
+                    size: 16, color: AppColors.gold),
+                label: Text('Have a question? Ask Hādi',
+                    style: AppText.bodyMuted.copyWith(color: AppColors.gold)),
+              ),
+            ],
+          ] else if (story.collection != 'dailyduas' &&
+              !kChildMode.value) ...<Widget>[
             const SizedBox(height: 12),
             _AskHadiAboutStory(story: story, chapter: current),
           ],
@@ -460,6 +479,75 @@ class _SaveStoryButton extends ConsumerWidget {
           color: AppColors.gold,
         ),
         label: Text(saved ? 'Saved' : 'Save', style: AppText.bodyMuted),
+      ),
+    );
+  }
+}
+
+/// "Mark this day as walked" at the end of a day of the New Muslim Path. The
+/// same flag the Path list's tick sets, so the two always agree.
+class _PathWalkedCard extends StatefulWidget {
+  const _PathWalkedCard({required this.storyId});
+  final String storyId;
+
+  @override
+  State<_PathWalkedCard> createState() => _PathWalkedCardState();
+}
+
+class _PathWalkedCardState extends State<_PathWalkedCard> {
+  bool? _walked;
+
+  String get _key => '$kNewMuslimDonePrefix${widget.storyId}';
+
+  @override
+  void initState() {
+    super.initState();
+    _read();
+  }
+
+  Future<void> _read() async {
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      if (mounted) setState(() => _walked = p.getBool(_key) ?? false);
+    } catch (_) {
+      if (mounted) setState(() => _walked = false);
+    }
+  }
+
+  Future<void> _toggle() async {
+    final bool next = !(_walked ?? false);
+    setState(() => _walked = next);
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      await p.setBool(_key, next);
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bool done = _walked ?? false;
+    return GlassCard(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Text(
+              done
+                  ? 'You have walked this day. Only you decide that.'
+                  : 'When you have read it and are ready to move on, tick it. '
+                      'Nothing else marks a day as walked.',
+              style: AppText.bodyMuted.copyWith(height: 1.5),
+            ),
+          ),
+          const SizedBox(width: 8),
+          OutlinedButton.icon(
+            key: const Key('path-mark-walked'),
+            onPressed: _toggle,
+            icon: Icon(done ? Icons.check_circle : Icons.radio_button_unchecked,
+                size: 18, color: AppColors.gold),
+            label: Text(done ? 'Walked' : 'Mark as walked',
+                style: AppText.bodyMuted.copyWith(color: AppColors.gold)),
+          ),
+        ],
       ),
     );
   }

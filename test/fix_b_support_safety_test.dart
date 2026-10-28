@@ -294,12 +294,12 @@ void main() {
   });
 
   group('check-in', () {
-    test('"hard" is asked about again in three days', () {
+    test('"hard" waits the chosen interval, two weeks by default', () {
       final DateTime d0 = DateTime(2026, 11, 1);
       final CheckinState s =
           CheckinScheduler.after(const CheckinState(), CheckinAnswer.hard, d0);
-      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 2))), isFalse);
-      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 3))), isTrue);
+      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 13))), isFalse);
+      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 14))), isTrue);
     });
   });
 

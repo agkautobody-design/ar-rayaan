@@ -416,6 +416,30 @@
    "kind": "explain",
    "stage": ["explore"],
    "text": {
+    "en": "A note on the evidence: researchers still disagree about whether heavy pornography use is an addiction. The WHO's ICD-11 lists compulsive sexual behaviour disorder as an impulse-control problem, not as an addiction, and there is little strong research on any one fix. What is clearer is that it can be treated, and that support from a person helps more than willpower alone."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "evidence", "csbd", "honesty"],
+   "triggers": ["is it an addiction", "porn addiction real"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
     "en": "Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that."
    },
    "ageBand": ["adult"],
@@ -436,7 +460,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.explain.002",
+   "id": "porn_compulsive.explain.003",
    "kind": "explain",
    "stage": ["explore"],
    "text": {
@@ -460,7 +484,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.explain.003",
+   "id": "porn_compulsive.explain.004",
    "kind": "explain",
    "stage": ["explore"],
    "text": {
@@ -484,7 +508,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.explain.004",
+   "id": "porn_compulsive.explain.005",
    "kind": "explain",
    "stage": ["explore"],
    "text": {
@@ -508,7 +532,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.explain.005",
+   "id": "porn_compulsive.explain.006",
    "kind": "explain",
    "stage": ["explore"],
    "text": {
@@ -532,7 +556,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.explain.006",
+   "id": "porn_compulsive.explain.007",
    "kind": "explain",
    "stage": ["explore"],
    "text": {
@@ -799,6 +823,32 @@
    "kind": "islamic",
    "stage": ["explore"],
    "text": {
+    "en": "Scholars agree that looking at pornography is not allowed. On masturbation, scholars differ. The Maliki and Shafi'i schools hold that it is forbidden. The Hanafi and Hanbali schools also forbid it, but allow it where a person fears falling into zina and cannot marry (Ibn 'Abidin, Ibn Qudama). Ibn Hazm called it disliked, not forbidden. None of them calls a person who struggles beyond Allah's mercy, and I can't give a ruling for you. A scholar you trust can."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "fiqh", "scholar-handoff", "masturbation"],
+   "triggers": ["is masturbation haram", "is it haram", "what do scholars say"],
+   "doNotSay": ["Not a rebuke; never \"marry to fix it\"; never \"pray more instead\". Needs scholar review of the named positions."],
+   "sources": [
+    {"type": "fiqh", "title": "Classical positions on masturbation: Maliki and Shafi'i forbid it; Hanafi and Hanbali forbid it except where zina is feared (Ibn Abidin, Ibn Qudama); Ibn Hazm, al-Muhalla, calls it makruh. Summarised from memory, no source opened for this brief", "level": "institution", "section": "RES_H2 4.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali", "other"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
     "en": "The Qur'an speaks about lowering the gaze and guarding modesty, for men and women. Many people find that practical steps, like changing their environment, go along with that teaching."
    },
    "ageBand": ["adult"],
@@ -819,7 +869,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.islamic.004",
+   "id": "porn_compulsive.islamic.005",
    "kind": "islamic",
    "stage": ["explore"],
    "text": {
@@ -843,7 +893,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.islamic.005",
+   "id": "porn_compulsive.islamic.006",
    "kind": "islamic",
    "stage": ["explore"],
    "text": {
@@ -869,7 +919,7 @@
    "status": "draft"
   },
   {
-   "id": "porn_compulsive.islamic.006",
+   "id": "porn_compulsive.islamic.007",
    "kind": "islamic",
    "stage": ["explore"],
    "text": {

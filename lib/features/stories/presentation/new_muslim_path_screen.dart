@@ -21,7 +21,7 @@ import '../../../app/theme/widgets/focus_ring.dart';
 class NewMuslimPathScreen extends ConsumerStatefulWidget {
   const NewMuslimPathScreen({super.key});
 
-  static const String donePrefix = 'ar.nm.done.';
+  static const String donePrefix = kNewMuslimDonePrefix;
 
   @override
   ConsumerState<NewMuslimPathScreen> createState() => _PathState();
@@ -114,8 +114,8 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                 blur: false,
                 onTap: () => context.push('/academy/course/the-path'),
                 semanticsLabel: 'Also in the Academy: The Path, the same '
-                    'ground lesson by lesson, with questions and saved '
-                    'progress',
+                    'ground lesson by lesson, with questions. It keeps its '
+                    'own progress, separate from the days you tick here',
                 child: Row(
                   children: [
                     const Icon(Icons.school_outlined,
@@ -128,7 +128,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                           Text('ALSO IN THE ACADEMY', style: AppText.eyebrow),
                           const SizedBox(height: 2),
                           Text(
-                            'The Path: lesson by lesson, with questions',
+                            'The Path: lesson by lesson, with questions (its own progress)',
                             style: AppText.body.copyWith(fontSize: 14),
                           ),
                         ],
@@ -151,9 +151,10 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                           style: AppText.titleMedium),
                       const SizedBox(height: 6),
                       Text(
-                        'Mā shā’ Allāh. You began with a sentence and ended '
-                        'with a way of life. Keep Hādi beside you for what '
-                        'comes next, and let a local masjid know you — '
+                        'Mā shā’ Allāh. You ticked all thirty days. The '
+                        'Academy’s lesson-by-lesson Path asks questions, so '
+                        'it keeps its own count. Keep Hādi beside you for '
+                        'what comes next, and let a local masjid know you — '
                         'community is the next door.',
                         style: AppText.bodyMuted.copyWith(height: 1.5),
                       ),
@@ -188,16 +189,14 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                                     fontSize: 12)),
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              _mark(next!.id, true);
-                              context.open(AppRoutes.storyReader,
-                                  extra: next);
-                            },
+                            onPressed: () => context.open(
+                                AppRoutes.storyReader,
+                                extra: next),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.gold,
                               foregroundColor: AppColors.night,
                             ),
-                            child: const Text('Walk today’s step'),
+                            child: const Text('Open today’s step'),
                           ),
                         ],
                       ),
@@ -208,14 +207,9 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
               for (final Story d in days)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
-                  child: GestureDetector(
-                    onLongPress: () => _mark(d.id, !_walked.contains(d.id)),
-                    child: GlassCard(
-                      blur: false,
-                    onTap: () {
-                      _mark(d.id, true);
-                      context.open(AppRoutes.storyReader, extra: d);
-                    },
+                  child: GlassCard(
+                    blur: false,
+                    onTap: () => context.open(AppRoutes.storyReader, extra: d),
                     child: Row(
                       children: [
                         Container(
@@ -260,16 +254,32 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                             ],
                           ),
                         ),
+                        IconButton(
+                          key: Key('nm-walked-${d.id}'),
+                          tooltip: _walked.contains(d.id)
+                              ? 'Walked. Tap to undo'
+                              : 'Mark this day as walked',
+                          onPressed: () =>
+                              _mark(d.id, !_walked.contains(d.id)),
+                          icon: Icon(
+                            _walked.contains(d.id)
+                                ? Icons.check_circle
+                                : Icons.radio_button_unchecked,
+                            size: 24,
+                            color: AppColors.gold,
+                          ),
+                        ),
                       ],
-                    ),
                     ),
                   ),
                 ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 4),
                 child: Text(
-                  'Long-press a day to un-walk it. The full library is '
-                  'always open under Stories → The New Muslim Path.',
+                  'A day counts as walked only when you tick it, here or at '
+                  'the end of the day itself. Tick it again to undo. The '
+                  'full library is always open under Stories → The New '
+                  'Muslim Path.',
                   style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),

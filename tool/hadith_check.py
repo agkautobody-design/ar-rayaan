@@ -148,13 +148,34 @@ def extract(files=None):
 RANK = {'ok': 3, 'wrong': 2, 'unverifiable': 1}
 
 
+SUPERSEDED = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'hadith_superseded.json')
+
+
+def load_superseded():
+    """{file name: {key: reason}} of old-claim verdicts that a newer `ok` replaced."""
+    if not os.path.exists(SUPERSEDED):
+        return {}
+    return json.load(open(SUPERSEDED, encoding='utf8')).get('superseded', {})
+
+
 def load_verdicts():
     v = {}
-    for p in sorted(glob.glob(os.path.join(VERDICT_DIR, '*.json'))):
-        if os.path.basename(p) in (ALLOWLIST, SCOPE):
-            continue
+    old = load_superseded()
+    files = [p for p in sorted(glob.glob(os.path.join(VERDICT_DIR, '*.json')))
+             if os.path.basename(p) not in (ALLOWLIST, SCOPE)]
+    has_ok = {}
+    for p in files:
+        for k, val in json.load(open(p, encoding='utf8')).items():
+            if val['verdict'] == 'ok':
+                has_ok.setdefault(k, set()).add(os.path.basename(p))
+    for p in files:
         d = json.load(open(p, encoding='utf8'))
+        skip = old.get(os.path.basename(p), {})
         for k, val in d.items():
+            # A superseded old-claim verdict is skipped only while another
+            # file still holds an ok for the same number.
+            if k in skip and val['verdict'] != 'ok' and has_ok.get(k):
+                continue
             if k in v and v[k]['verdict'] != val['verdict']:
                 # A verdict describes the NUMBER (what hadith it resolves to) or
                 # records that an OLD claim did not match it. Different files

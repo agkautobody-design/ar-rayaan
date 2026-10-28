@@ -1,0 +1,31 @@
+{
+ "_about": "Verdict entries that are kept for the record but no longer compete with a newer 'ok' verdict for the same number. tool/hadith_check.py skips them (and then prints no 'conflicting verdicts' warning). A superseded entry is only honoured while another file still holds an 'ok' for the key.",
+ "superseded": {
+  "rest.json": {
+   "bukhari:1131": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:5049": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "tirmidhi:3573": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A."
+  },
+  "stories.json": {
+   "bukhari:1145": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:1951": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:3348": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:3698": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:3700": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:5763": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:6389": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "bukhari:6469": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "ibnmajah:1753": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:1348": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:1763": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:2408": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:2643": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:807": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "tirmidhi:3604": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A."
+  },
+  "w11.json": {
+   "muslim:244": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "muslim:2865": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A."
+  }
+ }
+}
