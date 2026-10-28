@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:ar_rayaan/app/core/providers.dart';
@@ -258,12 +257,10 @@ void main() {
       await tester.pumpWidget(await app(tester, 1));
       await tester.pumpAndSettle();
 
-      final Map<String, dynamic> tl = (jsonDecode(
-        File('assets/quran/translit_en.json').readAsStringSync(),
-      ) as Map<String, dynamic>)['map'] as Map<String, dynamic>;
-      // Ayah 2 of Al-Fatihah: its transliteration is in the row, and the
+      // Ayah 2 of Al-Fatihah: its transliteration is in the row (the curated
+      // reading where the app has one, else the program-made dataset), and the
       // reader says the Latin letters are a program-made reading aid.
-      expect(find.text(tl['1:2'] as String), findsWidgets);
+      expect(find.textContaining('Al-hamdu lillaahi'), findsWidgets);
       expect(find.byKey(const Key('reader-translit-note')), findsOneWidget);
       expect(find.textContaining('Scholar review needed'), findsWidgets);
       expect(find.textContaining('Sovereign of the Day'), findsOneWidget);
