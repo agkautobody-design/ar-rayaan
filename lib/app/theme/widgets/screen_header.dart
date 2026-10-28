@@ -9,6 +9,7 @@ import '../app_colors.dart';
 import '../app_typography.dart';
 import 'focus_ring.dart';
 import 'whole_word_text.dart';
+import 'focus_safe_semantics.dart';
 
 /// Largest text scale the header title itself grows to.
 const double kHeaderTitleMaxScale = 1.3;
@@ -180,7 +181,7 @@ class _RoundButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: tooltip,
       excludeSemantics: true,

@@ -16,6 +16,7 @@ import '../../quran/domain/quran_models.dart';
 import '../application/share_service.dart';
 import 'share_actions.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class ShareCard {
   final String id, kind, arabic, text, ref;
@@ -180,7 +181,7 @@ class _ShareState extends State<ShareScreen> {
               const SizedBox(height: 16),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 for (var i = 0; i < _cards!.length; i++)
-                  Semantics(
+                  FocusSafeSemantics(
                     button: true,
                     selected: i == _i,
                     label: 'Card ${i + 1} of ${_cards!.length}',

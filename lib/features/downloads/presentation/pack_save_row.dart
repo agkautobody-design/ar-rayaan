@@ -50,7 +50,7 @@ class PackSaveRow extends ConsumerWidget {
         ? 'Saving for offline…'
         : failed
         ? 'Could not save these. Check your connection and try again.'
-        : 'Not saved yet: needs internet each visit.';
+        : 'Not saved yet: needs internet to read.';
 
     return Padding(
       padding: const EdgeInsets.only(left: 4, bottom: 8),

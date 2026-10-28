@@ -42,10 +42,20 @@ class HadiRichText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SelectableText.rich(
-      TextSpan(style: style, children: spansFor(text, style)),
-      textDirection:
-          HadiMarkdown.isMostlyRtl(text) ? TextDirection.rtl : null,
+    final bool rtl = HadiMarkdown.isMostlyRtl(text);
+    // A selectable text field reaches a screen reader as an empty edit box on
+    // the web. The reply's words are given as the label of a plain text node
+    // instead, and the field itself stays out of the reading order.
+    return Semantics(
+      container: true,
+      label: HadiMarkdown.plain(text),
+      textDirection: rtl ? TextDirection.rtl : null,
+      child: ExcludeSemantics(
+        child: SelectableText.rich(
+          TextSpan(style: style, children: spansFor(text, style)),
+          textDirection: rtl ? TextDirection.rtl : null,
+        ),
+      ),
     );
   }
 }

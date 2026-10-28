@@ -51,20 +51,27 @@ abstract final class ElderMode {
   }
 }
 
+/// Mirrors the Elder Mode switch for code that has no provider scope (the
+/// router's redirect). Written only by [ElderModeController].
+bool kElderModeOn = false;
+
 /// Elder Mode as live app state, so the whole app (text size, tap size) can
 /// follow the switch the moment it flips. Persisted under [ElderMode.pref].
 class ElderModeController extends Notifier<bool> {
   @override
   bool build() {
+    bool on = false;
     try {
-      return ref.read(sharedPreferencesProvider).getBool(ElderMode.pref) ??
-          false;
+      on = ref.read(sharedPreferencesProvider).getBool(ElderMode.pref) ?? false;
     } catch (_) {
-      return false;
+      on = false;
     }
+    kElderModeOn = on;
+    return on;
   }
 
   Future<void> set(bool on) async {
+    kElderModeOn = on;
     state = on;
     try {
       await ref.read(sharedPreferencesProvider).setBool(ElderMode.pref, on);

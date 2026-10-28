@@ -9,6 +9,7 @@ import 'chess_board_art.dart';
 import 'chess_board_view.dart';
 import 'chess_settings.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Chess Settings, opened from the board or the table menu: board theme,
 /// piece style and the switches. Saved on this device the moment they change.
@@ -170,7 +171,7 @@ class _ThemeSwatch extends StatelessWidget {
                 ColoredBox(color: isLight ? light : dark),
           ),
         );
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       selected: selected,
       label: '${theme.label} board',

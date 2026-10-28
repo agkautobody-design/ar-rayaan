@@ -18,6 +18,7 @@ import '../../zakat/domain/zakat_calculation.dart';
 import '../../zakat/presentation/zakat_cards.dart';
 import '../domain/ramadan_season.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 class RamadanDay {
   final int day; final String theme, arabic, text, source;
@@ -362,7 +363,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       3 => Icons.replay,
       _ => null,
     };
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: 'Day $d, ${fastStateName(st)}',
       hint: 'Tap to change',
@@ -412,7 +413,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
           done ? _juz.remove(j) : _juz.add(j);
           unawaited(_saveJuz());
         });
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       selected: done,
       label: 'Juz $j, ${done ? 'completed' : 'not completed'}',
@@ -471,7 +472,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
 
   /// The small "remove" control on a saved line: 44 px, labelled.
   Widget _removeButton(String label, Future<void> Function() onConfirmed) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

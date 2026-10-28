@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/sound/sound_services.dart';
 import '../app_colors.dart';
+import 'focus_safe_semantics.dart';
 
 /// Small gold speaker button that reads English text aloud via the device
 /// voice — the app's "verbally communicative" layer (NOOR, Hādi, du'as).
@@ -44,7 +45,7 @@ class SpeakButton extends ConsumerWidget {
         color: AppColors.gold,
       ),
     );
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: semanticLabel,
       excludeSemantics: true,

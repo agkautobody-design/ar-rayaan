@@ -15,6 +15,9 @@
  * time the app opens online. The earlier decision not to register a caching
  * worker (a stale build means stale safety text) is kept by this rule.
  *
+ * One other site is handled: the Firebase script from www.gstatic.com, kept
+ * so the app can start offline (see isFirebaseScript).
+ *
  * Not handled here, on purpose: other sites (recitation audio, maps, APIs),
  * partial (Range) requests, and anything that is not a GET. Recitation the
  * person chose to save lives in its own cache (ar-dl-audio-v1) and the saved
@@ -79,6 +82,36 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// The Firebase web SDK is a script the app loads from Google at start-up
+// (www.gstatic.com/firebasejs/<version>/...). Without a kept copy the app
+// could not start with no internet, even though everything else is cached.
+// These files are versioned by their address and never change under the same
+// address, so a kept copy is used first and the network only fills the cache.
+function isFirebaseScript(url) {
+  return (
+    url.protocol === 'https:' &&
+    url.hostname === 'www.gstatic.com' &&
+    url.pathname.indexOf('/firebasejs/') === 0 &&
+    url.pathname.endsWith('.js')
+  );
+}
+
+async function handleFirebaseScript(request) {
+  const cache = await caches.open(CACHE);
+  const cached = await cache.match(request.url);
+  if (cached) return cached;
+  const response = await fetch(request);
+  // A module import is a CORS request, so a good answer is type 'cors'.
+  if (response && response.ok && (response.type === 'cors' || response.type === 'basic')) {
+    try {
+      await cache.put(request.url, response.clone());
+    } catch (e) {
+      // Storage full or blocked: the response is still used now.
+    }
+  }
+  return response;
+}
+
 function cacheable(request, url) {
   if (request.method !== 'GET') return false;
   if (url.origin !== self.location.origin) return false;
@@ -122,6 +155,10 @@ async function handle(request) {
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
+  if (request.method === 'GET' && !request.headers.has('range') && isFirebaseScript(url)) {
+    event.respondWith(handleFirebaseScript(request));
+    return;
+  }
   if (!cacheable(request, url)) return;
   event.respondWith(
     handle(request).catch(() => Response.error())
@@ -141,6 +178,10 @@ self.addEventListener('message', (event) => {
         try {
           u = new URL(raw);
         } catch (e) {
+          continue;
+        }
+        if (isFirebaseScript(u)) {
+          if (!(await cache.match(u.href))) todo.push(u.href);
           continue;
         }
         if (u.origin !== self.location.origin) continue;

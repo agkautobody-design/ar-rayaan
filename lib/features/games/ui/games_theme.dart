@@ -5,6 +5,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import 'games_art.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The Games look: the app's navy and gold, with a brighter gold for the
 /// things you press, a pointed-arch header and gold-bordered panels. The
@@ -374,7 +375,7 @@ class GameChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color fg = selected ? AppColors.night : AppColors.sand;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       selected: selected,
       label: label,
@@ -545,7 +546,7 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool on = onPressed != null;
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       enabled: on,
       label: label,
@@ -620,7 +621,7 @@ class OutlineAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       enabled: onPressed != null,
       label: label,

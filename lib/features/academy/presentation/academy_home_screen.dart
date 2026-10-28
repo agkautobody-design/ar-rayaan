@@ -24,6 +24,8 @@ import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
 import 'widgets/wasia_checkin_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
 /// Locked look: Playfair header · continue hero · The Path card ·
@@ -425,6 +427,29 @@ class _AcademyHomeScreenState
               const SizedBox(height: 12),
               const WeeklyRhythmCard(),
               const SizedBox(height: 16),
+              // The Child track also opens the short surahs and duas made
+              // for children (the same lists child mode uses).
+              if (layout.simpleCopy) ...<Widget>[
+                _SchoolRow(
+                  icon: Icons.menu_book_outlined,
+                  arabic: '\u0627\u0644\u0633\u0651\u064f\u0648\u064e\u0631',
+                  title: 'Short surahs',
+                  subtitle: 'Read and listen, one small surah at a time',
+                  route: '/kids/surahs',
+                  kind: _RowKind.reading,
+                  push: true,
+                ),
+                _SchoolRow(
+                  icon: Icons.back_hand_outlined,
+                  arabic: '\u0627\u0644\u062f\u0651\u064f\u0639\u0627\u0621',
+                  title: 'Duas for children',
+                  subtitle: 'Words to say to Allah, with what they mean',
+                  route: '/kids/duas',
+                  kind: _RowKind.reading,
+                  push: true,
+                ),
+                const SizedBox(height: 12),
+              ],
 
               // The knowledge banner ------------------------------------------
               Container(
@@ -460,7 +485,10 @@ class _AcademyHomeScreenState
               const SizedBox(height: 18),
 
               if (layout.foldSchools)
-                _MoreSchools(children: browse)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6, bottom: 14),
+                  child: _MoreSchools(children: browse),
+                )
               else
                 ...browse,
 
@@ -578,6 +606,7 @@ class _SchoolRow extends StatelessWidget {
     required this.subtitle,
     required this.route,
     required this.kind,
+    this.push = false,
   });
 
   final IconData icon;
@@ -587,12 +616,15 @@ class _SchoolRow extends StatelessWidget {
   final String route;
   final _RowKind kind;
 
+  /// Open on top of the Academy (Back returns here) instead of replacing it.
+  final bool push;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: GlassCard(
-        onTap: () => context.go(route),
+        onTap: () => push ? context.open(route) : context.go(route),
         semanticsLabel: '$title, ${kind.label.toLowerCase()}. $subtitle',
         child: Row(
           children: <Widget>[
@@ -723,11 +755,9 @@ class _TrackSwitcher extends ConsumerWidget {
               border:
                   Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
             ),
-            child: Row(
-              children: <Widget>[
-                for (final String t in _tracks)
-                  Expanded(
-                    child: Semantics(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints box) {
+                Widget tab(String t) => FocusSafeSemantics(
                       button: true,
                       selected: current == t,
                       label: '${AcademyStrings.get('track.eyebrow')}: '
@@ -751,7 +781,7 @@ class _TrackSwitcher extends ConsumerWidget {
                                 ? AppColors.gold.withValues(alpha: 0.9)
                                 : Colors.transparent,
                           ),
-                          child: Text(
+                          child: WholeWordText(
                             AcademyStrings.get('track.$t'),
                             textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(
@@ -764,9 +794,34 @@ class _TrackSwitcher extends ConsumerWidget {
                           ),
                         ),
                       )),
-                    ),
-                  ),
-              ],
+                    );
+                // Four tabs in one row leave each about 50 dp on a narrow or
+                // zoomed screen, and a word broke in the middle ("Chil" /
+                // "d"). Two by two keeps every word whole.
+                final bool narrow = box.maxWidth / _tracks.length < 92 ||
+                    MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
+                if (!narrow) {
+                  return Row(
+                    children: <Widget>[
+                      for (final String t in _tracks) Expanded(child: tab(t)),
+                    ],
+                  );
+                }
+                return Column(
+                  children: <Widget>[
+                    for (int i = 0; i < _tracks.length; i += 2)
+                      Row(
+                        children: <Widget>[
+                          Expanded(child: tab(_tracks[i])),
+                          if (i + 1 < _tracks.length)
+                            Expanded(child: tab(_tracks[i + 1]))
+                          else
+                            const Expanded(child: SizedBox.shrink()),
+                        ],
+                      ),
+                  ],
+                );
+              },
             ),
           ),
           const SizedBox(height: 4),

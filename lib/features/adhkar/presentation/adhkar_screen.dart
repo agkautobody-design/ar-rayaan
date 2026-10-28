@@ -18,6 +18,7 @@ import '../../share/presentation/share_actions.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Dhikr & Du'a — Hisn al-Muslim sets with tap-to-count repetitions and
 /// daily-resetting progress. Pending Founder approval.
@@ -431,7 +432,7 @@ class _DhikrCard extends ConsumerWidget {
 
     // Tap-to-count button. The whole circle is the tap area.
     final double size = bigCounter ? 160 : 52;
-    final Widget counter = Semantics(
+    final Widget counter = FocusSafeSemantics(
       button: true,
       label: complete
           ? 'Dhikr ${dhikr.number} complete'

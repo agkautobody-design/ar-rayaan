@@ -29,6 +29,7 @@ import 'widgets/glossary_text.dart';
 import 'widgets/wasia_checkin_card.dart';
 import 'widgets/wasia_thread.dart';
 import '../../../app/theme/widgets/named_route.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
@@ -916,17 +917,10 @@ Future<void> showLessonWasiaSheet(
   LessonGrounding lesson,
 ) async {
   ref.read(wasiaControllerProvider.notifier).openLesson(lesson.id);
-  await showModalBottomSheet<void>(
+  await showNamedSheet<void>(
     context: context,
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-    builder: (BuildContext ctx) => NamedRoute(
-      label: 'Ask Wasia about this lesson',
-      child: Padding(
-        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
-        child: _LessonWasiaSheet(lesson: lesson),
-      ),
-    ),
+    label: 'Ask Wasia about this lesson',
+    builder: (BuildContext ctx) => _LessonWasiaSheet(lesson: lesson),
   );
 }
 

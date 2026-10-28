@@ -14,6 +14,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
+import '../../kids/domain/child_duas.dart';
+import '../../kids/domain/child_stories.dart';
 import '../../share/application/share_service.dart';
 import '../../share/domain/handout.dart';
 import '../../share/presentation/handout_screen.dart';
@@ -208,8 +210,8 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             SourceLabelNote(label: current.label!, prefix: 'This chapter:'),
           StoryListenBar(
             text: current.heading.isEmpty
-                ? current.body
-                : '${current.heading}. ${current.body}',
+                ? _bodyFor(story, current)
+                : '${current.heading}. ${_bodyFor(story, current)}',
           ),
           if (current.heading.isNotEmpty) ...[
             Text(
@@ -262,7 +264,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 4, bottom: 14),
                   child: Text(
-                    'Transliteration: ${current.tlSource!}',
+                    transliterationCreditLine(current.tlSource!),
                     key: const Key('story-chapter-tl-source'),
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -281,7 +283,9 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             const SizedBox(height: 6),
           ],
           Text(
-            current.body,
+            // A child is given the child's meaning of a dua, not the long
+            // paragraph written for adults (its sources are still below).
+            _bodyFor(story, current),
             style: TextStyle(
               fontSize: storyBodySize(big: big),
               height: 1.75,
@@ -397,6 +401,18 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
       ),
     );
   }
+}
+
+/// The words of the chapter on screen: a child (child mode) is given the
+/// child's meaning of a dua instead of the paragraph written for adults.
+String _bodyFor(Story story, StoryChapter chapter) {
+  if (kChildMode.value) {
+    final String? mine = story.collection == 'dailyduas'
+        ? childMeaningFor(story.id)
+        : childStoryChapter(story.id, story.chapters.indexOf(chapter));
+    if (mine != null) return mine;
+  }
+  return chapter.body;
 }
 
 /// The chapter on screen as plain text: title, Arabic, text, then the

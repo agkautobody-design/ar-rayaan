@@ -9,6 +9,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/core/content_loader.dart';
+import '../../../app/core/online_status.dart';
 import '../../../app/core/modules/module_status.dart';
 import '../../../app/core/providers.dart';
 import '../../onboarding/presentation/onboarding_screen.dart';
@@ -39,6 +40,7 @@ import '../../academy/domain/atmosphere.dart';
 import '../../academy/presentation/atmosphere_layer.dart';
 import '../../calendar/application/hijri_settings.dart';
 import '../../calendar/domain/hijri_date.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// Screen 4 · Home — greeting, nine core tiles, "Today for You".
 ///
@@ -110,6 +112,13 @@ class HomeScreen extends ConsumerWidget {
     );
     if (quranSub == kQuranNeedsInternetNote) {
       quranSub = ui('sub.needsInternet');
+      // Say what to DO, not only what is missing (English; the other
+      // languages keep their translated first-time note).
+      if (l10n.locale.languageCode == 'en') {
+        quranSub = deviceReportsOnline == false
+            ? 'Needs internet once: connect, then tap'
+            : 'Tap to open it and keep it offline';
+      }
     }
 
     String dhikrSub = ui('sub.morningAdhkar');
@@ -340,10 +349,16 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       SizedBox(height: compact ? 8 : 16),
               _SemanticTap(
-                label: '${ui('home.elder')}. ${ui('home.elderSub')}',
+                label: ref.watch(elderModeProvider)
+                    ? '${ui('home.elder')}, on. Open the Elder home.'
+                    : '${ui('home.elder')}. ${ui('home.elderSub')}',
                 onTap: () async {
-                  // It stays on across launches, so ask first.
-                  if (!await _confirmElderMode(context)) return;
+                  // Already on: just go there. Otherwise it stays on across
+                  // launches, so ask first.
+                  if (!ref.read(elderModeProvider) &&
+                      !await _confirmElderMode(context)) {
+                    return;
+                  }
                   await ref.read(elderModeProvider.notifier).set(true);
                   if (context.mounted) context.go(ElderMode.homeRoute);
                 },
@@ -375,9 +390,11 @@ class HomeScreen extends ConsumerWidget {
                                   color: AppColors.goldLight, letterSpacing: 1.2)),
                         ),
                         Text(
-                            compact
-                                ? ui('home.elderSub')
-                                : ui('home.elderSubLong'),
+                            ref.watch(elderModeProvider)
+                                ? 'On now. Tap to open the Elder home.'
+                                : compact
+                                    ? ui('home.elderSub')
+                                    : ui('home.elderSubLong'),
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
@@ -892,7 +909,7 @@ class _HeaderIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: tooltip,
       excludeSemantics: true,
@@ -1002,7 +1019,7 @@ class _PictureTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: badge == null ? '$title. $subtitle' : '$title, $badge. $subtitle',
       excludeSemantics: true,
@@ -1125,7 +1142,7 @@ class _SemanticTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return FocusSafeSemantics(
       button: true,
       label: label,
       excludeSemantics: true,

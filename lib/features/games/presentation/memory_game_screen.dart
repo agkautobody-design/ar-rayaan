@@ -18,6 +18,7 @@ import '../engine/memory_engine.dart';
 import '../ui/games_theme.dart';
 import 'game_results_screen.dart';
 import 'games_screens.dart';
+import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// /games/memory - Names Memory: turn two cards, an Arabic Name and its
 /// spelling. No timer; a match shows the meaning and where the Name is found.
@@ -349,7 +350,7 @@ class _CardView extends StatelessWidget {
     final String label = up
         ? '${card.face}${matched ? ', matched' : ''}'
         : 'Card ${card.id + 1}, face down';
-    return Semantics(
+    return FocusSafeSemantics(
       button: onTap != null,
       label: label,
       excludeSemantics: true,

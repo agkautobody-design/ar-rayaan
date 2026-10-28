@@ -46,9 +46,7 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
     WidgetsBinding.instance.addPostFrameCallback((_) => _coldOpen());
   }
 
-  static const List<String> _quietPrefixes = <String>[
-    '/hadi', '/support', '/sakina', '/kids/safety',
-  ];
+  static const List<String> _quietPrefixes = kQuickExitQuietPrefixes;
 
   void _coldOpen() {
     if (!mounted || !_private) return;
@@ -80,6 +78,8 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
   }
 
   void _exit() {
+    // Back (the browser's too) must not return to the screen just left.
+    armQuickExitGuard();
     try {
       ref.read(hadiControllerProvider.notifier).clearThread();
       ref.read(wasiaControllerProvider.notifier).clear();

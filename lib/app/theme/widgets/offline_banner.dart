@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import '../../core/online_status.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
+import 'announce.dart';
 import 'focus_ring.dart';
+import 'focus_safe_semantics.dart';
 
 /// A slim notice at the top of every screen while the browser reports that
 /// the device is offline, saying what still works. It takes no space while
@@ -84,15 +86,16 @@ class _OfflineBannerState extends State<OfflineBanner> {
                       color: AppColors.goldLight,
                     ),
                     const SizedBox(width: 10),
-                    // A live region with its own label: a container with only
-                    // a flag and text children said nothing to a screen reader.
+                    // A live region: the words are a plain text node (read by
+                    // a screen reader as they are drawn) and are also sent as
+                    // an announcement when the notice appears.
                     Expanded(
-                      child: Semantics(
-                        key: const Key('offline-banner-message'),
-                        liveRegion: true,
-                        container: true,
-                        label: kOfflineBannerText,
-                        child: ExcludeSemantics(
+                      child: Announce(
+                        message: kOfflineBannerText,
+                        child: Semantics(
+                          key: const Key('offline-banner-message'),
+                          liveRegion: true,
+                          container: true,
                           child: Text(
                             kOfflineBannerText,
                             style: AppText.caption.copyWith(height: 1.35),
@@ -102,7 +105,7 @@ class _OfflineBannerState extends State<OfflineBanner> {
                     ),
                     // No Tooltip here: this sits above the Navigator, so
                     // there is no Overlay for one to use.
-                    Semantics(
+                    FocusSafeSemantics(
                       button: true,
                       label: 'Hide this notice',
                       excludeSemantics: true,
