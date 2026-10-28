@@ -336,6 +336,10 @@ enum HelpKind {
 
   /// Eating-disorder support.
   eating,
+
+  /// A poison centre. Shown only for a possible poisoning or overdose, never
+  /// on a list for abuse, a child, or low mood.
+  poison,
 }
 
 /// A human-help resource — always visible, never buried.

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -119,7 +120,7 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
             icon: Icons.tune,
             onPressed: () => context.open('/games/settings'),
           ),
-          if (kGamesCommunityEnabled)
+          if (kGamesCommunityEnabled && !kChildMode.value)
             OutlineAction(
               label: 'Play with friends',
               icon: Icons.people_outline,
@@ -204,7 +205,7 @@ class GameTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<String> modes = <String>[
       for (final PlayMode m in PlayMode.values)
-        if (game.modes.contains(m)) m.label,
+        if (game.offersMode(m, child: kChildMode.value)) m.label,
     ];
     return GamePanel(
       semanticsLabel: '${game.title}. ${game.blurb}. ${modes.join(', ')}.',

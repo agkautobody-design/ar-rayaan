@@ -1834,8 +1834,10 @@ abstract final class CrisisResponses {
       case CrisisKind.extremism:
         return const <HelpKind>{HelpKind.emergency};
       case CrisisKind.substanceEmergency:
+        // The poison centre belongs here and nowhere else.
         return const <HelpKind>{
           HelpKind.emergency,
+          HelpKind.poison,
           HelpKind.addiction,
           HelpKind.suicide,
         };
@@ -1909,9 +1911,15 @@ abstract final class CrisisResponses {
           HelpKind.emergency,
           HelpKind.muslim,
         ];
+      case CrisisKind.substanceEmergency:
+        return <HelpKind>[
+          HelpKind.emergency,
+          HelpKind.poison,
+          HelpKind.addiction,
+          HelpKind.suicide,
+        ];
       case CrisisKind.abuse:
       case CrisisKind.extremism:
-      case CrisisKind.substanceEmergency:
         return <HelpKind>[HelpKind.emergency, HelpKind.abuse];
       case CrisisKind.eatingDisorder:
         return <HelpKind>[
@@ -1928,10 +1936,17 @@ abstract final class CrisisResponses {
   /// order [_order] gives. With [child] true the person is a child: child
   /// lines come first and are always included, whatever the kind. An adult
   /// who describes abuse is not shown lines made only for children.
+  ///
+  /// With [child] true and a [band] of '5-8' or '9-12', the national lines
+  /// made for adults in an abusive home (a domestic-violence or sexual-assault
+  /// hotline) are left out: a young child is shown the child lines, the
+  /// emergency number and the worldwide directories. A teenager (13-17, or no
+  /// band given) keeps them. (SAFEGUARDING REVIEW NEEDED.)
   static List<HelpResource> resourcesFor(
     CrisisKind kind,
     String? countryCode, {
     bool child = false,
+    String? band,
   }) {
     final Set<HelpKind> kinds = <HelpKind>{
       ...kindsFor(kind),
@@ -1955,6 +1970,15 @@ abstract final class CrisisResponses {
       rows = <HelpResource>[
         for (final HelpResource r in rows)
           if (!r.childOnly) r,
+      ];
+    }
+    if (child && (band == '5-8' || band == '9-12')) {
+      rows = <HelpResource>[
+        for (final HelpResource r in rows)
+          if (!(r.kinds.contains(HelpKind.abuse) &&
+              !r.kinds.contains(HelpKind.child) &&
+              r.countries.isNotEmpty))
+            r,
       ];
     }
     final List<HelpKind> order = _order(kind, child: child);

@@ -22,10 +22,10 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5480;
+const int kScholarReviewTotal = 5487;
 
 /// Items marked high priority.
-const int kScholarReviewHighPriority = 1279;
+const int kScholarReviewHighPriority = 1283;
 
 const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
@@ -43,7 +43,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('stories-modern', 'Stories: modern hadith', 61, 11),
     ScholarReviewArea('dua-dhikr', 'Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas', 153, 23),
     ScholarReviewArea('new-muslim', 'New Muslim 30-day path', 30, 13),
-    ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 57, 32),
+    ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 64, 36),
     ScholarReviewArea('money', 'Zakat, will and estate, halal finance', 18, 18),
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
     ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 10, 5),
@@ -57,12 +57,12 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Hadith / aqidah scholar', 2448),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 618),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 620),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 523),
-    ScholarReviewerCount('Clinician (Sakina and health content)', 1008),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 263),
-    ScholarReviewerCount('Privacy lawyer', 14),
+    ScholarReviewerCount('Clinician (Sakina and health content)', 1011),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 264),
+    ScholarReviewerCount('Privacy lawyer', 15),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),
 ];

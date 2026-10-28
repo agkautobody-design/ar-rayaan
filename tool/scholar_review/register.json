@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5480,
+ "total": 5487,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 57,
-   "high_priority": 32
+   "items": 64,
+   "high_priority": 36
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -131,18 +131,18 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2448,
-  "Fiqh scholar (per madhab)": 618,
+  "Fiqh scholar (per madhab)": 620,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 1008,
-  "Native speaker (ar / bn / ur)": 263,
-  "Privacy lawyer": 14,
+  "Clinician (Sakina and health content)": 1011,
+  "Native speaker (ar / bn / ur)": 264,
+  "Privacy lawyer": 15,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1279,
-  "normal": 3499,
+  "high": 1283,
+  "normal": 3502,
   "low": 702
  },
  "items": [
@@ -82405,6 +82405,168 @@
    "priority": "high",
    "source_of_flag": [
     "R10_T2"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.child-distress-r2",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > school unhappiness (three variants per age band), \"someone touched me\", secrecy questions, the shorter self-harm card for a child",
+   "file": "lib/features/support/domain/child_distress.dart",
+   "key": "ChildDistress.reply (prior, text); selfHarmCard; cardFor",
+   "what_to_review": "Round 2: \"I believe you, not your fault\" is only for abuse or harm disclosures; touching has its own body-safety wording; school replies vary by how many came before; two secrecy answers chosen by the question asked; the self-harm card asks about safety first and is shorter for 5-8.",
+   "why_flagged": "R11_T2: the same card for a bad day and for abuse; identical secrecy answers; a long self-harm card for a five-year-old. No child-protection specialist or clinician has read the new wording.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R11_T2"
+   ],
+   "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.leaving-question",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Hadi > \"Can a woman ask khula / divorce if she is not safe?\" and the 4:34 question asked with a safety worry",
+   "file": "lib/features/support/domain/safe_replies.dart; lib/features/hadi/application/hadi_controller.dart",
+   "key": "LeavingQuestion.options",
+   "what_to_review": "Safety first, then four options (safety, a domestic abuse service, a scholar or imam who has worked with abuse, a lawyer), with the help lines under it. No ruling and no verse given in place of safety.",
+   "why_flagged": "R11_T9, R11_T10: the question got only the generic crisis card. A scholar must confirm that sending the religious question to a qualified scholar is acceptable wording; a safeguarding specialist must read the options.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)",
+    "Privacy lawyer"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "R11_T9",
+    "R11_T10"
+   ],
+   "label_surface": "Under the reply in Hadi",
+   "status": "open"
+  },
+  {
+   "id": "support.hadi-support-opener",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Support pages > \"Talk it through with Hadi\": the opening line",
+   "file": "lib/features/support/presentation/support_pathway_screens.dart",
+   "key": "hadiOpenerFor",
+   "what_to_review": "Hadi opens knowing which support page the person came from; on a danger page the first question is whether they are safe. Fixed words, never sent anywhere.",
+   "why_flagged": "R11_T9: the button opened the general greeting. A clinician should read the wording.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "R11_T9"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.teacher-guidance",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Academy (Adult and Parent tracks) > For teachers and mentors",
+   "file": "lib/features/support/presentation/teacher_guidance_screen.dart",
+   "key": "kTeacherGuidanceSections",
+   "what_to_review": "Guidance for a teacher or mentor: what to notice, what to do if a young person tells them something, writing it down, passing it on, and what is not an emergency. Collects, stores and sends nothing.",
+   "why_flagged": "R11_T2, R11_T9: nothing told a teacher what to do. Child-protection duties differ by country; a safeguarding specialist must read it and a lawyer must check the reporting lines. The faith line needs a scholar.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "R11_T2",
+    "R11_T9"
+   ],
+   "label_surface": "Teacher guidance page",
+   "status": "open"
+  },
+  {
+   "id": "support.kids-grownups-page",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Kids Corner > What can grown-ups see?",
+   "file": "lib/features/kids/presentation/kids_pages.dart",
+   "key": "kGrownupsCanSee; kGrownupsAdvice",
+   "what_to_review": "A page in a child's words saying what a parent can see (nickname, lessons finished, test scores), what nobody can see (what is typed to Wasia, how the child answers a check-in), and what to do if something is wrong. Matches children_privacy.dart; no privacy version bump was needed.",
+   "why_flagged": "R11_T2: a child could not find out who sees what. A lawyer must confirm it matches the policy; a child-protection specialist must read the wording.",
+   "reviewer_type": "Privacy lawyer",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R11_T2"
+   ],
+   "label_surface": "Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "academy.letters-age-fit",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Letters lessons > how much of a teaching step a child of 5-8 sees first",
+   "file": "lib/features/academy/presentation/wasia_lessons.dart",
+   "key": "ageFitTeaching",
+   "what_to_review": "For band 5-8 the first two sentences of a teaching step are shown with \"Tell me more\" for the rest; 9-12 and 13-17 see the whole step. Only the text is cut, not rewritten.",
+   "why_flagged": "R11_T1 D11: the teacher spoke the same way to every age. An early-years educator should check the cut and rewrite the longest steps.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "R11_T1"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "academy.wasia-memorise-answer",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > the answer to \"how do I memorise the Qur'an?\"",
+   "file": "lib/features/academy/data/offline_wasia_provider.dart",
+   "key": "_knowledge (memorisation entry)",
+   "what_to_review": "A short answer on repeating a little each day, listening to a reciter, and learning with a qualified teacher; no ruling, no fixed method.",
+   "why_flagged": "R11_T1: the question got \"Shall we get back to your letters?\". A Qur'an teacher should read it.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "R11_T1"
    ],
    "label_surface": "",
    "status": "open"

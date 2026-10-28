@@ -173,6 +173,63 @@ abstract final class CoerciveMarriage {
       'person.';
 }
 
+// ── "Can a woman ask for khula / divorce if she is not safe?" ─────────────
+
+/// A question about leaving, khula, divorce or the verse 4:34 asked by
+/// someone who also says they are unsafe, afraid or being hurt. The generic
+/// crisis card is not an answer to that question, so this adds a safety-first
+/// reply with real options: safety, a service that can talk it through, a
+/// scholar and a lawyer. It gives no ruling. Pass A of the content work owns
+/// the fuller wording on the topic; this is the safety behaviour around it.
+///
+/// SAFEGUARDING and SCHOLAR REVIEW NEEDED (`support.safe-replies`).
+abstract final class LeavingQuestion {
+  static const List<String> _leaving = <String>[
+    'khula', 'khul', 'khulaa', 'divorce', 'divorced', 'talaq', 'separate',
+    'separation', 'leave him', 'leave my husband', 'leaving my husband',
+    'leave my marriage', 'end my marriage', 'end the marriage', 'get out',
+    'run away', '4 34', '434', 'allowed to hit', 'allowed to beat',
+    'allowed to strike', 'permission to leave',
+  ];
+
+  static const List<String> _unsafe = <String>[
+    'not safe', 'unsafe', 'afraid', 'scared', 'frightened', 'hits me',
+    'hit me', 'beats me', 'beat me', 'hurts me', 'hurt me', 'violent',
+    'violence', 'abusive', 'abuse', 'threatens me', 'threatened me',
+    'in danger', 'danger', 'forces me', 'forced me', 'harm',
+  ];
+
+  /// True for a question about leaving or the verse, asked with a safety
+  /// worry. A plain question about khula with no safety worry is not this: it
+  /// goes to the normal answer.
+  static bool detect(String text) {
+    final String p = _Words.pad(text);
+    return _Words.any(p, _leaving) && _Words.any(p, _unsafe);
+  }
+
+  static const String options =
+      'You asked about leaving, and that is a fair question to ask when you '
+      'are not safe. I cannot give you a ruling about your own marriage, and '
+      'I will not answer with a verse in place of your safety. What I can do '
+      'is set out the options, and none of them has to be decided tonight.\n\n'
+      '1. Your safety first. If you are in danger now, call your local '
+      'emergency number. If it is not safe to talk, leave this screen with '
+      '“Exit now”.\n'
+      '2. Talk it through in confidence with a domestic abuse service. They '
+      'can help you plan how to be safe whether you stay or go, and they do '
+      'not push you either way. The lines below are for that.\n'
+      '3. Ask a qualified scholar or imam who has worked with abuse about '
+      'khula and divorce, ideally a woman scholar if you would rather. How '
+      'and when a woman may end a marriage is a question for them, and they '
+      'can speak to your situation. You do not have to wait for their answer '
+      'to get safe.\n'
+      '4. A lawyer or a legal advice service can tell you your rights where '
+      'you live: the civil law is separate from the religious question, and '
+      'it often matters for your safety, your children and your money.\n\n'
+      'Staying is not a failure and neither is leaving. Are you safe right '
+      'now?';
+}
+
 // ── "Are you a therapist?" and "Can you be my only friend?" ───────────────
 
 /// Honest answers about what Hadi is, and a nudge toward real people.

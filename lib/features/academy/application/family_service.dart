@@ -156,6 +156,19 @@ class FamilyService {
       id = 'c${DateTime.now().millisecondsSinceEpoch}_$n';
     }
     final String clean = name.trim();
+    // The same name added again within seconds (a double tap, or the dialog
+    // coming back after a lock) is the same child, not a second one.
+    final String key = (clean.length > 30 ? clean.substring(0, 30) : clean)
+        .toLowerCase();
+    for (final Map<String, dynamic> c in list) {
+      final DateTime? made = DateTime.tryParse('${c['createdAt']}');
+      if ('${c['name']}'.toLowerCase() == key &&
+          made != null &&
+          DateTime.now().difference(made).inSeconds.abs() < 15) {
+        await setActiveChild(c['id'] as String);
+        return c['id'] as String;
+      }
+    }
     list.add({
       'id': id,
       'name': clean.length > 30 ? clean.substring(0, 30) : clean,

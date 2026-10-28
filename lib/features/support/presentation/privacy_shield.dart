@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
+import '../../../app/core/providers.dart';
 import '../../academy/application/wasia_controller.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../application/support_settings.dart';
 import '../domain/quick_exit_signal.dart';
+import 'history_replace.dart';
 
 /// Wraps the whole app (see app.dart).
 ///
@@ -84,6 +87,8 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
       // The country picked for the help lines is part of what was said.
       ref.read(pickedHelpCountryProvider.notifier).state = null;
     } catch (_) {}
+    // Web: overwrite the sensitive entry so Back does not return to it.
+    replaceHistoryEntryWithHome();
     try {
       widget.router.go(AppRoutes.home);
     } catch (_) {}
@@ -129,25 +134,67 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
 }
 
 /// A small, always-visible button to leave a support screen at once.
-class QuickExitButton extends ConsumerWidget {
+///
+/// The first time it is shown it says, in one line, what it does and what it
+/// cannot do (the browser keeps older history). After that the line is gone.
+class QuickExitButton extends ConsumerStatefulWidget {
   const QuickExitButton({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<QuickExitButton> createState() => _QuickExitButtonState();
+}
+
+const String kExitExplainedPref = 'ar.support.exit_explained';
+
+class _QuickExitButtonState extends ConsumerState<QuickExitButton> {
+  bool _explain = false;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      final SharedPreferences p = ref.read(sharedPreferencesProvider);
+      if (p.getBool(kExitExplainedPref) != true) {
+        _explain = true;
+        // Said once: it is marked as seen as soon as it has been on screen.
+        p.setBool(kExitExplainedPref, true);
+      }
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final SupportSettings s = ref.watch(supportSettingsProvider);
     if (!s.quickExit) return const SizedBox.shrink();
     return Align(
       alignment: s.quickExitLeft ? Alignment.centerLeft : Alignment.centerRight,
-      child: Semantics(
-        button: true,
-        label: 'Quick exit. Clears this conversation and leaves now.',
-        child: OutlinedButton.icon(
-          key: const Key('quick-exit'),
-          onPressed: requestQuickExit,
-          icon: const Icon(Icons.exit_to_app, size: 20),
-          label: const Text('Exit now'),
-          style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
-        ),
+      child: Column(
+        crossAxisAlignment:
+            s.quickExitLeft ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Semantics(
+            button: true,
+            label: 'Quick exit. Clears this conversation and leaves now.',
+            child: OutlinedButton.icon(
+              key: const Key('quick-exit'),
+              onPressed: requestQuickExit,
+              icon: const Icon(Icons.exit_to_app, size: 20),
+              label: const Text('Exit now'),
+              style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+            ),
+          ),
+          if (_explain)
+            const Padding(
+              key: Key('quick-exit-explained'),
+              padding: EdgeInsets.only(top: 4),
+              child: Text(
+                'Exit now clears this chat and takes you to Home at once. '
+                'It is here on every support page.',
+                style: TextStyle(fontSize: 12, color: Color(0xFF8A93A3)),
+              ),
+            ),
+        ],
       ),
     );
   }

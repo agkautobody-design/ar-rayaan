@@ -15,8 +15,7 @@ class OfflineWasiaProvider implements HadiProvider {
   static const String decline =
       'That is beyond what I can teach from my lesson shelf, and I would '
       'rather not guess. Hādi in the app answers questions about worship '
-      'and daily life — or ask a teacher you trust. Shall we get back to '
-      'your letters?';
+      'and daily life, or you can ask a teacher you trust.';
 
   static final RegExp _wordChar = RegExp(r'[\p{L}\p{N}]', unicode: true);
 
@@ -477,5 +476,23 @@ const List<_Entry> _knowledge = <_Entry>[
     'Ramadan Mode in the app walks the whole month — the pillars, the daily'
     ' rhythm, and the duas of suhoor and iftar. I keep to my letters, but'
     ' the month is well-taught there.',
+  ),
+  // Memorising the Qur'an: a child (or a parent) asking how. Wasia teaches
+  // the letters, so she answers with the kindest true thing she has: a
+  // little at a time, aloud, with a person who can listen, and where the
+  // Academy plans it. No ruling, no method claimed as the only way.
+  // (TEACHER REVIEW NEEDED.)
+  _Entry(<String>['memorise', 'memorize', 'memorising', 'memorizing',
+      'memorisation', 'memorization', 'learn by heart', 'by heart', 'hifz',
+      'hafiz', 'learn the quran', 'learn quran', 'learn a surah',
+      'learn surah', 'learn a short surah', 'remember the quran',
+      'remember a surah'],
+    'That is a lovely thing to want to do. Most people learn a little at a '
+    'time: a few words, said out loud, again and again, with someone who '
+    'can listen and gently correct them. I cannot hear you recite, so I '
+    'cannot check your memorising. A teacher or a grown-up you trust can '
+    'listen with you. A grown-up can also open the Hifz Planner in the '
+    'Academy to plan small steps. Knowing the Arabic letters well helps a '
+    'lot, so the alphabet is a good place to begin.',
   ),
 ];

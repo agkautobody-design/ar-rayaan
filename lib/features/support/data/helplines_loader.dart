@@ -41,7 +41,7 @@ abstract final class HelplinesLoader {
     'suicide': <HelpKind>{HelpKind.suicide, HelpKind.general},
     'general': <HelpKind>{HelpKind.general},
     'emergency': <HelpKind>{HelpKind.emergency},
-    'poison': <HelpKind>{HelpKind.emergency},
+    'poison': <HelpKind>{HelpKind.poison},
     'addiction': <HelpKind>{HelpKind.addiction},
     'domestic-abuse': <HelpKind>{HelpKind.abuse},
     'sexual-violence': <HelpKind>{HelpKind.abuse},
