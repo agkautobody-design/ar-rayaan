@@ -13,6 +13,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../elder/application/elder_mode.dart';
+import '../../reading/application/reading_prefs.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// The goal chosen in the introduction ('new', 'learn', 'pray'...), or null.
@@ -100,6 +101,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
   final _page = PageController();
   int _i = 0;
   String? _need;
+  ArabicAnswer? _arabicAnswer;
 
   /// Set at once when the introduction ends, so a button mashed twice (or
   /// Skip then Begin) finishes once and cannot push the chosen room twice.
@@ -467,6 +469,8 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                     textAlign: TextAlign.center,
                     style: AppText.bodyMuted.copyWith(fontSize: 13)),
                 const SizedBox(height: 18),
+                _arabicQuestion(l10n),
+                const SizedBox(height: 18),
                 if (_bigOrNarrow(context) ||
                     MediaQuery.textScalerOf(context).scale(14) / 14 > 1.15)
                   // One card per line: two side by side are too narrow for
@@ -502,6 +506,53 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  /// "Can you read Arabic?" One question, three answers, skippable. It only
+  /// decides how much help is shown with the Arabic (the Arabic in Latin
+  /// letters, and the meaning); everything stays on unless the person says
+  /// "Yes". Not answering means everything is shown.
+  Widget _arabicQuestion(L10n l10n) {
+    const Map<ArabicAnswer, String> labels = <ArabicAnswer, String>{
+      ArabicAnswer.no: 'No, not yet',
+      ArabicAnswer.little: 'A little',
+      ArabicAnswer.yes: 'Yes',
+    };
+    return Column(
+      key: const Key('onboarding-arabic-question'),
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Text('CAN YOU READ ARABIC?',
+            textAlign: TextAlign.center, style: AppText.eyebrow),
+        const SizedBox(height: 8),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 4,
+          children: <Widget>[
+            for (final ArabicAnswer a in ArabicAnswer.values)
+              ChoiceChip(
+                key: Key('onboarding-arabic-${a.name}'),
+                materialTapTargetSize: MaterialTapTargetSize.padded,
+                label: Text(labels[a] ?? ''),
+                selected: _arabicAnswer == a,
+                selectedColor: AppColors.gold.withValues(alpha: 0.35),
+                onSelected: (_) {
+                  setState(() => _arabicAnswer = a);
+                  unawaited(ref.read(readingPrefsProvider.notifier).answer(a));
+                },
+              ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'This only decides how much help you see with the Arabic. '
+          'You can change it in Settings.',
+          textAlign: TextAlign.center,
+          style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+        ),
+      ],
     );
   }
 

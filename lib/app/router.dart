@@ -337,8 +337,24 @@ extension AppNavigation on BuildContext {
     WidgetsBinding.instance.scheduleFrame();
     if (kShellTabPaths.contains(path)) {
       go(route, extra: extra);
+    } else if (_childSideways(path)) {
+      // Child mode: from one child screen to the next replaces the screen
+      // instead of stacking it, so Back (and the browser's Back) goes to Kids
+      // Corner and does not walk every screen the child opened.
+      pushReplacement(route, extra: extra);
     } else {
       push(route, extra: extra);
+    }
+  }
+
+  bool _childSideways(String path) {
+    if (!kChildMode.value || path == kChildHome) return false;
+    try {
+      final String cur =
+          GoRouter.of(this).routerDelegate.currentConfiguration.uri.path;
+      return cur != kChildHome && cur != '/' && cur != path;
+    } catch (_) {
+      return false;
     }
   }
 }

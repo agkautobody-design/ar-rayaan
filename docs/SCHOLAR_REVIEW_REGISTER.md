@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5515 items.** High priority: 1292. Normal: 3521. Low: 702.
+**5522 items.** High priority: 1296. Normal: 3524. Low: 702.
 
 ### By area
 
@@ -33,17 +33,17 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Stories: modern hadith | 61 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
 | New Muslim 30-day path | 30 | 13 |
-| Sakina rooms, feelings, safety copy, health | 64 | 36 |
+| Sakina rooms, feelings, safety copy, health | 68 | 40 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 10 | 5 |
 | Games and quizzes with religious content | 14 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 240 | 125 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 243 | 125 |
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5515** | **1292** |
+| **Total** | **5522** | **1296** |
 
 ### By reviewer type
 
@@ -52,11 +52,11 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Hadith / aqidah scholar | 2451 | 1044 |
 | Fiqh scholar (per madhab) | 631 | 236 |
 | Women's scholar | 151 | 96 |
-| Arabic / tajweed / qira'at specialist | 524 | 196 |
-| Clinician (Sakina and health content) | 1011 | 252 |
-| Native speaker (ar / bn / ur) | 276 | 12 |
-| Privacy lawyer | 15 | 16 |
-| Rights holder / licensing (not a scholar) | 7 | 1 |
+| Arabic / tajweed / qira'at specialist | 525 | 195 |
+| Clinician (Sakina and health content) | 1015 | 252 |
+| Native speaker (ar / bn / ur) | 279 | 13 |
+| Privacy lawyer | 15 | 20 |
+| Rights holder / licensing (not a scholar) | 6 | 2 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
@@ -80,12 +80,12 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Stories: modern hadith | 61 |  |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
-| Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 56 | 1 | 5 |  |  |
+| Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 60 | 1 | 5 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
-| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 3 |  |  |  | 5 |  |
+| Qur'an text, translation, transliteration, licences | 1 | 1 |  | 4 |  |  |  | 4 |  |
 | Games and quizzes with religious content | 13 | 1 |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 240 |  |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 243 |  |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
@@ -137,37 +137,37 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
 - Stories: seerah, companions, women: 46 items (29 high). Ids start with `story.women`.
 
-### Arabic / tajweed / qira'at specialist (524 lead, 196 also)
+### Arabic / tajweed / qira'at specialist (525 lead, 195 also)
 
 - Academy phrase registry (transliteration, meaning, word glosses): 131 items (131 high). Ids start with `phrase.aqid-und-daw`, `phrase.arabic_hfz`, `phrase.eol_hlth_wmns_char`, `phrase.fam-yth-trx`, `phrase.foundation`.
 - Academy word glosses (300): 300 items (0 high). Ids start with `gloss.001`, `gloss.002`, `gloss.003`, `gloss.004`, `gloss.005`, `gloss.006`.
 - Academy schools, Path lessons and static course screens: 1 items (0 high). Ids start with `kids.alif-wording`.
 - Arabic, tajweed, Hifz and Qur'an recitation teaching: 88 items (42 high). Ids start with `arabic.arabic-script-lessons`, `arabic.colored-examples`, `arabic.hifz-method`, `arabic.sun-moon-letters`, `arabic.tajweed-jali-khafi`, `arabic.tarteel-definition`.
-- Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
+- Qur'an text, translation, transliteration, licences: 4 items (3 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1011 lead, 252 also)
+### Clinician (Sakina and health content) (1015 lead, 252 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
-- Sakina rooms, feelings, safety copy, health: 56 items (30 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
+- Sakina rooms, feelings, safety copy, health: 60 items (34 high). Ids start with `health.ruqya-medicine`, `kids.child-reader-r3`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 903 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (276 lead, 12 also)
+### Native speaker (ar / bn / ur) (279 lead, 13 also)
 
 - Sakina rooms, feelings, safety copy, health: 1 items (0 high). Ids start with `academy.letters-age-fit`.
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 240 items (125 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 243 items (125 high). Ids start with `i18n.elder-doors`, `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
-### Privacy lawyer (15 lead, 16 also)
+### Privacy lawyer (15 lead, 20 also)
 
 - Sakina rooms, feelings, safety copy, health: 5 items (5 high). Ids start with `support.children-age-band`, `support.kids-grownups-page`, `support.memory`, `support.online-consent`, `support.privacy-storage`.
 - Privacy, terms, children's privacy, community rules: 10 items (10 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.firebase-startup`, `legal.parent-pin`.
 
-### Rights holder / licensing (not a scholar) (7 lead, 1 also)
+### Rights holder / licensing (not a scholar) (6 lead, 2 also)
 
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (0 high). Ids start with `kids.translit-credit`.
-- Qur'an text, translation, transliteration, licences: 5 items (3 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.translit-59`, `quran.word-meanings-source`.
+- Qur'an text, translation, transliteration, licences: 4 items (2 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.word-meanings-source`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.channels`.
 
 ### App owner (product wording and voice, not a scholar) (449 lead, 0 also)
@@ -3721,7 +3721,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Sakina rooms, feelings, safety copy, health
 
-64 items, 36 high priority. Area key `sakina`.
+68 items, 40 high priority. Area key `sakina`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3783,6 +3783,10 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.helplines-fixb` | Help lines added in fix pass B: Egypt child hotline 16000, Egypt women's complaints hotline 15115, Saudi chil… | Four rows read on 2026-10-27 on official or UN pages (sources in the file). Canada has no single national line, so the row opens the Government of Canada list. The Egypt women's hotline rests on a 20… | R10_T9, R10_T10: Canada adult domestic violence, Bangladesh women's, Saudi and Egypt coverage were missing. Bangladesh 109 was already verified. Nothing unverified is shown. | Clinician + Native speaker | high | R10_T9; R10_T10 |
 | `support.wasia-checkin` | Wasia > the gentle check-in for a child | Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it. | Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6). | Clinician + Privacy lawyer | high | R10_T2 |
 | `support.child-distress-r2` | Wasia > school unhappiness (three variants per age band), "someone touched me", secrecy questions, the shorte… | Round 2: "I believe you, not your fault" is only for abuse or harm disclosures; touching has its own body-safety wording; school replies vary by how many came before; two secrecy answers chosen by th… | R11_T2: the same card for a bad day and for abuse; identical secrecy answers; a long self-harm card for a five-year-old. No child-protection specialist or clinician has read the new wording. | Clinician + Privacy lawyer, Native speaker | high | R11_T2 |
+| `support.child-distress-r3` | Wasia > "I hate myself", "bullied", "mean" replies per age band; exam nerves; ambiguous "tired of everything"… | Round 3: three new child reply kinds with a grown-up and helpline choice; exam nerves no longer get the scared-child reply; passive ideation phrases ("tired of everything ... want it to stop") get th… | R12: the sentences got the wrong card or none. No clinician or child-protection specialist has read the wording; the passive-ideation phrase list needs clinical review. | Clinician + Privacy lawyer, Native speaker | high | R12_T2; R12_T10 |
+| `support.help-sheet-bands` | Need help now sheet > different lists for 5-8, 9-12, 13-17 and adults | Round 3: 5-8 shows only dial-able lines; adults see emergency numbers (911 in the US) first. Verified numbers only. | R12: one sheet for every age. A safeguarding specialist should confirm the lines shown for each band. | Clinician + Privacy lawyer | high | R12_T2 |
+| `teacher.guidance-entry` | Teachers and mentors page reachable from Academy, Family, Quick Access, the support hub and search | Round 3: a "For teachers and mentors" entry on five surfaces. | R12_T1: the page existed but could not be found. Safeguarding specialist should read the page text. | Clinician + Privacy lawyer | high | R12_T1 |
+| `kids.child-reader-r3` | Child surah reader, dua and story pages without adult chrome; Memorise this surah; short-surah difficulty cue | Round 3: in child mode the reader hides downloads, bookmarks, notes and links; the surah list says how long each surah is. | R12_T2: adult controls were reachable by a child. A parent-safety reviewer should confirm. | Clinician + Privacy lawyer | high | R12_T2 |
 | `support.leaving-question` | Hadi > "Can a woman ask khula / divorce if she is not safe?" and the 4:34 question asked with a safety worry | Safety first, then four options (safety, a domestic abuse service, a scholar or imam who has worked with abuse, a lawyer), with the help lines under it. No ruling and no verse given in place of safet… | R11_T9, R11_T10: the question got only the generic crisis card. A scholar must confirm that sending the religious question to a qualified scholar is acceptable wording; a safeguarding specialist must read the options. | Fiqh scholar + Clinician, Privacy lawyer | high | R11_T9; R11_T10 |
 | `support.hadi-support-opener` | Support pages > "Talk it through with Hadi": the opening line | Hadi opens knowing which support page the person came from; on a danger page the first question is whether they are safe. Fixed words, never sent anywhere. | R11_T9: the button opened the general greeting. A clinician should read the wording. | Clinician | normal | R11_T9 |
 | `support.teacher-guidance` | Academy (Adult and Parent tracks) > For teachers and mentors | Guidance for a teacher or mentor: what to notice, what to do if a young person tells them something, writing it down, passing it on, and what is not an emergency. Collects, stores and sends nothing. | R11_T2, R11_T9: nothing told a teacher what to do. Child-protection duties differ by country; a safeguarding specialist must read it and a lawyer must check the reporting lines. The faith line needs a scholar. | Clinician + Privacy lawyer, Fiqh scholar | high | R11_T2; R11_T9 |
@@ -3875,7 +3879,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `quran.saheeh-licence` | Qur'an reader > English translation; Our Sources; share and copy | Whether the bundled Saheeh International English text may be distributed, copied and shared inside the app. | FIX_QURAN_HADITH_REPORT: licence UNCONFIRMED (Tanzil terms: translations non-commercial, permission from the translator or publisher needed). No permission statement in the repo. This is a rights question, not a scholar question. | Rights holder / licensing | high | FIX_QURAN_HADITH_REPORT (Saheeh licence unconfirmed); docs/OWNER_ACTIONS.md item 5 |
 | `quran.clear-quran-pack` | Qur'an reader > default English translation | The publisher's written authorisation for The Clear Quran (distribution, offline use, sharing, credit line), and the text file itself, which is not in the repo. | The app is built to use The Clear Quran by default but ships the interim translation until the file and the authorisation exist. | Rights holder / licensing | high | docs/content_needed/CLEAR_QURAN_PACK.md; docs/OWNER_ACTIONS.md item 5 |
 | `quran.foundation-terms` | Qur'an reader; translations fetched online | Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched. | OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk). | Rights holder / licensing | normal | docs/OWNER_ACTIONS.md item 5 |
-| `quran.translit-59` | Qur'an reader > transliteration, and search | The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy. | FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist. | Rights holder / licensing + Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (transliteration 59/6236) |
+| `quran.translit-generated` | Qur'an reader > transliteration under every ayah; Home daily verse; Academy | The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrop… | The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide. | Arabic / tajweed / qira'at specialist + Rights holder / licensing | high | docs/DATA_SOURCES.md T1; docs/OWNER_ACTIONS.md item 23 |
 | `quran.translit-accuracy` | Qur'an reader > transliteration; lesson say-steps | Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author's own learning aid. | FIX_WORSHIP_REPORT and phrases files: "all transliterations and meanings are learning aids"; docs/content_needed/dua_transliteration.md lists the gaps. | Arabic / tajweed / qira'at specialist | high | FIX_WORSHIP_REPORT; docs/content_needed/dua_transliteration.md |
 | `quran.arabic-diacritics` | Qur'an reader (Arabic text) | Arabic diacritics were compared with a reference Uthmani text; differences were reported in the pass and no text was changed. | FIX_QURAN_HADITH_REPORT: consonantal skeleton matched; diacritic differences exist and are unreviewed. | Arabic / tajweed / qira'at specialist | high | FIX_QURAN_HADITH_REPORT (diacritics vs Uthmani) |
 | `quran.riwaya` | Qur'an reader; recitation audio | Confirm the text edition (Hafs an Asim, Madinah mushaf pagination of 604 pages) and any claim about it. | Qira'at are a specialist matter; no qira'at specialist has reviewed the choice. | Arabic / tajweed / qira'at specialist | normal | Reviewer list: Arabic / tajweed / qira'at |
@@ -3909,7 +3913,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-240 items, 125 high priority. Area key `languages`.
+243 items, 125 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3969,6 +3973,8 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.label.home.elder` | UI label "home.elder" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elder" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.elderSub` | UI label "home.elderSub" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elderSub" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.elderSubLong` | UI label "home.elderSubLong" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elderSubLong" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
+| `lang.label.home.elderOn` | UI label "home.elderOn" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elderOn" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
+| `lang.label.home.elderOff` | UI label "home.elderOff" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.elderOff" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.also` | UI label "home.also" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.also" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.nasheeds` | UI label "home.nasheeds" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.nasheeds" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
 | `lang.label.home.forChildren` | UI label "home.forChildren" (navigation, Home, onboarding, Menu) | Arabic, Bangla and Urdu wording of UI label "home.forChildren" against the English; direction (RTL for ar/ur). | docs/content_needed/translation_review.md: "MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER"; the Language screen says these are first drafts (OWNER_ACTIONS item 15). | Native speaker | normal | docs/content_needed/translation_review.md; FIX_FLOWS_REPORT (owner action 2) |
@@ -4137,6 +4143,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.phrases.faith` | Arabic, Urdu and Bangla wording of: Faith tab (Explore) and Family Trees | Every English / Arabic / Urdu / Bangla row of group "faith" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.hadi` | Arabic, Urdu and Bangla wording of: Hadi screen chrome (header, menus, composer, report and AI-account sheets) | Every English / Arabic / Urdu / Bangla row of group "hadi" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | high | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.more` | Arabic, Urdu and Bangla wording of: Qur’an bookmarks and reciter labels, Sakina hub, handout | Every English / Arabic / Urdu / Bangla row of group "more" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
+| `lang.phrases.pass3c` | Arabic, Urdu and Bangla wording of: Hadi welcome, text-size labels, first Family Wing strings | Every English / Arabic / Urdu / Bangla row of group "pass3c" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safe… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.prayer` | Arabic, Urdu and Bangla wording of: Prayer Times screen | Every English / Arabic / Urdu / Bangla row of group "prayer" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safe… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.qibla` | Arabic, Urdu and Bangla wording of: Qibla screen | Every English / Arabic / Urdu / Bangla row of group "qibla" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |
 | `lang.phrases.quran` | Arabic, Urdu and Bangla wording of: Qur’an screens (labels and buttons only) | Every English / Arabic / Urdu / Bangla row of group "quran" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safet… | Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables. | Native speaker | normal | docs/OWNER_ACTIONS.md item 22; docs/content_needed/translation_review.md |

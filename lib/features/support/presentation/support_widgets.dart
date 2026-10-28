@@ -12,6 +12,7 @@ import '../data/helplines_loader.dart';
 import '../data/pack_repository.dart';
 import '../domain/checkin_scheduler.dart';
 import '../domain/support_pack.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The gentle check-in answers: three choices and a small "Don't ask me
 /// again". Plain words, large targets, no guilt.
@@ -72,7 +73,8 @@ class SupportProvenanceButton extends StatelessWidget {
     if (ids.isEmpty) return const SizedBox.shrink();
     return TextButton(
       key: const Key('support-provenance'),
-      onPressed: () => showModalBottomSheet<void>(
+      onPressed: () => showNamedSheet<void>(
+        label: 'How I know this',
         context: context,
         isScrollControlled: true,
         backgroundColor: AppColors.night,

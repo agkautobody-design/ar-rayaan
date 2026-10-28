@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5515,
+ "total": 5522,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 64,
-   "high_priority": 36
+   "items": 68,
+   "high_priority": 40
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -105,7 +105,7 @@
   },
   "languages": {
    "title": "UI labels and crisis phrases in Arabic, Bangla, Urdu",
-   "items": 240,
+   "items": 243,
    "high_priority": 125
   },
   "legal": {
@@ -133,16 +133,16 @@
   "Hadith / aqidah scholar": 2451,
   "Fiqh scholar (per madhab)": 631,
   "Women's scholar": 151,
-  "Arabic / tajweed / qira'at specialist": 524,
-  "Clinician (Sakina and health content)": 1011,
-  "Native speaker (ar / bn / ur)": 276,
+  "Arabic / tajweed / qira'at specialist": 525,
+  "Clinician (Sakina and health content)": 1015,
+  "Native speaker (ar / bn / ur)": 279,
   "Privacy lawyer": 15,
-  "Rights holder / licensing (not a scholar)": 7,
+  "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1292,
-  "normal": 3521,
+  "high": 1296,
+  "normal": 3524,
   "low": 702
  },
  "items": [
@@ -36186,7 +36186,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='khula-woman'",
    "what_to_review": "Built-in answer \"khula-woman\": A wife can ask for khul' whether or not there is a fault in her husband. The Prophet's ruling in the case of Thabit ibn Qais's wife did not ask her to prove mistreatment; it was enough that she could not stay in the marriage as she was. But she should not ask…",
-   "why_flagged": "A scholar should confirm: the claim that khul' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 is as given by the graders in the hadith-api edition.",
+   "why_flagged": "A scholar should confirm: the claim that khul' does not need proof of mistreatment, the usual amount returned being not more than the mahr, the position of the courts when the husband refuses, and the iddah difference (one cycle versus three) by school. The grade of Tirmidhi 1187 (hasan, per al-Tirmidhi) is as given in the hadith-api edition.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Women's scholar",
@@ -75787,6 +75787,46 @@
    "status": "open"
   },
   {
+   "id": "lang.label.home.elderOn",
+   "area": "languages",
+   "subarea": "ui-label",
+   "where_in_app": "UI label \"home.elderOn\" (navigation, Home, onboarding, Menu)",
+   "file": "lib/app/core/i18n/ui_labels.dart",
+   "key": "home.elderOn",
+   "what_to_review": "Arabic, Bangla and Urdu wording of UI label \"home.elderOn\" against the English; direction (RTL for ar/ur).",
+   "why_flagged": "docs/content_needed/translation_review.md: \"MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER\"; the Language screen says these are first drafts (OWNER_ACTIONS item 15).",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/content_needed/translation_review.md",
+    "FIX_FLOWS_REPORT (owner action 2)"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
+   "id": "lang.label.home.elderOff",
+   "area": "languages",
+   "subarea": "ui-label",
+   "where_in_app": "UI label \"home.elderOff\" (navigation, Home, onboarding, Menu)",
+   "file": "lib/app/core/i18n/ui_labels.dart",
+   "key": "home.elderOff",
+   "what_to_review": "Arabic, Bangla and Urdu wording of UI label \"home.elderOff\" against the English; direction (RTL for ar/ur).",
+   "why_flagged": "docs/content_needed/translation_review.md: \"MACHINE-STYLE, NOT YET CHECKED BY A NATIVE SPEAKER\"; the Language screen says these are first drafts (OWNER_ACTIONS item 15).",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/content_needed/translation_review.md",
+    "FIX_FLOWS_REPORT (owner action 2)"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
    "id": "lang.label.home.also",
    "area": "languages",
    "subarea": "ui-label",
@@ -79379,6 +79419,26 @@
    "status": "open"
   },
   {
+   "id": "lang.phrases.pass3c",
+   "area": "languages",
+   "subarea": "ui-phrases",
+   "where_in_app": "Arabic, Urdu and Bangla wording of: Hadi welcome, text-size labels, first Family Wing strings",
+   "file": "lib/app/core/i18n/ui_phrases_data.dart",
+   "key": "group \"pass3c\"",
+   "what_to_review": "Every English / Arabic / Urdu / Bangla row of group \"pass3c\" (generated table; each row is shown through the Text wrapper). Check meaning, register and direction; the screens that carry support, safety or religious content show a visible \"Native-speaker review needed\" note.",
+   "why_flagged": "Pass D (languages): machine drafts, no native speaker has read them. OWNER_ACTIONS item 22. Qur’an, hadith and du’a text is never in these tables.",
+   "reviewer_type": "Native speaker (ar / bn / ur)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/OWNER_ACTIONS.md item 22",
+    "docs/content_needed/translation_review.md"
+   ],
+   "label_surface": "Language settings note",
+   "status": "open"
+  },
+  {
    "id": "lang.phrases.prayer",
    "area": "languages",
    "subarea": "ui-phrases",
@@ -80755,24 +80815,25 @@
    "status": "open"
   },
   {
-   "id": "quran.translit-59",
+   "id": "quran.translit-generated",
    "area": "quran-text",
    "subarea": "transliteration",
-   "where_in_app": "Qur'an reader > transliteration, and search",
-   "file": "assets/quran (transliteration)",
-   "key": "transliteration 59 of 6,236 ayahs",
-   "what_to_review": "The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy.",
-   "why_flagged": "FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist.",
-   "reviewer_type": "Rights holder / licensing (not a scholar)",
+   "where_in_app": "Qur'an reader > transliteration under every ayah; Home daily verse; Academy",
+   "file": "assets/quran/translit_en.json; tool/translit/build_quran_translit.py",
+   "key": "transliteration of all 6,236 ayahs",
+   "what_to_review": "The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrophe for ayn, and the licence need a check.",
+   "why_flagged": "The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide.",
+   "reviewer_type": "Arabic / tajweed / qira'at specialist",
    "also_reviewers": [
-    "Arabic / tajweed / qira'at specialist"
+    "Rights holder / licensing (not a scholar)"
    ],
    "madhabs": [],
    "priority": "high",
    "source_of_flag": [
-    "FIX_QURAN_HADITH_REPORT (transliteration 59/6236)"
+    "docs/DATA_SOURCES.md T1",
+    "docs/OWNER_ACTIONS.md item 23"
    ],
-   "label_surface": "",
+   "label_surface": "Under every ayah in the reader",
    "status": "open"
   },
   {
@@ -82938,6 +82999,92 @@
     "R11_T2"
    ],
    "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.child-distress-r3",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > \"I hate myself\", \"bullied\", \"mean\" replies per age band; exam nerves; ambiguous \"tired of everything\" for adults and children",
+   "file": "lib/features/support/domain/child_distress.dart",
+   "key": "ChildDistressKind.selfHate / bullied / mean; CrisisDetector passive ideation",
+   "what_to_review": "Round 3: three new child reply kinds with a grown-up and helpline choice; exam nerves no longer get the scared-child reply; passive ideation phrases (\"tired of everything ... want it to stop\") get the safety check.",
+   "why_flagged": "R12: the sentences got the wrong card or none. No clinician or child-protection specialist has read the wording; the passive-ideation phrase list needs clinical review.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2",
+    "R12_T10"
+   ],
+   "label_surface": "Wasia thread, Hadi and Sakina",
+   "status": "open"
+  },
+  {
+   "id": "support.help-sheet-bands",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Need help now sheet > different lists for 5-8, 9-12, 13-17 and adults",
+   "file": "lib/features/sakina/presentation/widgets/need_help_button.dart",
+   "key": "NeedHelpButton sheet",
+   "what_to_review": "Round 3: 5-8 shows only dial-able lines; adults see emergency numbers (911 in the US) first. Verified numbers only.",
+   "why_flagged": "R12: one sheet for every age. A safeguarding specialist should confirm the lines shown for each band.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2"
+   ],
+   "label_surface": "Need help now sheet",
+   "status": "open"
+  },
+  {
+   "id": "teacher.guidance-entry",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Teachers and mentors page reachable from Academy, Family, Quick Access, the support hub and search",
+   "file": "lib/features/support/presentation/support_pathway_screens.dart",
+   "key": "support-hub-teachers",
+   "what_to_review": "Round 3: a \"For teachers and mentors\" entry on five surfaces.",
+   "why_flagged": "R12_T1: the page existed but could not be found. Safeguarding specialist should read the page text.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T1"
+   ],
+   "label_surface": "Support hub",
+   "status": "open"
+  },
+  {
+   "id": "kids.child-reader-r3",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Child surah reader, dua and story pages without adult chrome; Memorise this surah; short-surah difficulty cue",
+   "file": "lib/features/quran/presentation/surah_reader_screen.dart",
+   "key": "child mode reader",
+   "what_to_review": "Round 3: in child mode the reader hides downloads, bookmarks, notes and links; the surah list says how long each surah is.",
+   "why_flagged": "R12_T2: adult controls were reachable by a child. A parent-safety reviewer should confirm.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R12_T2"
+   ],
+   "label_surface": "Kids Corner",
    "status": "open"
   },
   {

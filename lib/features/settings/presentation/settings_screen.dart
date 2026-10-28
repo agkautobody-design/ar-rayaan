@@ -21,6 +21,7 @@ import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
+import '../../reading/presentation/reading_settings.dart';
 import '../../quran/presentation/quran_translation_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
@@ -128,6 +129,18 @@ class SettingsScreen extends ConsumerWidget {
                             }
                           },
                         ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('ARABIC READING SUPPORT', style: AppText.eyebrow),
+                      ),
+                      const GlassCard(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 10,
+                        ),
+                        child: ReadingSupportControls(),
                       ),
                       const SizedBox(height: 20),
                       Padding(

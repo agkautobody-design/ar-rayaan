@@ -29,7 +29,6 @@ import '../../share/presentation/share_actions.dart';
 import 'widgets/glossary_text.dart';
 import 'widgets/wasia_checkin_card.dart';
 import 'widgets/wasia_thread.dart';
-import '../../../app/theme/widgets/named_route.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
@@ -115,12 +114,11 @@ class _LessonPlayerScreenState
       final bool firstLesson = ref.read(lessonsDoneProvider) == 1;
       if (mounted) {
         final AcademyLesson? next = nextLessonAfter(_lesson.id);
-        await showModalBottomSheet<void>(
+        await showNamedSheet<void>(
+          label: AcademyStrings.get('lesson.completeTitle'),
           context: context,
           backgroundColor: Colors.transparent,
-          builder: (BuildContext context) => NamedRoute(
-            label: AcademyStrings.get('lesson.completeTitle'),
-            child: Padding(
+          builder: (BuildContext context) => Padding(
             padding: const EdgeInsets.all(20),
             child: GlassCard(
               strong: true,
@@ -180,7 +178,6 @@ class _LessonPlayerScreenState
               ),
             ),
           ),
-          ),
         );
       }
       return;
@@ -216,17 +213,13 @@ class _LessonPlayerScreenState
   Future<void> _askWasia() async {
     final LessonGrounding g = _grounding;
     ref.read(wasiaControllerProvider.notifier).openLesson(g.id);
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Ask Wasia about this lesson',
       context: context,
       isScrollControlled: true,
+      avoidKeyboard: true,
       backgroundColor: Colors.transparent,
-      builder: (BuildContext ctx) => NamedRoute(
-        label: 'Ask Wasia about this lesson',
-        child: Padding(
-          padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
-          child: _LessonWasiaSheet(lesson: g),
-        ),
-      ),
+      builder: (BuildContext ctx) => _LessonWasiaSheet(lesson: g),
     );
   }
 
@@ -236,7 +229,8 @@ class _LessonPlayerScreenState
     final LessonProvenance? prov = provenanceOf(_lesson.id);
     final List<LessonSource> sources =
         extractSources(RecallChecks.fullTextOf(_lesson));
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Where this lesson comes from',
       context: context,
       backgroundColor: Colors.transparent,
       builder: (BuildContext ctx) => Padding(
@@ -921,6 +915,8 @@ Future<void> showLessonWasiaSheet(
   await showNamedSheet<void>(
     context: context,
     label: 'Ask Wasia about this lesson',
+    avoidKeyboard: true,
+    backgroundColor: Colors.transparent,
     builder: (BuildContext ctx) => _LessonWasiaSheet(lesson: lesson),
   );
 }

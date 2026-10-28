@@ -13,6 +13,7 @@ import '../application/hijri_settings.dart';
 import '../domain/hijri_date.dart';
 import '../domain/sunnah_fasting.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Islamic Calendar: today's Hijri date, a month grid you can page through,
 /// a date converter and the year's upcoming observances. Fully offline.
@@ -106,7 +107,8 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
   }
 
   void _showBasisSheet(BuildContext context) {
-    showModalBottomSheet<void>(
+    showNamedSheet<void>(
+      label: 'Hijri date basis',
       context: context,
       backgroundColor: AppColors.navy,
       shape: const RoundedRectangleBorder(
@@ -691,7 +693,8 @@ void showFastingKnowledgeSheet(
   List<FastingMarker> markers, {
   HijriDate? date,
 }) {
-  showModalBottomSheet<void>(
+  showNamedSheet<void>(
+    label: 'Fasting days',
     context: context,
     backgroundColor: AppColors.navy,
     shape: const RoundedRectangleBorder(
@@ -1035,7 +1038,8 @@ void showObservanceSheet(
   String gregorian,
   String when,
 ) {
-  showModalBottomSheet<void>(
+  showNamedSheet<void>(
+    label: 'About this day',
     context: context,
     backgroundColor: AppColors.navy,
     isScrollControlled: true,

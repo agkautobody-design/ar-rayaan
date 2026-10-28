@@ -9,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../application/user_playlist_provider.dart';
 import '../domain/user_playlist.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 Future<void> showAddToPlaylistSheet(
   BuildContext context,
@@ -39,7 +40,8 @@ Future<String?> pickPlaylist(
   required String heading,
 }) async {
   final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
-  final String? picked = await showModalBottomSheet<String>(
+  final String? picked = await showNamedSheet<String>(
+    label: 'Add to a playlist',
     context: context,
     backgroundColor: AppColors.navy,
     builder: (BuildContext ctx) => Consumer(

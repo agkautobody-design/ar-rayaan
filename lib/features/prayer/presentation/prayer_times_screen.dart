@@ -32,8 +32,8 @@ import '../application/prayer_settings.dart';
 import '../data/aladhan_prayer_repository.dart';
 import '../data/city_directory.dart';
 import '../domain/prayer_times.dart';
-import '../../../app/theme/widgets/named_route.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// Prayer Times — calculated on the device (adhan math), in the clock of
 /// the chosen city. New screen designed within the locked system — pending
@@ -449,7 +449,8 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
         Center(
           child: TextButton.icon(
-            onPressed: () => showModalBottomSheet<void>(
+            onPressed: () => showNamedSheet<void>(
+              label: 'Calculation method and Asr',
               context: context,
               isScrollControlled: true,
               backgroundColor: const Color(0xFF0B1424),
@@ -772,17 +773,15 @@ class _CitySheetState extends State<CitySheet> {
 
 /// Opens the city picker and saves the choice.
 Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
-  final PrayerLocation? chosen = await showModalBottomSheet<PrayerLocation>(
+  final PrayerLocation? chosen = await showNamedSheet<PrayerLocation>(
+    label: 'Choose your city',
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.night,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
     ),
-    builder: (BuildContext ctx) => const NamedRoute(
-      label: 'Choose your city',
-      child: CitySheet(),
-    ),
+    builder: (BuildContext ctx) => const CitySheet(),
   );
   if (chosen != null) {
     await ref
@@ -1361,7 +1360,8 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
 
   Future<void> _choose(String day, String prayer) async {
     final PrayerMark? current = ref.read(prayerLogProvider).markFor(day, prayer);
-    final PrayerMark? picked = await showModalBottomSheet<PrayerMark>(
+    final PrayerMark? picked = await showNamedSheet<PrayerMark>(
+      label: 'Mark this prayer',
       context: context,
       backgroundColor: AppColors.night,
       builder: (BuildContext ctx) => SafeArea(

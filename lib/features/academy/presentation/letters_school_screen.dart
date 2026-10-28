@@ -14,6 +14,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/letter_audio_provider.dart';
 import '../domain/letters_data.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 class LettersSchoolScreen extends StatelessWidget {
   const LettersSchoolScreen({super.key});
@@ -35,7 +36,8 @@ class LettersSchoolScreen extends StatelessWidget {
             itemBuilder: (context, i) {
               final LetterEntry l = kHijaiLetters[i];
               return GlassCard(
-                onTap: () => showModalBottomSheet<void>(
+                onTap: () => showNamedSheet<void>(
+                  label: 'Letter',
                   context: context,
                   isScrollControlled: true,
                   backgroundColor: Colors.transparent,

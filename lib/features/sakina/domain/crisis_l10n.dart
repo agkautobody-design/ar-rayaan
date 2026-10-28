@@ -16,6 +16,7 @@
 ///    caller shows the English with [crisisEnglishNote] in front.
 library;
 
+import '../../../app/core/i18n/bidi.dart' show isolateLtrLines;
 import '../../../app/core/i18n/ui_phrases.dart';
 import 'crisis_detector.dart' show CrisisKind;
 
@@ -143,6 +144,16 @@ const Map<CrisisKind, Map<String, String>> _cards =
 
 const Map<CrisisKind, Map<String, String>> _followUps =
     <CrisisKind, Map<String, String>>{
+  CrisisKind.selfHarm: <String, String>{
+    'ar': 'إن كان أي جزء من هذا يخصك، فالخطوط أعلاه ما زالت هنا، ورقم الطوارئ المحلي خيار دائم. وإن كنت في خطر الآن فاتصل به الآن.',
+    'ur': 'اگر اس میں سے کوئی بھی بات آپ کے بارے میں ہے تو اوپر کی لائنیں اب بھی موجود ہیں، اور آپ کا مقامی ایمرجنسی نمبر ہمیشہ ایک راستہ ہے۔ اگر آپ ابھی خطرے میں ہیں تو ابھی اس پر کال کریں۔',
+    'bn': 'এর কোনো অংশ যদি আপনার সম্পর্কে হয়, তবে উপরের লাইনগুলো এখনও আছে, আর স্থানীয় জরুরি নম্বর সবসময়ই একটি পথ। আপনি এখনই বিপদে থাকলে এখনই সেই নম্বরে ফোন করুন।',
+  },
+  CrisisKind.suicideQuestion: <String, String>{
+    'ar': 'إن كان أي جزء من هذا يخصك، فالخطوط أعلاه ما زالت هنا، ورقم الطوارئ المحلي خيار دائم.',
+    'ur': 'اگر اس میں سے کوئی بھی بات آپ کے بارے میں ہے تو اوپر کی لائنیں اب بھی موجود ہیں، اور آپ کا مقامی ایمرجنسی نمبر ہمیشہ ایک راستہ ہے۔',
+    'bn': 'এর কোনো অংশ যদি আপনার সম্পর্কে হয়, তবে উপরের লাইনগুলো এখনও আছে, আর স্থানীয় জরুরি নম্বর সবসময়ই একটি পথ।',
+  },
   CrisisKind.abuse: <String, String>{
     'ar': 'أنا هنا. سلامتك أولًا. إن كنت في خطر الآن فاتصل برقم الطوارئ المحلي. الخطوط أعلاه لأشخاص في وضعك، وسأُبقي هذه المحادثة على جهازك.',
     'ur': 'میں یہاں ہوں۔ آپ کی حفاظت سب سے پہلے ہے۔ اگر آپ ابھی خطرے میں ہیں تو اپنے مقامی ایمرجنسی نمبر پر کال کریں۔ اوپر کی لائنیں آپ جیسی صورتِ حال والوں کے لیے ہیں، اور میں یہ گفتگو آپ کے آلے پر ہی رکھوں گا۔',
@@ -191,9 +202,11 @@ const Map<String, String> _regionNoKind = <String, String>{
   'bn': '{region}-এর জন্য এই ধরনের কোনো যাচাই-করা লাইন এখনও আমার কাছে সংরক্ষিত নেই, তাই উপরের লাইনগুলো যেকোনো জায়গা থেকে কাজ করে। ভুল হলে লাইনগুলোর নিচে অন্য দেশ বেছে নিন, আর স্থানীয় জরুরি নম্বর কাছে রাখুন।',
 };
 
-/// The visible review line that ends every translated support card.
+/// The visible review line that ends every translated support card, in the
+/// card's own language (it used to repeat the English words after it, which
+/// read oddly inside a right-to-left paragraph).
 String crisisReviewLine(String lang) =>
-    '${translatePhrase('Native-speaker review needed', lang)} · Native-speaker review needed';
+    translatePhrase('Native-speaker review needed', lang);
 
 /// The translated card for [kind] in [lang] with [lines] (the plain-text help
 /// lines from HelpResources) in place; null when there is no wording, so the
@@ -227,23 +240,110 @@ String? crisisRegionNoteIn(
       .replaceAll('{region}', region);
 }
 
+/// One plain emergency sentence in each language, for a support reply whose
+/// body is only in English: the number to call is never left out. The words
+/// are the same as the sentence in the cards above (MACHINE DRAFT, native
+/// review needed). No number is typed here.
+const Map<String, String> _emergencyLine = <String, String>{
+  'ar': 'إن كنت في خطر الآن فاتصل برقم الطوارئ المحلي.',
+  'ur': 'اگر آپ ابھی خطرے میں ہیں تو اپنے مقامی ایمرجنسی نمبر پر کال کریں۔',
+  'bn': 'আপনি এখনই বিপদে থাকলে স্থানীয় জরুরি নম্বরে ফোন করুন।',
+};
+
+/// [reply] with the emergency sentence in [lang] added when [lang] is ar, ur
+/// or bn and the reply does not already carry it, whatever language the body
+/// is in. English gets the same sentence in English. Other languages: as is.
+String withEmergencyLine(String reply, String lang) {
+  final String? line = _emergencyLine[lang];
+  if (line == null) return reply;
+  if (reply.contains(line)) return reply;
+  return '$reply\n\n$line\nIf you are in danger right now, call your local emergency number.';
+}
+
 /// A reply that has no checked wording in [lang] is shown in English with this
 /// note in front of it. Empty for English.
 String crisisEnglishNote(String lang) => kCrisisLanguages.contains(lang)
     ? '${translatePhrase('This reply is only in English for now because the translation has not been checked by a native speaker. If you are in danger, call your local emergency number.', lang)}\n\n'
     : '';
 
+
+/// Later replies in the same conversation when the person keeps talking about
+/// wanting to die. The English ones are in HadiController; these say the same
+/// in Arabic, Urdu and Bangla. The Qur'an is not quoted: the second one gives
+/// a reference only (never a typed verse). Every one ends with the emergency
+/// number line, so the safe step is never left out of a later reply.
+const List<Map<String, String>> _selfHarmRepeats = <Map<String, String>>[
+  <String, String>{
+    'ar': 'ما زلت هنا، ويسعدني أنك تخبرني بالمزيد. لست مضطرًا إلى فهم كل شيء الليلة. من فضلك أبقِ الخطوط أعلاه قريبة منك، وابقَ قرب شخص ما إن استطعت. وإن كنت في خطر الآن فاتصل برقم الطوارئ المحلي.',
+    'ur': 'میں اب بھی یہیں ہوں، اور مجھے خوشی ہے کہ آپ مجھے مزید بتا رہے ہیں۔ آپ کو آج رات سب کچھ سمجھنے کی ضرورت نہیں۔ براہِ کرم اوپر کی لائنیں اپنے قریب رکھیں، اور اگر ہو سکے تو کسی کے پاس رہیں۔ اگر آپ ابھی خطرے میں ہیں تو اپنے مقامی ایمرجنسی نمبر پر کال کریں۔',
+    'bn': 'আমি এখনও এখানে আছি, আর আপনি আমাকে আরও বলছেন বলে আমি খুশি। আজ রাতেই সবকিছু বুঝে ফেলতে হবে না। অনুগ্রহ করে উপরের লাইনগুলো কাছে রাখুন, আর পারলে কারও কাছাকাছি থাকুন। আপনি এখনই বিপদে থাকলে স্থানীয় জরুরি নম্বরে ফোন করুন।',
+  },
+  <String, String>{
+    'ar': 'أسمعك. ألم بهذا الثقل ليس ضعفًا، ولا يعني أن الله قد تخلى عنك. {quran2} وإذا ازدادت الأفكار قوة فاتصل الآن برقم بلدك في الخطوط أعلاه أو برقم الطوارئ المحلي.',
+    'ur': 'میں آپ کی بات سن رہا ہوں۔ اتنا بھاری درد کمزوری نہیں، اور اس کا یہ مطلب نہیں کہ اللہ نے آپ کو چھوڑ دیا ہے۔ {quran2} اگر خیالات شدید ہو جائیں تو اسی وقت اوپر دی گئی اپنے ملک کی لائن پر یا اپنے مقامی ایمرجنسی نمبر پر کال کریں۔',
+    'bn': 'আমি শুনছি। এত ভারী কষ্ট দুর্বলতা নয়, আর এর মানে এই নয় যে আল্লাহ আপনাকে ছেড়ে দিয়েছেন। {quran2} চিন্তাগুলো আরও জোরালো হলে তখনই উপরের লাইনগুলো থেকে আপনার দেশের নম্বরে বা স্থানীয় জরুরি নম্বরে ফোন করুন।',
+  },
+  <String, String>{
+    'ar': 'سأبقى هنا. خطوة صغيرة واحدة: راسل أو اتصل بشخص واحد تثق به وقل له جملة واحدة فقط: «لست بخير». لا تحتاج إلى شرح أكثر من ذلك الليلة. وإن كنت في خطر الآن فاتصل برقم الطوارئ المحلي.',
+    'ur': 'میں یہیں رہوں گا۔ ایک چھوٹا سا قدم: کسی ایک بھروسا مند شخص کو پیغام بھیجیں یا کال کریں اور بس ایک جملہ کہیں: «میں ٹھیک نہیں ہوں»۔ آج رات اس سے زیادہ سمجھانے کی ضرورت نہیں۔ اگر آپ ابھی خطرے میں ہیں تو اپنے مقامی ایمرجنسی نمبر پر کال کریں۔',
+    'bn': 'আমি এখানেই থাকব। একটি ছোট ধাপ: বিশ্বস্ত একজনকে বার্তা পাঠান বা ফোন করুন এবং শুধু একটি বাক্য বলুন: «আমি ঠিক নেই»। আজ রাতে এর বেশি ব্যাখ্যা করতে হবে না। আপনি এখনই বিপদে থাকলে স্থানীয় জরুরি নম্বরে ফোন করুন।',
+  },
+];
+
+const Map<String, String> _quran932 = <String, String>{
+  'ar': 'وللتذكير برحمة الله: القرآن الكريم، سورة الضحى، الآية 3.',
+  'ur': 'اللہ کی رحمت کی یاد دہانی کے لیے: قرآن، سورۃ الضحیٰ، آیت 3۔',
+  'bn': 'আল্লাহর রহমতের স্মরণে: কুরআন, সূরা আদ-দুহা, আয়াত 3।',
+};
+
+const Map<String, String> _suicideRepeat = <String, String>{
+  'ar': 'الحكم على أي إنسان إلى الله وحده، ورحمته واسعة. وللسؤال عن حكم شخص بعينه، يُرجى سؤال عالم مؤهل وجهًا لوجه. وإن كان أي جزء من هذا يخصك، فالخطوط أعلاه ما زالت هنا، ورقم الطوارئ المحلي خيار دائم.',
+  'ur': 'کسی بھی شخص کا فیصلہ صرف اللہ کے سپرد ہے، اور اس کی رحمت وسیع ہے۔ کسی خاص شخص کے بارے میں حکم کے لیے براہِ کرم کسی اہل عالم سے روبرو پوچھیں۔ اگر اس میں سے کوئی بھی بات آپ کے بارے میں ہے تو اوپر کی لائنیں اب بھی موجود ہیں، اور آپ کا مقامی ایمرجنسی نمبر ہمیشہ ایک راستہ ہے۔',
+  'bn': 'কোনো মানুষের বিচার একমাত্র আল্লাহর, আর তাঁর রহমত বিশাল। নির্দিষ্ট কারও বিষয়ে রায়ের জন্য অনুগ্রহ করে যোগ্য কোনো আলেমকে সামনাসামনি জিজ্ঞাসা করুন। এর কোনো অংশ যদি আপনার সম্পর্কে হয়, তবে উপরের লাইনগুলো এখনও আছে, আর স্থানীয় জরুরি নম্বর সবসময়ই একটি পথ।',
+};
+
+/// The later reply for [kind] in [lang] (the [n]th time in this conversation),
+/// or null when there is no wording and the caller shows the English with
+/// [crisisEnglishNote] in front. Only self-harm and the suicide question have
+/// repeat replies.
+String? crisisRepeatIn(CrisisKind kind, String lang, {int n = 0}) {
+  if (!kCrisisLanguages.contains(lang)) return null;
+  String? t;
+  if (kind == CrisisKind.selfHarm) {
+    t = _selfHarmRepeats[n % _selfHarmRepeats.length][lang];
+    t = t?.replaceAll('{quran2}', _quran932[lang] ?? '');
+  } else if (kind == CrisisKind.suicideQuestion) {
+    t = _suicideRepeat[lang];
+  }
+  return t == null ? null : '$t\n\n${crisisReviewLine(lang)}';
+}
+
+/// [english] with the note in front when [lang] has no wording for it. The
+/// English is laid out left-to-right line by line (see [isolateLtrLines]) so
+/// its punctuation and quotation marks stay where they belong under an Arabic
+/// or Urdu note.
+String englishWithNote(String lang, String english) {
+  final String note = crisisEnglishNote(lang);
+  return note.isEmpty ? english : '$note${isolateLtrLines(english)}';
+}
+
+/// True when [text] is mostly written in [lang]'s script. A reply that only
+/// carries a few native letters (a help-line name, a pointer) is still an
+/// English reply and gets the note.
 bool _hasScript(String text, String lang) {
-  final RegExp r = lang == 'bn'
+  final RegExp script = lang == 'bn'
       ? RegExp(r'[\u0980-\u09FF]')
       : RegExp(r'[\u0600-\u06FF]');
-  return r.hasMatch(text);
+  final int native = script.allMatches(text).length;
+  final int latin = RegExp(r'[A-Za-z]').allMatches(text).length;
+  return native > 0 && native * 3 > latin;
 }
 
 /// Puts [crisisEnglishNote] in front of [reply] when [lang] is ar/ur/bn and
-/// the reply has no letters of that script (it fell back to English).
+/// the reply is not mostly in that language (it fell back to English). The
+/// English is isolated line by line, left-to-right.
 String withEnglishFallbackNote(String reply, String lang) {
   if (!kCrisisLanguages.contains(lang)) return reply;
   if (_hasScript(reply, lang)) return reply;
-  return '${crisisEnglishNote(lang)}$reply';
+  return englishWithNote(lang, reply);
 }

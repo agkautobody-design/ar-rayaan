@@ -20,7 +20,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/crisis_l10n.dart'
-    show crisisEnglishNote, withEnglishFallbackNote;
+    show crisisRepeatIn, englishWithNote, withEmergencyLine, withEnglishFallbackNote;
 import '../../sakina/domain/crisis_latch.dart';
 import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
@@ -452,9 +452,8 @@ class HadiController extends Notifier<HadiState> {
     try {
       ref.read(localKnowledgeProvider);
     } catch (_) {}
-    _greetingIndex = DateTime.now().millisecondsSinceEpoch % kHadiGreetings.length;
-    List<HadiMessage> messages = <HadiMessage>[
-      HadiMessage(fromHadi: true, text: kHadiGreetings[_greetingIndex]),
+    List<HadiMessage> messages = const <HadiMessage>[
+      HadiMessage(fromHadi: true, text: kHadiGreeting),
     ];
     try {
       final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
@@ -595,18 +594,22 @@ class HadiController extends Notifier<HadiState> {
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
     _lastSupportTopic = null;
     _hardCheckin = false;
-    // The welcome differs from the one just shown, so a fresh start never
-    // reads as the same canned line.
-    _greetingIndex = (_greetingIndex + 1) % kHadiGreetings.length;
     state = HadiState(
       messages: <HadiMessage>[
-        HadiMessage(fromHadi: true, text: kHadiGreetings[_greetingIndex]),
+        HadiMessage(fromHadi: true, text: _nextGreeting()),
       ],
       live: _apiKey != null,
     );
   }
 
-  int _greetingIndex = 0;
+  /// How many fresh conversations have started in this run of the app. A
+  /// reset does not greet with the same sentences every time.
+  static int _greetings = 0;
+
+  static String _nextGreeting() {
+    _greetings++;
+    return kHadiGreetings[_greetings % kHadiGreetings.length];
+  }
 
   /// Starts a fresh conversation that opens from the support page the person
   /// came from, instead of the usual greeting. Nothing is saved or sent; the
@@ -907,7 +910,7 @@ class HadiController extends Notifier<HadiState> {
   String _cardText(CrisisKind kind, String? cc, bool picked) {
     final String lang = _supportLang;
     if (_minorSession && kind == CrisisKind.abuse) {
-      return '${crisisEnglishNote(lang)}${ChildDistress.disclosureCard('13-17')}';
+      return englishWithNote(lang, ChildDistress.disclosureCard('13-17'));
     }
     return '${CrisisResponses.textFor(kind, countryCode: cc, lang: lang)}\n\n'
         '${CrisisResponses.regionNote(cc, picked: picked, kind: kind, lang: lang)}';
@@ -972,15 +975,18 @@ class HadiController extends Notifier<HadiState> {
         final int n = state.messages
             .where((HadiMessage m) => m.crisis == CrisisKind.selfHarm)
             .length;
-        return '${crisisEnglishNote(_supportLang)}'
-            '${_selfHarmFollowUps[n % _selfHarmFollowUps.length]}';
+        return crisisRepeatIn(kind, _supportLang, n: n) ??
+            englishWithNote(
+                _supportLang, _selfHarmFollowUps[n % _selfHarmFollowUps.length]);
       case CrisisKind.suicideQuestion:
-        return '${crisisEnglishNote(_supportLang)}'
-            'Judgement of any person belongs to Allah alone, and His '
-            'mercy is vast. For a ruling about a particular person, please '
-            'ask a qualified scholar in person; Our Sources lists one. If '
-            'any part of this is about you, the help lines above are still '
-            'here.';
+        return crisisRepeatIn(kind, _supportLang) ??
+            englishWithNote(
+                _supportLang,
+                'Judgement of any person belongs to Allah alone, and His '
+                'mercy is vast. For a ruling about a particular person, please '
+                'ask a qualified scholar in person; Our Sources lists one. If '
+                'any part of this is about you, the help lines above are still '
+                'here.');
       case CrisisKind.abuse:
         return _minorSession
             ? CrisisResponses.followUpFor(CrisisKind.childSafety,
@@ -1246,10 +1252,12 @@ class HadiController extends Notifier<HadiState> {
         LeavingQuestion.detect(q)) {
       final String? cc = ref.read(helpCountryProvider);
       final bool picked = ref.read(pickedHelpCountryProvider) != null;
+      // The options come first: a frightened reader should not have to scroll
+      // past a long list of lines to reach the answer. The lines follow.
       final String text = _crisisShownRecently()
-          ? LeavingQuestion.options
-          : '${_cardText(CrisisKind.abuse, cc, picked)}\n\n'
-              '${LeavingQuestion.options}';
+          ? LeavingQuestion.optionsFor(q)
+          : '${LeavingQuestion.optionsFor(q)}\n\n'
+              '${_cardText(CrisisKind.abuse, cc, picked)}';
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -1485,7 +1493,8 @@ class HadiController extends Notifier<HadiState> {
       }
       // A support reply with no checked wording in the chosen language is
       // shown in English with a clear note in that language.
-      reply = withEnglishFallbackNote(reply, _supportLang);
+      reply = withEmergencyLine(
+          withEnglishFallbackNote(reply, _supportLang), _supportLang);
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -1991,19 +2000,18 @@ const String kHadiGreeting =
     'anything lives in this app. And when the weight is heavy, tell me '
     'that too — I will stay with it.';
 
-/// The welcomes Hādi opens with. A new conversation never repeats the one
-/// before it.
+/// The openings. The first is the one shown when Hadi is first opened; a
+/// fresh conversation after a reset moves on to the next, so the greeting is
+/// not word for word the same every time.
 const List<String> kHadiGreetings = <String>[
   kHadiGreeting,
-  'As-Salaamu Alaikum. I am Hādi, the guide in this app. Ask me about '
-      'prayer, the Qur\'an, a du\'a, or where to find something here. If '
-      'something is weighing on you, you can tell me that too.',
-  'Peace be upon you. Hādi here. Ask what you like about worship, the '
-      'Qur\'an or the app, and I will answer with the source. If it is a '
-      'heavy day, you can say so.',
-  'As-Salaamu Alaikum, and welcome. I can help with a question about '
-      'Islam, a verse, a hadith or a du\'a, or take you to the right place '
-      'in the app. And if you just need to talk, I am listening.',
+  'Salam. I am Hādi. Ask me about worship, the Qur\'an or where something '
+      'lives in this app. If something heavy is on your heart, you can tell '
+      'me that too, and I will listen.',
+  'As-Salaamu Alaikum. This is Hādi. Bring me a question about your deen or '
+      'this app, or just tell me how things are. We can go at your pace.',
+  'Peace be with you. I am Hādi, here to point you to authentic knowledge '
+      'and to listen when life feels heavy. What is on your mind?',
 ];
 
 final NotifierProvider<HadiController, HadiState> hadiControllerProvider =

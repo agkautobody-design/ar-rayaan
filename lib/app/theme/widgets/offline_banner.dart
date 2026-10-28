@@ -87,9 +87,12 @@ class _OfflineBannerState extends State<OfflineBanner> {
                       color: AppColors.goldLight,
                     ),
                     const SizedBox(width: 10),
-                    // A live region: the words are a plain text node (read by
-                    // a screen reader as they are drawn) and are also sent as
-                    // an announcement when the notice appears.
+                    // A status message: one labelled node in the semantics
+                    // tree (role status, a live region), so a screen reader
+                    // finds the words by reading the page and hears them
+                    // when the notice appears. The visible words are hidden
+                    // from the reader so they are not said twice. The words
+                    // are also sent as an announcement.
                     Expanded(
                       child: Announce(
                         message: kOfflineBannerText,
@@ -97,9 +100,12 @@ class _OfflineBannerState extends State<OfflineBanner> {
                           key: const Key('offline-banner-message'),
                           liveRegion: true,
                           container: true,
-                          child: Text(
-                            kOfflineBannerText,
-                            style: AppText.caption.copyWith(height: 1.35),
+                          label: kOfflineBannerText,
+                          child: ExcludeSemantics(
+                            child: Text(
+                              kOfflineBannerText,
+                              style: AppText.caption.copyWith(height: 1.35),
+                            ),
                           ),
                         ),
                       ),

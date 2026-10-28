@@ -11,6 +11,7 @@ import '../../application/sakina_providers.dart';
 import '../../domain/crisis_detector.dart';
 import '../../domain/sakina_content.dart';
 import 'help_line_tile.dart';
+import '../../../../app/theme/widgets/named_sheet.dart';
 
 /// Opens the help sheet: the person's own country first, then the lines that
 /// work anywhere. Used on Sakina, Feelings, Notes, Hādi and Elder Care so a
@@ -22,7 +23,8 @@ Future<void> showNeedHelpSheet(
   bool showSakinaLink = true,
   bool child = false,
 }) {
-  return showModalBottomSheet<void>(
+  return showNamedSheet<void>(
+    label: 'Need help now',
     context: context,
     isScrollControlled: true,
     backgroundColor: AppColors.night,
@@ -103,12 +105,37 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
     // youngest band's list is used, so an adult line is never flashed to a
     // small child.
     final String? band = widget.child ? (_band ?? '5-8') : null;
-    final List<HelpResource> rows = CrisisResponses.resourcesFor(
+    List<HelpResource> ordered = CrisisResponses.resourcesFor(
       widget.kind,
       country,
       child: widget.child,
       band: band,
-    ).take(6).toList();
+    );
+    if (!widget.child) {
+      // An adult in danger sees the emergency number first (911 in the
+      // United States); the order inside each group is unchanged.
+      ordered = <HelpResource>[
+        for (final HelpResource r in ordered)
+          if (r.kinds.contains(HelpKind.emergency)) r,
+        for (final HelpResource r in ordered)
+          if (!r.kinds.contains(HelpKind.emergency)) r,
+      ];
+    }
+    // A child aged 5 to 8 is shown lines a grown-up can call with them (a
+    // phone number), plus one directory; text-only and chat-only lines are
+    // left to the older bands. (SAFEGUARDING REVIEW NEEDED.)
+    final bool youngest = widget.child && band == '5-8';
+    if (youngest) {
+      bool directory = false;
+      ordered = <HelpResource>[
+        for (final HelpResource r in ordered)
+          if (r.dial != null)
+            r
+          else if (r.url != null && !directory && (directory = true))
+            r,
+      ];
+    }
+    final List<HelpResource> rows = ordered.take(6).toList();
     final String? cc = country?.trim().toUpperCase();
     // The general sheet also lists the lines for someone at home who hurts or
     // frightens the person (a women's or family-violence line), because a
@@ -140,6 +167,7 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
               band: band,
             ))
               if (r.kinds.contains(HelpKind.suicide) &&
+                  (!youngest || r.dial != null) &&
                   !r.kinds.contains(HelpKind.emergency) &&
                   !r.kinds.contains(HelpKind.child) &&
                   shownKeys.add('${r.dial ?? r.url ?? r.contact}'))
@@ -179,9 +207,23 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
             const SizedBox(height: 8),
             Text(
               widget.intro ??
-                  'If you are in danger right now, call your local emergency '
-                      'number. These lines are free to talk to, and a real '
-                      'person answers.',
+                  (youngest
+                      ? 'If you are scared or hurt, tell a grown-up near you '
+                          'right now. A grown-up can call these numbers with '
+                          'you, and a real person answers.'
+                      : (widget.child && band == '9-12')
+                          ? 'If you are in danger, tell a grown-up near you, '
+                              'or call the emergency number. These lines are '
+                              'for children, and a real person answers.'
+                          : (widget.child
+                              ? 'If you are in danger right now, call your '
+                                  'local emergency number. These lines are '
+                                  'for young people, and a real person '
+                                  'answers.'
+                              : 'If you are in danger right now, call your '
+                                  'local emergency number. These lines are '
+                                  'free to talk to, and a real person '
+                                  'answers.')),
               style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
             ),
             const SizedBox(height: 8),
@@ -241,7 +283,9 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
             if (distress.isNotEmpty) ...<Widget>[
               const SizedBox(height: 4),
               Text(
-                'If you feel very sad, or you want to hurt yourself',
+                youngest
+                    ? 'If you feel very sad, ask a grown-up to call with you'
+                    : 'If you feel very sad, or you want to hurt yourself',
                 key: const Key('need-help-distress-heading'),
                 style: AppText.caption.copyWith(
                   color: AppColors.sand,

@@ -122,25 +122,30 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           ScreenHeader(title: story.kicker, close: true),
-          ScholarReviewNote(
-            reviewKey: storyReviewKey(story.collection, story.id),
-            padding: const EdgeInsets.only(bottom: 8),
-          ),
-          Wrap(
-            alignment: WrapAlignment.end,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              ShareButton(
-                doc: storyChapterShareDoc(story, current),
-                subject: 'this chapter',
-              ),
-              MakeHandoutButton(makeData: () => storyHandout(story)),
-              _SaveStoryButton(
-                storyId: story.id,
-                isDua: story.collection == 'dailyduas',
-              ),
-            ],
-          ),
+          // A child sees none of the adult chrome (review labels, share,
+          // handout, save): those stay for a grown-up and in the review
+          // register.
+          if (!kChildMode.value) ...<Widget>[
+            ScholarReviewNote(
+              reviewKey: storyReviewKey(story.collection, story.id),
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
+            Wrap(
+              alignment: WrapAlignment.end,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                ShareButton(
+                  doc: storyChapterShareDoc(story, current),
+                  subject: 'this chapter',
+                ),
+                MakeHandoutButton(makeData: () => storyHandout(story)),
+                _SaveStoryButton(
+                  storyId: story.id,
+                  isDua: story.collection == 'dailyduas',
+                ),
+              ],
+            ),
+          ],
           Text(
             story.title,
             style: const TextStyle(
@@ -153,9 +158,11 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
           const SizedBox(height: 6),
           Text(story.subtitle, style: AppText.bodyMuted),
           const SizedBox(height: 14),
-          if (story.sourceLabel != kLabelEstablished)
+          if (!kChildMode.value && story.sourceLabel != kLabelEstablished)
             SourceLabelNote(label: story.sourceLabel),
-          if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
+          if (!kChildMode.value &&
+              story.hasUnverified &&
+              !isUnverifiedLabel(story.sourceLabel))
             Padding(
               padding: const EdgeInsets.only(bottom: 14),
               child: Text(
@@ -168,7 +175,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 ),
               ),
             ),
-          if (story.hasWeakNarration)
+          if (!kChildMode.value && story.hasWeakNarration)
             Padding(
               padding: const EdgeInsets.only(bottom: 14),
               child: Text(
@@ -208,7 +215,9 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 ],
               ),
             ),
-          if (current.label != null && current.label != story.sourceLabel)
+          if (!kChildMode.value &&
+              current.label != null &&
+              current.label != story.sourceLabel)
             SourceLabelNote(label: current.label!, prefix: 'This chapter:'),
           StoryListenBar(
             text: current.heading.isEmpty
@@ -318,7 +327,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             ],
           ),
           const SizedBox(height: 20),
-          StoryLayersSection(storyId: story.id),
+          if (!kChildMode.value) StoryLayersSection(storyId: story.id),
           GlassCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

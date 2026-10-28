@@ -26,6 +26,7 @@ import '../ui/games_theme.dart';
 import 'online_lobby.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// SHATRANJ. A complete game of chess: every rule (castling, en passant,
 /// promotion to the piece you choose, check, checkmate, stalemate, threefold
@@ -592,7 +593,8 @@ class _ShatranjState extends ConsumerState<ShatranjScreen> {
   }
 
   Future<int> _askPromotion() async {
-    final int? choice = await showModalBottomSheet<int>(
+    final int? choice = await showNamedSheet<int>(
+      label: 'Promote your pawn',
       context: context,
       backgroundColor: AppColors.night,
       shape: const RoundedRectangleBorder(

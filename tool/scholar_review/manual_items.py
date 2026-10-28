@@ -30,11 +30,12 @@ def add_all(R):
         'Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched.',
         'OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk).',
         RIGHTS, ['docs/OWNER_ACTIONS.md item 5'], 'normal', sub='licence')
-    add('quran.translit-59', 'quran-text', "Qur'an reader > transliteration, and search",
-        'assets/quran (transliteration)', 'transliteration 59 of 6,236 ayahs',
-        "The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy.",
-        'FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist.',
-        RIGHTS, ['FIX_QURAN_HADITH_REPORT (transliteration 59/6236)'], 'high', also=[ARABIC], sub='transliteration')
+    add('quran.translit-generated', 'quran-text', "Qur'an reader > transliteration under every ayah; Home daily verse; Academy",
+        'assets/quran/translit_en.json; tool/translit/build_quran_translit.py', 'transliteration of all 6,236 ayahs',
+        "The Qur'an transliteration for all 6,236 ayahs was made by a rule-based program (quran-json, CC BY-SA 4.0) from the Arabic. Its accuracy (sun letters, joining, pause forms, long vowels), the apostrophe for ayn, and the licence need a check.",
+        'The source project says it is machine-generated and not yet reviewed by a qualified reader; it is a reading aid, not a recitation guide.',
+        ARABIC, ['docs/DATA_SOURCES.md T1', 'docs/OWNER_ACTIONS.md item 23'], 'high', also=[RIGHTS], sub='transliteration',
+        surf='Under every ayah in the reader')
     add('quran.translit-accuracy', 'quran-text', "Qur'an reader > transliteration; lesson say-steps",
         'assets/academy/phrases/*.json; assets/adhkar/adhkar.json; assets/finance/ramadan.json', 'all transliterations',
         'Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author\'s own learning aid.',
@@ -351,6 +352,31 @@ def add_all(R):
         'R11_T2: the same card for a bad day and for abuse; identical secrecy answers; a long self-harm card for a five-year-old. No child-protection specialist or clinician has read the new wording.',
         CLIN, ['R11_T2'], 'high', also=[LAWYER, NATIVE], sub='children',
         surf='Wasia thread and Kids Corner')
+    # ------------------------------------------------ round 3, fix pass B
+    add('support.child-distress-r3', 'sakina', 'Wasia > "I hate myself", "bullied", "mean" replies per age band; exam nerves; ambiguous "tired of everything" for adults and children',
+        'lib/features/support/domain/child_distress.dart', 'ChildDistressKind.selfHate / bullied / mean; CrisisDetector passive ideation',
+        'Round 3: three new child reply kinds with a grown-up and helpline choice; exam nerves no longer get the scared-child reply; passive ideation phrases ("tired of everything ... want it to stop") get the safety check.',
+        'R12: the sentences got the wrong card or none. No clinician or child-protection specialist has read the wording; the passive-ideation phrase list needs clinical review.',
+        CLIN, ['R12_T2', 'R12_T10'], 'high', also=[LAWYER, NATIVE], sub='children',
+        surf='Wasia thread, Hadi and Sakina')
+    add('support.help-sheet-bands', 'sakina', 'Need help now sheet > different lists for 5-8, 9-12, 13-17 and adults',
+        'lib/features/sakina/presentation/widgets/need_help_button.dart', 'NeedHelpButton sheet',
+        'Round 3: 5-8 shows only dial-able lines; adults see emergency numbers (911 in the US) first. Verified numbers only.',
+        'R12: one sheet for every age. A safeguarding specialist should confirm the lines shown for each band.',
+        CLIN, ['R12_T2'], 'high', also=[LAWYER], sub='children',
+        surf='Need help now sheet')
+    add('teacher.guidance-entry', 'sakina', 'Teachers and mentors page reachable from Academy, Family, Quick Access, the support hub and search',
+        'lib/features/support/presentation/support_pathway_screens.dart', 'support-hub-teachers',
+        'Round 3: a "For teachers and mentors" entry on five surfaces.',
+        'R12_T1: the page existed but could not be found. Safeguarding specialist should read the page text.',
+        CLIN, ['R12_T1'], 'high', also=[LAWYER], sub='children',
+        surf='Support hub')
+    add('kids.child-reader-r3', 'sakina', 'Child surah reader, dua and story pages without adult chrome; Memorise this surah; short-surah difficulty cue',
+        'lib/features/quran/presentation/surah_reader_screen.dart', 'child mode reader',
+        'Round 3: in child mode the reader hides downloads, bookmarks, notes and links; the surah list says how long each surah is.',
+        'R12_T2: adult controls were reachable by a child. A parent-safety reviewer should confirm.',
+        CLIN, ['R12_T2'], 'high', also=[LAWYER], sub='children',
+        surf='Kids Corner')
     add('support.leaving-question', 'sakina', 'Hadi > "Can a woman ask khula / divorce if she is not safe?" and the 4:34 question asked with a safety worry',
         'lib/features/support/domain/safe_replies.dart; lib/features/hadi/application/hadi_controller.dart', 'LeavingQuestion.options',
         'Safety first, then four options (safety, a domestic abuse service, a scholar or imam who has worked with abuse, a lawyer), with the help lines under it. No ruling and no verse given in place of safety.',

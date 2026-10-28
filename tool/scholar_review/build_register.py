@@ -1311,7 +1311,7 @@ COVERAGE = [
     ('Madhab contrast rows', r'madhab contrast step'), ('300 word glosses', r'gloss\.300$'), ('New Muslim days', r'new-muslim\.newmuslim-30$'),
     ('Will / estate lessons', r'money\.will\.will-lessons'), ('Janazah', r'eol\.janazah'), ('Hifz method', r'arabic\.hifz-method'),
     ('Sun and moon letters', r'arabic\.sun-moon-letters'), ('Saheeh licence', r'quran\.saheeh-licence'),
-    ('Transliteration 59 of 6,236', r'quran\.translit-59'), ('Crisis phrases (native)', r'lang\.crisis\.001'),
+    ('Qur\'an transliteration generated', r'quran\.translit-generated'), ('Crisis phrases (native)', r'lang\.crisis\.001'),
     ('UI labels ar/bn/ur', r'lang\.label\.'), ('Zakat', r'money\.zakat\.nisab'), ('Prayer-time methods', r'prayer\.method\.'),
     ('Sakina rooms', r'sakina\.room\.'), ('Privacy lawyer: Terms', r'legal\.terms'), ('Privacy lawyer: children', r'legal\.children-privacy'),
     ('Nasheeds', r'nasheed\.catalogue'), ('Which son was sacrificed', r'sacrificed'), ('Khidr identity', r'Khidr|prophet-musa'),

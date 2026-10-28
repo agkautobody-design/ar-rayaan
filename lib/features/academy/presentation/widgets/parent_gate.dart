@@ -83,6 +83,11 @@ final StateNotifierProvider<ParentGateNotifier, DateTime?>
     StateNotifierProvider<ParentGateNotifier, DateTime?>(
         (Ref ref) => ParentGateNotifier());
 
+/// True from the moment the gate closes on its own after quiet minutes until
+/// a parent opens it again, so the locked screen can say why it is locked.
+final StateProvider<bool> parentGateTimedOutProvider =
+    StateProvider<bool>((Ref ref) => false);
+
 /// The dialog. Pops true when answered correctly, false on cancel.
 class ParentGateDialog extends StatefulWidget {
   const ParentGateDialog({super.key, this.challenge});
@@ -207,11 +212,21 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
     if (_creating) {
       final String? problem = ParentPin.problemWith(pin);
       if (problem != null) {
-        setState(() => _error = problem);
+        setState(() {
+          _error = problem;
+          _confirm.clear();
+        });
         return;
       }
       if (pin != _confirm.text.trim()) {
-        setState(() => _error = 'The two PINs are not the same.');
+        // Start both boxes again, so a parent never has to delete digits one
+        // by one to correct a slip.
+        setState(() {
+          _input.clear();
+          _confirm.clear();
+          _error = 'The two PINs were not the same. Both boxes are empty '
+              'now: please type the PIN again, then once more to confirm.';
+        });
         return;
       }
       await widget.pin.set(pin);
@@ -279,6 +294,9 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
               decoration: deco.copyWith(
                 labelText: _creating ? 'New PIN' : 'Parent PIN',
               ),
+              onChanged: (_) {
+                if (_error != null) setState(() => _error = null);
+              },
               onSubmitted: (_) {
                 if (!_creating) _submit();
               },
@@ -293,6 +311,9 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
                 keyboardType: TextInputType.number,
                 style: AppText.body,
                 decoration: deco.copyWith(labelText: 'Type it again'),
+                onChanged: (_) {
+                  if (_error != null) setState(() => _error = null);
+                },
                 onSubmitted: (_) => _submit(),
               ),
             ] else
@@ -380,7 +401,10 @@ Future<bool> requireParent(
     return true;
   }
   final bool ok = await showParentGate(context, challenge: challenge);
-  if (ok) gate.unlock();
+  if (ok) {
+    gate.unlock();
+    ref.read(parentGateTimedOutProvider.notifier).state = false;
+  }
   return ok;
 }
 
@@ -415,10 +439,13 @@ class _ParentGateGuardState extends ConsumerState<ParentGateGuard> {
     if (!mounted) return;
     final ParentGateNotifier gate = ref.read(parentGateProvider.notifier);
     if (ref.read(parentGateProvider) != null && !gate.isOpen()) {
+      final ScaffoldMessengerState? messenger = ScaffoldMessenger.maybeOf(context);
+      ref.read(parentGateTimedOutProvider.notifier).state = true;
       gate.lock();
-      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+      messenger?.showSnackBar(
         const SnackBar(
           key: Key('parent-gate-timeout'),
+          duration: Duration(seconds: 8),
           content: Text(
             'Locked again after a few quiet minutes. Enter the PIN to carry on.',
           ),
@@ -433,4 +460,61 @@ class _ParentGateGuardState extends ConsumerState<ParentGateGuard> {
         onPointerDown: (_) => ref.read(parentGateProvider.notifier).touch(),
         child: widget.child,
       );
+}
+
+/// A line on a grown-up screen that says the screen is unlocked and for how
+/// much longer, so the five-minute window is never a surprise.
+class ParentGateStatus extends ConsumerStatefulWidget {
+  const ParentGateStatus({super.key});
+
+  @override
+  ConsumerState<ParentGateStatus> createState() => _ParentGateStatusState();
+}
+
+class _ParentGateStatusState extends ConsumerState<ParentGateStatus> {
+  Timer? _tick;
+
+  @override
+  void initState() {
+    super.initState();
+    _tick = Timer.periodic(const Duration(seconds: 15), (_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _tick?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final DateTime? until = ref.watch(parentGateProvider);
+    if (until == null) return const SizedBox.shrink();
+    final Duration left = until.difference(DateTime.now());
+    if (left.isNegative) return const SizedBox.shrink();
+    final int mins = (left.inSeconds / 60).ceil().clamp(1, 60).toInt();
+    return Padding(
+      padding: const EdgeInsets.only(left: 4, bottom: 10),
+      child: Semantics(
+        liveRegion: false,
+        child: Row(
+          children: <Widget>[
+            const Icon(Icons.lock_open_outlined,
+                size: 16, color: AppColors.goldLight),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                'Unlocked for $mins more ${mins == 1 ? 'minute' : 'minutes'}. '
+                'It locks again by itself when you stop.',
+                key: const Key('parent-gate-status'),
+                style: AppText.caption.copyWith(color: AppColors.goldLight),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

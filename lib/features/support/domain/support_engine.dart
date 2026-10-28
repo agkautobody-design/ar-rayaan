@@ -167,6 +167,12 @@ class SupportEngine {
     ];
   }
 
+  static const Set<String> _concernWords = <String>{
+    'relationship', 'relationships', 'marriage', 'wife', 'husband', 'partner',
+    'focus', 'concentrate', 'concentration', 'sleep', 'work', 'job', 'health',
+    'family',
+  };
+
   SupportSnippet? _choose(
     SupportSession session,
     List<String> packs, {
@@ -182,6 +188,23 @@ class SupportEngine {
       for (final String p in packs)
         ..._pool(p, kind: kind, stages: stages, ageBand: ageBand, lang: lang, allowAsk: allowAsk),
     ];
+    // A reflection that names a worry (tagged `concern`: "you are worried
+    // about your relationship, your focus or your sleep") is a guess. It is
+    // used only when the person has named one of those worries themselves.
+    if (kind == 'reflect') {
+      final bool named = cues.any(_concernWords.contains);
+      if (!named) {
+        final List<SupportSnippet> plain = <SupportSnippet>[
+          for (final SupportSnippet s in pool)
+            if (!s.tags.contains('concern')) s,
+        ];
+        if (plain.isNotEmpty) {
+          pool
+            ..clear()
+            ..addAll(plain);
+        }
+      }
+    }
     return session.rotator.pick(
       _best(pool, cues),
       toneOrder: toneOrder,

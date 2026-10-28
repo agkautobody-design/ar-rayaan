@@ -42,6 +42,7 @@ import '../../support/domain/quick_exit_signal.dart';
 import '../../support/application/support_settings.dart';
 import '../../support/presentation/support_widgets.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
+import '../../../app/theme/widgets/named_sheet.dart';
 
 /// The items under the More options button in the header.
 enum _HadiMenu { newConversation, school, advanced, about }
@@ -273,7 +274,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   }
 
   Future<void> _openMadhhabSheet() async {
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Your school of law',
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.night,
@@ -328,7 +330,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   Future<void> _openReportSheet(HadiMessage m, String? question) async {
     HadiReportReason reason = HadiReportReason.wrongQuote;
     bool withQuestion = false;
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Report this answer',
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.night,
@@ -417,7 +420,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   /// sections that open on a tap, so the sheet is not a wall of small print.
   Future<void> _openKeySheet() async {
     final TextEditingController keyInput = TextEditingController();
-    await showModalBottomSheet<void>(
+    await showNamedSheet<void>(
+      label: 'Your own AI account',
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.night,
@@ -671,11 +675,13 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ),
                 ),
               ),
-              // Never taller than 45% of the screen: the intro scrolls inside
-              // the band rather than pushing the chat out of view.
+              // Never taller than 45% of the screen (32% when text is large or
+              // the window is small): the intro scrolls inside the band
+              // rather than pushing the chat out of view.
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.45,
+                  maxHeight: MediaQuery.sizeOf(context).height *
+                      (squeezed ? 0.32 : 0.45),
                 ),
                 child: SingleChildScrollView(
                   child: Column(
@@ -892,12 +898,11 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       onReport: hadi.messages[i].fromHadi &&
                               i > 0 &&
                               !hadi.messages[i].sensitive &&
-                              !hadi.messages[i].checkin &&
-                              !hadi.messages[i].ephemeral &&
                               hadi.messages[i].support == null &&
                               hadi.messages[i].crisis == null &&
-                              !HadiReportPolicy.isSmallTalk(
-                                  hadi.messages[i - 1].text) &&
+                              !hadi.messages[i].checkin &&
+                              !hadi.messages[i].ephemeral &&
+                              !_isHello(hadi.messages[i - 1].text) &&
                               HadiReportPolicy.mayInclude(
                                   hadi.messages[i - 1].text)
                           ? () => _openReportSheet(
@@ -1373,7 +1378,9 @@ class _Bubble extends ConsumerWidget {
           if (corpus.resolve(id) != null) corpus.resolve(id)!,
     ];
     final bool hadi = message.fromHadi;
-    final String shown = HadiTokens.strip(message.text);
+    final String shown = hadi
+        ? trUi(context, HadiTokens.strip(message.text))
+        : HadiTokens.strip(message.text);
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -1720,4 +1727,18 @@ class _SubscriptionPanel extends ConsumerWidget {
       ),
     );
   }
+}
+
+
+/// A greeting or small talk ("hello", "salam", "how are you"): the reply to
+/// it is not an answer that could be wrong, so it has no Report button.
+bool _isHello(String text) {
+  final String t = text.toLowerCase().replaceAll(RegExp(r'[^a-z ]'), ' ').trim();
+  if (t.isEmpty || t.split(RegExp(r'\s+')).length > 7) return false;
+  return RegExp(
+    r'^(hi|hello|hey|hiya|salam|salaam|assalamu alaikum|assalamualaikum|'
+    r'as salamu alaykum|peace be upon you|good morning|good evening|'
+    r'good afternoon|how are you|how r u|whats up|thanks|thank you|ok|okay)'
+    r'( hadi| there| brother| sister)?( how are you| how are you doing)?$',
+  ).hasMatch(t);
 }
