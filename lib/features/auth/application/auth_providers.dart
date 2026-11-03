@@ -1,13 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/fake_auth_repository.dart';
+import '../data/firebase_auth_repository.dart';
 import 'auth_repository.dart';
 
-/// Auth wiring. When Firebase config arrives (O-4), [authRepositoryProvider]
-/// is overridden with FirebaseAuthRepository at bootstrap — nothing else
-/// changes.
+/// Auth wiring — LIVE Firebase Auth.
+/// Each email/password sign-up creates a real, separate Firebase account.
 final Provider<AuthRepository> authRepositoryProvider =
-    Provider<AuthRepository>((ref) => FakeAuthRepository());
+    Provider<AuthRepository>((ref) => FirebaseAuthRepository());
 
 final StreamProvider<AuthUser?> authStateProvider = StreamProvider<AuthUser?>(
   (ref) => ref.watch(authRepositoryProvider).authStateChanges(),
@@ -67,8 +66,6 @@ class AuthController extends Notifier<AsyncValue<AuthUser?>> {
     }
   }
 
-  /// Result of an action that returns nothing: null on success, otherwise a
-  /// message that is safe to show.
   Future<String?> _runVoid(Future<void> Function() action) async {
     try {
       await action();
@@ -80,12 +77,9 @@ class AuthController extends Notifier<AsyncValue<AuthUser?>> {
     }
   }
 
-  /// Re-sends the verification email. Returns an error message, or null.
   Future<String?> resendVerification() =>
       _runVoid(_repo.sendEmailVerification);
 
-  /// Deletes the account after re-authentication. Returns an error message,
-  /// or null when the account is gone.
   Future<String?> deleteAccount({String? password}) =>
       _runVoid(() => _repo.deleteAccount(password: password));
 
