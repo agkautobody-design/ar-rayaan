@@ -96,6 +96,51 @@ class HadiScreen extends ConsumerStatefulWidget {
 }
 
 class _HadiScreenState extends ConsumerState<HadiScreen> {
+  late final HadiVoiceService _voice;
+  bool _speakingResponse = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _voice = HadiVoiceService();
+  }
+
+  @override
+  void dispose() {
+    _voice.dispose();
+    super.dispose();
+  }
+
+  Future<void> _onVoiceTap() async {
+    if (_voice.isListening) {
+      await _voice.stopListening();
+      return;
+    }
+
+    final String? text = await _voice.startListening(
+      onListeningStarted: () => setState(() {}),
+      onListeningFinished: () => setState(() {}),
+      onPartialResult: (partial) {
+        _input.text = partial;
+        _input.selection = TextSelection.collapsed(offset: partial.length);
+      },
+    );
+
+    if (text != null && text.isNotEmpty) {
+      _send();
+    }
+  }
+
+  Future<void> _speakResponse(String text) async {
+    if (_speakingResponse) {
+      await _voice.stopSpeaking();
+      setState(() => _speakingResponse = false);
+    } else {
+      setState(() => _speakingResponse = true);
+      await _voice.speak(text);
+      setState(() => _speakingResponse = false);
+    }
+  }
   bool _allStarters = false;
 
   /// On a narrow phone the intro is one line until the person opens it.
