@@ -99,9 +99,9 @@ import '../features/huda/presentation/huda_screens.dart';
 import '../features/elder/application/elder_mode.dart';
 import '../features/elder/presentation/elder_care_screen.dart';
 import '../features/elder/presentation/elder_home_screen.dart';
-import '../features/finance/presentation/tayyib_finance_screen.dart';
-import '../features/finance/presentation/rayaan_stocks_screen.dart';
-import '../features/finance/presentation/trading_floor_screen.dart';
+// import '../features/finance/presentation/tayyib_finance_screen.dart'; // HIDDEN: off-brand for spiritual app
+// import '../features/finance/presentation/rayaan_stocks_screen.dart'; // HIDDEN: off-brand for spiritual app
+// import '../features/finance/presentation/trading_floor_screen.dart'; // HIDDEN: off-brand for spiritual app
 import '../features/masjid/presentation/masjid_finder_screen.dart';
 import '../features/ramadan/presentation/ramadan_screen.dart';
 import '../features/settings/presentation/language_settings.dart';
