@@ -90,6 +90,11 @@ import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/stories/presentation/new_muslim_path_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
+import '../features/family/presentation/family_management_screen.dart';
+import '../features/family/presentation/invite_parent_screen.dart';
+import '../features/family/presentation/invite_teacher_screen.dart';
+import '../features/family/presentation/teacher_review_screen.dart';
+import '../features/wasia/presentation/wasia_parent_chat_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
 import '../features/elder/application/elder_mode.dart';
 import '../features/elder/presentation/elder_care_screen.dart';
@@ -246,6 +251,12 @@ abstract final class AppRoutes {
   static String surahAt(int number, int ayah) => '/quran/$number?ayah=$ayah';
 
   static const String themeDemo = '/dev/theme';
+
+  // ── Family management (multi-parent + teacher)
+  static const String familyManagement = '/family/manage';
+  static const String inviteParent = '/family/invite-parent';
+  static const String inviteTeacher = '/family/invite-teacher';
+  static const String teacherReview = '/teacher/review';
 }
 
 /// Routes that are tabs of the bottom-navigation shell. Opening one of these
@@ -1261,6 +1272,30 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               GoRoute(
                 path: AppRoutes.family,
                 pageBuilder: (c, s) => _fade(const FamilyScreen(), pill: false),
+              ),
+              // Family management routes (full-screen, outside bottom nav)
+              GoRoute(
+                path: AppRoutes.familyManagement,
+                pageBuilder: (c, s) => _fade(const FamilyManagementScreen(), pill: false),
+              ),
+              GoRoute(
+                path: AppRoutes.inviteParent,
+                pageBuilder: (c, s) => _fade(const InviteParentScreen(), pill: false),
+              ),
+              GoRoute(
+                path: AppRoutes.inviteTeacher,
+                pageBuilder: (c, s) => _fade(const InviteTeacherScreen(), pill: false),
+              ),
+              GoRoute(
+                path: AppRoutes.teacherReview,
+                pageBuilder: (c, s) => _fade(const TeacherReviewScreen(), pill: false),
+              ),
+              GoRoute(
+                path: '/family/child/:childId/wasia',
+                pageBuilder: (c, s) => _fade(
+                  WasiaParentChatScreen(childId: s.pathParameters['childId']!),
+                  pill: false,
+                ),
               ),
               GoRoute(
                 path: AppRoutes.community,
