@@ -85,10 +85,12 @@ abstract final class MarriageTools {
         ),
         MarriageStep(
           heading: 'Water on the fire',
-          body: 'Anger is from the fire, and water puts out fire. Make '
-              'wudu — slowly, letting the coolness do its work — and only '
-              'then decide whether the thing still needs saying.',
-          source: 'Sunan Abi Dawud 4784 (sahih, per al-Albani)',
+          body: 'A report from the Prophet ﷺ adds water to the pause: '
+              'make wudu when anger flares, slowly, letting the coolness '
+              'do its work. The report is weak, so take it as a gentle '
+              'suggestion rather than a confirmed sunnah — and only then '
+              'decide whether the thing still needs saying.',
+          source: 'Sunan Abi Dawud 4784 (daif, per al-Albani)',
         ),
         MarriageStep(
           heading: 'Come back as the best of you',
@@ -96,7 +98,7 @@ abstract final class MarriageTools {
               'complete believers in faith are the best in character, and '
               'the best of them are the best to their women — and toward '
               'husbands, the same door of good character stands open.',
-          source: "Jamiʿ at-Tirmidhi 1162 (hasan sahih, per al-Albani)",
+          source: "Jamiʿ at-Tirmidhi 1162 (hasan, per Darussalam)",
         ),
       ],
     ),
