@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../../app/analytics.dart';
 
 class AcademyProgressEntry {
   const AcademyProgressEntry({
@@ -63,6 +64,11 @@ class FirebaseAcademyProgressRepository implements AcademyProgressRepository {
 
   @override
   Future<void> recordProgress(String childUid, AcademyProgressEntry entry) async {
+    AppAnalytics.logAcademyLessonCompleted(
+      entry.lessonId.split('/').first,
+      entry.lessonId,
+      entry.score,
+    );
     await _progress(childUid).doc(entry.lessonId).set(entry.toJson());
   }
 
