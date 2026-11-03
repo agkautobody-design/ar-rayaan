@@ -19,6 +19,9 @@ class AdhanNotificationService {
 
   /// Initialize notification channels and timezone data.
   static Future<void> initialize() async {
+    // flutter_local_notifications has no web implementation; calling into it
+    // (or Platform.isIOS below) throws and takes the whole app down at boot.
+    if (kIsWeb) return;
     if (_initialized) return;
     _initialized = true;
 
@@ -70,6 +73,7 @@ class AdhanNotificationService {
 
   /// Schedule Adhan notifications for today's prayer times.
   static Future<void> scheduleForToday(PrayerTimes times) async {
+    if (kIsWeb) return; // no local notifications on web
     await cancelAll();
 
     final prayers = <(String, DateTime)>[
@@ -136,11 +140,13 @@ class AdhanNotificationService {
 
   /// Cancel all scheduled Adhan notifications.
   static Future<void> cancelAll() async {
+    if (kIsWeb) return; // no local notifications on web
     await _notifications.cancelAll();
   }
 
   /// Cancel a specific prayer notification.
   static Future<void> cancelPrayer(String name) async {
+    if (kIsWeb) return; // no local notifications on web
     await _notifications.cancel(id: name.hashCode);
   }
 }

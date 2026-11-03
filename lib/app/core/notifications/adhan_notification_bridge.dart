@@ -9,6 +9,8 @@ class AdhanNotificationBridge {
 
   /// Register the notification tap handler that plays Adhan.
   static void register() {
+    // No local notifications exist on web; registering would throw at boot.
+    if (kIsWeb) return;
     _notifications.initialize(
       settings: const InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
