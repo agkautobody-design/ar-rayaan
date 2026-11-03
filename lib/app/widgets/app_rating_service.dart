@@ -16,11 +16,24 @@ class AppRatingService {
   static const int _minLaunches = 5;
   static const int _minDaysBetweenPrompts = 90;
 
+  /// Set when the check has run this app session. Home rebuilds fire
+  /// maybePrompt again and again; without this, the launch counter climbs
+  /// several steps in a single session and the dialog can appear on a
+  /// person's very first open.
+  static bool _checkedThisSession = false;
+
   static Future<void> maybePrompt(BuildContext context) async {
+    if (_checkedThisSession) return;
+    _checkedThisSession = true;
+
     final prefs = await SharedPreferences.getInstance();
 
     // Already rated
     if (prefs.getBool(_hasRatedKey) ?? false) return;
+
+    // Never interrupt the first-run onboarding (the router's first-run
+    // gate key, set when onboarding completes).
+    if (!(prefs.getBool('ar.onboarded.v1') ?? false)) return;
 
     // Check launch count
     final launches = (prefs.getInt(_launchCountKey) ?? 0) + 1;
