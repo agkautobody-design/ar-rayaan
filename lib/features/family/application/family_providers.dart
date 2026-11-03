@@ -8,14 +8,14 @@ import 'firebase_family_repository.dart';
 final Provider<FamilyRepository> familyRepositoryProvider =
     Provider<FamilyRepository>((ref) => FirebaseFamilyRepository());
 
-/// The signed-in parent's family, or null.
+/// The signed-in user's family, looked up by their UID.
 final FutureProvider<Family?> familyProvider = FutureProvider<Family?>((ref) async {
   final user = await ref.watch(authStateProvider.future);
   if (user == null) return null;
-  return ref.watch(familyRepositoryProvider).getFamily(user.uid);
+  return ref.watch(familyRepositoryProvider).getFamilyForUser(user.uid);
 });
 
-/// The list of children for the signed-in parent.
+/// The list of children for the signed-in user's family.
 final FutureProvider<List<Child>> childrenProvider = FutureProvider<List<Child>>((ref) async {
   final family = await ref.watch(familyProvider.future);
   return family?.children ?? [];
@@ -29,21 +29,26 @@ class FamilyController extends AsyncNotifier<Family?> {
   Future<Family?> build() async {
     final user = await ref.watch(authStateProvider.future);
     if (user == null) return null;
-    return _repo.getFamily(user.uid);
+    // Try to find existing family, or create one
+    var family = await _repo.getFamilyForUser(user.uid);
+    if (family == null) {
+      family = await _repo.createFamily(parentUid: user.uid);
+    }
+    return family;
   }
 
   Future<Child?> addChild(String name, {String? grade}) async {
-    final user = ref.read(authStateProvider).valueOrNull;
-    if (user == null) return null;
+    final family = state.valueOrNull;
+    if (family == null) return null;
     state = const AsyncLoading();
     try {
       final child = await _repo.addChild(
-        parentUid: user.uid,
+        familyId: family.familyId,
         name: name,
         grade: grade,
       );
-      final family = await _repo.getFamily(user.uid);
-      state = AsyncData(family);
+      final updated = await _repo.getFamily(family.familyId);
+      state = AsyncData(updated);
       return child;
     } catch (e, st) {
       state = AsyncError(e, st);
@@ -52,16 +57,38 @@ class FamilyController extends AsyncNotifier<Family?> {
   }
 
   Future<void> removeChild(String childId) async {
-    final user = ref.read(authStateProvider).valueOrNull;
-    if (user == null) return;
+    final family = state.valueOrNull;
+    if (family == null) return;
     state = const AsyncLoading();
     try {
-      await _repo.removeChild(user.uid, childId);
-      final family = await _repo.getFamily(user.uid);
-      state = AsyncData(family);
+      await _repo.removeChild(family.familyId, childId);
+      final updated = await _repo.getFamily(family.familyId);
+      state = AsyncData(updated);
     } catch (e, st) {
       state = AsyncError(e, st);
     }
+  }
+
+  Future<void> inviteParent(String email) async {
+    final family = state.valueOrNull;
+    final user = ref.read(authStateProvider).valueOrNull;
+    if (family == null || user == null) return;
+    await _repo.inviteParent(
+      familyId: family.familyId,
+      email: email,
+      invitedByUid: user.uid,
+    );
+  }
+
+  Future<void> inviteTeacher(String email) async {
+    final family = state.valueOrNull;
+    final user = ref.read(authStateProvider).valueOrNull;
+    if (family == null || user == null) return;
+    await _repo.inviteTeacher(
+      familyId: family.familyId,
+      email: email,
+      invitedByUid: user.uid,
+    );
   }
 }
 
