@@ -58,6 +58,10 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Prompt for app rating after positive sessions
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AppRatingService.maybePrompt(context);
+    });
     final L10n l10n = ref.watch(l10nProvider);
     String ui(String key) => l10n.ui(key);
     // "Today for You" is today's NOOR (a different bundled text each day,
