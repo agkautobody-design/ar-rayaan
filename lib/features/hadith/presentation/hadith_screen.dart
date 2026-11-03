@@ -1,6 +1,7 @@
 import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
+import '../../../app/analytics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -39,6 +40,11 @@ class HadithScreen extends ConsumerStatefulWidget {
 }
 
 class _HadithScreenState extends ConsumerState<HadithScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AppAnalytics.logScreenView('hadith');
+  }
   final GlobalKey _target = GlobalKey();
   bool _scrolled = false;
   late bool _savedOnly = widget.savedOnly;
