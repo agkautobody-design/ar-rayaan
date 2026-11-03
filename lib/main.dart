@@ -8,6 +8,7 @@ import 'app/app.dart';
 import 'app/core/child_mode.dart';
 import 'app/core/env_config.dart';
 import 'app/core/error_handling.dart';
+import 'app/crashlytics_initializer.dart';
 import 'app/core/firebase/firebase_bootstrap.dart';
 import 'app/core/providers.dart';
 import 'app/core/storage/safe_prefs.dart';
@@ -68,6 +69,9 @@ Future<void> _start() async {
   // (dart-defines), local mode otherwise. The override below is the only
   // place that chooses — screens never know the difference.
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
+  if (firebaseLive) {
+    CrashlyticsInitializer.initialize();
+  }
   unawaited(DriftGuard().scan());
   // Reports saved on the device while offline go out now that Firebase is up.
   if (firebaseLive) unawaited(HadiReportService(prefs).flush());
