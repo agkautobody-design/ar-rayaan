@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
+import '../../../app/analytics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,6 +41,11 @@ class QuranScreen extends ConsumerStatefulWidget {
 }
 
 class _QuranScreenState extends ConsumerState<QuranScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AppAnalytics.logScreenView('quran');
+  }
   String _query = '';
   final TextEditingController _controller = TextEditingController();
 
