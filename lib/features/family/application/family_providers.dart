@@ -4,6 +4,7 @@ import '../../auth/application/auth_providers.dart';
 import '../domain/family_models.dart';
 import 'family_repository.dart';
 import 'firebase_family_repository.dart';
+import '../../../app/analytics.dart';
 
 final Provider<FamilyRepository> familyRepositoryProvider =
     Provider<FamilyRepository>((ref) => FirebaseFamilyRepository());
@@ -33,6 +34,7 @@ class FamilyController extends AsyncNotifier<Family?> {
     var family = await _repo.getFamilyForUser(user.uid);
     if (family == null) {
       family = await _repo.createFamily(parentUid: user.uid);
+      AppAnalytics.logFamilyCreated();
     }
     return family;
   }
@@ -49,6 +51,7 @@ class FamilyController extends AsyncNotifier<Family?> {
       );
       final updated = await _repo.getFamily(family.familyId);
       state = AsyncData(updated);
+      AppAnalytics.logFamilyChildAdded(family.children.length + 1);
       return child;
     } catch (e, st) {
       state = AsyncError(e, st);
@@ -73,6 +76,7 @@ class FamilyController extends AsyncNotifier<Family?> {
     final family = state.valueOrNull;
     final user = ref.read(authStateProvider).valueOrNull;
     if (family == null || user == null) return;
+    AppAnalytics.logFamilyParentInvited();
     await _repo.inviteParent(
       familyId: family.familyId,
       email: email,
@@ -84,6 +88,7 @@ class FamilyController extends AsyncNotifier<Family?> {
     final family = state.valueOrNull;
     final user = ref.read(authStateProvider).valueOrNull;
     if (family == null || user == null) return;
+    AppAnalytics.logFamilyTeacherInvited();
     await _repo.inviteTeacher(
       familyId: family.familyId,
       email: email,
