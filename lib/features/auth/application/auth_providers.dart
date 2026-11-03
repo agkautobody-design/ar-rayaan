@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/firebase_auth_repository.dart';
+import '../../../app/analytics.dart';
 import 'auth_repository.dart';
 
 /// Auth wiring — LIVE Firebase Auth.
@@ -23,6 +24,7 @@ class AuthController extends Notifier<AsyncValue<AuthUser?>> {
     state = const AsyncLoading();
     try {
       final AuthUser user = await action();
+      AppAnalytics.logLogin('email');
       state = AsyncData(user);
       return user;
     } on AuthException catch (e, st) {
@@ -40,9 +42,12 @@ class AuthController extends Notifier<AsyncValue<AuthUser?>> {
   Future<AuthUser?> signIn(String email, String password) =>
       _run(() => _repo.signInWithEmail(email: email, password: password));
 
-  Future<AuthUser?> signUp(String name, String email, String password) => _run(
+  Future<AuthUser?> signUp(String name, String email, String password) {
+    AppAnalytics.logSignUp('email');
+    return _run(
     () => _repo.signUpWithEmail(name: name, email: email, password: password),
-  );
+    );
+  }
 
   Future<AuthUser?> signInWithGoogle() => _run(_repo.signInWithGoogle);
 
