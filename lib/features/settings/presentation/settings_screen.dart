@@ -276,6 +276,38 @@ class SettingsScreen extends ConsumerWidget {
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('SHARE AR-RAYAAN', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        key: const Key('settings-share-app'),
+                        onTap: () => context.open(AppRoutes.shareApp),
+                        semanticsLabel: 'Share Ar-Rayaan. Send the app link by '
+                            'message or email, or show its QR code.',
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.ios_share_outlined, size: 18, color: AppColors.gold),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Share Ar-Rayaan', style: AppText.body.copyWith(fontSize: 14)),
+                                  Text(
+                                    'Send the link by message or email, or show '
+                                    'a QR code for someone in the room',
+                                    style: AppText.bodyMuted.copyWith(fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(Icons.chevron_right, size: 16, color: AppColors.gold.withValues(alpha: 0.5)),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text(l10n.ui('ui.about').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(

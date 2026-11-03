@@ -83,6 +83,7 @@ import '../features/sakina/presentation/wellbeing_tools.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/domain/handout.dart';
 import '../features/share/presentation/handout_screen.dart';
+import '../features/share/presentation/share_app_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/tracking/presentation/tracking_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
@@ -231,6 +232,8 @@ abstract final class AppRoutes {
   static const String calendar = '/calendar';
   static const String zakat = '/zakat';
   static const String share = '/share';
+  /// Send the app link by message or email, or show its QR code.
+  static const String shareApp = '/share-app';
   /// My log: private totals and a calendar of what the person logged.
   static const String tracking = '/my-log';
   static const String settings = '/settings';
@@ -896,6 +899,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.share,
         pageBuilder: (c, s) => _fade(const ShareScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.shareApp,
+        pageBuilder: (c, s) => _fade(const ShareAppScreen()),
       ),
       GoRoute(
         path: AppRoutes.tracking,
