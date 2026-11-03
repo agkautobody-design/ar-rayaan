@@ -9,6 +9,7 @@ import 'app/core/child_mode.dart';
 import 'app/core/env_config.dart';
 import 'app/core/error_handling.dart';
 import 'app/crashlytics_initializer.dart';
+import 'app/push_notification_service.dart';
 import 'app/core/firebase/firebase_bootstrap.dart';
 import 'app/core/providers.dart';
 import 'app/core/storage/safe_prefs.dart';
@@ -71,6 +72,7 @@ Future<void> _start() async {
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
   if (firebaseLive) {
     CrashlyticsInitializer.initialize();
+    await PushNotificationService.initialize();
   }
   unawaited(DriftGuard().scan());
   // Reports saved on the device while offline go out now that Firebase is up.
