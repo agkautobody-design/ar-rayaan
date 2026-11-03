@@ -34,6 +34,8 @@ dependencies:
   firebase_core: ^4.15.0
   firebase_auth: ^6.7.0
   firebase_analytics: ^11.4.4
+  firebase_messaging: ^15.2.4
+  in_app_review: ^2.0.10
   firebase_crashlytics: ^4.3.4
   cloud_firestore: ^6.10.0
   path_provider: ^2.1.6
