@@ -142,7 +142,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(AppLocalizations.of(context)!.loginOrContinueWith, style: AppText.caption),
+              child: Text('Or continue with', style: AppText.caption),
             ),
             Expanded(
               child: Divider(color: Colors.white.withValues(alpha: 0.12)),
@@ -188,7 +188,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           alignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.loginNoAccount, style: AppText.caption),
+            Text("Don't have an account?", style: AppText.caption),
             TextButton(
               onPressed: () => context.go(AppRoutes.signup),
               style: TextButton.styleFrom(

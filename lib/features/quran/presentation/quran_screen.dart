@@ -41,11 +41,6 @@ class QuranScreen extends ConsumerStatefulWidget {
 }
 
 class _QuranScreenState extends ConsumerState<QuranScreen> {
-  @override
-  void initState() {
-    super.initState();
-    AppAnalytics.logScreenView('quran');
-  }
   String _query = '';
   final TextEditingController _controller = TextEditingController();
 
@@ -56,6 +51,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
   @override
   void initState() {
     super.initState();
+    AppAnalytics.logScreenView('quran');
     // Start the text download now, while the person looks at the list, so a
     // surah opens at once when tapped. Failure is shown by the reader.
     unawaited(

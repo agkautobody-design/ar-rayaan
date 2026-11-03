@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import '../../core/sound/sound_services.dart';
-
 /// Bridges prayer notifications to Adhan audio playback.
 /// Call [register] in main() to wire up the notification response handler.
 class AdhanNotificationBridge {
@@ -12,7 +10,7 @@ class AdhanNotificationBridge {
   /// Register the notification tap handler that plays Adhan.
   static void register() {
     _notifications.initialize(
-      const InitializationSettings(
+      settings: const InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings(),
       ),

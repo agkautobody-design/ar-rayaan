@@ -25,9 +25,10 @@ class TeacherReviewScreen extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const TrText('Review Work', style: AppText.heading3),
+        title: const Text('Review Work', style: AppText.displayMedium),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
+          tooltip: 'Back',
           onPressed: () => context.pop(),
         ),
       ),
@@ -42,7 +43,7 @@ class TeacherReviewScreen extends ConsumerWidget {
                   children: [
                     Icon(Icons.assignment_turned_in, size: 64, color: Colors.white.withValues(alpha: 0.2)),
                     const SizedBox(height: 16),
-                    const TrText(
+                    const Text(
                       'No pending submissions.\nWhen your students complete '
                       'lessons or tests, they will appear here for review.',
                       style: AppText.body,
@@ -60,7 +61,7 @@ class TeacherReviewScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(child: TrText('Error: $e', style: AppText.body.copyWith(color: Colors.red))),
+        error: (e, _) => Center(child: Text('Error: $e', style: AppText.body.copyWith(color: Colors.red))),
       ),
     );
   }
@@ -98,8 +99,8 @@ class _SubmissionCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TrText(submission.childName, style: AppText.label.copyWith(color: Colors.white)),
-                        TrText(submission.lessonTitle, style: AppText.caption.copyWith(color: Colors.white70)),
+                        Text(submission.childName, style: AppText.label.copyWith(color: Colors.white)),
+                        Text(submission.lessonTitle, style: AppText.caption.copyWith(color: Colors.white70)),
                       ],
                     ),
                   ),
@@ -109,17 +110,17 @@ class _SubmissionCard extends StatelessWidget {
                       color: AppColors.gold.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const TrText('PENDING', style: TextStyle(color: AppColors.gold, fontSize: 10, fontWeight: FontWeight.w600)),
+                    child: const Text('PENDING', style: TextStyle(color: AppColors.gold, fontSize: 12, fontWeight: FontWeight.w600)),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
               if (submission.timeSpentMinutes != null)
-                TrText(
+                Text(
                   'Time spent: ${submission.timeSpentMinutes} min',
                   style: AppText.caption.copyWith(color: Colors.white54),
                 ),
-              TrText(
+              Text(
                 'Submitted: ${_formatDate(submission.submittedAt)}',
                 style: AppText.caption.copyWith(color: Colors.white38),
               ),
@@ -131,7 +132,7 @@ class _SubmissionCard extends StatelessWidget {
   }
 
   void _showReviewDialog(BuildContext context, Submission submission) {
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.night,
@@ -215,9 +216,9 @@ class _ReviewSheetState extends ConsumerState<_ReviewSheet> {
             ),
           ),
           const SizedBox(height: 24),
-          TrText('Review: ${widget.submission.lessonTitle}', style: AppText.heading4),
+          Text('Review: ${widget.submission.lessonTitle}', style: AppText.titleMedium),
           const SizedBox(height: 4),
-          TrText('Student: ${widget.submission.childName}', style: AppText.caption.copyWith(color: Colors.white70)),
+          Text('Student: ${widget.submission.childName}', style: AppText.caption.copyWith(color: Colors.white70)),
           const SizedBox(height: 24),
           TextField(
             controller: _score,

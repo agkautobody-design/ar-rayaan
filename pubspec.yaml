@@ -1,7 +1,7 @@
 name: ar_rayaan
 description: "Ar-Rayaan — Your Gateway to Allah."
 publish_to: "none"
-version: 0.7.0+7
+version: 0.8.0+8
 
 environment:
   sdk: ^3.10.0
@@ -33,15 +33,13 @@ dependencies:
   web: ^1.1.0
   firebase_core: ^4.15.0
   firebase_auth: ^6.7.0
-  firebase_analytics: ^11.4.4
-  firebase_messaging: ^15.2.4
-  flutter_local_notifications: ^18.0.0
+  firebase_analytics: ^12.6.1
+  firebase_messaging: ^16.7.1
   just_audio: ^0.9.42
   audio_session: ^0.1.21
   speech_to_text: ^7.0.0
-  flutter_tts: ^4.2.2
   in_app_review: ^2.0.10
-  firebase_crashlytics: ^4.3.4
+  firebase_crashlytics: ^5.4.1
   cloud_firestore: ^6.10.0
   path_provider: ^2.1.6
   wakelock_plus: ^1.8.0
@@ -66,11 +64,8 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/audio/adhan_fajr.mp3
-    - assets/audio/adhan_regular.mp3
-    - assets/images/
-    - assets/audio/adhan_fajr.mp3
-    - assets/audio/adhan_regular.mp3tiles/
+    - assets/images/tiles/
+    - assets/audio/
     - assets/quran/
     - assets/quran/translations/
     - assets/translit/
@@ -87,6 +82,7 @@ flutter:
     - assets/guides/
     - assets/games/
     - assets/games/ludo/
+    - assets/games/chess/
     - assets/games/chess/pieces/
     - assets/games/chess/squares/
     - assets/games/chess/boards/
@@ -96,7 +92,6 @@ flutter:
     - assets/share/
     - assets/finance/
     - assets/system/
-    - assets/audio/
     - assets/qa/
     - assets/support/
     - assets/support/packs/

@@ -17,16 +17,10 @@ class ErrorBoundary extends StatefulWidget {
 
 class _ErrorBoundaryState extends State<ErrorBoundary> {
   bool _hasError = false;
-  FlutterErrorDetails? _errorDetails;
 
   @override
   void initState() {
     super.initState();
-  }
-
-  static void _reportError(FlutterErrorDetails details) {
-    // Crashlytics will pick this up via FlutterError.onError
-    FlutterError.presentError(details);
   }
 
   @override
@@ -35,7 +29,6 @@ class _ErrorBoundaryState extends State<ErrorBoundary> {
       return widget.fallback ?? _DefaultErrorView(
         onRetry: () => setState(() {
           _hasError = false;
-          _errorDetails = null;
         }),
       );
     }
@@ -57,12 +50,12 @@ class _DefaultErrorView extends StatelessWidget {
           children: [
             Icon(Icons.error_outline, size: 64, color: Colors.red.withValues(alpha: 0.5)),
             const SizedBox(height: 16),
-            const TrText(
+            const Text(
               'Something went wrong',
-              style: AppText.heading4,
+              style: AppText.titleMedium,
             ),
             const SizedBox(height: 8),
-            const TrText(
+            const Text(
               'We have been notified and are working on a fix. '
               'Please try again or restart the app.',
               style: AppText.body,
@@ -77,7 +70,7 @@ class _DefaultErrorView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              child: const TrText('Try Again'),
+              child: const Text('Try Again'),
             ),
           ],
         ),

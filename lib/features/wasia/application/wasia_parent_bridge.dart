@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../academy/application/academy_progress_providers.dart';
 import '../../academy/data/academy_progress_repository.dart';
 
 class WasiaMessage {

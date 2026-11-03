@@ -454,6 +454,23 @@ class LivePriceService {
     );
   }
 
+
+  /// The daily feeds stamp their data with the day only ('2026-10-27').
+  /// Dart reads a bare date as LOCAL midnight, which shifts the calendar
+  /// day for anyone not on Greenwich time; the stamp is a calendar day,
+  /// so it is parsed as UTC. Full timestamps fall through to tryParse.
+  static DateTime? _parseFeedDate(Object? raw) {
+    if (raw is! String) return null;
+    if (RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(raw)) {
+      return DateTime.utc(
+        int.parse(raw.substring(0, 4)),
+        int.parse(raw.substring(5, 7)),
+        int.parse(raw.substring(8, 10)),
+      );
+    }
+    return DateTime.tryParse(raw);
+  }
+
   static ({double ounce, DateTime? at}) _readGoldApi(String body) {
     final Object? doc = json.decode(body);
     if (doc is! Map<String, dynamic>) {
@@ -466,7 +483,7 @@ class LivePriceService {
     final Object? at = doc['updatedAt'];
     return (
       ounce: price.toDouble(),
-      at: at is String ? DateTime.tryParse(at) : null,
+      at: _parseFeedDate(at),
     );
   }
 
@@ -491,7 +508,7 @@ class LivePriceService {
     final Object? date = doc['date'];
     return (
       rate: v.toDouble(),
-      at: date is String ? DateTime.tryParse(date) : null,
+      at: _parseFeedDate(date),
       via: f.via,
     );
   }
@@ -553,7 +570,7 @@ class LivePriceService {
     return (
       usd: usd.toDouble(),
       local: local.toDouble(),
-      at: date is String ? DateTime.tryParse(date) : null,
+      at: _parseFeedDate(date),
     );
   }
 

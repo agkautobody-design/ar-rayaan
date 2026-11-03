@@ -13,9 +13,6 @@ abstract final class RouteTitles {
     '/onboarding': 'Welcome',
     '/search': 'Find Anything',
     '/ramadan': 'Ramadan',
-    '/finance': 'Tayyib Finance',
-    '/finance/floor': 'Trading Floor',
-    '/finance/rayaan': 'Rayaan Stocks',
     '/settings': 'Settings',
     '/settings/language': 'Language',
     '/settings/support': 'Support & wellbeing',
@@ -81,6 +78,11 @@ abstract final class RouteTitles {
     '/sakina/steady': 'Steady Yourself',
     '/sakina/mood': 'How Are You Today',
     '/sakina/safety': 'My Safety Plan',
+    '/sakina/marriage': 'Between Two Hearts',
+    '/family/manage': 'Manage Family',
+    '/family/invite-parent': 'Invite Co-Parent',
+    '/family/invite-teacher': 'Invite a Teacher',
+    '/teacher/review': 'Review Work',
     '/menu': 'Menu',
     '/noor': 'Today’s NOOR',
     '/journey': 'My Journey',
@@ -136,10 +138,10 @@ abstract final class RouteTitles {
 
   /// Paths with an id: matched by prefix, most specific first.
   static const List<(String, String)> _prefixes = <(String, String)>[
+    ('/family/child/', 'Speak to Wasia'),
     ('/support/', 'Support'),
     ('/quran/madinah/', 'Qur’an Page View'),
     ('/quran/', 'Qur’an'),
-    ('/finance/rayaan/', 'Rayaan Lesson'),
     ('/majlis/thread/', 'Majlis Thread'),
     ('/community/forum/', 'Forum'),
     ('/community/thread/', 'Forum Thread'),

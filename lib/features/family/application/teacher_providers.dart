@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'teacher_repository.dart';
+import '../data/teacher_repository.dart';
+import '../domain/teacher_models.dart';
 
 final Provider<TeacherRepository> teacherRepositoryProvider =
     Provider<TeacherRepository>((ref) => FirebaseTeacherRepository());

@@ -41,9 +41,10 @@ class _InviteTeacherScreenState extends ConsumerState<InviteTeacherScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const TrText('Invite a Teacher', style: AppText.heading3),
+        title: const Text('Invite a Teacher', style: AppText.displayMedium),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
+          tooltip: 'Back',
           onPressed: () => context.pop(),
         ),
       ),
@@ -52,7 +53,7 @@ class _InviteTeacherScreenState extends ConsumerState<InviteTeacherScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TrText(
+            const Text(
               'Invite a live teacher to review your child\'s work, provide feedback, '
               'and communicate directly with you about their progress.',
               style: AppText.body,
@@ -92,7 +93,7 @@ class _InviteTeacherScreenState extends ConsumerState<InviteTeacherScreen> {
                   children: [
                     Icon(Icons.check_circle, size: 64, color: AppColors.gold),
                     const SizedBox(height: 16),
-                    const TrText(
+                    const Text(
                       'Teacher invited!\nThey will receive an email and can '
                       'access your children\'s progress once they accept.',
                       style: AppText.body,

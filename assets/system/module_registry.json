@@ -115,14 +115,6 @@
    "route": "/masajid"
   },
   {
-   "id": "tayyib-finance",
-   "title": "Tayyib Finance (zakat/sadaqah/halal stocks)",
-   "doc": "founder recall 2026-10-10 + zakat engine",
-   "status": "live",
-   "note": "Metal prices come live from the keyless gold-api.com feed; stock lists are the bundled paper_market.json (no live equity feed yet).",
-   "route": "/finance"
-  },
-  {
    "id": "games",
    "title": "Games: Shatranj, Ludo, trivia, 99 Names, Lineage, Ayah, Hijrah",
    "doc": "Games Design (recreated from founder memory)",
@@ -294,14 +286,6 @@
    "status": "live",
    "note": "Journey-sequenced road map at /academy/hajj-umrah-pack. Each station opens the matching huda guide where one exists and otherwise says the guide is still to come; the station-to-guide ids are maintained by the Academy owner.",
    "route": "/academy/hajj-umrah-pack"
-  },
-  {
-   "id": "rayaan-stocks",
-   "title": "Rayaan Stocks (halal financial learning)",
-   "doc": "founder directive 2026-10-10",
-   "status": "live",
-   "note": "Learning content and the paper-trading floor use bundled data; there is no live market data feed.",
-   "route": "/finance/rayaan"
   },
   {
    "id": "hisn",

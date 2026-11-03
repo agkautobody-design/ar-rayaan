@@ -455,4 +455,5 @@ service cloud.firestore {
         allow read, write: if signedIn() && request.auth.uid == parentUid;
       }
     }
-
+  }
+}

@@ -1,9 +1,9 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide Family;
 
 import '../../auth/application/auth_providers.dart';
 import '../domain/family_models.dart';
-import 'family_repository.dart';
-import 'firebase_family_repository.dart';
+import '../data/family_repository.dart';
+import '../data/firebase_family_repository.dart';
 import '../../../app/analytics.dart';
 
 final Provider<FamilyRepository> familyRepositoryProvider =

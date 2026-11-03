@@ -68,9 +68,10 @@ class _WasiaParentChatScreenState extends ConsumerState<WasiaParentChatScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const TrText('Speak to Wasia', style: AppText.heading3),
+        title: const Text('Speak to Wasia', style: AppText.displayMedium),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
+          tooltip: 'Back',
           onPressed: () => context.pop(),
         ),
       ),
@@ -89,7 +90,7 @@ class _WasiaParentChatScreenState extends ConsumerState<WasiaParentChatScreen> {
                         children: [
                           Icon(Icons.chat_bubble_outline, size: 64, color: Colors.white.withValues(alpha: 0.2)),
                           const SizedBox(height: 16),
-                          const TrText(
+                          const Text(
                             "Ask Wasia anything about your child's learning:\n"
                             "\u2022 How is their progress?\n"
                             "\u2022 What did they score on their last test?\n"
@@ -111,7 +112,7 @@ class _WasiaParentChatScreenState extends ConsumerState<WasiaParentChatScreen> {
                 );
               },
               loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
-              error: (e, _) => Center(child: TrText('Error: $e', style: AppText.body.copyWith(color: Colors.red))),
+              error: (e, _) => Center(child: Text('Error: $e', style: AppText.body.copyWith(color: Colors.red))),
             ),
           ),
           _InputBar(ctrl: _ctrl, onSend: _send),
@@ -148,14 +149,14 @@ class _MessageBubble extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TrText(
+            Text(
               message.text,
               style: AppText.body.copyWith(color: Colors.white),
             ),
             const SizedBox(height: 4),
-            TrText(
+            Text(
               _formatTime(message.sentAt),
-              style: AppText.caption.copyWith(color: Colors.white38, fontSize: 10),
+              style: AppText.caption.copyWith(color: Colors.white38, fontSize: 12),
             ),
           ],
         ),
@@ -208,6 +209,7 @@ class _InputBar extends StatelessWidget {
             const SizedBox(width: 8),
             IconButton(
               onPressed: onSend,
+              tooltip: 'Send',
               icon: const Icon(Icons.send, color: AppColors.gold),
             ),
           ],

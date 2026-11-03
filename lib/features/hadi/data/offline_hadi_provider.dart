@@ -1709,7 +1709,6 @@ const List<_NavTarget> _navTargets = <_NavTarget>[
       <String>['masajid', 'mosques', 'masjids']),
   _NavTarget('the Messengers’ family tree', '/family-tree',
       <String>['family tree']),
-  _NavTarget('Tayyib Finance', '/finance', <String>['finance']),
 ];
 
 /// What the question asks: how to do it, what it is, why, or whether one may.
@@ -2186,11 +2185,6 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['calendar screen', 'islamic calendar', 'ramadan dates', 'eid dates'],
     'Here is the Islamic Calendar - this year\'s months, Ramadan '
     'and Eid dates.\n[GO:/calendar]',
-  ),
-  _Entry(
-    <String>['finance screen', 'stocks screen', 'trading screen', 'halal stocks'],
-    'Here is Tayyib Finance - the halal stock screener and a paper '
-    'trading floor to practice on.\n[GO:/finance]',
   ),
   _Entry(
     <String>['academy screen', 'school screen', 'letters screen', 'alphabet'],

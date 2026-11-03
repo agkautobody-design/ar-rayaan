@@ -52,6 +52,7 @@ void main() {
     '/player': () => null,
     '/hadith': () => null,
     '/sakina': () => null,
+    '/sakina/marriage': () => null,
     '/hadi': () => null,
     '/academy/gate': () => null,
     '/academy/letters': () => null,

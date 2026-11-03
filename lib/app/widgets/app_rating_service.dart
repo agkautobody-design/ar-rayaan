@@ -75,9 +75,9 @@ class _RatingDialog extends StatelessWidget {
           children: [
             Icon(Icons.favorite, size: 48, color: AppColors.gold),
             const SizedBox(height: 16),
-            const TrText('Enjoying Ar-Rayaan?', style: AppText.heading4),
+            const Text('Enjoying Ar-Rayaan?', style: AppText.titleMedium),
             const SizedBox(height: 8),
-            const TrText(
+            const Text(
               'Your rating helps us reach more Muslims around the world.',
               style: AppText.body,
               textAlign: TextAlign.center,
@@ -90,7 +90,7 @@ class _RatingDialog extends StatelessWidget {
             const SizedBox(height: 12),
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: const TrText('Not now', style: TextStyle(color: Colors.white54)),
+              child: const Text('Not now', style: TextStyle(color: Colors.white54)),
             ),
           ],
         ),

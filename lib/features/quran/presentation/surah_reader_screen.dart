@@ -112,11 +112,6 @@ final transliterationProvider = FutureProvider<Map<String, String>>((
 });
 
 class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
-  @override
-  void initState() {
-    super.initState();
-    AppAnalytics.logScreenView('surah_reader');
-  }
   /// Where this surah should open: the ayah last saved INSIDE this surah
   /// (1 when the surah has never been opened). Read once, before the
   /// open below overwrites the "last read" pointer.
@@ -125,6 +120,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
   @override
   void initState() {
     super.initState();
+    AppAnalytics.logScreenView('surah_reader');
     final ReadingPositionController controller = ref.read(
       readingPositionProvider.notifier,
     );

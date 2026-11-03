@@ -3,6 +3,8 @@
   "appTitle": "الرّيّان",
   "appTagline": "رفيقك في الرحلة",
   "loginTitle": "مرحباً بعودتك",
+  "loginOrContinueWith": "أو تابع عبر",
+  "loginNoAccount": "ليس لديك حساب؟",
   "loginSubtitle": "سجّل الدخول لمواصلة رحلتك",
   "loginEmailHint": "عنوان البريد الإلكتروني",
   "loginPasswordHint": "كلمة المرور",

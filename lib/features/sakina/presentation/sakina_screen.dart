@@ -320,6 +320,17 @@ class _RoomCard extends ConsumerWidget {
                   label: const Text('Open the support pages'),
                 ),
               ),
+            if (room.id == 'marriage')
+              Align(
+                alignment: Alignment.centerLeft,
+                child: OutlinedButton.icon(
+                  key: const Key('room-tools-marriage'),
+                  style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+                  onPressed: () => context.open(AppRoutes.sakinaMarriage),
+                  icon: const Icon(Icons.handshake_outlined, size: 18),
+                  label: const Text('Two-way tools for hard seasons'),
+                ),
+              ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'teacher_models.dart';
+import '../domain/teacher_models.dart';
 
 abstract interface class TeacherRepository {
   Stream<List<Submission>> watchPendingSubmissions(String teacherUid);

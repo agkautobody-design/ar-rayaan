@@ -60,7 +60,7 @@ class ThemeDemoScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    l10n.journeyToParadise.toUpperCase(),
+                    l10n.appTagline.toUpperCase(),
                     style: AppText.eyebrow.copyWith(color: AppColors.textMuted),
                     textAlign: TextAlign.center,
                   ),
@@ -139,7 +139,7 @@ class ThemeDemoScreen extends StatelessWidget {
 
                   const SizedBox(height: 28),
                   GoldButton(
-                    label: l10n.continueLabel,
+                    label: l10n.buttonContinue,
                     trailing: const Icon(Icons.chevron_right),
                     // Founder tool: shows the pressed state is wired.
                     onPressed: () => ScaffoldMessenger.maybeOf(context)

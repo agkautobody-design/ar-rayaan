@@ -31,6 +31,7 @@ import '../grounding/corpus.dart';
 import '../grounding/madhhab.dart';
 import '../grounding/passage.dart';
 import 'hadi_markdown.dart';
+import 'hadi_voice_service.dart';
 import 'hadi_widgets.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
@@ -99,18 +100,6 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   late final HadiVoiceService _voice;
   bool _speakingResponse = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _voice = HadiVoiceService();
-  }
-
-  @override
-  void dispose() {
-    _voice.dispose();
-    super.dispose();
-  }
-
   Future<void> _onVoiceTap() async {
     if (_voice.isListening) {
       await _voice.stopListening();
@@ -166,6 +155,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   void initState() {
     super.initState();
+    _voice = HadiVoiceService();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _takeInitialQuery();
       // Coming back to an earlier conversation: start at the latest message.
@@ -202,6 +192,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
 
   @override
   void dispose() {
+    _voice.dispose();
     _input.dispose();
     _scroll.dispose();
     super.dispose();
@@ -929,6 +920,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       child: _Bubble(
                       message: hadi.messages[i],
                       isLatest: i == hadi.messages.length - 1 && !hadi.typing,
+                      speaking: _speakingResponse,
+                      onSpeak: _speakResponse,
                       // Opened ON TOP of the chat (a tab route is reached
                       // with go, as always), so Back returns to the
                       // conversation instead of jumping Home.
@@ -1359,13 +1352,16 @@ class HadiPassageCard extends ConsumerWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Text(
-                        route == AppRoutes.sources
-                            ? 'Where this comes from'
-                            : 'Open this surah',
-                        style: AppText.caption.copyWith(
-                          color: AppColors.goldLight,
-                          fontWeight: FontWeight.w600,
+                      Flexible(
+                        child: Text(
+                          route == AppRoutes.sources
+                              ? 'Where this comes from'
+                              : 'Open this surah',
+                          style: AppText.caption.copyWith(
+                            color: AppColors.goldLight,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(width: 4),
@@ -1429,6 +1425,8 @@ class _Bubble extends ConsumerWidget {
     this.onRetry,
     this.onOnlineMode,
     this.isLatest = false,
+    this.speaking = false,
+    this.onSpeak,
   });
 
   final HadiMessage message;
@@ -1447,6 +1445,12 @@ class _Bubble extends ConsumerWidget {
   /// Opens Hādi's settings for the optional online mode; null when the
   /// person already has it on.
   final VoidCallback? onOnlineMode;
+
+  /// True while this reply is being read aloud.
+  final bool speaking;
+
+  /// Reads the reply aloud (or stops the reading). Null hides the speaker.
+  final Future<void> Function(String text)? onSpeak;
 
   /// Puts the reply on the clipboard (without markup, with the passages it
   /// cites) and says so.
@@ -1667,14 +1671,14 @@ class _Bubble extends ConsumerWidget {
                   ),
           ),
                   // Speaker button for Hadi's responses
-                  if (hadi && !message.ephemeral)
+                  if (hadi && !message.ephemeral && onSpeak != null)
                     IconButton(
                       icon: Icon(
-                        _speakingResponse ? Icons.volume_up : Icons.volume_up_outlined,
+                        speaking ? Icons.volume_up : Icons.volume_up_outlined,
                         size: 18,
                         color: AppColors.gold,
                       ),
-                      onPressed: () => _speakResponse(message.text),
+                      onPressed: () => onSpeak!(message.text),
                       tooltip: 'Listen',
                     ),
         ],

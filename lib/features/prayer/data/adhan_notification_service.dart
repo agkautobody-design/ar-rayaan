@@ -5,7 +5,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
 
-import '../application/prayer_repository.dart';
 import '../domain/prayer_times.dart';
 
 /// Schedules local notifications for each prayer time and plays Adhan audio.
@@ -54,7 +53,7 @@ class AdhanNotificationService {
     );
 
     await _notifications.initialize(
-      initSettings,
+      settings: initSettings,
       onDidReceiveNotificationResponse: (response) {
         debugPrint('Adhan notification tapped: ${response.payload}');
       },
@@ -92,11 +91,11 @@ class AdhanNotificationService {
     final tz.TZDateTime scheduled = tz.TZDateTime.from(time, tz.local);
 
     await _notifications.zonedSchedule(
-      name.hashCode,
-      '$name Adhan',
-      'It is time for $name prayer',
-      scheduled,
-      NotificationDetails(
+      id: name.hashCode,
+      title: '$name Adhan',
+      body: 'It is time for $name prayer',
+      scheduledDate: scheduled,
+      notificationDetails: NotificationDetails(
         android: AndroidNotificationDetails(
           'adhan_channel',
           'Adhan Notifications',
@@ -124,9 +123,10 @@ class AdhanNotificationService {
   /// Play Adhan audio. Call this when notification fires.
   static Future<void> playAdhan({bool isFajr = false}) async {
     try {
-      final String asset = isFajr
-          ? 'assets/audio/adhan_fajr.mp3'
-          : 'assets/audio/adhan_regular.mp3';
+      // One bundled adhan recording serves both slots until a dedicated
+      // Fajr recording (with as-salatu khayrun min an-nawm) is licensed.
+      const String asset = 'assets/audio/adhan_mecca.mp3';
+      debugPrint('Playing Adhan (Fajr slot: $isFajr) from $asset');
       await _audioPlayer.setAsset(asset);
       await _audioPlayer.play();
     } catch (e) {
@@ -141,6 +141,6 @@ class AdhanNotificationService {
 
   /// Cancel a specific prayer notification.
   static Future<void> cancelPrayer(String name) async {
-    await _notifications.cancel(name.hashCode);
+    await _notifications.cancel(id: name.hashCode);
   }
 }

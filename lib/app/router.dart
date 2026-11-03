@@ -73,6 +73,7 @@ import '../features/tasbeeh/presentation/tasbeeh_screen.dart';
 import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
+import '../features/sakina/presentation/marriage_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
 import '../features/support/domain/quick_exit_signal.dart';
 import '../features/support/presentation/parent_listening_screen.dart';
@@ -247,6 +248,7 @@ abstract final class AppRoutes {
   static const String sakinaSteady = '/sakina/steady';
   static const String sakinaMood = '/sakina/mood';
   static const String sakinaSafety = '/sakina/safety';
+  static const String sakinaMarriage = '/sakina/marriage';
   static String surah(int number) => '/quran/$number';
   static String surahAt(int number, int ayah) => '/quran/$number?ayah=$ayah';
 
@@ -526,19 +528,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: '/ramadan',
           pageBuilder: (context, state) => _fade(const RamadanScreen()),
         ),
-        GoRoute(
-          path: '/finance/floor',
-          pageBuilder: (context, state) => _fade(const TradingFloorScreen()),
-        ),
-        GoRoute(
-          path: '/finance/rayaan',
-          pageBuilder: (context, state) => _fade(const RayaanStocksScreen()),
-        ),
-        GoRoute(
-          path: '/finance/rayaan/:id',
-          pageBuilder: (context, state) =>
-              _fade(FinLessonScreen(lessonId: state.pathParameters['id']!)),
-        ),
+        // HIDDEN with the finance screens (off-brand).
         GoRoute(
           path: '/settings/language',
           pageBuilder: (context, state) => _fade(const LanguageSettingsScreen()),
@@ -547,10 +537,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: '/masajid',
           pageBuilder: (context, state) => _fade(const MasjidFinderScreen()),
         ),
-        GoRoute(
-          path: '/finance',
-          pageBuilder: (context, state) => _fade(const TayyibFinanceScreen()),
-        ),
+        // HIDDEN with the finance screens (off-brand).
         GoRoute(
           path: '/home/elder',
           pageBuilder: (context, state) => _fade(const ElderHomeScreen()),
@@ -984,6 +971,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.sakinaSafety,
         pageBuilder: (c, s) => _fade(const SafetyPlanScreen()),
+      ),
+      // The two-way marriage room, opened from the Sakina marriage room.
+      GoRoute(
+        path: AppRoutes.sakinaMarriage,
+        pageBuilder: (c, s) => _fade(const MarriageScreen()),
       ),
       GoRoute(
         path: AppRoutes.quranBookmarks,

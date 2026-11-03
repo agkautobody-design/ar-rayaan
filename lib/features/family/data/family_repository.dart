@@ -1,4 +1,3 @@
-import '../../auth/application/auth_repository.dart';
 import '../domain/family_models.dart';
 
 abstract interface class FamilyRepository {

@@ -1,0 +1,23 @@
+{
+ "bukhari:891": {
+  "checked": "2026-11-03",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the best day on which the sun has risen is Friday; on it Adam was created, admitted to Paradise and expelled from it, and the Hour comes only on Friday. Used in the Jumu'ah modern-hadith card.",
+  "verdict": "ok"
+ },
+ "muslim:233": {
+  "checked": "2026-11-03",
+  "grade": "sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the five prayers and Friday to Friday expiate what is between them so long as the major sins are avoided. Used in the Jumu'ah modern-hadith card.",
+  "verdict": "ok"
+ },
+ "ibnmajah:2341": {
+  "checked": "2026-11-03",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Ibn Abbas: no harming and no reciprocating of harm; the basis of the When It Is Not Safe card in the Sakina marriage room.",
+  "verdict": "ok"
+ }
+}

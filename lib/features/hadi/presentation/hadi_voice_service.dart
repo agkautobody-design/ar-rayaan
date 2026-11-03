@@ -46,7 +46,7 @@ class HadiVoiceService {
   Future<String?> startListening({
     required VoidCallback onListeningStarted,
     required VoidCallback onListeningFinished,
-    required Function(String) onPartialResult,
+    required void Function(String) onPartialResult,
   }) async {
     if (!_speechAvailable) return null;
 
@@ -68,9 +68,9 @@ class HadiVoiceService {
     );
 
     // Wait for listening to finish
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future<void>.delayed(const Duration(milliseconds: 500));
     while (_isListening) {
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future<void>.delayed(const Duration(milliseconds: 100));
     }
 
     onListeningFinished();

@@ -39,9 +39,10 @@ class _InviteParentScreenState extends ConsumerState<InviteParentScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const TrText('Invite Co-Parent', style: AppText.heading3),
+        title: const Text('Invite Co-Parent', style: AppText.displayMedium),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
+          tooltip: 'Back',
           onPressed: () => context.pop(),
         ),
       ),
@@ -50,7 +51,7 @@ class _InviteParentScreenState extends ConsumerState<InviteParentScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TrText(
+            const Text(
               'Invite your spouse or co-parent to share access to your children\'s '
               'learning progress, academy updates, and teacher communications.',
               style: AppText.body,
@@ -79,7 +80,7 @@ class _InviteParentScreenState extends ConsumerState<InviteParentScreen> {
                   children: [
                     Icon(Icons.check_circle, size: 64, color: AppColors.gold),
                     const SizedBox(height: 16),
-                    const TrText(
+                    const Text(
                       'Invitation sent!\nYour co-parent will receive an email '
                       'and can join your family once they sign up.',
                       style: AppText.body,

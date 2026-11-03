@@ -377,7 +377,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u7.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u7.l2.s1.title', bodyKey: 'path.u7.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l2.s2.title', bodyKey: 'path.u7.l2.s2.body', route: '/finance'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l2.s2.title', bodyKey: 'path.u7.l2.s2.body', route: '/zakat'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u7.l2.s3.title', bodyKey: 'path.u7.l2.s3.body'),
             ],
           ),

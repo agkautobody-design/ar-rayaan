@@ -496,13 +496,6 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     ],
   ),
   AppDestination(
-    id: 'finance',
-    title: 'Tayyib Finance',
-    subtitle: 'Halal stocks and the paper trading floor',
-    route: '/finance',
-    keywords: <String>['halal stocks', 'investing', 'invest', 'trading', 'stocks'],
-  ),
-  AppDestination(
     id: 'verse-cards',
     title: 'Verse Cards',
     subtitle: 'Make a card of a verse to share',

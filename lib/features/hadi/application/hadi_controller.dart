@@ -64,7 +64,7 @@ import 'hadi_provider.dart';
 /// fails if one is not), and every path the system prompt advertises MUST
 /// be here (the same test checks that too).
 const Set<String> kHadiNavWhitelist = <String>{
-  '/home', '/stories', '/games', '/player', '/finance', '/masajid',
+  '/home', '/stories', '/games', '/player', '/masajid',
   '/feelings', '/family-tree', '/huda', '/elder-care',
   '/qibla', '/hadith', '/sakina', '/share', '/notes',
   '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
@@ -116,7 +116,6 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/sources': 'Our Sources',
   '/masajid': 'Masajid and Halal',
   '/family-tree': 'the Messengers’ family tree',
-  '/finance': 'Tayyib Finance',
   '/share': 'verse cards',
   '/new-muslim': 'the New Muslim path',
   '/academy/aqeedah': 'the Aqeedah school',

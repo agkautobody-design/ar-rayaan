@@ -21,7 +21,7 @@ const Set<String> kHadiFinderRoutes = <String>{
   '/academy/recitation', '/zakat', '/ramadan', '/quran', '/quran/bookmarks',
   '/hadith', '/stories', '/academy/seerah', '/new-muslim',
   '/academy/family-life', '/academy/hajj-umrah-pack', '/sakina', '/feelings',
-  '/finance', '/share', '/player', '/notes', '/settings/language',
+  '/share', '/player', '/notes', '/settings/language',
   '/settings', '/search', '/academy/qa', '/academy/aqeedah',
   '/academy/hadith', '/academy/hisn', '/home/elder', '/journey',
   '/academy/quranic-arabic', '/academy', '/explore',
