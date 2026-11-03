@@ -1,8 +1,45 @@
-/// Family domain models: parent-child linking for academy monitoring.
+/// Family domain models: multi-parent + live teacher support.
 ///
-/// A [Family] lives at /families/{parentUid} and holds [Child] records.
-/// Each child gets their own Firebase Auth account (email + password)
-/// so their progress, bookmarks, and academy data are fully separate.
+/// A [Family] is keyed by a generated familyId (not a parent UID),
+/// so both parents and invited teachers can access it.
+
+class FamilyMember {
+  const FamilyMember({
+    required this.uid,
+    required this.role,
+    required this.email,
+    this.name,
+    this.invitedBy,
+    this.invitedAt,
+  });
+
+  final String uid;
+  final String role; // 'parent', 'child', 'teacher'
+  final String email;
+  final String? name;
+  final String? invitedBy;
+  final DateTime? invitedAt;
+
+  Map<String, dynamic> toJson() => {
+    'uid': uid,
+    'role': role,
+    'email': email,
+    if (name != null) 'name': name,
+    if (invitedBy != null) 'invitedBy': invitedBy,
+    if (invitedAt != null) 'invitedAt': invitedAt!.toIso8601String(),
+  };
+
+  factory FamilyMember.fromJson(Map<String, dynamic> j) => FamilyMember(
+    uid: j['uid'] as String,
+    role: j['role'] as String,
+    email: j['email'] as String,
+    name: j['name'] as String?,
+    invitedBy: j['invitedBy'] as String?,
+    invitedAt: j['invitedAt'] != null
+        ? DateTime.parse(j['invitedAt'] as String)
+        : null,
+  );
+}
 
 class Child {
   const Child({
@@ -57,27 +94,41 @@ class Child {
 
 class Family {
   const Family({
-    required this.parentUid,
-    required this.parentEmail,
+    required this.familyId,
+    required this.members,
     required this.children,
     required this.createdAt,
+    this.name,
   });
 
-  final String parentUid;
-  final String parentEmail;
+  final String familyId;
+  final String? name;
+  final List<FamilyMember> members;
   final List<Child> children;
   final DateTime createdAt;
 
+  List<FamilyMember> get parents =>
+      members.where((m) => m.role == 'parent').toList();
+
+  List<FamilyMember> get teachers =>
+      members.where((m) => m.role == 'teacher').toList();
+
+  bool hasMember(String uid) => members.any((m) => m.uid == uid);
+
   Map<String, dynamic> toJson() => {
-    'parentUid': parentUid,
-    'parentEmail': parentEmail,
+    'familyId': familyId,
+    if (name != null) 'name': name,
+    'members': members.map((m) => m.toJson()).toList(),
     'children': children.map((c) => c.toJson()).toList(),
     'createdAt': createdAt.toIso8601String(),
   };
 
   factory Family.fromJson(Map<String, dynamic> j) => Family(
-    parentUid: j['parentUid'] as String,
-    parentEmail: j['parentEmail'] as String,
+    familyId: j['familyId'] as String,
+    name: j['name'] as String?,
+    members: (j['members'] as List<dynamic>)
+        .map((e) => FamilyMember.fromJson(e as Map<String, dynamic>))
+        .toList(),
     children: (j['children'] as List<dynamic>)
         .map((e) => Child.fromJson(e as Map<String, dynamic>))
         .toList(),
