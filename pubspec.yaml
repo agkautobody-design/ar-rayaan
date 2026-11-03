@@ -40,7 +40,7 @@ dependencies:
   speech_to_text: ^7.0.0
   in_app_review: ^2.0.10
   firebase_crashlytics: ^5.4.1
-  cloud_firestore: ^6.10.0
+  cloud_firestore: ^6.10.2
   path_provider: ^2.1.6
   wakelock_plus: ^1.8.0
   crypto: ^3.0.7
