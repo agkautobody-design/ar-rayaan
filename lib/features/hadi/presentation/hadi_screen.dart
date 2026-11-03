@@ -1100,6 +1100,41 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         ),
                       ),
                     ),
+                                        // Voice input button
+                    if (_voice.isAvailable)
+                      FocusSafeSemantics(
+                        button: true,
+                        enabled: !hadi.typing && !_voice.isListening,
+                        label: 'Speak',
+                        excludeSemantics: true,
+                        onTap: hadi.typing || _voice.isListening ? null : _onVoiceTap,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: hadi.typing || _voice.isListening ? null : _onVoiceTap,
+                          child: SizedBox(
+                            width: 48,
+                            height: 48,
+                            child: Center(
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 200),
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: _voice.isListening
+                                      ? Colors.red.withValues(alpha: 0.3)
+                                      : AppColors.gold.withValues(alpha: 0.15),
+                                ),
+                                child: Icon(
+                                  _voice.isListening ? Icons.mic : Icons.mic_none,
+                                  size: 20,
+                                  color: _voice.isListening ? Colors.red : AppColors.gold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     FocusSafeSemantics(
                       button: true,
                       enabled: !hadi.typing,
