@@ -1,24 +1,33 @@
 import '../../auth/application/auth_repository.dart';
 import '../domain/family_models.dart';
 
-/// Family storage contract.
 abstract interface class FamilyRepository {
-  /// Returns the family for [parentUid], or null if none exists.
-  Future<Family?> getFamily(String parentUid);
-
-  /// Creates or updates the family record.
+  Future<Family?> getFamily(String familyId);
+  Future<Family?> getFamilyForUser(String uid);
   Future<void> saveFamily(Family family);
+  Future<Family> createFamily({required String parentUid, String? name});
 
-  /// Adds a child to the family and returns the created child record.
   Future<Child> addChild({
-    required String parentUid,
+    required String familyId,
     required String name,
     String? grade,
   });
 
-  /// Removes a child from the family (does NOT delete the auth account).
-  Future<void> removeChild(String parentUid, String childId);
+  Future<void> removeChild(String familyId, String childId);
+  Future<void> updateChild(String familyId, Child child);
 
-  /// Updates a child's profile fields.
-  Future<void> updateChild(String parentUid, Child child);
+  Future<void> inviteParent({
+    required String familyId,
+    required String email,
+    required String invitedByUid,
+  });
+
+  Future<void> inviteTeacher({
+    required String familyId,
+    required String email,
+    required String invitedByUid,
+  });
+
+  Future<Family?> acceptInvite(String inviteId, String uid);
+  Future<Map<String, String>?> getChildCredentials(String childId);
 }
