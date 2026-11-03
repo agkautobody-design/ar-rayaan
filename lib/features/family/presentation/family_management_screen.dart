@@ -147,34 +147,59 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final children = family?.children ?? [];
-    if (children.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      children: [
+        // Invite buttons
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+          child: Row(
             children: [
-              Icon(Icons.family_restroom, size: 64, color: Colors.white.withValues(alpha: 0.2)),
-              const SizedBox(height: 16),
-              const TrText(
-                'No children added yet.\nTap "Add Child" to create an account '
-                'for your child and monitor their learning.',
-                style: AppText.body,
-                textAlign: TextAlign.center,
+              Expanded(
+                child: _ActionCard(
+                  icon: Icons.person_add_alt_1,
+                  label: 'Invite Co-Parent',
+                  onTap: () => context.push('/family/invite-parent'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: _ActionCard(
+                  icon: Icons.school,
+                  label: 'Invite Teacher',
+                  onTap: () => context.push('/family/invite-teacher'),
+                ),
               ),
             ],
           ),
         ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: children.length,
-      itemBuilder: (ctx, i) {
-        final child = children[i];
-        return _ChildCard(child: child);
-      },
+        // Children list or empty state
+        Expanded(
+          child: children.isEmpty
+              ? Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(32),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.family_restroom, size: 64, color: Colors.white.withValues(alpha: 0.2)),
+                        const SizedBox(height: 16),
+                        const TrText(
+                          'No children added yet.\nTap "Add Child" to create an account '
+                          'for your child and monitor their learning.',
+                          style: AppText.body,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: children.length,
+                  itemBuilder: (ctx, i) => _ChildCard(child: children[i]),
+                ),
+        ),
+      ],
     );
   }
 }
@@ -246,6 +271,36 @@ class _ChildCard extends ConsumerWidget {
             const PopupMenuItem(value: 'monitor', child: TrText('View Progress')),
             const PopupMenuItem(value: 'wasia', child: TrText('Speak to Wasia')),
             const PopupMenuItem(value: 'remove', child: TrText('Remove', style: TextStyle(color: Colors.red))),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+class _ActionCard extends StatelessWidget {
+  const _ActionCard({required this.icon, required this.label, required this.onTap});
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+        ),
+        child: Column(
+          children: [
+            Icon(icon, color: AppColors.gold, size: 28),
+            const SizedBox(height: 8),
+            TrText(label, style: AppText.caption.copyWith(color: Colors.white70)),
           ],
         ),
       ),
