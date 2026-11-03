@@ -17,7 +17,9 @@ jobs:
           flutter-version: '3.47.9'
           channel: 'stable'
       - run: flutter pub get
-      - run: flutter analyze
+      # Same flags as build-web.yml / pr-check.yml (keep them in sync):
+      # warnings are fatal, the 323 pre-existing infos are not.
+      - run: flutter analyze --fatal-warnings --no-fatal-infos
       - run: flutter gen-l10n
 
   test:
