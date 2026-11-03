@@ -35,6 +35,11 @@ dependencies:
   firebase_auth: ^6.7.0
   firebase_analytics: ^11.4.4
   firebase_messaging: ^15.2.4
+  flutter_local_notifications: ^18.0.0
+  just_audio: ^0.9.42
+  audio_session: ^0.1.21
+  speech_to_text: ^7.0.0
+  flutter_tts: ^4.2.2
   in_app_review: ^2.0.10
   firebase_crashlytics: ^4.3.4
   cloud_firestore: ^6.10.0
@@ -61,7 +66,11 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/images/tiles/
+    - assets/audio/adhan_fajr.mp3
+    - assets/audio/adhan_regular.mp3
+    - assets/images/
+    - assets/audio/adhan_fajr.mp3
+    - assets/audio/adhan_regular.mp3tiles/
     - assets/quran/
     - assets/quran/translations/
     - assets/translit/
