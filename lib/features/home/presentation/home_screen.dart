@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import '../../../app/analytics.dart';
+import '../../../app/widgets/app_rating_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
