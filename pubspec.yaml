@@ -32,7 +32,7 @@ dependencies:
   latlong2: ^0.9.1
   web: ^1.1.0
   firebase_core: ^4.15.0
-  firebase_auth: ^6.7.0
+  firebase_auth: ^6.7.1
   firebase_analytics: ^12.6.1
   firebase_messaging: ^16.7.1
   just_audio: ^0.9.42
