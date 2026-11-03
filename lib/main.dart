@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart' hide Text;
 import 'app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +9,7 @@ import 'app/app.dart';
 import 'app/core/child_mode.dart';
 import 'app/core/env_config.dart';
 import 'app/core/error_handling.dart';
+import 'app/core/restart_app.dart';
 import 'app/crashlytics_initializer.dart';
 import 'app/push_notification_service.dart';
 import 'features/prayer/data/adhan_notification_service.dart';
@@ -43,9 +45,21 @@ void main() {
     } catch (error, stack) {
       // Startup itself failed (before any screen exists): say so, plainly.
       AppErrorHandling.record(error, stack, where: 'startup');
-      runApp(const _StartupFailedApp());
+      runApp(_StartupFailedApp(error));
     }
   }, AppErrorHandling.onZoneError);
+}
+
+/// Runs an optional start-up step: if it fails, the failure is recorded and
+/// start-up continues. Only the steps that decide what the app IS (storage,
+/// content packs, Firebase itself, the auth override) may stop the boot — a
+/// notification or crash-reporting extra must never keep the app closed.
+Future<void> _tryBoot(String name, Future<void> Function() step) async {
+  try {
+    await step();
+  } catch (error, stack) {
+    AppErrorHandling.record(error, stack, where: 'startup:$name');
+  }
 }
 
 Future<void> _start() async {
@@ -73,10 +87,10 @@ Future<void> _start() async {
   // place that chooses — screens never know the difference.
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
   if (firebaseLive) {
-    CrashlyticsInitializer.initialize();
-    await PushNotificationService.initialize();
-    await AdhanNotificationService.initialize();
-    AdhanNotificationBridge.register();
+    await _tryBoot('crashlytics', () async => CrashlyticsInitializer.initialize());
+    await _tryBoot('push', PushNotificationService.initialize);
+    await _tryBoot('adhan-notifications', AdhanNotificationService.initialize);
+    await _tryBoot('adhan-bridge', () async => AdhanNotificationBridge.register());
   }
   unawaited(DriftGuard().scan());
   // Reports saved on the device while offline go out now that Firebase is up.
@@ -108,29 +122,71 @@ Future<void> _start() async {
 }
 
 
-/// Shown only if the app could not start at all.
+/// Shown only if the app could not start at all. The real error is printed
+/// in small type at the bottom: a screenshot of this screen tells support
+/// exactly what broke.
 class _StartupFailedApp extends StatelessWidget {
-  const _StartupFailedApp();
+  const _StartupFailedApp(this.error);
+
+  final Object error;
 
   @override
   Widget build(BuildContext context) {
-    return const Directionality(
+    return Directionality(
       textDirection: TextDirection.ltr,
       child: ColoredBox(
-        color: Color(0xFF05090F),
+        color: const Color(0xFF05090F),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(28),
-            child: Text(
-              'Ar-Rayaan could not start. Close it and open it again, or '
-              'reload the page. Nothing you saved was lost.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color(0xFFE8DCC0),
-                fontSize: 17,
-                height: 1.5,
-                decoration: TextDecoration.none,
-              ),
+            padding: const EdgeInsets.all(28),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Ar-Rayaan could not start. Close it and open it again, or '
+                  'reload the page. Nothing you saved was lost.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFE8DCC0),
+                    fontSize: 17,
+                    height: 1.5,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+                if (kIsWeb) ...<Widget>[
+                  const SizedBox(height: 24),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color(0xFFD4AF37),
+                      foregroundColor: const Color(0xFF05090F),
+                      minimumSize: const Size(140, 44),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 22, vertical: 10),
+                    ),
+                    onPressed: restartApp,
+                    child: const Text(
+                      'Try again',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 28),
+                Text(
+                  '$error',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Color(0x80E8DCC0),
+                    fontSize: 12,
+                    height: 1.4,
+                    fontWeight: FontWeight.normal,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

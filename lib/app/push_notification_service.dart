@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
 /// Handles Firebase Cloud Messaging for prayer reminders,
@@ -7,6 +8,12 @@ class PushNotificationService {
   static final FirebaseMessaging _messaging = FirebaseMessaging.instance;
 
   static Future<void> initialize() async {
+    // FCM web push is not configured (no VAPID key, no
+    // firebase-messaging-sw.js): getToken() throws in the browser, and a
+    // person who once allowed notifications would otherwise be stuck on the
+    // startup-error screen. Skip until web push is set up deliberately.
+    if (kIsWeb) return;
+
     // Request permission (iOS)
     final settings = await _messaging.requestPermission(
       alert: true,
@@ -39,16 +46,19 @@ class PushNotificationService {
 
   /// Subscribe to topic for daily hadith
   static Future<void> subscribeToDailyHadith() async {
+    if (kIsWeb) return; // FCM web push is not configured (see initialize)
     await _messaging.subscribeToTopic('daily_hadith');
   }
 
   /// Subscribe to topic for prayer reminders
   static Future<void> subscribeToPrayerReminders() async {
+    if (kIsWeb) return; // FCM web push is not configured (see initialize)
     await _messaging.subscribeToTopic('prayer_reminders');
   }
 
   /// Unsubscribe from all topics
   static Future<void> unsubscribeAll() async {
+    if (kIsWeb) return; // FCM web push is not configured (see initialize)
     await _messaging.unsubscribeFromTopic('daily_hadith');
     await _messaging.unsubscribeFromTopic('prayer_reminders');
   }
