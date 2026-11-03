@@ -324,5 +324,52 @@ service cloud.firestore {
     match /{document=**} {
       allow read, write: if false;
     }
+
+    // ── Family & Child Accounts ────────────────────────────────────────
+    // A parent's family document and child records. Only the parent can
+    // read/write their own family. Child auth accounts are real Firebase
+    // accounts with email+password, scoped under the family domain.
+    match /families/{parentUid} {
+      allow read, write: if signedIn() && request.auth.uid == parentUid;
+    }
+
+    // Temporary credential storage for SMS sharing. Parent-only access.
+    match /family_secrets/{childUid} {
+      allow read: if signedIn()
+        && get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
+             .map(c => c.id).hasAny([childUid]);
+      allow write: if signedIn() && request.auth.uid == resource.data.parentUid;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['parentUid', 'password', 'createdAt'])
+        && request.resource.data.parentUid == request.auth.uid;
+    }
+
+    // ── Academy Progress ───────────────────────────────────────────────
+    // Each child's learning progress. The child can write their own progress;
+    // the parent can read their children's progress.
+    match /academy_progress/{childUid} {
+      allow read: if signedIn()
+        && (request.auth.uid == childUid
+            || get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
+                 .map(c => c.id).hasAny([childUid]));
+      allow write: if signedIn() && request.auth.uid == childUid;
+
+      match /{document=**} {
+        allow read: if signedIn()
+          && (request.auth.uid == childUid
+              || get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
+                   .map(c => c.id).hasAny([childUid]));
+        allow write: if signedIn() && request.auth.uid == childUid;
+      }
+    }
+
+    // ── Wasia Parent Chat ──────────────────────────────────────────────
+    // Private chat between parent and Wasia AI. Only the parent can read/write.
+    match /wasia_parent_chats/{parentUid} {
+      allow read, write: if signedIn() && request.auth.uid == parentUid;
+      match /{document=**} {
+        allow read, write: if signedIn() && request.auth.uid == parentUid;
+      }
+    }
   }
 }
