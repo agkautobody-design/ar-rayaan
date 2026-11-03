@@ -1666,6 +1666,17 @@ class _Bubble extends ConsumerWidget {
                     ),
                   ),
           ),
+                  // Speaker button for Hadi's responses
+                  if (hadi && !message.ephemeral)
+                    IconButton(
+                      icon: Icon(
+                        _speakingResponse ? Icons.volume_up : Icons.volume_up_outlined,
+                        size: 18,
+                        color: AppColors.gold,
+                      ),
+                      onPressed: () => _speakResponse(message.text),
+                      tooltip: 'Listen',
+                    ),
         ],
       ),
     );
