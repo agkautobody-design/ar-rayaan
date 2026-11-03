@@ -6,6 +6,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../../auth/application/auth_providers.dart';
+import '../../../app/analytics.dart';
 import '../application/wasia_parent_bridge.dart';
 
 class WasiaParentChatScreen extends ConsumerStatefulWidget {
@@ -17,6 +18,11 @@ class WasiaParentChatScreen extends ConsumerStatefulWidget {
 }
 
 class _WasiaParentChatScreenState extends ConsumerState<WasiaParentChatScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AppAnalytics.logWasiaParentChatOpened(widget.childId);
+  }
   final _ctrl = TextEditingController();
   final _scroll = ScrollController();
 
