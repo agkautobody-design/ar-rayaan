@@ -3,6 +3,7 @@ import 'dart:async' show Timer, unawaited;
 import '../../../app/core/tight_layout.dart';
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
+import '../../../app/analytics.dart';
 import 'package:flutter/rendering.dart' show ScrollDirection;
 
 import 'dart:convert';
@@ -111,6 +112,11 @@ final transliterationProvider = FutureProvider<Map<String, String>>((
 });
 
 class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AppAnalytics.logScreenView('surah_reader');
+  }
   /// Where this surah should open: the ayah last saved INSIDE this surah
   /// (1 when the surah has never been opened). Read once, before the
   /// open below overwrites the "last read" pointer.
