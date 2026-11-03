@@ -325,41 +325,125 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
-    // ── Family & Child Accounts ────────────────────────────────────────
-    // A parent's family document and child records. Only the parent can
-    // read/write their own family. Child auth accounts are real Firebase
-    // accounts with email+password, scoped under the family domain.
-    match /families/{parentUid} {
-      allow read, write: if signedIn() && request.auth.uid == parentUid;
+    // ── Family & Child Accounts ───────────────────────────────────────
+    // A family is keyed by familyId (not parent UID), so both parents
+    // and invited teachers can access it. Members are tracked in a
+    // reverse index at /family_members/{uid}.
+
+    function isFamilyMember(familyId, uid) {
+      return get(/databases/$(database)/documents/families/$(familyId)).data.members
+        .map(m => m.uid).hasAny([uid]);
+    }
+
+    function isFamilyParent(familyId, uid) {
+      return get(/databases/$(database)/documents/families/$(familyId)).data.members
+        .map(m => m.uid).hasAny([uid])
+        && get(/databases/$(database)/documents/families/$(familyId)).data.members
+             .any(m => m.uid == uid && m.role == 'parent');
+    }
+
+    function isFamilyTeacher(familyId, uid) {
+      return get(/databases/$(database)/documents/families/$(familyId)).data.members
+        .map(m => m.uid).hasAny([uid])
+        && get(/databases/$(database)/documents/families/$(familyId)).data.members
+             .any(m => m.uid == uid && m.role == 'teacher');
+    }
+
+    function getFamilyIdForUser(uid) {
+      return get(/databases/$(database)/documents/family_members/$(uid)).data.familyId;
+    }
+
+    match /families/{familyId} {
+      allow read: if signedIn() && isFamilyMember(familyId, request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.members[0].uid == request.auth.uid
+        && request.resource.data.members[0].role == 'parent';
+      allow update: if signedIn()
+        && isFamilyParent(familyId, request.auth.uid)
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['members', 'children', 'name']);
+    }
+
+    match /family_members/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false; // Managed by family save only
+    }
+
+    match /family_invites/{inviteId} {
+      allow read: if signedIn()
+        && (resource.data.invitedBy == request.auth.uid
+            || resource.data.email == request.auth.token.email);
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(
+             ['familyId', 'email', 'role', 'invitedBy', 'invitedAt', 'status'])
+        && isFamilyParent(request.resource.data.familyId, request.auth.uid);
+      allow update: if signedIn()
+        && resource.data.status == 'pending'
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'acceptedBy'])
+        && request.resource.data.status == 'accepted';
     }
 
     // Temporary credential storage for SMS sharing. Parent-only access.
     match /family_secrets/{childUid} {
       allow read: if signedIn()
-        && get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
-             .map(c => c.id).hasAny([childUid]);
-      allow write: if signedIn() && request.auth.uid == resource.data.parentUid;
+        && isFamilyParent(getFamilyIdForUser(request.auth.uid), request.auth.uid);
       allow create: if signedIn()
-        && request.resource.data.keys().hasOnly(['parentUid', 'password', 'createdAt'])
-        && request.resource.data.parentUid == request.auth.uid;
+        && request.resource.data.keys().hasOnly(['familyId', 'password', 'createdAt'])
+        && isFamilyParent(request.resource.data.familyId, request.auth.uid);
+      allow delete: if signedIn()
+        && isFamilyParent(getFamilyIdForUser(request.auth.uid), request.auth.uid);
     }
 
     // ── Academy Progress ───────────────────────────────────────────────
-    // Each child's learning progress. The child can write their own progress;
-    // the parent can read their children's progress.
+    // Each child's learning progress. Child can write; parents and teachers can read.
     match /academy_progress/{childUid} {
       allow read: if signedIn()
         && (request.auth.uid == childUid
-            || get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
-                 .map(c => c.id).hasAny([childUid]));
+            || isFamilyMember(getFamilyIdForUser(childUid), request.auth.uid));
       allow write: if signedIn() && request.auth.uid == childUid;
 
       match /{document=**} {
         allow read: if signedIn()
           && (request.auth.uid == childUid
-              || get(/databases/$(database)/documents/families/$(request.auth.uid)).data.children
-                   .map(c => c.id).hasAny([childUid]));
+              || isFamilyMember(getFamilyIdForUser(childUid), request.auth.uid));
         allow write: if signedIn() && request.auth.uid == childUid;
+      }
+    }
+
+    // ── Submissions & Teacher Reviews ──────────────────────────────────
+    // Child submits work; teacher reviews it.
+    match /submissions/{submissionId} {
+      allow read: if signedIn()
+        && (request.auth.uid == resource.data.childUid
+            || isFamilyMember(getFamilyIdForUser(resource.data.childUid), request.auth.uid));
+      allow create: if signedIn()
+        && request.resource.data.childUid == request.auth.uid;
+      allow update: if signedIn()
+        && isFamilyTeacher(getFamilyIdForUser(resource.data.childUid), request.auth.uid)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']);
+    }
+
+    match /teacher_reviews/{reviewId} {
+      allow read: if signedIn()
+        && (request.auth.uid == resource.data.childUid
+            || isFamilyMember(getFamilyIdForUser(resource.data.childUid), request.auth.uid)
+            || request.auth.uid == resource.data.teacherUid);
+      allow create: if signedIn()
+        && isFamilyTeacher(getFamilyIdForUser(request.resource.data.childUid), request.auth.uid)
+        && request.resource.data.keys().hasOnly(
+             ['id', 'submissionId', 'childUid', 'teacherUid', 'teacherName',
+              'reviewedAt', 'score', 'feedback', 'strengths', 'improvements']);
+    }
+
+    // ── Parent-Teacher Chat ────────────────────────────────────────────
+    // Private chat between parent and teacher about a specific child.
+    match /teacher_parent_chats/{chatId} {
+      allow read, write: if signedIn()
+        && chatId.matches(request.auth.uid + '_.*');
+      match /{document=**} {
+        allow read, write: if signedIn()
+          && chatId.matches(request.auth.uid + '_.*');
       }
     }
 
@@ -371,5 +455,4 @@ service cloud.firestore {
         allow read, write: if signedIn() && request.auth.uid == parentUid;
       }
     }
-  }
-}
+
