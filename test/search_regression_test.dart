@@ -193,7 +193,10 @@ const List<_Case> _cases = <_Case>[
   _Case('verse of debt', quranFirst: '2:282'),
   // Words people type that the English does not use.
   _Case('sabr', quranAmong: <String>['2:153']),
-  _Case('patience', quranAmong: <String>['2:153'], otherTop: 'S:kh-yaqub'),
+  // mh-patience-32 ("Patience at the First Stroke") took the top spot when
+  // it joined the pack on 2026-11-04; Ya'qub's beautiful patience is next.
+  _Case('patience', quranAmong: <String>['2:153'], otherTop: 'S:mh-patience-32',
+      otherIn: <String>['S:kh-yaqub']),
   _Case('riba', quranAmong: <String>['2:275', '2:276']),
   _Case('usury', quranAny: true),
   _Case('iblis', quranAmong: <String>['15:31'], otherTop: 'S:ghayb-iblis-refuses'),

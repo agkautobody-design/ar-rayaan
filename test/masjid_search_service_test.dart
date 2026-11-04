@@ -70,7 +70,7 @@ void main() {
     });
     await _run(c);
     expect(seen.method, 'POST');
-    expect(seen.bodyFields['data'], contains('[timeout:10]'));
+    expect(seen.bodyFields['data'], contains('[timeout:15]'));
     expect(seen.bodyFields['data'], contains('around:4000'));
     expect(seen.bodyFields['data'], contains('out center 100'));
     expect(seen.headers.keys.map((String k) => k.toLowerCase()),
