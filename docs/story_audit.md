@@ -352,3 +352,4 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | seerah | seerah-27 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 602-605 (the sermon at Arafat), with Muslim 1218; Bukhari 67 is the separate sermon at Mina on the Day of Sacrifice. |
 | modernhadith | mh-jumuah-30 | 1 | M | Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) |
 | modernhadith | mh-gratitude-31 | 1 | M | Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) |
+| modernhadith | mh-patience-32 | 1 | M | Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) |
