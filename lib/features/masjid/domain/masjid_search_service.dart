@@ -355,7 +355,7 @@ Future<MapSearchOutcome> _nominatim(
       continue;
     }
     answered++;
-    for (final dynamic e in decoded as List<dynamic>) {
+    for (final dynamic e in decoded) {
       if (e is! Map<String, dynamic>) continue;
       final double? la = double.tryParse('${e['lat']}');
       final double? lo = double.tryParse('${e['lon']}');
