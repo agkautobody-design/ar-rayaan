@@ -63,6 +63,7 @@ const List<String> kOverpassServers = <String>[
   'https://overpass.private.coffee/api/interpreter',
   'https://overpass.kumi.systems/api/interpreter',
   'https://overpass.openstreetmap.fr/api/interpreter',
+  'https://overpass.nchc.org.tw/api/interpreter',
 ];
 
 /// Runs every task at once; the first to finish without throwing wins and the
@@ -118,22 +119,45 @@ class _BadAnswer implements Exception {
 double? _num(Object? v) => v is num ? v.toDouble() : null;
 
 /// The Overpass query: light on purpose, so busy public servers answer.
+///
+/// Mosques: every Muslim place of worship, whatever its denomination (the
+/// tag is never filtered on), plus anything mapped as a mosque building —
+/// some mappers tag only that. Halal food: a diet:halal tag with any value
+/// but "no" (yes, only, certified...), plus places whose cuisine says halal;
+/// community tagging is sparse, so the net is cast wide.
 String masjidOverpassQuery({
   required double lat,
   required double lon,
   required bool food,
   required int radius,
 }) {
-  final String tag = food
-      ? 'nwr["diet:halal"~"^(yes|only)\$"](around:$radius,$lat,$lon);'
+  final String body = food
+      ? 'nwr["diet:halal"]["diet:halal"!="no"](around:$radius,$lat,$lon);'
+          'nwr["cuisine"~"halal",i](around:$radius,$lat,$lon);'
       : 'nwr["amenity"="place_of_worship"]["religion"="muslim"]'
-          '(around:$radius,$lat,$lon);';
-  return '[out:json][timeout:10];($tag);out center 100;';
+          '(around:$radius,$lat,$lon);'
+          'nwr["building"="mosque"](around:$radius,$lat,$lon);';
+  return '[out:json][timeout:15];($body);out center 100;';
 }
 
+/// The words the Nominatim backup is asked, most specific first. One word
+/// alone misses much: "mosque" finds no "Masjid ..." and no "... Islamic
+/// Centre"; "halal restaurant" finds no "Halal Meat & Groceries".
+const List<String> kNominatimMosqueTerms = <String>[
+  'mosque',
+  'masjid',
+  'islamic center',
+  'islamic centre',
+];
+const List<String> kNominatimFoodTerms = <String>[
+  'halal restaurant',
+  'halal food',
+  'halal',
+];
+
 /// Searches open map data near a point. Overpass servers are asked in
-/// parallel; if all fail, Nominatim (a separate service) is tried.
-/// Throws [MapSearchFailure] only when everything failed.
+/// parallel; if all fail, Nominatim (a separate service) is tried, once per
+/// backup term. Throws [MapSearchFailure] only when everything failed.
 Future<MapSearchOutcome> searchNearby({
   required http.Client client,
   required double lat,
@@ -141,11 +165,17 @@ Future<MapSearchOutcome> searchNearby({
   required bool food,
   List<String> servers = kOverpassServers,
   String nominatimBase = 'https://nominatim.openstreetmap.org/search',
-  Duration timeout = const Duration(seconds: 12),
+  Duration timeout = const Duration(seconds: 20),
+
+  /// Pause between the backup's term lookups: Nominatim's usage policy is
+  /// one request a second. Zero in tests.
+  Duration nominatimGap = const Duration(milliseconds: 1100),
 }) async {
   String reason = '';
   try {
-    for (final int radius in <int>[4000, 12000]) {
+    // Widening rings: a dense city answers at 4 km; a spread-out town may
+    // need 25 km before a single masjid or halal shop is in reach.
+    for (final int radius in <int>[4000, 12000, 25000]) {
       final String query = masjidOverpassQuery(
         lat: lat,
         lon: lon,
@@ -162,14 +192,14 @@ Future<MapSearchOutcome> searchNearby({
       final MapSearchOutcome out = _fromOverpass(els, lat, lon, food);
       if (out.mosques.isNotEmpty || out.foods.isNotEmpty) return out;
     }
-    // Overpass answered, twice, with nothing: a real empty result.
+    // Overpass answered, three times, with nothing: a real empty result.
     return const MapSearchOutcome();
   } on MapSearchFailure catch (e) {
     reason = e.reason;
   }
   try {
     return await _nominatim(
-        client, nominatimBase, lat, lon, food, timeout);
+        client, nominatimBase, lat, lon, food, timeout, nominatimGap);
   } catch (e) {
     final String backup = e is MapSearchFailure ? e.reason : _describe(e);
     throw MapSearchFailure('Overpass: $reason; backup: $backup');
@@ -285,70 +315,97 @@ Future<MapSearchOutcome> _nominatim(
   double lon,
   bool food,
   Duration timeout,
+  Duration gap,
 ) async {
-  // About 8 km each way; longitude degrees shrink away from the equator.
-  const double dLat = 0.07;
+  // About 13 km each way; longitude degrees shrink away from the equator.
+  const double dLat = 0.12;
   final double dLon =
       dLat / math.max(0.2, math.cos(lat * math.pi / 180));
   final String viewbox = '${lon - dLon},${lat + dLat},'
       '${lon + dLon},${lat - dLat}';
-  final Uri uri = Uri.parse(base).replace(queryParameters: <String, String>{
-    'format': 'jsonv2',
-    'q': food ? 'halal restaurant' : 'mosque',
-    'viewbox': viewbox,
-    'bounded': '1',
-    'limit': '40',
-    'addressdetails': '1',
-    'extratags': '1',
-  });
-  final http.Response res = await client.get(uri).timeout(timeout);
-  if (res.statusCode != 200) throw _HttpStatus(res.statusCode);
-  final Object? decoded = json.decode(res.body);
-  if (decoded is! List<dynamic>) throw const _BadAnswer('unreadable answer');
+  final List<String> terms = food ? kNominatimFoodTerms : kNominatimMosqueTerms;
+
   final List<Mosque> mosques = <Mosque>[];
   final List<Map<String, dynamic>> foods = <Map<String, dynamic>>[];
-  for (final dynamic e in decoded) {
-    if (e is! Map<String, dynamic>) continue;
-    final double? la = double.tryParse('${e['lat']}');
-    final double? lo = double.tryParse('${e['lon']}');
-    if (la == null || lo == null) continue;
-    final Map<String, dynamic> extra =
-        (e['extratags'] as Map<dynamic, dynamic>?)?.cast<String, dynamic>() ??
-            <String, dynamic>{};
-    final Map<String, dynamic> a =
-        (e['address'] as Map<dynamic, dynamic>?)?.cast<String, dynamic>() ??
-            <String, dynamic>{};
-    final String? name = (e['name'] as String?)?.trim();
-    final String? road = a['road'] as String?;
-    final String? city = (a['city'] ?? a['town'] ?? a['village']) as String?;
-    final String? addr = road == null
-        ? null
-        : '${a['house_number'] ?? ''} $road${city == null ? '' : ', $city'}'
-            .trim();
-    if (food) {
-      foods.add(<String, dynamic>{
-        'name': (name == null || name.isEmpty) ? 'Restaurant' : name,
-        'lat': la,
-        'lon': lo,
-        'cuisine': extra['cuisine'],
-        'addr': road,
-        'phone': extra['phone'],
-        'website': extra['website'],
-        'only': extra['diet:halal'] == 'only',
-      });
-    } else {
-      mosques.add(Mosque(
-        name: (name == null || name.isEmpty) ? 'Masjid' : name,
-        lat: la,
-        lon: lo,
-        addr: addr,
-        website: (extra['website'] ?? extra['contact:website']) as String?,
-        phone: (extra['phone'] ?? extra['contact:phone']) as String?,
-        denomination: extra['denomination'] as String?,
-        hours: extra['opening_hours'] as String?,
-        wheelchair: extra['wheelchair'] == 'yes',
-      ));
+  // The same place often answers several terms; keep the first sighting.
+  final Set<String> seen = <String>{};
+  Object? lastError;
+  var answered = 0;
+
+  for (int i = 0; i < terms.length; i++) {
+    if (i > 0 && gap > Duration.zero) await Future<void>.delayed(gap);
+    final Uri uri = Uri.parse(base).replace(queryParameters: <String, String>{
+      'format': 'jsonv2',
+      'q': terms[i],
+      'viewbox': viewbox,
+      'bounded': '1',
+      'limit': '40',
+      'addressdetails': '1',
+      'extratags': '1',
+    });
+    Object? decoded;
+    try {
+      final http.Response res = await client.get(uri).timeout(timeout);
+      if (res.statusCode != 200) throw _HttpStatus(res.statusCode);
+      decoded = json.decode(res.body);
+      if (decoded is! List<dynamic>) throw const _BadAnswer('unreadable answer');
+    } catch (e) {
+      // One term failing (busy, blocked) must not sink the others.
+      lastError = e;
+      continue;
     }
+    answered++;
+    for (final dynamic e in decoded as List<dynamic>) {
+      if (e is! Map<String, dynamic>) continue;
+      final double? la = double.tryParse('${e['lat']}');
+      final double? lo = double.tryParse('${e['lon']}');
+      if (la == null || lo == null) continue;
+      if (!seen.add('${la.toStringAsFixed(3)},${lo.toStringAsFixed(3)}')) {
+        continue;
+      }
+      final Map<String, dynamic> extra =
+          (e['extratags'] as Map<dynamic, dynamic>?)?.cast<String, dynamic>() ??
+              <String, dynamic>{};
+      final Map<String, dynamic> a =
+          (e['address'] as Map<dynamic, dynamic>?)?.cast<String, dynamic>() ??
+              <String, dynamic>{};
+      final String? name = (e['name'] as String?)?.trim();
+      final String? road = a['road'] as String?;
+      final String? city = (a['city'] ?? a['town'] ?? a['village']) as String?;
+      final String? addr = road == null
+          ? null
+          : '${a['house_number'] ?? ''} $road${city == null ? '' : ', $city'}'
+              .trim();
+      if (food) {
+        foods.add(<String, dynamic>{
+          'name': (name == null || name.isEmpty) ? 'Restaurant' : name,
+          'lat': la,
+          'lon': lo,
+          'cuisine': extra['cuisine'],
+          'addr': road,
+          'phone': extra['phone'],
+          'website': extra['website'],
+          'only': extra['diet:halal'] == 'only',
+        });
+      } else {
+        mosques.add(Mosque(
+          name: (name == null || name.isEmpty) ? 'Masjid' : name,
+          lat: la,
+          lon: lo,
+          addr: addr,
+          website: (extra['website'] ?? extra['contact:website']) as String?,
+          phone: (extra['phone'] ?? extra['contact:phone']) as String?,
+          denomination: extra['denomination'] as String?,
+          hours: extra['opening_hours'] as String?,
+          wheelchair: extra['wheelchair'] == 'yes',
+        ));
+      }
+    }
+  }
+  if (answered == 0) {
+    // Every term failed: report why (the last error speaks for all of them).
+    if (lastError is Exception) throw lastError;
+    throw const _BadAnswer('unreadable answer');
   }
   return MapSearchOutcome(
     mosques: _nearestMosques(mosques, lat, lon),
