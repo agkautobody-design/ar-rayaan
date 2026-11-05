@@ -8,6 +8,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../feedback/application/feedback_providers.dart';
 import '../application/places_providers.dart';
 import '../data/community_places_service.dart';
 import '../domain/community_place.dart';
@@ -357,7 +358,72 @@ class _ModerationBody extends ConsumerWidget {
             ]);
           },
         ),
+        const SizedBox(height: 14),
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 8),
+          child: Text('FEEDBACK', style: AppText.eyebrow),
+        ),
+        const _FeedbackList(),
       ],
+    );
+  }
+}
+
+/// Newest beta feedback, founders only.
+class _FeedbackList extends ConsumerWidget {
+  const _FeedbackList();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final svc = ref.watch(feedbackServiceProvider);
+    if (svc == null) return const SizedBox.shrink();
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream: svc.feedback(),
+      builder: (context, snap) {
+        final docs = snap.data?.docs ?? const [];
+        if (docs.isEmpty) {
+          return GlassCard(
+            child: Text('No feedback yet.',
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
+          );
+        }
+        return Column(children: [
+          for (final d in docs)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: GlassCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(d.data()['body'] as String? ?? '',
+                        style: AppText.body.copyWith(fontSize: 13)),
+                    const SizedBox(height: 4),
+                    Text(
+                      [
+                        if ((d.data()['email'] as String?) != null)
+                          d.data()['email'] as String,
+                        '${d.data()['platform'] ?? '?'} · '
+                            'v${d.data()['appVersion'] ?? '?'}',
+                        _fmtTime(d.data()['createdAt']),
+                        if ((d.data()['errors'] as List?)?.isNotEmpty == true)
+                          '${(d.data()['errors'] as List).length} error notes',
+                      ].join(' · '),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
+                    ),
+                    if ((d.data()['errors'] as List?)?.isNotEmpty == true)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          (d.data()['errors'] as List).last.toString(),
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+        ]);
+      },
     );
   }
 }

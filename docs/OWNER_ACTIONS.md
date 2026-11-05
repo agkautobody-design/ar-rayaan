@@ -158,5 +158,6 @@ What you get from then on:
 - People confirm a place ("Still correct") or flag it ("Problem"). A place with 3+ flags and more flags than confirms disappears from the public list on its own.
 - "Report or correct" on any card (including the OpenStreetMap results) lands in your REPORTS list at `/places-admin`, where you can also hide or remove any place or event, and block an abusive account (blocked accounts can no longer add or vote; hide their existing entries separately).
 - Nobody can add anything without a real account (the anonymous sign-in the games use does not count), and one person can submit at most once a minute — the rules enforce both, not just the app.
+- The same rules publish also turns on **beta feedback**: Settings → "Send feedback" lets any tester send a problem report straight to your FEEDBACK list at `/places-admin`, with the app's recent error notes attached when they allow it.
 
 If you ever need to undo a block: the BLOCKED ACCOUNTS list at the bottom of `/places-admin` has an Unblock button.

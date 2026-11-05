@@ -86,6 +86,7 @@ import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_app_screen.dart';
 import '../features/places/presentation/add_place_screen.dart';
 import '../features/places/presentation/places_moderation_screen.dart';
+import '../features/feedback/presentation/feedback_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/tracking/presentation/tracking_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
@@ -240,6 +241,8 @@ abstract final class AppRoutes {
   static const String placesAdd = '/places/add';
   /// Founder-only moderation for community submissions (sign-in gated).
   static const String placesAdmin = '/places-admin';
+  /// Beta feedback to the founders.
+  static const String feedback = '/feedback';
   /// My log: private totals and a calendar of what the person logged.
   static const String tracking = '/my-log';
   static const String settings = '/settings';
@@ -926,6 +929,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.placesAdmin,
         pageBuilder: (c, s) => _fade(const PlacesModerationScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.feedback,
+        pageBuilder: (c, s) => _fade(const FeedbackScreen()),
       ),
       GoRoute(
         path: AppRoutes.tracking,

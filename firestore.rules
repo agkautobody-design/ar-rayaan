@@ -518,6 +518,35 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // ── Beta feedback ────────────────────────────────────────────────────
+    // "Send feedback" writes here. Create-only; only founders read. The
+    // anonymous sign-in is enough (a message is never shown anywhere
+    // public), but every field is bounded and the time is the server's.
+    match /app_feedback/{id} {
+      allow read: if isFounder();
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(
+             ['body', 'email', 'errors', 'platform', 'appVersion',
+              'uid', 'createdAt'])
+        && request.resource.data.keys().hasAll(
+             ['body', 'errors', 'platform', 'appVersion', 'uid', 'createdAt'])
+        && request.resource.data.body is string
+        && request.resource.data.body.size() >= 1
+        && request.resource.data.body.size() <= 2000
+        && (!('email' in request.resource.data)
+            || (request.resource.data.email is string
+                && request.resource.data.email.size() <= 120))
+        && request.resource.data.errors is list
+        && request.resource.data.errors.size() <= 20
+        && request.resource.data.platform is string
+        && request.resource.data.platform.size() <= 20
+        && request.resource.data.appVersion is string
+        && request.resource.data.appVersion.size() <= 20
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
     // Founder documents are created by hand in the Firebase console (see
     // docs/OWNER_ACTIONS.md) — never from the app — and only readable by
     // their owner, which is how the moderation screen knows to open.

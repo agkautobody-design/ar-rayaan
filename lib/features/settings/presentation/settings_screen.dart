@@ -276,6 +276,37 @@ class SettingsScreen extends ConsumerWidget {
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('BETA', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        key: const Key('settings-feedback'),
+                        onTap: () => context.open(AppRoutes.feedback),
+                        semanticsLabel: 'Send feedback. Report a problem or '
+                            'suggest something to the founders.',
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.chat_bubble_outline, size: 18, color: AppColors.gold),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Send feedback', style: AppText.body.copyWith(fontSize: 14)),
+                                  Text(
+                                    'Broken, missing or confusing? A sentence is enough.',
+                                    style: AppText.bodyMuted.copyWith(fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(Icons.chevron_right, size: 16, color: AppColors.gold.withValues(alpha: 0.5)),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text('SHARE AR-RAYAAN', style: AppText.eyebrow),
                       ),
                       GlassCard(
