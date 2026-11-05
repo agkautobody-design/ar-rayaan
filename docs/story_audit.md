@@ -353,3 +353,4 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | modernhadith | mh-jumuah-30 | 1 | M | Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) |
 | modernhadith | mh-gratitude-31 | 1 | M | Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) |
 | modernhadith | mh-patience-32 | 1 | M | Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) |
+| modernhadith | mh-work-33 | 1 | M | Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) |
