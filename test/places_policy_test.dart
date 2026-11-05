@@ -154,7 +154,8 @@ void main() {
     test('three more flags than confirms drops a place on its own', () {
       expect(PlacesPolicy.visible(place(flags: 3)), isFalse);
       expect(PlacesPolicy.visible(place(flags: 2)), isTrue);
-      expect(PlacesPolicy.visible(place(flags: 5, confirms: 3)), isTrue);
+      expect(PlacesPolicy.visible(place(flags: 5, confirms: 3)), isFalse);
+      expect(PlacesPolicy.visible(place(flags: 5, confirms: 5)), isTrue);
       expect(PlacesPolicy.visible(place(flags: 6, confirms: 3)), isFalse);
     });
 
@@ -253,7 +254,7 @@ void main() {
       ];
       expect(
         PlacesPolicy.upcoming(events, now: now).map((e) => e.id),
-        <String>['sooner', 'later', 'far'],
+        <String>['sooner', 'far', 'later'],
       );
       expect(
         PlacesPolicy.upcoming(events, lat: 52.4, lon: -1.8, now: now)

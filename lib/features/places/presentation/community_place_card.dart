@@ -2,8 +2,8 @@ import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/open_link.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -190,7 +190,7 @@ class CommunityEventCard extends ConsumerWidget {
           ]),
           Row(children: [
             TextButton(
-              onPressed: () => _directions(event),
+              onPressed: () => _directions(context, event),
               child: const Text('Directions',
                   style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
             ),
@@ -212,13 +212,12 @@ class CommunityEventCard extends ConsumerWidget {
   }
 }
 
-/// Same pattern as the masjid cards: straight to the person's map app.
-Future<void> _directions(CommunityEvent e) async {
-  try {
-    await launchUrl(
-      Uri.parse(
-          'https://www.google.com/maps/dir/?api=1&destination=${e.lat},${e.lon}'),
-      webOnlyWindowName: '_blank',
-    );
-  } catch (_) {}
+/// Same pattern as the masjid cards: straight to the person's map app,
+/// and a word for them when nothing opens.
+Future<bool> _directions(BuildContext context, CommunityEvent e) {
+  return openLinkWithFeedback(
+    context,
+    Uri.parse(
+        'https://www.google.com/maps/dir/?api=1&destination=${e.lat},${e.lon}'),
+  );
 }
