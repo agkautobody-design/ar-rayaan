@@ -32,7 +32,8 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
   final double? lon;
 
   @override
-  ConsumerState<AddPlaceScreen> createState() => _AddPlaceState();
+  ConsumerState<AddPlaceScreen> createState() =>
+      _AddPlaceScreenState();
 }
 
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
