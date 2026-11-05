@@ -71,6 +71,8 @@ abstract final class RouteTitles {
     '/zakat': 'Zakat',
     '/share': 'Share',
     '/share-app': 'Share Ar-Rayaan',
+    '/places/add': 'Add to the map',
+    '/places-admin': 'Community map moderation',
     '/my-log': 'My log',
     '/sources': 'Sources',
     '/sources/policy': 'Content Policy',

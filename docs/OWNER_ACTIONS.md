@@ -142,3 +142,21 @@ Please do:
 4. CC BY-SA is share-alike. The transliteration file is kept separate and credited. A lawyer can confirm that quoting lines of it in a share next to other text is fine. Until you say so, Qur'an shares carry no transliteration (Arabic and reference only); dua and adhkar shares do.
 5. tanzil.net could not be opened from the build environment, so Tanzil's own transliteration and translation terms were not re-read. The Tanzil Uthmani text terms (CC BY 3.0, verbatim only) come from quran-json's record of them.
 
+## 24. Community map: publish the new rules and make yourself founder (10 minutes, one time)
+
+Why: the app now lets signed-in people add masajid, halal-food places and community events to the Masajid/Tayyib screen. The new collections in `firestore.rules` (`community_places`, `community_events`, `place_reports`, `places_rate`, `founders`, `places_blocked`) refuse every write until you publish the rules, and the moderation screen only opens for accounts that have a founder document.
+
+Order matters, as with the Majlis rules: let the app update deploy to the live site FIRST, then publish the rules. (The old app never writes these collections, so nothing breaks if you are late; new submissions simply fail with a polite error until the rules are published.)
+
+1. Publish the rules: Firebase console → project `ar-rayaan` → Firestore Database → Rules → replace everything with the `firestore.rules` from the repo (main) → Publish.
+2. Find your account's user id: still in the Firebase console → Authentication → Users → find your sign-in (the account you use in the app) → copy its "User UID".
+3. Create your founder document: Firestore Database → Data tab → Start collection → collection id `founders` → Document ID: paste your UID exactly → add one field: name `note`, type string, value `owner` → Save. (The rules only check that the document exists; the field is just a reminder.)
+4. Confirm it worked: sign in to the live app with that account, then open `https://ar-rayaan.onrender.com/places-admin` — you should see the moderation lists (empty at first), not the "for the founder" card. On any other account you see the card.
+
+What you get from then on:
+- The Masajid / Tayyib Food screen has a third tab, Events, and an "add" card on every tab. Signed-in users add places and events; each shows immediately with an "unverified" label.
+- People confirm a place ("Still correct") or flag it ("Problem"). A place with 3+ flags and more flags than confirms disappears from the public list on its own.
+- "Report or correct" on any card (including the OpenStreetMap results) lands in your REPORTS list at `/places-admin`, where you can also hide or remove any place or event, and block an abusive account (blocked accounts can no longer add or vote; hide their existing entries separately).
+- Nobody can add anything without a real account (the anonymous sign-in the games use does not count), and one person can submit at most once a minute — the rules enforce both, not just the app.
+
+If you ever need to undo a block: the BLOCKED ACCOUNTS list at the bottom of `/places-admin` has an Unblock button.

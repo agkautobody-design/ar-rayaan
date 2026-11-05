@@ -84,6 +84,8 @@ import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/domain/handout.dart';
 import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_app_screen.dart';
+import '../features/places/presentation/add_place_screen.dart';
+import '../features/places/presentation/places_moderation_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/tracking/presentation/tracking_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
@@ -234,6 +236,10 @@ abstract final class AppRoutes {
   static const String share = '/share';
   /// Send the app link by message or email, or show its QR code.
   static const String shareApp = '/share-app';
+  /// Add a mosque, halal-food place or community event to the map.
+  static const String placesAdd = '/places/add';
+  /// Founder-only moderation for community submissions (sign-in gated).
+  static const String placesAdmin = '/places-admin';
   /// My log: private totals and a calendar of what the person logged.
   static const String tracking = '/my-log';
   static const String settings = '/settings';
@@ -903,6 +909,23 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.shareApp,
         pageBuilder: (c, s) => _fade(const ShareAppScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.placesAdd,
+        pageBuilder: (c, s) {
+          final Object? extra = s.extra;
+          final Map<String, Object?> m =
+              extra is Map<String, Object?> ? extra : const {};
+          return _fade(AddPlaceScreen(
+            initialType: (m['type'] as String?) ?? 'mosque',
+            lat: (m['lat'] as num?)?.toDouble(),
+            lon: (m['lon'] as num?)?.toDouble(),
+          ));
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.placesAdmin,
+        pageBuilder: (c, s) => _fade(const PlacesModerationScreen()),
       ),
       GoRoute(
         path: AppRoutes.tracking,

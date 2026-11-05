@@ -21,6 +21,11 @@ import '../../prayer/application/prayer_providers.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../../prayer/application/prayer_repository.dart';
+import '../../places/application/places_providers.dart';
+import '../../places/domain/community_place.dart';
+import '../../places/presentation/community_place_card.dart';
+import '../../places/presentation/report_place_sheet.dart';
+import '../../../app/router.dart';
 import '../domain/masjid_search_service.dart';
 import '../domain/masjid_search_state.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -146,6 +151,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   }
 
   Future<void> _fetch() async {
+    if (_tab == 2) return; // events come from the community cloud
     if (!_hasPlace) return; // no place yet: nothing to search
     final int id = ++_requestId;
     setState(() {
@@ -231,11 +237,33 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   @override
   Widget build(BuildContext context) {
     final bool food = _tab == 1;
+    final bool eventsTab = _tab == 2;
+    // Community-submitted places and events (empty when the build has no
+    // Firebase project).
+    final List<CommunityPlace> community =
+        ref.watch(communityPlacesProvider).value ?? const <CommunityPlace>[];
+    final List<CommunityPlace> nearbyCommunity = _hasPlace
+        ? PlacesPolicy.nearby(
+            community,
+            type: food
+                ? CommunityPlaceType.halalFood
+                : CommunityPlaceType.mosque,
+            lat: _lat,
+            lon: _lon,
+          )
+        : const <CommunityPlace>[];
+    final List<CommunityEvent> upcomingEvents = PlacesPolicy.upcoming(
+      ref.watch(communityEventsProvider).value ?? const <CommunityEvent>[],
+      lat: _hasPlace ? _lat : null,
+      lon: _hasPlace ? _lon : null,
+    );
+    final bool communityEnabled = ref.watch(communityPlacesEnabledProvider);
     final MasjidPhase phase = masjidPhaseFor(
       hasPlace: _hasPlace,
       loading: _loading,
       failed: _failed,
-      resultCount: food ? _foods.length : _mosques.length,
+      resultCount:
+          (food ? _foods.length : _mosques.length) + nearbyCommunity.length,
     );
     final String? status = masjidStatusText(phase, food: food);
     return Scaffold(
@@ -244,11 +272,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 900),
           child: Column(children: [
-            ScreenHeader(title: _tab == 0 ? 'Masajid' : 'Tayyib Food', close: true),
+            ScreenHeader(title: _tab == 0 ? 'Masajid' : _tab == 1 ? 'Tayyib Food' : 'Community Events', close: true),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
-                for (var i = 0; i < 2; i++)
+                for (var i = 0; i < 3; i++)
                   Expanded(child: FocusableTap(
                     onTap: () { setState(() => _tab = i); _fetch(); },
                     child: Container(
@@ -261,7 +289,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                         border: Border.all(color: _tab == i
                             ? AppColors.gold : AppColors.sand.withValues(alpha: 0.2)),
                       ),
-                      child: Text(i == 0 ? 'Masajid' : 'Halal Food',
+                      child: Text(const ['Masajid', 'Halal Food', 'Events'][i],
                           textAlign: TextAlign.center,
                           style: AppText.body.copyWith(
                               fontSize: 12.5,
@@ -335,18 +363,38 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                             child: const Icon(Icons.person_pin_circle,
                                 color: Color(0xFFE8C96A), size: 30),
                           ),
-                        for (final m in _tab == 0
-                            ? _mosques
-                                .map((m) => <String, dynamic>{
-                                    'name': m.name, 'lat': m.lat, 'lon': m.lon})
-                                .toList()
-                            : _foods)
-                          if (m['lat'] != null && m['lon'] != null)
+                        if (_tab != 2)
+                          for (final m in _tab == 0
+                              ? _mosques
+                                  .map((m) => <String, dynamic>{
+                                      'name': m.name, 'lat': m.lat, 'lon': m.lon})
+                                  .toList()
+                              : _foods)
+                            if (m['lat'] != null && m['lon'] != null)
+                              Marker(
+                                point: LatLng(m['lat'] as double, m['lon'] as double),
+                                child: Icon(
+                                    _tab == 0 ? Icons.mosque : Icons.restaurant,
+                                    color: AppColors.goldLight, size: 22),
+                              ),
+                        // Community submissions: solid gold, so they stand
+                        // apart from the pale open-map pins.
+                        if (_tab != 2)
+                          for (final p in nearbyCommunity)
                             Marker(
-                              point: LatLng(m['lat'] as double, m['lon'] as double),
+                              point: LatLng(p.lat, p.lon),
                               child: Icon(
-                                  _tab == 0 ? Icons.mosque : Icons.restaurant,
-                                  color: AppColors.goldLight, size: 22),
+                                  p.type == CommunityPlaceType.mosque
+                                      ? Icons.mosque
+                                      : Icons.restaurant,
+                                  color: AppColors.gold, size: 26),
+                            ),
+                        if (_tab == 2)
+                          for (final e in upcomingEvents)
+                            Marker(
+                              point: LatLng(e.lat, e.lon),
+                              child: const Icon(Icons.event,
+                                  color: AppColors.gold, size: 26),
                             ),
                       ]),
                     ],
@@ -362,7 +410,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 children: [
-                  if (phase == MasjidPhase.loading)
+                  if (!eventsTab && phase == MasjidPhase.loading)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Row(children: [
@@ -378,7 +426,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                         ),
                       ]),
                     ),
-                  if (_failed && !_loading)
+                  if (!eventsTab && _failed && !_loading)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: GlassCard(
@@ -424,7 +472,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                         ),
                       ),
                     ),
-                  if (_usedBackup && !_loading &&
+                  if (!eventsTab && _usedBackup && !_loading &&
                       (_tab == 0 ? _mosques : _foods).isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
@@ -434,10 +482,102 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                         style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
                     ),
-                  if (_tab == 0)
+                  if (eventsTab) ...[
+                    if (communityEnabled)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: GlassCard(
+                          key: const Key('events-add'),
+                          onTap: () => context.open(AppRoutes.placesAdd,
+                              extra: <String, Object?>{
+                                'type': 'event',
+                                if (_hasPlace) 'lat': _lat,
+                                if (_hasPlace) 'lon': _lon,
+                              }),
+                          semanticsLabel: 'Add a community event',
+                          child: Row(children: [
+                            const Icon(Icons.event,
+                                color: AppColors.gold, size: 18),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Know an iftar, class or open day? '
+                                'Add it here for everyone.',
+                                style:
+                                    AppText.bodyMuted.copyWith(fontSize: 12),
+                              ),
+                            ),
+                            const Icon(Icons.add,
+                                color: AppColors.gold, size: 18),
+                          ]),
+                        ),
+                      ),
+                    if (upcomingEvents.isEmpty)
+                      GlassCard(
+                        child: Text(
+                          'No community events nearby yet. When someone adds '
+                          'an iftar, a class or an open day, it shows here.',
+                          style: AppText.bodyMuted.copyWith(height: 1.45),
+                        ),
+                      )
+                    else
+                      for (final e in upcomingEvents)
+                        CommunityEventCard(
+                          event: e,
+                          fromLat: _hasPlace ? _lat : null,
+                          fromLon: _hasPlace ? _lon : null,
+                        ),
+                  ] else ...[
+                    if (communityEnabled)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: GlassCard(
+                          key: const Key('masjid-add-place'),
+                          onTap: () => context.open(AppRoutes.placesAdd,
+                              extra: <String, Object?>{
+                                'type': food ? 'halal' : 'mosque',
+                                if (_hasPlace) 'lat': _lat,
+                                if (_hasPlace) 'lon': _lon,
+                              }),
+                          semanticsLabel: food
+                              ? 'Add a halal food place'
+                              : 'Add a masjid',
+                          child: Row(children: [
+                            const Icon(Icons.add_location_alt,
+                                color: AppColors.gold, size: 18),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                food
+                                    ? 'Know a halal place that is missing? '
+                                        'Add it for everyone.'
+                                    : 'Is a masjid missing? Add it for '
+                                        'everyone.',
+                                style:
+                                    AppText.bodyMuted.copyWith(fontSize: 12),
+                              ),
+                            ),
+                            const Icon(Icons.add,
+                                color: AppColors.gold, size: 18),
+                          ]),
+                        ),
+                      ),
+                    for (final p in nearbyCommunity)
+                      CommunityPlaceCard(place: p, fromLat: _lat, fromLon: _lon),
+                    if (nearbyCommunity.isNotEmpty &&
+                        (_tab == 0 ? _mosques : _foods).isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10, top: 2),
+                        child: Text(
+                          'From open map data:',
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        ),
+                      ),
+                  ],
+                  if (!eventsTab && _tab == 0)
                     for (final m in _mosques)
                       _MosqueCard(m: m, fromLat: _lat, fromLon: _lon)
-                  else
+                  else if (!eventsTab)
                     for (final f in _foods)
                       GlassCard(
                         child: Column(
@@ -456,12 +596,28 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                                 ' in community map data \u2014 confirm before eating, in shaa Allah',
                                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             if (f['lat'] is double && f['lon'] is double)
-                              Align(
-                                alignment: AlignmentDirectional.centerEnd,
+                              Row(children: [
+                                TextButton(
+                                  onPressed: () => showReportPlaceSheet(
+                                    context,
+                                    targetType: 'osm',
+                                    targetId: PlacesPolicy.osmTargetId(
+                                      f['name'] as String,
+                                      f['lat'] as double,
+                                      f['lon'] as double,
+                                    ),
+                                    name: f['name'] as String,
+                                  ),
+                                  child: const Text('Report or correct',
+                                      style: TextStyle(
+                                          color: AppColors.goldLight,
+                                          fontSize: 12)),
+                                ),
+                                const Spacer(),
                                 // Name, cuisine, street, the "tagged halal,
                                 // confirm before eating" line, an OSM link
                                 // and the map credit. No distance or phone.
-                                child: ShareButton(
+                                ShareButton(
                                   doc: ShareDoc.halalPlace(
                                     name: f['name'] as String,
                                     cuisine: f['cuisine']?.toString(),
@@ -472,11 +628,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                                   ),
                                   subject: 'this restaurant',
                                 ),
-                              ),
+                              ]),
                           ],
                         ),
                       ),
-                  if (!_hasPlace)
+                  if (!eventsTab && !_hasPlace)
                     GlassCard(
                         padding: const EdgeInsets.all(16),
                         child: Text(
@@ -573,6 +729,19 @@ class _MosqueCard extends StatelessWidget {
               subject: 'this masjid',
             ),
           ]),
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: TextButton(
+              onPressed: () => showReportPlaceSheet(
+                context,
+                targetType: 'osm',
+                targetId: PlacesPolicy.osmTargetId(m.name, m.lat, m.lon),
+                name: m.name,
+              ),
+              child: const Text('Report or correct',
+                  style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+            ),
+          ),
         ]),
       ),
     );

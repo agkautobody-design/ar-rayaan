@@ -320,6 +320,220 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // ── Community map (masajid, halal food, events) ────────────────────
+    // Anyone can read. Only people signed in with a REAL account can add —
+    // the anonymous sign-in the games fall back to does not count, so abuse
+    // can be tied to an account and blocked. Submissions appear at once and
+    // the app labels them "unverified"; the community keeps them honest
+    // with confirms and flags, and a place with at least 3 flags and more
+    // flags than confirms stops showing without any moderator having to
+    // act. The founders (a document in /founders, made by hand in the
+    // Firebase console — never from the app) can hide, remove and block.
+
+    function realAccount() {
+      return signedIn()
+        && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+
+    function isFounder() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/founders/$(request.auth.uid));
+    }
+
+    function notBlockedFromPlaces() {
+      return !exists(
+        /databases/$(database)/documents/places_blocked/$(request.auth.uid));
+    }
+
+    function latOk(v) { return v is number && v >= -90 && v <= 90; }
+    function lonOk(v) { return v is number && v >= -180 && v <= 180; }
+
+    // The per-person write clock for places and events: one submission a
+    // minute. Every submission batch must also move it.
+    match /places_rate/{uid} {
+      allow read: if false;
+      allow create: if realAccount() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['lastWriteAt'])
+        && request.resource.data.lastWriteAt == request.time;
+      allow update: if realAccount() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['lastWriteAt'])
+        && request.resource.data.lastWriteAt == request.time
+        && request.time > resource.data.lastWriteAt + duration.value(60, 's');
+      allow delete: if false;
+    }
+
+    function placesRateMoved() {
+      return getAfter(/databases/$(database)/documents/places_rate/$(request.auth.uid))
+        .data.lastWriteAt == request.time;
+    }
+
+    // A vote is only valid together with the counter move it causes (same
+    // batch), and the counters may only move the way the vote says. Called
+    // from both the place and the vote side, so neither can move alone.
+    function voteMoveOk(placeId) {
+      let v = /databases/$(database)/documents/community_places/$(placeId)/votes/$(request.auth.uid);
+      let p = /databases/$(database)/documents/community_places/$(placeId);
+      let hadConfirm = exists(v) && get(v).data.kind == 'confirm';
+      let hadFlag = exists(v) && get(v).data.kind == 'flag';
+      let newConfirm = existsAfter(v) && getAfter(v).data.kind == 'confirm';
+      let newFlag = existsAfter(v) && getAfter(v).data.kind == 'flag';
+      return exists(p)
+        && getAfter(p).data.diff(get(p).data).affectedKeys()
+             .hasOnly(['confirms', 'flags'])
+        && getAfter(p).data.confirms
+             == get(p).data.confirms + (newConfirm ? 1 : 0) - (hadConfirm ? 1 : 0)
+        && getAfter(p).data.flags
+             == get(p).data.flags + (newFlag ? 1 : 0) - (hadFlag ? 1 : 0);
+    }
+
+    match /community_places/{placeId} {
+      allow read: if true;
+
+      allow create: if realAccount() && notBlockedFromPlaces()
+        && request.resource.data.keys().hasOnly(
+             ['type', 'name', 'lat', 'lon', 'address', 'phone', 'website',
+              'note', 'uid', 'createdAt', 'confirms', 'flags', 'hidden'])
+        && request.resource.data.keys().hasAll(
+             ['type', 'name', 'lat', 'lon', 'uid', 'createdAt',
+              'confirms', 'flags', 'hidden'])
+        && request.resource.data.type in ['mosque', 'halal_food']
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 80
+        && latOk(request.resource.data.lat)
+        && lonOk(request.resource.data.lon)
+        && (!('address' in request.resource.data)
+            || (request.resource.data.address is string
+                && request.resource.data.address.size() <= 140))
+        && (!('phone' in request.resource.data)
+            || (request.resource.data.phone is string
+                && request.resource.data.phone.size() <= 30
+                && request.resource.data.phone.matches('[0-9+() -]*')))
+        && (!('website' in request.resource.data)
+            || (request.resource.data.website is string
+                && request.resource.data.website.size() <= 140
+                && request.resource.data.website.lower().matches('^https?://.*')))
+        && (!('note' in request.resource.data)
+            || (request.resource.data.note is string
+                && request.resource.data.note.size() <= 200))
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.confirms == 0
+        && request.resource.data.flags == 0
+        && request.resource.data.hidden == false
+        && placesRateMoved();
+
+      // Two kinds of update: the founder flips `hidden`, or a voter moves
+      // the counters exactly as their vote document says.
+      allow update: if (isFounder()
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['hidden'])
+          && request.resource.data.hidden is bool)
+        || (realAccount() && notBlockedFromPlaces() && voteMoveOk(placeId));
+
+      allow delete: if isFounder();
+
+      // One vote per person per place (the document id is the voter's uid);
+      // voting again switches it.
+      match /votes/{voter} {
+        allow read: if true;
+        allow write: if realAccount() && notBlockedFromPlaces()
+          && voter == request.auth.uid
+          && (request.resource == null
+              || (request.resource.data.keys().hasOnly(['kind', 'createdAt'])
+                  && request.resource.data.kind in ['confirm', 'flag']
+                  && request.resource.data.createdAt == request.time))
+          && voteMoveOk(placeId);
+      }
+    }
+
+    match /community_events/{eventId} {
+      allow read: if true;
+
+      allow create: if realAccount() && notBlockedFromPlaces()
+        && request.resource.data.keys().hasOnly(
+             ['title', 'where', 'lat', 'lon', 'startsAt', 'details',
+              'uid', 'createdAt', 'hidden'])
+        && request.resource.data.keys().hasAll(
+             ['title', 'where', 'lat', 'lon', 'startsAt',
+              'uid', 'createdAt', 'hidden'])
+        && request.resource.data.title is string
+        && request.resource.data.title.size() >= 4
+        && request.resource.data.title.size() <= 100
+        && request.resource.data.where is string
+        && request.resource.data.where.size() >= 2
+        && request.resource.data.where.size() <= 100
+        && latOk(request.resource.data.lat)
+        && lonOk(request.resource.data.lon)
+        && request.resource.data.startsAt is timestamp
+        && request.resource.data.startsAt
+             > request.time - duration.value(1, 'd')
+        && request.resource.data.startsAt
+             <= request.time + duration.value(366, 'd')
+        && (!('details' in request.resource.data)
+            || (request.resource.data.details is string
+                && request.resource.data.details.size() <= 300))
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.hidden == false
+        && placesRateMoved();
+
+      allow update: if isFounder()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['hidden'])
+        && request.resource.data.hidden is bool;
+
+      // The founder, or the person who added the event, can remove it.
+      allow delete: if isFounder()
+        || (realAccount() && resource.data.uid == request.auth.uid);
+    }
+
+    // Corrections and reports about a place or event. One per person per
+    // target (the document id enforces it); only founders can read them,
+    // from the moderation screen.
+    match /place_reports/{id} {
+      allow read: if isFounder();
+      allow create: if realAccount()
+        && request.resource.data.keys().hasOnly(
+             ['targetType', 'targetId', 'name', 'reason', 'note',
+              'uid', 'createdAt'])
+        && request.resource.data.keys().hasAll(
+             ['targetType', 'targetId', 'name', 'reason', 'uid', 'createdAt'])
+        && request.resource.data.targetType in ['place', 'event', 'osm']
+        && request.resource.data.targetId is string
+        && request.resource.data.targetId.size() >= 1
+        && request.resource.data.targetId.size() <= 120
+        && id == request.auth.uid + '_' + request.resource.data.targetId
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.reason in
+             ['closed', 'wrong_location', 'not_halal', 'correction',
+              'spam', 'inappropriate', 'other']
+        && (!('note' in request.resource.data)
+            || (request.resource.data.note is string
+                && request.resource.data.note.size() <= 300))
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
+    // Founder documents are created by hand in the Firebase console (see
+    // docs/OWNER_ACTIONS.md) — never from the app — and only readable by
+    // their owner, which is how the moderation screen knows to open.
+    match /founders/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+      allow list: if false;
+      allow write: if false;
+    }
+
+    // Accounts blocked from submitting or voting. Only founders manage and
+    // read the list (from the moderation screen).
+    match /places_blocked/{uid} {
+      allow read: if isFounder();
+      allow write: if isFounder();
+    }
+
     // Everything else is closed.
     match /{document=**} {
       allow read, write: if false;
