@@ -42,7 +42,7 @@ void main() {
     ctrl.debugBeforeTail = (String answer) => throw StateError('boom');
 
     final String reply = await ctrl.ask(
-      'I feel anxious and worried',
+      'Tell me about patience',
       provider: _Stub('Peace be with you.'),
     );
 
@@ -54,7 +54,7 @@ void main() {
     // The question the person asked is on screen above the reply.
     expect(
       s.messages.any((HadiMessage m) =>
-          !m.fromHadi && m.text == 'I feel anxious and worried'),
+          !m.fromHadi && m.text == 'Tell me about patience'),
       isTrue,
     );
     // The failure notice is never written to the saved thread.
@@ -65,11 +65,11 @@ void main() {
     final ProviderContainer c = await container();
     final HadiController ctrl = c.read(hadiControllerProvider.notifier);
     ctrl.debugBeforeTail = (String answer) => throw StateError('boom');
-    await ctrl.ask('I feel anxious and worried', provider: _Stub('x'));
+    await ctrl.ask('Tell me about patience', provider: _Stub('x'));
 
     ctrl.debugBeforeTail = null;
     final String again = await ctrl.ask(
-      'I feel anxious and worried',
+      'Tell me about patience',
       provider: _Stub('Peace be with you.'),
     );
 

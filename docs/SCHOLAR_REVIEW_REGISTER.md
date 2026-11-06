@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5524 items.** High priority: 1297. Normal: 3525. Low: 702.
+**5578 items.** High priority: 1299. Normal: 3555. Low: 724.
 
 ### By area
 
@@ -25,12 +25,12 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 108 | 94 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 498 | 20 |
+| Hadi built-in answers | 497 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 | 116 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 182 | 61 |
-| Stories: modern hadith | 61 | 11 |
+| Stories: modern hadith | 69 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
 | New Muslim 30-day path | 30 | 13 |
 | Sakina rooms, feelings, safety copy, health | 68 | 40 |
@@ -42,22 +42,22 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1644 | 111 |
-| **Total** | **5524** | **1297** |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1691 | 113 |
+| **Total** | **5578** | **1299** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2451 | 1044 |
-| Fiqh scholar (per madhab) | 631 | 236 |
+| Hadith / aqidah scholar | 2467 | 1043 |
+| Fiqh scholar (per madhab) | 630 | 244 |
 | Women's scholar | 151 | 96 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
-| Clinician (Sakina and health content) | 1015 | 252 |
+| Clinician (Sakina and health content) | 1031 | 252 |
 | Native speaker (ar / bn / ur) | 280 | 13 |
 | Privacy lawyer | 15 | 20 |
 | Rights holder / licensing (not a scholar) | 6 | 2 |
-| App owner (product wording and voice, not a scholar) | 449 | 0 |
+| App owner (product wording and voice, not a scholar) | 472 | 0 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
 
@@ -72,12 +72,12 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 303 | 195 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 303 | 194 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 182 |  |  |  |  |  |  |  |  |
-| Stories: modern hadith | 61 |  |  |  |  |  |  |  |  |
+| Stories: modern hadith | 69 |  |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
 | Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 60 | 1 | 5 |  |  |
@@ -89,11 +89,11 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 214 | 43 |  |  | 903 | 35 |  |  | 449 |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 222 | 43 |  |  | 919 | 35 |  |  | 472 |
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2451 lead, 1044 also)
+### Hadith / aqidah scholar (2467 lead, 1043 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -104,22 +104,22 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
 - Stories: the unseen, signs, tales, khutbahs: 182 items (61 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
-- Stories: modern hadith: 61 items (11 high). Ids start with `story.modernhadith`.
+- Stories: modern hadith: 69 items (11 high). Ids start with `story.modernhadith`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 153 items (23 high). Ids start with `dua.adhkar`, `dua.daily`, `dua.dhikr-session`, `dua.eid-takbir`, `dua.fatiha-linked`, `dua.hisn-source`.
 - Prayer times, qibla, Hijri calendar, observances: 10 items (10 high). Ids start with `calendar.observance`.
 - Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `quran.tafsir-absent`.
 - Games and quizzes with religious content: 13 items (9 high). Ids start with `games.claim`, `games.hadith_quiz`, `games.names99`, `games.order_rounds`, `games.seerah_quiz`, `games.trivia`.
 - Noor, share cards, Home daily cards: 43 items (0 high). Ids start with `noor.app-toc`, `noor.card`, `noor.entry`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 222 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (631 lead, 236 also)
+### Fiqh scholar (per madhab) (630 lead, 244 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 195 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 194 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -146,12 +146,12 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 5 items (4 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`, `translit.program-made-gap-fill`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1015 lead, 252 also)
+### Clinician (Sakina and health content) (1031 lead, 252 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
 - Sakina rooms, feelings, safety copy, health: 60 items (34 high). Ids start with `health.ruqya-medicine`, `kids.child-reader-r3`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 903 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 919 items (78 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`.
 
 ### Native speaker (ar / bn / ur) (280 lead, 13 also)
 
@@ -170,9 +170,9 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 4 items (2 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.word-meanings-source`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.channels`.
 
-### App owner (product wording and voice, not a scholar) (449 lead, 0 also)
+### App owner (product wording and voice, not a scholar) (472 lead, 0 also)
 
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 449 items (0 high). Ids start with `support.alcohol`, `support.app_help`, `support.cravings_toolkit`, `support.drugs`, `support.family_of_struggling`, `support.gambling`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 472 items (0 high). Ids start with `support.alcohol`, `support.app_help`, `support.being_heard`, `support.cravings_toolkit`, `support.drugs`, `support.family_of_struggling`.
 
 ## Register by area
 
@@ -1729,7 +1729,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-498 items, 20 high priority. Area key `hadi`.
+497 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1967,273 +1967,272 @@ Listed in short form (same reason and sources for the whole family; full text in
 - `hadi.shelf.061` (Hadith / aqidah scholar): Shelf answer matched by keywords: hadith screen; forty hadith; nawawi screen
 - `hadi.shelf.062` (Hadith / aqidah scholar): Shelf answer matched by keywords: qibla screen; find qibla; qibla direction; face qibla
 - `hadi.shelf.063` (Hadith / aqidah scholar): Shelf answer matched by keywords: calendar screen; islamic calendar; ramadan dates; eid dates
-- `hadi.shelf.064` (Fiqh scholar): Shelf answer matched by keywords: finance screen; stocks screen; trading screen; halal stocks
-- `hadi.shelf.065` (Hadith / aqidah scholar): Shelf answer matched by keywords: academy screen; school screen; letters screen; alphabet
-- `hadi.shelf.066` (Hadith / aqidah scholar): Shelf answer matched by keywords: feelings screen; heart screen
-- `hadi.shelf.067` (Hadith / aqidah scholar): Shelf answer matched by keywords: sakina; comfort screen; peace screen
-- `hadi.shelf.068` (Hadith / aqidah scholar): Shelf answer matched by keywords: family tree screen; messengers screen
-- `hadi.shelf.069` (Hadith / aqidah scholar): Shelf answer matched by keywords: share screen; cards screen; verse cards
-- `hadi.shelf.070` (Hadith / aqidah scholar): Shelf answer matched by keywords: sources screen; our sources
-- `hadi.shelf.071` (Hadith / aqidah scholar): Shelf answer matched by keywords: settings screen; api key; apikey; add a key
-- `hadi.shelf.072` (Fiqh scholar): Shelf answer matched by keywords: masajid; masjid; mosque; halal food
-- `hadi.shelf.073` (Hadith / aqidah scholar): Shelf answer matched by keywords: shahada; shahadah; kalima; testimony
-- `hadi.shelf.074` (Hadith / aqidah scholar): Shelf answer matched by keywords: pillars of islam; five pillars
-- `hadi.shelf.075` (Fiqh scholar): Shelf answer matched by keywords: wudu; ablution; wuzu; wudoo
-- `hadi.shelf.076` (Hadith / aqidah scholar): Shelf answer matched by keywords: grave; after death; hereafter
-- `hadi.shelf.077` (Hadith / aqidah scholar): Shelf answer matched by keywords: morning adhkar; evening adhkar; morning dua; evening dua
-- `hadi.shelf.078` (Hadith / aqidah scholar): Shelf answer matched by keywords: before eating; after eating; eating dua; food dua
-- `hadi.shelf.079` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for parents; my parents; parents; mother dua
-- `hadi.shelf.080` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for the sick; someone sick; visiting the sick; ill dua
-- `hadi.shelf.081` (Hadith / aqidah scholar): Shelf answer matched by keywords: anxious; anxiety; worried; worry
-- `hadi.shelf.082` (Hadith / aqidah scholar): Shelf answer matched by keywords: niyyah; intention; why do we; actions are
-- `hadi.shelf.083` (Hadith / aqidah scholar): Shelf answer matched by keywords: mercy; be kind; kindness; gentle
-- `hadi.shelf.084` (Hadith / aqidah scholar): Shelf answer matched by keywords: neighbor; neighbour; next door
-- `hadi.shelf.085` (Hadith / aqidah scholar): Shelf answer matched by keywords: gossip; backbite; speak good; talk bad
-- `hadi.shelf.086` (Hadith / aqidah scholar): Shelf answer matched by keywords: sadaqah; charity; give money; donate
-- `hadi.shelf.087` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawbah; repent; repentance; forgiveness
-- `hadi.shelf.088` (Fiqh scholar): Shelf answer matched by keywords: hajj; pilgrimage; makkah trip
-- `hadi.shelf.089` (Hadith / aqidah scholar): Shelf answer matched by keywords: umrah; minor pilgrimage; omra
-- `hadi.shelf.090` (Fiqh scholar): Shelf answer matched by keywords: tahajjud; night prayer; qiyam; pray at night
-- `hadi.shelf.091` (Hadith / aqidah scholar): Shelf answer matched by keywords: istikhara; decision dua; big decision; choice dua
-- `hadi.shelf.092` (Hadith / aqidah scholar): Shelf answer matched by keywords: laylatul qadr; night of decree; qadr; best night
-- `hadi.shelf.093` (Fiqh scholar): Shelf answer matched by keywords: breaking fast; iftar dua; iftar; end of fast
-- `hadi.shelf.094` (Hadith / aqidah scholar): Shelf answer matched by keywords: durood; salawat; bless the prophet; blessings on the prophet
-- `hadi.shelf.095` (Hadith / aqidah scholar): Shelf answer matched by keywords: spread salam; say salam; greeting islam; how to greet
-- `hadi.shelf.096` (Hadith / aqidah scholar): Shelf answer matched by keywords: seeking knowledge; learn islam; study; ilm
-- `hadi.shelf.097` (Hadith / aqidah scholar): Shelf answer matched by keywords: plant a tree; small deeds; tiny good deed; good deeds small
-- `hadi.shelf.098` (Hadith / aqidah scholar): Shelf answer matched by keywords: names on the day of judgment; resurrection names; called by name; name on judgment day
-- `hadi.shelf.099` (Hadith / aqidah scholar): Shelf answer matched by keywords: sick suffering; going through hardship; why me; afflicted
-- `hadi.shelf.100` (Hadith / aqidah scholar): Shelf answer matched by keywords: leaving home; entering home; go out; come back home
-- `hadi.shelf.101` (Hadith / aqidah scholar): Shelf answer matched by keywords: travel dua; going on a trip; road trip dua; flying dua
-- `hadi.shelf.102` (Hadith / aqidah scholar): Shelf answer matched by keywords: sneezing; sneeze; alhamdulillah sneeze; bless sneeze
-- `hadi.shelf.103` (Hadith / aqidah scholar): Shelf answer matched by keywords: dream interpretation; had a dream; strange dream; bad dream
-- `hadi.shelf.104` (Hadith / aqidah scholar): Shelf answer matched by keywords: evil eye; hasad; envy; someone envied me
-- `hadi.shelf.105` (Hadith / aqidah scholar): Shelf answer matched by keywords: marriage proposal; getting married; choosing spouse; marry someone
-- `hadi.shelf.106` (Hadith / aqidah scholar): Shelf answer matched by keywords: wedding dua; nikkah dua; just married; newlywed
-- `hadi.shelf.107` (Hadith / aqidah scholar): Shelf answer matched by keywords: new baby; newborn; baby born; child born
-- `hadi.shelf.108` (Hadith / aqidah scholar): Shelf answer matched by keywords: children; raising kids; my child; teaching children
-- `hadi.shelf.109` (Hadith / aqidah scholar): Shelf answer matched by keywords: friday; jumuah; jumma; surah kahf
-- `hadi.shelf.110` (Hadith / aqidah scholar): Shelf answer matched by keywords: eid; eid dua; eid mubarak; eid salah
-- `hadi.shelf.111` (Fiqh scholar): Shelf answer matched by keywords: fasting shawwal; six days of shawwal; monday fasting; thursday fasting
-- `hadi.shelf.112` (Hadith / aqidah scholar): Shelf answer matched by keywords: suhoor; sehri; pre-dawn meal
-- `hadi.shelf.113` (Hadith / aqidah scholar): Shelf answer matched by keywords: itikaf; spiritual retreat; last ten nights
-- `hadi.shelf.114` (Fiqh scholar): Shelf answer matched by keywords: feed a fasting person; feeding iftar; iftar for someone; feed
-- `hadi.shelf.115` (Hadith / aqidah scholar): Shelf answer matched by keywords: rain dua; it's raining; rain blessing; rain shower
-- `hadi.shelf.116` (Hadith / aqidah scholar): Shelf answer matched by keywords: wind dua; storm dua; strong wind; thunder dua
-- `hadi.shelf.117` (Hadith / aqidah scholar): Shelf answer matched by keywords: new moon; crescent moon; moon sighting; hilal
-- `hadi.shelf.118` (Fiqh scholar): Shelf answer matched by keywords: halal income; halal earnings; haram money; riba
-- `hadi.shelf.119` (Hadith / aqidah scholar): Shelf answer matched by keywords: gambling; lottery; betting; casino
-- `hadi.shelf.120` (Hadith / aqidah scholar): Shelf answer matched by keywords: alcohol; drinking; wine; beer
-- `hadi.shelf.121` (Hadith / aqidah scholar): Shelf answer matched by keywords: eating manners; right hand eating; wash hands eating; table manners islam
-- `hadi.shelf.122` (Hadith / aqidah scholar): Shelf answer matched by keywords: miswak; tooth stick; brush teeth sunnah
-- `hadi.shelf.123` (Hadith / aqidah scholar): Shelf answer matched by keywords: honey; black seed; tibben nabawi; prophetic medicine
-- `hadi.shelf.124` (Hadith / aqidah scholar): Shelf answer matched by keywords: zamzam; drinking zamzam; umrah zamzam
-- `hadi.shelf.125` (Hadith / aqidah scholar): Shelf answer matched by keywords: cupping; hijamah; blood cupping
-- `hadi.shelf.126` (Hadith / aqidah scholar): Shelf answer matched by keywords: cats; kittens; pet cat
-- `hadi.shelf.127` (Hadith / aqidah scholar): Shelf answer matched by keywords: going to sleep; bedtime; sleep on right side; wake up dua
-- `hadi.shelf.128` (Hadith / aqidah scholar): Shelf answer matched by keywords: seeing someone sick; someone else afflicted; heard bad news
-- `hadi.shelf.129` (Hadith / aqidah scholar): Shelf answer matched by keywords: mourning period; how long is the mourning period; how long to mourn; how long should i mourn
-- `hadi.shelf.130` (Hadith / aqidah scholar): Shelf answer matched by keywords: someone died; death of a loved one; lost my mother; lost my father
-- `hadi.shelf.131` (Hadith / aqidah scholar): Shelf answer matched by keywords: trust in allah; tawakkul; my rizq; provision
-- `hadi.shelf.132` (Hadith / aqidah scholar): Shelf answer matched by keywords: hurt myself; want to die; end my life; no point living
-- `hadi.shelf.133` (Hadith / aqidah scholar): Shelf answer matched by keywords: hijab; covering; modesty dress; why do muslim women cover
-- `hadi.shelf.134` (Hadith / aqidah scholar): Shelf answer matched by keywords: memorize quran; hifz; memorization tips; learn quran
-- `hadi.shelf.135` (Hadith / aqidah scholar): Shelf answer matched by keywords: tajweed; pronunciation quran; recitation rules; makhraj
-- `hadi.shelf.136` (Hadith / aqidah scholar): Shelf answer matched by keywords: learn arabic; arabic alphabet; arabic learning tips; arabic
-- `hadi.shelf.137` (Hadith / aqidah scholar): Shelf answer matched by keywords: adam; first human; adam and eve; hawa
-- `hadi.shelf.138` (Hadith / aqidah scholar): Shelf answer matched by keywords: nuh; noah; the flood; ark
-- `hadi.shelf.139` (Hadith / aqidah scholar): Shelf answer matched by keywords: ibrahim; abraham; kaaba builder; friend of allah
-- `hadi.shelf.140` (Hadith / aqidah scholar): Shelf answer matched by keywords: yusuf; joseph; best of stories
-- `hadi.shelf.141` (Hadith / aqidah scholar): Shelf answer matched by keywords: musa; moses; red sea; pharaoh
-- `hadi.shelf.142` (Hadith / aqidah scholar): Shelf answer matched by keywords: dawud; david; zabur; psalms
-- `hadi.shelf.143` (Hadith / aqidah scholar): Shelf answer matched by keywords: sulayman; solomon; kingdom; jinn and animals
-- `hadi.shelf.144` (Hadith / aqidah scholar): Shelf answer matched by keywords: isa; jesus; mary; messiah
-- `hadi.shelf.145` (Hadith / aqidah scholar): Shelf answer matched by keywords: muhammad; life of the prophet; the prophet's story; seerah summary
-- `hadi.shelf.146` (Hadith / aqidah scholar): Shelf answer matched by keywords: order of prophets; list of prophets; 25 prophets; how many prophets
-- `hadi.shelf.147` (Hadith / aqidah scholar): Shelf answer matched by keywords: difference between prophet and messenger; nabi vs rasul; messenger vs prophet
-- `hadi.shelf.148` (Hadith / aqidah scholar): Shelf answer matched by keywords: fatiha; opening chapter; first surah
-- `hadi.shelf.149` (Hadith / aqidah scholar): Shelf answer matched by keywords: ayat al-kursi; kursi; greatest verse; throne verse
-- `hadi.shelf.150` (Hadith / aqidah scholar): Shelf answer matched by keywords: ya-sin; yaseen; heart of the quran
-- `hadi.shelf.151` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-mulk; surah mulk
-- `hadi.shelf.152` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-ikhlas; ikhlas; qul huwallahu
-- `hadi.shelf.153` (Hadith / aqidah scholar): Shelf answer matched by keywords: last two verses of baqarah; kursi dua night; suffice him
-- `hadi.shelf.154` (Hadith / aqidah scholar): Shelf answer matched by keywords: recitation reward; letter of quran reward; reading quran reward
-- `hadi.shelf.155` (Hadith / aqidah scholar): Shelf answer matched by keywords: compiled quran; who compiled the quran; uthman; quran history
-- `hadi.shelf.156` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-waqiah; waqiah; rizq surah; poverty surah
-- `hadi.shelf.157` (Hadith / aqidah scholar): Shelf answer matched by keywords: names of allah meanings; names of allah; asma ul husna; attributes of allah
-- `hadi.shelf.158` (Hadith / aqidah scholar): Shelf answer matched by keywords: ghusl; full bath; janabah; major impurity
-- `hadi.shelf.159` (Fiqh scholar): Shelf answer matched by keywords: tayammum; no water; dust ablution; dry wudu
-- `hadi.shelf.160` (Fiqh scholar): Shelf answer matched by keywords: breaks wudu; nullify wudu; invalid wudu; wudu broken
-- `hadi.shelf.161` (Hadith / aqidah scholar): Shelf answer matched by keywords: period; menstruation; hayd; can I pray on my period
-- `hadi.shelf.162` (Fiqh scholar): Shelf answer matched by keywords: missed prayer; make up prayer; qada prayer; overslept prayer
-- `hadi.shelf.163` (Fiqh scholar): Shelf answer matched by keywords: combine prayers; travel prayers; jam; qasr
-- `hadi.shelf.164` (Fiqh scholar): Shelf answer matched by keywords: congregation; jamaah; pray together; mosque prayer
-- `hadi.shelf.165` (Fiqh scholar): Shelf answer matched by keywords: adhan; call to prayer; muadhin; repeat after adhan
-- `hadi.shelf.166` (Hadith / aqidah scholar): Shelf answer matched by keywords: khuffs; leather socks; wipe socks; masah
-- `hadi.shelf.167` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawhid; oneness of allah; three types of tawhid; uluhiyyah
-- `hadi.shelf.168` (Hadith / aqidah scholar): Shelf answer matched by keywords: shirk; polytheism; associating partners
-- `hadi.shelf.169` (Hadith / aqidah scholar): Shelf answer matched by keywords: qadar; destiny; predestination; qadr
-- `hadi.shelf.170` (Hadith / aqidah scholar): Shelf answer matched by keywords: angels; jibreel; gabriel; recording angels
-- `hadi.shelf.171` (Hadith / aqidah scholar): Shelf answer matched by keywords: jinn; qarin; evil spirits; demons
-- `hadi.shelf.172` (Hadith / aqidah scholar): Shelf answer matched by keywords: magic; sihr; spell; witchcraft
-- `hadi.shelf.173` (Hadith / aqidah scholar): Shelf answer matched by keywords: bid'ah; innovation; newly invented; bida
-- `hadi.shelf.174` (Hadith / aqidah scholar): Shelf answer matched by keywords: non-muslim family; non muslim parents; my non muslim; christian family
-- `hadi.shelf.175` (Fiqh scholar): Shelf answer matched by keywords: fidya; cannot fast; unable to fast; old age fasting
-- `hadi.shelf.176` (Hadith / aqidah scholar): Shelf answer matched by keywords: wasiyyah; write a will; write my will; my will
-- `hadi.shelf.177` (Fiqh scholar): Shelf answer matched by keywords: faraid; inheritance; who inherits; islamic inheritance
-- `hadi.shelf.178` (Fiqh scholar): Shelf answer matched by keywords: wudu; ablution; how to make wudu; wudhu
-- `hadi.shelf.179` (Fiqh scholar): Shelf answer matched by keywords: wudu nullifiers; breaks wudu; break my wudu; nullify wudu
-- `hadi.shelf.180` (Fiqh scholar): Shelf answer matched by keywords: tayammum; dry ablution; no water; sand prayer
-- `hadi.shelf.181` (Hadith / aqidah scholar): Shelf answer matched by keywords: ghusl; ritual bath; janabah; major impurity
-- `hadi.shelf.182` (Fiqh scholar): Shelf answer matched by keywords: fajr; dawn prayer; morning prayer; subh
-- `hadi.shelf.183` (Fiqh scholar): Shelf answer matched by keywords: dhuhr; zuhr; noon prayer; midday prayer
-- `hadi.shelf.184` (Fiqh scholar): Shelf answer matched by keywords: asr; afternoon prayer
-- `hadi.shelf.185` (Fiqh scholar): Shelf answer matched by keywords: maghrib; sunset prayer; evening prayer
-- `hadi.shelf.186` (Fiqh scholar): Shelf answer matched by keywords: isha; night prayer
-- `hadi.shelf.187` (Fiqh scholar): Shelf answer matched by keywords: sujood sahw; forgetfulness prostration; mistake in prayer
-- `hadi.shelf.188` (Fiqh scholar): Shelf answer matched by keywords: qada; make up prayers; missed prayer; qaza
-- `hadi.shelf.189` (Fiqh scholar): Shelf answer matched by keywords: taraweeh; tarawih; night ramadan prayer
-- `hadi.shelf.190` (Fiqh scholar): Shelf answer matched by keywords: witr; witr prayer; odd prayer
-- `hadi.shelf.191` (Fiqh scholar): Shelf answer matched by keywords: tahajjud; night prayer; qiyam al-layl; tahajud
-- `hadi.shelf.192` (Fiqh scholar): Shelf answer matched by keywords: janazah; funeral prayer; dead prayer
-- `hadi.shelf.193` (Fiqh scholar): Shelf answer matched by keywords: eid prayer; eid salat; salat al eid
-- `hadi.shelf.194` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua before sleep; sleeping dua; night dua; bedtime dua
-- `hadi.shelf.195` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua after waking; morning dua; waking up
-- `hadi.shelf.196` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua before eating; eating dua; food dua
-- `hadi.shelf.197` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua after eating; finished eating
-- `hadi.shelf.198` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua entering home; entering house; coming home
-- `hadi.shelf.199` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua leaving home; leaving house; going out
-- `hadi.shelf.200` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for travel; traveling dua; safar
-- `hadi.shelf.201` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for rizq; provision dua; money dua; wealth dua
-- `hadi.shelf.202` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for marriage; spouse dua; husband dua; wife dua
-- `hadi.shelf.203` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for children; child dua; baby dua; pregnancy dua
-- `hadi.shelf.204` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for health; sickness dua; healing dua; shifa
-- `hadi.shelf.205` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for protection; protection dua; safe dua
-- `hadi.shelf.206` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for exam; test dua; study dua; knowledge dua
-- `hadi.shelf.207` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for distress; hardship dua; difficulty dua
-- `hadi.shelf.208` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for debt; loan dua; owe money dua
-- `hadi.shelf.209` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for righteous death; good death; husn al-khatimah
-- `hadi.shelf.210` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua entering masjid; masjid entrance; mosque dua
-- `hadi.shelf.211` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for parents; father dua; mother dua; parents forgiveness
-- `hadi.shelf.212` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for forgiveness; istighfar; seek forgiveness; sin
-- `hadi.shelf.213` (Fiqh scholar): Shelf answer matched by keywords: what is halal; what is haram; halal and haram; meaning of halal
-- `hadi.shelf.214` (Hadith / aqidah scholar): Shelf answer matched by keywords: fard; obligatory; wajib; mandatory
-- `hadi.shelf.215` (Hadith / aqidah scholar): Shelf answer matched by keywords: sunnah; mustahabb; recommended; nafl
-- `hadi.shelf.216` (Hadith / aqidah scholar): Shelf answer matched by keywords: makruh; disliked; discouraged
-- `hadi.shelf.217` (Hadith / aqidah scholar): Shelf answer matched by keywords: bidah; innovation; biddah
-- `hadi.shelf.218` (Hadith / aqidah scholar): Shelf answer matched by keywords: shirk; associating partners; polytheism
-- `hadi.shelf.219` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawbah; repentance; turning back
-- `hadi.shelf.220` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawakkul; trust in allah; reliance
-- `hadi.shelf.221` (Hadith / aqidah scholar): Shelf answer matched by keywords: ikhlas; sincerity; pure intention
-- `hadi.shelf.222` (Hadith / aqidah scholar): Shelf answer matched by keywords: ihsan; excellence; perfection
-- `hadi.shelf.223` (Fiqh scholar): Shelf answer matched by keywords: marriage; nikah; getting married; wedding
-- `hadi.shelf.224` (Hadith / aqidah scholar): Shelf answer matched by keywords: mahr; dowry; bride price
-- `hadi.shelf.225` (Hadith / aqidah scholar): Shelf answer matched by keywords: walima; wedding feast; marriage banquet
-- `hadi.shelf.226` (Fiqh scholar): Shelf answer matched by keywords: divorce; talaq; ending marriage
-- `hadi.shelf.227` (Hadith / aqidah scholar): Shelf answer matched by keywords: rights of wife; wife rights; husband duties
-- `hadi.shelf.228` (Hadith / aqidah scholar): Shelf answer matched by keywords: rights of husband; husband rights; wife duties
-- `hadi.shelf.229` (Hadith / aqidah scholar): Shelf answer matched by keywords: child rights; children rights; raising children
-- `hadi.shelf.230` (Hadith / aqidah scholar): Shelf answer matched by keywords: breastfeeding; nursing; infant feeding
-- `hadi.shelf.231` (Hadith / aqidah scholar): Shelf answer matched by keywords: circumcision; khitan; sunan al-fitrah
-- `hadi.shelf.232` (Hadith / aqidah scholar): Shelf answer matched by keywords: aqiqah; newborn sacrifice; baby sacrifice
-- `hadi.shelf.233` (Fiqh scholar): Shelf answer matched by keywords: zakat; zakah; alms; charity obligation
-- `hadi.shelf.234` (Fiqh scholar): Shelf answer matched by keywords: zakat calculation; how to calculate zakat; nisab
-- `hadi.shelf.235` (Hadith / aqidah scholar): Shelf answer matched by keywords: sadaqah; voluntary charity; giving
-- `hadi.shelf.236` (Fiqh scholar): Shelf answer matched by keywords: riba; interest; usury; bank interest
-- `hadi.shelf.237` (Fiqh scholar): Shelf answer matched by keywords: stocks; shares; investment; halal investing
-- `hadi.shelf.238` (Fiqh scholar): Shelf answer matched by keywords: insurance; life insurance; halal insurance
-- `hadi.shelf.239` (Fiqh scholar): Shelf answer matched by keywords: inheritance; mirath; wasiyyah; islamic will
-- `hadi.shelf.240` (Hadith / aqidah scholar): Shelf answer matched by keywords: burial; burying dead; grave; kafan
-- `hadi.shelf.241` (Hadith / aqidah scholar): Shelf answer matched by keywords: visiting graves; graveyard; cemetery
-- `hadi.shelf.242` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for deceased; dead person dua; funeral dua
-- `hadi.shelf.243` (Hadith / aqidah scholar): Shelf answer matched by keywords: barzakh; grave life; punishment of grave
-- `hadi.shelf.244` (Hadith / aqidah scholar): Shelf answer matched by keywords: day of judgment; qiyamah; last day; resurrection
-- `hadi.shelf.245` (Hadith / aqidah scholar): Shelf answer matched by keywords: jannah; paradise; heaven
-- `hadi.shelf.246` (Hadith / aqidah scholar): Shelf answer matched by keywords: jahannam; hellfire; hell; nar
-- `hadi.shelf.247` (Hadith / aqidah scholar): Shelf answer matched by keywords: depression; sad; hopeless; empty
-- `hadi.shelf.248` (Hadith / aqidah scholar): Shelf answer matched by keywords: loneliness; alone; no friends; isolated
-- `hadi.shelf.249` (Hadith / aqidah scholar): Shelf answer matched by keywords: betrayal; cheated; lied to; backstabbed
-- `hadi.shelf.250` (Hadith / aqidah scholar): Shelf answer matched by keywords: anger; mad; furious; rage
-- `hadi.shelf.251` (Hadith / aqidah scholar): Shelf answer matched by keywords: laziness; procrastination; can't start; unmotivated
-- `hadi.shelf.252` (Hadith / aqidah scholar): Shelf answer matched by keywords: fear; scared; afraid; terror
-- `hadi.shelf.253` (Hadith / aqidah scholar): Shelf answer matched by keywords: guilt; ashamed; regret; remorse
-- `hadi.shelf.254` (Hadith / aqidah scholar): Shelf answer matched by keywords: envy; jealous; hasad; evil eye
-- `hadi.shelf.255` (Hadith / aqidah scholar): Shelf answer matched by keywords: nightmares; bad dreams; scary dream
-- `hadi.shelf.256` (Hadith / aqidah scholar): Shelf answer matched by keywords: ocd; waswasa; whispers; doubts
-- `hadi.shelf.257` (Hadith / aqidah scholar): Shelf answer matched by keywords: laylatul qadr; night of decree; power night
-- `hadi.shelf.258` (Hadith / aqidah scholar): Shelf answer matched by keywords: itikaf; spiritual retreat; mosque retreat
-- `hadi.shelf.259` (Fiqh scholar): Shelf answer matched by keywords: zakat ul fitr; fitrana; eid charity
-- `hadi.shelf.260` (Fiqh scholar): Shelf answer matched by keywords: breaking fast; iftar; opening fast
-- `hadi.shelf.261` (Hadith / aqidah scholar): Shelf answer matched by keywords: suhoor; sehri; pre-dawn meal
-- `hadi.shelf.262` (Fiqh scholar): Shelf answer matched by keywords: kaffarah; kaffara; fast expiation; expiation for breaking the fast
-- `hadi.shelf.263` (Hadith / aqidah scholar): Shelf answer matched by keywords: vomit; vomiting; throw up; threw up
-- `hadi.shelf.264` (Hadith / aqidah scholar): Shelf answer matched by keywords: music; singing; nasheed; songs
-- `hadi.shelf.265` (Hadith / aqidah scholar): Shelf answer matched by keywords: images; photos; pictures; drawing
-- `hadi.shelf.266` (Hadith / aqidah scholar): Shelf answer matched by keywords: dogs; pet dog; keeping dog
-- `hadi.shelf.267` (Hadith / aqidah scholar): Shelf answer matched by keywords: gold silk men; men wear gold; men silk
-- `hadi.shelf.268` (Hadith / aqidah scholar): Shelf answer matched by keywords: beard; shave beard; trim beard
-- `hadi.shelf.269` (Hadith / aqidah scholar): Shelf answer matched by keywords: siwak; miswak; tooth stick
-- `hadi.shelf.270` (Hadith / aqidah scholar): Shelf answer matched by keywords: tajweed; quran recitation; pronunciation
-- `hadi.shelf.271` (Hadith / aqidah scholar): Shelf answer matched by keywords: memorize quran; hifz; memorization
-- `hadi.shelf.272` (Hadith / aqidah scholar): Shelf answer matched by keywords: quran adab; quran manners; reading quran
-- `hadi.shelf.273` (Hadith / aqidah scholar): Shelf answer matched by keywords: ayat al kursi; throne verse; greatest verse
-- `hadi.shelf.274` (Hadith / aqidah scholar): Shelf answer matched by keywords: surah ikhlas; surah falaq; surah nas; muawwidhat
-- `hadi.shelf.275` (Hadith / aqidah scholar): Shelf answer matched by keywords: last two ayahs baqarah; baqarah end; amana rasul
-- `hadi.shelf.276` (Fiqh scholar): Shelf answer matched by keywords: dua after adhan; adhan response; call to prayer
-- `hadi.shelf.277` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua between sajdas; sujood; prostration
-- `hadi.shelf.278` (Hadith / aqidah scholar): Shelf answer matched by keywords: tasbih; subhanallah; glorification
-- `hadi.shelf.279` (Hadith / aqidah scholar): Shelf answer matched by keywords: tahmid; alhamdulillah; praise
-- `hadi.shelf.280` (Hadith / aqidah scholar): Shelf answer matched by keywords: takbir; allahu akbar; magnification
-- `hadi.shelf.281` (Hadith / aqidah scholar): Shelf answer matched by keywords: tahlil; la ilaha illallah; oneness
-- `hadi.shelf.282` (Hadith / aqidah scholar): Shelf answer matched by keywords: salawat; durud; blessings on prophet
-- `hadi.shelf.283` (Hadith / aqidah scholar): Shelf answer matched by keywords: morning adhkar; evening adhkar; daily adhkar
-- `hadi.shelf.284` (Fiqh scholar): Shelf answer matched by keywords: hajj; pilgrimage; fifth pillar
-- `hadi.shelf.285` (Hadith / aqidah scholar): Shelf answer matched by keywords: umrah; minor pilgrimage; lesser pilgrimage
-- `hadi.shelf.286` (Fiqh scholar): Shelf answer matched by keywords: ihram; pilgrimage state; hajj clothes
-- `hadi.shelf.287` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawaf; circumambulation; kaaba
-- `hadi.shelf.288` (Hadith / aqidah scholar): Shelf answer matched by keywords: saee; safa marwa; running
-- `hadi.shelf.289` (Hadith / aqidah scholar): Shelf answer matched by keywords: ruqyah; healing verses; spiritual healing
-- `hadi.shelf.290` (Hadith / aqidah scholar): Shelf answer matched by keywords: black magic; sihr; witchcraft
-- `hadi.shelf.291` (Hadith / aqidah scholar): Shelf answer matched by keywords: jinn; shaytan; devil; satan
-- `hadi.shelf.292` (Hadith / aqidah scholar): Shelf answer matched by keywords: hasad; evil eye; ayn; nazar
-- `hadi.shelf.293` (Fiqh scholar): Shelf answer matched by keywords: salah on time; prayer punctuality; pray on time
-- `hadi.shelf.294` (Fiqh scholar): Shelf answer matched by keywords: congregation; jamaah; praying together; group prayer
-- `hadi.shelf.295` (Fiqh scholar): Shelf answer matched by keywords: women prayer; women masjid; ladies prayer
-- `hadi.shelf.296` (Hadith / aqidah scholar): Shelf answer matched by keywords: menstruation; period; menses; hayd
-- `hadi.shelf.297` (Hadith / aqidah scholar): Shelf answer matched by keywords: postpartum; nifas; bleeding after birth
-- `hadi.shelf.298` (Hadith / aqidah scholar): Shelf answer matched by keywords: istihadha; irregular bleeding; spotting
-- `hadi.shelf.299` (Hadith / aqidah scholar): Shelf answer matched by keywords: neighbors; rights of neighbor; neighbor rights
-- `hadi.shelf.300` (Hadith / aqidah scholar): Shelf answer matched by keywords: guests; hospitality; guest rights
-- `hadi.shelf.301` (Hadith / aqidah scholar): Shelf answer matched by keywords: backbiting; gossip; ghibah; slander
-- `hadi.shelf.302` (Hadith / aqidah scholar): Shelf answer matched by keywords: lying; truth; honesty
-- `hadi.shelf.303` (Hadith / aqidah scholar): Shelf answer matched by keywords: cheating; dishonesty; fraud; deception
-- `hadi.shelf.304` (Hadith / aqidah scholar): Shelf answer matched by keywords: forgiveness; forgive others; let go
-- `hadi.shelf.305` (Hadith / aqidah scholar): Shelf answer matched by keywords: gratitude; shukr; thankful; appreciation
-- `hadi.shelf.306` (Hadith / aqidah scholar): Shelf answer matched by keywords: sabr; patience; endurance; perseverance
-- `hadi.shelf.307` (Hadith / aqidah scholar): Shelf answer matched by keywords: contentment; qanaah; satisfied; enough
-- `hadi.shelf.308` (Hadith / aqidah scholar): Shelf answer matched by keywords: humility; tawadu; modest; humble
-- `hadi.shelf.309` (Hadith / aqidah scholar): Shelf answer matched by keywords: generosity; sakhaw; giving; charitable
-- `hadi.shelf.310` (Hadith / aqidah scholar): Shelf answer matched by keywords: courage; shajaah; brave; fearless
-- `hadi.shelf.311` (Hadith / aqidah scholar): Shelf answer matched by keywords: wisdom; hikmah; understanding; insight
-- `hadi.shelf.312` (Hadith / aqidah scholar): Shelf answer matched by keywords: justice; adl; fairness; equity
-- `hadi.shelf.313` (Hadith / aqidah scholar): Shelf answer matched by keywords: unity; ummah; muslim unity; brotherhood
-- `hadi.shelf.314` (Hadith / aqidah scholar): Shelf answer matched by keywords: dawah; inviting; calling to islam; share islam
-- `hadi.shelf.315` (Hadith / aqidah scholar): Shelf answer matched by keywords: jihad; struggle; striving
-- `hadi.shelf.316` (Hadith / aqidah scholar): Shelf answer matched by keywords: caliphate; khilafah; islamic state; political islam
-- `hadi.shelf.317` (Hadith / aqidah scholar): Shelf answer matched by keywords: shariah; islamic law; fiqh; four schools
-- `hadi.shelf.318` (Hadith / aqidah scholar): Shelf answer matched by keywords: fiqh schools; madhab; hanafi; maliki
-- `hadi.shelf.319` (Hadith / aqidah scholar): Shelf answer matched by keywords: ijtihad; scholarly reasoning; independent judgment
-- `hadi.shelf.320` (Hadith / aqidah scholar): Shelf answer matched by keywords: qiyas; analogy; deductive reasoning
-- `hadi.shelf.321` (Hadith / aqidah scholar): Shelf answer matched by keywords: ijma; consensus; scholarly agreement
-- `hadi.shelf.322` (Hadith / aqidah scholar): Shelf answer matched by keywords: hadith sciences; isnad; matn; hadith authentication
-- `hadi.shelf.323` (Hadith / aqidah scholar): Shelf answer matched by keywords: sahih; authentic hadith; sound hadith
-- `hadi.shelf.324` (Hadith / aqidah scholar): Shelf answer matched by keywords: hasan; good hadith; fair hadith
-- `hadi.shelf.325` (Hadith / aqidah scholar): Shelf answer matched by keywords: daif; weak hadith; unreliable hadith
-- `hadi.shelf.326` (Hadith / aqidah scholar): Shelf answer matched by keywords: mawdu; fabricated hadith; fake hadith
-- `hadi.shelf.327` (Hadith / aqidah scholar): Shelf answer matched by keywords: zina; adultery; fornication; boyfriend
-- `hadi.shelf.328` (Hadith / aqidah scholar): Shelf answer matched by keywords: allah hates me; allah hate me; allah doesnt love me; allah does not love me
-- `hadi.shelf.329` (Hadith / aqidah scholar): Shelf answer matched by keywords: old to pray; kid to pray; kids to pray; child to pray
-- `hadi.shelf.330` (Hadith / aqidah scholar): Shelf answer matched by keywords: meaning of surah ikhlas; what does surah ikhlas mean; meaning of ikhlas; what does ikhlas mean
+- `hadi.shelf.064` (Hadith / aqidah scholar): Shelf answer matched by keywords: academy screen; school screen; letters screen; alphabet
+- `hadi.shelf.065` (Hadith / aqidah scholar): Shelf answer matched by keywords: feelings screen; heart screen
+- `hadi.shelf.066` (Hadith / aqidah scholar): Shelf answer matched by keywords: sakina; comfort screen; peace screen
+- `hadi.shelf.067` (Hadith / aqidah scholar): Shelf answer matched by keywords: family tree screen; messengers screen
+- `hadi.shelf.068` (Hadith / aqidah scholar): Shelf answer matched by keywords: share screen; cards screen; verse cards
+- `hadi.shelf.069` (Hadith / aqidah scholar): Shelf answer matched by keywords: sources screen; our sources
+- `hadi.shelf.070` (Hadith / aqidah scholar): Shelf answer matched by keywords: settings screen; api key; apikey; add a key
+- `hadi.shelf.071` (Fiqh scholar): Shelf answer matched by keywords: masajid; masjid; mosque; halal food
+- `hadi.shelf.072` (Hadith / aqidah scholar): Shelf answer matched by keywords: shahada; shahadah; kalima; testimony
+- `hadi.shelf.073` (Hadith / aqidah scholar): Shelf answer matched by keywords: pillars of islam; five pillars
+- `hadi.shelf.074` (Fiqh scholar): Shelf answer matched by keywords: wudu; ablution; wuzu; wudoo
+- `hadi.shelf.075` (Hadith / aqidah scholar): Shelf answer matched by keywords: grave; after death; hereafter
+- `hadi.shelf.076` (Hadith / aqidah scholar): Shelf answer matched by keywords: morning adhkar; evening adhkar; morning dua; evening dua
+- `hadi.shelf.077` (Hadith / aqidah scholar): Shelf answer matched by keywords: before eating; after eating; eating dua; food dua
+- `hadi.shelf.078` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for parents; my parents; parents; mother dua
+- `hadi.shelf.079` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for the sick; someone sick; visiting the sick; ill dua
+- `hadi.shelf.080` (Hadith / aqidah scholar): Shelf answer matched by keywords: anxious; anxiety; worried; worry
+- `hadi.shelf.081` (Hadith / aqidah scholar): Shelf answer matched by keywords: niyyah; intention; why do we; actions are
+- `hadi.shelf.082` (Hadith / aqidah scholar): Shelf answer matched by keywords: mercy; be kind; kindness; gentle
+- `hadi.shelf.083` (Hadith / aqidah scholar): Shelf answer matched by keywords: neighbor; neighbour; next door
+- `hadi.shelf.084` (Hadith / aqidah scholar): Shelf answer matched by keywords: gossip; backbite; speak good; talk bad
+- `hadi.shelf.085` (Hadith / aqidah scholar): Shelf answer matched by keywords: sadaqah; charity; give money; donate
+- `hadi.shelf.086` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawbah; repent; repentance; forgiveness
+- `hadi.shelf.087` (Fiqh scholar): Shelf answer matched by keywords: hajj; pilgrimage; makkah trip
+- `hadi.shelf.088` (Hadith / aqidah scholar): Shelf answer matched by keywords: umrah; minor pilgrimage; omra
+- `hadi.shelf.089` (Fiqh scholar): Shelf answer matched by keywords: tahajjud; night prayer; qiyam; pray at night
+- `hadi.shelf.090` (Hadith / aqidah scholar): Shelf answer matched by keywords: istikhara; decision dua; big decision; choice dua
+- `hadi.shelf.091` (Hadith / aqidah scholar): Shelf answer matched by keywords: laylatul qadr; night of decree; qadr; best night
+- `hadi.shelf.092` (Fiqh scholar): Shelf answer matched by keywords: breaking fast; iftar dua; iftar; end of fast
+- `hadi.shelf.093` (Hadith / aqidah scholar): Shelf answer matched by keywords: durood; salawat; bless the prophet; blessings on the prophet
+- `hadi.shelf.094` (Hadith / aqidah scholar): Shelf answer matched by keywords: spread salam; say salam; greeting islam; how to greet
+- `hadi.shelf.095` (Hadith / aqidah scholar): Shelf answer matched by keywords: seeking knowledge; learn islam; study; ilm
+- `hadi.shelf.096` (Hadith / aqidah scholar): Shelf answer matched by keywords: plant a tree; small deeds; tiny good deed; good deeds small
+- `hadi.shelf.097` (Hadith / aqidah scholar): Shelf answer matched by keywords: names on the day of judgment; resurrection names; called by name; name on judgment day
+- `hadi.shelf.098` (Hadith / aqidah scholar): Shelf answer matched by keywords: sick suffering; going through hardship; why me; afflicted
+- `hadi.shelf.099` (Hadith / aqidah scholar): Shelf answer matched by keywords: leaving home; entering home; go out; come back home
+- `hadi.shelf.100` (Hadith / aqidah scholar): Shelf answer matched by keywords: travel dua; going on a trip; road trip dua; flying dua
+- `hadi.shelf.101` (Hadith / aqidah scholar): Shelf answer matched by keywords: sneezing; sneeze; alhamdulillah sneeze; bless sneeze
+- `hadi.shelf.102` (Hadith / aqidah scholar): Shelf answer matched by keywords: dream interpretation; had a dream; strange dream; bad dream
+- `hadi.shelf.103` (Hadith / aqidah scholar): Shelf answer matched by keywords: evil eye; hasad; envy; someone envied me
+- `hadi.shelf.104` (Hadith / aqidah scholar): Shelf answer matched by keywords: marriage proposal; getting married; choosing spouse; marry someone
+- `hadi.shelf.105` (Hadith / aqidah scholar): Shelf answer matched by keywords: wedding dua; nikkah dua; just married; newlywed
+- `hadi.shelf.106` (Hadith / aqidah scholar): Shelf answer matched by keywords: new baby; newborn; baby born; child born
+- `hadi.shelf.107` (Hadith / aqidah scholar): Shelf answer matched by keywords: children; raising kids; my child; teaching children
+- `hadi.shelf.108` (Hadith / aqidah scholar): Shelf answer matched by keywords: friday; jumuah; jumma; surah kahf
+- `hadi.shelf.109` (Hadith / aqidah scholar): Shelf answer matched by keywords: eid; eid dua; eid mubarak; eid salah
+- `hadi.shelf.110` (Fiqh scholar): Shelf answer matched by keywords: fasting shawwal; six days of shawwal; monday fasting; thursday fasting
+- `hadi.shelf.111` (Hadith / aqidah scholar): Shelf answer matched by keywords: suhoor; sehri; pre-dawn meal
+- `hadi.shelf.112` (Hadith / aqidah scholar): Shelf answer matched by keywords: itikaf; spiritual retreat; last ten nights
+- `hadi.shelf.113` (Fiqh scholar): Shelf answer matched by keywords: feed a fasting person; feeding iftar; iftar for someone; feed
+- `hadi.shelf.114` (Hadith / aqidah scholar): Shelf answer matched by keywords: rain dua; it's raining; rain blessing; rain shower
+- `hadi.shelf.115` (Hadith / aqidah scholar): Shelf answer matched by keywords: wind dua; storm dua; strong wind; thunder dua
+- `hadi.shelf.116` (Hadith / aqidah scholar): Shelf answer matched by keywords: new moon; crescent moon; moon sighting; hilal
+- `hadi.shelf.117` (Fiqh scholar): Shelf answer matched by keywords: halal income; halal earnings; haram money; riba
+- `hadi.shelf.118` (Hadith / aqidah scholar): Shelf answer matched by keywords: gambling; lottery; betting; casino
+- `hadi.shelf.119` (Hadith / aqidah scholar): Shelf answer matched by keywords: alcohol; drinking; wine; beer
+- `hadi.shelf.120` (Hadith / aqidah scholar): Shelf answer matched by keywords: eating manners; right hand eating; wash hands eating; table manners islam
+- `hadi.shelf.121` (Hadith / aqidah scholar): Shelf answer matched by keywords: miswak; tooth stick; brush teeth sunnah
+- `hadi.shelf.122` (Hadith / aqidah scholar): Shelf answer matched by keywords: honey; black seed; tibben nabawi; prophetic medicine
+- `hadi.shelf.123` (Hadith / aqidah scholar): Shelf answer matched by keywords: zamzam; drinking zamzam; umrah zamzam
+- `hadi.shelf.124` (Hadith / aqidah scholar): Shelf answer matched by keywords: cupping; hijamah; blood cupping
+- `hadi.shelf.125` (Hadith / aqidah scholar): Shelf answer matched by keywords: cats; kittens; pet cat
+- `hadi.shelf.126` (Hadith / aqidah scholar): Shelf answer matched by keywords: going to sleep; bedtime; sleep on right side; wake up dua
+- `hadi.shelf.127` (Hadith / aqidah scholar): Shelf answer matched by keywords: seeing someone sick; someone else afflicted; heard bad news
+- `hadi.shelf.128` (Hadith / aqidah scholar): Shelf answer matched by keywords: mourning period; how long is the mourning period; how long to mourn; how long should i mourn
+- `hadi.shelf.129` (Hadith / aqidah scholar): Shelf answer matched by keywords: someone died; death of a loved one; lost my mother; lost my father
+- `hadi.shelf.130` (Hadith / aqidah scholar): Shelf answer matched by keywords: trust in allah; tawakkul; my rizq; provision
+- `hadi.shelf.131` (Hadith / aqidah scholar): Shelf answer matched by keywords: hurt myself; want to die; end my life; no point living
+- `hadi.shelf.132` (Hadith / aqidah scholar): Shelf answer matched by keywords: hijab; covering; modesty dress; why do muslim women cover
+- `hadi.shelf.133` (Hadith / aqidah scholar): Shelf answer matched by keywords: memorize quran; hifz; memorization tips; learn quran
+- `hadi.shelf.134` (Hadith / aqidah scholar): Shelf answer matched by keywords: tajweed; pronunciation quran; recitation rules; makhraj
+- `hadi.shelf.135` (Hadith / aqidah scholar): Shelf answer matched by keywords: learn arabic; arabic alphabet; arabic learning tips; arabic
+- `hadi.shelf.136` (Hadith / aqidah scholar): Shelf answer matched by keywords: adam; first human; adam and eve; hawa
+- `hadi.shelf.137` (Hadith / aqidah scholar): Shelf answer matched by keywords: nuh; noah; the flood; ark
+- `hadi.shelf.138` (Hadith / aqidah scholar): Shelf answer matched by keywords: ibrahim; abraham; kaaba builder; friend of allah
+- `hadi.shelf.139` (Hadith / aqidah scholar): Shelf answer matched by keywords: yusuf; joseph; best of stories
+- `hadi.shelf.140` (Hadith / aqidah scholar): Shelf answer matched by keywords: musa; moses; red sea; pharaoh
+- `hadi.shelf.141` (Hadith / aqidah scholar): Shelf answer matched by keywords: dawud; david; zabur; psalms
+- `hadi.shelf.142` (Hadith / aqidah scholar): Shelf answer matched by keywords: sulayman; solomon; kingdom; jinn and animals
+- `hadi.shelf.143` (Hadith / aqidah scholar): Shelf answer matched by keywords: isa; jesus; mary; messiah
+- `hadi.shelf.144` (Hadith / aqidah scholar): Shelf answer matched by keywords: muhammad; life of the prophet; the prophet's story; seerah summary
+- `hadi.shelf.145` (Hadith / aqidah scholar): Shelf answer matched by keywords: order of prophets; list of prophets; 25 prophets; how many prophets
+- `hadi.shelf.146` (Hadith / aqidah scholar): Shelf answer matched by keywords: difference between prophet and messenger; nabi vs rasul; messenger vs prophet
+- `hadi.shelf.147` (Hadith / aqidah scholar): Shelf answer matched by keywords: fatiha; opening chapter; first surah
+- `hadi.shelf.148` (Hadith / aqidah scholar): Shelf answer matched by keywords: ayat al-kursi; kursi; greatest verse; throne verse
+- `hadi.shelf.149` (Hadith / aqidah scholar): Shelf answer matched by keywords: ya-sin; yaseen; heart of the quran
+- `hadi.shelf.150` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-mulk; surah mulk
+- `hadi.shelf.151` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-ikhlas; ikhlas; qul huwallahu
+- `hadi.shelf.152` (Hadith / aqidah scholar): Shelf answer matched by keywords: last two verses of baqarah; kursi dua night; suffice him
+- `hadi.shelf.153` (Hadith / aqidah scholar): Shelf answer matched by keywords: recitation reward; letter of quran reward; reading quran reward
+- `hadi.shelf.154` (Hadith / aqidah scholar): Shelf answer matched by keywords: compiled quran; who compiled the quran; uthman; quran history
+- `hadi.shelf.155` (Hadith / aqidah scholar): Shelf answer matched by keywords: al-waqiah; waqiah; rizq surah; poverty surah
+- `hadi.shelf.156` (Hadith / aqidah scholar): Shelf answer matched by keywords: names of allah meanings; names of allah; asma ul husna; attributes of allah
+- `hadi.shelf.157` (Hadith / aqidah scholar): Shelf answer matched by keywords: ghusl; full bath; janabah; major impurity
+- `hadi.shelf.158` (Fiqh scholar): Shelf answer matched by keywords: tayammum; no water; dust ablution; dry wudu
+- `hadi.shelf.159` (Fiqh scholar): Shelf answer matched by keywords: breaks wudu; nullify wudu; invalid wudu; wudu broken
+- `hadi.shelf.160` (Hadith / aqidah scholar): Shelf answer matched by keywords: period; menstruation; hayd; can I pray on my period
+- `hadi.shelf.161` (Fiqh scholar): Shelf answer matched by keywords: missed prayer; make up prayer; qada prayer; overslept prayer
+- `hadi.shelf.162` (Fiqh scholar): Shelf answer matched by keywords: combine prayers; travel prayers; jam; qasr
+- `hadi.shelf.163` (Fiqh scholar): Shelf answer matched by keywords: congregation; jamaah; pray together; mosque prayer
+- `hadi.shelf.164` (Fiqh scholar): Shelf answer matched by keywords: adhan; call to prayer; muadhin; repeat after adhan
+- `hadi.shelf.165` (Hadith / aqidah scholar): Shelf answer matched by keywords: khuffs; leather socks; wipe socks; masah
+- `hadi.shelf.166` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawhid; oneness of allah; three types of tawhid; uluhiyyah
+- `hadi.shelf.167` (Hadith / aqidah scholar): Shelf answer matched by keywords: shirk; polytheism; associating partners
+- `hadi.shelf.168` (Hadith / aqidah scholar): Shelf answer matched by keywords: qadar; destiny; predestination; qadr
+- `hadi.shelf.169` (Hadith / aqidah scholar): Shelf answer matched by keywords: angels; jibreel; gabriel; recording angels
+- `hadi.shelf.170` (Hadith / aqidah scholar): Shelf answer matched by keywords: jinn; qarin; evil spirits; demons
+- `hadi.shelf.171` (Hadith / aqidah scholar): Shelf answer matched by keywords: magic; sihr; spell; witchcraft
+- `hadi.shelf.172` (Hadith / aqidah scholar): Shelf answer matched by keywords: bid'ah; innovation; newly invented; bida
+- `hadi.shelf.173` (Hadith / aqidah scholar): Shelf answer matched by keywords: non-muslim family; non muslim parents; my non muslim; christian family
+- `hadi.shelf.174` (Fiqh scholar): Shelf answer matched by keywords: fidya; cannot fast; unable to fast; old age fasting
+- `hadi.shelf.175` (Hadith / aqidah scholar): Shelf answer matched by keywords: wasiyyah; write a will; write my will; my will
+- `hadi.shelf.176` (Fiqh scholar): Shelf answer matched by keywords: faraid; inheritance; who inherits; islamic inheritance
+- `hadi.shelf.177` (Fiqh scholar): Shelf answer matched by keywords: wudu; ablution; how to make wudu; wudhu
+- `hadi.shelf.178` (Fiqh scholar): Shelf answer matched by keywords: wudu nullifiers; breaks wudu; break my wudu; nullify wudu
+- `hadi.shelf.179` (Fiqh scholar): Shelf answer matched by keywords: tayammum; dry ablution; no water; sand prayer
+- `hadi.shelf.180` (Hadith / aqidah scholar): Shelf answer matched by keywords: ghusl; ritual bath; janabah; major impurity
+- `hadi.shelf.181` (Fiqh scholar): Shelf answer matched by keywords: fajr; dawn prayer; morning prayer; subh
+- `hadi.shelf.182` (Fiqh scholar): Shelf answer matched by keywords: dhuhr; zuhr; noon prayer; midday prayer
+- `hadi.shelf.183` (Fiqh scholar): Shelf answer matched by keywords: asr; afternoon prayer
+- `hadi.shelf.184` (Fiqh scholar): Shelf answer matched by keywords: maghrib; sunset prayer; evening prayer
+- `hadi.shelf.185` (Fiqh scholar): Shelf answer matched by keywords: isha; night prayer
+- `hadi.shelf.186` (Fiqh scholar): Shelf answer matched by keywords: sujood sahw; forgetfulness prostration; mistake in prayer
+- `hadi.shelf.187` (Fiqh scholar): Shelf answer matched by keywords: qada; make up prayers; missed prayer; qaza
+- `hadi.shelf.188` (Fiqh scholar): Shelf answer matched by keywords: taraweeh; tarawih; night ramadan prayer
+- `hadi.shelf.189` (Fiqh scholar): Shelf answer matched by keywords: witr; witr prayer; odd prayer
+- `hadi.shelf.190` (Fiqh scholar): Shelf answer matched by keywords: tahajjud; night prayer; qiyam al-layl; tahajud
+- `hadi.shelf.191` (Fiqh scholar): Shelf answer matched by keywords: janazah; funeral prayer; dead prayer
+- `hadi.shelf.192` (Fiqh scholar): Shelf answer matched by keywords: eid prayer; eid salat; salat al eid
+- `hadi.shelf.193` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua before sleep; sleeping dua; night dua; bedtime dua
+- `hadi.shelf.194` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua after waking; morning dua; waking up
+- `hadi.shelf.195` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua before eating; eating dua; food dua
+- `hadi.shelf.196` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua after eating; finished eating
+- `hadi.shelf.197` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua entering home; entering house; coming home
+- `hadi.shelf.198` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua leaving home; leaving house; going out
+- `hadi.shelf.199` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for travel; traveling dua; safar
+- `hadi.shelf.200` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for rizq; provision dua; money dua; wealth dua
+- `hadi.shelf.201` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for marriage; spouse dua; husband dua; wife dua
+- `hadi.shelf.202` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for children; child dua; baby dua; pregnancy dua
+- `hadi.shelf.203` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for health; sickness dua; healing dua; shifa
+- `hadi.shelf.204` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for protection; protection dua; safe dua
+- `hadi.shelf.205` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for exam; test dua; study dua; knowledge dua
+- `hadi.shelf.206` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for distress; hardship dua; difficulty dua
+- `hadi.shelf.207` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for debt; loan dua; owe money dua
+- `hadi.shelf.208` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for righteous death; good death; husn al-khatimah
+- `hadi.shelf.209` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua entering masjid; masjid entrance; mosque dua
+- `hadi.shelf.210` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for parents; father dua; mother dua; parents forgiveness
+- `hadi.shelf.211` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for forgiveness; istighfar; seek forgiveness; sin
+- `hadi.shelf.212` (Fiqh scholar): Shelf answer matched by keywords: what is halal; what is haram; halal and haram; meaning of halal
+- `hadi.shelf.213` (Hadith / aqidah scholar): Shelf answer matched by keywords: fard; obligatory; wajib; mandatory
+- `hadi.shelf.214` (Hadith / aqidah scholar): Shelf answer matched by keywords: sunnah; mustahabb; recommended; nafl
+- `hadi.shelf.215` (Hadith / aqidah scholar): Shelf answer matched by keywords: makruh; disliked; discouraged
+- `hadi.shelf.216` (Hadith / aqidah scholar): Shelf answer matched by keywords: bidah; innovation; biddah
+- `hadi.shelf.217` (Hadith / aqidah scholar): Shelf answer matched by keywords: shirk; associating partners; polytheism
+- `hadi.shelf.218` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawbah; repentance; turning back
+- `hadi.shelf.219` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawakkul; trust in allah; reliance
+- `hadi.shelf.220` (Hadith / aqidah scholar): Shelf answer matched by keywords: ikhlas; sincerity; pure intention
+- `hadi.shelf.221` (Hadith / aqidah scholar): Shelf answer matched by keywords: ihsan; excellence; perfection
+- `hadi.shelf.222` (Fiqh scholar): Shelf answer matched by keywords: marriage; nikah; getting married; wedding
+- `hadi.shelf.223` (Hadith / aqidah scholar): Shelf answer matched by keywords: mahr; dowry; bride price
+- `hadi.shelf.224` (Hadith / aqidah scholar): Shelf answer matched by keywords: walima; wedding feast; marriage banquet
+- `hadi.shelf.225` (Fiqh scholar): Shelf answer matched by keywords: divorce; talaq; ending marriage
+- `hadi.shelf.226` (Hadith / aqidah scholar): Shelf answer matched by keywords: rights of wife; wife rights; husband duties
+- `hadi.shelf.227` (Hadith / aqidah scholar): Shelf answer matched by keywords: rights of husband; husband rights; wife duties
+- `hadi.shelf.228` (Hadith / aqidah scholar): Shelf answer matched by keywords: child rights; children rights; raising children
+- `hadi.shelf.229` (Hadith / aqidah scholar): Shelf answer matched by keywords: breastfeeding; nursing; infant feeding
+- `hadi.shelf.230` (Hadith / aqidah scholar): Shelf answer matched by keywords: circumcision; khitan; sunan al-fitrah
+- `hadi.shelf.231` (Hadith / aqidah scholar): Shelf answer matched by keywords: aqiqah; newborn sacrifice; baby sacrifice
+- `hadi.shelf.232` (Fiqh scholar): Shelf answer matched by keywords: zakat; zakah; alms; charity obligation
+- `hadi.shelf.233` (Fiqh scholar): Shelf answer matched by keywords: zakat calculation; how to calculate zakat; nisab
+- `hadi.shelf.234` (Hadith / aqidah scholar): Shelf answer matched by keywords: sadaqah; voluntary charity; giving
+- `hadi.shelf.235` (Fiqh scholar): Shelf answer matched by keywords: riba; interest; usury; bank interest
+- `hadi.shelf.236` (Fiqh scholar): Shelf answer matched by keywords: stocks; shares; investment; halal investing
+- `hadi.shelf.237` (Fiqh scholar): Shelf answer matched by keywords: insurance; life insurance; halal insurance
+- `hadi.shelf.238` (Fiqh scholar): Shelf answer matched by keywords: inheritance; mirath; wasiyyah; islamic will
+- `hadi.shelf.239` (Hadith / aqidah scholar): Shelf answer matched by keywords: burial; burying dead; grave; kafan
+- `hadi.shelf.240` (Hadith / aqidah scholar): Shelf answer matched by keywords: visiting graves; graveyard; cemetery
+- `hadi.shelf.241` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua for deceased; dead person dua; funeral dua
+- `hadi.shelf.242` (Hadith / aqidah scholar): Shelf answer matched by keywords: barzakh; grave life; punishment of grave
+- `hadi.shelf.243` (Hadith / aqidah scholar): Shelf answer matched by keywords: day of judgment; qiyamah; last day; resurrection
+- `hadi.shelf.244` (Hadith / aqidah scholar): Shelf answer matched by keywords: jannah; paradise; heaven
+- `hadi.shelf.245` (Hadith / aqidah scholar): Shelf answer matched by keywords: jahannam; hellfire; hell; nar
+- `hadi.shelf.246` (Hadith / aqidah scholar): Shelf answer matched by keywords: depression; sad; hopeless; empty
+- `hadi.shelf.247` (Hadith / aqidah scholar): Shelf answer matched by keywords: loneliness; alone; no friends; isolated
+- `hadi.shelf.248` (Hadith / aqidah scholar): Shelf answer matched by keywords: betrayal; cheated; lied to; backstabbed
+- `hadi.shelf.249` (Hadith / aqidah scholar): Shelf answer matched by keywords: anger; mad; furious; rage
+- `hadi.shelf.250` (Hadith / aqidah scholar): Shelf answer matched by keywords: laziness; procrastination; can't start; unmotivated
+- `hadi.shelf.251` (Hadith / aqidah scholar): Shelf answer matched by keywords: fear; scared; afraid; terror
+- `hadi.shelf.252` (Hadith / aqidah scholar): Shelf answer matched by keywords: guilt; ashamed; regret; remorse
+- `hadi.shelf.253` (Hadith / aqidah scholar): Shelf answer matched by keywords: envy; jealous; hasad; evil eye
+- `hadi.shelf.254` (Hadith / aqidah scholar): Shelf answer matched by keywords: nightmares; bad dreams; scary dream
+- `hadi.shelf.255` (Hadith / aqidah scholar): Shelf answer matched by keywords: ocd; waswasa; whispers; doubts
+- `hadi.shelf.256` (Hadith / aqidah scholar): Shelf answer matched by keywords: laylatul qadr; night of decree; power night
+- `hadi.shelf.257` (Hadith / aqidah scholar): Shelf answer matched by keywords: itikaf; spiritual retreat; mosque retreat
+- `hadi.shelf.258` (Fiqh scholar): Shelf answer matched by keywords: zakat ul fitr; fitrana; eid charity
+- `hadi.shelf.259` (Fiqh scholar): Shelf answer matched by keywords: breaking fast; iftar; opening fast
+- `hadi.shelf.260` (Hadith / aqidah scholar): Shelf answer matched by keywords: suhoor; sehri; pre-dawn meal
+- `hadi.shelf.261` (Fiqh scholar): Shelf answer matched by keywords: kaffarah; kaffara; fast expiation; expiation for breaking the fast
+- `hadi.shelf.262` (Hadith / aqidah scholar): Shelf answer matched by keywords: vomit; vomiting; throw up; threw up
+- `hadi.shelf.263` (Hadith / aqidah scholar): Shelf answer matched by keywords: music; singing; nasheed; songs
+- `hadi.shelf.264` (Hadith / aqidah scholar): Shelf answer matched by keywords: images; photos; pictures; drawing
+- `hadi.shelf.265` (Hadith / aqidah scholar): Shelf answer matched by keywords: dogs; pet dog; keeping dog
+- `hadi.shelf.266` (Hadith / aqidah scholar): Shelf answer matched by keywords: gold silk men; men wear gold; men silk
+- `hadi.shelf.267` (Hadith / aqidah scholar): Shelf answer matched by keywords: beard; shave beard; trim beard
+- `hadi.shelf.268` (Hadith / aqidah scholar): Shelf answer matched by keywords: siwak; miswak; tooth stick
+- `hadi.shelf.269` (Hadith / aqidah scholar): Shelf answer matched by keywords: tajweed; quran recitation; pronunciation
+- `hadi.shelf.270` (Hadith / aqidah scholar): Shelf answer matched by keywords: memorize quran; hifz; memorization
+- `hadi.shelf.271` (Hadith / aqidah scholar): Shelf answer matched by keywords: quran adab; quran manners; reading quran
+- `hadi.shelf.272` (Hadith / aqidah scholar): Shelf answer matched by keywords: ayat al kursi; throne verse; greatest verse
+- `hadi.shelf.273` (Hadith / aqidah scholar): Shelf answer matched by keywords: surah ikhlas; surah falaq; surah nas; muawwidhat
+- `hadi.shelf.274` (Hadith / aqidah scholar): Shelf answer matched by keywords: last two ayahs baqarah; baqarah end; amana rasul
+- `hadi.shelf.275` (Fiqh scholar): Shelf answer matched by keywords: dua after adhan; adhan response; call to prayer
+- `hadi.shelf.276` (Hadith / aqidah scholar): Shelf answer matched by keywords: dua between sajdas; sujood; prostration
+- `hadi.shelf.277` (Hadith / aqidah scholar): Shelf answer matched by keywords: tasbih; subhanallah; glorification
+- `hadi.shelf.278` (Hadith / aqidah scholar): Shelf answer matched by keywords: tahmid; alhamdulillah; praise
+- `hadi.shelf.279` (Hadith / aqidah scholar): Shelf answer matched by keywords: takbir; allahu akbar; magnification
+- `hadi.shelf.280` (Hadith / aqidah scholar): Shelf answer matched by keywords: tahlil; la ilaha illallah; oneness
+- `hadi.shelf.281` (Hadith / aqidah scholar): Shelf answer matched by keywords: salawat; durud; blessings on prophet
+- `hadi.shelf.282` (Hadith / aqidah scholar): Shelf answer matched by keywords: morning adhkar; evening adhkar; daily adhkar
+- `hadi.shelf.283` (Fiqh scholar): Shelf answer matched by keywords: hajj; pilgrimage; fifth pillar
+- `hadi.shelf.284` (Hadith / aqidah scholar): Shelf answer matched by keywords: umrah; minor pilgrimage; lesser pilgrimage
+- `hadi.shelf.285` (Fiqh scholar): Shelf answer matched by keywords: ihram; pilgrimage state; hajj clothes
+- `hadi.shelf.286` (Hadith / aqidah scholar): Shelf answer matched by keywords: tawaf; circumambulation; kaaba
+- `hadi.shelf.287` (Hadith / aqidah scholar): Shelf answer matched by keywords: saee; safa marwa; running
+- `hadi.shelf.288` (Hadith / aqidah scholar): Shelf answer matched by keywords: ruqyah; healing verses; spiritual healing
+- `hadi.shelf.289` (Hadith / aqidah scholar): Shelf answer matched by keywords: black magic; sihr; witchcraft
+- `hadi.shelf.290` (Hadith / aqidah scholar): Shelf answer matched by keywords: jinn; shaytan; devil; satan
+- `hadi.shelf.291` (Hadith / aqidah scholar): Shelf answer matched by keywords: hasad; evil eye; ayn; nazar
+- `hadi.shelf.292` (Fiqh scholar): Shelf answer matched by keywords: salah on time; prayer punctuality; pray on time
+- `hadi.shelf.293` (Fiqh scholar): Shelf answer matched by keywords: congregation; jamaah; praying together; group prayer
+- `hadi.shelf.294` (Fiqh scholar): Shelf answer matched by keywords: women prayer; women masjid; ladies prayer
+- `hadi.shelf.295` (Hadith / aqidah scholar): Shelf answer matched by keywords: menstruation; period; menses; hayd
+- `hadi.shelf.296` (Hadith / aqidah scholar): Shelf answer matched by keywords: postpartum; nifas; bleeding after birth
+- `hadi.shelf.297` (Hadith / aqidah scholar): Shelf answer matched by keywords: istihadha; irregular bleeding; spotting
+- `hadi.shelf.298` (Hadith / aqidah scholar): Shelf answer matched by keywords: neighbors; rights of neighbor; neighbor rights
+- `hadi.shelf.299` (Hadith / aqidah scholar): Shelf answer matched by keywords: guests; hospitality; guest rights
+- `hadi.shelf.300` (Hadith / aqidah scholar): Shelf answer matched by keywords: backbiting; gossip; ghibah; slander
+- `hadi.shelf.301` (Hadith / aqidah scholar): Shelf answer matched by keywords: lying; truth; honesty
+- `hadi.shelf.302` (Hadith / aqidah scholar): Shelf answer matched by keywords: cheating; dishonesty; fraud; deception
+- `hadi.shelf.303` (Hadith / aqidah scholar): Shelf answer matched by keywords: forgiveness; forgive others; let go
+- `hadi.shelf.304` (Hadith / aqidah scholar): Shelf answer matched by keywords: gratitude; shukr; thankful; appreciation
+- `hadi.shelf.305` (Hadith / aqidah scholar): Shelf answer matched by keywords: sabr; patience; endurance; perseverance
+- `hadi.shelf.306` (Hadith / aqidah scholar): Shelf answer matched by keywords: contentment; qanaah; satisfied; enough
+- `hadi.shelf.307` (Hadith / aqidah scholar): Shelf answer matched by keywords: humility; tawadu; modest; humble
+- `hadi.shelf.308` (Hadith / aqidah scholar): Shelf answer matched by keywords: generosity; sakhaw; giving; charitable
+- `hadi.shelf.309` (Hadith / aqidah scholar): Shelf answer matched by keywords: courage; shajaah; brave; fearless
+- `hadi.shelf.310` (Hadith / aqidah scholar): Shelf answer matched by keywords: wisdom; hikmah; understanding; insight
+- `hadi.shelf.311` (Hadith / aqidah scholar): Shelf answer matched by keywords: justice; adl; fairness; equity
+- `hadi.shelf.312` (Hadith / aqidah scholar): Shelf answer matched by keywords: unity; ummah; muslim unity; brotherhood
+- `hadi.shelf.313` (Hadith / aqidah scholar): Shelf answer matched by keywords: dawah; inviting; calling to islam; share islam
+- `hadi.shelf.314` (Hadith / aqidah scholar): Shelf answer matched by keywords: jihad; struggle; striving
+- `hadi.shelf.315` (Hadith / aqidah scholar): Shelf answer matched by keywords: caliphate; khilafah; islamic state; political islam
+- `hadi.shelf.316` (Hadith / aqidah scholar): Shelf answer matched by keywords: shariah; islamic law; fiqh; four schools
+- `hadi.shelf.317` (Hadith / aqidah scholar): Shelf answer matched by keywords: fiqh schools; madhab; hanafi; maliki
+- `hadi.shelf.318` (Hadith / aqidah scholar): Shelf answer matched by keywords: ijtihad; scholarly reasoning; independent judgment
+- `hadi.shelf.319` (Hadith / aqidah scholar): Shelf answer matched by keywords: qiyas; analogy; deductive reasoning
+- `hadi.shelf.320` (Hadith / aqidah scholar): Shelf answer matched by keywords: ijma; consensus; scholarly agreement
+- `hadi.shelf.321` (Hadith / aqidah scholar): Shelf answer matched by keywords: hadith sciences; isnad; matn; hadith authentication
+- `hadi.shelf.322` (Hadith / aqidah scholar): Shelf answer matched by keywords: sahih; authentic hadith; sound hadith
+- `hadi.shelf.323` (Hadith / aqidah scholar): Shelf answer matched by keywords: hasan; good hadith; fair hadith
+- `hadi.shelf.324` (Hadith / aqidah scholar): Shelf answer matched by keywords: daif; weak hadith; unreliable hadith
+- `hadi.shelf.325` (Hadith / aqidah scholar): Shelf answer matched by keywords: mawdu; fabricated hadith; fake hadith
+- `hadi.shelf.326` (Hadith / aqidah scholar): Shelf answer matched by keywords: zina; adultery; fornication; boyfriend
+- `hadi.shelf.327` (Hadith / aqidah scholar): Shelf answer matched by keywords: allah hates me; allah hate me; allah doesnt love me; allah does not love me
+- `hadi.shelf.328` (Hadith / aqidah scholar): Shelf answer matched by keywords: old to pray; kid to pray; kids to pray; child to pray
+- `hadi.shelf.329` (Hadith / aqidah scholar): Shelf answer matched by keywords: meaning of surah ikhlas; what does surah ikhlas mean; meaning of ikhlas; what does ikhlas mean
 
 ### Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus
 
@@ -3454,7 +3453,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Stories: modern hadith
 
-61 items, 11 high priority. Area key `stories-modern`.
+69 items, 11 high priority. Area key `stories-modern`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3494,6 +3493,10 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.modernhadith.mh-community-structure` | Stories > Modern hadith > "The Believers Are a Structure — You Are Somebody's Wall" | 1 chapter(s) of "The Believers Are a Structure — You Are Somebody's Wall" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-work-25` | Stories > Modern hadith > "The Dignity of the Hand" | 1 chapter(s) of "The Dignity of the Hand" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-jumuah-26` | Stories > Modern hadith > "The Excellence of Jumu'ah" | 1 chapter(s) of "The Excellence of Jumu'ah" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
+| `story.modernhadith.mh-jumuah-30` | Stories > Modern hadith > "The Best Day on Which the Sun Rises" | 1 chapter(s) of "The Best Day on Which the Sun Rises" and its source lines (2 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
+| `story.modernhadith.mh-gratitude-31` | Stories > Modern hadith > "Good in Every State" | 1 chapter(s) of "Good in Every State" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
+| `story.modernhadith.mh-patience-32` | Stories > Modern hadith > "Patience at the First Stroke" | 1 chapter(s) of "Patience at the First Stroke" and its source lines (2 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
+| `story.modernhadith.mh-work-33` | Stories > Modern hadith > "The Dignity of the Hand" | 1 chapter(s) of "The Dignity of the Hand" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-youth-feet.ch1` | Stories > Modern hadith > mh-youth-feet > chapter 1 | Chapter 1 of mh-youth-feet, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2416 (the five questions) re-checked: graders differ (daif per Darussalam; hasan per al-Albani), so the page now says to hold it as a reminder, not a ruling. Citation corrected from 2417. Verdict in tool/hadith_verdicts/s4.json.… | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-youth-feet ch1) |
 | `story.modernhadith.mh-youth-friends.ch1` | Stories > Modern hadith > mh-youth-friends > chapter 1 | Chapter 1 of mh-youth-friends, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2378 and Qur’an 4:140 verified; grader wording completed (hasan per Darussalam and al-Albani). (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-youth-friends ch1) |
 | `story.modernhadith.mh-money-birds.ch1` | Stories > Modern hadith > mh-money-birds > chapter 1 | Chapter 1 of mh-money-birds, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2344 verified; graders named (hasan per Darussalam, sahih per al-Albani); an unsupported line about the birds not knowing tomorrow replaced. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | high | docs/story_audit.md (row mh-money-birds ch1) |
@@ -3519,6 +3522,10 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.modernhadith.mh-addiction-ninetynine.ch1` | Stories > Modern hadith > mh-addiction-ninetynine > chapter 1 | Chapter 1 of mh-addiction-ninetynine, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 3470 and Muslim 2766 verified. ‘Hadith of the century’ subtitle removed; pointer to a doctor or addiction service and to Need help now added. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-addiction-ninetynine ch1) |
 | `story.modernhadith.mh-work-25.ch1` | Stories > Modern hadith > mh-work-25 > chapter 1 | Chapter 1 of mh-work-25, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-work-25 ch1) |
 | `story.modernhadith.mh-grief-ibrahim.ch1` | Stories > Modern hadith > mh-grief-ibrahim > chapter 1 | Chapter 1 of mh-grief-ibrahim, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 1303, Muslim 2315 and Qur’an 2:156 verified. The unsupported ‘floor beneath the fall’ claim replaced by 2:156; a line pointing to real help added for grief that becomes too heavy. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | high | docs/story_audit.md (row mh-grief-ibrahim ch1) |
+| `story.modernhadith.mh-jumuah-30.ch1` | Stories > Modern hadith > mh-jumuah-30 > chapter 1 | Chapter 1 of mh-jumuah-30, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-jumuah-30 ch1) |
+| `story.modernhadith.mh-gratitude-31.ch1` | Stories > Modern hadith > mh-gratitude-31 > chapter 1 | Chapter 1 of mh-gratitude-31, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-gratitude-31 ch1) |
+| `story.modernhadith.mh-patience-32.ch1` | Stories > Modern hadith > mh-patience-32 > chapter 1 | Chapter 1 of mh-patience-32, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-patience-32 ch1) |
+| `story.modernhadith.mh-work-33.ch1` | Stories > Modern hadith > mh-work-33 > chapter 1 | Chapter 1 of mh-work-33, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-work-33 ch1) |
 
 ### Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas
 
@@ -4247,7 +4254,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)
 
-1644 items, 111 high priority. Area key `support-packs`.
+1691 items, 113 high priority. Area key `support-packs`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -4297,6 +4304,31 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.alcohol.islamic.005` | Hadi / Wasia support module > pack "alcohol" (support) | When someone spoke with contempt about a man who kept being brought before the Prophet for drinking, the Prophet told them not to, because the man loves Allah and His Messenger. Mercy, not contempt,… | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith bukhari:6780 |
 | `support.alcohol.islamic.006` | Hadi / Wasia support module > pack "alcohol" (support) | You do not have to announce a private struggle to anyone. Scholars say that telling a trusted professional or scholar who can help is allowed to the extent needed, and that you can ask for help witho… | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); fiqh Islamweb fatwa 393796 and Darul Ifta Birmingham fatwa 08109; hadith bukhari:6069 |
 | `support.alcohol.family.001` | Hadi / Wasia support module > pack "alcohol" (support) | If someone you love drinks heavily, you didn't cause it and you can't control it. You can look after yourself, say how you feel calmly, and find support for families. Would you like some ideas? | Support-module snippet (kind family, pack kind support, risk low, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); guideline NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and reco… |
+| `support.being_heard.ask.005` | Hadi / Wasia support module > pack "being_heard" (support) | How are you sleeping and eating through all this? | Support-module snippet (kind ask, pack kind support, risk medium, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off. | App owner | normal | Support packs build (tool/support/build_packs.py) |
+| `support.being_heard.ask.006` | Hadi / Wasia support module > pack "being_heard" (support) | Are there moments when it gets so heavy you feel you can't go on? | Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py); guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority menta… |
+| `support.being_heard.explain.001` | Hadi / Wasia support module > pack "being_heard" (support) | Sadness and anxiety are body and heart signals, not character flaws. They often ease with rest, food, people and time. When they do not, that is a reason to get support, not a reason for shame. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.explain.002` | Hadi / Wasia support module > pack "being_heard" (support) | A mind that keeps replaying worries is trying to protect you, badly. Slow breathing, naming what you see around you, and writing the worry down can quiet it enough to sleep. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background ; guideline WHO mhGAP: assessment for self-harm and suicide in persons with p… |
+| `support.being_heard.explain.003` | Hadi / Wasia support module > pack "being_heard" (support) | Loneliness can sit beside people too. Being surrounded and still unseen is one of the loneliest feelings there is, and it is real. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.explain.004` | Hadi / Wasia support module > pack "being_heard" (support) | Comparing your inside to other people's outside will always hurt. What you see online is a display shelf, not a life. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.explain.005` | Hadi / Wasia support module > pack "being_heard" (support) | Feeling far from Allah is a feeling many sincere people go through, sometimes for a season. The feeling is not a verdict on you. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.explain.006` | Hadi / Wasia support module > pack "being_heard" (support) | Exhaustion makes every problem look permanent. Tired people are not broken people; they are tired. Rest is part of repair, not laziness. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.plan-step.001` | Hadi / Wasia support module > pack "being_heard" (support) | One small step: send one honest sentence to one safe person today. Who comes to mind? | Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py) |
+| `support.being_heard.plan-step.002` | Hadi / Wasia support module > pack "being_heard" (support) | One small step: eat something, drink water, and give yourself ten minutes with no screen. Your body carries this too. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.plan-step.003` | Hadi / Wasia support module > pack "being_heard" (support) | One small step: write down the one thing weighing most, in plain words. Getting it out of your head and onto paper shrinks it. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.plan-step.004` | Hadi / Wasia support module > pack "being_heard" (support) | One small step: make wudu slowly and sit for two quiet minutes afterwards, saying whatever is in your heart to Allah, in your own words. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py) |
+| `support.being_heard.plan-step.005` | Hadi / Wasia support module > pack "being_heard" (support) | One small step: take a short walk without your phone, even to the end of the street and back. Movement loosens what sitting tightens. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.being_heard.safety.001` | Hadi / Wasia support module > pack "being_heard" (support) | If this heaviness ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and there are people who can help to… | Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py); guideline WHO fact sheet: suicide; guideline WHO mhGAP: assessment for self-harm and sui… |
+| `support.being_heard.referral.001` | Hadi / Wasia support module > pack "being_heard" (support) | If this has been heavy for weeks, a doctor or counsellor can genuinely help. You can say: "I've been struggling and I need to talk to someone." | Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background ; guideline WHO mhGAP: assessment for self-harm and suicide in persons with p… |
+| `support.being_heard.referral.002` | Hadi / Wasia support module > pack "being_heard" (support) | A listening service lets you talk to a real person, any hour, without explaining yourself first. The list below shows what is available in your country. | Support-module snippet (kind referral, pack kind support, risk low, evidence B, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); institution Samaritans UK: talk to us by phone |
+| `support.being_heard.islamic.001` | Hadi / Wasia support module > pack "being_heard" (support) | Allah says in the Qur'an not to despair of His mercy, and that He forgives all sins. Nothing you have done or felt has closed His door. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 39:53 |
+| `support.being_heard.islamic.002` | Hadi / Wasia support module > pack "being_heard" (support) | The Prophet taught that no worry, sorrow or harm reaches a believer without Allah wiping away some of their sins through it. Your pain is seen, and it is not wasted. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith muslim:2573; hadith bukhari:5642 |
+| `support.being_heard.islamic.003` | Hadi / Wasia support module > pack "being_heard" (support) | The Qur'an promises that with hardship comes ease, and that Allah does not burden a soul beyond what it can bear. You are not expected to feel fine yet. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 94:5-6; quran 2:286 |
+| `support.being_heard.islamic.004` | Hadi / Wasia support module > pack "being_heard" (support) | The Qur'an says hearts find rest in the remembrance of Allah. Remembrance can be small: one quiet moment, one short phrase, one honest dua in your own words. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 13:28 |
+| `support.being_heard.islamic.005` | Hadi / Wasia support module > pack "being_heard" (support) | Even some companions of the Prophet once told him they felt their faith dip when they left his company, and he did not condemn them for it. Feelings of distance are part of being human, and the way b… | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith muslim:2750 |
+| `support.being_heard.islamic.006` | Hadi / Wasia support module > pack "being_heard" (support) | The Prophet taught that Allah is more pleased with a servant who turns back to Him than a traveller who finds what they thought was lost. Coming back, even slowly, is loved. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith bukhari:6308 |
+| `support.being_heard.islamic.007` | Hadi / Wasia support module > pack "being_heard" (support) | The Prophet taught that your body has a right over you. Rest, food and sleep are not a lack of faith; they are part of it. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith bukhari:6134 |
+| `support.being_heard.islamic.008` | Hadi / Wasia support module > pack "being_heard" (support) | The Prophet taught that when a servant raises their hands in dua, Allah does not return them empty. You can ask Him for exactly what you need, in your own language. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); hadith tirmidhi:3556; hadith abudawud:1488 |
+| `support.being_heard.family.001` | Hadi / Wasia support module > pack "being_heard" (support) | If someone you love is carrying something heavy, you don't need the perfect words. Sit with them, listen without fixing, and keep showing up after the first day. | Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.checkin.checkin-adult.001` | Hadi / Wasia support module > pack "checkin" (support) | It's been a little while. No pressure at all. How have you been? | Support-module snippet (kind checkin, pack kind support, risk low, evidence X, status draft). Flags: needsNativeClinicianReview; needsClinicianReview. No named reviewer has signed off. | Native speaker + Clinician | high | Support packs build (tool/support/build_packs.py); background |
 | `support.checkin.checkin-adult.002` | Hadi / Wasia support module > pack "checkin" (support) | Hello again. I was thinking of you. How are things going for you? | Support-module snippet (kind checkin, pack kind support, risk low, evidence X, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.checkin.checkin-adult.003` | Hadi / Wasia support module > pack "checkin" (support) | It's been about {days_away} days since we spoke. I'm glad to see you. How are you doing? | Support-module snippet (kind checkin, pack kind support, risk low, evidence X, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
@@ -5515,6 +5547,28 @@ Listed in short form (same reason and sources for the whole family; full text in
 - `support.app_help.policy.001` (App owner): The page on how we handle religious content explains how sources, grades and reviews work in Ar-Rayaan, and why something is labe…
 - `support.app_help.quick.001` (App owner): Quick Access is a second home page with shortcuts to the things you use most.
 - `support.app_help.daily.001` (App owner): Daily Duas and the Hadiths for Our Times collections bring short, practical teachings to everyday situations. Open them from the…
+- `support.being_heard.orient.001` (App owner): I'm glad you came here. I'm an app, not a counsellor, but I can listen for as long as you like. What's on your heart?
+- `support.being_heard.orient.002` (App owner): You don't need the right words here. You can start anywhere, and I will stay with it.
+- `support.being_heard.orient.003` (App owner): Thank you for saying something. Nothing has to be solved in this conversation. What would you like me to know first?
+- `support.being_heard.reflect.001` (App owner): It sounds like this has been sitting on you for a while.
+- `support.being_heard.reflect.002` (App owner): You sound worn down by it, and still you showed up here.
+- `support.being_heard.reflect.003` (App owner): It sounds lonely, carrying this without anyone to say it to.
+- `support.being_heard.reflect.004` (App owner): It sounds like your mind is not giving you much rest.
+- `support.being_heard.reflect.005` (App owner): You're hurting, and you're not even sure why.
+- `support.being_heard.reflect.006` (App owner): It sounds like you feel far from Allah right now, and that distance hurts.
+- `support.being_heard.reflect.007` (App owner): It sounds like everyone else's life looks easier than yours, and that comparison is crushing you.
+- `support.being_heard.reflect.008` (App owner): You are worried about your home and the people in it, and it is wearing you down.
+- `support.being_heard.reflect.009` (App owner): It sounds like you needed to say it more than you needed an answer.
+- `support.being_heard.ask.001` (App owner): What does a day like this actually look like for you?
+- `support.being_heard.ask.002` (App owner): When did you last feel a little lighter?
+- `support.being_heard.ask.003` (App owner): Is there anyone in your life who knows even a piece of this?
+- `support.being_heard.ask.004` (App owner): What is the heaviest part of it right now?
+- `support.being_heard.ask.007` (App owner): If one small thing could be different by tonight, what would it be?
+- `support.being_heard.affirm.001` (App owner): Saying it out loud takes something. You did that.
+- `support.being_heard.affirm.002` (App owner): Carrying this and still getting through your days is not nothing.
+- `support.being_heard.affirm.003` (App owner): Wanting to be heard is not weakness. It is human.
+- `support.being_heard.affirm.004` (App owner): However tangled it feels, you are still here, still trying.
+- `support.being_heard.summary.001` (App owner): What I've heard: {topic} is weighing on you, and you want to feel steadier. You don't have to carry it alone.
 - `support.cravings_toolkit.reflect.001` (App owner): It feels like it's pulling hard right now.
 - `support.cravings_toolkit.reflect.002` (App owner): You want it, and you also want to stay on track.
 - `support.cravings_toolkit.reflect.003` (App owner): It sounds like something set this off.

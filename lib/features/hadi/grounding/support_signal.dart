@@ -349,6 +349,23 @@ abstract final class SupportReplies {
     return b.toString();
   }
 
+  /// The fallback for a general distress disclosure (sadness, anxiety,
+  /// loneliness, feeling far from Allah) when the knowledge packs did not
+  /// load. Listening first, no ruling, no advice pushed; three wordings,
+  /// rotated, so a second message never gets the same sentence back.
+  static String buildHeard({required int prior}) {
+    const List<String> bodies = <String>[
+      'Thank you for saying it. I am listening, and I am not going to judge '
+          'you or rush you. What would you like me to know about how it feels?',
+      'I am glad you told me. You do not have to carry this neatly or have '
+          'the right words. What is the heaviest part of it right now?',
+      'I hear you, and there is no pressure here. We can sit with it as long '
+          'as you like. Is there one small thing that would make tonight a '
+          'little easier?',
+    ];
+    return bodies[prior % bodies.length];
+  }
+
   /// The reply for a person who has said they are under 18. No ruling, no
   /// secrecy, no "tell your parents" default.
   static String buildForMinor({required int prior}) {

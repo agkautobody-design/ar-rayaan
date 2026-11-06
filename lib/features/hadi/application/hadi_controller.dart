@@ -35,6 +35,7 @@ import '../data/local_knowledge.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
 import '../grounding/corpus.dart';
+import '../grounding/distress_signal.dart';
 import '../grounding/madhhab.dart';
 import '../grounding/minor_signal.dart';
 import '../grounding/passage.dart';
@@ -592,6 +593,7 @@ class HadiController extends Notifier<HadiState> {
     _latchChecks = 0;
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
     _lastSupportTopic = null;
+    _lastDistressPack = null;
     _hardCheckin = false;
     state = HadiState(
       messages: <HadiMessage>[
@@ -755,6 +757,11 @@ class HadiController extends Notifier<HadiState> {
 
   SupportTopic? _lastSupportTopic;
 
+  /// The pack answering a general distress conversation (sadness, anxiety,
+  /// loneliness, grief, feeling far from Allah), so the next turn in it is
+  /// still heard as part of the same conversation. Memory only.
+  String? _lastDistressPack;
+
   Future<String?> _onlineSupport(
     String q,
     SupportSettings st,
@@ -848,6 +855,16 @@ class HadiController extends Notifier<HadiState> {
   /// natural next turn in it (not a fresh factual question).
   bool _continuesSupport(String q) {
     if (_lastSupportTopic == null || state.messages.isEmpty) return false;
+    final HadiMessage last = state.messages.last;
+    if (!last.fromHadi || last.support == null) return false;
+    return EmotionIntentDetector.detect(q).intent != SupportIntent.askInfo;
+  }
+
+  /// True when the last thing Hadi said was a distress reply (being heard,
+  /// grief, shame) and [q] is a natural next turn in it: "yes", "it helps a
+  /// little", "thanks" carry no feeling word of their own.
+  bool _continuesDistress(String q) {
+    if (_lastDistressPack == null || state.messages.isEmpty) return false;
     final HadiMessage last = state.messages.last;
     if (!last.fromHadi || last.support == null) return false;
     return EmotionIntentDetector.detect(q).intent != SupportIntent.askInfo;
@@ -1406,7 +1423,10 @@ class HadiController extends Notifier<HadiState> {
     if (support == null && crisis == null && !gameAsk && _continuesSupport(q)) {
       support = _lastSupportTopic;
     }
-    if (support != null) _lastSupportTopic = support;
+    if (support != null) {
+      _lastSupportTopic = support;
+      _lastDistressPack = null;
+    }
 
     // Hādi is for adults. Someone who says they are under 18 gets a short
     // fixed reply and the children's lines; no live model is called.
@@ -1513,6 +1533,66 @@ class HadiController extends Notifier<HadiState> {
       );
       await _stat(HadiAnswerKind.safety);
       return reply;
+    }
+
+    // A person carrying something heavy that is not an addiction — sadness,
+    // anxiety, loneliness, grief, overwhelm, comparison, feeling far from
+    // Allah — is heard by the same on-device engine, with the same rules:
+    // never a ruling card, never a live model, never saved, never reportable.
+    // This runs only when the crisis layer, the safe replies, the memory
+    // commands and SupportSignal have all said "not mine".
+    if (support == null && crisis == null && !gameAsk) {
+      String? distressPack = DistressSignal.packFor(q);
+      if (distressPack == null && _continuesDistress(q)) {
+        distressPack = _lastDistressPack;
+      }
+      if (distressPack != null) {
+        _lastDistressPack = distressPack;
+        _lastSupportTopic = null;
+        final int prior = state.messages
+            .where((HadiMessage m) => m.fromHadi && m.support != null)
+            .length;
+        final SupportSettings prefsNow = ref.read(supportSettingsProvider);
+        final SupportTurn? turn = SupportPackRepository.engine?.reply(
+          _supportSession,
+          pack: _hardCheckin &&
+                  SupportPackRepository.byName('shame_despair') != null
+              ? 'shame_despair'
+              : distressPack,
+          userText: q,
+          extraPacks: _extraPacksFor(q),
+          lang: resolveSupportLanguage(
+              prefsNow.language, ref.read(localeProvider).languageCode),
+          toneSetting: prefsNow.tone,
+        );
+        final List<String> ids = turn?.ids ?? const <String>[];
+        // A distress reply with no checked wording in the chosen language is
+        // shown in English with a clear note in that language.
+        final String reply = withEmergencyLine(
+            withEnglishFallbackNote(
+                turn?.text ?? SupportReplies.buildHeard(prior: prior),
+                _supportLang),
+            _supportLang);
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+              fromHadi: true,
+              text: reply,
+              sensitive: true,
+              support: distressPack,
+              supportIds: ids,
+              helpScope: 'general',
+              notes: supportReviewLabels(
+                  'support.hadi-replies', 'support.hadi-replies'),
+            ),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.safety);
+        return reply;
+      }
     }
 
     // Someone who says a person they love has died, or a baby was lost, is

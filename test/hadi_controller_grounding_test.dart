@@ -49,7 +49,7 @@ void main() {
     );
     final String a = await c
         .read(hadiControllerProvider.notifier)
-        .ask('I feel anxious and worried', provider: live);
+        .ask('Tell me about patience', provider: live);
     expect(a.contains('99999'), isFalse);
     expect(a.contains('[['), isFalse);
     final HadiMessage m = c.read(hadiControllerProvider).messages.last;
@@ -65,7 +65,7 @@ void main() {
     await ctrl.setMadhhab(Madhhab.shafii);
     expect(c.read(hadiControllerProvider).madhhab, Madhhab.shafii);
     final _Stub live = _Stub('Peace be with you.');
-    await ctrl.ask('I feel anxious and worried', provider: live);
+    await ctrl.ask('Tell me about patience', provider: live);
     final String sent = live.questions.single;
     expect(sent, contains('[[src:'));
     expect(sent, contains('Shafi'));

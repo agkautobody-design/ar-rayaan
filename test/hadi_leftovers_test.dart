@@ -108,7 +108,7 @@ void main() {
     test('the controller still gives the person a note to open', () async {
       final ProviderContainer c = await container();
       final String shown = await c.read(hadiControllerProvider.notifier).ask(
-            'I feel anxious and worried',
+            'Tell me about patience',
             provider: _Stub('Sahih Bukhari 99999 says so. [[src:q:94:5-6]]'),
           );
       expect(shown.contains('removed'), isFalse);
