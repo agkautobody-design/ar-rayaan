@@ -77,6 +77,11 @@ class ExploreScreen extends ConsumerWidget {
       'Healing & Guidance',
       [
         (
+          Icons.favorite_border,
+          'I Need Help · Talk to Hādi',
+          AppRoutes.needHelp,
+        ),
+        (
           Icons.spa_outlined,
           'Sakina · Healing for the Heart',
           AppRoutes.sakina,

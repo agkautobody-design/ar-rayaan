@@ -77,6 +77,7 @@ import '../features/sakina/presentation/marriage_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
 import '../features/support/domain/quick_exit_signal.dart';
 import '../features/support/presentation/parent_listening_screen.dart';
+import '../features/support/presentation/need_help_screen.dart';
 import '../features/support/presentation/support_pathway_screens.dart';
 import '../features/support/presentation/support_wellbeing_screen.dart';
 import '../features/sakina/presentation/wellbeing_tools.dart';
@@ -253,6 +254,8 @@ abstract final class AppRoutes {
   static const String sourcesReview = '/sources/review';
   static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
+  /// "I need help": being heard by Hādi first, help lines one tap away.
+  static const String needHelp = '/i-need-help';
   static const String support = '/support';
   static const String supportSettings = '/settings/support';
   static const String parentListening = '/support/listening-to-your-child';
@@ -978,6 +981,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.sakina,
         pageBuilder: (c, s) => _fade(const SakinaScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.needHelp,
+        pageBuilder: (c, s) => _fade(const NeedHelpScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.support,

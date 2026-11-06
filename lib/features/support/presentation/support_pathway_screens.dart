@@ -103,6 +103,35 @@ class SupportHubScreen extends ConsumerWidget {
                     style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
                   ),
                   const SizedBox(height: 12),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: GlassCard(
+                      key: const Key('support-hub-talk-first'),
+                      onTap: () => context.open(AppRoutes.needHelp),
+                      semanticsLabel: 'Talk to Hādi first. Be heard without '
+                          'judgment, then find the right page.',
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 14),
+                      child: Row(children: <Widget>[
+                        const Icon(Icons.chat_bubble_outline,
+                            size: 18, color: AppColors.goldLight),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text('Talk to Hādi first',
+                                  style: AppText.body.copyWith(fontSize: 15)),
+                              Text(
+                                  'Be heard without judgment — then find the right page together.',
+                                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                            ],
+                          ),
+                        ),
+                        const Icon(Icons.chevron_right, size: 18),
+                      ]),
+                    ),
+                  ),
                   for (final SupportPathway p in kSupportPathways)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),

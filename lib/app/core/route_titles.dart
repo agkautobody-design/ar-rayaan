@@ -17,6 +17,7 @@ abstract final class RouteTitles {
     '/settings/language': 'Language',
     '/settings/support': 'Support & wellbeing',
     '/support': 'Support',
+    '/i-need-help': 'I Need Help',
     '/masajid': 'Masajid and Halal Food',
     '/home/elder': 'Elder Home',
     '/elder-care': 'Elder Care',
