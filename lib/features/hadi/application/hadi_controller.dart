@@ -594,6 +594,7 @@ class HadiController extends Notifier<HadiState> {
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
     _lastSupportTopic = null;
     _lastDistressPack = null;
+    _lastDistressTheme = null;
     _hardCheckin = false;
     state = HadiState(
       messages: <HadiMessage>[
@@ -762,6 +763,10 @@ class HadiController extends Notifier<HadiState> {
   /// still heard as part of the same conversation. Memory only.
   String? _lastDistressPack;
 
+  /// The pain the person named first, so even the fixed fallback keeps
+  /// reflecting that same pain on later turns. Memory only.
+  String? _lastDistressTheme;
+
   Future<String?> _onlineSupport(
     String q,
     SupportSettings st,
@@ -867,7 +872,13 @@ class HadiController extends Notifier<HadiState> {
     if (_lastDistressPack == null || state.messages.isEmpty) return false;
     final HadiMessage last = state.messages.last;
     if (!last.fromHadi || last.support == null) return false;
-    return EmotionIntentDetector.detect(q).intent != SupportIntent.askInfo;
+    if (EmotionIntentDetector.detect(q).intent == SupportIntent.askInfo) {
+      return false;
+    }
+    // "Yes please, the dua for my mother" after a condolence is an ask for
+    // the checked shelf, not another listening turn.
+    if (DistressSignal.asksForContent(q)) return false;
+    return true;
   }
 
   static String _packFor(SupportTopic t) => switch (t) {
@@ -1542,13 +1553,19 @@ class HadiController extends Notifier<HadiState> {
     // This runs only when the crisis layer, the safe replies, the memory
     // commands and SupportSignal have all said "not mine".
     if (support == null && crisis == null && !gameAsk) {
-      String? distressPack = DistressSignal.packFor(q);
+      final String? freshDistress = DistressSignal.packFor(q);
+      String? distressPack = freshDistress;
       if (distressPack == null && _continuesDistress(q)) {
         distressPack = _lastDistressPack;
       }
       if (distressPack != null) {
         _lastDistressPack = distressPack;
         _lastSupportTopic = null;
+        if (freshDistress != null) {
+          // A fresh disclosure names its own pain; a follow-up inherits the
+          // pain the conversation started with.
+          _lastDistressTheme = DistressSignal.themeFor(q) ?? 'heard';
+        }
         final int prior = state.messages
             .where((HadiMessage m) => m.fromHadi && m.support != null)
             .length;
@@ -1566,12 +1583,22 @@ class HadiController extends Notifier<HadiState> {
           toneSetting: prefsNow.tone,
         );
         final List<String> ids = turn?.ids ?? const <String>[];
+        // Without the packs the fallback is a listening line — or, for a
+        // death, the fixed condolence with its route to Sakīnah.
+        String fallback = SupportReplies.buildHeard(
+            prior: prior, theme: _lastDistressTheme ?? 'heard');
+        List<String> routes = const <String>[];
+        if (turn == null && distressPack == 'grief_loss') {
+          final String? condolence = OfflineHadiProvider.griefReply(q);
+          if (condolence != null) {
+            routes = HadiTokens.routesOf(condolence);
+            fallback = HadiTokens.strip(condolence);
+          }
+        }
         // A distress reply with no checked wording in the chosen language is
         // shown in English with a clear note in that language.
         final String reply = withEmergencyLine(
-            withEnglishFallbackNote(
-                turn?.text ?? SupportReplies.buildHeard(prior: prior),
-                _supportLang),
+            withEnglishFallbackNote(turn?.text ?? fallback, _supportLang),
             _supportLang);
         state = state.copy(
           messages: <HadiMessage>[
@@ -1584,6 +1611,7 @@ class HadiController extends Notifier<HadiState> {
               support: distressPack,
               supportIds: ids,
               helpScope: 'general',
+              routes: routes,
               notes: supportReviewLabels(
                   'support.hadi-replies', 'support.hadi-replies'),
             ),

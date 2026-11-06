@@ -3,6 +3,7 @@ import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
 import 'package:ar_rayaan/features/hadi/grounding/distress_signal.dart';
+import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/support_signal.dart';
 import 'package:ar_rayaan/features/sakina/domain/crisis_detector.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -106,6 +107,22 @@ void main() {
           isNull);
     });
 
+    test('the pain is named so no reply is generic', () {
+      expect(DistressSignal.themeFor('I feel anxious and heavy most days'),
+          'anxiety');
+      expect(DistressSignal.themeFor('I feel far from Allah and it hurts'),
+          'far');
+      expect(DistressSignal.themeFor('I am so lonely, nobody cares'),
+          'loneliness');
+      expect(DistressSignal.themeFor('My mother died last week'), 'grief');
+      expect(DistressSignal.themeFor('I hate myself'), 'shame');
+      expect(DistressSignal.themeFor('I feel hopeless'), 'despair');
+      expect(DistressSignal.themeFor('Things at home are hurting me'), 'home');
+      expect(DistressSignal.themeFor('I am burnt out and drained'),
+          'exhaustion');
+      expect(DistressSignal.themeFor('Tell me about patience'), isNull);
+    });
+
     test('a third-person remark is not a disclosure', () {
       expect(DistressSignal.packFor('my husband gambles again'), isNull);
       expect(DistressSignal.packFor('why is everyone so stressed nowadays'),
@@ -136,6 +153,34 @@ void main() {
       expect(q.sensitive, isTrue);
     });
 
+    test('the reply names the pain the person named, never a generic line',
+        () async {
+      final ProviderContainer c = await container();
+      final _Spy live = _Spy();
+      final String anxious = await c.read(hadiControllerProvider.notifier).ask(
+          'I feel anxious and worried all the time', provider: live);
+      expect(anxious.toLowerCase(), contains('worr'));
+      final ProviderContainer c2 = await container();
+      final String far = await c2.read(hadiControllerProvider.notifier).ask(
+          'I feel far from Allah and it hurts', provider: _Spy());
+      expect(far.toLowerCase(), contains('allah'));
+      final ProviderContainer c3 = await container();
+      final String lonely = await c3.read(hadiControllerProvider.notifier).ask(
+          'I am so lonely, nobody cares about me', provider: _Spy());
+      expect(lonely.toLowerCase(), contains('alone'));
+    });
+
+    test('a follow-up keeps reflecting the pain the conversation started '
+        'with', () async {
+      final ProviderContainer c = await container();
+      final HadiController ctrl = c.read(hadiControllerProvider.notifier);
+      await ctrl.ask('I feel far from Allah and it hurts', provider: _Spy());
+      final String again =
+          await ctrl.ask('it has been like this for months', provider: _Spy());
+      // No fresh theme in the follow-up: the same pain is still named.
+      expect(again.toLowerCase(), contains('allah'));
+    });
+
     test('grief is answered as grief, still on the device', () async {
       final ProviderContainer c = await container();
       final _Spy live = _Spy();
@@ -163,6 +208,32 @@ void main() {
       expect(again.trim(), isNotEmpty);
     });
 
+    test('a first "what do I do" about prayers keeps its scholar hand-off',
+        () async {
+      final ProviderContainer c = await container();
+      final _Spy live = _Spy();
+      final String a = await c.read(hadiControllerProvider.notifier).ask(
+          'I missed my prayers for years, what do I do?',
+          provider: live);
+      expect(live.calls, 0);
+      expect(a.toLowerCase(), contains('qualified scholar'));
+    });
+
+    test('after a condolence, "the dua for my mother" is answered by the '
+        'checked shelf, not another listening turn', () async {
+      final ProviderContainer c = await container();
+      final HadiController ctrl = c.read(hadiControllerProvider.notifier);
+      await ctrl.ask('my mother died last week',
+          provider: const OfflineHadiProvider());
+      final HadiMessage first =
+          c.read(hadiControllerProvider).messages.last;
+      expect(first.support, 'grief_loss');
+      expect(first.routes, contains('/sakina'));
+      final String reply = await ctrl.ask('Yes please, the dua for my mother',
+          provider: const OfflineHadiProvider());
+      expect(reply, contains('Allahumma ighfir li hayyina'));
+    });
+
     test('the crisis layer still wins over distress wording', () async {
       final ProviderContainer c = await container();
       final _Spy live = _Spy();
@@ -177,21 +248,51 @@ void main() {
   });
 
   group('the fallback wording', () {
-    test('buildHeard rotates three gentle replies with no moralising', () {
+    test('every theme has gentle rotated replies with no moralising', () {
       const List<String> banned = <String>[
         'haram', 'sin', 'punish', 'forbidden',
       ];
-      final List<String> seen = <String>[
-        for (int i = 0; i < 3; i++) SupportReplies.buildHeard(prior: i),
+      const List<String> themes = <String>[
+        'sadness', 'anxiety', 'loneliness', 'far', 'exhaustion',
+        'comparison', 'home', 'shame', 'despair', 'heard',
       ];
-      expect(seen.toSet().length, 3);
-      for (final String s in seen) {
-        final String lower = s.toLowerCase();
-        for (final String b in banned) {
-          expect(lower.contains(b), isFalse, reason: s);
+      for (final String theme in themes) {
+        final List<String> seen = <String>[
+          for (int i = 0; i < 2; i++)
+            SupportReplies.buildHeard(prior: i, theme: theme),
+        ];
+        expect(seen.toSet().length, greaterThan(1), reason: theme);
+        for (final String s in seen) {
+          final String lower = s.toLowerCase();
+          for (final String b in banned) {
+            expect(lower.contains(b), isFalse, reason: '$theme: $s');
+          }
+          expect(RegExp(r'\d').hasMatch(s), isFalse, reason: s);
+          expect('?'.allMatches(s).length, lessThanOrEqualTo(1), reason: s);
         }
-        expect(RegExp(r'\d').hasMatch(s), isFalse, reason: s);
       }
+    });
+
+    test('each theme wording names its own pain', () {
+      const Map<String, String> probes = <String, String>{
+        'sadness': 'sad',
+        'anxiety': 'worr',
+        'loneliness': 'alone',
+        'far': 'allah',
+        'exhaustion': 'worn',
+        'comparison': 'everyone',
+        'home': 'home',
+        'shame': 'shame',
+        'despair': 'hopeless',
+      };
+      probes.forEach((String theme, String needle) {
+        final String a = SupportReplies.buildHeard(prior: 0, theme: theme)
+            .toLowerCase();
+        final String b = SupportReplies.buildHeard(prior: 1, theme: theme)
+            .toLowerCase();
+        expect(a.contains(needle) || b.contains(needle), isTrue,
+            reason: '$theme should name its pain');
+      });
     });
   });
 }

@@ -145,6 +145,54 @@ abstract final class DistressSignal {
     'my parents fight', 'my marriage is hurting', 'marriage problems',
   ];
 
+  /// True when the message asks for a piece of content (a dua, a verse, a
+  /// hadith) rather than a listening ear. The checked shelf answers those.
+  static bool asksForContent(String text) {
+    final String padded = ' ${CrisisDetector.normalize(text)} ';
+    for (final String w in const <String>[
+      ' dua ', ' duas ', ' verse ', ' verses ', ' ayah ', ' ayat ',
+      ' surah ', ' hadith ',
+    ]) {
+      if (padded.contains(w)) return true;
+    }
+    return false;
+  }
+
+  /// The pain the message carries, in words the reply can reflect back:
+  /// 'sadness', 'anxiety', 'loneliness', 'far' (far from Allah),
+  /// 'exhaustion', 'comparison', 'home', 'shame', 'despair', 'grief',
+  /// 'heard' — or null when nothing specific is said. Used so that no
+  /// reply, even the fixed fallback, is generic: it names what the person
+  /// actually said.
+  static String? themeFor(String text) {
+    final String n = CrisisDetector.normalize(text);
+    if (n.isEmpty) return null;
+    final String padded = ' $n ';
+    final Set<String> words = n.split(' ').toSet();
+    final EmotionIntent ei = EmotionIntentDetector.detect(text);
+    if (_has(padded, _griefPhrases) ||
+        (padded.contains('lost my') && words.any(_lostRelation.contains)) ||
+        (padded.contains('lost our') && words.any(_lostRelation.contains))) {
+      return 'grief';
+    }
+    if (ei.emotions.contains('shame')) return 'shame';
+    if (ei.emotions.contains('despair')) return 'despair';
+    if (_has(padded, _farFromAllah)) return 'far';
+    if (_has(padded, _anxiety) || ei.emotions.contains('fear')) {
+      return 'anxiety';
+    }
+    if (_has(padded, _lonely) || ei.emotions.contains('isolation')) {
+      return 'loneliness';
+    }
+    if (_has(padded, _comparison)) return 'comparison';
+    if (_has(padded, _exhaustion) || ei.emotions.contains('exhaustion')) {
+      return 'exhaustion';
+    }
+    if (_has(padded, _home)) return 'home';
+    if (_has(padded, _sadness)) return 'sadness';
+    return null;
+  }
+
   static bool _has(String padded, List<String> phrases) {
     for (final String k in phrases) {
       if (k.contains(' ')) {
@@ -166,15 +214,22 @@ abstract final class DistressSignal {
 
     // A question stays a question: rulings go to the scholar hand-off,
     // medical questions to the medical hand-off, facts to the library, and
-    // "are you human" to the about-Hadi reply.
+    // "are you human" to the about-Hadi reply. A first message that asks
+    // what to do ("I missed my prayers for years, what do I do?") keeps its
+    // ruling hand-off too; inside a conversation, asking for a step is the
+    // engine's plan-step turn, handled by the continuation, not here.
     const Set<SupportIntent> skip = <SupportIntent>{
       SupportIntent.askInfo,
       SupportIntent.askRuling,
       SupportIntent.askMedical,
       SupportIntent.onlyFriend,
       SupportIntent.askAboutAi,
+      SupportIntent.wantsStep,
     };
     if (skip.contains(ei.intent)) return null;
+    // A direct ask for content ("a dua for my mother") is for the checked
+    // shelf, which can give the actual words; a listening pack cannot.
+    if (asksForContent(text)) return null;
 
     final List<String> tokens = n.split(' ');
     final Set<String> words = tokens.toSet();

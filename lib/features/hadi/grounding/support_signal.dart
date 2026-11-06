@@ -351,18 +351,84 @@ abstract final class SupportReplies {
 
   /// The fallback for a general distress disclosure (sadness, anxiety,
   /// loneliness, feeling far from Allah) when the knowledge packs did not
-  /// load. Listening first, no ruling, no advice pushed; three wordings,
-  /// rotated, so a second message never gets the same sentence back.
-  static String buildHeard({required int prior}) {
-    const List<String> bodies = <String>[
-      'Thank you for saying it. I am listening, and I am not going to judge '
-          'you or rush you. What would you like me to know about how it feels?',
-      'I am glad you told me. You do not have to carry this neatly or have '
-          'the right words. What is the heaviest part of it right now?',
-      'I hear you, and there is no pressure here. We can sit with it as long '
-          'as you like. Is there one small thing that would make tonight a '
-          'little easier?',
-    ];
+  /// load. Never generic: [theme] is the pain the person actually named
+  /// (from DistressSignal.themeFor), and every wording reflects it back
+  /// before it asks anything. Two wordings per pain, rotated by [prior], so
+  /// a second message never gets the same sentence back. Listening first,
+  /// no ruling, no advice pushed.
+  ///
+  /// CLINICIAN REVIEW NEEDED and SCHOLAR REVIEW NEEDED: every reply here is
+  /// shown with both labels until named reviewers have signed it off.
+  static String buildHeard({required int prior, String theme = 'heard'}) {
+    const Map<String, List<String>> byTheme = <String, List<String>>{
+      'sadness': <String>[
+        'That sadness sounds heavy, and you have been carrying it quietly. '
+            'I am listening. What does it feel like today?',
+        'It hurts, and you do not have to pretend otherwise here. Where is '
+            'the sadness sitting right now?',
+      ],
+      'anxiety': <String>[
+        'That constant worry sounds exhausting, like your mind never gets '
+            'to rest. What is it circling most right now?',
+        'Anxiety can make everything feel urgent at once. I am listening. '
+            'What is the loudest worry tonight?',
+      ],
+      'loneliness': <String>[
+        'Feeling so alone, unseen by everyone around you, is a real pain, '
+            'not a small one. What would you want someone to finally '
+            'understand?',
+        'Carrying this alone makes it twice as heavy. You are heard here. '
+            'Who comes closest to noticing, even a little?',
+      ],
+      'far': <String>[
+        'Feeling far from Allah hurts precisely because you care. That ache '
+            'is a heart that wants Him, not one that has left Him. What does '
+            'the distance feel like?',
+        'That distance you feel from Allah is not proof He has left you; it '
+            'is proof you miss Him. Tell me what it feels like.',
+      ],
+      'exhaustion': <String>[
+        'You sound completely worn down, body and heart together. What is '
+            'taking the most out of you right now?',
+        'Running on empty while life keeps asking more is crushing. What '
+            'would rest even look like tonight?',
+      ],
+      'comparison': <String>[
+        'Watching everyone else look fine while you carry this quietly is '
+            'crushing. What comparison cuts deepest?',
+        'Feeling behind while everyone looks ahead is a lonely kind of '
+            'pain. Where do you feel behind?',
+      ],
+      'home': <String>[
+        'Home is supposed to be the safe place, so hurt there cuts deeper. '
+            'What is happening at home?',
+        'When the pain comes from the people closest, it is confusing as '
+            'well as heavy. Tell me what it looks like.',
+      ],
+      'shame': <String>[
+        'That shame is heavy, and you still said it out loud, which takes '
+            'courage. I am not here to judge you. What weighs most?',
+        'Feeling ashamed of yourself is a painful place to be, and you are '
+            'still here, still trying. What does it tell you about yourself?',
+      ],
+      'despair': <String>[
+        'When everything feels pointless, even small steps feel far away. '
+            'I am here with you in it. What feels most hopeless?',
+        'It sounds like hope has gone quiet for you right now. That is a '
+            'heavy place to sit. What does it feel like from the inside?',
+      ],
+      'heard': <String>[
+        'Thank you for saying it. I am listening, and I am not going to '
+            'judge you or rush you. What would you like me to know about how '
+            'it feels?',
+        'I am glad you told me. You do not have to carry this neatly or '
+            'have the right words. What is the heaviest part of it right now?',
+        'I hear you, and there is no pressure here. We can sit with it as '
+            'long as you like. Is there one small thing that would make '
+            'tonight a little easier?',
+      ],
+    };
+    final List<String> bodies = byTheme[theme] ?? byTheme['heard']!;
     return bodies[prior % bodies.length];
   }
 
