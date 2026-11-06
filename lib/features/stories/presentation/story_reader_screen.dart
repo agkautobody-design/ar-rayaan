@@ -38,6 +38,19 @@ import '../../../app/theme/widgets/focus_ring.dart';
 bool arabicIsElided(String arabic) =>
     arabic.contains('...') || arabic.contains('\u2026');
 
+/// The next day of the New Muslim Path after [currentId], or null on the
+/// last day. Days sort by id, the same order the road lists them, so the
+/// reader and the road always agree on what "next" means.
+Story? nextNewMuslimDay(List<Story> all, String currentId) {
+  final List<Story> days = all
+      .where((Story s) => s.collection == 'newmuslim')
+      .toList()
+    ..sort((Story a, Story b) => a.id.compareTo(b.id));
+  final int i = days.indexWhere((Story d) => d.id == currentId);
+  if (i < 0 || i + 1 >= days.length) return null;
+  return days[i + 1];
+}
+
 /// The Qur'an reference named in a story's sources ("Qur'an 2:255" gives
 /// (2, 255); "Qur'an 112-114" gives (112, null)), or null when there is none.
 (int, int?)? quranRefFromSources(List<String> sources) {
@@ -416,6 +429,8 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             // story".
             const SizedBox(height: 12),
             _PathWalkedCard(storyId: story.id),
+            const SizedBox(height: 10),
+            _NextDayCard(storyId: story.id),
             if (!kChildMode.value) ...<Widget>[
               const SizedBox(height: 8),
               TextButton.icon(
@@ -546,6 +561,55 @@ class _SaveStoryButton extends ConsumerWidget {
           color: AppColors.gold,
         ),
         label: Text(saved ? 'Saved' : 'Save', style: AppText.bodyMuted),
+      ),
+    );
+  }
+}
+
+/// "Continue to the next day" at the end of a day of the Path: the
+/// Previous / Next row above moves between this day's own chapters, so
+/// without this card the last chapter of a day was a dead end. On the last
+/// day it becomes a door back to the road.
+class _NextDayCard extends ConsumerWidget {
+  const _NextDayCard({required this.storyId});
+
+  final String storyId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Story> all =
+        ref.watch(storiesProvider).valueOrNull ?? const <Story>[];
+    final Story? next = nextNewMuslimDay(all, storyId);
+    if (next == null) {
+      return Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton.icon(
+          key: const Key('path-back-to-road'),
+          onPressed: () => context.open(AppRoutes.newMuslimPath),
+          icon: const Icon(Icons.route, size: 16, color: AppColors.gold),
+          label: Text('Back to the thirty days',
+              style: AppText.bodyMuted.copyWith(color: AppColors.gold)),
+        ),
+      );
+    }
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        key: const Key('path-next-day'),
+        onPressed: () => context.open(AppRoutes.storyReader, extra: next),
+        icon: const Icon(Icons.arrow_forward, size: 16),
+        label: Flexible(
+          child: Text(
+            'Continue — ${next.title}',
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.gold,
+          foregroundColor: const Color(0xFF0A0F18),
+          minimumSize: const Size(48, 48),
+        ),
       ),
     );
   }
