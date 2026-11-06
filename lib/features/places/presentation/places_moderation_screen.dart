@@ -557,7 +557,7 @@ class _HelpersPanelState extends ConsumerState<_HelpersPanel> {
                                 overflow: TextOverflow.ellipsis),
                             Text(helperRoleLabel(e.value),
                                 style: AppText.bodyMuted.copyWith(
-                                    fontSize: 11,
+                                    fontSize: 12,
                                     color: AppColors.goldLight)),
                           ],
                         ),
@@ -589,6 +589,7 @@ class _HelpersPanelState extends ConsumerState<_HelpersPanel> {
           DropdownButtonFormField<String>(
             key: const Key('helper-role'),
             initialValue: _role,
+            isExpanded: true,
             decoration: const InputDecoration(labelText: 'Badge'),
             items: [
               for (final r in _roles)

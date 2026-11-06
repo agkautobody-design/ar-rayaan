@@ -132,12 +132,12 @@ class HelperBadge extends StatelessWidget {
         border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
       ),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
-        const Icon(Icons.verified, size: 11, color: AppColors.goldLight),
+        const Icon(Icons.verified, size: 13, color: AppColors.goldLight),
         const SizedBox(width: 3),
         Text(
           helperRoleLabel(role),
           style: AppText.bodyMuted.copyWith(
-            fontSize: 10,
+            fontSize: 12,
             color: AppColors.goldLight,
             fontWeight: FontWeight.w600,
           ),

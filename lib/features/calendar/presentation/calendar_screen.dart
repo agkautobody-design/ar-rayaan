@@ -303,6 +303,7 @@ class _MoonSightingSheetState extends ConsumerState<_MoonSightingSheet> {
           DropdownButtonFormField<String>(
             key: const Key('moon-country'),
             initialValue: _country,
+            isExpanded: true,
             decoration: const InputDecoration(labelText: 'Your country'),
             items: [
               for (final e in countries)
