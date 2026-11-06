@@ -58,7 +58,7 @@ class ExploreScreen extends ConsumerWidget {
         ),
         (Icons.sports_esports_outlined, 'Games', AppRoutes.games),
         (Icons.favorite_border, 'For Your Heart', AppRoutes.feelings),
-        (Icons.forum_outlined, 'Majlis \u2014 The Courtyard', AppRoutes.majlis),
+        (Icons.forum_outlined, 'Majlis \u2014 Community', AppRoutes.majlis),
         (Icons.mosque_outlined, 'Masajid \u00b7 mosques near you', '/masajid'),
         (Icons.ios_share_outlined, 'Verse Cards \u00b7 share the light', '/share'),
         (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
@@ -109,8 +109,8 @@ class ExploreScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Kill switch: ar.flag.academy=false removes every Academy entry point.
     final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
-    // The Courtyard is an open forum with no moderation yet. The module
-    // registry says 'gated', so the entry point stays hidden until it is live.
+    // The Majlis (Courtyard + regional community rooms) appears once the
+    // module registry calls it live.
     final bool showMajlis =
         ref.watch(moduleRegistryProvider).valueOrNull?.isLive('majlis') ?? false;
     return ScenicScaffold.pattern(

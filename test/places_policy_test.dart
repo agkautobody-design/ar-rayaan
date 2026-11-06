@@ -16,7 +16,7 @@ void main() {
     test('the new routes have document titles', () {
       expect(RouteTitles.forPath('/places/add'), 'Add to the map · Ar-Rayaan');
       expect(RouteTitles.forPath('/places-admin'),
-          'Community map moderation · Ar-Rayaan');
+          'Community moderation · Ar-Rayaan');
     });
   });
 

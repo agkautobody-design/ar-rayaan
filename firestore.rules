@@ -54,10 +54,14 @@ service cloud.firestore {
         && authorCharsOk(n) && !reservedName(n);
     }
 
-    // The only forum room that exists. Clients can not create rooms, so a
+    // The forum rooms that exist: the Courtyard (everyone) and one room per
+    // community, keyed by ISO country code plus a slug of the city or area
+    // (lib/features/majlis/domain/region.dart builds them and the tests pin
+    // this exact pattern). Clients can not create room documents, so a
     // thread under any other id would be an orphan nobody can browse.
     function knownRoom(room) {
-      return room == 'courtyard';
+      return room == 'courtyard'
+        || room.matches('^region-[a-z]{2}-[a-z0-9][a-z0-9-]{0,38}[a-z0-9]$');
     }
 
     // The per-person write clock. Every thread or post write in the same
@@ -88,6 +92,7 @@ service cloud.firestore {
       allow get: if true;
       allow list: if request.query.limit <= 100;
       allow create: if signedIn()
+        && notBlocked()
         && knownRoom(room)
         && request.resource.data.keys().hasOnly(
              ['title', 'authorName', 'uid', 'createdAt', 'lastActivity', 'replyCount', 'lastPostId'])
@@ -106,6 +111,7 @@ service cloud.firestore {
       // with the server clock, and must arrive together with the post it
       // counts.
       allow update: if signedIn()
+        && notBlocked()
         && knownRoom(room)
         && request.resource.data.diff(resource.data).affectedKeys()
              .hasOnly(['replyCount', 'lastActivity', 'lastPostId'])
@@ -114,7 +120,14 @@ service cloud.firestore {
         && request.resource.data.lastPostId is string
         && existsAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)/posts/$(request.resource.data.lastPostId))
         && rateMoved();
-      allow delete: if false;
+      // The founder can remove any thread. The author can remove their own
+      // only while it is a single post, and only together with that post
+      // (same batch), so no orphan posts are left behind.
+      allow delete: if isFounder()
+        || (signedIn()
+            && resource.data.uid == request.auth.uid
+            && resource.data.replyCount == 1
+            && !existsAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)/posts/$(resource.data.lastPostId)));
     }
     match /majlis_rooms/{room}/threads/{thread}/posts/{post} {
       allow get: if true;
@@ -123,6 +136,7 @@ service cloud.firestore {
       // (same batch), so posts cannot be dropped under a thread that does
       // not exist and the counter cannot move without a post.
       allow create: if signedIn()
+        && notBlocked()
         && knownRoom(room)
         && request.resource.data.keys().hasOnly(['body', 'authorName', 'uid', 'createdAt'])
         && request.resource.data.body is string
@@ -133,16 +147,21 @@ service cloud.firestore {
         && request.resource.data.uid == request.auth.uid
         && getAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)).data.lastPostId == post
         && rateMoved();
-      allow update, delete: if false;
+      allow update: if false;
+      // The founder can remove any post; the author can remove their own.
+      // A thread's only post goes with the thread delete above instead.
+      allow delete: if isFounder()
+        || (signedIn() && resource.data.uid == request.auth.uid);
     }
 
-    // Reports: anyone signed in can file one (once per target); nobody can
-    // read them from the app. Moderators use the console or admin tools.
+    // Reports: anyone signed in can file one (once per target); only
+    // founders can read them (the moderation screen or the console).
     match /majlis_reports/{id} {
-      allow read: if false;
+      allow read: if isFounder();
       allow create: if signedIn()
         && request.resource.data.keys().hasOnly(
-             ['threadId', 'postId', 'target', 'reason', 'note', 'reporterUid', 'createdAt'])
+             ['room', 'threadId', 'postId', 'target', 'reason', 'note', 'reporterUid', 'createdAt'])
+        && knownRoom(request.resource.data.room)
         && request.resource.data.reporterUid == request.auth.uid
         && request.resource.data.threadId is string
         && request.resource.data.target is string
@@ -340,9 +359,12 @@ service cloud.firestore {
         && exists(/databases/$(database)/documents/founders/$(request.auth.uid));
     }
 
-    function notBlockedFromPlaces() {
+    // One shared block list for the community surfaces: the map (adding
+    // and voting) and the Majlis (posting). Founders manage it from the
+    // moderation screen.
+    function notBlocked() {
       return !exists(
-        /databases/$(database)/documents/places_blocked/$(request.auth.uid));
+        /databases/$(database)/documents/blocked_accounts/$(request.auth.uid));
     }
 
     function latOk(v) { return v is number && v >= -90 && v <= 90; }
@@ -389,7 +411,7 @@ service cloud.firestore {
     match /community_places/{placeId} {
       allow read: if true;
 
-      allow create: if realAccount() && notBlockedFromPlaces()
+      allow create: if realAccount() && notBlocked()
         && request.resource.data.keys().hasOnly(
              ['type', 'name', 'lat', 'lon', 'address', 'phone', 'website',
               'note', 'uid', 'createdAt', 'confirms', 'flags', 'hidden'])
@@ -429,7 +451,7 @@ service cloud.firestore {
           && request.resource.data.diff(resource.data).affectedKeys()
                .hasOnly(['hidden'])
           && request.resource.data.hidden is bool)
-        || (realAccount() && notBlockedFromPlaces() && voteMoveOk(placeId));
+        || (realAccount() && notBlocked() && voteMoveOk(placeId));
 
       allow delete: if isFounder();
 
@@ -437,7 +459,7 @@ service cloud.firestore {
       // voting again switches it.
       match /votes/{voter} {
         allow read: if true;
-        allow write: if realAccount() && notBlockedFromPlaces()
+        allow write: if realAccount() && notBlocked()
           && voter == request.auth.uid
           && (request.resource == null
               || (request.resource.data.keys().hasOnly(['kind', 'createdAt'])
@@ -450,7 +472,7 @@ service cloud.firestore {
     match /community_events/{eventId} {
       allow read: if true;
 
-      allow create: if realAccount() && notBlockedFromPlaces()
+      allow create: if realAccount() && notBlocked()
         && request.resource.data.keys().hasOnly(
              ['title', 'where', 'lat', 'lon', 'startsAt', 'details',
               'uid', 'createdAt', 'hidden'])
@@ -556,9 +578,10 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // Accounts blocked from submitting or voting. Only founders manage and
-    // read the list (from the moderation screen).
-    match /places_blocked/{uid} {
+    // Accounts blocked from the community surfaces (map submissions and
+    // votes, Majlis posting). Only founders manage and read the list (from
+    // the moderation screen).
+    match /blocked_accounts/{uid} {
       allow read: if isFounder();
       allow write: if isFounder();
     }

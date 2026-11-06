@@ -16,10 +16,12 @@ class MajlisRejected implements Exception {
   String toString() => message;
 }
 
-/// The Courtyard — phase 1 of the Majlis. Public read, authenticated write.
-/// Posts are not reviewed before they appear; people can report them, and
-/// Firestore rules enforce server timestamps, size limits, reserved names and
-/// a minimum gap between writes.
+/// The Majlis: the Courtyard (open to everyone) plus one regional room per
+/// community (`region-<country>-<area>`, built by domain/region.dart). Public
+/// read, authenticated write. Posts are not reviewed before they appear;
+/// people can report them, authors can delete their own, founders can delete
+/// anything, and Firestore rules enforce server timestamps, size limits,
+/// reserved names and a minimum gap between writes.
 class MajlisService {
   MajlisService({FirebaseFirestore? firestore, FirebaseAuth? auth})
       : _db = firestore ?? FirebaseFirestore.instance,
@@ -36,9 +38,9 @@ class MajlisService {
     return user!.uid;
   }
 
-  CollectionReference<Map<String, dynamic>> get _threads => _db
+  CollectionReference<Map<String, dynamic>> _threadsFor(String room) => _db
       .collection('majlis_rooms')
-      .doc(roomId)
+      .doc(room)
       .collection('threads');
 
   /// Most recent threads shown; the server rules also refuse unbounded reads.
@@ -47,17 +49,23 @@ class MajlisService {
   /// Longest thread the app loads; same bound as `firestore.rules` allows.
   static const int postLimit = 200;
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> threads() => _threads
-      .orderBy('lastActivity', descending: true)
-      .limit(threadLimit)
-      .snapshots();
+  /// Threads of one room — the Courtyard or a regional community room
+    /// (`region-…`, see domain/region.dart), newest activity first.
+    Stream<QuerySnapshot<Map<String, dynamic>>> threads(
+            {String room = roomId}) =>
+        _threadsFor(room)
+            .orderBy('lastActivity', descending: true)
+            .limit(threadLimit)
+            .snapshots();
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> posts(String threadId) => _threads
-      .doc(threadId)
-      .collection('posts')
-      .orderBy('createdAt')
-      .limit(postLimit)
-      .snapshots();
+    Stream<QuerySnapshot<Map<String, dynamic>>> posts(String threadId,
+            {String room = roomId}) =>
+        _threadsFor(room)
+            .doc(threadId)
+            .collection('posts')
+            .orderBy('createdAt')
+            .limit(postLimit)
+            .snapshots();
 
   CollectionReference<Map<String, dynamic>> get _reports =>
       _db.collection('majlis_reports');
@@ -107,6 +115,7 @@ class MajlisService {
   }
 
   Future<String> createThread({
+    required String room,
     required String title,
     required String authorName,
     required String firstPost,
@@ -118,7 +127,7 @@ class MajlisService {
     if (problem != null) throw MajlisRejected(problem);
     await _checkAllowedToWrite();
     final String uid = await _uid();
-    final threadRef = _threads.doc();
+    final threadRef = _threadsFor(room).doc();
     final postRef = threadRef.collection('posts').doc();
     final batch = _db.batch();
     batch.set(threadRef, <String, dynamic>{
@@ -145,6 +154,7 @@ class MajlisService {
   }
 
   Future<void> reply({
+    required String room,
     required String threadId,
     required String body,
     required String authorName,
@@ -154,7 +164,7 @@ class MajlisService {
     if (problem != null) throw MajlisRejected(problem);
     await _checkAllowedToWrite();
     final String uid = await _uid();
-    final threadRef = _threads.doc(threadId);
+    final threadRef = _threadsFor(room).doc(threadId);
     final postRef = threadRef.collection('posts').doc();
     final batch = _db.batch();
     batch.set(postRef, <String, dynamic>{
@@ -177,8 +187,10 @@ class MajlisService {
 
   /// Sends a report to the moderators' queue. One report per person per
   /// target (the document id enforces it). [postId] is null when reporting
-  /// a whole thread.
+  /// a whole thread. The [room] travels with the report so the founder can
+  /// open the thread it came from.
   Future<void> report({
+    required String room,
     required String threadId,
     String? postId,
     required String reason,
@@ -188,9 +200,11 @@ class MajlisService {
       throw const MajlisRejected('Please choose a reason.');
     }
     final String uid = await _uid();
-    final target = postId == null ? threadId : '${threadId}_$postId';
+    final target =
+        postId == null ? '$room:$threadId' : '$room:${threadId}_$postId';
     final trimmed = (note ?? '').trim();
     await _reports.doc('${uid}_$target').set(<String, dynamic>{
+      'room': room,
       'threadId': threadId,
       if (postId != null) 'postId': postId,
       'target': target,
@@ -202,12 +216,52 @@ class MajlisService {
     });
   }
 
+  /// The report queue, newest first — the moderation screen reads this;
+  /// the rules let only a founder read it.
+  Stream<QuerySnapshot<Map<String, dynamic>>> reports() => _reports
+      .orderBy('createdAt', descending: true)
+      .limit(100)
+      .snapshots();
+
+  /// Deletes a thread. When it holds a single post (the author's own
+  /// thread), that post goes in the same batch — the rules require it so no
+  /// orphan is left. A founder removing a longer thread deletes the thread
+  /// document; its posts become unreachable with it.
+  Future<void> deleteThread({required String room, required String threadId}) async {
+    final DocumentReference<Map<String, dynamic>> threadRef =
+        _threadsFor(room).doc(threadId);
+    final DocumentSnapshot<Map<String, dynamic>> snap = await threadRef.get();
+    if (!snap.exists) return;
+    final Map<String, dynamic> data = snap.data() ?? <String, dynamic>{};
+    final int replies = (data['replyCount'] as num?)?.toInt() ?? 1;
+    final batch = _db.batch();
+    batch.delete(threadRef);
+    if (replies == 1) {
+      final String? firstPost = data['lastPostId'] as String?;
+      if (firstPost != null) {
+        batch.delete(threadRef.collection('posts').doc(firstPost));
+      }
+    }
+    await batch.commit();
+  }
+
+  /// Deletes one post. The reply counter is intentionally left alone: the
+  /// rules never let it move backwards, and a count that runs one high is
+  /// honest enough ("3 post(s)" where one was removed).
+  Future<void> deletePost({
+    required String room,
+    required String threadId,
+    required String postId,
+  }) async {
+    await _threadsFor(room).doc(threadId).collection('posts').doc(postId).delete();
+  }
+
   /// Founder tool, NOT called by the app: Firestore rules deny client writes
   /// to rooms and seed threads, so this only works from an admin context.
   /// `assets/majlis/seed.json` holds invented example people; do not seed it
   /// into a live forum without replacing them.
   Future<void> seedIfEmpty() async {
-    final snap = await _threads.limit(1).get();
+    final snap = await _threadsFor(roomId).limit(1).get();
     if (snap.docs.isNotEmpty) return;
     final raw = await rootBundle.loadString('assets/majlis/seed.json');
     final data = json.decode(raw) as Map<String, dynamic>;
@@ -220,7 +274,7 @@ class MajlisService {
           .map((e) => Map<String, dynamic>.from(e as Map))
           .toList();
       final now = Timestamp.now();
-      final ref = await _threads.add({
+      final ref = await _threadsFor(roomId).add({
         'title': tm['title'],
         'authorName': tm['authorName'],
         'uid': 'seed',

@@ -142,9 +142,9 @@ Please do:
 4. CC BY-SA is share-alike. The transliteration file is kept separate and credited. A lawyer can confirm that quoting lines of it in a share next to other text is fine. Until you say so, Qur'an shares carry no transliteration (Arabic and reference only); dua and adhkar shares do.
 5. tanzil.net could not be opened from the build environment, so Tanzil's own transliteration and translation terms were not re-read. The Tanzil Uthmani text terms (CC BY 3.0, verbatim only) come from quran-json's record of them.
 
-## 24. Community map: publish the new rules and make yourself founder (10 minutes, one time)
+## 24. Community map and Majlis: publish the new rules and make yourself founder (10 minutes, one time)
 
-Why: the app now lets signed-in people add masajid, halal-food places and community events to the Masajid/Tayyib screen. The new collections in `firestore.rules` (`community_places`, `community_events`, `place_reports`, `places_rate`, `founders`, `places_blocked`) refuse every write until you publish the rules, and the moderation screen only opens for accounts that have a founder document.
+Why: the app now lets signed-in people add masajid, halal-food places and community events to the Masajid/Tayyib screen. The new collections in `firestore.rules` (`community_places`, `community_events`, `place_reports`, `places_rate`, `founders`, `blocked_accounts`) refuse every write until you publish the rules, and the moderation screen only opens for accounts that have a founder document. The same publish also opens the **Majlis**: the Courtyard (everyone) plus one room per community (country + city/area, chosen on the Majlis screen), with reporting, delete-your-own-posts and founder moderation.
 
 Order matters, as with the Majlis rules: let the app update deploy to the live site FIRST, then publish the rules. (The old app never writes these collections, so nothing breaks if you are late; new submissions simply fail with a polite error until the rules are published.)
 
@@ -152,6 +152,7 @@ Order matters, as with the Majlis rules: let the app update deploy to the live s
 2. Find your account's user id: still in the Firebase console → Authentication → Users → find your sign-in (the account you use in the app) → copy its "User UID".
 3. Create your founder document: Firestore Database → Data tab → Start collection → collection id `founders` → Document ID: paste your UID exactly → add one field: name `note`, type string, value `owner` → Save. (The rules only check that the document exists; the field is just a reminder.)
 4. Confirm it worked: sign in to the live app with that account, then open `https://ar-rayaan.onrender.com/places-admin` — you should see the moderation lists (empty at first), not the "for the founder" card. On any other account you see the card.
+5. Then open the Majlis (Explore → Majlis, or `/majlis`): the room switcher offers the Courtyard and "Set my community" (country + city/area). As the founder you also get a delete control on every thread and post, and MAJLIS REPORTS appears at `/places-admin`.
 
 What you get from then on:
 - The Masajid / Tayyib Food screen has a third tab, Events, and an "add" card on every tab. Signed-in users add places and events; each shows immediately with an "unverified" label.
@@ -159,5 +160,8 @@ What you get from then on:
 - "Report or correct" on any card (including the OpenStreetMap results) lands in your REPORTS list at `/places-admin`, where you can also hide or remove any place or event, and block an abusive account (blocked accounts can no longer add or vote; hide their existing entries separately).
 - Nobody can add anything without a real account (the anonymous sign-in the games use does not count), and one person can submit at most once a minute — the rules enforce both, not just the app.
 - The same rules publish also turns on **beta feedback**: Settings → "Send feedback" lets any tester send a problem report straight to your FEEDBACK list at `/places-admin`, with the app's recent error notes attached when they allow it.
+- **Majlis**: anyone signed in (even the anonymous sign-in) can post in the Courtyard or in a regional room; names, size limits, server timestamps and a 20-second write gap are enforced by the rules, not just the app. People can report threads and posts; authors can delete their own posts (and their thread while it has only their first post); you can delete anything, and accounts you block can no longer post in the Majlis or submit/vote on the map.
 
 If you ever need to undo a block: the BLOCKED ACCOUNTS list at the bottom of `/places-admin` has an Unblock button.
+
+One honest limit to know: the Majlis delete-your-own works by account id, but display names are free text — two people can share a name. Moderation decisions should go by the account (the uid shown on each entry), not the name.

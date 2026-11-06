@@ -105,10 +105,25 @@ void main() {
       expect(rules.contains('createdAt is timestamp'), isFalse);
       expect(rules.contains('lastActivity is timestamp'), isFalse);
     });
-    test('reports collection exists and cannot be read by clients', () {
+    test('reports collection exists and only founders can read it', () {
       final i = rules.indexOf('match /majlis_reports/');
       expect(i, greaterThan(0));
-      expect(rules.substring(i).contains('allow read: if false'), isTrue);
+      expect(rules.substring(i).contains('allow read: if isFounder()'), isTrue);
+    });
+    test('deletion is owner-or-founder, never anonymous editing', () {
+      final t = rules.indexOf('match /majlis_rooms/{room}/threads/{thread} {');
+      expect(t, greaterThan(0));
+      final threadBlock = rules.substring(t);
+      expect(threadBlock, contains('allow delete: if isFounder()'));
+      expect(threadBlock, contains('resource.data.uid == request.auth.uid'));
+      expect(threadBlock, contains('resource.data.replyCount == 1'));
+    });
+    test('regional rooms share the Courtyard rules', () {
+      expect(
+          rules.contains(
+              "room.matches('^region-[a-z]{2}-[a-z0-9][a-z0-9-]{0,38}[a-z0-9]\$')"),
+          isTrue);
+      expect(rules.contains('match /blocked_accounts/{uid}'), isTrue);
     });
     test('rate limiting and reserved names are enforced', () {
       expect(rules.contains('majlis_rate'), isTrue);

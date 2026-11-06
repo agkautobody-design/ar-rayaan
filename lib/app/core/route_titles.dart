@@ -72,7 +72,7 @@ abstract final class RouteTitles {
     '/share': 'Share',
     '/share-app': 'Share Ar-Rayaan',
     '/places/add': 'Add to the map',
-    '/places-admin': 'Community map moderation',
+    '/places-admin': 'Community moderation',
     '/feedback': 'Send feedback',
     '/my-log': 'My log',
     '/sources': 'Sources',

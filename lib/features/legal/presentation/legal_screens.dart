@@ -76,7 +76,8 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'progress or messages at that point, but Google can see your IP '
         'address if the software contacts its servers. Firebase is used for '
         'accounts, Hadi answer reports, online game tables (only for '
-        'grown-ups, never for a child profile) and, once it opens, the Majlis.',
+        'grown-ups, never for a child profile), the Majlis community '
+        'forum, community-map submissions and beta feedback reports.',
   ),
   LegalSection(
     'Your account',
@@ -89,13 +90,16 @@ const List<LegalSection> kTermsSections = <LegalSection>[
   ),
   LegalSection(
     'The Majlis (community)',
-    'The Majlis is not open yet. Once it opens, posts in it are public and '
-        'shown with the display name you '
+    'The Majlis is the community forum: the open Courtyard and one room '
+        'per community (your country plus the city or area you choose). '
+        'Posts in it are public and shown with the display name you '
         'choose. They are not reviewed before they appear. Do not post '
         'anything unlawful, abusive, hateful, deceptive, or that shares '
         'private information about other people, and do not claim to be '
         'Ar-Rayaan, its staff or a scholar. Posts can be reported and may '
-        'be removed. You are responsible for what you post.',
+        'be removed. You can delete your own posts, and your own thread '
+        'while you are its only poster; moderators can remove anything. '
+        'You are responsible for what you post.',
   ),
   LegalSection(
     'Content and accuracy',
@@ -152,11 +156,13 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
   ),
   LegalSection(
     'The Majlis',
-    'The Majlis is not open yet. Once it opens, what you post in it (title, text, display name and an '
-        'identifier for your account) is stored in Firebase Firestore and '
-        'is public. Deleting your account does not automatically remove '
-        'posts already published; contact us to ask for a post to be '
-        'removed.',
+    'What you post in the Majlis (title, text, display name and an '
+        'identifier for your account, plus the community room you chose) '
+        'is stored in Firebase Firestore and is public. Places and events '
+        'you add to the community map are public too. You can delete your '
+        'own Majlis posts yourself; deleting your account does not '
+        'automatically remove posts already published — contact us to ask '
+        'for one to be removed.',
   ),
   LegalSection(
     'Location and other services',
@@ -416,7 +422,8 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                     'What happens: your sign-in and the account data we keep '
                     'about you are removed and cannot be recovered. Posts you '
                     'already made in the Majlis are public and are not removed '
-                    'automatically; contact the app owner to have one removed. '
+                    'automatically — you can remove them yourself from the '
+                    'Majlis first, or contact the app owner to have one removed. '
                     'Bookmarks and progress stored only on this device stay '
                     'until you clear the app\'s data.',
                     style: AppText.caption.copyWith(

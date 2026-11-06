@@ -314,13 +314,13 @@ class CommunityPlacesService {
   /// Blocks an account from submitting or voting. Their existing places are
   /// NOT removed automatically — hide or delete them from the list above.
   Future<void> blockUser(String uid) =>
-      _db.collection('places_blocked').doc(uid).set(<String, dynamic>{
+      _db.collection('blocked_accounts').doc(uid).set(<String, dynamic>{
         'at': FieldValue.serverTimestamp(),
       });
 
   Future<void> unblockUser(String uid) =>
-      _db.collection('places_blocked').doc(uid).delete();
+      _db.collection('blocked_accounts').doc(uid).delete();
 
   Stream<QuerySnapshot<Map<String, dynamic>>> blocked() =>
-      _db.collection('places_blocked').snapshots();
+      _db.collection('blocked_accounts').snapshots();
 }

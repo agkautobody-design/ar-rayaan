@@ -8,7 +8,11 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/router.dart';
 import '../../feedback/application/feedback_providers.dart';
+import '../../majlis/application/majlis_providers.dart';
+import '../../majlis/data/majlis_service.dart';
+import '../../majlis/domain/majlis_policy.dart';
 import '../application/places_providers.dart';
 import '../data/community_places_service.dart';
 import '../domain/community_place.dart';
@@ -32,7 +36,7 @@ class PlacesModerationScreen extends ConsumerWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
           child: Column(children: [
-            const ScreenHeader(title: 'Community map moderation', close: true),
+            const ScreenHeader(title: 'Community moderation', close: true),
             Expanded(
               child: founder.when(
                 loading: () => const Center(
@@ -160,6 +164,12 @@ class _ModerationBody extends ConsumerWidget {
             ]);
           },
         ),
+        const SizedBox(height: 14),
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 8),
+          child: Text('MAJLIS REPORTS', style: AppText.eyebrow),
+        ),
+        const _MajlisReports(),
         const SizedBox(height: 14),
         Padding(
           padding: const EdgeInsets.only(left: 4, bottom: 8),
@@ -433,4 +443,69 @@ String _fmtTime(Object? ts) {
     return DateFormat('d MMM, HH:mm').format(ts.toDate());
   }
   return 'just now';
+}
+
+/// The Majlis report queue — same screen, one stop for the founder. Each
+/// report names its room and thread so it can be opened in one tap.
+class _MajlisReports extends ConsumerWidget {
+  const _MajlisReports();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final MajlisService? majlis = ref.watch(majlisServiceProvider);
+    if (majlis == null) return const SizedBox.shrink();
+    return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+      stream: majlis.reports(),
+      builder: (context, snap) {
+        final List<QueryDocumentSnapshot<Map<String, dynamic>>> docs =
+            snap.data?.docs ?? const <QueryDocumentSnapshot<Map<String, dynamic>>>[];
+        if (docs.isEmpty) {
+          return GlassCard(
+            child: Text('No Majlis reports waiting.',
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
+          );
+        }
+        return Column(children: [
+          for (final d in docs)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: GlassCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      MajlisPolicy.reportLabels[d.data()['reason']] ??
+                          '${d.data()['reason'] ?? ''}',
+                      style: AppText.body.copyWith(
+                          fontWeight: FontWeight.w700, fontSize: 13),
+                    ),
+                    Text(
+                      '${d.data()['room'] ?? 'courtyard'} · '
+                      '${(d.data()['postId'] as String?) != null ? 'a post' : 'a thread'} · '
+                      '${_fmtTime(d.data()['createdAt'])}',
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
+                    ),
+                    if ((d.data()['note'] as String?) != null)
+                      Text(d.data()['note'] as String,
+                          style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () => context.open(
+                          '${AppRoutes.majlisThread}/${d.data()['threadId']}'
+                          '?room=${d.data()['room'] ?? 'courtyard'}',
+                        ),
+                        child: const Text('Open thread',
+                            style: TextStyle(
+                                color: AppColors.goldLight, fontSize: 12)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ]);
+      },
+    );
+  }
 }

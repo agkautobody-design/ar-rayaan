@@ -133,6 +133,8 @@ import '../features/games/presentation/ludo_screen.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/downloads/presentation/downloads_screen.dart';
 import '../features/notes/presentation/tools_screens.dart';
+import '../features/majlis/data/majlis_service.dart';
+import '../features/majlis/domain/region.dart';
 import '../features/majlis/presentation/majlis_screens.dart';
 import '../features/academy/presentation/academy_gate_screen.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
@@ -620,11 +622,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           pageBuilder: (context, state) => _fade(ThreadScreen(
             threadId: state.pathParameters['id']!,
             title: state.extra as String? ?? '',
+            room: roomKeyOrNull(state.uri.queryParameters['room']) ??
+                MajlisService.roomId,
           )),
         ),
         GoRoute(
           path: AppRoutes.majlisNew,
-          pageBuilder: (context, state) => _fade(const NewThreadScreen()),
+          pageBuilder: (context, state) => _fade(NewThreadScreen(
+            room: roomKeyOrNull(state.uri.queryParameters['room']) ??
+                MajlisService.roomId,
+          )),
         ),
         ..._communityRoutes(),
         GoRoute(
