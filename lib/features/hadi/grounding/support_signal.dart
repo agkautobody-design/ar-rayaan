@@ -405,6 +405,36 @@ abstract final class SupportReplies {
         'When the pain comes from the people closest, it is confusing as '
             'well as heavy. Tell me what it looks like.',
       ],
+      'marriage': <String>[
+        'Hurt inside a marriage is its own kind of lonely, because it comes '
+            'from the person meant to be closest. What is it like between '
+            'you right now?',
+        'You sound worn by what is happening in your marriage, and still '
+            'you are looking for a way through. What is the heaviest part '
+            'of it?',
+      ],
+      'money': <String>[
+        'Money worry sits in the body — the sleep, the chest, the constant '
+            'counting. I am listening. What is pressing hardest: the debt, '
+            'the bills, or the not knowing?',
+        'Carrying money fear quietly makes it twice as heavy. You said it '
+            'out loud, and that took something. What does next month look '
+            'like from where you stand?',
+      ],
+      'illness': <String>[
+        'Being sick or in pain changes everything at once — the body, the '
+            'plans, the future. You do not have to be brave here. What is '
+            'the hardest part today?',
+        'Illness asks so much of a person, quietly. I am listening. Where '
+            'is it heaviest — the body, or the fear around it?',
+      ],
+      'family': <String>[
+        'Hurt that comes from family cuts deepest, because these are the '
+            'people who were meant to be safe. What is happening between '
+            'you?',
+        'Loving your family and being hurt by them at the same time is '
+            'confusing and heavy. Tell me what it looks like from inside.',
+      ],
       'shame': <String>[
         'That shame is heavy, and you still said it out loud, which takes '
             'courage. I am not here to judge you. What weighs most?',

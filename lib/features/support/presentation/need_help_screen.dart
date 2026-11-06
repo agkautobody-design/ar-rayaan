@@ -75,6 +75,34 @@ const List<_StartingPoint> _startingPoints = <_StartingPoint>[
     'Things at home are hurting me and I do not know what to do.',
   ),
   _StartingPoint(
+    'marriage',
+    'My marriage is hurting',
+    'Arguments, coldness, or thinking about divorce.',
+    'My marriage is hurting me. We keep having the same fight and I do '
+        'not know how to reach them anymore.',
+  ),
+  _StartingPoint(
+    'money',
+    'Money is crushing me',
+    'Debt, bills, or a lost job — say it out loud.',
+    'I am drowning in bills and debt and I cannot see a way through. I '
+        'need to say it out loud to someone.',
+  ),
+  _StartingPoint(
+    'illness',
+    'I am sick or in pain',
+    'A diagnosis, treatment, or a body that hurts.',
+    'I am sick and scared, and my body is hurting. I need someone to '
+        'hear me.',
+  ),
+  _StartingPoint(
+    'family',
+    'My family and I are struggling',
+    'Parents who do not understand, or being cut off.',
+    'My family does not understand me and home hurts right now. I need '
+        'to talk about it.',
+  ),
+  _StartingPoint(
     'lost-someone',
     'I have lost someone',
     'Grief has its own pace here.',

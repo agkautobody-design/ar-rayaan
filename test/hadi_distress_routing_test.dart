@@ -78,15 +78,88 @@ void main() {
             'I have lost someone I love and the pain does not leave.'),
         'grief_loss',
       );
+      expect(
+        DistressSignal.packFor('My marriage is hurting me. We keep having '
+            'the same fight and I do not know how to reach them anymore.'),
+        'marriage_strain',
+      );
+      expect(
+        DistressSignal.packFor('I am drowning in bills and debt and I '
+            'cannot see a way through. I need to say it out loud to someone.'),
+        'money_hardship',
+      );
+      expect(
+        DistressSignal.packFor('I am sick and scared, and my body is '
+            'hurting. I need someone to hear me.'),
+        'illness_pain',
+      );
+      expect(
+        DistressSignal.packFor('My family does not understand me and home '
+            'hurts right now. I need to talk about it.'),
+        'family_strain',
+      );
     });
 
     test('a death routes to the grief pack', () {
       expect(DistressSignal.packFor('My mother died last week'), 'grief_loss');
       expect(DistressSignal.packFor('his janaza is tomorrow, my heart is broken'),
           'grief_loss');
-      // "lost my job" is heavy, but it is not a death.
+      // "lost my job" is heavy, but it is not a death — it is money
+      // hardship, which has its own pack.
       expect(DistressSignal.packFor('I lost my job and I feel broken'),
-          'being_heard');
+          'money_hardship');
+    });
+
+    test('marriage, money, illness and family each route to their own pack',
+        () {
+      expect(
+          DistressSignal.packFor('My marriage is hurting me. We keep having '
+              'the same fight and I do not know how to reach them anymore.'),
+          'marriage_strain');
+      expect(DistressSignal.packFor('my husband never listens to me anymore'),
+          'marriage_strain');
+      expect(
+          DistressSignal.packFor('my mother in law interferes in everything '
+              'and my husband says nothing'),
+          'marriage_strain');
+      expect(DistressSignal.packFor('I have been thinking about divorce'),
+          'marriage_strain');
+      expect(
+          DistressSignal.packFor('I am drowning in bills and debt and I '
+              'cannot see a way through.'),
+          'money_hardship');
+      expect(DistressSignal.packFor('I got fired and I cannot tell my family'),
+          'money_hardship');
+      expect(DistressSignal.packFor('the rent is due and I have nothing'),
+          'money_hardship');
+      expect(
+          DistressSignal.packFor(
+              'I was just diagnosed with cancer and I am terrified'),
+          'illness_pain');
+      expect(
+          DistressSignal.packFor(
+              'I have been in pain for years and nobody believes me'),
+          'illness_pain');
+      expect(DistressSignal.packFor('my parents dont understand me at all'),
+          'family_strain');
+      expect(DistressSignal.packFor('my family disowned me when I converted'),
+          'family_strain');
+      expect(
+          DistressSignal.packFor(
+              'my son is drifting and I do not know how to reach him'),
+          'family_strain');
+    });
+
+    test('idioms and third-person remarks stay out', () {
+      // "sick and tired of traffic" is not an illness disclosure.
+      expect(DistressSignal.packFor('I am sick and tired of this traffic'),
+          isNull);
+      // A friend's diagnosis is not the speaker's own body.
+      expect(DistressSignal.packFor('my friend was diagnosed with cancer'),
+          isNull);
+      // A divorce QUESTION is a ruling, not a disclosure.
+      expect(DistressSignal.packFor('is talaq valid if said in anger?'),
+          isNull);
     });
 
     test('shame and despair route to their own pack', () {
@@ -120,6 +193,13 @@ void main() {
       expect(DistressSignal.themeFor('Things at home are hurting me'), 'home');
       expect(DistressSignal.themeFor('I am burnt out and drained'),
           'exhaustion');
+      expect(DistressSignal.themeFor('my husband never listens to me'),
+          'marriage');
+      expect(DistressSignal.themeFor('I am drowning in debt'), 'money');
+      expect(DistressSignal.themeFor('I was just diagnosed with cancer'),
+          'illness');
+      expect(DistressSignal.themeFor('my parents dont understand me'),
+          'family');
       expect(DistressSignal.themeFor('Tell me about patience'), isNull);
     });
 
@@ -234,6 +314,44 @@ void main() {
       expect(reply, contains('Allahumma ighfir li hayyina'));
     });
 
+    test('every named situation is heard on the device and named back',
+        () async {
+      const Map<String, List<String>> situations = <String, List<String>>{
+        'marriage_strain': <String>[
+          'My marriage is hurting me. We keep having the same fight.',
+          'marriage',
+        ],
+        'money_hardship': <String>[
+          'I am drowning in bills and debt and I cannot see a way through.',
+          'money',
+        ],
+        'illness_pain': <String>[
+          'I was just diagnosed with cancer and I am terrified.',
+          'sick',
+        ],
+        'family_strain': <String>[
+          'My family does not understand me and home hurts right now.',
+          'family',
+        ],
+      };
+      for (final MapEntry<String, List<String>> e in situations.entries) {
+        final ProviderContainer c = await container();
+        final _Spy live = _Spy();
+        final String reply = await c
+            .read(hadiControllerProvider.notifier)
+            .ask(e.value[0], provider: live);
+        expect(live.calls, 0, reason: e.key);
+        expect(reply.trim(), isNotEmpty, reason: e.key);
+        final HadiMessage m = c.read(hadiControllerProvider).messages.last;
+        expect(m.support, e.key, reason: m.text);
+        expect(m.sensitive, isTrue, reason: e.key);
+        expect(m.helpScope, 'general', reason: e.key);
+        // The reply names the pain the person named, never a generic line.
+        expect(reply.toLowerCase(), contains(e.value[1]),
+            reason: '${e.key}: $reply');
+      }
+    });
+
     test('the crisis layer still wins over distress wording', () async {
       final ProviderContainer c = await container();
       final _Spy live = _Spy();
@@ -256,6 +374,7 @@ void main() {
       const List<String> themes = <String>[
         'sadness', 'anxiety', 'loneliness', 'far', 'exhaustion',
         'comparison', 'home', 'shame', 'despair', 'heard',
+        'marriage', 'money', 'illness', 'family',
       ];
       for (final String theme in themes) {
         final List<String> seen = <String>[
@@ -283,6 +402,10 @@ void main() {
         'home': 'home',
         'shame': 'shame',
         'despair': 'hopeless',
+        'marriage': 'marriage',
+        'money': 'money',
+        'illness': 'sick',
+        'family': 'family',
       };
       probes.forEach((String theme, String needle) {
         final String a = SupportReplies.buildHeard(prior: 0, theme: theme)

@@ -40,6 +40,10 @@ void main() {
         'being_heard',
         'grief_loss',
         'shame_despair',
+        'marriage_strain',
+        'money_hardship',
+        'illness_pain',
+        'family_strain',
       ])
         SupportPack.parse(
           File('assets/support/packs/$n.json').readAsStringSync(),
@@ -237,6 +241,59 @@ void main() {
       final String reply = await ctrl.ask('Yes please, the dua for my mother',
           provider: const OfflineHadiProvider());
       expect(reply, contains('Allahumma ighfir li hayyina'));
+    });
+
+    test('every named situation is answered by its own real pack, '
+        'on the device', () async {
+      loadRealPacks();
+      const Map<String, String> situations = <String, String>{
+        'marriage_strain':
+            'My marriage is hurting me. We keep having the same fight.',
+        'money_hardship':
+            'I am drowning in bills and debt and I cannot see a way through.',
+        'illness_pain':
+            'I was just diagnosed with cancer and I am terrified.',
+        'family_strain':
+            'My family does not understand me and home hurts right now.',
+      };
+      for (final MapEntry<String, String> e in situations.entries) {
+        final ProviderContainer c = await container();
+        final _RecSpy live = _RecSpy();
+        final String reply = await c
+            .read(hadiControllerProvider.notifier)
+            .ask(e.value, provider: live);
+        expect(live.calls, 0, reason: e.key);
+        final HadiMessage m = c.read(hadiControllerProvider).messages.last;
+        expect(m.support, e.key, reason: m.text);
+        expect(m.sensitive, isTrue, reason: e.key);
+        // The engine answered (not the fixed fallback): an orient snippet.
+        expect(m.supportIds, isNotEmpty, reason: e.key);
+        expect(kindsOf(m), contains('orient'), reason: '${e.key}: $reply');
+        expect('?'.allMatches(reply).length, lessThanOrEqualTo(1),
+            reason: reply);
+      }
+    });
+
+    test('a marriage conversation reaches a small step too', () async {
+      loadRealPacks();
+      final ProviderContainer c = await container();
+      final HadiController ctrl = c.read(hadiControllerProvider.notifier);
+      final _RecSpy live = _RecSpy();
+      await ctrl.ask('My marriage is hurting me. We keep having the same '
+          'fight.', provider: live);
+      for (final String q in <String>[
+        'It has been like this since last year.',
+        'We barely talk any more, we just pass each other.',
+        'I do not recognise us any more.',
+        'It wears me down every single day.',
+      ]) {
+        await ctrl.ask(q, provider: live);
+      }
+      expect(live.calls, 0);
+      final List<String> allKinds = <String>[
+        for (final HadiMessage m in hadiReplies(c)) ...kindsOf(m),
+      ];
+      expect(allKinds, contains('plan-step'), reason: allKinds.toString());
     });
 
     test('thanks mid-conversation is met warmly, still on the device',

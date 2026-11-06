@@ -1,0 +1,1049 @@
+{
+ "schema": 1,
+ "pack": "money_hardship",
+ "packKind": "support",
+ "topic": "money",
+ "description": "Money hardship: debt, job loss, rent and bills, providing for a family, shame around money. Listen first; never judge; pair practical small steps with the Qur'anic promise of provision.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "money_hardship.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Money worry sits in the body — the chest, the sleep, the appetite. However heavy it is tonight, you can set it down here for a moment."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I am glad you said it out loud. Money is one of the hardest things to say out loud, and you just did."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "There is no shame in this room. Tell me plainly how it is, and we will look at it together."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Debt does not just sit on paper — it sits on your chest, and it sounds like it has been there a while."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "debt"],
+   "triggers": ["debt", "debts", "loan", "loans", "owe", "owed"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Losing work is not only losing income. It can feel like losing footing, and you sound shaken by it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "job"],
+   "triggers": ["fired", "redundant", "job", "jobless", "work"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the basics themselves — rent, bills, food — have become a source of fear. That is real fear, not exaggeration."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "essentials"],
+   "triggers": ["rent", "bills", "food", "groceries", "evicted"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Carrying a family's needs on your back and feeling the ground shake is a lonely kind of pressure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "providing"],
+   "triggers": ["provide", "providing", "family", "children", "mouths"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like shame is part of it too — like you feel you should have prevented this somehow."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "shame-money"],
+   "triggers": ["ashamed", "shame", "embarrassed", "failure"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you have been hiding how bad it is, even from people close to you. Hiding it doubles the weight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "hiding"],
+   "triggers": ["hiding", "secret", "pretend", "pretending"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Watching everyone else seem fine while you count coins is a particular kind of loneliness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "comparison"],
+   "triggers": ["everyone", "comparing", "behind", "others"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the uncertainty is the hardest part — not knowing how next month looks at all."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "uncertainty"],
+   "triggers": ["uncertain", "unknown", "month", "future"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.reflect.009",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like money strain has reached into your home and your relationships too. That happens, and it hurts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "strain"],
+   "triggers": ["marriage", "arguments", "home", "spouse"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What is the number that frightens you most — and have you said it aloud to anyone yet?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "priority"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How did it get here — slowly, or all at once?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "story"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who else depends on your income right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "dependents"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How are you sleeping with all this on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there anyone who could stand with you practically — family, community, your masjid?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would breathing room look like — not riches, just room?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so dark that you felt you could not go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Struggling with money says nothing about your worth. Some of the finest people who ever lived knew hunger."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "worth"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Facing the numbers honestly, which you are doing right now, is the bravest financial move there is."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "courage"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are carrying responsibility for others. That weight exists because you care."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.affirm.004",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Asking for help with money is not failure. The community you have given to is allowed to hold you too."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "help"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Money fear narrows thinking — it is a known effect of scarcity, not a flaw in you. That is why small written steps work better than big worried plans."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "scarcity"],
+   "triggers": ["think", "focus", "cant", "mind"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Unopened letters and unchecked balances grow scarier in the dark. Writing the real numbers down almost always shrinks them to a size you can work with."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "numbers"],
+   "triggers": ["letters", "balance", "bank", "scared"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Creditors and landlords respond better to early, honest contact than to silence. Asking for time is a normal, expected request — they have processes for it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "creditors"],
+   "triggers": ["creditors", "landlord", "owe", "payment"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Questions about loans, interest and what is permissible belong to a qualified scholar who knows your situation. The worry itself, though — that we can carry together here."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "ruling"],
+   "triggers": ["interest", "riba", "loan", "permissible", "allowed"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Zakat and charity exist precisely for seasons like this. Receiving in a hard season is part of the design, not a humiliation."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "zakat"],
+   "triggers": ["zakat", "charity", "accept", "help"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Job loss grief is real grief. You are allowed to mourn a job, a business, a plan — and then, gently, to start again."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "grief"],
+   "triggers": ["fired", "redundant", "business", "lost"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down every debt and every bill, plainly, on one page. Not to solve tonight — just to see it in the light."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "clarity"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose the loudest debt and ask that one creditor for time or a plan. One call, one letter. That is all today needs."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "creditor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell one trusted person the truth about how tight it is. Money shame dies in daylight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: list three things you can do that someone would pay for, then send one message or one application. Just one."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "income"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.plan-step.005",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask your masjid or a local charity what support exists. You may be surprised how much is built for exactly this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "community"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If money despair ever turns into thoughts of ending your life, please contact your emergency number or a crisis line now. Debts can be renegotiated; you cannot be replaced."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "suicide", "crisis"],
+   "triggers": ["ending", "hopeless", "pointless"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Free debt advice services exist in many countries and will negotiate with creditors on your behalf. A quick search for free debt advice in your country, or a call to a listening line below, can start that today."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "debt-advice"],
+   "triggers": ["advice", "service", "help"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If this weight has sat on you for weeks and nothing lifts it, a doctor or counsellor can genuinely help you carry it. You can say: \"Money stress is crushing me and I need support.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "counsellor"],
+   "triggers": ["weeks", "months", "always", "worse"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah promises in the Qur'an that whoever is mindful of Him, He will make a way out and provide for him from where he never expected. Doors you cannot see yet are still doors."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "provision", "hope"],
+   "triggers": ["provision", "rizq", "door", "hope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "65:2-3", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an says there is no creature on earth whose provision is not upon Allah. Yours is written and on its way; your job is the step, His is the arrival."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "provision"],
+   "triggers": ["provision", "rizq", "written"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "11:6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet himself used to seek Allah's protection from worry and grief, and from the weight of debt. If he taught that prayer, he knew this fear — you are not alone in it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "debt", "dua"],
+   "triggers": ["debt", "worry", "grief"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6369", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught a dua for debt: \"O Allah, suffice me with Your lawful against Your unlawful, and enrich me by Your bounty from all besides You.\" You can say it tonight, slowly."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "dua", "debt"],
+   "triggers": ["dua", "debt", "words"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3563", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that whoever takes people's wealth intending to repay it, Allah will repay on his behalf. An honest intention is already half the road."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "intention", "repay"],
+   "triggers": ["repay", "intention", "intend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:2387", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that whoever gives respite to someone in difficulty, Allah will give him respite in this world and the next. Allah's gentleness with the hard-pressed is the measure of all gentleness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "respite", "mercy"],
+   "triggers": ["time", "respite", "gentle"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:1563", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.islamic.007",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an promises that with hardship comes ease — not after it, with it. Some part of the ease is already here, even if you cannot feel it yet."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "ease"],
+   "triggers": ["ease", "hardship", "hard"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "94:5-6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love is drowning in money worry, do not open with advice or blame. Feed them, sit with them, and help them face one number at a time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "friend", "family-of"],
+   "triggers": ["friend", "husband", "wife", "son", "father"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "money_hardship.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} is pressing hard, and you want room to breathe again. One honest number, one honest conversation, one step — that is the road."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["distress", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

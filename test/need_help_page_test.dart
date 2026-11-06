@@ -47,6 +47,10 @@ void main() {
         'habit',
         'heavy',
         'home',
+        'marriage',
+        'money',
+        'illness',
+        'family',
         'lost-someone',
       ]) {
         expect(find.byKey(Key('need-help-chip-$slug')), findsOneWidget,

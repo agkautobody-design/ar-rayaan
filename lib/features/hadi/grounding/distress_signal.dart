@@ -29,7 +29,7 @@ abstract final class DistressSignal {
   /// is left out on purpose: "my friend feels lonely" is about someone else.
   static const Set<String> _firstPerson = <String>{
     'i', 'im', 'ive', 'me', 'myself', 'am', 'feel', 'feeling', 'felt',
-    'cant', 'cannot', 'main', 'mujhe',
+    'cant', 'cannot', 'main', 'mujhe', 'we',
   };
 
   /// "my" counts as the speaker too, unless it only belongs to a relation
@@ -70,8 +70,75 @@ abstract final class DistressSignal {
     'heart hurts', 'hurting me', 'it hurts', 'hurt inside', 'cry myself',
     'want to cry', 'feel like crying', 'gloomy', 'down bad', 'not okay',
     'not ok', 'broken inside', 'so heavy', 'feels heavy', 'feel heavy',
-    'feeling heavy', 'very heavy', 'lost my job', 'lost my home',
-    'lost everything',
+    'feeling heavy', 'very heavy',
+  ];
+
+  /// A marriage in trouble: loops of arguments, coldness, feeling unloved,
+  /// in-law pressure, thinking about divorce. Ruling questions ("is my
+  /// divorce valid?") never reach here — they are skipped as questions.
+  static const List<String> _marriage = <String>[
+    'my marriage', 'unhappy marriage', 'loveless marriage',
+    'marriage is falling', 'marriage is over', 'marriage is hurting',
+    'marriage problems', 'unhappy in my marriage', 'falling out of love',
+    'my husband doesnt', 'my husband does not', 'my husband never',
+    'my husband ignores', 'my husband wont', 'husband is cold',
+    'my wife doesnt', 'my wife does not', 'my wife never',
+    'my wife ignores', 'my wife wont', 'wife is cold',
+    'my spouse', 'we argue all the time', 'arguing all the time',
+    'we keep arguing', 'constant arguments', 'we fight all the time',
+    'we keep fighting', 'we fight every',
+    'thinking about divorce', 'want a divorce', 'want divorce',
+    'considering divorce', 'asked for divorce', 'asked for talaq',
+    'asked for khula', 'feel unloved', 'feels unloved', 'feeling unloved',
+    'no affection', 'mother in law', 'my in laws',
+  ];
+
+  /// Money pressure: debt, job loss, rent and bills, providing.
+  static const List<String> _money = <String>[
+    'lost my job', 'lost my home', 'lost everything', 'lost my business',
+    'cant pay', 'cannot pay', 'cant afford', 'cannot afford', 'no money',
+    'debt', 'debts', 'in debt', 'drowning in debt', 'rent is due',
+    'behind on rent', 'behind on bills', 'evicted', 'eviction',
+    'fired', 'laid off', 'made redundant', 'redundant', 'bankrupt',
+    'bankruptcy', 'money problems', 'money worries', 'money is tight',
+    'financially', 'bills are', 'bills and', 'cant feed', 'cannot feed',
+    'im broke', 'i am broke', 'paycheck', 'pay cheque', 'salary is gone',
+  ];
+
+  /// Illness and pain in the speaker's own body. "Do I have depression?"
+  /// and friends' illnesses never reach here — questions are skipped and
+  /// the gate keeps this first-person.
+  static const List<String> _illness = <String>[
+    'been sick', 'fell ill', 'fallen ill', 'am ill', 'im ill', 'being ill',
+    'sick and scared', 'sick and in pain', 'sick and tired of being sick',
+    'my illness', 'my condition', 'diagnosed', 'my diagnosis',
+    'been diagnosed', 'got diagnosed', 'cancer', 'tumour', 'tumor',
+    'hospital', 'chemo', 'chemotherapy', 'my surgery', 'my operation',
+    'chronic pain', 'constant pain', 'in pain', 'chronically',
+    'my disability', 'am disabled', 'terminally ill', 'terminal illness',
+    'my health is', 'health is failing', 'body is failing', 'cant walk',
+    'cannot walk', 'my treatment',
+  ];
+
+  /// Family strain: parents who do not understand, being cut off or
+  /// rejected, children drifting, conflict with parents. Hurt at home that
+  /// is abuse is read by the crisis layer first and never reaches here.
+  static const List<String> _familyStrain = <String>[
+    'my parents dont understand', 'my parents do not understand',
+    'parents dont understand', 'parents do not understand',
+    'my parents never', 'my family doesnt', 'my family does not',
+    'my family never', 'family doesnt accept', 'family does not accept',
+    'family wont accept', 'family will not accept',
+    'disowned', 'kicked me out', 'thrown me out', 'threw me out',
+    'cut me off', 'cut ties with me', 'not speaking to me',
+    'dont speak to me', 'do not speak to me', 'stopped speaking to me',
+    'rejected me', 'family rejected', 'since i converted',
+    'since i became muslim', 'since i reverted',
+    'arguing with my parents', 'fighting with my parents',
+    'fight with my parents', 'my parents fight',
+    'my son is drifting', 'my daughter is drifting', 'son is drifting',
+    'daughter is drifting', 'my son wont listen', 'my daughter wont listen',
+    'my children dont listen', 'my children do not listen',
   ];
 
   /// Anxiety, stress, overwhelm.
@@ -187,6 +254,10 @@ abstract final class DistressSignal {
     }
     if (ei.emotions.contains('shame')) return 'shame';
     if (ei.emotions.contains('despair')) return 'despair';
+    if (_has(padded, _marriage)) return 'marriage';
+    if (_has(padded, _money)) return 'money';
+    if (_has(padded, _illness)) return 'illness';
+    if (_has(padded, _familyStrain)) return 'family';
     if (_has(padded, _farFromAllah)) return 'far';
     if (_has(padded, _anxiety) || ei.emotions.contains('fear')) {
       return 'anxiety';
@@ -247,12 +318,15 @@ abstract final class DistressSignal {
 
     // The message must be about the speaker, or carry one of the feelings
     // that are almost always first-person ("i hate myself", "hopeless",
-    // "died" beside "my mother").
+    // "died" beside "my mother"). Marriage-strain phrases are themselves
+    // first-person ("my marriage", "my in laws", "we argue"), so they pass
+    // the gate even beside a relation word ("my husband says nothing").
     final bool self = words.any(_firstPerson.contains) ||
         (words.any(_possessive.contains) && !words.any(_relation.contains)) ||
         ei.emotions.any((String e) => const <String>{
               'shame', 'despair', 'guilt', 'isolation', 'grief', 'exhaustion',
-            }.contains(e));
+            }.contains(e)) ||
+        _has(padded, _marriage);
     if (!self) return null;
 
     // Grief first: a death is answered by the grief pack.
@@ -266,6 +340,13 @@ abstract final class DistressSignal {
     if (ei.emotions.contains('shame') || ei.emotions.contains('despair')) {
       return 'shame_despair';
     }
+
+    // The named situations: each has its own pack, its own knowledge and
+    // its own small steps, so the reply can fit the actual life.
+    if (_has(padded, _marriage)) return 'marriage_strain';
+    if (_has(padded, _money)) return 'money_hardship';
+    if (_has(padded, _illness)) return 'illness_pain';
+    if (_has(padded, _familyStrain)) return 'family_strain';
 
     if (_has(padded, _sadness) ||
         _has(padded, _anxiety) ||
