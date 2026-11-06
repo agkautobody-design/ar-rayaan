@@ -249,9 +249,10 @@ void main() {
 
   group('the fallback wording', () {
     test('every theme has gentle rotated replies with no moralising', () {
-      const List<String> banned = <String>[
-        'haram', 'sin', 'punish', 'forbidden',
-      ];
+      // Word-boundary match, like the pack validator: "confusing" and
+      // "single" must not trip on "sin".
+      final RegExp banned =
+          RegExp(r'\b(?:haram|sins?|punish\w*|forbidden)\b');
       const List<String> themes = <String>[
         'sadness', 'anxiety', 'loneliness', 'far', 'exhaustion',
         'comparison', 'home', 'shame', 'despair', 'heard',
@@ -263,10 +264,8 @@ void main() {
         ];
         expect(seen.toSet().length, greaterThan(1), reason: theme);
         for (final String s in seen) {
-          final String lower = s.toLowerCase();
-          for (final String b in banned) {
-            expect(lower.contains(b), isFalse, reason: '$theme: $s');
-          }
+          expect(banned.hasMatch(s.toLowerCase()), isFalse,
+              reason: '$theme: $s');
           expect(RegExp(r'\d').hasMatch(s), isFalse, reason: s);
           expect('?'.allMatches(s).length, lessThanOrEqualTo(1), reason: s);
         }

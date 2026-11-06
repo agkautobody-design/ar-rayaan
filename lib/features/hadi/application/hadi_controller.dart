@@ -1726,6 +1726,14 @@ class HadiController extends Notifier<HadiState> {
           in state.messages.sublist(0, state.messages.length - 1))
         if (!m.sensitive && !m.ephemeral) m,
     ];
+    // The on-device shelf may see everything said (sensitive included): it
+    // never leaves the device, and follow-ups like "yes, the du'a please"
+    // need the sensitive condolence that offered it.
+    final List<HadiMessage> offlineHistory = <HadiMessage>[
+      for (final HadiMessage m
+          in state.messages.sublist(0, state.messages.length - 1))
+        if (!m.ephemeral) m,
+    ];
     // Local knowledge first: the app's own verified guides and Q&A, quoted
     // (never rewritten). Above the confidence threshold this answers alone,
     // with zero API calls. Below it, the closest entry is offered and only
@@ -1740,7 +1748,7 @@ class HadiController extends Notifier<HadiState> {
       if (lk != null) {
         String shelf = '';
         try {
-          shelf = await const OfflineHadiProvider().ask(q, history);
+          shelf = await const OfflineHadiProvider().ask(q, offlineHistory);
         } catch (_) {}
         final bool refusal = HadiRouting.isRefusal(shelf);
         final bool pointer = !refusal &&
@@ -1790,7 +1798,8 @@ class HadiController extends Notifier<HadiState> {
       // pack that merely shares a word ("wash", "help", "app") would win.
       String libraryFirst = '';
       try {
-        libraryFirst = await const OfflineHadiProvider().ask(q, history);
+        libraryFirst =
+            await const OfflineHadiProvider().ask(q, offlineHistory);
       } catch (_) {}
       final bool libraryOwns = HadiCore.isCoreAnswer(libraryFirst) ||
           (HadiRouting.isFixed(libraryFirst) &&
@@ -1858,7 +1867,9 @@ class HadiController extends Notifier<HadiState> {
         isHostedScope(q) &&
         !OfflineHadiProvider.asksMedical(q) &&
         ref.read(hostedAiProvider).isAvailable) {
-      final HadiProvider? h = await _hostedFor(q, history);
+      // The probe inside _hostedFor is the on-device shelf: it may see the
+      // sensitive messages too (they never leave the device).
+      final HadiProvider? h = await _hostedFor(q, offlineHistory);
       if (h != null) {
         p = h;
         hosted = true;
@@ -1927,7 +1938,8 @@ class HadiController extends Notifier<HadiState> {
         liveQuestion = '${ctx.toString()}\nUser’s question: $asked';
       }
       // The offline shelf matches on the user's own words only.
-      answer = await p.ask(p is OfflineHadiProvider ? q : liveQuestion, history);
+      answer = await p.ask(p is OfflineHadiProvider ? q : liveQuestion,
+          p is OfflineHadiProvider ? offlineHistory : history);
     } catch (e) {
       // Live failure never dead-ends: the curated knowledge answers — but
       // say WHY, so a bad key, a blocked region, or CORS is visible instead
@@ -1936,7 +1948,7 @@ class HadiController extends Notifier<HadiState> {
       String offline;
       try {
         offline = await OfflineHadiProvider(hasKey: _apiKey != null)
-            .ask(q, history);
+            .ask(q, offlineHistory);
       } catch (_) {
         offline = OfflineHadiProvider.declineFor(_apiKey != null);
       }
