@@ -1586,22 +1586,26 @@ class HadiController extends Notifier<HadiState> {
           toneSetting: prefsNow.tone,
         );
         final List<String> ids = turn?.ids ?? const <String>[];
-        // Without the packs the fallback is a listening line — or, for a
-        // death, the fixed condolence with its route to Sakīnah.
+        // Without the packs the fallback is a listening line.
         String fallback = SupportReplies.buildHeard(
             prior: prior, theme: _lastDistressTheme ?? 'heard');
         List<String> routes = const <String>[];
-        if (turn == null && distressPack == 'grief_loss') {
+        String? text = turn?.text;
+        if (distressPack == 'grief_loss' &&
+            (turn == null || freshDistress != null)) {
+          // A death is met with the fixed condolence — the same words as
+          // before this feature — carrying its du'a offer and the route to
+          // Sakīnah. The grief pack hears the turns that come after.
           final String? condolence = OfflineHadiProvider.griefReply(q);
           if (condolence != null) {
             routes = HadiTokens.routesOf(condolence);
-            fallback = HadiTokens.strip(condolence);
+            text = HadiTokens.strip(condolence);
           }
         }
         // A distress reply with no checked wording in the chosen language is
         // shown in English with a clear note in that language.
         final String reply = withEmergencyLine(
-            withEnglishFallbackNote(turn?.text ?? fallback, _supportLang),
+            withEnglishFallbackNote(text ?? fallback, _supportLang),
             _supportLang);
         state = state.copy(
           messages: <HadiMessage>[

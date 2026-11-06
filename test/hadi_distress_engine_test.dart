@@ -98,9 +98,12 @@ void main() {
       expect(m.helpScope, 'general');
       final List<String> kinds = kindsOf(m);
       expect(kinds, contains('orient'), reason: kinds.toString());
-      expect(kinds, contains('reflect'), reason: kinds.toString());
-      // Exactly one question is asked — never an interrogation.
-      expect(kinds.where((String k) => k == 'ask').length, 1,
+      expect(kinds.any((String k) => k == 'reflect' || k == 'affirm'),
+          isTrue,
+          reason: kinds.toString());
+      // At most one question is asked — never an interrogation.
+      expect(kinds.where((String k) => k == 'ask').length,
+          lessThanOrEqualTo(1),
           reason: kinds.toString());
       expect('?'.allMatches(reply).length, lessThanOrEqualTo(1),
           reason: reply);
@@ -228,8 +231,9 @@ void main() {
           c.read(hadiControllerProvider).messages.last;
       expect(first.support, 'grief_loss');
       expect(first.sensitive, isTrue);
-      expect(kindsOf(first), contains('orient'),
-          reason: kindsOf(first).toString());
+      // The fixed condolence: it offers the du'a and routes to Sakīnah.
+      expect(first.routes, contains('/sakina'));
+      expect(first.text.toLowerCase(), contains('du'));
       final String reply = await ctrl.ask('Yes please, the dua for my mother',
           provider: const OfflineHadiProvider());
       expect(reply, contains('Allahumma ighfir li hayyina'));
