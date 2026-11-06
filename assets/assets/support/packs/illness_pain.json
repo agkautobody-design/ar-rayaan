@@ -1,0 +1,1027 @@
+{
+ "schema": 1,
+ "pack": "illness_pain",
+ "packKind": "support",
+ "topic": "illness",
+ "description": "Illness and pain: a new diagnosis, chronic pain, hospital and treatment, fear about the body. Listen first; never advise medically; hold the fear and pair treatment with trust in Allah.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "illness_pain.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Illness changes everything at once — the body, the plans, the future. I am here, and I am not in a hurry."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Thank you for telling me. You do not have to be brave about this here."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "However your body is failing or frightening you right now, you can say it plainly. I will stay with it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the diagnosis landed like a stone, and life has not felt level since."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "diagnosis"],
+   "triggers": ["diagnosis", "diagnosed", "results", "scan"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Pain that does not clock out wears a person down in ways nobody sees from outside."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "pain"],
+   "triggers": ["pain", "hurts", "ache", "aching"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like hospitals and appointments have become a second home, and you are so tired of it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "hospital"],
+   "triggers": ["hospital", "appointment", "appointments", "ward"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like part of the pain is that you look fine — and nobody believes how unwell you actually are."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "invisible"],
+   "triggers": ["invisible", "believe", "believes", "looks"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like treatment is its own battle — the side effects, the waiting, the not knowing if it works."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "treatment"],
+   "triggers": ["treatment", "chemo", "medication", "tablets", "operation"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you miss the body you used to have, and grieving that is real grief."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "grief-body"],
+   "triggers": ["miss", "before", "used", "anymore"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like fear about the future — what happens to you, and to the people you love — sits under everything."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "fear"],
+   "triggers": ["scared", "afraid", "fear", "terrified"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are tired of being the strong one for everyone around you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "strong"],
+   "triggers": ["strong", "brave", "everyone"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.reflect.009",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Being sick for a long time changes how the whole world looks. Your weariness makes sense."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "chronic"],
+   "triggers": ["chronic", "years", "months", "long"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What did the doctors actually say — in plain words, as you understood it?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "story"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Where is the pain worst — in the body, or somewhere else?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "locate"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who is going through this with you — is anyone?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What do you miss most from before?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "loss"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What are you most afraid of right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How are your nights — are fear and pain letting you sleep at all?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you wished you would not wake up?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Being frightened by illness is not a failure of faith. It is a human nervous system doing what it does."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You have already survived every hard day so far, including the day you first heard the news."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "strength"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Resting is not giving up. For a body in battle, rest is part of the fight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "rest"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.affirm.004",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are allowed to be tired of being positive. You do not owe anyone a performance."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "permission"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Fear after a diagnosis comes in waves, and the waves are worst at night. Naming the fear out loud — even here — takes some of its size away."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "fear"],
+   "triggers": ["fear", "scared", "night", "afraid"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "I will never advise you on medicine — your doctors carry that, and they should. What I can carry with you is the fear, the waiting, and the nights."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "scope"],
+   "triggers": ["medicine", "treatment", "doctor", "should"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Questions for the doctor are easy to forget in the moment. Writing them down before appointments — even on your phone — gets you real answers."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "questions"],
+   "triggers": ["doctor", "appointment", "ask", "questions"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Pain is easier to bear at some hours than others. Notice your better window and give the hardest things to that window."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "pacing"],
+   "triggers": ["pain", "window", "worse", "morning"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "People who are ill often end up comforting everyone else. You are allowed to hand that job back and simply be the one who is held."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "held"],
+   "triggers": ["strong", "comfort", "everyone", "brave"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write three questions for your doctor — the real ones, including the one you are embarrassed to ask."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask one specific person for one specific thing — a lift, a meal, an hour of company. People help better when the task is clear."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "help"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: give your body one gentle thing today — water, air at a window, a slow short walk if you are able. Kindness to the body counts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "body"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: the Prophet taught a beautiful dua for the sick. Say the word and I will share it with you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "dua"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.plan-step.005",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tonight, one slow breath in and out, and hand the fear to Allah in your own words. Then tell me how the night went."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "night"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this is a medical emergency — severe symptoms, chest pain, trouble breathing — please call your local emergency number now, before we talk further. And if illness ever makes you feel you cannot go on, a crisis line is below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "emergency", "crisis"],
+   "triggers": ["emergency", "breathing", "ending", "hopeless"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Tell your doctor honestly how much this is affecting your sleep, your mood and your days — that is medical information, not complaining, and it changes what they can offer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "doctor"],
+   "triggers": ["doctor", "tell", "honestly"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Support groups for your condition — online or local — put you beside people who understand without explanation. Your doctor or hospital can point you to one."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "group"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that there is no disease for which Allah has not also sent a cure. Treatment and trust belong together — take the medicine and hold the hope."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "cure", "hope"],
+   "triggers": ["cure", "treatment", "hope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5678", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "ibnmajah:3438", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught plainly: seek treatment. Medicine is not a lack of trust in Allah; it is part of trusting Him, because He is the One who made the cure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "treatment"],
+   "triggers": ["treatment", "medicine", "doctor"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "ibnmajah:3436", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "tirmidhi:2038", "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "A woman with falling sickness asked the Prophet for a cure, and chose patience when he promised her Paradise for it. Endurance through illness is seen, and it is not small in His sight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "patience", "reward"],
+   "triggers": ["patience", "reward", "why"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2576", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.8"},
+    {"type": "hadith", "ref": "bukhari:5652", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.8"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that no worry, sickness or sorrow reaches a believer without Allah wiping away some of their sins through it — even the prick of a thorn. None of this is wasted."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "expiation", "mercy"],
+   "triggers": ["sins", "why", "pain", "suffering"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5642", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.8"},
+    {"type": "hadith", "ref": "muslim:2573", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.8"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said the affair of the believer is amazing: ease comes and he is grateful, harm comes and he is patient, and both are good for him. You are inside that promise right now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "amazing", "patience"],
+   "triggers": ["grateful", "patient", "amazing"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5641", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Ayyub called out in his illness, \"Harm has touched me, and You are the Most Merciful of the merciful\" — and Allah answered and removed the harm. His dua is yours to borrow."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "ayyub", "dua"],
+   "triggers": ["ayyub", "dua", "merciful"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "21:83", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.islamic.007",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah does not burden a soul beyond what it can bear. The measure of this illness was taken by the One who made you — you will not be given what you cannot carry."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "bear", "mercy"],
+   "triggers": ["bear", "much", "carry"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:286", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love is ill, do not disappear because you have no words. Bring food, sit quietly, and keep coming back after the first week, when everyone else has stopped."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "friend", "family-of"],
+   "triggers": ["friend", "mother", "father", "husband", "wife"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "illness_pain.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} is asking a lot of you, body and heart. You do not have to carry the fear alone, and you do not have to perform strength here."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["distress", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

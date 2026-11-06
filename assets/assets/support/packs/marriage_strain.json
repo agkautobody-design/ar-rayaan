@@ -1,0 +1,1024 @@
+{
+ "schema": 1,
+ "pack": "marriage_strain",
+ "packKind": "support",
+ "topic": "marriage",
+ "description": "Marriage strain: arguments that loop, coldness, feeling unloved, in-law pressure, thinking about divorce. Listen first; never take sides, never rule on divorce; help the person find one honest next step.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "marriage_strain.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Marriage pain is its own kind of heavy, because it comes from the person who is meant to be the closest. I am listening."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Thank you for trusting this space with it. Whatever is happening between you two, you can say it plainly here."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You do not have to defend anyone here, not them and not yourself. Just tell me how it is for you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the two of you keep having the same fight, and each round costs you more."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "conflict"],
+   "triggers": ["argue", "arguing", "arguments", "fight", "fighting"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the warmth has gone quiet between you, and that silence hurts more than shouting would."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "coldness"],
+   "triggers": ["cold", "distant", "distantly", "quiet", "silence"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Feeling unloved by the person you built a life with is a deep ache, not a small complaint."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "unloved"],
+   "triggers": ["unloved", "affection", "ignored", "unseen"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like people outside the marriage are pressing on it too, and you are carrying pressure from every side."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "in-laws"],
+   "triggers": ["inlaws", "pressure", "interfering"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Even thinking about divorce is exhausting — it sits in the background of everything else you do."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "divorce"],
+   "triggers": ["divorce", "talaq", "khula", "leaving", "separate"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are holding the home together mostly alone, and nobody sees the weight of that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "carrying"],
+   "triggers": ["alone", "everything", "carry", "carrying"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Being married and still feeling lonely is one of the loneliest places there is."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "lonely"],
+   "triggers": ["lonely", "empty", "numb"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are torn — part of you wants to fix this and part of you is so tired."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "torn"],
+   "triggers": ["tired", "confused", "torn", "unsure"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.reflect.009",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like respect has been wearing thin, and that is painful to admit even to yourself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "respect"],
+   "triggers": ["respect", "disrespect", "belittled", "criticism"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What does a good day between you two look like — the last one you can remember?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "exceptions"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How long has it been like this?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "duration"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "After a fight, what happens — does anything get repaired, or does it just go quiet?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "repair"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What first made you choose this person?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "history"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there anyone safe in your life who knows how hard it has been?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "If your spouse could truly hear one sentence from you without defending themselves, what would it be?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "heart"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you safe at home — physically safe?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If no or unclear, move to the domestic abuse flow and the helplines."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Wanting peace in your home is not asking for too much. It is what a home is for."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Talking about it honestly, even here, is not a betrayal of your marriage. It is care for it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Still being here, still hoping it can soften — that is not weakness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "strength"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.affirm.004",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are allowed to say this hurts without deciding anything today."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "permission"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Most couples in trouble are not having many different fights; they are having one fight, on repeat, in different costumes. Naming the loop is the first step out of it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "cycle"],
+   "triggers": ["argue", "arguing", "fight", "loop", "same"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Repair matters more than never fighting. Couples who recover after conflict — a soft word, a cup of tea, a small joke — do better than couples who never disagree."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "repair"],
+   "triggers": ["fight", "argue", "repair", "after"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Feeling unloved often grows in silence, not in cruelty. The longer it goes unnamed, the louder it feels. Saying it, gently and specifically, is how it starts to shrink."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "unloved"],
+   "triggers": ["unloved", "cold", "distant", "affection"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "A marriage carries two families, not two people. Pressure from relatives is real pressure, and it is fair to ask for a boundary kindly and clearly."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "in-laws"],
+   "triggers": ["inlaws", "family", "pressure", "interfering"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Whether a divorce counts, or how to seek one, is a question for a qualified scholar in person — and no one should rush you either way. What we can do here is carry the weight of the thinking."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "ruling"],
+   "triggers": ["divorce", "talaq", "khula", "valid", "count"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down the one thing you most need your spouse to understand, in one plain sentence. Just for yourself, for now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "clarity"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pick a calm hour — not after a fight — and offer one soft sentence, like \"I miss us.\" Who you were at the start is still in there."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "reconnect"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: notice one thing your spouse did today that was not nothing, and say it aloud. It feels small; it is not."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "appreciation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: agree together on a pause word — either of you can say it when a talk starts to burn, and you both stop for twenty minutes."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "pause"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.plan-step.005",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pray two units slowly and ask, in your own words, for softness between you. Then tell me what that was like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "salah"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If anyone in your home is hurting you, or you are frightened of them, that is different from arguments and it is never something to endure quietly. Tell me plainly, and if you are in danger now, contact your local emergency number or a crisis line below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "violence", "crisis"],
+   "triggers": ["hits", "hit", "scared", "afraid", "threatens", "hurts"],
+   "doNotSay": ["Join with helplines.json scope domestic."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A couples counsellor, or a wise elder or imam both of you trust, can hold a conversation that is too hot to hold alone. Asking for that is a strength in a marriage, not an admission of failure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "counsellor"],
+   "triggers": ["counsellor", "mediator", "imam", "elder"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If you need to talk to a person tonight, the listening services below are free and patient. You do not need to explain yourself first."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "listening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "institution", "title": "Samaritans UK: talk to us by phone", "url": "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/", "section": "RES_H1 6.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says He placed between spouses affection and mercy, and made the home a place of stillness. That is His design for you — asking for it back is asking for something He loves."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "mercy", "design"],
+   "triggers": ["love", "mercy", "affection", "sakeena", "tranquility"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "30:21", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that the most complete believers in faith are the best in character, and the best of them are the best to their wives. Gentleness at home is faith, not extra."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "character", "kindness"],
+   "triggers": ["character", "kind", "gentle", "best"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:1162", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 6"},
+    {"type": "hadith", "ref": "tirmidhi:3895", "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 6"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that Allah is kind and loves kindness in everything. A marriage can be re-softened; it starts with one person choosing gentleness first."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "kindness"],
+   "triggers": ["kindness", "gentle", "soft"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2593", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 6"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that those who are merciful are shown mercy by the Most Merciful. Mercy at home is never wasted, even when it is not returned yet."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "mercy"],
+   "triggers": ["mercy", "merciful"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5997", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet praised the one who holds his anger when he could act on it. A swallowed harsh word in a marriage is recorded worship, not a lost argument."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "anger"],
+   "triggers": ["anger", "angry", "rage", "shouting"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6114", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 6"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah tells believers to live with their spouses honourably, and reminds them He may place great good in something they dislike. Before any door closes, He asks for patience and fairness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "honourable", "patience"],
+   "triggers": ["patience", "fair", "honour"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "4:19", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.islamic.007",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that when a servant raises their hands in dua, Allah does not return them empty. Ask Him for your home by name, in your own language, tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "dua", "hope"],
+   "triggers": ["dua", "ask", "hope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3556", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "abudawud:1488", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love is struggling in their marriage, resist the urge to take a side. Listen, lower the temperature, and help them find calm counsel."
+   },
+   "ageBand": ["adult"],
+   "tags": ["distress", "friend", "family-of"],
+   "triggers": ["friend", "son", "daughter", "sister", "brother"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Emotional support: listening, validation and small steps help; persistent or disabling distress should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "marriage_strain.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} is weighing on you, and you want your home to feel like home again. That hope is worth carrying carefully."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["distress", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
