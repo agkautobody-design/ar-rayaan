@@ -878,6 +878,9 @@ class HadiController extends Notifier<HadiState> {
     // "Yes please, the dua for my mother" after a condolence is an ask for
     // the checked shelf, not another listening turn.
     if (DistressSignal.asksForContent(q)) return false;
+    // "Tell me about the five daily prayers" mid-conversation is for the
+    // library, not another listening turn.
+    if (DistressSignal.asksToLearn(q)) return false;
     return true;
   }
 

@@ -147,6 +147,16 @@ abstract final class DistressSignal {
 
   /// True when the message asks for a piece of content (a dua, a verse, a
   /// hadith) rather than a listening ear. The checked shelf answers those.
+  /// A knowledge request ("tell me about prayer", "explain wudu") — even
+  /// mid-conversation this is for the library, not another listening turn.
+  static bool asksToLearn(String text) {
+    final String n = CrisisDetector.normalize(text);
+    return n.startsWith('tell me ') ||
+        n.startsWith('tell us ') ||
+        n.startsWith('teach me ') ||
+        n.startsWith('explain ');
+  }
+
   static bool asksForContent(String text) {
     final String padded = ' ${CrisisDetector.normalize(text)} ';
     for (final String w in const <String>[
