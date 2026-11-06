@@ -9,8 +9,13 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
+import '../../majlis/application/majlis_providers.dart'
+    show regionSettingProvider;
+import '../../majlis/domain/countries.dart';
 import '../application/hijri_settings.dart';
+import '../application/moon_sighting_settings.dart';
 import '../domain/hijri_date.dart';
+import '../domain/moon_sighting.dart';
 import '../domain/sunnah_fasting.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
@@ -35,6 +40,7 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
     final HijriConfig config = ref.watch(hijriSettingsProvider);
+    final MoonSightingChoice? moon = ref.watch(moonSightingProvider);
     final DateTime today = DateTime.now();
     final HijriDate hijri = HijriDate.fromGregorian(today);
     final int index = hijri.year * 12 + (hijri.month - 1) + _monthOffset;
@@ -67,6 +73,18 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                         '${config.basis == HijriBasis.ummAlQura ? 'Umm al-Qura' : 'Tabular'}'
                         '${config.adjustDays == 0 ? '' : ' · ${config.adjustDays > 0 ? '+' : ''}${config.adjustDays} d'}'
                         ' · change',
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: TextButton.icon(
+                      key: const Key('moon-sighting-change'),
+                      onPressed: () => _showMoonSheet(context),
+                      icon: const Icon(Icons.nightlight_round, size: 16),
+                      label: Text(
+                        moon == null
+                            ? 'Moon sighting: set your country'
+                            : 'Moon sighting: ${moon.label} · change',
                       ),
                     ),
                   ),
@@ -103,6 +121,18 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showMoonSheet(BuildContext context) {
+    showNamedSheet<void>(
+      label: 'Moon sighting convention',
+      context: context,
+      backgroundColor: AppColors.navy,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext sheetContext) => const _MoonSightingSheet(),
     );
   }
 
@@ -196,6 +226,140 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+
+/// Country + sighting-convention picker. The country list is the same ISO
+/// list the Majlis region picker uses; the convention is always the
+/// person's own choice — the country's common practice only pre-selects a
+/// default, because communities within one country (e.g. the UK) differ.
+class _MoonSightingSheet extends ConsumerStatefulWidget {
+  const _MoonSightingSheet();
+
+  @override
+  ConsumerState<_MoonSightingSheet> createState() =>
+      _MoonSightingSheetState();
+}
+
+class _MoonSightingSheetState extends ConsumerState<_MoonSightingSheet> {
+  String? _country;
+  SightingConvention? _convention;
+  bool _conventionTouched = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final MoonSightingChoice? cur = ref.read(moonSightingProvider);
+    _country = cur?.countryCode ??
+        ref.read(regionSettingProvider)?.countryCode;
+    _convention = cur?.convention;
+  }
+
+  SightingConvention get _effective =>
+      _convention ??
+      (_conventionTouched
+          ? SightingConvention.localSighting
+          : kNationalConvention[_country] ?? SightingConvention.localSighting);
+
+  Future<void> _save() async {
+    final String? cc = _country;
+    if (cc == null) return;
+    final MoonSightingChoice choice =
+        MoonSightingChoice(countryCode: cc, convention: _effective);
+    await ref.read(moonSightingProvider.notifier).setChoice(choice);
+    if (mounted) Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final List<MapEntry<String, String>> countries = kCountries.entries
+        .toList()
+      ..sort((a, b) => a.value.compareTo(b.value));
+    final SightingConvention effective = _effective;
+    final MoonSightingChoice? current = ref.watch(moonSightingProvider);
+    return SafeArea(
+      child: ListView(
+        shrinkWrap: true,
+        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        children: [
+          Text(
+            'MOON SIGHTING',
+            style: AppText.eyebrow.copyWith(color: AppColors.gold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Islamic months begin with the new moon, and countries differ: '
+            'some follow a local sighting, some follow Saudi Arabia\u2019s '
+            'announcement, some use astronomical criteria. Choose how your '
+            'community decides; this shifts the app\u2019s Hijri calendar, '
+            'Ramadan and Eid dates. Your masjid\u2019s announcement always '
+            'decides in the end.',
+            style: AppText.caption.copyWith(height: 1.45),
+          ),
+          const SizedBox(height: 12),
+          DropdownButtonFormField<String>(
+            key: const Key('moon-country'),
+            initialValue: _country,
+            decoration: const InputDecoration(labelText: 'Your country'),
+            items: [
+              for (final e in countries)
+                DropdownMenuItem<String>(value: e.key, child: Text(e.value)),
+            ],
+            onChanged: (String? v) {
+              setState(() {
+                _country = v;
+                if (!_conventionTouched) _convention = null;
+              });
+            },
+          ),
+          const SizedBox(height: 12),
+          RadioGroup<SightingConvention>(
+            groupValue: effective,
+            onChanged: (SightingConvention? v) {
+              if (v == null) return;
+              setState(() {
+                _convention = v;
+                _conventionTouched = true;
+              });
+            },
+            child: Column(children: [
+              for (final c in SightingConvention.values)
+                RadioListTile<SightingConvention>(
+                  value: c,
+                  title: Text(sightingConventionLabel(c)),
+                  subtitle: Text(sightingConventionHint(c)),
+                ),
+            ]),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              key: const Key('moon-sighting-save'),
+              onPressed: _country == null ? null : _save,
+              icon: const Icon(Icons.check, size: 16),
+              label: const Text('Use this for my calendar'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.gold,
+                foregroundColor: const Color(0xFF0A0F18),
+              ),
+            ),
+          ),
+          if (current != null)
+            Align(
+              child: TextButton(
+                key: const Key('moon-sighting-clear'),
+                onPressed: () async {
+                  await ref.read(moonSightingProvider.notifier).clear();
+                  if (mounted) Navigator.of(context).pop();
+                },
+                child: const Text('Clear my choice'),
+              ),
+            ),
+        ],
       ),
     );
   }

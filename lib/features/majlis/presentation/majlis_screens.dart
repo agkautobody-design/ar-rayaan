@@ -83,8 +83,68 @@ class _MajlisOffline extends StatelessWidget {
 /// theirs, "The Courtyard" for the open room, the raw key otherwise.
 String majlisRoomLabel(String room, RegionSetting? mine) {
   if (room == MajlisService.roomId) return 'The Courtyard';
+  if (room == MajlisService.roomAskScholar) return 'Ask a Scholar';
+  if (room == MajlisService.roomAskProfessional) return 'Ask a Professional';
   if (mine != null && mine.isValid && mine.roomKey == room) return mine.label;
   return room;
+}
+
+/// Public label for a verified-helper role badge.
+String helperRoleLabel(String role) {
+  switch (role) {
+    case 'scholar':
+      return 'Verified Scholar';
+    case 'doctor':
+      return 'Verified Doctor';
+    case 'counsellor':
+      return 'Verified Counsellor';
+    case 'professional':
+      return 'Verified Professional';
+  }
+  return 'Verified Helper';
+}
+
+/// Whether this role may answer in this ask-room (client-side mirror of
+/// the Firestore rule helperCanAnswer — the rules decide, this only picks
+/// which box to show).
+bool helperRoleAnswers(String? role, String room) {
+  if (role == null) return false;
+  if (room == MajlisService.roomAskScholar) return role == 'scholar';
+  if (room == MajlisService.roomAskProfessional) {
+    return role == 'doctor' || role == 'counsellor' || role == 'professional';
+  }
+  return false;
+}
+
+/// Little gold chip shown next to a verified helper's name.
+class HelperBadge extends StatelessWidget {
+  const HelperBadge({super.key, required this.role});
+
+  final String role;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: AppColors.gold.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
+      ),
+      child: Row(mainAxisSize: MainAxisSize.min, children: [
+        const Icon(Icons.verified, size: 11, color: AppColors.goldLight),
+        const SizedBox(width: 3),
+        Text(
+          helperRoleLabel(role),
+          style: AppText.bodyMuted.copyWith(
+            fontSize: 10,
+            color: AppColors.goldLight,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ]),
+    );
+  }
 }
 
 class MajlisScreen extends ConsumerStatefulWidget {
@@ -117,6 +177,8 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
     final String room = ref.watch(currentRoomProvider);
     final RegionSetting? region = ref.watch(regionSettingProvider);
     final bool inCourtyard = room == MajlisService.roomId;
+    final bool isAskRoom = room == MajlisService.roomAskScholar ||
+        room == MajlisService.roomAskProfessional;
     final threads = ref.watch(_threadsProvider(room));
     final String? myUid = ref.watch(majlisUidProvider);
     final bool founder = ref.watch(isFounderProvider).valueOrNull ?? false;
@@ -137,27 +199,42 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 6),
             child: Text(
-              inCourtyard
-                  ? 'THE COURTYARD · OPEN FORUM'
-                  : 'MY COMMUNITY · ${region != null && region.roomKey == room ? region.label.toUpperCase() : room.toUpperCase()}',
+              isAskRoom
+                  ? '${majlisRoomLabel(room, region).toUpperCase()} · VERIFIED HELPERS'
+                  : inCourtyard
+                      ? 'THE COURTYARD · OPEN FORUM'
+                      : 'MY COMMUNITY · ${region != null && region.roomKey == room ? region.label.toUpperCase() : room.toUpperCase()}',
               style: AppText.eyebrow,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 12),
             child: Text(
-              inCourtyard
-                  ? 'Dua requests, questions, announcements — everyone, '
-                      'everywhere. Posts are not reviewed before they appear '
-                      '— please speak as if the Prophet ﷺ is listening, and '
-                      'use Report on anything harmful. Nothing here is a fatwa: '
-                      'for a ruling, ask a qualified scholar. If you or someone '
-                      'else is in danger, contact local emergency services.'
-                  : 'Your community room — talk with people of your own city '
-                      'or area: local events, what is happening, questions for '
-                      'neighbours. Posts appear at once and are public. For an '
-                      'event with a place and time, add it on the Masajid '
-                      'screen’s Events tab too, so it shows on the map.',
+              isAskRoom
+                  ? (room == MajlisService.roomAskScholar
+                      ? 'Questions about Islam — worship, family, fiqh, life. '
+                          'Anyone may ask; answers come from helpers the founder '
+                          'has verified as scholars, marked with a badge. Their '
+                          'answers are general guidance, not a personal fatwa — '
+                          'for a ruling on your own situation, ask a qualified '
+                          'scholar who knows your case.'
+                      : 'Life struggles, health, work, family — anyone may ask; '
+                          'answers come from verified doctors, counsellors and '
+                          'professionals giving their time freely. Nothing here '
+                          'is a diagnosis or professional advice for your case; '
+                          'in an emergency, contact local emergency services.')
+                  : inCourtyard
+                      ? 'Dua requests, questions, announcements — everyone, '
+                          'everywhere. Posts are not reviewed before they appear '
+                          '— please speak as if the Prophet ﷺ is listening, and '
+                          'use Report on anything harmful. Nothing here is a fatwa: '
+                          'for a ruling, ask a qualified scholar. If you or someone '
+                          'else is in danger, contact local emergency services.'
+                      : 'Your community room — talk with people of your own city '
+                          'or area: local events, what is happening, questions for '
+                          'neighbours. Posts appear at once and are public. For an '
+                          'event with a place and time, add it on the Masajid '
+                          'screen’s Events tab too, so it shows on the map.',
               style: AppText.bodyMuted,
             ),
           ),
@@ -255,6 +332,9 @@ class _ThreadCard extends ConsumerWidget {
     final String? uid = data['uid'] as String?;
     final bool canDelete =
         founder || (myUid != null && uid == myUid && replies == 1);
+    final Map<String, String> helpers =
+        ref.watch(helperRolesProvider).valueOrNull ?? const <String, String>{};
+    final String? authorRole = uid == null ? null : helpers[uid];
     return GlassCard(
       onTap: () => context.go(
         '${AppRoutes.majlisThread}/$id?room=$room',
@@ -287,9 +367,16 @@ class _ThreadCard extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 4),
-          Text(
-            '$author · $replies post(s)',
-            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 6,
+            children: [
+              Text(
+                '$author · $replies post(s)',
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
+              ),
+              if (authorRole != null) HelperBadge(role: authorRole),
+            ],
           ),
           Align(
             alignment: Alignment.centerRight,
@@ -317,65 +404,67 @@ class _RoomSwitcher extends ConsumerWidget {
     ref.read(majlisRoomChoiceProvider.notifier).state = r.roomKey;
   }
 
+  Widget _roomRow({
+    required Key key,
+    required String roomId,
+    required String label,
+    required WidgetRef ref,
+  }) {
+    final bool selected = room == roomId;
+    return InkWell(
+      key: key,
+      onTap: selected
+          ? null
+          : () => ref.read(majlisRoomChoiceProvider.notifier).state = roomId,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: Row(children: [
+          Icon(
+            selected ? Icons.radio_button_checked : Icons.radio_button_off,
+            size: 16,
+            color: AppColors.goldLight,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(label, style: AppText.body.copyWith(fontSize: 13)),
+          ),
+        ]),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool inCourtyard = room == MajlisService.roomId;
     return GlassCard(
       padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
+          _roomRow(
             key: const Key('majlis-room-courtyard'),
-            onTap: inCourtyard
-                ? null
-                : () => ref
-                    .read(majlisRoomChoiceProvider.notifier)
-                    .state = MajlisService.roomId,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: Row(children: [
-                Icon(
-                  inCourtyard
-                      ? Icons.radio_button_checked
-                      : Icons.radio_button_off,
-                  size: 16,
-                  color: AppColors.goldLight,
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text('The Courtyard — everyone, everywhere',
-                      style: AppText.body.copyWith(fontSize: 13)),
-                ),
-              ]),
-            ),
+            roomId: MajlisService.roomId,
+            label: 'The Courtyard — everyone, everywhere',
+            ref: ref,
           ),
           if (region != null && region!.isValid)
-            InkWell(
+            _roomRow(
               key: const Key('majlis-room-community'),
-              onTap: !inCourtyard
-                  ? null
-                  : () => ref
-                      .read(majlisRoomChoiceProvider.notifier)
-                      .state = region!.roomKey,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 6),
-                child: Row(children: [
-                  Icon(
-                    !inCourtyard
-                        ? Icons.radio_button_checked
-                        : Icons.radio_button_off,
-                    size: 16,
-                    color: AppColors.goldLight,
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text('My community — ${region!.label}',
-                        style: AppText.body.copyWith(fontSize: 13)),
-                  ),
-                ]),
-              ),
+              roomId: region!.roomKey,
+              label: 'My community — ${region!.label}',
+              ref: ref,
             ),
+          _roomRow(
+            key: const Key('majlis-room-ask-scholar'),
+            roomId: MajlisService.roomAskScholar,
+            label: 'Ask a Scholar — verified scholars answer',
+            ref: ref,
+          ),
+          _roomRow(
+            key: const Key('majlis-room-ask-professional'),
+            roomId: MajlisService.roomAskProfessional,
+            label: 'Ask a Professional — doctors, counsellors & more',
+            ref: ref,
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton.icon(
@@ -500,6 +589,20 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
     final String? myUid = ref.watch(majlisUidProvider);
     final bool founder = ref.watch(isFounderProvider).valueOrNull ?? false;
     final RegionSetting? region = ref.watch(regionSettingProvider);
+    final bool isAskRoom = widget.room == MajlisService.roomAskScholar ||
+        widget.room == MajlisService.roomAskProfessional;
+    final Map<String, String> helpers =
+        ref.watch(helperRolesProvider).valueOrNull ?? const <String, String>{};
+    final String? myRole = myUid == null ? null : helpers[myUid];
+    final String? threadAuthor = ref
+        .watch(_threadMetaProvider(
+            (room: widget.room, threadId: widget.threadId)))
+        .valueOrNull
+        ?.data()?['uid'] as String?;
+    final bool canReply = !isAskRoom ||
+        founder ||
+        helperRoleAnswers(myRole, widget.room) ||
+        (myUid != null && threadAuthor == myUid);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -559,15 +662,22 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                             children: [
                               Row(
                                 children: [
-                                  Expanded(
+                                  Flexible(
                                     child: Text(
                                       d.data()['authorName'] as String? ?? '',
+                                      overflow: TextOverflow.ellipsis,
                                       style: AppText.bodyMuted.copyWith(
                                         fontSize: 12,
                                         color: AppColors.goldLight,
                                       ),
                                     ),
                                   ),
+                                  if (helpers[d.data()['uid']] != null) ...[
+                                    const SizedBox(width: 6),
+                                    HelperBadge(
+                                        role: helpers[d.data()['uid']]!),
+                                  ],
+                                  const Spacer(),
                                   if (founder ||
                                       (myUid != null &&
                                           d.data()['uid'] == myUid))
@@ -601,6 +711,30 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                 ),
               ),
             ),
+            if (isAskRoom && !canReply)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+                child: GlassCard(
+                  child: Row(children: [
+                    const Icon(Icons.lock_outline,
+                        size: 16, color: AppColors.goldLight),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        widget.room == MajlisService.roomAskScholar
+                            ? 'Only verified scholars can answer here, plus '
+                                'the person who asked. Everyone can read.'
+                            : 'Only verified doctors, counsellors and '
+                                'professionals can answer here, plus the '
+                                'person who asked. Everyone can read.',
+                        style: AppText.bodyMuted
+                            .copyWith(fontSize: 12, height: 1.4),
+                      ),
+                    ),
+                  ]),
+                ),
+              )
+            else
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
               child: Row(
@@ -635,6 +769,17 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
     );
   }
 }
+
+final _threadMetaProvider = FutureProvider.family<
+    DocumentSnapshot<Map<String, dynamic>>,
+    ({String room, String threadId})>((ref, key) {
+  final MajlisService? svc = ref.watch(majlisServiceProvider);
+  if (svc == null) {
+    return Future<DocumentSnapshot<Map<String, dynamic>>>.error(
+        StateError('offline'));
+  }
+  return svc.thread(room: key.room, threadId: key.threadId);
+});
 
 final _postsProvider = StreamProvider.family<
     QuerySnapshot<Map<String, dynamic>>,
@@ -728,6 +873,31 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
               style: AppText.eyebrow,
             ),
           ),
+          if (widget.room == MajlisService.roomAskScholar ||
+              widget.room == MajlisService.roomAskProfessional)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: GlassCard(
+                child: Row(children: [
+                  const Icon(Icons.info_outline,
+                      size: 16, color: AppColors.goldLight),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      widget.room == MajlisService.roomAskScholar
+                          ? 'Answers here come from verified scholars and are '
+                              'general guidance — not a personal fatwa.'
+                          : 'Answers here come from verified professionals and '
+                              'are general guidance — not medical, legal or '
+                              'financial advice for your case. In an emergency, '
+                              'contact local emergency services.',
+                      style:
+                          AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+                    ),
+                  ),
+                ]),
+              ),
+            ),
           GlassCard(
             child: Column(
               children: [

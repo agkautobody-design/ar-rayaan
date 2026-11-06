@@ -99,7 +99,12 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'Ar-Rayaan, its staff or a scholar. Posts can be reported and may '
         'be removed. You can delete your own posts, and your own thread '
         'while you are its only poster; moderators can remove anything. '
-        'You are responsible for what you post.',
+        'The Ask a Scholar and Ask a Professional rooms are answered by '
+        'volunteers the founder has verified (shown with a badge). Their '
+        'answers are general guidance given freely: not a fatwa, and not '
+        'medical, legal, financial or psychological advice for your case. '
+        'In an emergency, contact your local emergency services. You are '
+        'responsible for what you post.',
   ),
   LegalSection(
     'Content and accuracy',
@@ -162,7 +167,9 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'you add to the community map are public too. You can delete your '
         'own Majlis posts yourself; deleting your account does not '
         'automatically remove posts already published — contact us to ask '
-        'for one to be removed.',
+        'for one to be removed. The verified-helper badges (which account '
+        'holds a scholar, doctor, counsellor or professional badge) are '
+        'public so the app can show them next to answers.',
   ),
   LegalSection(
     'Location and other services',

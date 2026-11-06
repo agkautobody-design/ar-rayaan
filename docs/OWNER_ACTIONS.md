@@ -152,7 +152,7 @@ Order matters, as with the Majlis rules: let the app update deploy to the live s
 2. Find your account's user id: still in the Firebase console → Authentication → Users → find your sign-in (the account you use in the app) → copy its "User UID".
 3. Create your founder document: Firestore Database → Data tab → Start collection → collection id `founders` → Document ID: paste your UID exactly → add one field: name `note`, type string, value `owner` → Save. (The rules only check that the document exists; the field is just a reminder.)
 4. Confirm it worked: sign in to the live app with that account, then open `https://ar-rayaan.onrender.com/places-admin` — you should see the moderation lists (empty at first), not the "for the founder" card. On any other account you see the card.
-5. Then open the Majlis (Explore → Majlis, or `/majlis`): the room switcher offers the Courtyard and "Set my community" (country + city/area). As the founder you also get a delete control on every thread and post, and MAJLIS REPORTS appears at `/places-admin`.
+5. Then open the Majlis (Explore → Majlis, or `/majlis`): the room switcher offers the Courtyard, "Set my community" (country + city/area), and the two helper rooms — Ask a Scholar and Ask a Professional. As the founder you also get a delete control on every thread and post, and MAJLIS REPORTS plus VERIFIED HELPERS appear at `/places-admin`.
 
 What you get from then on:
 - The Masajid / Tayyib Food screen has a third tab, Events, and an "add" card on every tab. Signed-in users add places and events; each shows immediately with an "unverified" label.
@@ -165,3 +165,20 @@ What you get from then on:
 If you ever need to undo a block: the BLOCKED ACCOUNTS list at the bottom of `/places-admin` has an Unblock button.
 
 One honest limit to know: the Majlis delete-your-own works by account id, but display names are free text — two people can share a name. Moderation decisions should go by the account (the uid shown on each entry), not the name.
+
+## 25. Verified helpers: grant the first badges after the rules publish (5 minutes per person)
+
+Why: the Majlis has two helper rooms — **Ask a Scholar** (Islamic questions) and **Ask a Professional** (health, work, family, life struggles). Anyone signed in can ASK in them, but only people you have verified can ANSWER (plus the person who asked, who can reply on their own thread). Verified helpers show a gold badge next to their name: Verified Scholar, Verified Doctor, Verified Counsellor or Verified Professional. The Firestore rules enforce this — the rooms reject answers from anyone without a badge, so publishing the rules (item 24 step 1) is required first.
+
+When a scholar, doctor or professional volunteers:
+
+1. Check they are real (you know them, or you have seen proof of their qualification — this decision is yours; the badge is your name behind theirs).
+2. Get their user id: the volunteer signs in to the app once, then you find them in Firebase console → Authentication → Users → copy the "User UID". (If they have posted or reported something, the uid also shows on that entry at `/places-admin`.)
+3. Open `https://ar-rayaan.onrender.com/places-admin`, scroll to VERIFIED HELPERS, paste the uid, pick the badge (Scholar / Doctor / Counsellor / Professional) and press Grant badge.
+4. Confirm: the helper opens Majlis → Ask a Scholar (or Ask a Professional) → opens a thread — they now see the reply box; everyone else sees a "only verified … can answer" note. Their posts carry the badge automatically.
+
+Revoking is the Revoke button on the same list; it takes effect immediately, and the rules stop accepting their answers from that moment.
+
+Two things to know:
+- Helpers are volunteers giving general guidance. The app tells every reader that answers are not a personal fatwa and not medical/legal/financial advice, and the Terms say the same — but choose people you trust, because readers will trust your badge.
+- A scholar badge answers only in Ask a Scholar; doctor/counsellor/professional badges answer only in Ask a Professional. You can grant one person two badges by granting twice with different roles (the second replaces the first — so grant the one that fits where they should answer; one account holds one role).

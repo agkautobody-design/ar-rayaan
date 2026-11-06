@@ -31,6 +31,8 @@ class MajlisService {
   final FirebaseAuth _auth;
 
   static const String roomId = 'courtyard';
+  static const String roomAskScholar = 'ask-a-scholar';
+  static const String roomAskProfessional = 'ask-a-professional';
 
   Future<String> _uid() async {
     User? user = _auth.currentUser;
@@ -214,6 +216,33 @@ class MajlisService {
       'reporterUid': uid,
       'createdAt': FieldValue.serverTimestamp(),
     });
+  }
+
+  /// Verified helper directory: uid -> role (public read).
+  Stream<Map<String, String>> helperRoles() {
+    return _db.collection('helper_roles').snapshots().map((s) =>
+        <String, String>{
+          for (final d in s.docs) d.id: (d.data()['role'] ?? '').toString(),
+        });
+  }
+
+  /// Founder only: grant a verified helper badge.
+  Future<void> setHelperRole(String uid, String role) {
+    return _db.collection('helper_roles').doc(uid).set(<String, Object?>{
+      'role': role,
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+  }
+
+  /// Founder only: revoke a badge.
+  Future<void> removeHelperRole(String uid) {
+    return _db.collection('helper_roles').doc(uid).delete();
+  }
+
+  /// One thread document — the ask-room reply gate needs its author uid.
+  Future<DocumentSnapshot<Map<String, dynamic>>> thread(
+      {required String room, required String threadId}) {
+    return _threadsFor(room).doc(threadId).get();
   }
 
   /// The report queue, newest first — the moderation screen reads this;

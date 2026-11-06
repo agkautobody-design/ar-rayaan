@@ -57,6 +57,9 @@ class RegionSetting {
   }
 }
 
+/// Fixed named rooms beyond the open courtyard: verified-helper rooms.
+const List<String> kNamedRooms = <String>['ask-a-scholar', 'ask-a-professional'];
+
 /// The room ids the Firestore rules accept, besides 'courtyard'.
 final RegExp roomKeyPattern =
     RegExp(r'^region-[a-z]{2}-[a-z0-9][a-z0-9-]{0,38}[a-z0-9]$');
@@ -64,7 +67,7 @@ final RegExp roomKeyPattern =
 /// A room id from a link (query parameter), or null when it is not a real
 /// room — typed links can carry anything, and only real rooms may be used.
 String? roomKeyOrNull(String? raw) {
-  if (raw == 'courtyard') return 'courtyard';
+  if (raw == 'courtyard' || kNamedRooms.contains(raw)) return raw;
   if (raw != null && roomKeyPattern.hasMatch(raw)) return raw;
   return null;
 }

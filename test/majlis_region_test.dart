@@ -46,6 +46,23 @@ void main() {
       final String rules = File('firestore.rules').readAsStringSync();
       expect(rules, contains("room.matches('$rulesPattern')"));
       expect(rules, contains("room == 'courtyard'"));
+      expect(rules,
+          contains("room in ['ask-a-scholar', 'ask-a-professional']"));
+    });
+
+    test('rules gate ask-room replies and hold helper roles', () {
+      final String rules = File('firestore.rules').readAsStringSync();
+      expect(rules, contains('function helperCanAnswer(room)'));
+      expect(rules, contains('helperCanAnswer(room)'));
+      expect(rules, contains('match /helper_roles/{uid}'));
+      expect(rules, contains("get(r).data.role == 'scholar'"));
+      expect(rules,
+          contains("in ['doctor', 'counsellor', 'professional']"));
+      // The reply gate names both ask rooms in the posts create rule.
+      final int gate = rules.indexOf('helperCanAnswer(room))');
+      final int postCreate = rules.lastIndexOf('allow create: if signedIn()', gate);
+      expect(postCreate, greaterThan(-1));
+      expect(postCreate, greaterThan(gate - 1200));
     });
 
     test('the Dart pattern is the same pattern', () {
@@ -74,6 +91,8 @@ void main() {
 
     test('roomKeyOrNull accepts only real rooms', () {
       expect(roomKeyOrNull('courtyard'), 'courtyard');
+      expect(roomKeyOrNull('ask-a-scholar'), 'ask-a-scholar');
+      expect(roomKeyOrNull('ask-a-professional'), 'ask-a-professional');
       expect(roomKeyOrNull('region-gb-birmingham'), 'region-gb-birmingham');
       expect(roomKeyOrNull(null), isNull);
       expect(roomKeyOrNull(''), isNull);

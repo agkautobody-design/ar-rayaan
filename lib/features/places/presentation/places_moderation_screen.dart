@@ -13,6 +13,8 @@ import '../../feedback/application/feedback_providers.dart';
 import '../../majlis/application/majlis_providers.dart';
 import '../../majlis/data/majlis_service.dart';
 import '../../majlis/domain/majlis_policy.dart';
+import '../../majlis/presentation/majlis_screens.dart'
+    show helperRoleLabel;
 import '../application/places_providers.dart';
 import '../data/community_places_service.dart';
 import '../domain/community_place.dart';
@@ -170,6 +172,12 @@ class _ModerationBody extends ConsumerWidget {
           child: Text('MAJLIS REPORTS', style: AppText.eyebrow),
         ),
         const _MajlisReports(),
+        const SizedBox(height: 14),
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 8),
+          child: Text('VERIFIED HELPERS', style: AppText.eyebrow),
+        ),
+        const _HelpersPanel(),
         const SizedBox(height: 14),
         Padding(
           padding: const EdgeInsets.only(left: 4, bottom: 8),
@@ -447,6 +455,170 @@ String _fmtTime(Object? ts) {
 
 /// The Majlis report queue — same screen, one stop for the founder. Each
 /// report names its room and thread so it can be opened in one tap.
+
+/// Founder tool: grant and revoke verified-helper badges (helper_roles).
+/// Helpers answer in the Ask a Scholar / Ask a Professional rooms; the
+/// Firestore rules enforce the same list server-side, this is only the
+/// management screen.
+class _HelpersPanel extends ConsumerStatefulWidget {
+  const _HelpersPanel();
+
+  @override
+  ConsumerState<_HelpersPanel> createState() => _HelpersPanelState();
+}
+
+class _HelpersPanelState extends ConsumerState<_HelpersPanel> {
+  static const List<String> _roles = <String>[
+    'scholar',
+    'doctor',
+    'counsellor',
+    'professional',
+  ];
+
+  final TextEditingController _uid = TextEditingController();
+  String _role = 'scholar';
+  bool _busy = false;
+
+  @override
+  void dispose() {
+    _uid.dispose();
+    super.dispose();
+  }
+
+  void _say(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Future<void> _grant() async {
+    final String uid = _uid.text.trim();
+    if (uid.isEmpty) {
+      _say('Paste the person\u2019s sign-in id first.');
+      return;
+    }
+    setState(() => _busy = true);
+    try {
+      await ref.read(majlisServiceProvider)!.setHelperRole(uid, _role);
+      _uid.clear();
+      _say('Badge granted.');
+    } catch (_) {
+      _say('Could not grant it — check your connection.');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _revoke(String uid) async {
+    try {
+      await ref.read(majlisServiceProvider)!.removeHelperRole(uid);
+      _say('Badge revoked.');
+    } catch (_) {
+      _say('Could not revoke it — check your connection.');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final MajlisService? svc = ref.watch(majlisServiceProvider);
+    if (svc == null) return const SizedBox.shrink();
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'People with a badge can answer in Ask a Scholar (scholars) and '
+            'Ask a Professional (doctors, counsellors, professionals). Grant '
+            'a badge with the person\u2019s sign-in id — they can find it in '
+            'Firebase console → Authentication, or copy it from a report.',
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.45),
+          ),
+          const SizedBox(height: 10),
+          StreamBuilder<Map<String, String>>(
+            stream: svc.helperRoles(),
+            builder: (context, snap) {
+              final Map<String, String> roles =
+                  snap.data ?? const <String, String>{};
+              if (roles.isEmpty) {
+                return Text('No verified helpers yet.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12));
+              }
+              return Column(children: [
+                for (final e in roles.entries)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Row(children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(e.key,
+                                style: AppText.body.copyWith(fontSize: 12),
+                                overflow: TextOverflow.ellipsis),
+                            Text(helperRoleLabel(e.value),
+                                style: AppText.bodyMuted.copyWith(
+                                    fontSize: 11,
+                                    color: AppColors.goldLight)),
+                          ],
+                        ),
+                      ),
+                      TextButton(
+                        key: Key('helper-revoke-${e.key}'),
+                        onPressed: () => _revoke(e.key),
+                        child: const Text('Revoke',
+                            style: TextStyle(fontSize: 12)),
+                      ),
+                    ]),
+                  ),
+              ]);
+            },
+          ),
+          const Divider(height: 20),
+          Semantics(
+            label: 'Sign-in id of the person to verify',
+            child: TextField(
+              key: const Key('helper-uid'),
+              controller: _uid,
+              style: AppText.body,
+              decoration: const InputDecoration(
+                hintText: 'Sign-in id (uid) of the person to verify',
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          DropdownButtonFormField<String>(
+            key: const Key('helper-role'),
+            initialValue: _role,
+            decoration: const InputDecoration(labelText: 'Badge'),
+            items: [
+              for (final r in _roles)
+                DropdownMenuItem<String>(
+                    value: r, child: Text(helperRoleLabel(r))),
+            ],
+            onChanged: (v) {
+              if (v != null) setState(() => _role = v);
+            },
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              key: const Key('helper-grant'),
+              onPressed: _busy ? null : _grant,
+              icon: const Icon(Icons.verified_outlined, size: 16),
+              label: Text(_busy ? 'Granting…' : 'Grant badge'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.gold,
+                foregroundColor: const Color(0xFF0A0F18),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _MajlisReports extends ConsumerWidget {
   const _MajlisReports();
 

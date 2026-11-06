@@ -61,6 +61,7 @@ service cloud.firestore {
     // thread under any other id would be an orphan nobody can browse.
     function knownRoom(room) {
       return room == 'courtyard'
+        || room in ['ask-a-scholar', 'ask-a-professional']
         || room.matches('^region-[a-z]{2}-[a-z0-9][a-z0-9-]{0,38}[a-z0-9]$');
     }
 
@@ -146,6 +147,10 @@ service cloud.firestore {
         && request.resource.data.createdAt == request.time
         && request.resource.data.uid == request.auth.uid
         && getAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)).data.lastPostId == post
+        && (!(room in ['ask-a-scholar', 'ask-a-professional'])
+            || isFounder()
+            || getAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)).data.uid == request.auth.uid
+            || helperCanAnswer(room))
         && rateMoved();
       allow update: if false;
       // The founder can remove any post; the author can remove their own.
@@ -354,7 +359,15 @@ service cloud.firestore {
         && request.auth.token.firebase.sign_in_provider != 'anonymous';
     }
 
-    function isFounder() {
+    function helperCanAnswer(room) {
+    let r = /databases/$(database)/documents/helper_roles/$(request.auth.uid);
+    return exists(r) &&
+      (room == 'ask-a-scholar'
+        ? get(r).data.role == 'scholar'
+        : get(r).data.role in ['doctor', 'counsellor', 'professional']);
+  }
+
+  function isFounder() {
       return signedIn()
         && exists(/databases/$(database)/documents/founders/$(request.auth.uid));
     }
@@ -576,6 +589,17 @@ service cloud.firestore {
       allow get: if signedIn() && request.auth.uid == uid;
       allow list: if false;
       allow write: if false;
+    }
+
+    // Verified helper badges: publicly readable so the app can render the
+    // badge chips; only the founder can grant or revoke them.
+    match /helper_roles/{uid} {
+      allow read: if true;
+      allow create, update: if isFounder()
+        && request.resource.data.keys().hasOnly(['role', 'createdAt'])
+        && request.resource.data.role in ['scholar', 'doctor', 'counsellor', 'professional']
+        && request.resource.data.createdAt == request.time;
+      allow delete: if isFounder();
     }
 
     // Accounts blocked from the community surfaces (map submissions and

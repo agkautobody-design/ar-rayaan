@@ -37,6 +37,13 @@ final StateProvider<RegionSetting?> regionSettingProvider =
 final StateProvider<String?> majlisRoomChoiceProvider =
     StateProvider<String?>((ref) => null);
 
+/// Verified helpers directory (uid -> role). Empty when offline.
+final helperRolesProvider = StreamProvider<Map<String, String>>((ref) {
+  final service = ref.watch(majlisServiceProvider);
+  if (service == null) return Stream.value(const <String, String>{});
+  return service.helperRoles();
+});
+
 /// The room the Majlis list is showing right now.
 final Provider<String> currentRoomProvider = Provider<String>((ref) {
   final String? choice = ref.watch(majlisRoomChoiceProvider);
