@@ -150,7 +150,7 @@ void main() {
       );
     });
 
-    testWidgets('choosing Morocco pre-fills local sighting and applies it',
+    testWidgets('choosing Afghanistan pre-fills local sighting and applies it',
         (tester) async {
       await openCalendar(tester);
       await tester.pumpAndSettle();
@@ -159,12 +159,13 @@ void main() {
       expect(find.byKey(const Key('moon-country')), findsOneWidget);
       await tester.tap(find.byKey(const Key('moon-country')));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Morocco').last);
+      // Top of the alphabetical list — the dropdown menu does not scroll.
+      await tester.tap(find.text('Afghanistan').last);
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('moon-sighting-save')));
       await tester.pumpAndSettle();
       expect(
-        find.textContaining('Morocco · Local moon sighting'),
+        find.textContaining('Afghanistan · Local moon sighting'),
         findsOneWidget,
       );
       // The +1 day shift of local sighting reaches the Hijri settings.
