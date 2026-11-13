@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5778,
+ "total": 5772,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -65,7 +65,7 @@
   },
   "stories-modern": {
    "title": "Stories: modern hadith",
-   "items": 69,
+   "items": 63,
    "high_priority": 11
   },
   "dua-dhikr": {
@@ -130,7 +130,7 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2515,
+  "Hadith / aqidah scholar": 2509,
   "Fiqh scholar (per madhab)": 630,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1306,
-  "normal": 3655,
+  "normal": 3649,
   "low": 817
  },
  "items": [
@@ -59882,34 +59882,6 @@
    "status": "open"
   },
   {
-   "id": "story.modernhadith.mh-work-25",
-   "area": "stories-modern",
-   "subarea": "modernhadith",
-   "where_in_app": "Stories > Modern hadith > \"The Dignity of the Hand\"",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-work-25]",
-   "what_to_review": "1 chapter(s) of \"The Dignity of the Hand\" and its source lines (1 sources); label \"Established\".",
-   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M.",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "assets/stories/modernhadith.json (no named reviewer)",
-    "docs/story_audit.md (1 chapter rows)",
-    "FACT reports (accuracy passes; nothing scholar-reviewed)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
    "id": "story.modernhadith.mh-jumuah-26",
    "area": "stories-modern",
    "subarea": "modernhadith",
@@ -59918,34 +59890,6 @@
    "key": "[id=mh-jumuah-26]",
    "what_to_review": "1 chapter(s) of \"The Excellence of Jumu'ah\" and its source lines (1 sources); label \"Established\".",
    "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C.",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "assets/stories/modernhadith.json (no named reviewer)",
-    "docs/story_audit.md (1 chapter rows)",
-    "FACT reports (accuracy passes; nothing scholar-reviewed)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
-   "id": "story.modernhadith.mh-jumuah-30",
-   "area": "stories-modern",
-   "subarea": "modernhadith",
-   "where_in_app": "Stories > Modern hadith > \"The Best Day on Which the Sun Rises\"",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-jumuah-30]",
-   "what_to_review": "1 chapter(s) of \"The Best Day on Which the Sun Rises\" and its source lines (2 sources); label \"Established\".",
-   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [
     "Fiqh scholar (per madhab)"
@@ -60001,34 +59945,6 @@
    "file": "assets/stories/modernhadith.json",
    "key": "[id=mh-patience-32]",
    "what_to_review": "1 chapter(s) of \"Patience at the First Stroke\" and its source lines (2 sources); label \"Established\".",
-   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M.",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "assets/stories/modernhadith.json (no named reviewer)",
-    "docs/story_audit.md (1 chapter rows)",
-    "FACT reports (accuracy passes; nothing scholar-reviewed)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
-   "id": "story.modernhadith.mh-work-33",
-   "area": "stories-modern",
-   "subarea": "modernhadith",
-   "where_in_app": "Stories > Modern hadith > \"The Dignity of the Hand\"",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-work-33]",
-   "what_to_review": "1 chapter(s) of \"The Dignity of the Hand\" and its source lines (1 sources); label \"Established\".",
    "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [
@@ -66133,32 +66049,6 @@
    "status": "open"
   },
   {
-   "id": "story.modernhadith.mh-work-25.ch1",
-   "area": "stories-modern",
-   "subarea": "modernhadith-chapter",
-   "where_in_app": "Stories > Modern hadith > mh-work-25 > chapter 1",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-work-25].chapters[0]",
-   "what_to_review": "Chapter 1 of mh-work-25, audit class M (mixed: supported core, unsourced detail).",
-   "why_flagged": "docs/story_audit.md: Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.)",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "docs/story_audit.md (row mh-work-25 ch1)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
    "id": "story.modernhadith.mh-grief-ibrahim.ch1",
    "area": "stories-modern",
    "subarea": "modernhadith-chapter",
@@ -66237,32 +66127,6 @@
    "status": "open"
   },
   {
-   "id": "story.modernhadith.mh-jumuah-30.ch1",
-   "area": "stories-modern",
-   "subarea": "modernhadith-chapter",
-   "where_in_app": "Stories > Modern hadith > mh-jumuah-30 > chapter 1",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-jumuah-30].chapters[0]",
-   "what_to_review": "Chapter 1 of mh-jumuah-30, audit class M (mixed: supported core, unsourced detail).",
-   "why_flagged": "docs/story_audit.md: Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.)",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "docs/story_audit.md (row mh-jumuah-30 ch1)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
    "id": "story.modernhadith.mh-gratitude-31.ch1",
    "area": "stories-modern",
    "subarea": "modernhadith-chapter",
@@ -66310,32 +66174,6 @@
    "priority": "normal",
    "source_of_flag": [
     "docs/story_audit.md (row mh-patience-32 ch1)"
-   ],
-   "label_surface": "Story reader (all packs)",
-   "status": "open"
-  },
-  {
-   "id": "story.modernhadith.mh-work-33.ch1",
-   "area": "stories-modern",
-   "subarea": "modernhadith-chapter",
-   "where_in_app": "Stories > Modern hadith > mh-work-33 > chapter 1",
-   "file": "assets/stories/modernhadith.json",
-   "key": "[id=mh-work-33].chapters[0]",
-   "what_to_review": "Chapter 1 of mh-work-33, audit class M (mixed: supported core, unsourced detail).",
-   "why_flagged": "docs/story_audit.md: Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.)",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [
-    "Fiqh scholar (per madhab)"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "docs/story_audit.md (row mh-work-33 ch1)"
    ],
    "label_surface": "Story reader (all packs)",
    "status": "open"

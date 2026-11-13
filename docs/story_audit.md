@@ -315,7 +315,6 @@ Chapters audited: 278, in 200 stories.
 | modernhadith | mh-forgive-anger | 1 | M | Bukhari 6114 and Muslim 2609 verified. Safety line added: this is not a call to stay where one is harmed; Need help now lists lines. (Audit 2026-10-27.) |
 | modernhadith | mh-addiction-ninetynine | 1 | M | Bukhari 3470 and Muslim 2766 verified. ‘Hadith of the century’ subtitle removed; pointer to a doctor or addiction service and to Need help now added. (Audit 2026-10-27.) |
 | modernhadith | mh-work-hand | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-work-25 | 1 | M | Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.) |
 | modernhadith | mh-grief-ibrahim | 1 | M | Bukhari 1303, Muslim 2315 and Qur’an 2:156 verified. The unsupported ‘floor beneath the fall’ claim replaced by 2:156; a line pointing to real help added for grief that becomes too heavy. (Audit 2026-10-27.) |
 | modernhadith | mh-community-structure | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-jumuah-26 | 1 | C | Added by the content bot; repaired 2026-10-23: sources were an object (broke loading), now the string 'Sahih Muslim 854'; empty heading filled; two uncited claims in the app-written reflection removed (du'a during the blessed hour; rehearsal for the Day of Judgment). The citation matches the quoted text but is NOT yet verified against a file on record. |
@@ -350,10 +349,8 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | seerah | seerah-04 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 235-236 (the month of Ramadan, Hira), with Bukhari 3 and 3851 for the revelation and his age. |
 | seerah | seerah-19 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 66, 77-79 (Uhud: the cavalry, the archers, the wounds), with Bukhari 4043 and 5722. |
 | seerah | seerah-27 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 602-605 (the sermon at Arafat), with Muslim 1218; Bukhari 67 is the separate sermon at Mina on the Day of Sacrifice. |
-| modernhadith | mh-jumuah-30 | 1 | M | Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) |
 | modernhadith | mh-gratitude-31 | 1 | M | Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) |
 | modernhadith | mh-patience-32 | 1 | M | Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) |
-| modernhadith | mh-work-33 | 1 | M | Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) |
 | khutbahs | kh-work_life-1 | 1 | M | Daily job cited Bukhari 2088 for 'the truthful merchant is with the prophets'; 2088 is the man who swore falsely over his goods, and the merchant wording is Tirmidhi 1209 (da'if per Darussalam). Replaced with Bukhari 2079 (verified: truth and clarity bless a sale). (Audit 2026-11-13.) |
 | khutbahs | kh-work_life-1 | 2 | M | Daily job cited Muslim 1599 for 'whoever cheats us is not one of us'; 1599 is the halal/haram-are-clear hadith. Corrected to Muslim 102 (verified). Removed the claim that a cheater 'has left the community of faith' — the hadith is a warning, not takfir. Qur'an 83:1-3. (Audit 2026-11-13.) |
 | khutbahs | kh-work_life-1 | 3 | Q | Qur'an 2:188 cited; application only. (Audit 2026-11-13.) |

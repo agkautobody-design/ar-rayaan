@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5778 items.** High priority: 1306. Normal: 3655. Low: 817.
+**5772 items.** High priority: 1306. Normal: 3649. Low: 817.
 
 ### By area
 
@@ -30,7 +30,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 198 | 62 |
-| Stories: modern hadith | 69 | 11 |
+| Stories: modern hadith | 63 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
 | New Muslim 30-day path | 30 | 13 |
 | Sakina rooms, feelings, safety copy, health | 68 | 40 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5778** | **1306** |
+| **Total** | **5772** | **1306** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2515 | 1043 |
-| Fiqh scholar (per madhab) | 630 | 260 |
+| Hadith / aqidah scholar | 2509 | 1043 |
+| Fiqh scholar (per madhab) | 630 | 254 |
 | Women's scholar | 151 | 96 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -77,7 +77,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 198 |  |  |  |  |  |  |  |  |
-| Stories: modern hadith | 69 |  |  |  |  |  |  |  |  |
+| Stories: modern hadith | 63 |  |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
 | Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 60 | 1 | 5 |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2515 lead, 1043 also)
+### Hadith / aqidah scholar (2509 lead, 1043 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -104,7 +104,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
 - Stories: the unseen, signs, tales, khutbahs: 198 items (62 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
-- Stories: modern hadith: 69 items (11 high). Ids start with `story.modernhadith`.
+- Stories: modern hadith: 63 items (11 high). Ids start with `story.modernhadith`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 153 items (23 high). Ids start with `dua.adhkar`, `dua.daily`, `dua.dhikr-session`, `dua.eid-takbir`, `dua.fatiha-linked`, `dua.hisn-source`.
 - Prayer times, qibla, Hijri calendar, observances: 10 items (10 high). Ids start with `calendar.observance`.
 - Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `quran.tafsir-absent`.
@@ -113,7 +113,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (630 lead, 260 also)
+### Fiqh scholar (per madhab) (630 lead, 254 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
@@ -3473,7 +3473,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Stories: modern hadith
 
-69 items, 11 high priority. Area key `stories-modern`.
+63 items, 11 high priority. Area key `stories-modern`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3511,12 +3511,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.modernhadith.mh-work-hand` | Stories > Modern hadith > "The Work of Your Own Hand — Dignity in Every Job" | 1 chapter(s) of "The Work of Your Own Hand — Dignity in Every Job" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-grief-ibrahim` | Stories > Modern hadith > "The Eye Weeps and the Heart Grieves — Permission to Feel" | 1 chapter(s) of "The Eye Weeps and the Heart Grieves — Permission to Feel" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. Also: names a weak (daif) narration. | Hadith / aqidah scholar + Fiqh scholar | high | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-community-structure` | Stories > Modern hadith > "The Believers Are a Structure — You Are Somebody's Wall" | 1 chapter(s) of "The Believers Are a Structure — You Are Somebody's Wall" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
-| `story.modernhadith.mh-work-25` | Stories > Modern hadith > "The Dignity of the Hand" | 1 chapter(s) of "The Dignity of the Hand" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-jumuah-26` | Stories > Modern hadith > "The Excellence of Jumu'ah" | 1 chapter(s) of "The Excellence of Jumu'ah" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=C. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
-| `story.modernhadith.mh-jumuah-30` | Stories > Modern hadith > "The Best Day on Which the Sun Rises" | 1 chapter(s) of "The Best Day on Which the Sun Rises" and its source lines (2 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-gratitude-31` | Stories > Modern hadith > "Good in Every State" | 1 chapter(s) of "Good in Every State" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-patience-32` | Stories > Modern hadith > "Patience at the First Stroke" | 1 chapter(s) of "Patience at the First Stroke" and its source lines (2 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
-| `story.modernhadith.mh-work-33` | Stories > Modern hadith > "The Dignity of the Hand" | 1 chapter(s) of "The Dignity of the Hand" and its source lines (1 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Audit classes (docs/story_audit.md): ch1=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/modernhadith.json (no named reviewer); docs/story_audit.md (1 chapter rows); FACT reports (accuracy passes; nothing scholar-… |
 | `story.modernhadith.mh-youth-feet.ch1` | Stories > Modern hadith > mh-youth-feet > chapter 1 | Chapter 1 of mh-youth-feet, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2416 (the five questions) re-checked: graders differ (daif per Darussalam; hasan per al-Albani), so the page now says to hold it as a reminder, not a ruling. Citation corrected from 2417. Verdict in tool/hadith_verdicts/s4.json.… | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-youth-feet ch1) |
 | `story.modernhadith.mh-youth-friends.ch1` | Stories > Modern hadith > mh-youth-friends > chapter 1 | Chapter 1 of mh-youth-friends, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2378 and Qur’an 4:140 verified; grader wording completed (hasan per Darussalam and al-Albani). (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-youth-friends ch1) |
 | `story.modernhadith.mh-money-birds.ch1` | Stories > Modern hadith > mh-money-birds > chapter 1 | Chapter 1 of mh-money-birds, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Tirmidhi 2344 verified; graders named (hasan per Darussalam, sahih per al-Albani); an unsupported line about the birds not knowing tomorrow replaced. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | high | docs/story_audit.md (row mh-money-birds ch1) |
@@ -3540,12 +3537,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.modernhadith.mh-migration-strangers.ch1` | Stories > Modern hadith > mh-migration-strangers > chapter 1 | Chapter 1 of mh-migration-strangers, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Muslim 145 verified; Tirmidhi 1987 (hasan per Darussalam and al-Albani) added; claims that the strangeness proves a heart that refused to assimilate removed; the page says it is a comfort, not an instruction to withdraw. (Audit 2026-10-27… | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-migration-strangers ch1) |
 | `story.modernhadith.mh-forgive-anger.ch1` | Stories > Modern hadith > mh-forgive-anger > chapter 1 | Chapter 1 of mh-forgive-anger, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 6114 and Muslim 2609 verified. Safety line added: this is not a call to stay where one is harmed; Need help now lists lines. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-forgive-anger ch1) |
 | `story.modernhadith.mh-addiction-ninetynine.ch1` | Stories > Modern hadith > mh-addiction-ninetynine > chapter 1 | Chapter 1 of mh-addiction-ninetynine, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 3470 and Muslim 2766 verified. ‘Hadith of the century’ subtitle removed; pointer to a doctor or addiction service and to Need help now added. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-addiction-ninetynine ch1) |
-| `story.modernhadith.mh-work-25.ch1` | Stories > Modern hadith > mh-work-25 > chapter 1 | Chapter 1 of mh-work-25, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-work-25 ch1) |
 | `story.modernhadith.mh-grief-ibrahim.ch1` | Stories > Modern hadith > mh-grief-ibrahim > chapter 1 | Chapter 1 of mh-grief-ibrahim, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 1303, Muslim 2315 and Qur’an 2:156 verified. The unsupported ‘floor beneath the fall’ claim replaced by 2:156; a line pointing to real help added for grief that becomes too heavy. (Audit 2026-10-27.) | Hadith / aqidah scholar + Fiqh scholar | high | docs/story_audit.md (row mh-grief-ibrahim ch1) |
-| `story.modernhadith.mh-jumuah-30.ch1` | Stories > Modern hadith > mh-jumuah-30 > chapter 1 | Chapter 1 of mh-jumuah-30, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-jumuah-30 ch1) |
 | `story.modernhadith.mh-gratitude-31.ch1` | Stories > Modern hadith > mh-gratitude-31 > chapter 1 | Chapter 1 of mh-gratitude-31, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-gratitude-31 ch1) |
 | `story.modernhadith.mh-patience-32.ch1` | Stories > Modern hadith > mh-patience-32 > chapter 1 | Chapter 1 of mh-patience-32, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-patience-32 ch1) |
-| `story.modernhadith.mh-work-33.ch1` | Stories > Modern hadith > mh-work-33 > chapter 1 | Chapter 1 of mh-work-33, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row mh-work-33 ch1) |
 
 ### Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas
 

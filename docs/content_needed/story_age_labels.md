@@ -234,7 +234,6 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | modernhadith | mh-work-hand | The Work of Your Own Hand — Dignity in Every Job | 153 | |
 | modernhadith | mh-grief-ibrahim | The Eye Weeps and the Heart Grieves — Permission to Feel | 173 | |
 | modernhadith | mh-community-structure | The Believers Are a Structure — You Are Somebody's Wall | 148 | |
-| modernhadith | mh-work-25 | The Dignity of the Hand | 136 | |
 | modernhadith | mh-jumuah-26 | The Excellence of Jumu'ah | 152 | |
 | dailyduas | dua-waking | On Waking | 51 | |
 | dailyduas | dua-sleep | Before Sleep (1) — Ayat al-Kursi | 54 | |
