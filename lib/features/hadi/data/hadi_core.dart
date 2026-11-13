@@ -296,7 +296,7 @@ abstract final class HadiCore {
   static final RegExp _elliptical = RegExp(
     r'^(?:and\s+|what\s+about\s+|how\s+about\s+)?'
     r'(?:how|what|who|when|where|why|which|is|are|can|do|does|did|should|'
-    r'must|may)\b',
+    r'must|may|on|in|with|without|during|after|before|if)\b',
   );
   static final RegExp _pronoun = RegExp(r'\b(?:it|its|that|this|them|those|these)\b');
 
@@ -318,7 +318,7 @@ abstract final class HadiCore {
     // about" is a follow-up even when it has a few more words.
     final bool whatIf =
         RegExp(r'^(?:and\s+)?(?:what\s+if|what\s+about|how\s+about)\b').hasMatch(c);
-    if (!pronoun && words.length > (whatIf ? 7 : 4)) return null;
+    if (!pronoun && words.length > (whatIf ? 7 : 6)) return null;
     String? topic;
     int seen = 0;
     for (int i = history.length - 1; i >= 0 && seen < 6; i--) {
@@ -370,6 +370,105 @@ abstract final class HadiCore {
     return null;
   }
 
+  /// The entry for the most recent question in [history] that a built-in
+  /// answer takes, for "why?" asked after an answer that was not itself an
+  /// entry (a follow-up expanded with its topic, a shelf answer).
+  static CoreEntry? _lastAskedEntry(List<HadiMessage> history) {
+    int seen = 0;
+    for (int i = history.length - 1; i >= 0 && seen < 4; i--) {
+      final HadiMessage m = history[i];
+      if (m.fromHadi) continue;
+      seen++;
+      final CoreEntry? e = _find(canon(m.text));
+      if (e != null) return e;
+    }
+    return null;
+  }
+
+  static final RegExp _asksSource = RegExp(
+    r'^(?:and\s+)?(?:'
+    r'(?:is|was|are)\s+(?:that|this|it)\s+(?:from|in|taken\s+from|based\s+on)'
+    r'\s+(?:a|an|the)?\s*(?:hadith|hadeeth|quran|qur\s*an|sunnah|book|source)?|'
+    r'where\s+(?:is|was|did|does)\s+(?:that|this|it)\s*(?:come\s+)?from|'
+    r'where\s+did\s+you\s+(?:get|read|find)\s+(?:that|this|it)|'
+    r'what\s*(?:s|is)\s+(?:the|your)\s+(?:source|sources|proof|evidence|'
+    r'reference|references|daleel|dalil)(?:\s+for\s+(?:that|this|it))?|'
+    r'(?:source|sources|proof|evidence|reference|references|daleel|dalil)|'
+    r'how\s+do\s+you\s+know(?:\s+(?:that|this))?|'
+    r'which\s+(?:hadith|book|verse|ayah)|'
+    r'can\s+i\s+(?:see|get)\s+(?:the|a)\s+(?:source|proof|evidence|reference)'
+    r')\s*$',
+  );
+  /// Replies that are not an answer to a question about religion: a refusal
+  /// or an earlier source reply. "Where is that from?" is about the answer
+  /// before them.
+  static bool _isNotAnAnswer(String text) =>
+      text.startsWith('That answer rests on:') ||
+      text.startsWith('That one carries no book') ||
+      text.startsWith('I don\u2019t have a checked answer') ||
+      text.startsWith('This one is not on my shelf') ||
+      text.startsWith('Still no verified answer') ||
+      text.startsWith('I cannot answer that from verified') ||
+      text.startsWith('That one is beyond my shelf') ||
+      text.startsWith('That is outside what I do');
+
+  static final RegExp _citeRe = RegExp(
+    r"\((?:Sahih|Sunan|Jami|Muwatta|Musnad|Qur.an|Surah)[^)]{2,90}\)",
+  );
+
+  /// True when [reply] is about the topic that [expanded] (a follow-up
+  /// rewritten by [expandFollowUp]) was tied to. A follow-up answered from
+  /// the shelf must still be about what the conversation was about.
+  static bool replyKeepsTopic(String expanded, String reply) {
+    final String e = canon(expanded);
+    final String r = reply.toLowerCase();
+    for (final (RegExp re, String t) in _topics) {
+      if (re.hasMatch(e) && r.contains(t)) return true;
+    }
+    return false;
+  }
+
+  /// The sources of the answer Hādi gave last, read out of that answer, for
+  /// "is that from a hadith?" / "where is that from?" / "source?". Null when
+  /// the question is not a request for a source or nothing was said yet.
+  static String? sourceReply(String question, List<HadiMessage> history) {
+    if (history.isEmpty || !_asksSource.hasMatch(canon(question))) return null;
+    HadiMessage? last;
+    for (int i = history.length - 1; i >= 0; i--) {
+      final HadiMessage m = history[i];
+      if (!m.fromHadi || _isNotAnAnswer(m.text)) continue;
+      last = m;
+      break;
+    }
+    if (last == null) return null;
+    // A "Source:" line is the answer's own consolidated list; without one,
+    // the references named inside the text are used.
+    final String? line = _sourceLine(last.text);
+    final List<String> cites = line != null
+        ? <String>[
+            line.replaceFirst(RegExp(r'^Source:\s*'), '').replaceFirst(RegExp(r'\.+\s*$'), ''),
+          ]
+        : <String>[
+            for (final RegExpMatch m in _citeRe.allMatches(last.text))
+              m.group(0)!.substring(1, m.group(0)!.length - 1),
+          ];
+    final List<String> unique = cites.toSet().toList();
+    if (unique.isNotEmpty) {
+      return 'That answer rests on: ${unique.join('; ')}. The text itself '
+          'is in our library, and Our Sources shows where each book comes '
+          'from.\n[GO:/sources]';
+    }
+    if (last.sources.isNotEmpty) {
+      return 'The passages that answer rests on are printed under it. Our '
+          'Sources shows where each book comes from.\n[GO:/sources]';
+    }
+    return 'That one carries no book or verse reference of its own: it is '
+        'a plain explanation written for this app, and it is marked as '
+        'still needing scholar review. If you tell me which part you want '
+        'proved, I will look for a verified text for exactly that. Our '
+        'Sources shows where the library comes from.\n[GO:/sources]';
+  }
+
   static String? _sourceLine(String answer) {
     for (final String l in answer.split('\n')) {
       if (l.startsWith('Source:')) return l;
@@ -383,7 +482,7 @@ abstract final class HadiCore {
     final String c = canon(question);
     if (c.isEmpty) return null;
     if (c == 'why' || c == 'why is that' || c == 'why so') {
-      final CoreEntry? last = _lastEntry(history);
+      final CoreEntry? last = _lastEntry(history) ?? _lastAskedEntry(history);
       if (last == null) return null;
       if (last.why.isNotEmpty) return CoreHit(last, last.why);
       final String? src = _sourceLine(last.answer);

@@ -214,7 +214,123 @@ class OfflineWasiaProvider implements HadiProvider {
         bestAnswer = e.answer;
       }
     }
+    // No letter was named: this may be a follow-up ("say it again", "next",
+    // "I do not understand") about the letter just taught.
+    if (bestScore == 0) {
+      final String? talk = conversationReply(q, history);
+      if (talk != null) return talk;
+    }
     return bestAnswer;
+  }
+
+  // ── Keeping a conversation ──────────────────────────────────────────
+
+  static const String _letterMarker = 'Letters school in the Academy';
+
+  static final RegExp _confusedRe = RegExp(
+    r' (?:(?:i )?(?:dont|do not|don t|cant|can t|cannot) '
+    r'(?:understand|get it|get this|get that|do it|know)|confused|'
+    r'too hard|so hard|its hard|it s hard|im lost|i m lost|stuck|'
+    r'i dont get|what does that mean|what do you mean) ',
+  );
+  static final RegExp _againRe = RegExp(
+    r' (?:again|repeat|one more time|once more|say it|say that|'
+    r'how do i say it|how to say it|how do you say it|how do you say that|'
+    r'what does it sound like|how does it sound|sounds like|pronounce it) ',
+  );
+  static final RegExp _nextRe = RegExp(
+    r' (?:next|next one|next letter|what comes next|what is next|whats next|'
+    r'what s next|and then|after that|go on|continue|keep going) ',
+  );
+  static final RegExp _teachRe = RegExp(
+    r' (?:teach me|lets learn|let s learn|lets start|let s start|start|'
+    r'learn something|what can you teach|what can i learn|'
+    r'what should i learn|i want to learn|i wanna learn|lets go|let s go) ',
+  );
+  static final RegExp _howAreYouRe = RegExp(
+    r' (?:how are you|how r u|how are u|how do you feel|are you ok|'
+    r'are you okay) ',
+  );
+  static final RegExp _firstRe =
+      RegExp(r' (?:first letter|the first one|very first) ');
+  static final RegExp _howManyRe = RegExp(r' how many letters ');
+  static final RegExp _moreRe =
+      RegExp(r' (?:tell me more|more|something else|anything else|what else) ');
+
+  static List<_Entry> get _letters => <_Entry>[
+        for (final _Entry e in _knowledge)
+          if (e.answer.contains(_letterMarker)) e,
+      ];
+
+  static String _nameOf(_Entry e) => e.answer.split(' (').first;
+
+  /// The letter Wasia taught last in [history], or null.
+  static _Entry? _lastLetter(List<HadiMessage> history) {
+    final List<_Entry> letters = _letters;
+    for (int i = history.length - 1; i >= 0; i--) {
+      final HadiMessage m = history[i];
+      if (!m.fromHadi) continue;
+      for (final _Entry e in letters) {
+        if (m.text.contains(e.answer)) return e;
+      }
+    }
+    return null;
+  }
+
+  /// A kind, simple reply to a short follow-up that names no letter, using
+  /// the letter taught last. Null when [q] (already [normalise]d) is none of
+  /// these, so the caller falls back to the lesson-shelf decline.
+  static String? conversationReply(String q, List<HadiMessage> history) {
+    final List<_Entry> letters = _letters;
+    if (letters.isEmpty) return null;
+    final _Entry? last = _lastLetter(history);
+    final int words = q.trim().split(' ').length;
+    final _Entry first = letters.first;
+
+    if (_howAreYouRe.hasMatch(q)) {
+      return 'Alhamdulillah, thank you for asking! I am a computer program, '
+          'so I do not have feelings like you do, but I am happy to be '
+          'learning with you. Would you like to learn a letter today?';
+    }
+    if (_confusedRe.hasMatch(q)) {
+      final _Entry e = last ?? first;
+      return 'That is okay. Nobody learns a new letter all at once, and '
+          'saying you do not understand is a brave thing to do. Let us go '
+          'slowly, one small thing at a time. Here it is again. ${e.answer}';
+    }
+    if (_againRe.hasMatch(q)) {
+      if (last == null) {
+        return 'Which letter would you like me to say? Type its name, for '
+            'example Alif or Baa.';
+      }
+      return 'Of course! ${last.answer}';
+    }
+    if (_nextRe.hasMatch(q) || _teachRe.hasMatch(q)) {
+      if (last == null) {
+        return 'Let us start at the very beginning. ${first.answer}';
+      }
+      final int at = letters.indexOf(last);
+      if (at + 1 >= letters.length) {
+        return 'That was the last of the ${letters.length} letters. Well '
+            'done! You can practise any of them again: just type its name.';
+      }
+      final _Entry next = letters[at + 1];
+      return 'The next letter is ${_nameOf(next)}. ${next.answer}';
+    }
+    if (_firstRe.hasMatch(q)) {
+      return 'The first letter is ${_nameOf(first)}. ${first.answer}';
+    }
+    if (_howManyRe.hasMatch(q)) {
+      return 'The Arabic alphabet has ${letters.length} letters. Shall we '
+          'start with ${_nameOf(first)}?';
+    }
+    if (words <= 4 && _moreRe.hasMatch(q) && last != null) {
+      return 'That is everything I know about ${_nameOf(last)} on my shelf. '
+          'The best next step is its lesson in the $_letterMarker: you will '
+          'see the letter, practise it and answer a gentle question. Shall '
+          'we try the next letter?';
+    }
+    return null;
   }
 }
 

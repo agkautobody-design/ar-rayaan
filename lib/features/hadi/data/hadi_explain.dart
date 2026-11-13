@@ -358,6 +358,25 @@ abstract final class HadiExplain {
     return false;
   }
 
+  /// Words that make a "near me" sentence a question about a RULING, not a
+  /// request to find a place ("is Jumu'ah obligatory for someone near me").
+  static final RegExp _rulingWord = RegExp(
+    r'\b(?:obligatory|fard|compulsory|mandatory|wajib|ruling|rakah|rakat|'
+    r'rakaat|rakahs)\b',
+  );
+
+  /// An explicit "near me" ask for a masjid, Friday prayer or halal food.
+  /// Unlike [asksNearestMasjid] this needs real proximity words ("near me",
+  /// "close to me", "nearby"), so it is safe to check BEFORE the built-in
+  /// topic answers: "can I make it for juma prayer anywhere close to me"
+  /// is a request for a place, not for the rules of Jumu'ah.
+  static bool asksNearestMasjidFirst(String question) {
+    final String n = _norm(question);
+    if (n.split(' ').length > 16) return false;
+    if (!_nearOnly.hasMatch(n) || _rulingWord.hasMatch(n)) return false;
+    return _masjidWord.hasMatch(n) || _namesFriday(n) || _halalWord.hasMatch(n);
+  }
+
   static bool asksNearestMasjid(String question) {
     final String n = _norm(question);
     if (n.split(' ').length > 16) return false;
