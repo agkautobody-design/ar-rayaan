@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5758 items.** High priority: 1305. Normal: 3636. Low: 817.
+**5762 items.** High priority: 1306. Normal: 3639. Low: 817.
 
 ### By area
 
@@ -29,7 +29,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 | 116 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
-| Stories: the unseen, signs, tales, khutbahs | 182 | 61 |
+| Stories: the unseen, signs, tales, khutbahs | 186 | 62 |
 | Stories: modern hadith | 69 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
 | New Muslim 30-day path | 30 | 13 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5758** | **1305** |
+| **Total** | **5762** | **1306** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2495 | 1043 |
-| Fiqh scholar (per madhab) | 630 | 244 |
+| Hadith / aqidah scholar | 2499 | 1043 |
+| Fiqh scholar (per madhab) | 630 | 248 |
 | Women's scholar | 151 | 96 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -76,7 +76,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
-| Stories: the unseen, signs, tales, khutbahs | 182 |  |  |  |  |  |  |  |  |
+| Stories: the unseen, signs, tales, khutbahs | 186 |  |  |  |  |  |  |  |  |
 | Stories: modern hadith | 69 |  |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2495 lead, 1043 also)
+### Hadith / aqidah scholar (2499 lead, 1043 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -103,7 +103,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 579 items (116 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
-- Stories: the unseen, signs, tales, khutbahs: 182 items (61 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
+- Stories: the unseen, signs, tales, khutbahs: 186 items (62 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
 - Stories: modern hadith: 69 items (11 high). Ids start with `story.modernhadith`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 153 items (23 high). Ids start with `dua.adhkar`, `dua.daily`, `dua.dhikr-session`, `dua.eid-takbir`, `dua.fatiha-linked`, `dua.hisn-source`.
 - Prayer times, qibla, Hijri calendar, observances: 10 items (10 high). Ids start with `calendar.observance`.
@@ -113,7 +113,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (630 lead, 244 also)
+### Fiqh scholar (per madhab) (630 lead, 248 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
@@ -3264,7 +3264,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Stories: the unseen, signs, tales, khutbahs
 
-182 items, 61 high priority. Area key `stories-unseen`.
+186 items, 62 high priority. Area key `stories-unseen`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3361,6 +3361,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.khutbahs.kh-patience` | Stories > Khutbahs > "The Door That Opens With the Pain" | 5 chapter(s) of "The Door That Opens With the Pain" and its source lines (7 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=Q, ch2=Q, ch3=Q, ch4=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/khutbahs.json (no named reviewer); docs/story_audit.md (4 chapter rows); FACT reports (accuracy passes; nothing scholar-revi… |
 | `story.khutbahs.kh-gratitude` | Stories > Khutbahs > "The Increase Clause" | 5 chapter(s) of "The Increase Clause" and its source lines (7 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=Q, ch2=Q, ch3=M, ch4=M. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/khutbahs.json (no named reviewer); docs/story_audit.md (4 chapter rows); FACT reports (accuracy passes; nothing scholar-revi… |
 | `story.khutbahs.kh-structure` | Stories > Khutbahs > "How a Friday Khutbah Is Built" | 5 chapter(s) of "How a Friday Khutbah Is Built" and its source lines (8 sources); label "Established". | Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=C, ch2=C, ch3=C, ch4=RF, ch5=RF. | Hadith / aqidah scholar + Fiqh scholar | normal | assets/stories/khutbahs.json (no named reviewer); docs/story_audit.md (5 chapter rows); FACT reports (accuracy passes; nothing scholar-revi… |
+| `story.khutbahs.kh-work_life-1` | Stories > Khutbahs > "When Career Consumes Conscience" | 4 chapter(s) of "When Career Consumes Conscience" and its source lines (4 sources); label "Reflection". | Story text written for this app from the cited sources; no named scholar has reviewed it. Story label: "Reflection". Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=M, ch2=M, ch3=Q, ch4=RF. | Hadith / aqidah scholar + Fiqh scholar | high | assets/stories/khutbahs.json (no named reviewer); docs/story_audit.md (4 chapter rows); FACT reports (accuracy passes; nothing scholar-revi… |
 | `story.tales.tale-uwais.ch1` | Stories > Tales > tale-uwais > chapter 1 | Chapter 1 of tale-uwais, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Muslim 2542 re-read on sunnah.com 2026-10-20: it has Umar relaying the description (white patch cured except a dirham-sized spot; only his mother left in Yemen; ask him to seek forgiveness). The Ali dialogue, the greetings, the shoulder s… | Hadith / aqidah scholar | normal | docs/story_audit.md (row tale-uwais ch1) |
 | `story.tales.tale-jurayj.ch1` | Stories > Tales > tale-jurayj > chapter 1 | Chapter 1 of tale-jurayj, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 3436 re-read 2026-10-20: the tempter was a woman (not shepherds), the report does not say the mother called three times, and it has no finger-to-mouth detail; he prayed after wudu. Body corrected to the report; closing line hedged. | Hadith / aqidah scholar | normal | docs/story_audit.md (row tale-jurayj ch1) |
 | `story.tales.tale-cave.ch1` | Stories > Tales > tale-cave > chapter 1 | Chapter 1 of tale-cave, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Bukhari 2215 re-read 2026-10-20: the second man left a cousin who had asked 100 dinars (she said fear Allah, no orphans); the third hired ONE worker whose millet became cattle and a shepherd; the rock moved a bit, then two thirds, then fu… | Hadith / aqidah scholar | normal | docs/story_audit.md (row tale-cave ch1) |
@@ -3450,6 +3451,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `story.khutbahs.kh-gratitude.ch4` | Stories > Khutbahs > kh-gratitude > chapter 4 | Chapter 4 of kh-gratitude, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Qur’an 2:152. The supplications at eating, dressing, rising are in the collections; references not checked, hedged. | Hadith / aqidah scholar + Fiqh scholar | high | docs/story_audit.md (row kh-gratitude ch4) |
 | `story.khutbahs.kh-structure.ch4` | Stories > Khutbahs > kh-structure > chapter 4 | Chapter 4 of kh-structure, audit class RF (unsourced colour (reflection only)). | docs/story_audit.md: New. States that the schools differ on what is obligatory; gives no ruling. | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row kh-structure ch4) |
 | `story.khutbahs.kh-structure.ch5` | Stories > Khutbahs > kh-structure > chapter 5 | Chapter 5 of kh-structure, audit class RF (unsourced colour (reflection only)). | docs/story_audit.md: New. Explains how the app's khutbahs are built. Label: Reflection. | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row kh-structure ch5) |
+| `story.khutbahs.kh-work_life-1.ch1` | Stories > Khutbahs > kh-work_life-1 > chapter 1 | Chapter 1 of kh-work_life-1, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Daily job cited Bukhari 2088 for 'the truthful merchant is with the prophets'; 2088 is the man who swore falsely over his goods, and the merchant wording is Tirmidhi 1209 (da'if per Darussalam). Replaced with Bukhari 2079 (verified: truth… | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row kh-work_life-1 ch1) |
+| `story.khutbahs.kh-work_life-1.ch2` | Stories > Khutbahs > kh-work_life-1 > chapter 2 | Chapter 2 of kh-work_life-1, audit class M (mixed: supported core, unsourced detail). | docs/story_audit.md: Daily job cited Muslim 1599 for 'whoever cheats us is not one of us'; 1599 is the halal/haram-are-clear hadith. Corrected to Muslim 102 (verified). Removed the claim that a cheater 'has left the community of faith' — the hadith is a warni… | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row kh-work_life-1 ch2) |
+| `story.khutbahs.kh-work_life-1.ch4` | Stories > Khutbahs > kh-work_life-1 > chapter 4 | Chapter 4 of kh-work_life-1, audit class RF (unsourced colour (reflection only)). | docs/story_audit.md: Closing du'a; no factual claim. Label: Reflection. (Audit 2026-11-13.) | Hadith / aqidah scholar + Fiqh scholar | normal | docs/story_audit.md (row kh-work_life-1 ch4) |
 
 ### Stories: modern hadith
 

@@ -354,3 +354,7 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | modernhadith | mh-gratitude-31 | 1 | M | Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) |
 | modernhadith | mh-patience-32 | 1 | M | Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) |
 | modernhadith | mh-work-33 | 1 | M | Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) |
+| khutbahs | kh-work_life-1 | 1 | M | Daily job cited Bukhari 2088 for 'the truthful merchant is with the prophets'; 2088 is the man who swore falsely over his goods, and the merchant wording is Tirmidhi 1209 (da'if per Darussalam). Replaced with Bukhari 2079 (verified: truth and clarity bless a sale). (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 2 | M | Daily job cited Muslim 1599 for 'whoever cheats us is not one of us'; 1599 is the halal/haram-are-clear hadith. Corrected to Muslim 102 (verified). Removed the claim that a cheater 'has left the community of faith' — the hadith is a warning, not takfir. Qur'an 83:1-3. (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 3 | Q | Qur'an 2:188 cited; application only. (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 4 | RF | Closing du'a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
