@@ -74,10 +74,6 @@ const PathStop _character = PathStop('Character',
     'Everyday manners and kindness, in short lessons.', '/academy/character');
 const PathStop _hadith = PathStop('Hadith School',
     'Study the sayings of the Prophet ﷺ, with their sources named.', '/academy/hadith');
-const PathStop _seerah = PathStop('Seerah School',
-    'The life of the Prophet ﷺ, told in order.', '/academy/seerah');
-const PathStop _aqeedah = PathStop('Aqeedah School',
-    'What Muslims believe, laid out step by step.', '/academy/aqeedah');
 
 /// Three schools to start with, for a level. Never more than three: a long
 /// menu is what makes an app feel like a chore.
