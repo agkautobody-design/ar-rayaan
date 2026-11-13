@@ -15,6 +15,7 @@ import '../../support/domain/student_routing.dart';
 import '../../support/domain/support_engine.dart';
 import '../../support/domain/child_distress.dart';
 import '../../support/domain/safe_replies.dart';
+import 'academy_strings.dart';
 import 'child_age_band.dart';
 import '../domain/academy_models.dart';
 import '../domain/next_lesson.dart';
@@ -373,7 +374,7 @@ class WasiaController extends StateNotifier<WasiaState> {
       lettersDone: lettersDone,
       reviewsDue: ref.read(lessonReviewsDueProvider).length,
       childBand: band,
-      nextLessonTitle: cont?.title,
+      nextLessonTitle: cont == null ? null : AcademyStrings.get(cont.titleKey),
       nextLessonRoute: cont == null ? null : lessonRoute(cont),
     );
     final CoachReply r;
