@@ -86,5 +86,6 @@ void main() {
     await t.pump();
     expect(find.text('START HERE'), findsOneWidget);
     expect(find.byType(ListTile), findsNWidgets(3));
+    expect(find.byKey(const Key('start-letters-check')), findsOneWidget);
   });
 }

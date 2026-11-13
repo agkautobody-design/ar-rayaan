@@ -13,6 +13,7 @@ import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
 import '../../application/academy_providers.dart';
 import '../../domain/learner_path.dart';
+import 'path_ux_widgets.dart' show showPlacementQuiz;
 
 class StartHereCard extends ConsumerWidget {
   const StartHereCard({super.key});
@@ -52,6 +53,22 @@ class StartHereCard extends ConsumerWidget {
                 ),
             ],
           ),
+          // Someone who knows some Arabic need not start at the first letter:
+          // a two-minute check suggests where to begin. Optional, never marked.
+          if (level == LearnerLevel.basics || level == LearnerLevel.deeper)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                key: const Key('start-letters-check'),
+                style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () => showPlacementQuiz(context),
+                icon: const Icon(Icons.checklist,
+                    size: 16, color: AppColors.goldLight),
+                label: Text('Not sure about the letters? Two-minute check',
+                    style: AppText.body
+                        .copyWith(fontSize: 13, color: AppColors.goldLight)),
+              ),
+            ),
           for (final PathStop p in stops)
             ListTile(
               key: Key('start-stop-${p.route}'),
