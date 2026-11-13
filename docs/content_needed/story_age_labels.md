@@ -196,6 +196,10 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | khutbahs | kh-women-carry | The Load She Carries — A Khutbah for the Unseen | 811 | |
 | khutbahs | kh-patience | The Door That Opens With the Pain | 346 | |
 | khutbahs | kh-gratitude | The Increase Clause | 302 | |
+| khutbahs | kh-neighbour | The Neighbour Jibril Kept Mentioning | 296 | |
+| khutbahs | kh-three-nights | Three Nights Is the Limit | 319 | |
+| khutbahs | kh-strong-one | The Strong Is the One Who Holds Himself | 282 | |
+| khutbahs | kh-good-or-silent | Say Good, or Be Silent | 345 | |
 | modernhadith | mh-youth-seven | The Seven Under the Shade — For the One With No Connections | 145 | |
 | modernhadith | mh-youth-feet | Your Two Feet Will Ask | 157 | |
 | modernhadith | mh-youth-friends | You Are on the Religion of Your Friends | 149 | |
@@ -230,7 +234,6 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | modernhadith | mh-work-hand | The Work of Your Own Hand — Dignity in Every Job | 153 | |
 | modernhadith | mh-grief-ibrahim | The Eye Weeps and the Heart Grieves — Permission to Feel | 173 | |
 | modernhadith | mh-community-structure | The Believers Are a Structure — You Are Somebody's Wall | 148 | |
-| modernhadith | mh-work-25 | The Dignity of the Hand | 136 | |
 | modernhadith | mh-jumuah-26 | The Excellence of Jumu'ah | 152 | |
 | dailyduas | dua-waking | On Waking | 51 | |
 | dailyduas | dua-sleep | Before Sleep (1) — Ayat al-Kursi | 54 | |

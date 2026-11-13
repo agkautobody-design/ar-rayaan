@@ -390,8 +390,15 @@ class OfflineHadiProvider implements HadiProvider {
   );
 
   static final RegExp _byeRe = RegExp(
-    r'^(?:bye|goodbye|good\s+bye|see\s+you|see\s+ya|ma\s+salama|'
-    r'fi\s+amanillah|allah\s+hafiz|khuda\s+hafiz|take\s+care|good\s+night)' +
+    r'^(?:(?:ok(?:ay)?|alright|well|right|cool|great|fine|so|then|yes|yeah|'
+    r'no|nope)\s+)*'
+    r'(?:bye(?:\s+bye)?|goodbye|good\s+bye|see\s+you(?:\s+(?:later|soon|'
+    r'tomorrow))?|see\s+ya|ma\s+salama|fi\s+amanillah|allah\s+hafiz|'
+    r'khuda\s+hafiz|take\s+care|good\s+night|'
+    r'that\s*(?:s|is)\s+(?:all|it|enough)(?:\s+for\s+now)?|'
+    r'i\s*(?:m|am)\s+(?:done|good|finished)(?:\s+for\s+now)?|'
+    r'nothing\s+(?:else|more)|no\s+(?:thanks|thank\s+you)|'
+    r'talk\s+(?:to\s+you\s+)?later|gotta\s+go|got\s+to\s+go)' +
         _tail +
         r'$',
   );
@@ -1058,6 +1065,11 @@ class OfflineHadiProvider implements HadiProvider {
     final String? chat = smallTalk(question, history.length);
     if (chat != null) return chat;
 
+    // "Is that from a hadith?", "where is that from?": the sources of the
+    // answer just given, read from that answer, never from memory.
+    final String? sourced = HadiCore.sourceReply(question, history);
+    if (sourced != null) return sourced;
+
     // A short "yes please" means the thing Hādi just offered, not a new
     // search of the whole shelf.
     String asked = question;
@@ -1068,7 +1080,21 @@ class OfflineHadiProvider implements HadiProvider {
       asked = follow.question ?? question;
     }
 
-    final String answer = await _routed(asked, history);
+    String answer = await _routed(asked, history);
+    // A short follow-up ("how much do I pay?", "and for gold?") that finds
+    // nothing on its own is asked again with the topic of the conversation
+    // ("how much do I pay zakat"): the shelf is searched with the topic it
+    // was missing before the person is told there is no answer.
+    if (HadiRouting.isRefusal(answer)) {
+      final String? expanded = HadiCore.expandFollowUp(question, history);
+      if (expanded != null && expanded != asked) {
+        final String retry = await _routed(expanded, history);
+        if (!HadiRouting.isRefusal(retry) &&
+            HadiCore.replyKeepsTopic(expanded, retry)) {
+          answer = retry;
+        }
+      }
+    }
     // The same question typed twice in a row, or a request for "another"
     // when there is none, gets a short note instead of the same paragraph.
     // A first ask (a suggestion chip, a hand-off from Search) never does.
@@ -1092,6 +1118,13 @@ class OfflineHadiProvider implements HadiProvider {
   Future<String> _routed(String asked, List<HadiMessage> history) async {
     final String n = CrisisDetector.normalize(asked);
     final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+
+    // "…close to me" for a masjid, Friday prayer or halal food is a request
+    // for a place: it goes to the finder before any topic answer can claim
+    // it (the Jumu'ah answer used to).
+    if (HadiExplain.asksNearestMasjidFirst(asked)) {
+      return HadiExplain.masjidReply(asked);
+    }
 
     // The built-in answers come first: they are matched on the topic, so an
     // everyday question (the funeral prayer, the conditions of prayer, what

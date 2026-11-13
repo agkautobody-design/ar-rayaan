@@ -26,6 +26,7 @@ import '../../places/domain/community_place.dart';
 import '../../places/presentation/community_place_card.dart';
 import '../../places/presentation/report_place_sheet.dart';
 import '../../../app/router.dart';
+import '../domain/google_places_service.dart';
 import '../domain/masjid_search_service.dart';
 import '../domain/masjid_search_state.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -59,6 +60,9 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   // What Retry repeats: the city lookup (true) or the map search (false).
   bool _retryIsCitySearch = false;
   List<Mosque> _mosques = [];
+  // Google Places results (only when the build has a key); listed apart
+  // from the open-data results and never drawn on the OpenStreetMap map.
+  List<GooglePlace> _google = [];
   List<Map<String, dynamic>> _foods = [];
   // Starts at the location saved for Prayer Times (GPS fix or chosen city).
   late double _lat, _lon;
@@ -160,8 +164,21 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       _failed = false;
       _failReason = null;
       _usedBackup = false;
+      _google = [];
     });
     final bool foodMode = _tab == 1;
+    if (kGooglePlacesKey.isNotEmpty) {
+      searchGooglePlaces(
+        client: _client,
+        lat: _lat,
+        lon: _lon,
+        food: foodMode,
+      ).then((List<GooglePlace> g) {
+        if (mounted && id == _requestId) setState(() => _google = g);
+      }, onError: (Object _) {
+        // Google is an extra; the open-data results stand on their own.
+      });
+    }
     try {
       final MapSearchOutcome out = await searchNearby(
         client: _client,
@@ -632,6 +649,13 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                           ],
                         ),
                       ),
+                  if (!eventsTab && _google.isNotEmpty)
+                    _GooglePlacesSection(
+                      places: _google,
+                      food: food,
+                      fromLat: _lat,
+                      fromLon: _lon,
+                    ),
                   if (!eventsTab && !_hasPlace)
                     GlassCard(
                         padding: const EdgeInsets.all(16),
@@ -755,4 +779,82 @@ class _MosqueCard extends StatelessWidget {
     ),
     child: Text(t, style: TextStyle(fontSize: 12, color: AppColors.sand)),
   );
+}
+
+
+/// Google Places results, kept apart from the open-data results: a list with
+/// the required Google attribution, each place linking to Google Maps.
+class _GooglePlacesSection extends StatelessWidget {
+  final List<GooglePlace> places;
+  final bool food;
+  final double fromLat, fromLon;
+  const _GooglePlacesSection({
+    required this.places,
+    required this.food,
+    required this.fromLat,
+    required this.fromLon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8, top: 6),
+          child: Text(
+            'From Google Maps \u2014 Powered by Google',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+        ),
+        for (final GooglePlace g in places.take(10))
+          GlassCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(g.name,
+                    style: AppText.body.copyWith(fontWeight: FontWeight.w700)),
+                Text(
+                  [
+                    '${(masjidDistanceMeters(fromLat, fromLon, g.lat, g.lon) / 1000).toStringAsFixed(1)} km',
+                    if (g.address != null) g.address!,
+                    if (g.rating != null)
+                      '${g.rating!.toStringAsFixed(1)}\u2605'
+                          '${g.ratingCount == null ? '' : ' (${g.ratingCount})'}',
+                    if (g.openNow != null) g.openNow! ? 'Open now' : 'Closed now',
+                  ].join(' \u00b7 '),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
+                ),
+                if (food)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      'Found by Google as a halal restaurant. That is not a '
+                      'certification \u2014 confirm with the restaurant, in shaa Allah.',
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
+                    ),
+                  ),
+                Row(children: [
+                  if (SafeUrl.web(g.mapsUri) != null)
+                    TextButton(
+                      onPressed: () =>
+                          _openExternal(SafeUrl.web(g.mapsUri)!, external: !kIsWeb),
+                      child: const Text('Open in Google Maps',
+                          style: TextStyle(
+                              color: AppColors.goldLight, fontSize: 12)),
+                    ),
+                  if (SafeUrl.tel(g.phone) != null)
+                    TextButton(
+                      onPressed: () => _openExternal(SafeUrl.tel(g.phone)!),
+                      child: const Text('Call',
+                          style: TextStyle(
+                              color: AppColors.goldLight, fontSize: 12)),
+                    ),
+                ]),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
 }

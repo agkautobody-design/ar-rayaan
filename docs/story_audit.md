@@ -315,7 +315,6 @@ Chapters audited: 278, in 200 stories.
 | modernhadith | mh-forgive-anger | 1 | M | Bukhari 6114 and Muslim 2609 verified. Safety line added: this is not a call to stay where one is harmed; Need help now lists lines. (Audit 2026-10-27.) |
 | modernhadith | mh-addiction-ninetynine | 1 | M | Bukhari 3470 and Muslim 2766 verified. ‘Hadith of the century’ subtitle removed; pointer to a doctor or addiction service and to Need help now added. (Audit 2026-10-27.) |
 | modernhadith | mh-work-hand | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-work-25 | 1 | M | Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.) |
 | modernhadith | mh-grief-ibrahim | 1 | M | Bukhari 1303, Muslim 2315 and Qur’an 2:156 verified. The unsupported ‘floor beneath the fall’ claim replaced by 2:156; a line pointing to real help added for grief that becomes too heavy. (Audit 2026-10-27.) |
 | modernhadith | mh-community-structure | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-jumuah-26 | 1 | C | Added by the content bot; repaired 2026-10-23: sources were an object (broke loading), now the string 'Sahih Muslim 854'; empty heading filled; two uncited claims in the app-written reflection removed (du'a during the blessed hour; rehearsal for the Day of Judgment). The citation matches the quoted text but is NOT yet verified against a file on record. |
@@ -350,7 +349,29 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | seerah | seerah-04 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 235-236 (the month of Ramadan, Hira), with Bukhari 3 and 3851 for the revelation and his age. |
 | seerah | seerah-19 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 66, 77-79 (Uhud: the cavalry, the archers, the wounds), with Bukhari 4043 and 5722. |
 | seerah | seerah-27 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 602-605 (the sermon at Arafat), with Muslim 1218; Bukhari 67 is the separate sermon at Mina on the Day of Sacrifice. |
-| modernhadith | mh-jumuah-30 | 1 | M | Bukhari 891 and Muslim 854a verified (Friday, the best day on which the sun rises); the in-body expiation line is Muslim 233. Verdicts in tool/hadith_verdicts/calm_care.json. (Audit 2026-11-03.) |
 | modernhadith | mh-gratitude-31 | 1 | M | Muslim 2999 verified (amazing is the affair of the believer: gratitude in ease, patience in hardship). (Audit 2026-11-03.) |
 | modernhadith | mh-patience-32 | 1 | M | Bukhari 1283 and Muslim 926 verified (real patience is at the first stroke of a calamity). (Audit 2026-11-04.) |
-| modernhadith | mh-work-33 | 1 | M | Bukhari 2072 verified (no one eats better food than what their own hands earned; Dawud ate from the work of his hands). (Audit 2026-11-05.) |
+| khutbahs | kh-work_life-1 | 1 | M | Daily job cited Bukhari 2088 for 'the truthful merchant is with the prophets'; 2088 is the man who swore falsely over his goods, and the merchant wording is Tirmidhi 1209 (da'if per Darussalam). Replaced with Bukhari 2079 (verified: truth and clarity bless a sale). (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 2 | M | Daily job cited Muslim 1599 for 'whoever cheats us is not one of us'; 1599 is the halal/haram-are-clear hadith. Corrected to Muslim 102 (verified). Removed the claim that a cheater 'has left the community of faith' — the hadith is a warning, not takfir. Qur'an 83:1-3. (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 3 | Q | Qur'an 2:188 cited; application only. (Audit 2026-11-13.) |
+| khutbahs | kh-work_life-1 | 4 | RF | Closing du'a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 1 | Q | Qur’an 4:36 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 2 | C | Bukhari 6014 verified against Sunnah.com (Jibril, neighbours, heirs); states that the report does not say neighbours inherit. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 3 | C | Bukhari 6016 and 6018 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 1 | CQ | Qur’an 4:1 paraphrased; Bukhari 5986 verified against Sunnah.com (wealth and life prolonged, keep kinship). (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 2 | CQ | Bukhari 6065 verified (opening wording) and Qur’an 49:10 paraphrased. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 3 | C | Bukhari 6077 verified against Sunnah.com (three nights, the better greets first). (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 4 | RF | Application only; adds that a serious or unsafe matter needs advice. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 1 | Q | Qur’an 3:134 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 2 | C | Bukhari 6114 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 3 | C | Bukhari 6116 verified against Sunnah.com; the text says nothing of why that was his advice, and the chapter says so. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 1 | Q | Qur’an 49:12 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 2 | C | Muslim 2589 verified: opening against Sunnah.com, definition and slander answer per the verdict on file. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 3 | C | Bukhari 6018 and 6065 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
