@@ -16,6 +16,11 @@ import '../../support/domain/support_engine.dart';
 import '../../support/domain/child_distress.dart';
 import '../../support/domain/safe_replies.dart';
 import 'child_age_band.dart';
+import '../domain/academy_models.dart';
+import '../domain/next_lesson.dart';
+import '../domain/learner_path.dart';
+import 'academy_providers.dart';
+import 'family_service.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -346,6 +351,63 @@ class WasiaController extends StateNotifier<WasiaState> {
     return reply;
   }
 
+  /// A coaching reply, built on the device from this learner's own numbers.
+  Future<String> _coach(String q, CoachAsk ask, WasiaPersona persona) async {
+    final LearnerLevel? level = ref.read(learnerLevelProvider);
+    final String? childId =
+        persona == WasiaPersona.student ? await ChildAgeBand.activeId() : null;
+    int lettersDone = 0;
+    String? band;
+    if (childId != null) {
+      band = await _band();
+      try {
+        final Map<String, dynamic> p =
+            await ref.read(progressProvider(childId).future);
+        lettersDone = (p['lessons'] as Map).length;
+      } catch (_) {}
+    }
+    final AcademyLesson? cont = ref.read(continueLessonProvider);
+    final LearnerSnapshot snap = LearnerSnapshot(
+      level: level,
+      lessonsDone: ref.read(lessonsDoneProvider),
+      lettersDone: lettersDone,
+      reviewsDue: ref.read(lessonReviewsDueProvider).length,
+      childBand: band,
+      nextLessonTitle: cont?.title,
+      nextLessonRoute: cont == null ? null : lessonRoute(cont),
+    );
+    final CoachReply r;
+    if (persona == WasiaPersona.parent) {
+      // A parent is told where each child can be seen, not given a child's
+      // numbers: Wasia is not told them.
+      r = const CoachReply(
+        'The Family Wing shows each child\u2019s lessons, and gives one small '
+        'activity to do together. Pick one and keep it short.',
+        route: '/academy/family',
+        routeLabel: 'Open the Family Wing',
+      );
+    } else {
+      r = LearnerCoach.reply(ask, snap);
+      if (r.setLevel != null && childId == null) {
+        await ref.read(learnerLevelProvider.notifier).set(r.setLevel!);
+      }
+    }
+    state = state.copy(
+      clearNotice: true,
+      messages: <HadiMessage>[
+        ...state.messages,
+        HadiMessage(fromHadi: false, text: q),
+        HadiMessage(
+          fromHadi: true,
+          text: r.text,
+          routes: r.route == null ? const <String>[] : <String>[r.route!],
+          notes: r.routeLabel == null ? const <String>[] : <String>[r.routeLabel!],
+        ),
+      ],
+    );
+    return r.text;
+  }
+
   /// Start a fresh conversation with Wasia.
   void clear() {
     _latch = null;
@@ -574,6 +636,13 @@ class WasiaController extends StateNotifier<WasiaState> {
           return text;
         }
       }
+    }
+    // "What should I do next?", "how am I doing?", "I am new", "this is too
+    // hard". Answered on the device from the learner's own progress, which is
+    // never put in a prompt and never sent anywhere. Outside a lesson only.
+    if (lesson == null && persona != WasiaPersona.teacher) {
+      final CoachAsk? ask = LearnerCoach.classify(q);
+      if (ask != null) return _coach(q, ask, persona);
     }
     // Keyless: Wasia teaches from her OWN curated shelf — the Academy
     // curriculum (letters, units, exams, parent FAQ). She never borrows

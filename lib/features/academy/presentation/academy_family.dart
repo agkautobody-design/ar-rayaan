@@ -23,6 +23,7 @@ import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/academy_reminders.dart';
 import '../domain/children_privacy.dart';
+import '../domain/learner_path.dart';
 import '../domain/letters_meta.dart';
 import 'widgets/active_child_banner.dart';
 import 'widgets/age_band_chooser.dart';
@@ -387,6 +388,17 @@ class _ChildCard extends ConsumerWidget {
                       '${exams.isNotEmpty ? '\u00b7 best $bestPct%' : ''}',
                       style: AppText.bodyMuted,
                     ),
+                    const SizedBox(height: 4),
+                    Text(
+                      childSummaryLine(
+                        lettersDone: lessons,
+                        lettersTotal: kLettersLessonCount,
+                        exams: exams.length,
+                      ),
+                      key: Key('child-summary-${child['id']}'),
+                      style: AppText.body.copyWith(fontSize: 13),
+                    ),
+                    _DoTogether(childId: child['id'] as String),
                     if (exams.isNotEmpty) ...[
                       const SizedBox(height: 6),
                       for (final e in (p['exams'] as Map).entries)
@@ -451,6 +463,43 @@ class _ChildCard extends ConsumerWidget {
 /// Parents speak with Wasia here. She is never given the child's name or
 /// progress (see `children_privacy.dart`); a parent's own question may go to
 /// the AI service only while the parent check is open.
+/// One short, screen-free thing to do together, picked for the child's age
+/// band and rotated by week. No score, no deadline.
+class _DoTogether extends ConsumerWidget {
+  const _DoTogether({required this.childId});
+  final String childId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return FutureBuilder<String>(
+      future: ref.read(familyServiceProvider).ageBand(childId),
+      builder: (BuildContext context, AsyncSnapshot<String> snap) {
+        final String band = snap.data ?? FamilyService.defaultAgeBand;
+        final int week =
+            DateTime.now().difference(DateTime(2026)).inDays ~/ 7;
+        final FamilyActivity a = familyActivity(band, week: week);
+        return Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('DO IT TOGETHER',
+                  style: AppText.eyebrow.copyWith(fontSize: 12)),
+              const SizedBox(height: 2),
+              Text(a.title,
+                  style: AppText.body
+                      .copyWith(fontSize: 13, fontWeight: FontWeight.w700)),
+              Text(a.body,
+                  key: Key('do-together-$childId'),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _ParentWasiaBox extends ConsumerStatefulWidget {
   final String childName;
   const _ParentWasiaBox({required this.childName});

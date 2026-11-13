@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide Text;
 import '../../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
@@ -101,6 +102,30 @@ class _WasiaThreadState extends ConsumerState<WasiaThread> {
                 : Text(m.text,
                     style: AppText.bodyMuted
                         .copyWith(fontSize: 13, height: 1.4)),
+          ),
+        ),
+      // A coaching reply ("what should I do next?") offers the place it names.
+      if (s.messages.isNotEmpty &&
+          s.messages.last.fromHadi &&
+          s.messages.last.routes.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              key: const Key('wasia-open-route'),
+              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+              onPressed: () => context.push(s.messages.last.routes.first),
+              icon: const Icon(Icons.arrow_forward,
+                  size: 16, color: AppColors.goldLight),
+              label: Text(
+                s.messages.last.notes.isNotEmpty
+                    ? s.messages.last.notes.first
+                    : 'Open',
+                style: AppText.body
+                    .copyWith(fontSize: 13, color: AppColors.goldLight),
+              ),
+            ),
           ),
         ),
       if (s.messages.isNotEmpty &&
