@@ -358,3 +358,23 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | khutbahs | kh-work_life-1 | 2 | M | Daily job cited Muslim 1599 for 'whoever cheats us is not one of us'; 1599 is the halal/haram-are-clear hadith. Corrected to Muslim 102 (verified). Removed the claim that a cheater 'has left the community of faith' — the hadith is a warning, not takfir. Qur'an 83:1-3. (Audit 2026-11-13.) |
 | khutbahs | kh-work_life-1 | 3 | Q | Qur'an 2:188 cited; application only. (Audit 2026-11-13.) |
 | khutbahs | kh-work_life-1 | 4 | RF | Closing du'a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 1 | Q | Qur’an 4:36 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 2 | C | Bukhari 6014 verified against Sunnah.com (Jibril, neighbours, heirs); states that the report does not say neighbours inherit. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 3 | C | Bukhari 6016 and 6018 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-neighbour | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 1 | CQ | Qur’an 4:1 paraphrased; Bukhari 5986 verified against Sunnah.com (wealth and life prolonged, keep kinship). (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 2 | CQ | Bukhari 6065 verified (opening wording) and Qur’an 49:10 paraphrased. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 3 | C | Bukhari 6077 verified against Sunnah.com (three nights, the better greets first). (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 4 | RF | Application only; adds that a serious or unsafe matter needs advice. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-three-nights | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 1 | Q | Qur’an 3:134 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 2 | C | Bukhari 6114 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 3 | C | Bukhari 6116 verified against Sunnah.com; the text says nothing of why that was his advice, and the chapter says so. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-strong-one | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 1 | Q | Qur’an 49:12 paraphrased, no quotation. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 2 | C | Muslim 2589 verified: opening against Sunnah.com, definition and slander answer per the verdict on file. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 3 | C | Bukhari 6018 and 6065 verified against Sunnah.com. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| khutbahs | kh-good-or-silent | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |

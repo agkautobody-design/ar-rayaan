@@ -196,6 +196,10 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | khutbahs | kh-women-carry | The Load She Carries — A Khutbah for the Unseen | 811 | |
 | khutbahs | kh-patience | The Door That Opens With the Pain | 346 | |
 | khutbahs | kh-gratitude | The Increase Clause | 302 | |
+| khutbahs | kh-neighbour | The Neighbour Jibril Kept Mentioning | 296 | |
+| khutbahs | kh-three-nights | Three Nights Is the Limit | 319 | |
+| khutbahs | kh-strong-one | The Strong Is the One Who Holds Himself | 282 | |
+| khutbahs | kh-good-or-silent | Say Good, or Be Silent | 345 | |
 | modernhadith | mh-youth-seven | The Seven Under the Shade — For the One With No Connections | 145 | |
 | modernhadith | mh-youth-feet | Your Two Feet Will Ask | 157 | |
 | modernhadith | mh-youth-friends | You Are on the Religion of Your Friends | 149 | |

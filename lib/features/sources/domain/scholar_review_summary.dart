@@ -22,7 +22,7 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5762;
+const int kScholarReviewTotal = 5778;
 
 /// Items marked high priority.
 const int kScholarReviewHighPriority = 1306;
@@ -31,7 +31,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
     ScholarReviewArea('academy-phrases', 'Academy phrase registry (transliteration, meaning, word glosses)', 131, 131),
     ScholarReviewArea('academy-glosses', 'Academy word glosses (300)', 300, 0),
-    ScholarReviewArea('academy-schools', 'Academy schools, Path lessons and static course screens', 399, 1),
+    ScholarReviewArea('academy-schools', 'Academy schools, Path lessons and static course screens', 403, 1),
     ScholarReviewArea('arabic-tajweed', 'Arabic, tajweed, Hifz and Qur\'an recitation teaching', 88, 42),
     ScholarReviewArea('huda', 'Huda guides and their madhhab notes', 108, 94),
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
@@ -39,7 +39,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 579, 116),
     ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 258, 52),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
-    ScholarReviewArea('stories-unseen', 'Stories: the unseen, signs, tales, khutbahs', 186, 62),
+    ScholarReviewArea('stories-unseen', 'Stories: the unseen, signs, tales, khutbahs', 198, 62),
     ScholarReviewArea('stories-modern', 'Stories: modern hadith', 69, 11),
     ScholarReviewArea('dua-dhikr', 'Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas', 155, 24),
     ScholarReviewArea('new-muslim', 'New Muslim 30-day path', 30, 13),
@@ -56,7 +56,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 ];
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
-    ScholarReviewerCount('Hadith / aqidah scholar', 2499),
+    ScholarReviewerCount('Hadith / aqidah scholar', 2515),
     ScholarReviewerCount('Fiqh scholar (per madhab)', 630),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 526),

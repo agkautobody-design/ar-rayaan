@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5762,
+ "total": 5778,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -20,7 +20,7 @@
   },
   "academy-schools": {
    "title": "Academy schools, Path lessons and static course screens",
-   "items": 399,
+   "items": 403,
    "high_priority": 1
   },
   "arabic-tajweed": {
@@ -60,7 +60,7 @@
   },
   "stories-unseen": {
    "title": "Stories: the unseen, signs, tales, khutbahs",
-   "items": 186,
+   "items": 198,
    "high_priority": 62
   },
   "stories-modern": {
@@ -130,7 +130,7 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2499,
+  "Hadith / aqidah scholar": 2515,
   "Fiqh scholar (per madhab)": 630,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1306,
-  "normal": 3639,
+  "normal": 3655,
   "low": 817
  },
  "items": [
@@ -25115,7 +25115,7 @@
    "where_in_app": "Stories school screen (/academy/stories)",
    "file": "lib/features/academy/presentation/stories_school_screen.dart",
    "key": "screen",
-   "what_to_review": "The whole Stories school screen: 110 lesson/section cards of religious teaching written as in-app text.",
+   "what_to_review": "The whole Stories school screen: 114 lesson/section cards of religious teaching written as in-app text.",
    "why_flagged": "Static in-app teaching text written for this app; no named scholar has reviewed it. Some of these screens predate the v3 courses and still carry older wording (see story_audit and S2 reports).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -27207,6 +27207,82 @@
    "file": "lib/features/academy/presentation/stories_school_screen.dart",
    "key": "title: The Increase Clause",
    "what_to_review": "Card or section \"The Increase Clause\" in the Stories school.",
+   "why_flagged": "Static teaching text in a school screen; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Screen source (no review on record)"
+   ],
+   "label_surface": "Stories school header",
+   "status": "open"
+  },
+  {
+   "id": "school.stories-school.111",
+   "area": "academy-schools",
+   "subarea": "static-screen",
+   "where_in_app": "Stories school > \"The Neighbour Jibril Kept Mentioning\"",
+   "file": "lib/features/academy/presentation/stories_school_screen.dart",
+   "key": "title: The Neighbour Jibril Kept Mentioning",
+   "what_to_review": "Card or section \"The Neighbour Jibril Kept Mentioning\" in the Stories school.",
+   "why_flagged": "Static teaching text in a school screen; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Screen source (no review on record)"
+   ],
+   "label_surface": "Stories school header",
+   "status": "open"
+  },
+  {
+   "id": "school.stories-school.112",
+   "area": "academy-schools",
+   "subarea": "static-screen",
+   "where_in_app": "Stories school > \"Three Nights Is the Limit\"",
+   "file": "lib/features/academy/presentation/stories_school_screen.dart",
+   "key": "title: Three Nights Is the Limit",
+   "what_to_review": "Card or section \"Three Nights Is the Limit\" in the Stories school.",
+   "why_flagged": "Static teaching text in a school screen; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Screen source (no review on record)"
+   ],
+   "label_surface": "Stories school header",
+   "status": "open"
+  },
+  {
+   "id": "school.stories-school.113",
+   "area": "academy-schools",
+   "subarea": "static-screen",
+   "where_in_app": "Stories school > \"The Strong Is the One Who Holds Himself\"",
+   "file": "lib/features/academy/presentation/stories_school_screen.dart",
+   "key": "title: The Strong Is the One Who Holds Himself",
+   "what_to_review": "Card or section \"The Strong Is the One Who Holds Himself\" in the Stories school.",
+   "why_flagged": "Static teaching text in a school screen; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Screen source (no review on record)"
+   ],
+   "label_surface": "Stories school header",
+   "status": "open"
+  },
+  {
+   "id": "school.stories-school.114",
+   "area": "academy-schools",
+   "subarea": "static-screen",
+   "where_in_app": "Stories school > \"Say Good, or Be Silent\"",
+   "file": "lib/features/academy/presentation/stories_school_screen.dart",
+   "key": "title: Say Good, or Be Silent",
+   "what_to_review": "Card or section \"Say Good, or Be Silent\" in the Stories school.",
    "why_flagged": "Static teaching text in a school screen; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -58742,6 +58818,118 @@
    "status": "open"
   },
   {
+   "id": "story.khutbahs.kh-neighbour",
+   "area": "stories-unseen",
+   "subarea": "khutbahs",
+   "where_in_app": "Stories > Khutbahs > \"The Neighbour Jibril Kept Mentioning\"",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-neighbour]",
+   "what_to_review": "5 chapter(s) of \"The Neighbour Jibril Kept Mentioning\" and its source lines (4 sources); label \"Established\".",
+   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=Q, ch2=C, ch3=C, ch4=RF, ch5=RF.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/stories/khutbahs.json (no named reviewer)",
+    "docs/story_audit.md (5 chapter rows)",
+    "FACT reports (accuracy passes; nothing scholar-reviewed)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-three-nights",
+   "area": "stories-unseen",
+   "subarea": "khutbahs",
+   "where_in_app": "Stories > Khutbahs > \"Three Nights Is the Limit\"",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-three-nights]",
+   "what_to_review": "5 chapter(s) of \"Three Nights Is the Limit\" and its source lines (5 sources); label \"Established\".",
+   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=CQ, ch2=CQ, ch3=C, ch4=RF, ch5=RF.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/stories/khutbahs.json (no named reviewer)",
+    "docs/story_audit.md (5 chapter rows)",
+    "FACT reports (accuracy passes; nothing scholar-reviewed)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-strong-one",
+   "area": "stories-unseen",
+   "subarea": "khutbahs",
+   "where_in_app": "Stories > Khutbahs > \"The Strong Is the One Who Holds Himself\"",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-strong-one]",
+   "what_to_review": "5 chapter(s) of \"The Strong Is the One Who Holds Himself\" and its source lines (3 sources); label \"Established\".",
+   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=Q, ch2=C, ch3=C, ch4=RF, ch5=RF.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/stories/khutbahs.json (no named reviewer)",
+    "docs/story_audit.md (5 chapter rows)",
+    "FACT reports (accuracy passes; nothing scholar-reviewed)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-good-or-silent",
+   "area": "stories-unseen",
+   "subarea": "khutbahs",
+   "where_in_app": "Stories > Khutbahs > \"Say Good, or Be Silent\"",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-good-or-silent]",
+   "what_to_review": "5 chapter(s) of \"Say Good, or Be Silent\" and its source lines (4 sources); label \"Established\".",
+   "why_flagged": "Story text written for this app from the cited sources; no named scholar has reviewed it. Chapter labels: Reflection. Audit classes (docs/story_audit.md): ch1=Q, ch2=C, ch3=C, ch4=RF, ch5=RF.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/stories/khutbahs.json (no named reviewer)",
+    "docs/story_audit.md (5 chapter rows)",
+    "FACT reports (accuracy passes; nothing scholar-reviewed)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
    "id": "story.modernhadith.mh-youth-seven",
    "area": "stories-modern",
    "subarea": "modernhadith",
@@ -66226,6 +66414,214 @@
    "priority": "normal",
    "source_of_flag": [
     "docs/story_audit.md (row kh-work_life-1 ch4)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-neighbour.ch4",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-neighbour > chapter 4",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-neighbour].chapters[3]",
+   "what_to_review": "Chapter 4 of kh-neighbour, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-neighbour ch4)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-neighbour.ch5",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-neighbour > chapter 5",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-neighbour].chapters[4]",
+   "what_to_review": "Chapter 5 of kh-neighbour, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-neighbour ch5)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-three-nights.ch4",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-three-nights > chapter 4",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-three-nights].chapters[3]",
+   "what_to_review": "Chapter 4 of kh-three-nights, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Application only; adds that a serious or unsafe matter needs advice. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-three-nights ch4)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-three-nights.ch5",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-three-nights > chapter 5",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-three-nights].chapters[4]",
+   "what_to_review": "Chapter 5 of kh-three-nights, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-three-nights ch5)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-strong-one.ch4",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-strong-one > chapter 4",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-strong-one].chapters[3]",
+   "what_to_review": "Chapter 4 of kh-strong-one, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-strong-one ch4)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-strong-one.ch5",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-strong-one > chapter 5",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-strong-one].chapters[4]",
+   "what_to_review": "Chapter 5 of kh-strong-one, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-strong-one ch5)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-good-or-silent.ch4",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-good-or-silent > chapter 4",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-good-or-silent].chapters[3]",
+   "what_to_review": "Chapter 4 of kh-good-or-silent, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-good-or-silent ch4)"
+   ],
+   "label_surface": "Story reader (all packs)",
+   "status": "open"
+  },
+  {
+   "id": "story.khutbahs.kh-good-or-silent.ch5",
+   "area": "stories-unseen",
+   "subarea": "khutbahs-chapter",
+   "where_in_app": "Stories > Khutbahs > kh-good-or-silent > chapter 5",
+   "file": "assets/stories/khutbahs.json",
+   "key": "[id=kh-good-or-silent].chapters[4]",
+   "what_to_review": "Chapter 5 of kh-good-or-silent, audit class RF (unsourced colour (reflection only)).",
+   "why_flagged": "docs/story_audit.md: Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.)",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "docs/story_audit.md (row kh-good-or-silent ch5)"
    ],
    "label_surface": "Story reader (all packs)",
    "status": "open"

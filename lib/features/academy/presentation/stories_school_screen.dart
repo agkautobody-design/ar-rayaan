@@ -696,6 +696,30 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
         familyQuestion: 'Name three things before sleep tonight that you never earned.',
         storyId: 'kh-gratitude',
       ),
+      _StoryChapter(
+        title: 'The Neighbour Jibril Kept Mentioning',
+        virtue: 'Jibril kept urging kindness to neighbours until the Prophet ﷺ thought they might inherit. Next door is part of the faith.',
+        familyQuestion: 'Does the family next door feel safe from us?',
+        storyId: 'kh-neighbour',
+      ),
+      _StoryChapter(
+        title: 'Three Nights Is the Limit',
+        virtue: 'Silence between relatives is meant to last an evening, not a season. The better one greets first.',
+        familyQuestion: 'Who in the family will you greet first?',
+        storyId: 'kh-three-nights',
+      ),
+      _StoryChapter(
+        title: 'The Strong Is the One Who Holds Himself',
+        virtue: 'Strength is not winning the argument. It is what you do in the first few seconds of anger.',
+        familyQuestion: 'What will you do the next time you feel your anger rising?',
+        storyId: 'kh-strong-one',
+      ),
+      _StoryChapter(
+        title: 'Say Good, or Be Silent',
+        virtue: 'Backbiting is mentioning someone in a way he dislikes, even if it is true. The instruction has two options: good, or silence.',
+        familyQuestion: 'What conversation would you stop if the person walked in?',
+        storyId: 'kh-good-or-silent',
+      ),
     ],
   ),
 ];
