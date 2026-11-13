@@ -17,6 +17,7 @@ import '../../domain/learner_path.dart';
 import '../../domain/next_lesson.dart';
 import '../../domain/path_placement.dart';
 import '../../domain/review_questions.dart';
+import '../../domain/v3/lesson_v3_model.dart';
 import '../../domain/v3/lesson_v3_review.dart';
 import '../../domain/v3/lessons_v3.dart';
 
