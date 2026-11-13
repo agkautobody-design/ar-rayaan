@@ -13,6 +13,7 @@ import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/glass_card.dart';
 import '../../application/academy_providers.dart';
 import '../../domain/learner_path.dart';
+import 'path_placement_dialog.dart' show showPathPlacement;
 import 'path_ux_widgets.dart' show showPlacementQuiz;
 
 class StartHereCard extends ConsumerWidget {
@@ -65,6 +66,20 @@ class StartHereCard extends ConsumerWidget {
                 icon: const Icon(Icons.checklist,
                     size: 16, color: AppColors.goldLight),
                 label: Text('Not sure about the letters? Two-minute check',
+                    style: AppText.body
+                        .copyWith(fontSize: 13, color: AppColors.goldLight)),
+              ),
+            ),
+          if (level == LearnerLevel.basics || level == LearnerLevel.deeper)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                key: const Key('start-path-check'),
+                style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () => showPathPlacement(context),
+                icon: const Icon(Icons.route_outlined,
+                    size: 16, color: AppColors.goldLight),
+                label: Text('Where should I start in The Path? Eight questions',
                     style: AppText.body
                         .copyWith(fontSize: 13, color: AppColors.goldLight)),
               ),
