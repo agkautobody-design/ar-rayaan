@@ -16,6 +16,8 @@ import '../../support/domain/support_engine.dart';
 import '../../support/domain/child_distress.dart';
 import '../../support/domain/safe_replies.dart';
 import 'child_age_band.dart';
+import '../domain/learner_path.dart';
+import 'wasia_coach.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -573,6 +575,36 @@ class WasiaController extends StateNotifier<WasiaState> {
           );
           return text;
         }
+      }
+    }
+    // "What should I do next?", "how am I doing?", "I am new", "this is too
+    // hard". Answered on the device from the learner's own progress, which is
+    // never put in a prompt and never sent anywhere. Outside a lesson only.
+    if (lesson == null && persona != WasiaPersona.teacher) {
+      final CoachAsk? ask = LearnerCoach.classify(q);
+      if (ask != null) {
+        final CoachTurn turn = await wasiaCoachTurn(ref, ask, persona);
+        // Private on purpose: the reply can carry the learner's own numbers,
+        // so it is marked sensitive and is never part of what a model is sent.
+        state = state.copy(
+          clearNotice: true,
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+              fromHadi: true,
+              text: turn.reply.text,
+              sensitive: true,
+              routes: turn.reply.route == null
+                  ? const <String>[]
+                  : <String>[turn.reply.route!],
+              notes: turn.reply.routeLabel == null
+                  ? const <String>[]
+                  : <String>[turn.reply.routeLabel!],
+            ),
+          ],
+        );
+        return turn.reply.text;
       }
     }
     // Keyless: Wasia teaches from her OWN curated shelf — the Academy

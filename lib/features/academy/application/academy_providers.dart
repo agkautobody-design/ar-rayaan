@@ -12,6 +12,7 @@ import '../domain/academy_entry.dart';
 import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
 import '../domain/fsrs.dart';
+import '../domain/learner_path.dart';
 import '../domain/mushaf_layout.dart';
 import '../domain/path_ux.dart';
 import '../domain/spaced_repetition.dart';
@@ -269,6 +270,32 @@ class AcademyTrackNotifier extends StateNotifier<String> {
 final academyTrackProvider =
     StateNotifierProvider<AcademyTrackNotifier, String>(
         (ref) => AcademyTrackNotifier(ref));
+
+/// Where the learner says they are starting from (null until they say). Kept
+/// on this device only. The learner can change it at any time, and Wasia can
+/// change it when they tell her ("this is too easy").
+class LearnerLevelNotifier extends StateNotifier<LearnerLevel?> {
+  LearnerLevelNotifier(this._ref) : super(null) {
+    try {
+      final SharedPreferences prefs = _ref.read(sharedPreferencesProvider);
+      state = learnerLevelFromPref(prefs.getString(kLearnerLevelPref));
+    } catch (_) {}
+  }
+
+  final Ref _ref;
+
+  Future<void> set(LearnerLevel level) async {
+    state = level;
+    try {
+      final SharedPreferences prefs = _ref.read(sharedPreferencesProvider);
+      await prefs.setString(kLearnerLevelPref, level.prefValue);
+    } catch (_) {}
+  }
+}
+
+final learnerLevelProvider =
+    StateNotifierProvider<LearnerLevelNotifier, LearnerLevel?>(
+        (ref) => LearnerLevelNotifier(ref));
 
 /// The front door chosen on a first visit ("I'm new / it's for my child /
 /// I'm coming back"). Null until the person chooses; stored on this device

@@ -24,6 +24,7 @@ import '../../reading/presentation/quran_snippet_views.dart';
 import 'widgets/course_browser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
+import 'widgets/start_here_card.dart';
 import 'widgets/wasia_checkin_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
@@ -433,6 +434,10 @@ class _AcademyHomeScreenState
                     ],
                   ),
                 ),
+              if (!layout.simpleCopy) ...<Widget>[
+                const SizedBox(height: 12),
+                const StartHereCard(),
+              ],
               const SizedBox(height: 12),
               const WeeklyRhythmCard(),
               const SizedBox(height: 16),
