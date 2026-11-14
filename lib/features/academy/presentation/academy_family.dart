@@ -190,6 +190,7 @@ class FamilyScreen extends ConsumerWidget {
               style: AppText.bodyMuted,
             ),
           ),
+          const _PinSwitch(),
           const _HowItWorksCard(),
           const FamilyCloudCard(),
           Padding(
@@ -1342,6 +1343,50 @@ class _LastReadLine extends ConsumerWidget {
           child: const Text('Open', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
         ),
       ],
+    );
+  }
+}
+
+
+/// Whether the Family Wing and the grown-up doors ask for a PIN. Off is fine
+/// when no child uses the app; a child in Kids Corner or child mode always
+/// needs one to leave, so turning it on then is offered, not required.
+class _PinSwitch extends ConsumerStatefulWidget {
+  const _PinSwitch();
+
+  @override
+  ConsumerState<_PinSwitch> createState() => _PinSwitchState();
+}
+
+class _PinSwitchState extends ConsumerState<_PinSwitch> {
+  @override
+  Widget build(BuildContext context) {
+    final ParentPin pin = ParentPin(ref.read(sharedPreferencesProvider));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
+      child: SwitchListTile(
+        key: const Key('family-pin-switch'),
+        contentPadding: EdgeInsets.zero,
+        value: pin.isSet,
+        title: const Text('Ask for a PIN to open this page'),
+        subtitle: Text(
+          pin.isSet
+              ? 'On. Your children cannot open this page or leave Kids Corner '
+                  'without it.'
+              : 'Off. Turn it on if your children use this device. Kids Corner '
+                  'will still ask you to choose one before it starts.',
+          style: AppText.bodyMuted,
+        ),
+        onChanged: (bool on) async {
+          if (on) {
+            final bool ok = await showParentGate(context, force: true);
+            if (ok) ref.read(parentGateProvider.notifier).unlock();
+          } else {
+            await pin.clear();
+          }
+          if (mounted) setState(() {});
+        },
+      ),
     );
   }
 }

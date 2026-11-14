@@ -24,6 +24,8 @@ import '../../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../app/core/child_mode.dart';
+import '../../../../app/core/kids_mode.dart';
 import '../../../../app/core/parent_pin.dart';
 import '../../../../app/core/providers.dart';
 import '../../../../app/theme/app_colors.dart';
@@ -357,13 +359,15 @@ class _ParentPinDialogState extends State<ParentPinDialog> {
   }
 }
 
-/// Show the gate; true when passed. With a [challenge] it is the fixed sum
+/// Show the gate; true when passed. No PIN set and no child using the app:
+/// it passes without asking ([force] asks anyway, to choose a PIN). With a [challenge] it is the fixed sum
 /// (tests). Otherwise it is the parent PIN, from [pin] or, when not given,
 /// the app's own storage; if storage cannot be reached the sum is the fallback.
 Future<bool> showParentGate(
   BuildContext context, {
   ParentGateChallenge? challenge,
   ParentPin? pin,
+  bool force = false,
 }) async {
   ParentPin? p = pin;
   if (challenge == null && p == null) {
@@ -378,6 +382,17 @@ Future<bool> showParentGate(
     }
   }
   final ParentPin? usePin = challenge == null ? p : null;
+  // A PIN is the parent's choice. With none set, and no child using the app
+  // (Kids Corner or child mode), nothing is locked, so nothing asks.
+  if (!force &&
+      challenge == null &&
+      pin == null &&
+      usePin != null &&
+      !usePin.isSet &&
+      !kChildMode.value &&
+      !kKidsMode.value) {
+    return true;
+  }
   final bool? ok = await showDialog<bool>(
     context: context,
     barrierDismissible: false,
