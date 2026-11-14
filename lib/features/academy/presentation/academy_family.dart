@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide Text;
+import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,8 @@ import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../kids/presentation/kids_corner_screen.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
 import '../application/academy_reminder_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
@@ -186,6 +189,7 @@ class FamilyScreen extends ConsumerWidget {
               style: AppText.bodyMuted,
             ),
           ),
+          const _HowItWorksCard(),
           Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: Row(
@@ -398,6 +402,11 @@ class _ChildCard extends ConsumerWidget {
                       key: Key('child-summary-${child['id']}'),
                       style: AppText.body.copyWith(fontSize: 13),
                     ),
+                    const SizedBox(height: 6),
+                    Text('Level: ${_levelFor(lessons, exams.length)}',
+                        key: Key('child-level-${child['id']}'),
+                        style: AppText.body.copyWith(fontSize: 13, fontWeight: FontWeight.w600)),
+                    const _LastReadLine(),
                     _DoTogether(childId: child['id'] as String),
                     if (exams.isNotEmpty) ...[
                       const SizedBox(height: 6),
@@ -421,6 +430,13 @@ class _ChildCard extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  static String _levelFor(int lessons, int exams) {
+    if (lessons == 0 && exams == 0) return 'Just starting';
+    if (lessons < kLettersLessonCount ~/ 2) return 'Learning the letters';
+    if (lessons < kLettersLessonCount) return 'Nearly through the letters';
+    return exams > 0 ? 'Letters done, ready to read' : 'Letters done, take the exam';
   }
 
   String _examTitle(String id) => id.replaceAll('-exam', '').toUpperCase();
@@ -1254,6 +1270,94 @@ class _ReminderCard extends ConsumerWidget {
             ),
         ],
       ),
+    );
+  }
+}
+
+
+/// Plain answer to "how do I get this to my child's device and see how they
+/// are doing?" The honest facts: profiles live on one device.
+class _HowItWorksCard extends StatelessWidget {
+  const _HowItWorksCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
+      child: GlassCard(
+        key: const Key('family-how-it-works'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('HOW THIS WORKS', style: AppText.eyebrow),
+            const SizedBox(height: 6),
+            Text(
+              '1. On your child\u2019s device, open ar-rayaan.onrender.com in the '
+              'browser (or install the app) and add the child from this screen there.\n'
+              '2. Or share one device: tap \u201cAdd child\u201d, then '
+              '\u201cSwitch to learning\u201d. Their lessons are kept under their name.\n'
+              '3. Come back here to see their level, how far they are, and exam scores.',
+              style: AppText.body.copyWith(fontSize: 13, height: 1.5),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Progress stays on the device the child uses; it is not sent anywhere, '
+              'so to check on your child, open this screen on their device.',
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              key: const Key('family-copy-link'),
+              onPressed: () async {
+                await Clipboard.setData(
+                    const ClipboardData(text: 'https://ar-rayaan.onrender.com'));
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Link copied. Send it to your child\u2019s device.')));
+              },
+              icon: const Icon(Icons.link, size: 18),
+              label: const Text('Copy the app link to send'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Where Qur\u2019an reading last stopped on this device.
+class _LastReadLine extends ConsumerWidget {
+  const _LastReadLine();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ReadingPosition? pos = ref.watch(readingPositionProvider);
+    if (pos == null) {
+      return Text('Qur\u2019an: nothing read yet on this device.',
+          style: AppText.bodyMuted.copyWith(fontSize: 12));
+    }
+    final List<SurahMeta>? idx = ref.watch(quranIndexProvider).valueOrNull;
+    String name = 'Surah ${pos.surah}';
+    if (idx != null) {
+      for (final SurahMeta m in idx) {
+        if (m.number == pos.surah) {
+          name = 'Surah ${m.transliteration}';
+          break;
+        }
+      }
+    }
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Text('Qur\u2019an: last read $name, ayah ${pos.ayah} (on this device)',
+              key: const Key('child-last-read'),
+              style: AppText.bodyMuted.copyWith(fontSize: 12)),
+        ),
+        TextButton(
+          onPressed: () => context.go(AppRoutes.surahAt(pos.surah, pos.ayah)),
+          child: const Text('Open', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+        ),
+      ],
     );
   }
 }

@@ -2991,7 +2991,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'barley (Bukhari 2916).',
   ),
   _Entry(
-    <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned'],
+    <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned', 'all the prophets', 'all prophets', 'prophets in order', 'names of the prophets', 'list the prophets', 'list all the prophets', 'every prophet', 'name the prophets', 'prophets of islam'],
     'The Qur\'an names twenty-five prophets; from Adam, the first, '
     'to Muhammad, the last. The named ones: Adam, Idris, Nuh, Hud, '
     'Salih, Ibrahim, Lut, Ismail, Ishaq, Ya\'qub, Yusuf, Ayyub, '
