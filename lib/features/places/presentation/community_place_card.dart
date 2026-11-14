@@ -3,7 +3,7 @@ import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../../../app/core/open_link.dart';
+import '../../masjid/presentation/directions_sheet.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -87,6 +87,13 @@ class CommunityPlaceCard extends ConsumerWidget {
           ]),
           const SizedBox(height: 6),
           Wrap(spacing: 4, children: [
+            TextButton(
+              key: Key('directions-${place.id}'),
+              onPressed: () => showDirectionsSheet(context,
+                  lat: place.lat, lon: place.lon, name: place.name),
+              child: const Text('Directions',
+                  style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+            ),
             TextButton.icon(
               key: Key('confirm-${place.id}'),
               onPressed: () => _vote(context, ref, 'confirm'),
@@ -214,10 +221,6 @@ class CommunityEventCard extends ConsumerWidget {
 
 /// Same pattern as the masjid cards: straight to the person's map app,
 /// and a word for them when nothing opens.
-Future<bool> _directions(BuildContext context, CommunityEvent e) {
-  return openLinkWithFeedback(
-    context,
-    Uri.parse(
-        'https://www.google.com/maps/dir/?api=1&destination=${e.lat},${e.lon}'),
-  );
+Future<void> _directions(BuildContext context, CommunityEvent e) {
+  return showDirectionsSheet(context, lat: e.lat, lon: e.lon, name: e.title);
 }
