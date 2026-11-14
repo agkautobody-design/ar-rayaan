@@ -5,6 +5,7 @@ import 'package:ar_rayaan/app/core/region/device_time_zone.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_prophets.dart';
+import 'package:ar_rayaan/features/hadi/grounding/minor_signal.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/sakina/domain/sakina_content.dart';
@@ -233,5 +234,63 @@ void main() {
       expect(rows.first.countries, contains('CA'));
       expect(rows.first.verified, isTrue);
     });
+  });
+
+  group('round 2 fixes', () {
+    test('"list all the prophets in order" gives all 25 with the stories shelf',
+        () async {
+      final String a = await ask('list all the prophets in order');
+      expect(a, contains('Dhul-Kifl'));
+      expect(a, contains('Muhammad'));
+      expect(a, contains('[GO:/stories]'));
+      expect(HadiProphets.isReply(a), isTrue);
+    });
+
+    test('what Muslims believe about Jesus tells the Isa story', () {
+      expect(HadiProphets.storyIdFor('What do Muslims believe about Jesus?'),
+          'prophet-isa');
+    });
+
+    test('compatibility questions reach the faith guide', () {
+      expect(HadiRouting.faithGuidesFor('Is Buddhism compatible with Islam?'),
+          contains('huda-islam-buddhism'));
+    });
+
+    test('a hidden conversion is a new-Muslim family question', () {
+      expect(
+          HadiRouting.asksNewMuslimFamily(
+              "I converted last month but my parents don't know. I'm scared to tell them."),
+          isTrue);
+    });
+
+    test('is God real has a Qur\'an-based shelf answer', () async {
+      final String a = await ask('Why should I believe God exists at all?');
+      expect(a, contains('Qur\'an'));
+      expect(a, contains('[GO:/academy/aqeedah]'));
+    });
+  });
+
+  group('round 3 (100 personas)', () {
+    test('a parent asking for a child is not a child', () {
+      expect(MinorSignal.isMinor('whats a good bedtime story from islam for a 5 year old'), isFalse);
+      expect(MinorSignal.isMinor('tips for teaching a 7 year old to pray'), isFalse);
+      expect(MinorSignal.isMinor('I am 15 years old and want to learn'), isTrue);
+      expect(MinorSignal.isMinor("I'm a 14 year old and need help"), isTrue);
+    });
+
+    for (final (String q, String needle) in <(String, String)>[
+      ('what is khushu and how do i get it', 'Qur\'an 23:2'),
+      ('how do i pray when travelling', 'shortening the prayer'),
+      ('can i pray at work if there is no prayer room', 'Sahih al-Bukhari 335'),
+      ('i want to stop being angry', 'Sahih al-Bukhari 6114'),
+      ('does islam oppress women', 'Qur\'an 33:35'),
+      ('is the quran the same today as it was revealed', 'Qur\'an 15:9'),
+      ('how to become a better muslim', 'Sahih al-Bukhari 6464'),
+      ('i get intrusive thoughts about god', 'Sahih Muslim 132'),
+    ]) {
+      test('shelf answer for: $q', () async {
+        expect(await ask(q), contains(needle));
+      });
+    }
   });
 }

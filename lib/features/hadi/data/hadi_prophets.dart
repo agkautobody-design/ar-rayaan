@@ -44,11 +44,32 @@ abstract final class HadiProphets {
     'prophet-alyasa': <String>['alyasa', 'al yasa', 'elisha'],
     'prophet-yunus': <String>['yunus', 'younus', 'yunis', 'jonah', 'dhun nun', 'man of the fish'],
     'prophet-zakariya': <String>['zakariya', 'zakariyya', 'zakaria', 'zechariah', 'zachariah', 'yahya', '!john the baptist'],
-    'prophet-isa': <String>['isa', 'eesa', '!jesus'],
+    'prophet-isa': <String>['isa', 'eesa', 'jesus'],
   };
 
+  static final RegExp _listAsk = RegExp(
+    r'\b(?:(?:list|name|names|all|every|order\s+of|how\s+many)\s+(?:of\s+)?(?:the\s+)?(?:25\s+|twenty\s*five\s+)?prophets|'
+    r'prophets\s+(?:in\s+order|mentioned|named)|25\s+prophets|twenty\s*five\s+prophets)\b',
+  );
+
+  /// "List all the prophets in order", "how many prophets are named".
+  static bool asksList(String question) =>
+      _listAsk.hasMatch(CrisisDetector.normalize(question));
+
+  /// All twenty-five named prophets, with a way into their stories. Carries
+  /// [opener] so the controller keeps it as written.
+  static const String listReply =
+      'The Qur\'an names twenty-five prophets, $opener from Adam, the first, '
+      'to Muhammad, the last. The Qur\'an does not give one fixed order for '
+      'all of them; this is the order the app\'s stories follow where they '
+      'can: Adam, Idris, Nuh, Hud, Salih, Ibrahim, Lut, Ismail, Ishaq, '
+      'Yaqub, Yusuf, Ayyub, Shuayb, Musa, Harun, Dhul-Kifl, Dawud, Sulayman, '
+      'Ilyas, Al-Yasa, Yunus, Zakariya, Yahya, Isa and Muhammad, peace be '
+      'upon them all. Ask me for any one of them, for example "tell me the '
+      'story of Yusuf", or open the stories shelf.\n[GO:/stories]';
+
   static final RegExp _storyCue = RegExp(
-    r'\b(?:story|stories|tell me about|tell me of|teach me about|who was|who is|'
+    r'\b(?:story|stories|believe\w*\s+(?:about|of)|say\w*\s+about|teach\w*\s+about|tell me about|tell me of|teach me about|who was|who is|'
     r'who were|life of|history of|what happened to|learn about|know about|'
     r'about (?:the )?prophet|about nabi|narrate|qissa|qisas)\b',
   );
@@ -116,6 +137,7 @@ abstract final class HadiProphets {
   /// The reply for [question], or null when it does not ask for a prophet's
   /// story or the story cannot be read.
   static Future<String?> reply(String question) async {
+    if (asksList(question)) return listReply;
     final String? id = storyIdFor(question);
     if (id == null) return null;
     final List<dynamic>? stories = await _load();

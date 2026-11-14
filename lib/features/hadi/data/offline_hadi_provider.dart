@@ -2991,7 +2991,90 @@ const List<_Entry> _knowledge = <_Entry>[
     'barley (Bukhari 2916).',
   ),
   _Entry(
-    <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned'],
+    <String>['khushu', 'khushoo', 'focus in prayer', 'concentrate in prayer', 'concentrate on prayer', 'distracted in prayer', 'mind wanders in prayer', 'prayer feels empty', 'prayer feels mechanical', 'cant focus when praying'],
+    'Khushu is humility and presence in prayer. Allah describes the successful believers: "They who are during their prayer humbly submissive" (Qur\'an 23:2). '
+    'Nearly everyone\'s mind wanders, so a wandering mind does not mean your prayer is worthless. Practical things that help: take a moment to settle before you start and do not rush into it; pray at the start of the time, not when you are already hurried; learn what you are saying (the meaning of Al-Fatiha and the short surahs); recite slowly enough to hear yourself; and when your mind drifts, gently bring it back, again and again. '
+    'This is practical advice, not a ruling. If emptiness in prayer comes with deep sadness or exhaustion, say so and be kind to yourself.\n[GO:/huda/guide?id=huda-prayer]',
+  ),
+  _Entry(
+    <String>['pray when travelling', 'pray while travelling', 'pray when traveling', 'pray while traveling', 'travel prayer', 'traveller prayer', 'shorten prayer', 'shortening prayer', 'qasr', 'combine prayers', 'combining prayers', 'pray on a plane', 'pray in a car'],
+    'Allah says: "And when you travel throughout the land, there is no blame upon you for shortening the prayer" (Qur\'an 4:101). The traveller shortens the four-rak\'ah prayers (Dhuhr, Asr, Isha) to two; Fajr and Maghrib stay as they are. '
+    'Scholars differ on the details: how far counts as a journey (the figure most often given is around 80 km), when the shortening starts and ends, and whether the traveller may combine two prayers. Because the schools differ, follow the one you were taught or ask a scholar about your own trip. '
+    'On a plane, train or car, pray as best you can in time, standing if you are able, and ask a scholar about anything you cannot do.\n[GO:/huda/guide?id=huda-prayer]',
+  ),
+  _Entry(
+    <String>['pray at work', 'pray at school', 'no prayer room', 'where can i pray', 'pray in public', 'pray at the office', 'prayer room at work', 'ask my boss to pray'],
+    'You do not need a mosque. The Prophet ﷺ said that the earth has been made a place of prayer and purification for him (Sahih al-Bukhari 335), so a clean spot works: a quiet corner, an empty meeting room, or a spare office. '
+    'Practical things: ask for a quiet room or a short break (many workplaces and schools say yes, and in many countries it is protected); keep a small mat or a clean cloth with you; and remember that each prayer has a long window, so Dhuhr can often wait for a break and Asr for the end of the day. '
+    'If you truly cannot find a way, do not just skip it: pray as you are able and ask a scholar what applies to you.\n[GO:/prayer]',
+  ),
+  _Entry(
+    <String>['stop being angry', 'control my anger', 'control anger', 'anger problem', 'i get angry', 'always angry', 'angry all the time', 'anger management', 'i lose my temper', 'short temper'],
+    'Anger is human, and the Qur\'an praises those "who restrain anger and who pardon the people - and Allah loves the doers of good" (Qur\'an 3:134). The Prophet ﷺ said: "The strong is not the one who overcomes people by his strength, but the strong is the one who controls himself while in anger" (Sahih al-Bukhari 6114). A man asked for advice and he said, "Do not become angry" (Sahih al-Bukhari 6116). '
+    'What helps in the moment: stop speaking, leave the room, take a breath, make wudu with cool water, say a\'udhu billahi minash-shaytanir-rajim. After: think about what was under the anger (tiredness, hurt, fear). '
+    'If your anger frightens you or hurts someone around you, please talk to a counsellor or doctor as well. That is a strength, not a failing.\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>['does islam oppress women', 'islam oppress women', 'is islam sexist', 'women rights in islam', 'status of women in islam', 'women in islam', 'treat women', 'islam and women', 'islam misogyny'],
+    'The Qur\'an addresses men and women as equals before Allah: "the Muslim men and Muslim women, the believing men and believing women ... for them Allah has prepared forgiveness and a great reward" (Qur\'an 33:35), and "Whoever does righteousness, whether male or female, while he is a believer - We will surely cause him to live a good life" (Qur\'an 16:97). Marriage is described as tranquillity, affection and mercy (Qur\'an 30:21). '
+    'Honestly, Muslim societies often fall short of this, and customs get passed off as religion. Scholars also differ on some questions (for example inheritance shares, testimony, hijab, and leadership roles). It is fair to ask about those one at a time: tell me which one and I will give the views and the texts. '
+    'For a woman\'s own situation, a female scholar or a trusted teacher is often best.',
+  ),
+  _Entry(
+    <String>['quran changed', 'quran the same today', 'quran corrupted', 'quran preserved', 'quran been altered', 'quran changed over time', 'is the quran original', 'quran the same as revealed'],
+    'The Qur\'an says: "Indeed, it is We who sent down the Qur\'an and indeed, We will be its guardian" (Qur\'an 15:9). The Muslim account is that it was recited and memorised during the Prophet\'s ﷺ lifetime, written down, and passed on in every generation by people who learned it by heart from a teacher, in an unbroken chain of recitation. A copy printed anywhere in the world has the same text. '
+    'That is the belief and the tradition behind it. If you want the historical and manuscript evidence examined properly, a scholar of Qur\'anic studies is the right person; ask me about one point and I will tell you what the app can support.',
+  ),
+  _Entry(
+    <String>['best english translation', 'which translation of the quran', 'which quran translation', 'recommend a translation', 'which tafsir', 'tafsir for beginners', 'beginner tafsir', 'which tafsir should i read', 'translation to read'],
+    'The app reads the Qur\'an in the Saheeh International translation (credited on the reading screen). No translation is the Qur\'an itself: it is an effort to explain the Arabic, so read one carefully and, if you can, with a tafsir (explanation). '
+    'For a first tafsir, many people start with an abridged classical one such as Ibn Kathir in English, or a shorter modern tafsir that a teacher or your local imam recommends. Ask them which they trust, and start with a short surah rather than the whole book.\n[GO:/quran]',
+  ),
+  _Entry(
+    <String>['talk to my child about death', 'explain death to my child', 'child asks about death', 'child grandfather died', 'child grandparent died', 'kid asks about death', 'child scared of dying', 'talk to kids about death'],
+    'Children cope better with simple, honest words than with silence. Say what happened plainly (that the person has died and their body has stopped working), that it is not anyone\'s fault, and that sadness and tears are allowed. The Prophet ﷺ wept at the death of his son Ibrahim. '
+    'The Muslim comfort you can give: Allah takes care of the person, we belong to Allah and return to Him (Qur\'an 2:156), and we can make du\'a for them. Let your child ask the same question many times; answer the same way each time. '
+    'If your child is stuck, afraid to sleep, or not themselves for weeks, speak with their doctor or a child counsellor.\n[GO:/huda/guide?id=huda-children-deen]',
+  ),
+  _Entry(
+    <String>['cant have children', 'cannot have children', 'infertility', 'infertile', 'trying to conceive', 'unable to conceive', 'struggling to get pregnant', 'no children yet'],
+    'That is a heavy thing to carry, and it is not a sign of Allah\'s displeasure. The Qur\'an says: "He creates what he wills ... and He renders whom He wills barren. Indeed, He is Knowing and Competent" (Qur\'an 42:49-50). Prophet Zakariya asked Allah for an heir too: "My Lord, do not leave me alone [with no heir], while you are the best of inheritors" (Qur\'an 21:89). '
+    'Seeking medical help is encouraged in Islam alongside du\'a and patience. Scholars have detailed guidance on treatments, so ask a scholar before IVF or other procedures. You and your spouse are in my du\'a: how are you holding up?',
+  ),
+  _Entry(
+    <String>['making fun of me for being muslim', 'mocked for being muslim', 'teased for being muslim', 'bullied for islam', 'bullied at school', 'bullied because of my religion', 'called me a terrorist', 'people mock my hijab'],
+    'I am sorry you are going through this. It is not your fault, and it does not make your faith small. Allah says: "And the servants of the Most Merciful are those who walk upon the earth easily, and when the ignorant address them [harshly], they say [words of] peace" (Qur\'an 25:63), and "Repel [evil] by that [deed] which is better" (Qur\'an 41:34). '
+    'Staying calm is not the same as putting up with it. Tell a trusted adult, a teacher, a school counsellor or a manager, write down what happens and when, and do not face it alone. If you ever feel unsafe, tell someone straight away.\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>['become a better muslim', 'be a better muslim', 'improve my faith', 'increase my iman', 'grow closer to allah', 'get closer to allah', 'closer to allah', 'strengthen my faith'],
+    'Start small and keep it steady: the Prophet ﷺ said the deeds most beloved to Allah are the most regular, even if small (Sahih al-Bukhari 6464). A simple order: protect the five prayers in time; read a little Qur\'an every day, even one page; make the morning and evening dhikr; leave one habit you know is wrong; keep good company; and make du\'a for the guidance you want. '
+    'Pick one thing this week, not ten.\n[GO:/huda/guide?id=huda-prayer]',
+  ),
+  _Entry(
+    <String>[ 'find muslim friends', 'meet other muslims', 'lonely new muslim', 'no muslim friends'],
+    'Many new Muslims feel this, and it is normal. Ways in: visit your local masjid at a quiet time and introduce yourself, ask whether there is a new Muslims class or a revert support group (many masjids and Islamic centres run one), and ask the imam to introduce you to a mentor. Online groups for new Muslims can help, but meeting one person in person matters more. '
+    'Keep your old friends and family where you can; becoming Muslim does not mean cutting them off. The New Muslim path in this app walks through the first weeks.\n[GO:/new-muslim]',
+  ),
+  _Entry(
+    <String>['waswas', 'whispers of shaytan', 'intrusive thoughts', 'intrusive thoughts about god', 'blasphemous thoughts', 'doubts keep coming', 'ocd and islam', 'religious ocd', 'scrupulosity'],
+    'Unwanted, disturbing thoughts about God or about worship are very common, and they do not mean your faith is gone. The Companions once came to the Prophet ﷺ troubled by thoughts too terrible to say aloud, and he said that the very hatred of them is clear faith (Sahih Muslim 132). Allah "does not charge a soul except [with that within] its capacity" (Qur\'an 2:286). '
+    'Do not argue with the thought or try to prove yourself; let it pass, seek refuge in Allah and carry on with what you were doing. If the thoughts or checking repeat for weeks (for example doing wudu or prayer again and again), it can be a health condition that treats well: please speak to a doctor or counsellor as well as a scholar who understands this. You are not alone.\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>['god exists', 'does god exist', 'believe in god', 'prove god', 'proof of god', 'existence of god', 'is there a god', 'why believe in god', 'why believe god exists'],
+    'This is the Qur\'an\'s own line of reasoning, not a full philosophical '
+    'case. It does not argue from a chain of premises; it points you to '
+    'look: at the heavens and the earth and the turning of night and day '
+    '(Al-Baqarah 164; Al-Imran 190-191), at your own self (Adh-Dhariyat '
+    '20-21), and it asks whether things could have come from nothing, or '
+    'made themselves (At-Tur 35). The invitation is to reflect, and to '
+    'ask honestly where it leads. If you are weighing this seriously, '
+    'take it to a scholar or a believer you trust, and read the Qur\'an '
+    'slowly with a translation.\n[GO:/academy/aqeedah]',
+  ),
+  _Entry(
+    <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned', 'all the prophets', 'all prophets', 'prophets in order', 'names of the prophets', 'list the prophets', 'list all the prophets', 'every prophet', 'name the prophets', 'prophets of islam'],
     'The Qur\'an names twenty-five prophets; from Adam, the first, '
     'to Muhammad, the last. The named ones: Adam, Idris, Nuh, Hud, '
     'Salih, Ibrahim, Lut, Ismail, Ishaq, Ya\'qub, Yusuf, Ayyub, '

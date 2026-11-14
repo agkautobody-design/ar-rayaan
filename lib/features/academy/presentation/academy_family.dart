@@ -18,6 +18,8 @@ import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../kids/presentation/kids_corner_screen.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
 import '../application/academy_reminder_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
@@ -27,6 +29,7 @@ import '../domain/learner_path.dart';
 import '../domain/letters_meta.dart';
 import 'widgets/active_child_banner.dart';
 import 'widgets/age_band_chooser.dart';
+import 'widgets/family_cloud_card.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
@@ -180,12 +183,15 @@ class FamilyScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 4, bottom: 14),
             child: Text(
               'Add your children, follow their lessons and exams, and ask Wasia '
-              'how to help them. Your children\u2019s names and progress stay '
-              'on this device \u2014 they are never sent to our servers or to any '
-              'AI service, and you can delete a child at any time.',
+              'how to help them. Names always stay '
+              'on this device. Progress stays too, unless you sign in and choose '
+              'to send it to your own account. Nothing goes to any AI service, '
+              'and you can delete a child at any time.',
               style: AppText.bodyMuted,
             ),
           ),
+          const _HowItWorksCard(),
+          const FamilyCloudCard(),
           Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: Row(
@@ -398,6 +404,11 @@ class _ChildCard extends ConsumerWidget {
                       key: Key('child-summary-${child['id']}'),
                       style: AppText.body.copyWith(fontSize: 13),
                     ),
+                    const SizedBox(height: 6),
+                    Text('Level: ${childLevelName(lettersDone: lessons, lettersTotal: kLettersLessonCount, exams: exams.length)}',
+                        key: Key('child-level-${child['id']}'),
+                        style: AppText.body.copyWith(fontSize: 13, fontWeight: FontWeight.w600)),
+                    const _LastReadLine(),
                     _DoTogether(childId: child['id'] as String),
                     if (exams.isNotEmpty) ...[
                       const SizedBox(height: 6),
@@ -832,8 +843,8 @@ class FamilyLockedView extends ConsumerWidget {
                   'Inside: add a child (a first name or nickname), follow '
                   'their Arabic-letter lessons and exams, set reminders, and '
                   'choose whether an AI service may be used for them. It is '
-                  'not about marriage or family life in general, and it all '
-                  'stays on this device.',
+                  'not about marriage or family life in general. Names stay on '
+                  'this device.',
                   key: const Key('family-locked-about'),
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
@@ -1254,6 +1265,83 @@ class _ReminderCard extends ConsumerWidget {
             ),
         ],
       ),
+    );
+  }
+}
+
+
+/// Plain answer to "how do I get this to my child's device and see how they
+/// are doing?" The honest facts: profiles live on one device.
+class _HowItWorksCard extends StatelessWidget {
+  const _HowItWorksCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
+      child: GlassCard(
+        key: const Key('family-how-it-works'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('HOW THIS WORKS', style: AppText.eyebrow),
+            const SizedBox(height: 6),
+            Text(
+              '1. On your phone and on your child\u2019s device, sign in to the same '
+              'Ar-Rayaan account (the card below).\n'
+              '2. On your child\u2019s device: add the child, switch on \u201cSend my '
+              'children\u2019s progress to my account\u201d, then \u201cSwitch to learning\u201d.\n'
+              '3. On your phone, open the Family Wing: you see each child\u2019s level, '
+              'lessons, exam scores, where they read to in the Qur\u2019an, and when '
+              'they last studied.',
+              style: AppText.body.copyWith(fontSize: 13, height: 1.5),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Without signing in and switching it on, progress stays on the device '
+              'the child uses and is not sent anywhere.',
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Where Qur\u2019an reading last stopped on this device.
+class _LastReadLine extends ConsumerWidget {
+  const _LastReadLine();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ReadingPosition? pos = ref.watch(readingPositionProvider);
+    if (pos == null) {
+      return Text('Qur\u2019an: nothing read yet on this device.',
+          style: AppText.bodyMuted.copyWith(fontSize: 12));
+    }
+    final List<SurahMeta>? idx = ref.watch(quranIndexProvider).valueOrNull;
+    String name = 'Surah ${pos.surah}';
+    if (idx != null) {
+      for (final SurahMeta m in idx) {
+        if (m.number == pos.surah) {
+          name = 'Surah ${m.transliteration}';
+          break;
+        }
+      }
+    }
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Text('Qur\u2019an: last read $name, ayah ${pos.ayah} (on this device)',
+              key: const Key('child-last-read'),
+              style: AppText.bodyMuted.copyWith(fontSize: 12)),
+        ),
+        TextButton(
+          onPressed: () => context.go(AppRoutes.surahAt(pos.surah, pos.ayah)),
+          child: const Text('Open', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+        ),
+      ],
     );
   }
 }
