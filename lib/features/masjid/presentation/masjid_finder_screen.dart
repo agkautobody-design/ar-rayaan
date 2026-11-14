@@ -130,12 +130,23 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
     try {
       final res = await http.get(Uri.parse(
           'https://nominatim.openstreetmap.org/search?q='
-          '${Uri.encodeComponent(q)}&format=json&limit=1'))
+          '${Uri.encodeComponent(q)}&format=json&limit=8'))
           .timeout(const Duration(seconds: 10));
       final list = json.decode(res.body) as List<dynamic>;
-      if (list.isNotEmpty) {
-        _lat = double.parse(list[0]['lat'] as String);
-        _lon = double.parse(list[0]['lon'] as String);
+      final List<PlaceChoice> choices = placeChoicesFrom(list,
+          nearLat: _hasPlace ? _lat : null, nearLon: _hasPlace ? _lon : null);
+      if (choices.isNotEmpty) {
+        PlaceChoice pick = choices.first;
+        if (choices.length > 1) {
+          // The name fits places far apart (Milton, Ontario or Milton,
+          // Massachusetts): ask rather than guess.
+          if (mounted) setState(() => _loading = false);
+          final PlaceChoice? chosen = await _pickPlace(choices);
+          if (chosen == null || !mounted) return;
+          pick = chosen;
+        }
+        _lat = pick.lat;
+        _lon = pick.lon;
         _hasPlace = true;
         await _fetch();
         return;
@@ -152,6 +163,31 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
     }
     if (!mounted) return;
     setState(() => _loading = false);
+  }
+
+  Future<PlaceChoice?> _pickPlace(List<PlaceChoice> choices) {
+    return showModalBottomSheet<PlaceChoice>(
+      context: context,
+      backgroundColor: AppColors.navy,
+      builder: (BuildContext ctx) => SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
+            child: Text('Which place do you mean?',
+                style: AppText.body.copyWith(color: AppColors.goldLight)),
+          ),
+          for (final PlaceChoice c in choices)
+            ListTile(
+              leading: const Icon(Icons.place, color: AppColors.gold),
+              title: w.Text(c.label,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppText.body.copyWith(fontSize: 14)),
+              onTap: () => Navigator.of(ctx).pop(c),
+            ),
+        ]),
+      ),
+    );
   }
 
   Future<void> _fetch() async {

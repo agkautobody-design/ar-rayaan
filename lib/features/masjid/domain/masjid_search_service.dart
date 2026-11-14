@@ -413,3 +413,45 @@ Future<MapSearchOutcome> _nominatim(
     fromBackup: true,
   );
 }
+
+/// One place a city search can mean ("Milton, Ontario" vs "Milton, Mass.").
+class PlaceChoice {
+  final String label;
+  final double lat, lon;
+  const PlaceChoice(this.label, this.lat, this.lon);
+}
+
+/// Turns a Nominatim answer into the distinct places it names. Entries that
+/// sit within [minSeparationMeters] of one already kept are the same town and
+/// are dropped. When a saved place is known ([nearLat], [nearLon]) the
+/// closest comes first; otherwise the geocoder's own order is kept. Never
+/// more than five.
+List<PlaceChoice> placeChoicesFrom(
+  List<dynamic> raw, {
+  double? nearLat,
+  double? nearLon,
+  double minSeparationMeters = 15000,
+}) {
+  final List<PlaceChoice> all = <PlaceChoice>[];
+  for (final dynamic e in raw) {
+    if (e is! Map) continue;
+    final double? la = double.tryParse('${e['lat']}');
+    final double? lo = double.tryParse('${e['lon']}');
+    if (la == null || lo == null) continue;
+    final dynamic name = e['display_name'];
+    all.add(PlaceChoice(name is String && name.isNotEmpty ? name : 'Unnamed place', la, lo));
+  }
+  if (nearLat != null && nearLon != null) {
+    all.sort((PlaceChoice a, PlaceChoice b) =>
+        masjidDistanceMeters(nearLat, nearLon, a.lat, a.lon)
+            .compareTo(masjidDistanceMeters(nearLat, nearLon, b.lat, b.lon)));
+  }
+  final List<PlaceChoice> kept = <PlaceChoice>[];
+  for (final PlaceChoice c in all) {
+    final bool dup = kept.any((PlaceChoice k) =>
+        masjidDistanceMeters(k.lat, k.lon, c.lat, c.lon) < minSeparationMeters);
+    if (!dup) kept.add(c);
+    if (kept.length == 5) break;
+  }
+  return kept;
+}
