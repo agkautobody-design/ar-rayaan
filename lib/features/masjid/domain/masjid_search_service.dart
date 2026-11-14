@@ -419,6 +419,36 @@ class PlaceChoice {
   final String label;
   final double lat, lon;
   const PlaceChoice(this.label, this.lat, this.lon);
+
+  /// "Milton" from "Milton, Halton Region, Ontario, Canada".
+  String get shortName => label.split(',').first.trim();
+
+  /// "Canada" from the same label; empty when the label has one part.
+  String get country {
+    final List<String> parts = label.split(',');
+    return parts.length > 1 ? parts.last.trim() : '';
+  }
+}
+
+/// Looks [query] up in OpenStreetMap's place search and returns the distinct
+/// places it names. Throws on a network or format failure so the caller can
+/// say so.
+Future<List<PlaceChoice>> searchPlaces(
+  http.Client client,
+  String query, {
+  double? nearLat,
+  double? nearLon,
+  Duration timeout = const Duration(seconds: 10),
+}) async {
+  final http.Response res = await client
+      .get(Uri.parse('https://nominatim.openstreetmap.org/search?q='
+          '${Uri.encodeComponent(query.trim())}&format=json&limit=8'))
+      .timeout(timeout);
+  if (res.statusCode != 200) {
+    throw const MapSearchFailure('place lookup failed');
+  }
+  return placeChoicesFrom(json.decode(res.body) as List<dynamic>,
+      nearLat: nearLat, nearLon: nearLon);
 }
 
 /// Turns a Nominatim answer into the distinct places it names. Entries that
