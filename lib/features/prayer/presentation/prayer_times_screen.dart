@@ -1635,14 +1635,16 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
   Future<void> _runTest() async {
     final PrayerNotificationScheduler s =
         ref.read(prayerNotificationSchedulerProvider);
-    if (s is! NotificationDiagnostics) return;
+    final Object probe = s;
+    if (probe is! NotificationDiagnostics) return;
+    final NotificationDiagnostics d = probe;
     setState(() {
       _testing = true;
       _diag = null;
     });
-    final String? failed = await s.sendTest();
-    final bool? allowed = await s.permissionGranted();
-    final int waiting = await s.pendingCount();
+    final String? failed = await d.sendTest();
+    final bool? allowed = await d.permissionGranted();
+    final int waiting = await d.pendingCount();
     final ExactAlarmStatus exact = await s.exactAlarmStatus();
     final StringBuffer b = StringBuffer();
     b.write(failed == null
