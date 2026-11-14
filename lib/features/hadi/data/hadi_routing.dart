@@ -908,8 +908,8 @@ abstract final class HadiRouting {
     r'\b(?:bedtime|story|stories|storytime|tale|tales)\b',
   );
   static final RegExp _forAChild = RegExp(
-    r'\b(?:kids?|child|children|toddler|baby|son|daughter|little\s+one|'
-    r'\d{1,2}\s*(?:year|yr)s?\s*old|(?:my|our)\s+(?:boy|girl))\b',
+    r'\b(?:(?:my|our)\s+(?:[a-z]+\s+)?(?:kids?|child|children|boy|girl|son|daughter|'
+    r'toddler|baby)|toddler|\d{1,2}\s*(?:year|yr)s?\s*old)\b',
   );
 
   static bool asksKidStory(String question) {
