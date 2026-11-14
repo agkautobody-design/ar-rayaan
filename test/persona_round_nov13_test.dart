@@ -321,4 +321,14 @@ void main() {
         HadiRouting.asksNewcomerLoose('how do i make friends as a new muslim'),
         isFalse);
   });
+
+  test('a why-question about nature is not answered with another topic',
+      () async {
+    final String a = await ask('why did Allah make the sky blue');
+    expect(a, contains('lovely question'));
+    expect(a, contains('[GO:/quran]'));
+    expect(HadiRouting.asksNatureWhy('why does Allah let children suffer'),
+        isFalse);
+    expect(HadiRouting.asksNatureWhy('why is the sea salty'), isTrue);
+  });
 }

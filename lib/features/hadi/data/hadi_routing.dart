@@ -830,6 +830,39 @@ abstract final class HadiRouting {
         !_newcomerFriends.hasMatch(n);
   }
 
+  // ── "Why is the sky blue?" and other why-questions about nature ─────
+
+  static final RegExp _natureWhy = RegExp(
+    r'^(?:why|how come)\s+(?:did|does|do|is|are|was|were)\s+.*\b(?:sky|sea|'
+    r'ocean|sun|moon|stars?|rain|snow|clouds?|grass|trees?|flowers?|'
+    r'rainbows?|mountains?|rivers?|animals?|birds?|colou?rs?|salty|thunder|'
+    r'lightning|wind|night|day)\b',
+  );
+  static final RegExp _natureHeavy = RegExp(
+    r'\b(?:suffer\w*|test\w*|hurt\w*|die\w*|death|evil|bad|sick|ill|war|'
+    r'poor|hunger|pain|cancer|punish\w*|hell|kill\w*|abandon\w*)\b',
+  );
+
+  /// A curious why-question about the sky, sea or animals ("why did Allah
+  /// make the sky blue?"). The library holds no verified reason, so it says
+  /// so, and shows where the Qur'an points to these as signs.
+  static bool asksNatureWhy(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 16 &&
+        _natureWhy.hasMatch(n) &&
+        !_natureHeavy.hasMatch(n);
+  }
+
+  static const String natureWhyReply =
+      'That is a lovely question. I do not have a verified answer for why '
+      'Allah made it that way, and I will not guess. Science describes how '
+      'it works: for example, the sky looks blue because air scatters the '
+      'blue part of sunlight more than the other colours. For the why, the '
+      'Qur’an keeps inviting us to look at the sky, the sea, the rain and '
+      'the animals and see them as signs of Allah’s care and power. '
+      'Looking, wondering and saying thank you is a good place to start.'
+      '\n[GO:/quran]\n[GO:/kids]';
+
   // ── Beginners who say it in their own words ─────────────────────────
 
   /// "I know nothing about Islam, where do I start?", "how do I begin
@@ -1303,6 +1336,7 @@ abstract final class HadiRouting {
 
   static List<String> get fixedReplies => <String>[
     newcomerFriendsReply,
+    natureWhyReply,
         selfDescriptionReply,
         beginnerReply,
         newMuslimFamilyReply,
