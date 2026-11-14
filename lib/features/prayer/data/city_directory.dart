@@ -1,3 +1,4 @@
+import '../../masjid/domain/masjid_search_service.dart';
 import '../application/prayer_repository.dart';
 import '../domain/prayer_zone.dart';
 
@@ -17,6 +18,36 @@ abstract final class CityDirectory {
             c.country.toLowerCase().contains(q))
           c,
     ];
+  }
+
+  /// A place found by the map search, as a prayer location. A place on the
+  /// device's own clock (its sun-time offset is within 2.5 hours of the
+  /// device's) takes no zone, like a GPS fix: the device zone is then right,
+  /// daylight saving included. A place on a different clock borrows the zone
+  /// of the nearest listed city within 500 km, or else the device zone.
+  static PrayerLocation fromChoice(PlaceChoice c, {int? deviceOffsetMinutes}) {
+    final int device =
+        deviceOffsetMinutes ?? DateTime.now().timeZoneOffset.inMinutes;
+    final int sunOffset = (c.lon / 15 * 60).round();
+    PrayerZone? zone;
+    if ((sunOffset - device).abs() > 150) {
+      double best = 500000;
+      for (final PrayerLocation city in cities) {
+        final double d = masjidDistanceMeters(
+            c.lat, c.lon, city.latitude, city.longitude);
+        if (d < best) {
+          best = d;
+          zone = city.zone;
+        }
+      }
+    }
+    return PrayerLocation(
+      city: c.shortName,
+      country: c.country,
+      latitude: c.lat,
+      longitude: c.lon,
+      zone: zone,
+    );
   }
 
   static const List<PrayerLocation> cities = <PrayerLocation>[

@@ -2,8 +2,10 @@ import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide Text;
+import 'package:flutter/widgets.dart' as w show Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import '../../../app/core/open_link.dart';
 
@@ -31,6 +33,7 @@ import '../application/prayer_repository.dart';
 import '../application/prayer_settings.dart';
 import '../data/aladhan_prayer_repository.dart';
 import '../data/city_directory.dart';
+import '../../masjid/domain/masjid_search_service.dart';
 import '../domain/prayer_times.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
@@ -705,6 +708,42 @@ class CitySheet extends StatefulWidget {
 
 class _CitySheetState extends State<CitySheet> {
   String _query = '';
+  final http.Client _client = http.Client();
+  List<PlaceChoice> _online = const <PlaceChoice>[];
+  bool _searching = false;
+  String? _onlineError;
+
+  @override
+  void dispose() {
+    _client.close();
+    super.dispose();
+  }
+
+  Future<void> _searchOnline() async {
+    final String q = _query.trim();
+    if (q.length < 2) return;
+    setState(() {
+      _searching = true;
+      _onlineError = null;
+      _online = const <PlaceChoice>[];
+    });
+    try {
+      final List<PlaceChoice> found = await searchPlaces(_client, q);
+      if (!mounted) return;
+      setState(() {
+        _online = found;
+        _searching = false;
+        if (found.isEmpty) _onlineError = 'No place found for that name.';
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _searching = false;
+        _onlineError = 'Could not reach the map search. Check your '
+            'connection and try again.';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -745,8 +784,8 @@ class _CitySheetState extends State<CitySheet> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
-                    'No city in the list matches. Close this and tap '
-                    '\u201cMy location\u201d instead.',
+                    'No city in the list matches. Search the map below, or '
+                    'close this and tap \u201cMy location\u201d.',
                     style: AppText.bodyMuted,
                   ),
                 ),
@@ -763,6 +802,46 @@ class _CitySheetState extends State<CitySheet> {
                         ),
                   onTap: () => Navigator.of(context).pop(c),
                 ),
+              if (_query.trim().length >= 2) ...<Widget>[
+                ListTile(
+                  key: const Key('city-online-search'),
+                  dense: true,
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(Icons.public, size: 18),
+                  title: Text('Search the map for \u201c${_query.trim()}\u201d',
+                      style: AppText.body),
+                  subtitle: Text(
+                    'Sends what you typed to OpenStreetMap.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
+                  ),
+                  onTap: _searching ? null : _searchOnline,
+                ),
+                if (_searching)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: LinearProgressIndicator(minHeight: 2),
+                  ),
+                if (_onlineError != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Text(_onlineError!, style: AppText.bodyMuted),
+                  ),
+                for (int i = 0; i < _online.length; i++)
+                  ListTile(
+                    key: Key('city-online-$i'),
+                    dense: true,
+                    contentPadding: EdgeInsets.zero,
+                    title: w.Text(_online[i].shortName, style: AppText.body),
+                    subtitle: w.Text(
+                      _online[i].label,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
+                    ),
+                    onTap: () => Navigator.of(context)
+                        .pop(CityDirectory.fromChoice(_online[i])),
+                  ),
+              ],
             ],
           ),
         ),
