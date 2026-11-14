@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/content_loader.dart';
 import '../../../app/core/providers.dart';
+import '../../academy/application/family_service.dart';
 import '../data/bundled_quran_repository.dart';
 import '../domain/quran_models.dart';
 import '../domain/translation_pack.dart';
@@ -130,6 +131,11 @@ class ReadingPositionController extends Notifier<ReadingPosition?> {
     } catch (_) {
       // In-memory only.
     }
+    // A parent who switched on tracking sees where the child read to. This
+    // does nothing unless that sync is on (and never throws).
+    try {
+      ref.read(familyServiceProvider).syncSoon();
+    } catch (_) {}
   }
 }
 

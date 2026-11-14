@@ -29,6 +29,7 @@ import '../domain/learner_path.dart';
 import '../domain/letters_meta.dart';
 import 'widgets/active_child_banner.dart';
 import 'widgets/age_band_chooser.dart';
+import 'widgets/family_cloud_card.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
@@ -182,13 +183,15 @@ class FamilyScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 4, bottom: 14),
             child: Text(
               'Add your children, follow their lessons and exams, and ask Wasia '
-              'how to help them. Your children\u2019s names and progress stay '
-              'on this device \u2014 they are never sent to our servers or to any '
-              'AI service, and you can delete a child at any time.',
+              'how to help them. Names always stay '
+              'on this device. Progress stays too, unless you sign in and choose '
+              'to send it to your own account. Nothing goes to any AI service, '
+              'and you can delete a child at any time.',
               style: AppText.bodyMuted,
             ),
           ),
           const _HowItWorksCard(),
+          const FamilyCloudCard(),
           Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: Row(
@@ -402,7 +405,7 @@ class _ChildCard extends ConsumerWidget {
                       style: AppText.body.copyWith(fontSize: 13),
                     ),
                     const SizedBox(height: 6),
-                    Text('Level: ${_levelFor(lessons, exams.length)}',
+                    Text('Level: ${childLevelName(lettersDone: lessons, lettersTotal: kLettersLessonCount, exams: exams.length)}',
                         key: Key('child-level-${child['id']}'),
                         style: AppText.body.copyWith(fontSize: 13, fontWeight: FontWeight.w600)),
                     const _LastReadLine(),
@@ -429,13 +432,6 @@ class _ChildCard extends ConsumerWidget {
         ),
       ),
     );
-  }
-
-  static String _levelFor(int lessons, int exams) {
-    if (lessons == 0 && exams == 0) return 'Just starting';
-    if (lessons < kLettersLessonCount ~/ 2) return 'Learning the letters';
-    if (lessons < kLettersLessonCount) return 'Nearly through the letters';
-    return exams > 0 ? 'Letters done, ready to read' : 'Letters done, take the exam';
   }
 
   String _examTitle(String id) => id.replaceAll('-exam', '').toUpperCase();
@@ -847,8 +843,8 @@ class FamilyLockedView extends ConsumerWidget {
                   'Inside: add a child (a first name or nickname), follow '
                   'their Arabic-letter lessons and exams, set reminders, and '
                   'choose whether an AI service may be used for them. It is '
-                  'not about marriage or family life in general, and it all '
-                  'stays on this device.',
+                  'not about marriage or family life in general. Names stay on '
+                  'this device.',
                   key: const Key('family-locked-about'),
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
@@ -1291,17 +1287,19 @@ class _HowItWorksCard extends StatelessWidget {
             Text('HOW THIS WORKS', style: AppText.eyebrow),
             const SizedBox(height: 6),
             Text(
-              '1. On your child\u2019s device, open the Ar-Rayaan web address (the same one you use) in the '
-              'browser (or install the app) and add the child from this screen there.\n'
-              '2. Or share one device: tap \u201cAdd child\u201d, then '
-              '\u201cSwitch to learning\u201d. Their lessons are kept under their name.\n'
-              '3. Come back here to see their level, how far they are, and exam scores.',
+              '1. On your phone and on your child\u2019s device, sign in to the same '
+              'Ar-Rayaan account (the card below).\n'
+              '2. On your child\u2019s device: add the child, switch on \u201cSend my '
+              'children\u2019s progress to my account\u201d, then \u201cSwitch to learning\u201d.\n'
+              '3. On your phone, open the Family Wing: you see each child\u2019s level, '
+              'lessons, exam scores, where they read to in the Qur\u2019an, and when '
+              'they last studied.',
               style: AppText.body.copyWith(fontSize: 13, height: 1.5),
             ),
             const SizedBox(height: 6),
             Text(
-              'Progress stays on the device the child uses; it is not sent anywhere, '
-              'so to check on your child, open this screen on their device.',
+              'Without signing in and switching it on, progress stays on the device '
+              'the child uses and is not sent anywhere.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
           ],

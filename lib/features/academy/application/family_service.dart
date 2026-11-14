@@ -7,19 +7,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../domain/children_privacy.dart';
+import '../domain/letters_meta.dart';
 import 'cloud_handles.dart';
 
 /// The family wing: children under a parent's care, progress per child, shown
 /// on the parent dashboard.
 ///
 /// CHILD PRIVACY (wave 2):
-///  * Everything lives on this device. Cloud sync is OFF unless a parent has
-///    recorded cloud consent ([cloudConsented], never offered in the UI yet:
-///    anonymous accounts are lost with app data, so syncing would only
-///    create orphaned records).
+///  * Everything lives on this device. Cloud sync is OFF unless a parent
+///    signed in with a REAL account and switched it on in the Family Wing
+///    ([cloudConsented]). Anonymous accounts never sync: they are lost with
+///    app data, and could never be read from the parent's own phone.
 ///  * Even with consent, a child's NAME never leaves the device: the cloud
-///    document holds only the pseudonymous child id and progress
-///    ([cloudChildDoc]).
+///    document holds only the pseudonymous child id and a progress summary
+///    ([cloudChildDoc], [cloudSummary]).
 ///  * A parent can delete one child ([deleteChild]) or all of them
 ///    ([deleteAllChildren]); progress, the active-child pointer and any
 ///    cloud copy go with them.
@@ -57,6 +58,51 @@ class FamilyService {
   /// document body. Deliberately has NO name (see class doc).
   static Map<String, dynamic> cloudChildDoc(Map<String, dynamic> child) =>
       <String, dynamic>{'createdAt': child['createdAt']};
+
+  /// The progress summary a parent reads from another phone: counts, a level
+  /// and the last time something was done. No name, no answers, no text.
+  static Map<String, dynamic> cloudSummary({
+    required Map<String, dynamic> progress,
+    required int lettersTotal,
+    int? surah,
+    int? ayah,
+  }) {
+    final lessons = (progress['lessons'] as Map?) ?? const {};
+    final exams = (progress['exams'] as Map?) ?? const {};
+    final mastery = (progress['mastery'] as Map?) ?? const {};
+    var best = 0;
+    var last = '';
+    void seen(Object? v) {
+      if (v is Map && v['at'] is String && (v['at'] as String).compareTo(last) > 0) {
+        last = v['at'] as String;
+      }
+    }
+
+    for (final v in lessons.values) {
+      seen(v);
+    }
+    for (final v in exams.values) {
+      seen(v);
+      if (v is Map) {
+        final sc = (v['score'] as num? ?? 0).toInt();
+        final tot = (v['total'] as num? ?? 0).toInt();
+        if (tot > 0) {
+          final pct = (sc * 100 / tot).round();
+          if (pct > best) best = pct;
+        }
+      }
+    }
+    return <String, dynamic>{
+      'lessonsDone': lessons.length,
+      'lettersTotal': lettersTotal,
+      'examsTaken': exams.length,
+      'bestPct': best,
+      'masteredCount': mastery.values.where((v) => v == 'mastered').length,
+      if (last.isNotEmpty) 'lastActiveAt': last,
+      if (surah != null && ayah != null)
+        'quran': <String, dynamic>{'surah': surah, 'ayah': ayah},
+    };
+  }
 
   // ---- consent ----
   Future<bool> hasConsent() async {
@@ -115,7 +161,7 @@ class FamilyService {
     await prefs.setString('$_bandPref.$childId', band);
   }
 
-  /// Cloud sync is opt-in and not offered in the UI yet.
+  /// Cloud sync is opt-in: a signed-in parent switches it on in the Family Wing.
   Future<bool> cloudConsented() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_cloudConsentPref) ?? false;
@@ -126,14 +172,96 @@ class FamilyService {
     await prefs.setBool(_cloudConsentPref, value);
   }
 
+  /// True only for a signed-in REAL account (email, Google or Apple). Never
+  /// signs anyone in silently, and an anonymous sign-in does not count.
   Future<bool> cloudReady() async {
     try {
       if (_db == null || _auth == null) return false;
-      final u = _auth.currentUser ?? (await _auth.signInAnonymously()).user;
-      return u != null;
+      final u = _auth.currentUser;
+      return u != null && !u.isAnonymous;
     } catch (_) {
       return false;
     }
+  }
+
+  /// What the parent's phone reads: one summary per child on the account.
+  /// Holds no name; the app shows "Child 1", "Child 2" or a label the parent
+  /// typed on that phone ([cloudLabels]).
+  Future<List<Map<String, dynamic>>> cloudChildren() async {
+    if (!await cloudReady()) return const <Map<String, dynamic>>[];
+    final uid = _auth!.currentUser!.uid;
+    final snap = await _db!
+        .collection('families')
+        .doc(uid)
+        .collection('children')
+        .get();
+    final out = <Map<String, dynamic>>[
+      for (final d in snap.docs) <String, dynamic>{...d.data(), 'id': d.id},
+    ];
+    out.sort((a, b) => '${a['createdAt']}'.compareTo('${b['createdAt']}'));
+    return out;
+  }
+
+  /// Parent's own labels for children seen in the cloud, kept on THIS phone.
+  static const _cloudLabelsPref = 'ar.family.cloud_labels';
+
+  Future<Map<String, String>> cloudLabels() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_cloudLabelsPref);
+    if (raw == null || raw.isEmpty) return <String, String>{};
+    try {
+      final m = json.decode(raw) as Map;
+      return <String, String>{
+        for (final e in m.entries) '${e.key}': '${e.value}',
+      };
+    } catch (_) {
+      return <String, String>{};
+    }
+  }
+
+  Future<void> setCloudLabel(String childId, String label) async {
+    final prefs = await SharedPreferences.getInstance();
+    final m = await cloudLabels();
+    final t = label.trim();
+    if (t.isEmpty) {
+      m.remove(childId);
+    } else {
+      m[childId] = t.length > 30 ? t.substring(0, 30) : t;
+    }
+    await prefs.setString(_cloudLabelsPref, json.encode(m));
+  }
+
+  /// Parent turns sync off: the cloud copy is deleted first, then consent.
+  Future<void> turnCloudSyncOff() async {
+    try {
+      for (final c in await cloudChildren()) {
+        await _deleteCloud(c['id'] as String);
+      }
+    } catch (_) {}
+    await setCloudConsent(false);
+  }
+
+  /// Parent turns sync on (after the plain-words confirmation) and the first
+  /// copy is written at once.
+  Future<void> turnCloudSyncOn() async {
+    await setCloudConsent(true);
+    await _syncCloud();
+  }
+
+  /// Writes the summary now (used when the Family Wing opens).
+  Future<void> syncNow() => _syncCloud();
+
+  static DateTime? _lastSoon;
+
+  /// A throttled sync for frequent events such as saving a reading place.
+  void syncSoon() {
+    final now = DateTime.now();
+    final last = _lastSoon;
+    if (last != null && now.difference(last) < const Duration(seconds: 20)) {
+      return;
+    }
+    _lastSoon = now;
+    unawaited(_syncCloud());
   }
 
   // ---- children ----
@@ -328,35 +456,43 @@ class FamilyService {
   }
 
   Future<void> _syncCloud() async {
-    // Off unless a parent opted in; never signs a child's family in silently.
-    if (!await cloudConsented()) return;
-    if (!await cloudReady()) return;
+    // Off unless a signed-in parent opted in; never signs anyone in silently.
     try {
+      if (!await cloudConsented()) return;
+      if (!await cloudReady()) return;
       final uid = _auth!.currentUser!.uid;
-      final list = await children();
+      final prefs = await SharedPreferences.getInstance();
+      final String? active = await activeChildId();
+      int? surah;
+      int? ayah;
+      final raw = prefs.getString('ar.quran.lastRead');
+      if (raw != null) {
+        try {
+          final m = json.decode(raw) as Map;
+          surah = (m['surah'] as num).toInt();
+          ayah = (m['ayah'] as num).toInt();
+        } catch (_) {}
+      }
       final fam = _db!.collection('families').doc(uid);
-      await fam.set({'updatedAt': Timestamp.now()});
-      for (final c in list) {
+      await fam.set(<String, dynamic>{'updatedAt': Timestamp.now()},
+          SetOptions(merge: true));
+      for (final c in await children()) {
+        final id = c['id'] as String;
+        final p = await progress(id);
+        final data = <String, dynamic>{
+          ...cloudChildDoc(c),
+          ...cloudSummary(
+            progress: p,
+            lettersTotal: kLettersLessonCount,
+            surah: id == active ? surah : null,
+            ayah: id == active ? ayah : null,
+          ),
+          'updatedAt': Timestamp.now(),
+        };
         await fam
             .collection('children')
-            .doc(c['id'] as String)
-            .set(cloudChildDoc(c));
-        final p = await progress(c['id'] as String);
-        for (final e in (p['exams'] as Map).entries) {
-          await fam.collection('children').doc(c['id'] as String)
-              .collection('exams').doc(e.key as String)
-              .set(Map<String, dynamic>.from(e.value as Map));
-        }
-        for (final l in (p['lessons'] as Map).entries) {
-          await fam.collection('children').doc(c['id'] as String)
-              .collection('lessons').doc(l.key as String)
-              .set(Map<String, dynamic>.from(l.value as Map));
-        }
-        for (final mv in ((p['mastery'] as Map?) ?? <String, dynamic>{}).entries) {
-          await fam.collection('children').doc(c['id'] as String)
-              .collection('mastery').doc(mv.key as String)
-              .set(<String, dynamic>{'level': mv.value});
-        }
+            .doc(id)
+            .set(data, SetOptions(merge: true));
       }
     } catch (_) {
       // Sync is best-effort; the device always holds the truth.

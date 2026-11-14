@@ -359,3 +359,17 @@ String childSummaryLine({
   final int left = lettersTotal - lettersDone;
   return '$lettersDone of $lettersTotal letter lessons done, $left to go.';
 }
+
+
+/// A short level name for a child, from what the Academy records.
+String childLevelName({
+  required int lettersDone,
+  required int lettersTotal,
+  required int exams,
+}) {
+  if (lettersDone == 0 && exams == 0) return 'Just starting';
+  if (lettersTotal <= 0) return 'Learning';
+  if (lettersDone < lettersTotal ~/ 2) return 'Learning the letters';
+  if (lettersDone < lettersTotal) return 'Nearly through the letters';
+  return exams > 0 ? 'Letters done, ready to read' : 'Letters done, take the exam';
+}
