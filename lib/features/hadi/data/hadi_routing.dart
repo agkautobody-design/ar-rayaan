@@ -785,7 +785,9 @@ abstract final class HadiRouting {
     r'(?:just|recently)\s+(?:converted|reverted|became\s+(?:a\s+)?muslim|'
     r'embraced\s+islam|took\s+(?:my\s+)?shahada)|'
     r'(?:new|recent)\s+(?:muslim|convert|revert)|'
-    r'i\s+(?:am|m)\s+a\s+(?:convert|revert))\b',
+    r'i\s+(?:am|m)\s+a\s+(?:convert|revert)|'
+    r'i\s+(?:have\s+)?(?:recently\s+|just\s+)?(?:converted|reverted)|'
+    r'i\s+(?:just\s+)?became\s+(?:a\s+)?muslim)\b',
   );
 
   static bool asksNewcomerLoose(String question) {

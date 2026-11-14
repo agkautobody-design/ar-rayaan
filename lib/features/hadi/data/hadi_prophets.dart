@@ -44,7 +44,7 @@ abstract final class HadiProphets {
     'prophet-alyasa': <String>['alyasa', 'al yasa', 'elisha'],
     'prophet-yunus': <String>['yunus', 'younus', 'yunis', 'jonah', 'dhun nun', 'man of the fish'],
     'prophet-zakariya': <String>['zakariya', 'zakariyya', 'zakaria', 'zechariah', 'zachariah', 'yahya', '!john the baptist'],
-    'prophet-isa': <String>['isa', 'eesa', '!jesus'],
+    'prophet-isa': <String>['isa', 'eesa', 'jesus'],
   };
 
   static final RegExp _listAsk = RegExp(
