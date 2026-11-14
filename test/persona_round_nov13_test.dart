@@ -310,4 +310,15 @@ void main() {
     expect(HadiRouting.asksNewcomerStart('i feel overwhelmed'), isFalse);
     expect(HadiRouting.asksNewcomerStart('where do i start'), isFalse);
   });
+
+  test('a new Muslim asking how to make friends gets the friends answer',
+      () async {
+    final String a = await ask('how do i make friends as a new muslim');
+    expect(a, contains('Many new Muslims feel this'));
+    expect(a, isNot(contains('say the shahada')));
+    expect(HadiRouting.asksNewcomerLoose('i am a new muslim'), isTrue);
+    expect(
+        HadiRouting.asksNewcomerLoose('how do i make friends as a new muslim'),
+        isFalse);
+  });
 }

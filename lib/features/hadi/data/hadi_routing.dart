@@ -805,9 +805,17 @@ abstract final class HadiRouting {
         _startAsk.hasMatch(n);
   }
 
+  // A newcomer asking about friends or community has a shelf answer of its
+  // own, not the beginner guide.
+  static final RegExp _newcomerFriends = RegExp(
+    r'\b(?:friends?|lonely|alone|community|meet\s+(?:other\s+)?muslims?)\b',
+  );
+
   static bool asksNewcomerLoose(String question) {
     final String n = _norm(question);
-    return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
+    return n.split(' ').length <= 18 &&
+        _newcomerLoose.hasMatch(n) &&
+        !_newcomerFriends.hasMatch(n);
   }
 
   // ── Beginners who say it in their own words ─────────────────────────
