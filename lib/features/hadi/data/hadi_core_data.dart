@@ -3396,4 +3396,100 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     beforeGate: true,
     reviewNote: 'Standard definitions of the five levels and the Hanafi wajib; not text-checked here.',
   ),
+  // ── Curious and playful questions (Nov 2026) ─────────────────────────
+  // Questions a child or a newcomer asks for the wonder of it. Each answer
+  // says plainly what the Qur'an does and does not say.
+  CoreEntry(
+    id: 'curious-chicken-egg',
+    patterns: <String>[
+      r'\b(?:chicken|hen)\b.*\bor\b.*\begg\b',
+      r'\begg\b.*\bor\b.*\b(?:chicken|hen)\b',
+      r'\bwhich (?:came|comes|was|is) first\b.*\b(?:chicken|egg)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:halal|haram|eat|eating|cook|cooking|recipe|allergy|allergic|buy|price)\b',
+    ],
+    answer: 'The Qur\'an and the Sunnah do not say whether the chicken or the egg came first, so nobody can answer it from revelation. What we do know is that Allah is the Creator of all things (Qur\'an 39:62): the chicken, the egg and everything else. It is not something we are asked to settle, and it is a fun thing to wonder about.\n\nSource: Qur\'an 39:62.\n[GO:/kids]',
+    beforeGate: true,
+    reviewNote: 'Plain statement that revelation is silent; scholar to confirm the wording.',
+  ),
+  CoreEntry(
+    id: 'curious-meaning-of-life',
+    patterns: <String>[
+      r'\bmeaning of (?:my |our |this |the )?life\b',
+      r'\bpurpose of (?:my |our |this |the )?life\b',
+      r'\bwhat is life (?:really )?about\b',
+      r'\bwhy (?:do|did) (?:we|humans|people) exist\b',
+    ],
+    avoid: <String>[
+      r'\b(?:no|lost|empty|pointless|hopeless|worthless|tired of|give up|end it|dont want)\b',
+    ],
+    answer: 'The Qur\'an answers this directly. Allah says He did not create the jinn and mankind except to worship Him (Qur\'an 51:56). Worship in Islam is wider than prayer: it is knowing Allah, thanking Him, being honest and kind, doing good, and looking after the people and things He has put in your care. Another verse says He created death and life to test which of you is best in deed (Qur\'an 67:2). So life has a purpose, and you meet it by doing your best.\n\nSource: Qur\'an 51:56, 67:2.\n[GO:/quran]',
+    beforeGate: true,
+    reviewNote: 'Standard reading of 51:56 and 67:2; scholar to confirm the explanation of worship.',
+  ),
+  CoreEntry(
+    id: 'curious-earth-shape',
+    patterns: <String>[
+      r'\bis (?:the )?(?:earth|world)\s+(?:really )?(?:flat|round|a sphere|spherical)\b',
+      r'\b(?:flat|round) earth\b',
+      r'\bis (?:the )?earth (?:a )?(?:ball|globe)\b',
+    ],
+    answer: 'The Qur\'an does not give a lesson on the shape of the earth, and nothing in Islam requires believing it is flat. Muslim astronomers of the past knew it is round; for example, al-Biruni worked out its size about a thousand years ago. The Qur\'an points to the heavens, the earth and the night and day as signs and invites us to study them (Qur\'an 3:190), so you can follow the science on this with a clear conscience.\n\nSource: Qur\'an 3:190.\n[GO:/quran]',
+    beforeGate: true,
+    reviewNote: 'History of Muslim astronomy and the silence of the text on the earth\'s shape; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'curious-aliens',
+    patterns: <String>[
+      r'\b(?:aliens?|extraterrestrials?|ufos?)\b',
+      r'\blife (?:on|in) (?:other planets|mars|space|the universe)\b',
+      r'\bare we alone in the universe\b',
+    ],
+    answer: 'Nobody knows, and I will not guess. The Qur\'an says Allah has spread living creatures through the heavens and the earth (Qur\'an 42:29). Some scholars say that leaves room for life elsewhere; others say the verse is not clear on it. The Qur\'an and Sunnah give no ruling and no details, and what you think about it does not affect your faith. What is certain is that Allah created beings we cannot see, such as the angels and the jinn.\n\nSource: Qur\'an 42:29.\n[GO:/quran]',
+    beforeGate: true,
+    reviewNote: 'Scholars differ on 42:29 and life elsewhere; scholar to confirm the balance.',
+  ),
+  CoreEntry(
+    id: 'curious-dinosaurs',
+    patterns: <String>[
+      r'\b(?:dinosaurs?|dinos?|fossils?)\b',
+    ],
+    answer: 'Dinosaur fossils are real, and Islam has no teaching that denies them. The Qur\'an does not mention dinosaurs by name. It tells us Allah creates things we do not know (Qur\'an 16:8) and invites us to travel the earth and see how He began creation (Qur\'an 29:20). Many scholars say learning from fossils is welcome; Muslims only push back where a claim clearly contradicts what Allah has told us for certain. Looking at the bones of ancient creatures is a good way to wonder at His creation.\n\nSource: Qur\'an 16:8, 29:20.\n[GO:/quran]',
+    beforeGate: true,
+    reviewNote: 'Silence of the text on dinosaurs and openness to the science; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'curious-ghosts',
+    patterns: <String>[
+      r'\b(?:ghosts?|haunted|haunting|poltergeist)\b',
+    ],
+    avoid: <String>[
+      r'\bholy ghost\b',
+    ],
+    answer: 'Islam does not teach that the dead come back as roaming ghosts. After death a person is in a state called barzakh, in Allah\'s hands, until the Day of Judgement (Qur\'an 23:99-100). The Qur\'an does say the jinn are real, an unseen creation with free will (Qur\'an 51:56). Scholars say what people take for ghosts is often imagination, tricks of light and sound, or sometimes jinn.\n\nIf you are scared, read Ayat al-Kursi (Qur\'an 2:255), say "A\'udhu billahi minash-shaytanir-rajeem" (I seek Allah\'s protection from the cursed devil), and remember that Allah is the Protector. Do not try to contact spirits; that is forbidden. If the fear keeps you awake, tell a parent or someone you trust.\n\nSource: Qur\'an 23:99-100, 51:56, 2:255.\n[GO:/adhkar]',
+    beforeGate: true,
+    reviewNote: 'Barzakh and jinn as the usual explanations; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'curious-something-interesting',
+    patterns: <String>[
+      r'^(?:please )?(?:tell|give|show) me (?:something|a fact|a story|a fun fact)(?: that is| thats| that s)? (?:interesting|cool|fun|nice|new)\??$',
+      r'^something interesting\??$',
+      r'^(?:i am|im|i m) bored\??$',
+    ],
+    answer: 'Here are a few things worth a look: a prophet\'s story you may not know, the hadith of the day, or a short du\'a. You can ask me, for example, "tell me the story of Prophet Yunus", or open the stories section.\n[GO:/stories]\n[GO:/hadith]',
+    beforeGate: true,
+  ),
+  CoreEntry(
+    id: 'curious-about-hadi',
+    patterns: <String>[
+      r'\b(?:your|ur) (?:favou?rite|fav)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:surah|ayah|verse|prophet|name of allah|dua|prayer|book|hadith|sahabi|companion)\b',
+    ],
+    answer: 'I am Hadi, the helper built into this app, not a person, so I do not have favourites the way you do. I am happy to help with questions about Islam, stories, du\'as and finding things in the app. What would you like to explore?\n[GO:/stories]',
+    beforeGate: true,
+  ),
 ];
