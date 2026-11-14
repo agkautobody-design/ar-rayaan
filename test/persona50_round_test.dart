@@ -87,7 +87,7 @@ void main() {
       final HadiMessage last = c.read(hadiControllerProvider).messages.last;
       // ignore: avoid_print
       print('PERSONA $id [${sw.elapsedMilliseconds}ms] '
-          'crisis=${last.crisis?.name} support=${last.support?.name} '
+          'crisis=${last.crisis?.name} support=${last.support} '
           'routes=${last.routes}\nQ: $q\nA: ${a.replaceAll('\n', ' ')}\n');
       expect(sw.elapsedMilliseconds, lessThan(5000));
     }, timeout: const Timeout(Duration(seconds: 20)));
