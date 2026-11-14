@@ -3052,7 +3052,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Pick one thing this week, not ten.\n[GO:/huda/guide?id=huda-prayer]',
   ),
   _Entry(
-    <String>[ 'find muslim friends', 'friends as a new muslim', 'meet other muslims', 'lonely new muslim', 'no muslim friends'],
+    <String>[ 'find muslim friends', 'meet other muslims', 'lonely new muslim', 'no muslim friends'],
     'Many new Muslims feel this, and it is normal. Ways in: visit your local masjid at a quiet time and introduce yourself, ask whether there is a new Muslims class or a revert support group (many masjids and Islamic centres run one), and ask the imam to introduce you to a mentor. Online groups for new Muslims can help, but meeting one person in person matters more. '
     'Keep your old friends and family where you can; becoming Muslim does not mean cutting them off. The New Muslim path in this app walks through the first weeks.\n[GO:/new-muslim]',
   ),
