@@ -1,7 +1,7 @@
-import 'package:ar_rayaan/app/core/kids_mode.dart';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ar_rayaan/app/core/kids_mode.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/academy/application/academy_strings.dart';
