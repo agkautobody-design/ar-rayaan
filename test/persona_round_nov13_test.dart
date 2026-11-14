@@ -300,4 +300,14 @@ void main() {
     expect(a, contains('Yunus'));
     expect(HadiRouting.asksKidStory('tell me the story of Yunus'), isFalse);
   });
+
+  test('a new Muslim who is overwhelmed and asks where to start gets the guide',
+      () async {
+    final String a = await ask(
+        'I am a new muslim and I feel overwhelmed where do I start');
+    expect(a, contains('overwhelmed at the start is normal'));
+    expect(a, contains('[GO:'));
+    expect(HadiRouting.asksNewcomerStart('i feel overwhelmed'), isFalse);
+    expect(HadiRouting.asksNewcomerStart('where do i start'), isFalse);
+  });
 }
