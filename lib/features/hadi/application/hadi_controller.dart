@@ -1575,7 +1575,8 @@ class HadiController extends Notifier<HadiState> {
     if (support == null &&
         crisis == null &&
         !gameAsk &&
-        !HadiRouting.asksNewMuslimFamily(q)) {
+        !HadiRouting.asksNewMuslimFamily(q) &&
+        !HadiRouting.asksNewcomerStart(q)) {
       final String? freshDistress = DistressSignal.packFor(q);
       String? distressPack = freshDistress;
       if (distressPack == null && _continuesDistress(q)) {

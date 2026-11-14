@@ -1118,7 +1118,13 @@ class OfflineHadiProvider implements HadiProvider {
 
   Future<String> _routed(String asked, List<HadiMessage> history) async {
     final String n = CrisisDetector.normalize(asked);
-    final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+    final bool newcomerStart = HadiRouting.asksNewcomerStart(asked);
+    final bool heavy =
+        _distress.hasMatch(n) && !_thirdPartyQuestion(n) && !newcomerStart;
+    if (newcomerStart && _distress.hasMatch(n)) {
+      return 'Feeling overwhelmed at the start is normal, and you do not need '
+          'to learn it all at once.\n\n${HadiRouting.beginnerReply}';
+    }
 
     // "…close to me" for a masjid, Friday prayer or halal food is a request
     // for a place: it goes to the finder before any topic answer can claim

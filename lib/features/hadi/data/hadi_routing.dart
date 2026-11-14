@@ -790,6 +790,21 @@ abstract final class HadiRouting {
     r'i\s+(?:just\s+)?became\s+(?:a\s+)?muslim)\b',
   );
 
+  static final RegExp _startAsk = RegExp(
+    r'\b(?:where|how)\s+(?:do|should|can|would)\s+i\s+(?:even\s+)?'
+    r'(?:start|begin)\b|\bwhat\s+(?:do|should)\s+i\s+(?:do|learn)\s+'
+    r'(?:first|now|next)\b|\bwhere\s+to\s+(?:start|begin)\b',
+  );
+
+  /// A newcomer who says they feel overwhelmed and asks where to start: they
+  /// want the starting guide, so the listening-only reply does not take it.
+  static bool asksNewcomerStart(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 30 &&
+        _newcomerLoose.hasMatch(n) &&
+        _startAsk.hasMatch(n);
+  }
+
   static bool asksNewcomerLoose(String question) {
     final String n = _norm(question);
     return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
