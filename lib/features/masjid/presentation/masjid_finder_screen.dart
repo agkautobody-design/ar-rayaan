@@ -18,6 +18,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/prayer_providers.dart';
+import 'directions_sheet.dart';
 import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../../prayer/application/prayer_repository.dart';
@@ -67,6 +68,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   // Starts at the location saved for Prayer Times (GPS fix or chosen city).
   late double _lat, _lon;
   int _tab = 0;
+  bool _mapBig = false; // map takes most of the screen; cards shrink
   int _requestId = 0; // newest request wins; older answers are dropped
 
   // False until the person sets a place (their saved location, a device fix
@@ -383,11 +385,12 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                 ),
               ]),
             ),
-            Expanded(child: Padding(
+            Expanded(flex: _mapBig ? 3 : 1, child: Padding(
               padding: const EdgeInsets.all(12),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(14),
-                child: ColorFiltered(
+                child: Stack(children: [
+                Positioned.fill(child: ColorFiltered(
                   colorFilter: const ColorFilter.mode(
                       Color(0xB305090F), BlendMode.darken),
                   child: FlutterMap(
@@ -452,14 +455,31 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                       ]),
                     ],
                   ),
+                )),
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: Material(
+                    color: const Color(0xCC05090F),
+                    shape: const CircleBorder(),
+                    child: IconButton(
+                      key: const Key('map-size-toggle'),
+                      tooltip: _mapBig ? 'Smaller map' : 'Bigger map',
+                      icon: Icon(
+                          _mapBig ? Icons.fullscreen_exit : Icons.fullscreen,
+                          color: AppColors.goldLight),
+                      onPressed: () => setState(() => _mapBig = !_mapBig),
+                    ),
+                  ),
                 ),
+                ]),
               ),
             )),
             if (_error != null)
               Padding(padding: const EdgeInsets.all(8),
                   child: Text(_error!, style: AppText.bodyMuted)),
             Expanded(
-              flex: 2,
+              flex: _mapBig ? 1 : 2,
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 children: [
@@ -651,6 +671,16 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                             if (f['lat'] is double && f['lon'] is double)
                               Row(children: [
                                 TextButton(
+                                  onPressed: () => showDirectionsSheet(context,
+                                      lat: f['lat'] as double,
+                                      lon: f['lon'] as double,
+                                      name: f['name'] as String),
+                                  child: const Text('Directions',
+                                      style: TextStyle(
+                                          color: AppColors.goldLight,
+                                          fontSize: 12)),
+                                ),
+                                TextButton(
                                   onPressed: () => showReportPlaceSheet(
                                     context,
                                     targetType: 'osm',
@@ -772,8 +802,8 @@ class _MosqueCard extends StatelessWidget {
                 child: const Text('Call', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
               ),
             TextButton(
-              onPressed: () => _openExternal(Uri.parse(
-                  'https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}')),
+              onPressed: () => showDirectionsSheet(context,
+                  lat: m.lat, lon: m.lon, name: m.name),
               child: const Text('Directions', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
             ),
             const Spacer(),
