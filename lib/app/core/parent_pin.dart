@@ -31,6 +31,13 @@ class ParentPin {
 
   bool get isSet => _prefs.getString(_key) != null;
 
+  /// Turns the PIN off (the parent chose to). Nothing else is kept.
+  Future<void> clear() async {
+    await _prefs.remove(_key);
+    await _prefs.remove(_failsKey);
+    await _prefs.remove(_lockKey);
+  }
+
   /// 4 to 6 digits, and not an obvious one.
   static String? problemWith(String pin) {
     if (!RegExp(r'^\d{4,6}$').hasMatch(pin)) {
