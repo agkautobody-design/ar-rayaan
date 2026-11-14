@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5772 items.** High priority: 1306. Normal: 3649. Low: 817.
+**5782 items.** High priority: 1316. Normal: 3649. Low: 817.
 
 ### By area
 
@@ -23,7 +23,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Academy word glosses (300) | 300 | 0 |
 | Academy schools, Path lessons and static course screens | 403 | 1 |
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
-| Huda guides and their madhhab notes | 108 | 94 |
+| Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
 | Hadi built-in answers | 497 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 | 116 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5772** | **1306** |
+| **Total** | **5782** | **1316** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2509 | 1043 |
-| Fiqh scholar (per madhab) | 630 | 254 |
+| Hadith / aqidah scholar | 2509 | 1048 |
+| Fiqh scholar (per madhab) | 640 | 254 |
 | Women's scholar | 151 | 96 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -70,7 +70,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Academy word glosses (300) |  |  |  | 300 |  |  |  |  |  |
 | Academy schools, Path lessons and static course screens | 303 | 61 | 25 | 1 | 13 |  |  |  |  |
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
-| Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |  |
+| Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
 | Hadi built-in answers | 303 | 194 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 579 |  |  |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2509 lead, 1043 also)
+### Hadith / aqidah scholar (2509 lead, 1048 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -113,11 +113,11 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (630 lead, 254 also)
+### Fiqh scholar (per madhab) (640 lead, 254 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
-- Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
+- Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
 - Hadi built-in answers: 194 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
@@ -1595,7 +1595,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Huda guides and their madhhab notes
 
-108 items, 94 high priority. Area key `huda`.
+118 items, 104 high priority. Area key `huda`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1707,6 +1707,16 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `huda.madhhab.huda-what-is-islam` | Huda > What Is Islam? > "Madhhab note" card | Madhhab note: The pillars and the articles of faith above are common to the four schools of law; this guide covers no point on which they differ. No scholar has reviewed this wording yet. | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
 | `huda.guide.huda-madhhab-overview` | Huda > Foundations > The Four Schools — How They Differ | Guide "The Four Schools — How They Differ": 7 steps, 5 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. Its Sources card says "not yet scholar-reviewed"; docs/content_needed/VERIFICATION_LOG.md records wh… | Fiqh scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
 | `huda.madhhab.huda-madhhab-overview` | Huda > The Four Schools — How They Differ > "Madhhab note" card | Madhhab note: This is one worked example, not a table of the four schools. A full reviewed comparison, with each school’s evidence and book, still needs a named scholar, and until then the app does n… | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
+| `huda.guide.huda-islam-other-faiths` | Huda > Faiths compared > Islam and Other Faiths — How to Compare Fairly | Guide "Islam and Other Faiths — How to Compare Fairly": 6 steps, 3 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. | Fiqh scholar + Hadith / aqidah scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
+| `huda.madhhab.huda-islam-other-faiths` | Huda > Islam and Other Faiths — How to Compare Fairly > "Madhhab note" card | Madhhab note: Nothing in this guide is a point on which the four schools of law differ. How Muslims should relate to people of other faiths in particular situations is a question for a qualified scho… | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
+| `huda.guide.huda-islam-christianity` | Huda > Faiths compared > Islam and Christianity | Guide "Islam and Christianity": 6 steps, 4 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. | Fiqh scholar + Hadith / aqidah scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
+| `huda.madhhab.huda-islam-christianity` | Huda > Islam and Christianity > "Madhhab note" card | Madhhab note: The points above are matters of belief shared by Sunni Muslims; the four schools of law do not differ on them. Detailed questions of interfaith law (marriage, food, festivals) are for a… | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
+| `huda.guide.huda-islam-judaism` | Huda > Faiths compared > Islam and Judaism | Guide "Islam and Judaism": 5 steps, 3 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. | Fiqh scholar + Hadith / aqidah scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
+| `huda.madhhab.huda-islam-judaism` | Huda > Islam and Judaism > "Madhhab note" card | Madhhab note: Matters of belief only; the four schools of law do not differ on them. Interfaith questions of law are for a qualified scholar. | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
+| `huda.guide.huda-islam-hinduism` | Huda > Faiths compared > Islam and Hinduism | Guide "Islam and Hinduism": 5 steps, 3 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. | Fiqh scholar + Hadith / aqidah scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
+| `huda.madhhab.huda-islam-hinduism` | Huda > Islam and Hinduism > "Madhhab note" card | Madhhab note: Matters of belief only; the four schools of law do not differ on them. | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
+| `huda.guide.huda-islam-buddhism` | Huda > Faiths compared > Islam and Buddhism | Guide "Islam and Buddhism": 5 steps, 3 sources, with a madhhab note. | Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions. | Fiqh scholar + Hadith / aqidah scholar | high | FIX_WORSHIP_REPORT (guides audit, no scholar reviewed); guides.json Sources card status |
+| `huda.madhhab.huda-islam-buddhism` | Huda > Islam and Buddhism > "Madhhab note" card | Madhhab note: Matters of belief only; the four schools of law do not differ on them. | FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals. | Fiqh scholar | high | FIX_WORSHIP_REPORT (all madhab notes); guides.json madhhabNote |
 
 ### Q&A bank rulings
 
@@ -3753,7 +3763,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `sakina.room.son-father-husband` | Sakina > room "The Son, The Father, The Husband" (A space for men who carry quietly) | Door line, quoted verses/hadith, safety line and help kinds for the "The Son, The Father, The Husband" room. | Sakina law: pathways ship only after clinician and scholar review; the door lines and safety lines are written for this app and the screen already says "in clinician + scholar review". Marriage room grade wording was changed in FACT_S4 (hasan per Darussalam,… | Clinician + Hadith / aqidah scholar | high | sakina_content.dart header; module_registry: clinician+scholar review law; FACT_S4 |
 | `sakina.room.whisper` | Sakina > room "The Whisper" (Waswas, doubt & scrupulosity) | Door line, quoted verses/hadith, safety line and help kinds for the "The Whisper" room. | Sakina law: pathways ship only after clinician and scholar review; the door lines and safety lines are written for this app and the screen already says "in clinician + scholar review". Marriage room grade wording was changed in FACT_S4 (hasan per Darussalam,… | Clinician + Hadith / aqidah scholar | high | sakina_content.dart header; module_registry: clinician+scholar review law; FACT_S4 |
 | `sakina.comfort-deck` | Sakina > Comfort cards and word of the day | The 20 comfort cards (Qur'an excerpts and hadith summaries), the "meaning of hardship" flag that keeps some cards out of the word of the day, and the withheld cards. | "The first 20 of 40; the rest ship with the pathways after clinician + scholar review." Wording of summaries is the app's. | Clinician + Hadith / aqidah scholar | high | sakina_content.dart comfort deck comment |
-| `sakina.help-lines` | Need help now dialog; Sakina help tiles; Hadi crisis reply | 55 help-line records (country, service name, number or link, languages) and the "unverified" list. | Re-verified against operator pages on 2026-10-20 (FACT_S4); help lines are US-centric with a findahelpline fallback; some marked "Not re-checked recently" (audit B). Needs a clinician and native speakers to confirm service names and phrasing per country. | Clinician + Native speaker | high | B_worship audit (help lines US-centric); FACT_S4 (HelpResources re-verified 2026-10-20) |
+| `sakina.help-lines` | Need help now dialog; Sakina help tiles; Hadi crisis reply | 56 help-line records (country, service name, number or link, languages) and the "unverified" list. | Re-verified against operator pages on 2026-10-20 (FACT_S4); help lines are US-centric with a findahelpline fallback; some marked "Not re-checked recently" (audit B). Needs a clinician and native speakers to confirm service names and phrasing per country. | Clinician + Native speaker | high | B_worship audit (help lines US-centric); FACT_S4 (HelpResources re-verified 2026-10-20) |
 | `sakina.feeling.anxious` | Feelings > Anxious (dua, story links, support card) | Feeling "Anxious": line, dua (Sahih al-Bukhari 6369), 3 linked items and why-lines. | FACT_S4 re-sourced all 24 duas; the "why" lines are app wording; support-card wording on 15 feelings is not clinician-reviewed. | Clinician + Hadith / aqidah scholar | normal | FACT_S4_modern_qa_feelings (feelings); Sakina law: clinician + scholar review |
 | `sakina.feeling.sad` | Feelings > Sad or Grieving (dua, story links, support card) | Feeling "Sad or Grieving": line, dua (Sahih Muslim 918; Qur'an 2:156), 3 linked items and why-lines. | FACT_S4 re-sourced all 24 duas; the "why" lines are app wording; support-card wording on 15 feelings is not clinician-reviewed. | Clinician + Hadith / aqidah scholar | normal | FACT_S4_modern_qa_feelings (feelings); Sakina law: clinician + scholar review |
 | `sakina.feeling.angry` | Feelings > Angry (dua, story links, support card) | Feeling "Angry": line, dua (Sahih al-Bukhari 3282; Sunan Abi Dawud 4782 (sahih per al-A…), 3 linked items and why-lines. | FACT_S4 re-sourced all 24 duas; the "why" lines are app wording; support-card wording on 15 feelings is not clinician-reviewed. | Clinician + Hadith / aqidah scholar | normal | FACT_S4_modern_qa_feelings (feelings); Sakina law: clinician + scholar review |

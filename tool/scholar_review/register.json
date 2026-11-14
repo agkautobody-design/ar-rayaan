@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5772,
+ "total": 5782,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -30,8 +30,8 @@
   },
   "huda": {
    "title": "Huda guides and their madhhab notes",
-   "items": 108,
-   "high_priority": 94
+   "items": 118,
+   "high_priority": 104
   },
   "qa": {
    "title": "Q&A bank rulings",
@@ -131,7 +131,7 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2509,
-  "Fiqh scholar (per madhab)": 630,
+  "Fiqh scholar (per madhab)": 640,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -141,7 +141,7 @@
   "App owner (product wording and voice, not a scholar)": 569
  },
  "totals_by_priority": {
-  "high": 1306,
+  "high": 1316,
   "normal": 3649,
   "low": 817
  },
@@ -32811,6 +32811,266 @@
    "file": "assets/guides/guides.json",
    "key": "[id=huda-madhhab-overview].madhhabNote",
    "what_to_review": "Madhhab note: This is one worked example, not a table of the four schools. A full reviewed comparison, with each school’s evidence and book, still needs a named scholar, and until then the app does not state any other school position.",
+   "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (all madhab notes)",
+    "guides.json madhhabNote"
+   ],
+   "label_surface": "Guide screen (Madhhab note card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.guide.huda-islam-other-faiths",
+   "area": "huda",
+   "subarea": "Faiths compared",
+   "where_in_app": "Huda > Faiths compared > Islam and Other Faiths — How to Compare Fairly",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-other-faiths]",
+   "what_to_review": "Guide \"Islam and Other Faiths — How to Compare Fairly\": 6 steps, 3 sources, with a madhhab note.",
+   "why_flagged": "Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (guides audit, no scholar reviewed)",
+    "guides.json Sources card status"
+   ],
+   "label_surface": "Guide screen (Sources card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.madhhab.huda-islam-other-faiths",
+   "area": "huda",
+   "subarea": "madhhabNote",
+   "where_in_app": "Huda > Islam and Other Faiths — How to Compare Fairly > \"Madhhab note\" card",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-other-faiths].madhhabNote",
+   "what_to_review": "Madhhab note: Nothing in this guide is a point on which the four schools of law differ. How Muslims should relate to people of other faiths in particular situations is a question for a qualified scholar.",
+   "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (all madhab notes)",
+    "guides.json madhhabNote"
+   ],
+   "label_surface": "Guide screen (Madhhab note card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.guide.huda-islam-christianity",
+   "area": "huda",
+   "subarea": "Faiths compared",
+   "where_in_app": "Huda > Faiths compared > Islam and Christianity",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-christianity]",
+   "what_to_review": "Guide \"Islam and Christianity\": 6 steps, 4 sources, with a madhhab note.",
+   "why_flagged": "Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (guides audit, no scholar reviewed)",
+    "guides.json Sources card status"
+   ],
+   "label_surface": "Guide screen (Sources card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.madhhab.huda-islam-christianity",
+   "area": "huda",
+   "subarea": "madhhabNote",
+   "where_in_app": "Huda > Islam and Christianity > \"Madhhab note\" card",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-christianity].madhhabNote",
+   "what_to_review": "Madhhab note: The points above are matters of belief shared by Sunni Muslims; the four schools of law do not differ on them. Detailed questions of interfaith law (marriage, food, festivals) are for a qualified scholar.",
+   "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (all madhab notes)",
+    "guides.json madhhabNote"
+   ],
+   "label_surface": "Guide screen (Madhhab note card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.guide.huda-islam-judaism",
+   "area": "huda",
+   "subarea": "Faiths compared",
+   "where_in_app": "Huda > Faiths compared > Islam and Judaism",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-judaism]",
+   "what_to_review": "Guide \"Islam and Judaism\": 5 steps, 3 sources, with a madhhab note.",
+   "why_flagged": "Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (guides audit, no scholar reviewed)",
+    "guides.json Sources card status"
+   ],
+   "label_surface": "Guide screen (Sources card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.madhhab.huda-islam-judaism",
+   "area": "huda",
+   "subarea": "madhhabNote",
+   "where_in_app": "Huda > Islam and Judaism > \"Madhhab note\" card",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-judaism].madhhabNote",
+   "what_to_review": "Madhhab note: Matters of belief only; the four schools of law do not differ on them. Interfaith questions of law are for a qualified scholar.",
+   "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (all madhab notes)",
+    "guides.json madhhabNote"
+   ],
+   "label_surface": "Guide screen (Madhhab note card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.guide.huda-islam-hinduism",
+   "area": "huda",
+   "subarea": "Faiths compared",
+   "where_in_app": "Huda > Faiths compared > Islam and Hinduism",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-hinduism]",
+   "what_to_review": "Guide \"Islam and Hinduism\": 5 steps, 3 sources, with a madhhab note.",
+   "why_flagged": "Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (guides audit, no scholar reviewed)",
+    "guides.json Sources card status"
+   ],
+   "label_surface": "Guide screen (Sources card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.madhhab.huda-islam-hinduism",
+   "area": "huda",
+   "subarea": "madhhabNote",
+   "where_in_app": "Huda > Islam and Hinduism > \"Madhhab note\" card",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-hinduism].madhhabNote",
+   "what_to_review": "Madhhab note: Matters of belief only; the four schools of law do not differ on them.",
+   "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (all madhab notes)",
+    "guides.json madhhabNote"
+   ],
+   "label_surface": "Guide screen (Madhhab note card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.guide.huda-islam-buddhism",
+   "area": "huda",
+   "subarea": "Faiths compared",
+   "where_in_app": "Huda > Faiths compared > Islam and Buddhism",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-buddhism]",
+   "what_to_review": "Guide \"Islam and Buddhism\": 5 steps, 3 sources, with a madhhab note.",
+   "why_flagged": "Every guide was line-audited against the Qur'an text and the hadith corpus, but no named scholar has reviewed the wording, the steps, or the school positions.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "FIX_WORSHIP_REPORT (guides audit, no scholar reviewed)",
+    "guides.json Sources card status"
+   ],
+   "label_surface": "Guide screen (Sources card)",
+   "status": "open"
+  },
+  {
+   "id": "huda.madhhab.huda-islam-buddhism",
+   "area": "huda",
+   "subarea": "madhhabNote",
+   "where_in_app": "Huda > Islam and Buddhism > \"Madhhab note\" card",
+   "file": "assets/guides/guides.json",
+   "key": "[id=huda-islam-buddhism].madhhabNote",
+   "what_to_review": "Madhhab note: Matters of belief only; the four schools of law do not differ on them.",
    "why_flagged": "FIX_WORSHIP_REPORT: all madhab notes need a scholar (no named scholar reviewed them); school positions are from standard fiqh teaching, not text-checked against the manuals.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [],
@@ -73160,7 +73420,7 @@
    "where_in_app": "Need help now dialog; Sakina help tiles; Hadi crisis reply",
    "file": "lib/features/sakina/domain/sakina_content.dart",
    "key": "HelpResources.all (+ unverified)",
-   "what_to_review": "55 help-line records (country, service name, number or link, languages) and the \"unverified\" list.",
+   "what_to_review": "56 help-line records (country, service name, number or link, languages) and the \"unverified\" list.",
    "why_flagged": "Re-verified against operator pages on 2026-10-20 (FACT_S4); help lines are US-centric with a findahelpline fallback; some marked \"Not re-checked recently\" (audit B). Needs a clinician and native speakers to confirm service names and phrasing per country.",
    "reviewer_type": "Clinician (Sakina and health content)",
    "also_reviewers": [

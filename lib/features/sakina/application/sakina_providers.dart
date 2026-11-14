@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../../../app/core/region/device_time_zone.dart';
 
 /// How many different days the person has visited Sakina. A plain total: it
 /// only ever grows, never resets and is never compared. On-device only.
@@ -41,7 +42,11 @@ final NotifierProvider<DaysReturnedController, int> daysReturnedProvider =
 /// only to put the right help lines first. Null when the locale carries no
 /// country. Never sent anywhere.
 final Provider<String?> deviceCountryProvider = Provider<String?>(
-  (_) => ui.PlatformDispatcher.instance.locale.countryCode,
+  // On the web the browser's language is often "en-US" wherever the person
+  // is, so the time zone decides when it names a country with help lines.
+  (_) =>
+      deviceTimeZoneCountry() ??
+      ui.PlatformDispatcher.instance.locale.countryCode,
 );
 
 /// A country the person chose by hand, in the Need help now sheet or under a

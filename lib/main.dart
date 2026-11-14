@@ -72,8 +72,11 @@ Future<void> _start() async {
   loadChildMode(prefs);
   // The person's own AI key: moved out of plain text into the secure store.
   await ApiKeyVault.load(prefs);
-  await HelplinesLoader.load();
-  await SupportPackRepository.load();
+  // Help lines and support packs are independent: fetched side by side.
+  await Future.wait<void>(<Future<void>>[
+    HelplinesLoader.load(),
+    SupportPackRepository.load(),
+  ]);
   await SecretStore.preload(<String>[
     SupportKeys.safeWordSecret,
     SupportKeys.memorySecret,

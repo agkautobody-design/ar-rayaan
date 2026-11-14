@@ -1,6 +1,7 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import 'hadi_game_ask.dart';
+import 'hadi_prophets.dart';
 
 /// What a short "yes" refers to: either a question to answer in its place or
 /// a finished reply.
@@ -792,6 +793,217 @@ abstract final class HadiRouting {
     return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
   }
 
+  // ── Beginners who say it in their own words ─────────────────────────
+
+  /// "I know nothing about Islam, where do I start?", "how do I begin
+  /// learning about Islam?", "I'm curious about Islam": the beginner reply,
+  /// however the sentence is put together.
+  static final RegExp _beginnerLoose = RegExp(
+    r'\b(?:'
+    r'(?:know|knew)\s+(?:nothing|very\s+little|little|almost\s+nothing)\s+'
+    r'(?:about|of)\s+(?:islam|the\s+(?:deen|faith|religion)|muslims?)|'
+    r'(?:dont|do\s+not)\s+know\s+(?:anything|much)\s+(?:about|of)\s+'
+    r'(?:islam|the\s+(?:deen|faith|religion)|muslims?)|'
+    r'(?:where|how)\s+(?:do|should|can|would)\s+i\s+(?:even\s+)?'
+    r'(?:start|begin)\s+(?:with\s+|learning\s+(?:about\s+)?|to\s+learn\s+'
+    r'(?:about\s+)?)?(?:islam|the\s+(?:deen|faith|religion))|'
+    r'(?:want|like|wish|trying|try)\s+to\s+(?:learn|understand|know)\s+'
+    r'(?:more\s+)?about\s+islam|'
+    r'(?:curious|interested)\s+(?:about|in)\s+islam|'
+    r'(?:complete|total|absolute)\s+beginner'
+    r')\b',
+  );
+
+  static bool asksBeginnerLoose(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 30 && _beginnerLoose.hasMatch(n);
+  }
+
+  // ── A new Muslim whose family is against it ─────────────────────────
+
+  static final RegExp _familyWord = RegExp(
+    r'\b(?:family|parents?|mom|mum|mother|dad|father|brothers?|sisters?|'
+    r'husband|wife|relatives|christian|catholic|jewish|hindu|atheist|'
+    r'disown\w*|kick\w*\s+me\s+out)\b',
+  );
+  static final RegExp _familyTrouble = RegExp(
+    r'\b(?:angry|upset|mad|furious|against|hate|hates|disown\w*|reject\w*|'
+    r'shout\w*|yell\w*|argu\w*|fight\w*|dont\s+accept|not\s+accept\w*|'
+    r'wont\s+accept|dont\s+know|hiding|hide|secret|scared\s+to\s+tell|'
+    r'afraid\s+to\s+tell|how\s+do\s+i\s+tell|kick\w*)\b',
+  );
+
+  /// A new Muslim (just took the shahada, convert, revert) who says their
+  /// family is angry, against it, or does not know yet.
+  static bool asksNewMuslimFamily(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 80 &&
+        _newcomerLoose.hasMatch(n) &&
+        _familyWord.hasMatch(n) &&
+        _familyTrouble.hasMatch(n);
+  }
+
+  static const String newMuslimFamilyReply =
+      'Welcome. Taking the shahada is a beginning, and you do not need to '
+      'know everything on the first day. The New Muslim path says it '
+      'plainly: you need to mean it, not to know it all.\n\n'
+      'About your family: the Qur’an speaks to exactly this. If parents push '
+      'you to turn from Allah, do not obey that, “but accompany them in '
+      '[this] world with appropriate kindness” (Qur’an 31:15). When Asma bint '
+      'Abi Bakr’s mother, who was not Muslim, came to her, the Prophet ﷺ told '
+      'her to keep good relations with her (Bukhari 2620). So you are not '
+      'asked to choose between your faith and loving your family. Families '
+      'are often frightened at first; gentleness, patience and keeping your '
+      'promises to them usually speak louder than arguments (this is a '
+      'reflection, not a ruling). If you are ever unsafe at home, your safety '
+      'comes first: Need help now is at the top of this chat.\n\n'
+      'About prayer: learn it a step at a time. The New Muslim path takes one '
+      'short step a day, and the How to Pray guide goes from standing to the '
+      'salaam. If you can, ask a local imam or a Muslim you trust to pray '
+      'beside you the first few times.'
+      '\n[GO:/new-muslim]\n[GO:/huda/guide?id=huda-prayer]';
+
+  // ── Learning Arabic ─────────────────────────────────────────────────
+
+  static final RegExp _learnArabic = RegExp(
+    r'\b(?:'
+    r'(?:learn|learning|study|studying|understand|read|reading|speak|'
+    r'speaking|teach\s+me)\s+(?:(?:the\s+)?(?:quranic\s+|classical\s+|basic\s+)?'
+    r'arabic|the\s+arabic\s+(?:letters|alphabet|language))|'
+    r'arabic\s+(?:lessons?|course|classes|for\s+beginners|alphabet|letters)|'
+    r'(?:read|recite)\s+(?:the\s+)?quran\s+in\s+arabic|'
+    r'(?:learn|learning)\s+(?:to|how\s+to)\s+read\s+(?:the\s+)?quran|'
+    r'(?:cant|cannot|can\s+not|dont|do\s+not)\s+read\s+arabic'
+    r')\b',
+  );
+
+  static bool asksLearnArabic(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 40 && _learnArabic.hasMatch(n);
+  }
+
+  static const String learnArabicReply =
+      'A good goal, and the Wasia Academy is built for it. The order that '
+      'works for most people:\n\n'
+      '1. Read the letters. The School of Letters teaches the twenty-eight '
+      'letters, then the vowels, sukun, shaddah, tanween and joining, with a '
+      'short exam after each unit. A two-minute check suggests where to '
+      'start.\n'
+      '2. Learn the words the Qur’an uses. The Quranic Arabic school is a '
+      'deck of Qur’anic words with their meanings, so ayat you already '
+      'recite start to make sense.\n'
+      '3. Grammar and everyday Arabic. The Arabic Language school goes on '
+      'from there.\n\n'
+      'A few minutes every day does more than an hour once a week. While '
+      'you learn, the Qur’an reader shows every ayah in Arabic with how to '
+      'say it and the English beside it, and a teacher who can hear you '
+      'read is still the best way to check your pronunciation.'
+      '\n[GO:/academy/letters]\n[GO:/academy/quranic-arabic]';
+
+  // ── Comparing Islam with other religions ────────────────────────────
+
+  static final RegExp _faithChristian = RegExp(
+      r'\b(?:christian\w*|catholic\w*|protestant\w*|orthodox\s+church|trinity|church)\b');
+  static final RegExp _faithJewish =
+      RegExp(r'\b(?:jews|jew|jewish|judaism|torah|rabbis?|synagogue)\b');
+  static final RegExp _faithHindu =
+      RegExp(r'\b(?:hindu\w*|brahman|karma|reincarnation|vedas?)\b');
+  static final RegExp _faithBuddhist =
+      RegExp(r'\b(?:buddhis\w*|buddha|nirvana|four\s+noble\s+truths)\b');
+  static final RegExp _faithAll = RegExp(
+    r'\b(?:other\s+(?:religions?|faiths?)|all\s+(?:the\s+)?(?:religions?|faiths?)|'
+    r'world\s+religions?|comparative\s+religions?|compare\s+religions?|'
+    r'different\s+religions?|every\s+religion|which\s+religion\s+is\s+(?:true|right|correct))\b',
+  );
+  static final RegExp _compareAsk = RegExp(
+    r'\b(?:differ\w*|difference\w*|compar\w*|vs|versus|similar\w*|same|'
+    r'believe\w*|beliefs?|views?|think\s+(?:of|about)|say\s+about|'
+    r'teach\w*|relat\w*|between|common|true|right|correct|learn\s+about)\b',
+  );
+  /// Questions of law (marrying, food, festivals) are not comparisons.
+  static final RegExp _faithLaw = RegExp(
+    r'\b(?:marry|marrying|marriage|wed\w*|eat|eating|food|meat|christmas|'
+    r'easter|diwali|hanukkah|celebrat\w*|congratulat\w*|wish\s+them|'
+    r'halal|haram|allowed|permissible|can\s+i)\b',
+  );
+
+  /// The comparison guides a question asks for, overview first when it names
+  /// more than one faith or all of them; empty when it is not a comparison.
+  static List<String> faithGuidesFor(String question) {
+    final String n = _norm(question);
+    if (n.split(' ').length > 50 || _faithLaw.hasMatch(n)) {
+      return const <String>[];
+    }
+    final List<String> named = <String>[
+      if (_faithChristian.hasMatch(n)) 'huda-islam-christianity',
+      if (_faithJewish.hasMatch(n)) 'huda-islam-judaism',
+      if (_faithHindu.hasMatch(n)) 'huda-islam-hinduism',
+      if (_faithBuddhist.hasMatch(n)) 'huda-islam-buddhism',
+    ];
+    final bool all = _faithAll.hasMatch(n);
+    if (!all && named.isEmpty) return const <String>[];
+    if (!all && !_compareAsk.hasMatch(n)) return const <String>[];
+    if (all || named.length > 1) {
+      return <String>['huda-islam-other-faiths', ...named];
+    }
+    return named;
+  }
+
+  static const Map<String, String> _faithLine = <String, String>{
+    'huda-islam-other-faiths':
+        'The Qur’an asks for respect and fairness: “There shall be no '
+        'compulsion in [acceptance of] the religion” (Qur’an 2:256), and to '
+        'argue only “in a way that is best” (Qur’an 16:125). Muslims believe '
+        'Allah sent prophets to many peoples with one core message, the '
+        'oneness of God, and they believe in all of those prophets '
+        '(Qur’an 3:84).',
+    'huda-islam-christianity':
+        'Christianity: Muslims share the love of Jesus and Mary, his virgin '
+        'birth, his miracles and the Gospel he was given. Islam differs on '
+        'who he is: “a messenger of Allah and His word which He directed to '
+        'Mary” (Qur’an 4:171), not the Son of God or part of a Trinity, and '
+        'it teaches that he was not crucified (Qur’an 4:157).',
+    'huda-islam-judaism':
+        'Judaism: Muslims share strict belief in one God, Abraham and Moses, '
+        'and the Torah as revealed by Allah, “in which was guidance and '
+        'light” (Qur’an 5:44). Islam differs in accepting Jesus and then '
+        'Muhammad ﷺ as prophets, the last sent to all people (Qur’an 33:40).',
+    'huda-islam-hinduism':
+        'Hinduism: Encyclopaedia Britannica describes belief in brahman as '
+        'ultimate reality, rebirth (samsara), karma and liberation (moksha). '
+        'Islam differs on God, who is One and distinct from His creation '
+        '(Qur’an 112:1-4), and on the afterlife: one life, then resurrection, '
+        'not rebirth (Qur’an 23:100).',
+    'huda-islam-buddhism':
+        'Buddhism: Britannica summarises its teaching as the Four Noble '
+        'Truths and the Eightfold Path, without a creator God at the centre. '
+        'A Muslim can recognise its warnings about craving; Islam begins '
+        'with Allah, who is near and answers (Qur’an 2:186), and teaches '
+        'resurrection rather than rebirth.',
+  };
+
+  static String faithCompareReply(List<String> guides) {
+    final StringBuffer b = StringBuffer(
+      'The app has guides for exactly this. Each sets out what that faith '
+      'teaches in its own terms (from Encyclopaedia Britannica), what it '
+      'shares with Islam, and where Islam differs, in the Qur’an’s words. '
+      'In short:\n\n',
+    );
+    for (final String g in guides) {
+      b.write('${_faithLine[g]}\n\n');
+    }
+    b.write('These guides still need a scholar’s review. For a friend of '
+        'another faith, ask what they themselves believe: people within '
+        'every religion differ.');
+    for (final String g in guides) {
+      b.write('\n[GO:/huda/guide?id=$g]');
+    }
+    return b.toString();
+  }
+
+  static bool isFaithCompareReply(String answer) =>
+      answer.startsWith('The app has guides for exactly this.');
+
   // ── Sensitive questions the shelf cannot answer ──────────────────────
 
   static final RegExp _hitWord = RegExp(
@@ -988,6 +1200,8 @@ abstract final class HadiRouting {
   static List<String> get fixedReplies => <String>[
         selfDescriptionReply,
         beginnerReply,
+        newMuslimFamilyReply,
+        learnArabicReply,
         ramadanPlanReply,
         hadithNumberDecline,
         clarifyReply,
@@ -1012,6 +1226,8 @@ abstract final class HadiRouting {
     if (_repeatOpeners.any(answer.contains)) return true;
     if (answer.contains(_moreOpener)) return true;
     if (HadiGameAsk.isReply(answer)) return true;
+    if (HadiProphets.isReply(answer)) return true;
+    if (isFaithCompareReply(answer)) return true;
     return fixedReplies.any(answer.contains);
   }
 }
