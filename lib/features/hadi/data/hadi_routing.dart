@@ -902,6 +902,32 @@ abstract final class HadiRouting {
       'read is still the best way to check your pronunciation.'
       '\n[GO:/academy/letters]\n[GO:/academy/quranic-arabic]';
 
+  // ── A parent asking for a story for a child ─────────────────────────
+
+  static final RegExp _kidStory = RegExp(
+    r'\b(?:bedtime|story|stories|storytime|tale|tales)\b',
+  );
+  static final RegExp _forAChild = RegExp(
+    r'\b(?:kids?|child|children|toddler|baby|son|daughter|little\s+one|'
+    r'\d{1,2}\s*(?:year|yr)s?\s*old|(?:my|our)\s+(?:boy|girl))\b',
+  );
+
+  static bool asksKidStory(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 30 &&
+        _kidStory.hasMatch(n) &&
+        _forAChild.hasMatch(n);
+  }
+
+  static const String kidStoryReply =
+      'The app has the prophets\u2019 stories you can read aloud, and a '
+      'Kids\u2019 Corner made for children to use with you. Gentle ones for '
+      'bedtime: Yunus and the whale, Nuh and the ark, Ibrahim and the stars, '
+      'Yusuf and his brothers, and Musa as a baby in the river. Pick one, '
+      'read a few lines at a time, and let your child ask questions. Say '
+      '\u201ctell me the story of Prophet Yunus\u201d and I will start it.'
+      '\n[GO:/stories]\n[GO:/kids]';
+
   // ── A parent teaching a child to pray ───────────────────────────────
 
   static final RegExp _teachChildPrayer = RegExp(
@@ -1246,6 +1272,7 @@ abstract final class HadiRouting {
         newMuslimFamilyReply,
         learnArabicReply,
         teachChildPrayerReply,
+        kidStoryReply,
         ramadanPlanReply,
         hadithNumberDecline,
         clarifyReply,

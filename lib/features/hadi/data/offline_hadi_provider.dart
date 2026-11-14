@@ -1148,6 +1148,9 @@ class OfflineHadiProvider implements HadiProvider {
       return HadiRouting.beginnerReply;
     }
     if (HadiRouting.asksLearnArabic(asked)) return HadiRouting.learnArabicReply;
+    if (!heavy && HadiProphets.storyIdFor(asked) == null && HadiRouting.asksKidStory(asked)) {
+      return HadiRouting.kidStoryReply;
+    }
     if (HadiRouting.asksTeachChildPrayer(asked)) {
       return HadiRouting.teachChildPrayerReply;
     }
