@@ -609,6 +609,13 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
             textAlign: TextAlign.center,
           )
         else ...[
+          Text(
+            'In this picture N is just the top of the screen, not your '
+            'phone\u2019s north. Tap \u201cStart live compass\u201d and the '
+            'dial turns to point at real north (hold the phone flat).',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+            textAlign: TextAlign.center,
+          ),
           TextButton.icon(
             onPressed: _status == _CompassStatus.starting ? null : _start,
             icon: const Icon(Icons.explore_outlined, size: 16),

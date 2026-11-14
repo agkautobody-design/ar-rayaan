@@ -703,8 +703,37 @@ class CitySheet extends StatefulWidget {
   State<CitySheet> createState() => _CitySheetState();
 }
 
+/// A place the person typed because their city is not in the directory.
+/// The position comes from the device when it is saved.
+class NamedPlace {
+  const NamedPlace(this.city, this.country);
+  final String city;
+  final String country;
+}
+
 class _CitySheetState extends State<CitySheet> {
   String _query = '';
+  bool _naming = false;
+  final TextEditingController _nameCity = TextEditingController();
+  final TextEditingController _nameCountry = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameCity.dispose();
+    _nameCountry.dispose();
+    super.dispose();
+  }
+
+  void _openNaming() => setState(() {
+        _naming = true;
+        if (_nameCity.text.isEmpty) _nameCity.text = _query.trim();
+      });
+
+  void _saveNamed() {
+    final String city = PrayerLocationController.cleanName(_nameCity.text);
+    if (city.isEmpty) return;
+    Navigator.of(context).pop(NamedPlace(city, _nameCountry.text));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -743,11 +772,65 @@ class _CitySheetState extends State<CitySheet> {
               const SizedBox(height: 8),
               if (shown.isEmpty)
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
-                    'No city in the list matches. Close this and tap '
-                    '\u201cMy location\u201d instead.',
+                    'No city in the list matches \u201c${_query.trim()}\u201d.',
                     style: AppText.bodyMuted,
+                  ),
+                ),
+              if (!_naming)
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TextButton.icon(
+                    key: const Key('city-not-listed'),
+                    onPressed: _openNaming,
+                    icon: const Icon(Icons.edit_location_alt_outlined, size: 18),
+                    label: const Text('My city is not here \u2014 name my place'),
+                  ),
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Type your city and country. The position and prayer '
+                        'times come from your phone\u2019s location, so the '
+                        'name is only a label; it is saved and kept.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
+                      ),
+                      TextField(
+                        key: const Key('named-city'),
+                        controller: _nameCity,
+                        textCapitalization: TextCapitalization.words,
+                        maxLength: PrayerLocationController.maxNameLength,
+                        style: AppText.body,
+                        decoration: const InputDecoration(
+                          labelText: 'City',
+                          isDense: true,
+                          counterText: '',
+                        ),
+                      ),
+                      TextField(
+                        key: const Key('named-country'),
+                        controller: _nameCountry,
+                        textCapitalization: TextCapitalization.words,
+                        maxLength: PrayerLocationController.maxNameLength,
+                        style: AppText.body,
+                        decoration: const InputDecoration(
+                          labelText: 'Country',
+                          isDense: true,
+                          counterText: '',
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      FilledButton(
+                        key: const Key('named-save'),
+                        onPressed: _saveNamed,
+                        child: const Text('Save my place'),
+                      ),
+                    ],
                   ),
                 ),
               for (final PrayerLocation c in shown)
@@ -773,7 +856,7 @@ class _CitySheetState extends State<CitySheet> {
 
 /// Opens the city picker and saves the choice.
 Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
-  final PrayerLocation? chosen = await showNamedSheet<PrayerLocation>(
+  final Object? chosen = await showNamedSheet<Object>(
     label: 'Choose your city',
     context: context,
     isScrollControlled: true,
@@ -783,10 +866,24 @@ Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
     ),
     builder: (BuildContext ctx) => const CitySheet(),
   );
-  if (chosen != null) {
+  if (chosen is PrayerLocation) {
     await ref
         .read(prayerLocationControllerProvider.notifier)
         .setLocation(chosen);
+  } else if (chosen is NamedPlace) {
+    final GpsStatus got = await ref
+        .read(prayerLocationControllerProvider.notifier)
+        .saveNamedPlace(chosen.city, chosen.country);
+    if (got != GpsStatus.success && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Could not read your location, so the name was not saved. '
+            'Allow location for this app, then try again.',
+          ),
+        ),
+      );
+    }
   }
 }
 

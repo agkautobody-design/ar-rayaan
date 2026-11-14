@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,9 +110,17 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
       // disabled button) on screen for good. Give up after a while and say so.
       final ({double lat, double lng}) pos =
           await (fetch ?? _deviceGps)().timeout(timeout);
+      final PrayerLocation before = state;
+      // A place the person named stays named while the new fix is still
+      // within a few kilometres of it.
+      final bool keepName = before.isSet &&
+          !before.isGps &&
+          before.zone == null &&
+          _kmBetween(before.latitude, before.longitude, pos.lat, pos.lng) <
+              kSamePlaceKm;
       final PrayerLocation loc = PrayerLocation(
-        city: PrayerLocation.gpsCity,
-        country: '',
+        city: keepName ? before.city : PrayerLocation.gpsCity,
+        country: keepName ? before.country : '',
         latitude: pos.lat,
         longitude: pos.lng,
       );
@@ -127,6 +137,60 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
       state = state;
       return gpsStatus;
     }
+  }
+
+  /// A new fix this close to a named place is the same place.
+  static const double kSamePlaceKm = 8;
+
+  static double _kmBetween(double la1, double lo1, double la2, double lo2) {
+    const double rad = 3.141592653589793 / 180;
+    final double dLat = (la2 - la1) * rad;
+    final double dLon = (lo2 - lo1) * rad * math.cos((la1 + la2) / 2 * rad);
+    return 6371 * math.sqrt(dLat * dLat + dLon * dLon);
+  }
+
+  /// Cleans a typed place name: no control characters, one space between
+  /// words, at most [maxNameLength] characters.
+  static String cleanName(String raw) {
+    final String s = raw
+        .replaceAll(RegExp(r'[\u0000-\u001F\u007F]'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+    return s.length > maxNameLength ? s.substring(0, maxNameLength).trim() : s;
+  }
+
+  static const int maxNameLength = 60;
+
+  /// Saves the person's own place name for where they are. A city that is
+  /// not in the directory is named here: the position comes from the device
+  /// (a fresh fix unless the saved one is already a GPS fix or a named
+  /// place), the time zone stays the device's, and the name and country are
+  /// stored and kept. Returns [GpsStatus.success] when saved; any other
+  /// status means nothing was changed.
+  Future<GpsStatus> saveNamedPlace(
+    String city,
+    String country, {
+    Future<({double lat, double lng})> Function()? fetch,
+  }) async {
+    final String name = cleanName(city);
+    if (name.isEmpty) return GpsStatus.error;
+    final PrayerLocation cur = state;
+    final bool haveDevicePlace = cur.isSet && cur.zone == null;
+    if (!haveDevicePlace) {
+      final GpsStatus got = await useGps(fetch: fetch);
+      if (got != GpsStatus.success) return got;
+    }
+    final PrayerLocation now = state;
+    final PrayerLocation named = PrayerLocation(
+      city: name,
+      country: cleanName(country),
+      latitude: now.latitude,
+      longitude: now.longitude,
+    );
+    gpsStatus = GpsStatus.success;
+    state = named;
+    await _persist(named);
+    return GpsStatus.success;
   }
 
   static Future<({double lat, double lng})> _deviceGps() async {
