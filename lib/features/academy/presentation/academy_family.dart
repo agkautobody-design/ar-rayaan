@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart' hide Text;
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -1292,7 +1291,7 @@ class _HowItWorksCard extends StatelessWidget {
             Text('HOW THIS WORKS', style: AppText.eyebrow),
             const SizedBox(height: 6),
             Text(
-              '1. On your child\u2019s device, open ar-rayaan.onrender.com in the '
+              '1. On your child\u2019s device, open the Ar-Rayaan web address (the same one you use) in the '
               'browser (or install the app) and add the child from this screen there.\n'
               '2. Or share one device: tap \u201cAdd child\u201d, then '
               '\u201cSwitch to learning\u201d. Their lessons are kept under their name.\n'
@@ -1304,19 +1303,6 @@ class _HowItWorksCard extends StatelessWidget {
               'Progress stays on the device the child uses; it is not sent anywhere, '
               'so to check on your child, open this screen on their device.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
-            ),
-            const SizedBox(height: 8),
-            OutlinedButton.icon(
-              key: const Key('family-copy-link'),
-              onPressed: () async {
-                await Clipboard.setData(
-                    const ClipboardData(text: 'https://ar-rayaan.onrender.com'));
-                if (!context.mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Link copied. Send it to your child\u2019s device.')));
-              },
-              icon: const Icon(Icons.link, size: 18),
-              label: const Text('Copy the app link to send'),
             ),
           ],
         ),
