@@ -618,25 +618,36 @@ service cloud.firestore {
     // ── Family & Child Accounts ───────────────────────────────────────
     // A family is keyed by familyId (not parent UID), so both parents
     // and invited teachers can access it. Members are tracked in a
-    // reverse index at /family_members/{uid}.
+    // reverse index at /family_members/{uid} holding { familyId, role }.
+    // The rules language has no list lambdas (.map / .any), so every
+    // membership check reads that index entry instead.
 
+    function familyIndex(uid) {
+      return get(/databases/$(database)/documents/family_members/$(uid)).data;
+    }
+
+    function hasFamilyIndex(uid) {
+      return exists(/databases/$(database)/documents/family_members/$(uid));
+    }
+
+    // Parents and teachers only. A child's own index entry (role 'child')
+    // does not count, so one child cannot read a sibling's records.
     function isFamilyMember(familyId, uid) {
-      return get(/databases/$(database)/documents/families/$(familyId)).data.members
-        .map(m => m.uid).hasAny([uid]);
+      return hasFamilyIndex(uid)
+        && familyIndex(uid).familyId == familyId
+        && familyIndex(uid).role in ['parent', 'teacher'];
     }
 
     function isFamilyParent(familyId, uid) {
-      return get(/databases/$(database)/documents/families/$(familyId)).data.members
-        .map(m => m.uid).hasAny([uid])
-        && get(/databases/$(database)/documents/families/$(familyId)).data.members
-             .any(m => m.uid == uid && m.role == 'parent');
+      return hasFamilyIndex(uid)
+        && familyIndex(uid).familyId == familyId
+        && familyIndex(uid).role == 'parent';
     }
 
     function isFamilyTeacher(familyId, uid) {
-      return get(/databases/$(database)/documents/families/$(familyId)).data.members
-        .map(m => m.uid).hasAny([uid])
-        && get(/databases/$(database)/documents/families/$(familyId)).data.members
-             .any(m => m.uid == uid && m.role == 'teacher');
+      return hasFamilyIndex(uid)
+        && familyIndex(uid).familyId == familyId
+        && familyIndex(uid).role == 'teacher';
     }
 
     function getFamilyIdForUser(uid) {
