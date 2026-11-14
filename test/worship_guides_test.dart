@@ -89,6 +89,6 @@ void main() {
 
   test('the new guide ids are registered for Hadi', () {
     expect(byId.containsKey('huda-halal-food'), isTrue);
-    expect(guides.length, 61);
+    expect(guides.length, 66);
   });
 }

@@ -26,9 +26,9 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 242137,
-   "sha256": "3d86cd4c889e4379a8522592836b163a691a99aa1e38e0f23342996ad9fa0586",
-   "version": 15
+   "bytes": 257087,
+   "sha256": "c39c3d7f0394e0db54b9a71b11d2af292a8fa7ee08d84218d078d8e4dc5a785f",
+   "version": 16
   },
   "share/cards.json": {
    "bytes": 2808,
@@ -51,19 +51,19 @@
    "version": 6
   },
   "stories/khutbahs.json": {
-   "bytes": 65394,
-   "sha256": "7c714ab36baa2559519160b91151db5611b4821b07f2d221ab293b8e28be30ef",
-   "version": 10
-  },
-  "stories/modernhadith.json": {
-   "bytes": 54788,
-   "sha256": "672996881a5046efeefce2ea2780dad9d61e120718b329f8888f19e0adf6f46b",
+   "bytes": 80699,
+   "sha256": "531ba2aa44021b5d1ea81acf4a93918667b11e62ae90d22fbc12d41e0ea522ec",
    "version": 16
   },
+  "stories/modernhadith.json": {
+   "bytes": 54989,
+   "sha256": "cde583a7b153ac5f86f39bf33b0a380260500d066b9ee93157275d7332b0b6e2",
+   "version": 25
+  },
   "stories/newmuslim.json": {
-   "bytes": 62330,
-   "sha256": "99836c3dfadf7faecdcf58b4084d46fadb9de49c25ca3b9160de9500eced2bc1",
-   "version": 7
+   "bytes": 62186,
+   "sha256": "184566da7177f383a2d8a291b3c42486c0ccca13b1e1c2a4aa23f4bdaeb3909e",
+   "version": 8
   },
   "stories/prophets.json": {
    "bytes": 90422,

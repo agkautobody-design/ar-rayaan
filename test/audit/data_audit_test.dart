@@ -78,10 +78,10 @@ void main() {
     }
   });
 
-  test('W1.3 guides: 61 guides, steps and sources intact', () {
+  test('W1.3 guides: 66 guides, steps and sources intact', () {
     final list = readList('assets/guides/guides.json');
-    expect(list.length, 61,
-        reason: 'guide count drifted (40 + Hajj/Umrah pack + 4 in B4-5b + 3 in R4)');
+    expect(list.length, 66,
+        reason: 'guide count drifted (40 + Hajj/Umrah pack + 4 in B4-5b + 3 in R4 + 5 faiths compared)');
     for (final e in list) {
       final m = e as Map<String, dynamic>;
       expect((m['steps'] as List).length, greaterThanOrEqualTo(3),

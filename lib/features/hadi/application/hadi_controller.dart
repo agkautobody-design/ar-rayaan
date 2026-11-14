@@ -217,6 +217,11 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-udhiyah': 'the Udhiyah guide',
   'huda-zakat-fitr': 'the Zakat al-Fitr guide',
   'huda-halal-food': 'the Halal Food guide',
+  'huda-islam-other-faiths': 'Islam and Other Faiths',
+  'huda-islam-christianity': 'Islam and Christianity',
+  'huda-islam-judaism': 'Islam and Judaism',
+  'huda-islam-hinduism': 'Islam and Hinduism',
+  'huda-islam-buddhism': 'Islam and Buddhism',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
@@ -228,8 +233,12 @@ abstract final class HadiTokens {
 
   /// True when [route] is a whitelisted screen, or a Huda guide on
   /// [kHadiGuideNames].
+  static final RegExp _storyRoute =
+      RegExp(r'^/stories/read\?id=(prophet-[a-z0-9\-]+)$');
+
   static bool isAllowed(String route) {
     if (kHadiNavWhitelist.contains(route)) return true;
+    if (_storyRoute.hasMatch(route)) return true;
     final RegExpMatch? g = _guideRoute.firstMatch(route);
     return g != null && kHadiGuideNames.containsKey(g.group(1));
   }
@@ -265,6 +274,7 @@ abstract final class HadiTokens {
     if (g != null) {
       return 'Open ${kHadiGuideNames[g.group(1)] ?? 'this guide'}';
     }
+    if (_storyRoute.hasMatch(route)) return 'Open the full story';
     return 'Open ${kHadiRouteNames[route] ?? 'this screen'}';
   }
 
@@ -1461,6 +1471,11 @@ class HadiController extends Notifier<HadiState> {
             text: reply,
             crisis: CrisisKind.childSafety,
             sensitive: true,
+            // The reply sends a child to the children's corner and to Wasia:
+            // give them the doors, not only the words.
+            routes: support != null
+                ? const <String>[]
+                : const <String>['/kids', '/academy'],
           ),
         ],
         typing: false,

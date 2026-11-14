@@ -515,6 +515,18 @@ abstract final class HelpResources {
       childOnly: true,
     ),
     HelpResource(
+      name: 'National Overdose Response Service (NORS)',
+      detail: 'Confidential, non-judgmental support for people who use '
+          'drugs, wherever they are in Canada. Listed by Health Canada.',
+      contact: '1-888-688-6677 (1-888-688-NORS)',
+      region: 'Canada',
+      dial: '18886886677',
+      countries: <String>['CA'],
+      kinds: <HelpKind>{HelpKind.addiction},
+      verifiedOn: '2026-11-13',
+      source: 'https://www.canada.ca/en/health-canada/services/substance-use/get-help-with-substance-use.html',
+    ),
+    HelpResource(
       name: 'SAMHSA National Helpline',
       detail: 'Free, confidential treatment referral and information, 24/7, '
           'in English and Spanish, for mental and substance use disorders.',

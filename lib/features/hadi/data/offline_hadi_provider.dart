@@ -7,6 +7,7 @@ import 'hadi_explain.dart';
 import 'hadi_finder.dart';
 import 'hadi_game_ask.dart';
 import 'hadi_game_help.dart';
+import 'hadi_prophets.dart';
 import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
@@ -1130,6 +1131,29 @@ class OfflineHadiProvider implements HadiProvider {
     // everyday question (the funeral prayer, the conditions of prayer, what
     // breaks wudu, how a game is played) gets its own answer and never the
     // nearest-sounding one from the shelf below.
+    // A prophet's story is told from the app's own story of him, before any
+    // shorter hand-written line can claim the words "prophet" and "story".
+    if (!heavy) {
+      final String? story = await HadiProphets.reply(asked);
+      if (story != null) return story;
+    }
+    // A new Muslim with a family against it, a beginner in their own words,
+    // and someone who wants to learn Arabic: each has its own reply, ahead
+    // of the topic answers (which used to answer the convert with a line
+    // about prayer and the beginner with "not on my shelf").
+    if (HadiRouting.asksNewMuslimFamily(asked)) {
+      return HadiRouting.newMuslimFamilyReply;
+    }
+    if (!heavy && HadiRouting.asksBeginnerLoose(asked)) {
+      return HadiRouting.beginnerReply;
+    }
+    if (HadiRouting.asksLearnArabic(asked)) return HadiRouting.learnArabicReply;
+    if (HadiRouting.asksTeachChildPrayer(asked)) {
+      return HadiRouting.teachChildPrayerReply;
+    }
+    final List<String> faiths = HadiRouting.faithGuidesFor(asked);
+    if (faiths.isNotEmpty) return HadiRouting.faithCompareReply(faiths);
+
     final CoreHit? core = HadiCore.answer(asked, history);
     if (core != null) return core.text;
     final String? more = HadiCore.moreReply(asked, history);

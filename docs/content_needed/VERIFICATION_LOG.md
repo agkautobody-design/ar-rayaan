@@ -60,3 +60,22 @@ Dropped or not stated:
 
 - Witr guide (`huda-witr`): "make the witr your last prayer at night" was cited as Bukhari 990; the verified number is 998. The clause "never abandoned the witr, neither traveling nor resident" was also cited to 990, which does not say it. It now reads "reported as something the Prophet did not abandon" with no number (the policy: an unverifiable citation loses its number), here and in the Rawatib guide (`huda-nawafil`). If the owner or a scholar supplies a source, the number can return.
 - Still unverified and untouched: the qunut positions by school in the Witr guide, and the school positions in other guides' madhhab notes.
+
+## Faiths compared guides (13 Nov 2026)
+
+Five guides: `huda-islam-other-faiths`, `huda-islam-christianity`, `huda-islam-judaism`, `huda-islam-hinduism`, `huda-islam-buddhism`. Added after a persona test found Hādi had no answer for "how is Islam different from other religions". Status in every guide: scholar review needed.
+
+| Citation | Source checked | Result |
+|---|---|---|
+| Qur'an 2:136, 2:186, 2:256, 3:59, 3:64, 3:84, 4:157, 4:171, 5:44, 5:46, 6:108, 6:164, 13:28, 16:125, 19:16, 19:30, 23:100, 29:46, 33:40, 39:53, 49:13, 51:56, 109:6, 112:1, 112:3 (112:1-4, 112:3-4; 19:16-34) | bundled Saheeh International text; `tool/quran_ref_check.py` passes (every quotation word for word inside its ayah) | verified, quoted |
+| Sahih Muslim 2365 | tool/hadith_verdicts (verdict ok: the prophets are of different mothers but one religion) | cited, not quoted |
+| Sahih al-Bukhari 3443 | tool/hadith_verdicts (verdict ok: closest to Isa; the prophets are brothers) | cited, not quoted |
+| Christianity: principal tenets (Son of God, second person of the Trinity; God's love; Jesus died to redeem humankind); Trinity = Father, Son, Holy Spirit as three persons in one Godhead | https://www.britannica.com/summary/Christianity ; Britannica "Trinity" | paraphrased and attributed |
+| Judaism: one transcendent God revealed to Abraham, Moses and the prophets; Hebrew Bible, Torah, Oral Torah compiled in the Talmud; Israel as chosen people | https://www.britannica.com/summary/Judaism ; https://www.britannica.com/topic/Judaism | paraphrased and attributed |
+| Hinduism: brahman, atman, samsara, moksha, karma | https://www.britannica.com/summary/Hinduism | paraphrased and attributed |
+| Buddhism: Four Noble Truths, the fourth being the Eightfold Path; Mahayana and Theravada | https://www.britannica.com/summary/Buddhism ; Britannica "The Four Noble Truths" | paraphrased and attributed; "does not centre on a creator God" is the general reference-book description (also worldhistory.org), stated as such |
+
+Dropped or not stated:
+- Qur'an 2:62 and 5:69 (their meaning for Jews and Christians after the Prophet ﷺ is a matter of tafsir; left to a scholar).
+- Qur'an 5:82 (needs its context to be read fairly; not suitable for a short comparison).
+- Population figures and dates for any religion (no source opened for them).

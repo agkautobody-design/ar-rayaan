@@ -41,17 +41,29 @@ abstract final class SupportPackRepository {
   static Future<void> load() async {
     try {
       final AssetManifest manifest = await AssetManifest.loadFromAssetBundle(rootBundle);
-      final List<SupportPack> out = <SupportPack>[];
-      for (final String path in manifest.listAssets()) {
-        if (!path.startsWith(folder) || !path.endsWith('.json')) continue;
-        final String file = path.substring(folder.length);
-        if (file.startsWith('_')) continue;
-        try {
-          final SupportPack? p = SupportPack.parse(await rootBundle.loadString(path));
-          if (p != null) out.add(p);
-        } catch (_) {}
-      }
-      setPacks(out);
+      final List<String> paths = <String>[
+        for (final String path in manifest.listAssets())
+          if (path.startsWith(folder) &&
+              path.endsWith('.json') &&
+              !path.substring(folder.length).startsWith('_'))
+            path,
+      ];
+      // All packs are fetched at once (on the web each is a network request;
+      // one after another they held the splash screen for about 12 seconds).
+      // Future.wait keeps the manifest order, so the engine sees the same list.
+      final List<SupportPack?> loaded = await Future.wait<SupportPack?>(
+        <Future<SupportPack?>>[
+          for (final String path in paths)
+            rootBundle
+                .loadString(path)
+                .then<SupportPack?>(SupportPack.parse)
+                .catchError((Object _) => null),
+        ],
+      );
+      setPacks(<SupportPack>[
+        for (final SupportPack? p in loaded)
+          if (p != null) p,
+      ]);
     } catch (_) {
       setPacks(<SupportPack>[]);
     }
