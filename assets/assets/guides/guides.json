@@ -2498,5 +2498,108 @@
    "Wikipedia, “Madhhab” (a general reference, not a fiqh text)"
   ],
   "madhhabNote": "This is one worked example, not a table of the four schools. A full reviewed comparison, with each school’s evidence and book, still needs a named scholar, and until then the app does not state any other school position."
+ },
+ {
+  "id": "huda-islam-other-faiths",
+  "collection": "huda",
+  "category": "Faiths compared",
+  "title": "Islam and Other Faiths — How to Compare Fairly",
+  "subtitle": "What Islam shares with other religions, where it differs, and how the Qur’an asks Muslims to talk about it",
+  "steps": [
+   "Start from respect. The Qur’an says: “There shall be no compulsion in [acceptance of] the religion. The right course has become clear from the wrong.” (Qur’an 2:256). And it gives a closing line for disagreement: “For you is your religion, and for me is my religion.” (Qur’an 109:6). A comparison is for understanding, not for winning.",
+   "Why there are many peoples at all: “O mankind, indeed We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you.” (Qur’an 49:13).",
+   "How to talk about it: “Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.” (Qur’an 16:125). With Jews and Christians in particular: “And do not argue with the People of the Scripture except in a way that is best” (Qur’an 29:46), and the same verse gives the words to say: “our God and your God is one” (Qur’an 29:46).",
+   "The Muslim view of religious history in one line, from the Qur’an: Allah sent prophets to many peoples with one core message, and Muslims believe in all of them: “We make no distinction between any of them, and we are Muslims [submitting] to Him.” (Qur’an 3:84; see also 2:136 and 4:163). The Prophet ﷺ said the prophets are of different mothers but one religion (Muslim 2365).",
+   "The centre of every comparison is tawhid, the oneness of Allah: “He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.” (Qur’an 112:1-4). Where another faith agrees, say so. Where it differs, say plainly what each side believes, in its own words.",
+   "Each of the next guides follows the same order: what that faith teaches (from Encyclopaedia Britannica), what it shares with Islam, where Islam differs (from the Qur’an), and how to talk about it kindly. Open: Islam and Christianity, Islam and Judaism, Islam and Hinduism, Islam and Buddhism."
+  ],
+  "sources": [
+   "Status: scholar review needed. Written 13 Nov 2026. Every Qur’an quotation was checked word for word against the Saheeh International text bundled in this app; hadith numbers against the app’s verdict register (tool/hadith_verdicts); descriptions of other faiths are attributed to Encyclopaedia Britannica and say what those faiths teach in their own terms, not what Muslims think of them.",
+   "Qur’an 2:256, 109:6, 49:13, 16:125, 29:46, 3:84, 2:136, 4:163, 112:1-4 (Saheeh International, as bundled in the app)",
+   "Sahih Muslim 2365 (the prophets: different mothers, one religion)"
+  ],
+  "madhhabNote": "Nothing in this guide is a point on which the four schools of law differ. How Muslims should relate to people of other faiths in particular situations is a question for a qualified scholar."
+ },
+ {
+  "id": "huda-islam-christianity",
+  "collection": "huda",
+  "category": "Faiths compared",
+  "title": "Islam and Christianity",
+  "subtitle": "Jesus, Mary, the Gospel and the oneness of God: what is shared and what is not",
+  "steps": [
+   "What Christians believe, in a reference book’s words: Encyclopaedia Britannica summarises Christianity’s principal tenets as that Jesus is the Son of God (the second person of the Holy Trinity), that God’s love is essential to his being, and that Jesus died to redeem humankind. The Trinity, Britannica explains, is the unity of Father, Son and Holy Spirit as three persons in one Godhead.",
+   "What Muslims share with Christians: belief in one Creator; love and honour for Jesus (Isa) and his mother Mary (Maryam), to whom the Qur’an gives a whole surah; his virgin birth (Qur’an 19:16-34); his miracles by Allah’s leave; and that he was given the Gospel: “and We gave him the Gospel, in which was guidance and light” (Qur’an 5:46). The Prophet ﷺ said he is the closest of people to Isa, and that the prophets are brothers (Bukhari 3443).",
+   "Where Islam differs, in the Qur’an’s own words. On who Jesus is: “The Messiah, Jesus, the son of Mary, was but a messenger of Allah and His word which He directed to Mary and a soul [created at a command] from Him.” (Qur’an 4:171). The same verse goes on: “Indeed, Allah is but one God. Exalted is He above having a son.” (Qur’an 4:171). On his miraculous birth: “Indeed, the example of Jesus to Allah is like that of Adam. He created Him from dust; then He said to him, Be, and he was.” (Qur’an 3:59).",
+   "On the cross: the Qur’an says “they did not kill him, nor did they crucify him; but [another] was made to resemble him to them.” (Qur’an 4:157). So Islam does not teach that a sacrifice was needed to forgive sin: each person answers for their own deeds, “and no bearer of burdens will bear the burden of another” (Qur’an 6:164), and the door of forgiveness is open to anyone who turns back to Allah (Qur’an 39:53).",
+   "Jesus in his own words, as the Qur’an reports them: “Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.” (Qur’an 19:30).",
+   "How to talk about it: the Qur’an’s invitation is “come to a word that is equitable between us and you - that we will not worship except Allah and not associate anything with Him” (Qur’an 3:64). Start from the shared love of Jesus and Mary, listen to what your friend actually believes (Christians differ among themselves), and never mock what is sacred to them."
+  ],
+  "sources": [
+   "Status: scholar review needed. Written 13 Nov 2026. Every Qur’an quotation was checked word for word against the Saheeh International text bundled in this app; hadith numbers against the app’s verdict register (tool/hadith_verdicts); descriptions of other faiths are attributed to Encyclopaedia Britannica and say what those faiths teach in their own terms, not what Muslims think of them.",
+   "Encyclopaedia Britannica, “Christianity” summary (britannica.com/summary/Christianity) and “Trinity” (britannica.com/topic/Trinity)",
+   "Qur’an 19:16-34, 5:46, 4:171, 3:59, 4:157, 6:164, 39:53, 19:30, 3:64 (Saheeh International, as bundled in the app)",
+   "Sahih al-Bukhari 3443 (the Prophet ﷺ closest to Isa; the prophets are brothers)"
+  ],
+  "madhhabNote": "The points above are matters of belief shared by Sunni Muslims; the four schools of law do not differ on them. Detailed questions of interfaith law (marriage, food, festivals) are for a qualified scholar."
+ },
+ {
+  "id": "huda-islam-judaism",
+  "collection": "huda",
+  "category": "Faiths compared",
+  "title": "Islam and Judaism",
+  "subtitle": "Abraham, Moses, the Torah and one God: a shared root and where the paths part",
+  "steps": [
+   "What Jews believe, in a reference book’s words: Encyclopaedia Britannica describes Judaism as belief in one transcendent God who revealed himself to Abraham, Moses and the Hebrew prophets, with a religious life lived by the Scriptures and rabbinic traditions. Its sacred texts are the Hebrew Bible, especially the Torah, and the Oral Torah later compiled in the Talmud; fundamental to it is the belief that the people of Israel are God’s chosen people.",
+   "What Muslims share with Jews: strict belief in one God with no partner; Abraham (Ibrahim) as father of the faith; Moses (Musa) as one of the greatest prophets, to whom Allah spoke directly; and the Torah as revealed by Allah: “Indeed, We sent down the Torah, in which was guidance and light.” (Qur’an 5:44). Islamic and Jewish law also share much in practice: prayer at set times, fasting, charity, and food law.",
+   "Muslims are told to believe in what came to Moses and the prophets of Israel: “We have believed in Allah and what has been revealed to us and what has been revealed to Abraham and Ishmael and Isaac and Jacob and the Descendants and what was given to Moses and Jesus and what was given to the prophets from their Lord. We make no distinction between any of them” (Qur’an 2:136).",
+   "Where Islam differs: Muslims believe Allah sent Jesus as the Messiah and a prophet, “confirming that which came before him in the Torah” (Qur’an 5:46), and then Muhammad ﷺ as the last of the prophets (Qur’an 33:40), sent to all people; Judaism does not accept either as a prophet. Islam also teaches that nobility before Allah is by righteousness, not by descent: “the most noble of you in the sight of Allah is the most righteous of you” (Qur’an 49:13).",
+   "How to talk about it: the Qur’an tells Muslims to say to the People of the Scripture, “our God and your God is one” (Qur’an 29:46), and to argue only “in a way that is best”. Keep politics and religion apart in the conversation, and speak about what your friend believes, not about a whole people."
+  ],
+  "sources": [
+   "Status: scholar review needed. Written 13 Nov 2026. Every Qur’an quotation was checked word for word against the Saheeh International text bundled in this app; hadith numbers against the app’s verdict register (tool/hadith_verdicts); descriptions of other faiths are attributed to Encyclopaedia Britannica and say what those faiths teach in their own terms, not what Muslims think of them.",
+   "Encyclopaedia Britannica, “Judaism” summary (britannica.com/summary/Judaism) and article (britannica.com/topic/Judaism)",
+   "Qur’an 5:44, 2:136, 5:46, 33:40, 49:13, 29:46 (Saheeh International, as bundled in the app)"
+  ],
+  "madhhabNote": "Matters of belief only; the four schools of law do not differ on them. Interfaith questions of law are for a qualified scholar."
+ },
+ {
+  "id": "huda-islam-hinduism",
+  "collection": "huda",
+  "category": "Faiths compared",
+  "title": "Islam and Hinduism",
+  "subtitle": "Brahman and Allah, rebirth and resurrection, many paths and one",
+  "steps": [
+   "What Hindus believe, in a reference book’s words: Encyclopaedia Britannica summarises that fundamental to Hinduism is belief in a cosmic principle of ultimate reality called brahman and its identity with the individual soul, atman; that all creatures go through a cycle of rebirth, samsara, broken only by spiritual self-realisation, after which liberation, moksha, is reached; and that karma decides a being’s place in that cycle. Hinduism has no single founder and many schools, and many Hindus worship God in many forms.",
+   "What Muslims can recognise: the search for the one reality behind everything; that every action has consequences; a moral duty to live rightly; and deep reverence for prayer, fasting and charity.",
+   "Where Islam differs on God: Allah is One, the Creator, distinct from what He created, and not worshipped through images or other gods: “He neither begets nor is born, Nor is there to Him any equivalent.” (Qur’an 112:3-4). Worship is owed to Him alone: “And I did not create the jinn and mankind except to worship Me.” (Qur’an 51:56).",
+   "Where Islam differs on what comes after death: there is one life, then death, then a barrier until the resurrection, not rebirth into another body. The Qur’an describes the one who asks to be sent back after death: “No! It is only a word he is saying; and behind them is a barrier until the Day they are resurrected.” (Qur’an 23:100). Each soul answers for its own deeds (Qur’an 6:164).",
+   "How to talk about it: the Qur’an forbids insulting what others worship (Qur’an 6:108), so speak about Allah, not against your friend’s gods. Ask what they themselves believe, since Hindu beliefs vary widely."
+  ],
+  "sources": [
+   "Status: scholar review needed. Written 13 Nov 2026. Every Qur’an quotation was checked word for word against the Saheeh International text bundled in this app; hadith numbers against the app’s verdict register (tool/hadith_verdicts); descriptions of other faiths are attributed to Encyclopaedia Britannica and say what those faiths teach in their own terms, not what Muslims think of them.",
+   "Encyclopaedia Britannica, “Hinduism” summary (britannica.com/summary/Hinduism)",
+   "Qur’an 112:3-4, 51:56, 23:100, 6:164, 6:108 (Saheeh International, as bundled in the app)"
+  ],
+  "madhhabNote": "Matters of belief only; the four schools of law do not differ on them."
+ },
+ {
+  "id": "huda-islam-buddhism",
+  "collection": "huda",
+  "category": "Faiths compared",
+  "title": "Islam and Buddhism",
+  "subtitle": "Suffering, the self and the path: where a Muslim agrees and where Islam begins with God",
+  "steps": [
+   "What Buddhists believe, in a reference book’s words: Encyclopaedia Britannica summarises that Buddhism’s main teachings are the Four Noble Truths, of which the fourth is the Eightfold Path: the truth of suffering (dukkha), that it arises from craving, that it can end, and the path that ends it. The goal is nirvana. Buddhism does not centre on a creator God, and its two major branches are Theravada and Mahayana.",
+   "What Muslims can recognise: that this world is passing and full of trial; that craving and attachment lead people astray; and the value of self-discipline, mindfulness, honesty, and not harming others.",
+   "Where Islam differs: Islam begins with God. Allah is near and answers: “And when My servants ask you, [O Muhammad], concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.” (Qur’an 2:186). Peace of heart is found in remembering Him (Qur’an 13:28), not in the self alone.",
+   "On what comes after death: Islam teaches one life, then resurrection and judgement, not rebirth (Qur’an 23:100). Each person answers for their own deeds (Qur’an 6:164), and Allah’s mercy is wider than any sin (Qur’an 39:53).",
+   "How to talk about it: many Buddhists see their path as a practice more than a creed. Begin with what you share, ask what your friend actually practises, and speak about Allah with gentleness (Qur’an 16:125)."
+  ],
+  "sources": [
+   "Status: scholar review needed. Written 13 Nov 2026. Every Qur’an quotation was checked word for word against the Saheeh International text bundled in this app; hadith numbers against the app’s verdict register (tool/hadith_verdicts); descriptions of other faiths are attributed to Encyclopaedia Britannica and say what those faiths teach in their own terms, not what Muslims think of them.",
+   "Encyclopaedia Britannica, “Buddhism” summary (britannica.com/summary/Buddhism) and “The Four Noble Truths”",
+   "Qur’an 2:186, 13:28, 23:100, 6:164, 39:53, 16:125 (Saheeh International, as bundled in the app)"
+  ],
+  "madhhabNote": "Matters of belief only; the four schools of law do not differ on them."
  }
 ]
