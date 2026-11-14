@@ -76,7 +76,8 @@ void main() {
         for (final String b in r.buttons) {
           expect(HadiTokens.isAllowed(b), isTrue, reason: '${r.question}: $b');
           final bool named = kHadiRouteNames.containsKey(b) ||
-              b.startsWith('/huda/guide?id=');
+              b.startsWith('/huda/guide?id=') ||
+              b.startsWith('/stories/read?id=prophet-');
           expect(named, isTrue, reason: '${r.question}: $b has no name');
         }
       }
