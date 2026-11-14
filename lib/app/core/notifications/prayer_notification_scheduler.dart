@@ -156,3 +156,19 @@ final Provider<PrayerNotificationScheduler>
 prayerNotificationSchedulerProvider = Provider<PrayerNotificationScheduler>(
   (ref) => createPlatformScheduler(),
 );
+
+
+/// Optional extra on schedulers that can show what the phone is doing, so a
+/// person can tell why a notification did not arrive. Not part of
+/// [PrayerNotificationScheduler] so other implementations stay as they are.
+abstract interface class NotificationDiagnostics {
+  /// Whether the phone allows this app to notify (null when it cannot tell).
+  Future<bool?> permissionGranted();
+
+  /// How many notifications are waiting with the phone (-1 when unreadable).
+  Future<int> pendingCount();
+
+  /// Shows one notification right now. Returns null on success, otherwise a
+  /// short reason it failed.
+  Future<String?> sendTest();
+}

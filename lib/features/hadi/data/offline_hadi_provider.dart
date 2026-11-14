@@ -1121,6 +1121,10 @@ class OfflineHadiProvider implements HadiProvider {
     final bool newcomerStart = HadiRouting.asksNewcomerStart(asked);
     final bool heavy =
         _distress.hasMatch(n) && !_thirdPartyQuestion(n) && !newcomerStart;
+    if (newcomerStart && _distress.hasMatch(n)) {
+      return 'Feeling overwhelmed at the start is normal, and you do not need '
+          'to learn it all at once.\n\n${HadiRouting.beginnerReply}';
+    }
 
     // "…close to me" for a masjid, Friday prayer or halal food is a request
     // for a place: it goes to the finder before any topic answer can claim
@@ -1174,10 +1178,6 @@ class OfflineHadiProvider implements HadiProvider {
     }
     if (HadiRouting.asksWhoRunsApp(asked)) return HadiRouting.whoRunsReply;
     if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
-    if (newcomerStart && _distress.hasMatch(n)) {
-      return 'Feeling overwhelmed at the start is normal, and you do not need '
-          'to learn it all at once.\n\n${HadiRouting.beginnerReply}';
-    }
     if (!heavy && HadiRouting.asksNewcomerLoose(asked)) {
       return HadiRouting.beginnerReply;
     }

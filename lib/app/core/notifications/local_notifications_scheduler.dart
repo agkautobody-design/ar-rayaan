@@ -25,7 +25,8 @@ import 'prayer_notification_scheduler.dart';
 ///    the prompt in the Prayer Times screen.
 ///  * Some phone makers (Xiaomi, Huawei, Oppo and others) kill scheduled
 ///    alarms of apps that are not exempt from battery optimisation.
-class LocalNotificationsScheduler implements PrayerNotificationScheduler {
+class LocalNotificationsScheduler
+    implements PrayerNotificationScheduler, NotificationDiagnostics {
   LocalNotificationsScheduler([FlutterLocalNotificationsPlugin? plugin])
     : _plugin = plugin ?? FlutterLocalNotificationsPlugin();
 
@@ -248,6 +249,46 @@ class LocalNotificationsScheduler implements PrayerNotificationScheduler {
       }
     } catch (_) {
       // Reminders are best effort.
+    }
+  }
+
+  @override
+  Future<bool?> permissionGranted() async {
+    if (!await _init()) return null;
+    try {
+      if (Platform.isAndroid) {
+        return await _android?.areNotificationsEnabled();
+      }
+      return null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Future<int> pendingCount() async {
+    if (!await _init()) return -1;
+    try {
+      return (await _plugin.pendingNotificationRequests()).length;
+    } catch (_) {
+      return -1;
+    }
+  }
+
+  @override
+  Future<String?> sendTest() async {
+    if (!await _init()) return 'The phone would not start notifications.';
+    try {
+      await requestPermission();
+      await _plugin.show(
+        id: 999999,
+        title: 'Ar-Rayaan test',
+        body: 'If you can read this, notifications work on this phone.',
+        notificationDetails: _details(_prayerChannel),
+      );
+      return null;
+    } catch (e) {
+      return e.toString().split('\n').first;
     }
   }
 }

@@ -258,7 +258,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
     // Community-submitted places and events (empty when the build has no
     // Firebase project).
     final List<CommunityPlace> community =
-        ref.watch(communityPlacesProvider).value ?? const <CommunityPlace>[];
+        ref.watch(communityPlacesProvider).valueOrNull ?? const <CommunityPlace>[];
     final List<CommunityPlace> nearbyCommunity = _hasPlace
         ? PlacesPolicy.nearby(
             community,
@@ -270,7 +270,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
           )
         : const <CommunityPlace>[];
     final List<CommunityEvent> upcomingEvents = PlacesPolicy.upcoming(
-      ref.watch(communityEventsProvider).value ?? const <CommunityEvent>[],
+      ref.watch(communityEventsProvider).valueOrNull ?? const <CommunityEvent>[],
       lat: _hasPlace ? _lat : null,
       lon: _hasPlace ? _lon : null,
     );

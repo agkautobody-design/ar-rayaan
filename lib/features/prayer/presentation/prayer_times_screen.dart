@@ -1627,6 +1627,52 @@ class _NotificationCard extends ConsumerStatefulWidget {
 class _NotificationCardState extends ConsumerState<_NotificationCard>
     with WidgetsBindingObserver {
   ExactAlarmStatus _exact = ExactAlarmStatus.unknown;
+  String? _diag;
+  bool _testing = false;
+
+  /// Says what the phone is doing: allowed or blocked, how many are waiting,
+  /// and whether a notification can be shown right now.
+  Future<void> _runTest() async {
+    final PrayerNotificationScheduler s =
+        ref.read(prayerNotificationSchedulerProvider);
+    if (s is! NotificationDiagnostics) return;
+    setState(() {
+      _testing = true;
+      _diag = null;
+    });
+    final String? failed = await s.sendTest();
+    final bool? allowed = await s.permissionGranted();
+    final int waiting = await s.pendingCount();
+    final ExactAlarmStatus exact = await s.exactAlarmStatus();
+    final StringBuffer b = StringBuffer();
+    b.write(failed == null
+        ? 'A test notification was sent. '
+        : 'The test notification failed ($failed). ');
+    if (allowed == false) {
+      b.write('Notifications are switched off for Ar-Rayaan in your phone\u2019s '
+          'settings: turn them on there. ');
+    }
+    b.write(waiting < 0
+        ? 'Could not read the waiting list. '
+        : waiting == 0
+            ? 'Nothing is waiting for a prayer time yet: switch a bell on '
+                'above and set your place. '
+            : '$waiting prayer notifications are waiting. ');
+    if (exact == ExactAlarmStatus.denied) {
+      b.write('Exact alarms are not allowed, so they may be late. ');
+    }
+    if (failed == null && allowed != false) {
+      b.write('If the test did not appear, your phone is hiding it: check '
+          'battery optimisation and Do Not Disturb for Ar-Rayaan.');
+    }
+    if (mounted) {
+      setState(() {
+        _testing = false;
+        _diag = b.toString();
+        _exact = exact;
+      });
+    }
+  }
 
   @override
   void initState() {
@@ -1731,6 +1777,28 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
                   foregroundColor: AppColors.goldLight,
                 ),
               ),
+            ],
+            if (scheduler is NotificationDiagnostics) ...[
+              const SizedBox(height: 6),
+              OutlinedButton.icon(
+                key: const Key('notification-test'),
+                onPressed: _testing ? null : _runTest,
+                icon: const Icon(Icons.notifications_active_outlined, size: 16),
+                label: Text(_testing ? 'Checking\u2026' : 'Send a test notification'),
+              ),
+              if (_diag != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Text(
+                    _diag!,
+                    key: const Key('notification-diag'),
+                    style: AppText.bodyMuted.copyWith(
+                      fontSize: 12,
+                      height: 1.5,
+                      color: AppColors.goldLight,
+                    ),
+                  ),
+                ),
             ],
             const SizedBox(height: 6),
             Text(
