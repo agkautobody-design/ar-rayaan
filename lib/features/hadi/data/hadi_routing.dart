@@ -805,9 +805,29 @@ abstract final class HadiRouting {
         _startAsk.hasMatch(n);
   }
 
+  // A newcomer asking about friends or community has a shelf answer of its
+  // own, not the beginner guide.
+  static final RegExp _newcomerFriends = RegExp(
+    r'\b(?:friends?|lonely|alone|community|meet\s+(?:other\s+)?muslims?)\b',
+  );
+
+  /// A new Muslim asking about friends, loneliness or community.
+  static bool asksNewcomerFriends(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 18 &&
+        _newcomerLoose.hasMatch(n) &&
+        _newcomerFriends.hasMatch(n);
+  }
+
+  static const String newcomerFriendsReply =
+    'Many new Muslims feel this, and it is normal. Ways in: visit your local masjid at a quiet time and introduce yourself, ask whether there is a new Muslims class or a revert support group (many masjids and Islamic centres run one), and ask the imam to introduce you to a mentor. Online groups for new Muslims can help, but meeting one person in person matters more. '
+    'Keep your old friends and family where you can; becoming Muslim does not mean cutting them off. The New Muslim path in this app walks through the first weeks.\n[GO:/new-muslim]';
+
   static bool asksNewcomerLoose(String question) {
     final String n = _norm(question);
-    return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
+    return n.split(' ').length <= 18 &&
+        _newcomerLoose.hasMatch(n) &&
+        !_newcomerFriends.hasMatch(n);
   }
 
   // ── Beginners who say it in their own words ─────────────────────────
@@ -1282,6 +1302,7 @@ abstract final class HadiRouting {
   // ── The fixed replies, for the code that must not treat them as shelf ──
 
   static List<String> get fixedReplies => <String>[
+    newcomerFriendsReply,
         selfDescriptionReply,
         beginnerReply,
         newMuslimFamilyReply,

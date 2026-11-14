@@ -1178,6 +1178,9 @@ class OfflineHadiProvider implements HadiProvider {
     }
     if (HadiRouting.asksWhoRunsApp(asked)) return HadiRouting.whoRunsReply;
     if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
+    if (!heavy && HadiRouting.asksNewcomerFriends(asked)) {
+      return HadiRouting.newcomerFriendsReply;
+    }
     if (!heavy && HadiRouting.asksNewcomerLoose(asked)) {
       return HadiRouting.beginnerReply;
     }
