@@ -833,7 +833,7 @@ class FamilyLockedView extends ConsumerWidget {
                 ],
                 Text(
                   'This area holds your children\u2019s profiles and progress. '
-                  '${_pinIsSet(ref) ? 'Please enter your parent PIN to continue.' : 'You will choose a PIN of 4 to 6 digits first. Only a grown-up should do this.'}',
+                  '${_pinIsSet(ref) ? 'Please enter your parent PIN to continue.' : 'Only a grown-up should open it. You can turn on a PIN inside.'}',
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
                 const SizedBox(height: 10),
