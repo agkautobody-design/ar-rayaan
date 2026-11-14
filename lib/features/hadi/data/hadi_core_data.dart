@@ -3474,11 +3474,9 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
   CoreEntry(
     id: 'curious-something-interesting',
     patterns: <String>[
-      r'\b(?:tell|give|show) me (?:something|a fact|a story|a fun fact)\b.*\b(?:interesting|cool|fun|nice|new)\b',
-      r'\bsomething interesting\b',
-      r'\bfun fact\b',
-      r'\bi am bored\b',
-      r'\bim bored\b',
+      r'^(?:please )?(?:tell|give|show) me (?:something|a fact|a story|a fun fact)(?: that is| thats| that\'s)? (?:interesting|cool|fun|nice|new)\??$',
+      r'^something interesting\??$',
+      r'^(?:i am|im|i\'m) bored\??$',
     ],
     answer: 'Here are a few things worth a look: a prophet\'s story you may not know, the hadith of the day, or a short du\'a. You can ask me, for example, "tell me the story of Prophet Yunus", or open the stories section.\n[GO:/stories]\n[GO:/hadith]',
     beforeGate: true,
