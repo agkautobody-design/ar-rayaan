@@ -1471,6 +1471,11 @@ class HadiController extends Notifier<HadiState> {
             text: reply,
             crisis: CrisisKind.childSafety,
             sensitive: true,
+            // The reply sends a child to the children's corner and to Wasia:
+            // give them the doors, not only the words.
+            routes: support != null
+                ? const <String>[]
+                : const <String>['/kids', '/academy'],
           ),
         ],
         typing: false,

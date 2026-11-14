@@ -134,6 +134,18 @@ void main() {
     });
   });
 
+  group('parent', () {
+    test('teaching a young child to pray gets the gentle guide', () async {
+      const String q = 'How do I teach my 6 year old son to pray without forcing him?';
+      expect(HadiRouting.asksTeachChildPrayer(q), isTrue);
+      final String a = await ask(q);
+      expect(a, contains('[GO:/huda/guide?id=huda-children-deen]'));
+      expect(a, isNot(contains('17:31')));
+      expect(HadiRouting.asksTeachChildPrayer('how do I get my kids to pray fajr'),
+          isTrue);
+    });
+  });
+
   group('comparing religions', () {
     test('the right guides are chosen', () {
       expect(

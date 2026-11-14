@@ -900,6 +900,42 @@ abstract final class HadiRouting {
       'read is still the best way to check your pronunciation.'
       '\n[GO:/academy/letters]\n[GO:/academy/quranic-arabic]';
 
+  // ── A parent teaching a child to pray ───────────────────────────────
+
+  static final RegExp _teachChildPrayer = RegExp(
+    r'\b(?:teach\w*|get\w*|encourag\w*|help\w*|start\w*|motivat\w*|train\w*|'
+    r'make|introduc\w*)\s+(?:my|our)\s+(?:[a-z0-9]+\s+){0,4}?'
+    r'(?:son|sons|daughter|daughters|child|children|kids?|boy|boys|girl|'
+    r'girls|toddler|little\s+one)\s+(?:to\s+|how\s+to\s+|start\s+|about\s+|'
+    r'into\s+)?(?:pray\w*|salah|salat|namaz|the\s+prayers?)\b',
+  );
+
+  static bool asksTeachChildPrayer(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 40 && _teachChildPrayer.hasMatch(n);
+  }
+
+  static const String teachChildPrayerReply =
+      'Gently is the way the app’s guide teaches it. From Teaching Your '
+      'Children the Deen (scholar review needed):\n\n'
+      '• The Prophet ﷺ said to command children to pray when they become '
+      'seven (Abu Dawud 495, hasan sahih per al-Albani). Before seven is the '
+      'time to invite and show, not to command.\n'
+      '• Mercy comes first: “He is not one of us who does not have mercy on '
+      'our young” (Tirmidhi 1919, sahih per al-Albani).\n'
+      '• Make du’a for them, as Ibrahim did: “My Lord, make me an '
+      'establisher of prayer, and [many] from my descendants” '
+      '(Qur’an 14:40).\n\n'
+      'Ideas many parents use (a reflection, not a ruling): let your child '
+      'stand beside you and copy you; start with one prayer a day, not five; '
+      'teach Al-Fatihah and the short surahs a little at a time; praise the '
+      'effort, not only the result; and keep it warm, so prayer feels like '
+      'time with you, not a test.\n\n'
+      'The Family Wing lets you add your child, so Wasia can teach them step '
+      'by step at their age, and For Children has short surahs and du’as to '
+      'listen to together.'
+      '\n[GO:/huda/guide?id=huda-children-deen]\n[GO:/academy/family]';
+
   // ── Comparing Islam with other religions ────────────────────────────
 
   static final RegExp _faithChristian = RegExp(
@@ -1202,6 +1238,7 @@ abstract final class HadiRouting {
         beginnerReply,
         newMuslimFamilyReply,
         learnArabicReply,
+        teachChildPrayerReply,
         ramadanPlanReply,
         hadithNumberDecline,
         clarifyReply,
