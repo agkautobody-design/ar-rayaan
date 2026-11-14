@@ -86,9 +86,13 @@ void main() {
   group('the PIN dialog', () {
     Future<List<bool>> open(
       WidgetTester tester,
-      SharedPreferences prefs,
-    ) async {
+      SharedPreferences prefs, {
+      bool child = true,
+    }) async {
       final List<bool> results = <bool>[];
+      // A child is using the app, so the PIN is asked for (with none set and
+      // no child, the gate passes without a dialog: see the test below).
+      kKidsMode.value = child;
       await tester.pumpWidget(
         ProviderScope(
           overrides: <Override>[
@@ -114,6 +118,14 @@ void main() {
       await tester.pumpAndSettle();
       return results;
     }
+
+    testWidgets('no PIN set and no child using the app: nothing is asked',
+        (WidgetTester tester) async {
+      final List<bool> results = await open(tester, await _prefs(),
+          child: false);
+      expect(find.text('For parents'), findsNothing);
+      expect(results, <bool>[true]);
+    });
 
     testWidgets('no sum a child could answer', (WidgetTester tester) async {
       await open(tester, await _prefs());

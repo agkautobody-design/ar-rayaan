@@ -1,3 +1,4 @@
+import 'package:ar_rayaan/app/core/kids_mode.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -822,6 +823,9 @@ void main() {
 
     testWidgets('changing the child asks the parent check first',
         (tester) async {
+      // A child is using the app, so the parent check is asked for.
+      kKidsMode.value = true;
+      addTearDown(() => kKidsMode.value = false);
       await pump(
         tester,
         prefs: <String, Object>{
