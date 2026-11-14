@@ -1,0 +1,46 @@
+name: Deploy Firestore rules
+
+# Publishes firestore.rules to the ar-rayaan Firebase project whenever the file
+# changes on main. It needs one repository secret, FIREBASE_SERVICE_ACCOUNT
+# (the JSON key of a service account with the "Firebase Rules Admin" role).
+# Without the secret this job does nothing and says so.
+on:
+  push:
+    branches: [main]
+    paths:
+      - firestore.rules
+      - firebase.json
+      - .github/workflows/deploy-firestore-rules.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-firestore-rules
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for the service account secret
+        id: gate
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "::notice::FIREBASE_SERVICE_ACCOUNT is not set, so the rules were not published. See docs/OWNER_ACTIONS.md."
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish the rules
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
+          npx --yes firebase-tools@13 deploy --only firestore:rules \
+            --project ar-rayaan --non-interactive
+          rm -f "$RUNNER_TEMP/sa.json"

@@ -182,3 +182,17 @@ Revoking is the Revoke button on the same list; it takes effect immediately, and
 Two things to know:
 - Helpers are volunteers giving general guidance. The app tells every reader that answers are not a personal fatwa and not medical/legal/financial advice, and the Terms say the same — but choose people you trust, because readers will trust your badge.
 - A scholar badge answers only in Ask a Scholar; doctor/counsellor/professional badges answer only in Ask a Professional. You can grant one person two badges by granting twice with different roles (the second replaces the first — so grant the one that fits where they should answer; one account holds one role).
+
+
+## Publish Firestore rules automatically (one-time, about 5 minutes)
+
+Why: the community mosque list, events, reports and the Majlis refuse reads and writes until the rules in `firestore.rules` are published. This makes every later change to that file publish itself, so you never paste rules again.
+
+1. Firebase console, project `ar-rayaan`, Project settings, Service accounts, Generate new private key. A JSON file downloads.
+2. In Google Cloud console (same project), IAM: give that service account the role **Firebase Rules Admin**. (The default firebase-adminsdk account already has it.)
+3. GitHub, repo `ar-rayaan`, Settings, Secrets and variables, Actions, New repository secret. Name: `FIREBASE_SERVICE_ACCOUNT`. Value: the whole JSON file contents.
+4. Actions tab, "Deploy Firestore rules", Run workflow. When it is green, the rules are live.
+
+Before you do step 4: publishing replaces every rule in the project with the repo file. The file was reviewed and statically tested but never run against the Firestore emulator. If you want it run first, say so.
+
+The quicker manual way is still Firebase console, Firestore Database, Rules, paste `firestore.rules` from main, Publish.
