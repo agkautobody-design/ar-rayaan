@@ -3052,7 +3052,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Pick one thing this week, not ten.\n[GO:/huda/guide?id=huda-prayer]',
   ),
   _Entry(
-    <String>[ 'find muslim friends', 'meet other muslims', 'lonely new muslim', 'no muslim friends'],
+    <String>[ 'find muslim friends', 'friends as a new muslim', 'meet other muslims', 'lonely new muslim', 'no muslim friends'],
     'Many new Muslims feel this, and it is normal. Ways in: visit your local masjid at a quiet time and introduce yourself, ask whether there is a new Muslims class or a revert support group (many masjids and Islamic centres run one), and ask the imam to introduce you to a mentor. Online groups for new Muslims can help, but meeting one person in person matters more. '
     'Keep your old friends and family where you can; becoming Muslim does not mean cutting them off. The New Muslim path in this app walks through the first weeks.\n[GO:/new-muslim]',
   ),
@@ -3060,6 +3060,15 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['waswas', 'whispers of shaytan', 'intrusive thoughts', 'intrusive thoughts about god', 'blasphemous thoughts', 'doubts keep coming', 'ocd and islam', 'religious ocd', 'scrupulosity'],
     'Unwanted, disturbing thoughts about God or about worship are very common, and they do not mean your faith is gone. The Companions once came to the Prophet ﷺ troubled by thoughts too terrible to say aloud, and he said that the very hatred of them is clear faith (Sahih Muslim 132). Allah "does not charge a soul except [with that within] its capacity" (Qur\'an 2:286). '
     'Do not argue with the thought or try to prove yourself; let it pass, seek refuge in Allah and carry on with what you were doing. If the thoughts or checking repeat for weeks (for example doing wudu or prayer again and again), it can be a health condition that treats well: please speak to a doctor or counsellor as well as a scholar who understands this. You are not alone.\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>['bedtime story for kids', 'bedtime story for a child', 'bedtime story from islam', 'islamic stories for kids', 'islamic story for children', 'story for my child', 'stories for my kids', 'story for a 5 year old', 'story to tell my children'],
+    'The app has children\'s stories from the Qur\'an that are gentle enough '
+    'for bedtime, and you can read them aloud: Prophet Yunus and the whale, '
+    'Nuh and the ark, Ibrahim and the stars, Yusuf and his brothers, and '
+    'Musa as a baby in the river. Start with a short one, and let your child '
+    'ask questions. The Kids\' Corner has more, made for children to use '
+    'with you.\n[GO:/stories]\n[GO:/kids]',
   ),
   _Entry(
     <String>['god exists', 'does god exist', 'believe in god', 'prove god', 'proof of god', 'existence of god', 'is there a god', 'why believe in god', 'why believe god exists'],
