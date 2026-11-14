@@ -738,6 +738,25 @@ const Set<String> kChildStoryIds = <String>{
   'prophet-yunus',
   'prophet-ayyub',
   'prophet-sulayman',
+  // Child retellings in kChildStoryTextMore. Left out on purpose: Musa (a
+  // man killed), Lut (the wrong his people did) and Dawud (a trial and a
+  // repentance); a grown-up opens them after leaving child mode.
+  'prophet-ibrahim',
+  'prophet-yusuf',
+  'prophet-isa',
+  'prophet-ismail',
+  'prophet-ishaq',
+  'prophet-yaqub',
+  'prophet-harun',
+  'prophet-zakariya',
+  'prophet-basket',
+  'prophet-idris',
+  'prophet-hud',
+  'prophet-salih',
+  'prophet-shuayb',
+  'prophet-dhul-kifl',
+  'prophet-ilyas',
+  'prophet-alyasa',
   'tale-cave-people',
   'tale-two-gardens',
 };

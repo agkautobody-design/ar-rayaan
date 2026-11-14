@@ -1,3 +1,5 @@
+import 'child_stories_more.dart';
+
 /// Child-level retellings of the seven stories child mode opens, one short
 /// paragraph for each chapter of the story (same order and count as the
 /// chapters in assets/stories). They keep to what the Qur'an states, add no
@@ -90,7 +92,8 @@ const Map<String, List<String>> kChildStoryText = <String, List<String>>{
 /// The child's retelling of chapter [index] of story [storyId], or null when
 /// there is none (the chapter text is then used).
 String? childStoryChapter(String storyId, int index) {
-  final List<String>? parts = kChildStoryText[storyId];
+  final List<String>? parts =
+      kChildStoryText[storyId] ?? kChildStoryTextMore[storyId];
   if (parts == null || index < 0 || index >= parts.length) return null;
   return parts[index];
 }
