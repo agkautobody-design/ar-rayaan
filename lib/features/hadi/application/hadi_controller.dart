@@ -1570,7 +1570,12 @@ class HadiController extends Notifier<HadiState> {
     // never a ruling card, never a live model, never saved, never reportable.
     // This runs only when the crisis layer, the safe replies, the memory
     // commands and SupportSignal have all said "not mine".
-    if (support == null && crisis == null && !gameAsk) {
+    // A new Muslim whose family is angry or does not know yet gets the
+    // convert guidance (offline_hadi / HadiRouting), not only a listening turn.
+    if (support == null &&
+        crisis == null &&
+        !gameAsk &&
+        !HadiRouting.asksNewMuslimFamily(q)) {
       final String? freshDistress = DistressSignal.packFor(q);
       String? distressPack = freshDistress;
       if (distressPack == null && _continuesDistress(q)) {

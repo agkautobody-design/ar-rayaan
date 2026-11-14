@@ -234,4 +234,38 @@ void main() {
       expect(rows.first.verified, isTrue);
     });
   });
+
+  group('round 2 fixes', () {
+    test('"list all the prophets in order" gives all 25 with the stories shelf',
+        () async {
+      final String a = await ask('list all the prophets in order');
+      expect(a, contains('Dhul-Kifl'));
+      expect(a, contains('Muhammad'));
+      expect(a, contains('[GO:/stories]'));
+      expect(HadiProphets.isReply(a), isTrue);
+    });
+
+    test('what Muslims believe about Jesus tells the Isa story', () {
+      expect(HadiProphets.storyIdFor('What do Muslims believe about Jesus?'),
+          'prophet-isa');
+    });
+
+    test('compatibility questions reach the faith guide', () {
+      expect(HadiRouting.faithGuidesFor('Is Buddhism compatible with Islam?'),
+          contains('huda-islam-buddhism'));
+    });
+
+    test('a hidden conversion is a new-Muslim family question', () {
+      expect(
+          HadiRouting.asksNewMuslimFamily(
+              "I converted last month but my parents don't know. I'm scared to tell them."),
+          isTrue);
+    });
+
+    test('is God real has a Qur\'an-based shelf answer', () async {
+      final String a = await ask('Why should I believe God exists at all?');
+      expect(a, contains('Qur\'an'));
+      expect(a, contains('[GO:/academy/aqeedah]'));
+    });
+  });
 }

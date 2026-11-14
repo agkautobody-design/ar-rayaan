@@ -954,7 +954,8 @@ abstract final class HadiRouting {
   static final RegExp _compareAsk = RegExp(
     r'\b(?:differ\w*|difference\w*|compar\w*|vs|versus|similar\w*|same|'
     r'believe\w*|beliefs?|views?|think\s+(?:of|about)|say\s+about|'
-    r'teach\w*|relat\w*|between|common|true|right|correct|learn\s+about)\b',
+    r'teach\w*|relat\w*|between|common|true|right|correct|learn\s+about|'
+    r'compatib\w*|conflict\w*|agree\w*|reconcil\w*|worship\w*|is\s+it\s+ok)\b',
   );
   /// Questions of law (marrying, food, festivals) are not comparisons.
   static final RegExp _faithLaw = RegExp(
@@ -1028,6 +1029,10 @@ abstract final class HadiRouting {
     for (final String g in guides) {
       b.write('${_faithLine[g]}\n\n');
     }
+    b.write('Which one is true? Muslims believe Islam is the religion with '
+        'Allah (Qur’an 3:19), and also that there is no compulsion in '
+        'religion (2:256). That is a belief, not a proof you can run here, '
+        'so for the reasoning ask a scholar you trust.\n\n');
     b.write('These guides still need a scholar’s review. For a friend of '
         'another faith, ask what they themselves believe: people within '
         'every religion differ.');

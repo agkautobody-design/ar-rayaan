@@ -2991,6 +2991,18 @@ const List<_Entry> _knowledge = <_Entry>[
     'barley (Bukhari 2916).',
   ),
   _Entry(
+    <String>['god exists', 'does god exist', 'believe in god', 'prove god', 'proof of god', 'existence of god', 'is there a god', 'why believe in god', 'why believe god exists'],
+    'This is the Qur\'an\'s own line of reasoning, not a full philosophical '
+    'case. It does not argue from a chain of premises; it points you to '
+    'look: at the heavens and the earth and the turning of night and day '
+    '(Al-Baqarah 164; Al-Imran 190-191), at your own self (Adh-Dhariyat '
+    '20-21), and it asks whether things could have come from nothing, or '
+    'made themselves (At-Tur 35). The invitation is to reflect, and to '
+    'ask honestly where it leads. If you are weighing this seriously, '
+    'take it to a scholar or a believer you trust, and read the Qur\'an '
+    'slowly with a translation.\n[GO:/academy/aqeedah]',
+  ),
+  _Entry(
     <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned', 'all the prophets', 'all prophets', 'prophets in order', 'names of the prophets', 'list the prophets', 'list all the prophets', 'every prophet', 'name the prophets', 'prophets of islam'],
     'The Qur\'an names twenty-five prophets; from Adam, the first, '
     'to Muhammad, the last. The named ones: Adam, Idris, Nuh, Hud, '
