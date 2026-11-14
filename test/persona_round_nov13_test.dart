@@ -293,4 +293,11 @@ void main() {
       });
     }
   });
+
+  test('a bedtime story for a child gets the stories shelf', () async {
+    final String a = await ask('whats a good bedtime story from islam for a 5 year old');
+    expect(a, contains('[GO:/stories]'));
+    expect(a, contains('Yunus'));
+    expect(HadiRouting.asksKidStory('tell me the story of Yunus'), isFalse);
+  });
 }
