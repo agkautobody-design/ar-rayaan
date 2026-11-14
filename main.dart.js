@@ -86224,7 +86224,7 @@ $S:0}
 A.akS.prototype={
 aO(a,b){var s,r=null,q=t.p,p=A.a([A.c("FOR PARENTS AND GUARDIANS",r,r,r,r,r,r,B.r,r,r,r),B.p],q)
 if(b.C($.crb(),t.y))B.c.v(p,A.a([A.c("It locked again after a few quiet minutes.",B.chf,r,r,r,r,r,B.n.Y(B.v),r,r,r),B.E],q))
-s=A.d_A(b)?"Please enter your parent PIN to continue.":"You will choose a PIN of 4 to 6 digits first. Only a grown-up should do this."
+s=A.d_A(b)?"Please enter your parent PIN to continue.":"Only a grown-up should open it. You can turn on a PIN inside."
 p.push(A.c("This area holds your children\u2019s profiles and progress. "+s,r,r,r,r,r,r,B.f.aZ(1.5),r,r,r))
 p.push(B.O)
 p.push(A.c("Inside: add a child (a first name or nickname), follow their Arabic-letter lessons and exams, set reminders, and choose whether an AI service may be used for them. It is not about marriage or family life in general. Names stay on this device.",B.ccN,r,r,r,r,r,B.f.aZ(1.5),r,r,r))
