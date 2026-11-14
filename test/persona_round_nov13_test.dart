@@ -5,6 +5,7 @@ import 'package:ar_rayaan/app/core/region/device_time_zone.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_prophets.dart';
+import 'package:ar_rayaan/features/hadi/grounding/minor_signal.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/sakina/domain/sakina_content.dart';
@@ -267,5 +268,29 @@ void main() {
       expect(a, contains('Qur\'an'));
       expect(a, contains('[GO:/academy/aqeedah]'));
     });
+  });
+
+  group('round 3 (100 personas)', () {
+    test('a parent asking for a child is not a child', () {
+      expect(MinorSignal.isMinor('whats a good bedtime story from islam for a 5 year old'), isFalse);
+      expect(MinorSignal.isMinor('tips for teaching a 7 year old to pray'), isFalse);
+      expect(MinorSignal.isMinor('I am 15 years old and want to learn'), isTrue);
+      expect(MinorSignal.isMinor("I'm a 14 year old and need help"), isTrue);
+    });
+
+    for (final (String q, String needle) in <(String, String)>[
+      ('what is khushu and how do i get it', 'Qur\'an 23:2'),
+      ('how do i pray when travelling', 'shortening the prayer'),
+      ('can i pray at work if there is no prayer room', 'Sahih al-Bukhari 335'),
+      ('i want to stop being angry', 'Sahih al-Bukhari 6114'),
+      ('does islam oppress women', 'Qur\'an 33:35'),
+      ('is the quran the same today as it was revealed', 'Qur\'an 15:9'),
+      ('how to become a better muslim', 'Sahih al-Bukhari 6464'),
+      ('i get intrusive thoughts about god', 'Sahih Muslim 132'),
+    ]) {
+      test('shelf answer for: $q', () async {
+        expect(await ask(q), contains(needle));
+      });
+    }
   });
 }

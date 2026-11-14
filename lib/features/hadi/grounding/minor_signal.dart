@@ -182,6 +182,12 @@ abstract final class MinorSignal {
   );
 
   /// True when the "N years old" at [m] is said about someone else.
+  static final RegExp _onBehalfOfAChild = RegExp(
+    r"\b(?:for|with|to|teach(?:ing)?|raising|raise|about|suitable\s+for|"
+    r"appropriate\s+for|good\s+for)\s+(?:a|an|the)\s*$",
+    caseSensitive: false,
+  );
+
   static bool _aboutSomeoneElse(String text, RegExpMatch m) {
     final String before = text.substring(0, m.start);
     final RegExpMatch? poss = _possessiveBefore.firstMatch(before);
@@ -191,6 +197,12 @@ abstract final class MinorSignal {
       return true;
     }
     if (_articleAfterVerb.hasMatch(before)) return true;
+    // "a bedtime story for a 5 year old", "tips for teaching a 7 year old":
+    // someone is asking on behalf of a child, not saying their own age.
+    if (_onBehalfOfAChild.hasMatch(before) &&
+        !RegExp(r'\blike\s+me\b').hasMatch(text)) {
+      return true;
+    }
     if (_sentenceStartArticle.hasMatch(before) &&
         _thirdPersonVerb.hasMatch(text.substring(m.end))) {
       return true;
