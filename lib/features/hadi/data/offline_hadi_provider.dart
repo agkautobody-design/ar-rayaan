@@ -3062,6 +3062,15 @@ const List<_Entry> _knowledge = <_Entry>[
     'Do not argue with the thought or try to prove yourself; let it pass, seek refuge in Allah and carry on with what you were doing. If the thoughts or checking repeat for weeks (for example doing wudu or prayer again and again), it can be a health condition that treats well: please speak to a doctor or counsellor as well as a scholar who understands this. You are not alone.\n[GO:/feelings]',
   ),
   _Entry(
+    <String>['bedtime story for kids', 'bedtime story for a child', 'bedtime story from islam', 'islamic stories for kids', 'islamic story for children', 'story for my child', 'stories for my kids', 'story for a 5 year old', 'story to tell my children'],
+    'The app has children\'s stories from the Qur\'an that are gentle enough '
+    'for bedtime, and you can read them aloud: Prophet Yunus and the whale, '
+    'Nuh and the ark, Ibrahim and the stars, Yusuf and his brothers, and '
+    'Musa as a baby in the river. Start with a short one, and let your child '
+    'ask questions. The Kids\' Corner has more, made for children to use '
+    'with you.\n[GO:/stories]\n[GO:/kids]',
+  ),
+  _Entry(
     <String>['god exists', 'does god exist', 'believe in god', 'prove god', 'proof of god', 'existence of god', 'is there a god', 'why believe in god', 'why believe god exists'],
     'This is the Qur\'an\'s own line of reasoning, not a full philosophical '
     'case. It does not argue from a chain of premises; it points you to '
