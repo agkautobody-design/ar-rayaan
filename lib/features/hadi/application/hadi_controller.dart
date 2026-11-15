@@ -872,6 +872,7 @@ class HadiController extends Notifier<HadiState> {
     if (_lastSupportTopic == null || state.messages.isEmpty) return false;
     final HadiMessage last = state.messages.last;
     if (!last.fromHadi || last.support == null) return false;
+    if (DistressSignal.asksToLearn(q)) return false;
     return EmotionIntentDetector.detect(q).intent != SupportIntent.askInfo;
   }
 
