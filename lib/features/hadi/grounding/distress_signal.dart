@@ -221,7 +221,31 @@ abstract final class DistressSignal {
     return n.startsWith('tell me ') ||
         n.startsWith('tell us ') ||
         n.startsWith('teach me ') ||
-        n.startsWith('explain ');
+        n.startsWith('explain ') ||
+        asksFreshQuestion(n);
+  }
+
+  static final RegExp _questionFrame = RegExp(
+    r'^(?:can|could|may|is|are|does|do|did|how|what|why|when|where|who|which|should|will) ',
+  );
+  static final RegExp _aboutTheReligion = RegExp(
+    r'\b(?:what|how|why|can|is|does|do|are) (?:do |does |is |are |can |did )?(?:we|muslims|islam|the quran|the prophet|allah)\b',
+  );
+  static final RegExp _aboutTheirFeelings = RegExp(
+    r'\b(?:i|me|my|myself)\b.*\b(?:feel|feeling|felt|cope|coping|stop|deal|handle|get through|get over|cry|crying|sad|hurt|hurts|lost|alone|tired|scared|afraid|anxious|ashamed|angry|guilty|worthless|hopeless|empty|numb|miss|missing)\b|^(?:what|how) (?:can|do|should) i do\b|^why (?:do|am|did) i\b|^(?:will|does) it (?:get|ever)\b',
+  );
+
+  /// A fresh factual question in the middle of a listening conversation
+  /// ("can I fast with diabetes", "what do we share with Christians"): the
+  /// checked shelf answers it, it is not another listening turn. A question
+  /// about the person's own feelings ("how do I cope", "why do I feel
+  /// empty") stays in the conversation.
+  static bool asksFreshQuestion(String normalized) {
+    final List<String> words = normalized.split(' ');
+    if (words.length < 4) return false;
+    if (_aboutTheirFeelings.hasMatch(normalized)) return false;
+    return _questionFrame.hasMatch(normalized) ||
+        _aboutTheReligion.hasMatch(normalized);
   }
 
   static bool asksForContent(String text) {

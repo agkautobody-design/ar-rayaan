@@ -753,7 +753,7 @@
 ],
 "expect": [
 {
-"core": "crypto-stocks-insurance",
+"core": "crypto-halal",
 "refusal": false
 }
 ]
@@ -1787,7 +1787,7 @@
 ],
 "expect": [
 {
-"core": "crypto-stocks-insurance",
+"core": "crypto-halal",
 "refusal": false
 }
 ]
@@ -2296,7 +2296,7 @@
 ],
 "expect": [
 {
-"core": "crypto-stocks-insurance",
+"core": "crypto-halal",
 "refusal": false
 }
 ]

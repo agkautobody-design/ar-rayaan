@@ -57,24 +57,62 @@ class HandoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HandoutData? d = data;
+    if (d == null) {
+      // Reached with nothing to print (a bookmark or a typed address): show
+      // the app's own look with a way out, not a blank paper page.
+      return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            key: const Key('handout-home'),
+            tooltip: 'Back to home',
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () =>
+                Navigator.of(context).canPop() ? Navigator.of(context).pop() : context.go('/home'),
+          ),
+          title: const Text('Handout'),
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const Text(
+                  'Nothing to print here yet. Open a story or a lesson and '
+                  'tap “Make a handout”.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, height: 1.5),
+                ),
+                const SizedBox(height: 16),
+                FilledButton(
+                  key: const Key('handout-stories'),
+                  style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+                  onPressed: () => context.go('/stories'),
+                  child: const Text('Open Stories'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
+        leading: Navigator.of(context).canPop()
+            ? null
+            : IconButton(
+                key: const Key('handout-home'),
+                tooltip: 'Back to home',
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => context.go('/home'),
+              ),
         title: const Text('Handout'),
       ),
-      body: d == null
-          ? const Padding(
-              padding: EdgeInsets.all(24),
-              child: Text(
-                'Nothing to print here yet. Open a story or a lesson and tap '
-                '“Make a handout”.',
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              ),
-            )
-          : _Page(data: d),
+      body: _Page(data: d),
     );
   }
 }

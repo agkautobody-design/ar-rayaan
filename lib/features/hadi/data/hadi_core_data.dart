@@ -3,6 +3,165 @@
 import 'hadi_core.dart';
 
 const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
+  // ── Persona-test fixes (14 Nov 2026) ─────────────────────────────────
+  CoreEntry(
+    id: 'who-made-allah',
+    patterns: <String>[
+      r'\bwho (?:made|created|born|bore) (?:allah|god)\b',
+      r'\bwho (?:is|was) (?:allah|god)s? (?:creator|maker|father|mother)\b',
+      r'\bwho (?:was|came) before (?:allah|god)\b',
+      r'\bwhere did (?:allah|god) come from\b',
+      r'\bdoes (?:allah|god) have (?:a |any )?(?:mother|father|parents?|beginning|creator)\b',
+    ],
+    answer: 'That is a very good question, and the answer is: nobody made Allah. Everything else was created, but Allah has no beginning and no end. He is "the First and the Last" (Qur\'an 57:3), and Surah al-Ikhlas says "He neither begets nor is born" (Qur\'an 112:3), "Nor is there to Him any equivalent" (112:4). Allah is the Creator of everything (Qur\'an 39:62), so the One who creates is not something created.\n\nThe Prophet ﷺ taught that if a thought comes asking "who created Allah?", we should say "I believe in Allah", seek refuge in Him and stop thinking about it (Sahih al-Bukhari 3276, Sahih Muslim 134). It is fine to wonder; and you can always ask a parent or teacher.\n\nSource: Qur\'an 57:3, 112:1-4, 39:62; Sahih al-Bukhari 3276.\n[GO:/kids]',
+    topic: 'allah',
+    beforeGate: true,
+    reviewNote: 'Standard aqeedah answer, child-readable; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'see-allah',
+    patterns: <String>[
+      r'\bwhy (?:cant|cannot|can not|dont|do not) (?:i|we) see allah\b',
+      r'\bcan (?:i|we|humans?|people) see allah\b',
+      r'\bwhat does allah look like\b',
+      r'\bhow (?:does|do) allah look\b',
+      r'\bwill (?:i|we) see allah\b',
+    ],
+    answer: 'In this life nobody can see Allah. He says "Vision perceives Him not, but He perceives [all] vision" (Qur\'an 6:103), and "There is nothing like unto Him" (Qur\'an 42:11), so we cannot picture Him, and we should not try. We know Him by what He has made and by what He has told us about Himself.\n\nThe Qur\'an says that on that Day some faces will be radiant, "Looking at their Lord" (Qur\'an 75:22-23), and the Prophet ﷺ explained that believers will see Him in Paradise as clearly as the full moon. That is the greatest gift of Jannah.\n\nSource: Qur\'an 6:103, 42:11, 75:22-23.\n[GO:/kids]',
+    topic: 'allah',
+    beforeGate: true,
+    reviewNote: 'Standard aqeedah answer; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'why-we-pray',
+    patterns: <String>[
+      r'\bwhy do (?:we|muslims|i) (?:have to |need to |must )?(?:pray|do salah|do salat|do prayer)\b',
+      r'\bwhy (?:is|are) (?:the )?(?:prayer|salah|salat|prayers) (?:important|obligatory|necessary|a pillar)\b',
+      r'\bwhy (?:should|must|do) (?:i|we) (?:pray|do salah)\b',
+      r'\b(?:purpose|point|reason|benefit|benefits|wisdom) (?:of|for|behind) (?:the |daily )?(?:prayer|prayers|salah|salat)\b',
+    ],
+    avoid: <String>[r'\b(?:five|5) times\b'],
+    answer: 'We pray because Allah asked us to, and because it is how we stay close to Him. He told Musa, "establish prayer for My remembrance" (Qur\'an 20:14). Prayer is also a gift to us:\n- It is a daily meeting with Allah, five times a day, to say thank you and ask for help (Qur\'an 2:153).\n- It keeps us away from wrong: "Indeed, prayer prohibits immorality and wrongdoing" (Qur\'an 29:45).\n- It sets the rhythm of the day and gives the heart rest.\n\nIt is the second pillar of Islam and the first thing we are asked about on the Day of Judgement (Sunan an-Nasa\'i 465, sahih per al-Albani).\n\nSource: Qur\'an 20:14, 2:153, 29:45; Sunan an-Nasa\'i 465.\n[GO:/kids]',
+    topic: 'prayer',
+    beforeGate: true,
+    reviewNote: 'Wisdom of prayer from the Qur\'an; scholar to confirm hadith grade.',
+  ),
+  CoreEntry(
+    id: 'pets-afterlife',
+    patterns: <String>[
+      r'\b(?:pets?|cats?|dogs?|animals?|puppy|kitten|horse|bird)\b.*\b(?:heaven|jannah|paradise|afterlife|hereafter)\b',
+      r'\b(?:heaven|jannah|paradise|afterlife|hereafter)\b.*\b(?:pets?|cats?|dogs?|animals?)\b',
+      r'\bdo (?:pets?|animals) (?:go|die)\b',
+    ],
+    answer: 'No sound text says whether pets enter Paradise, so nobody can promise it, and I will not guess. What we do know: the Qur\'an says animals are communities like ours and that they too will be gathered to their Lord (Qur\'an 6:38). The Prophet ﷺ said that on the Day of Judgement every right will be returned to its owner, even the hornless sheep will be given its due from the horned sheep (Sahih Muslim 2582). Allah is perfectly just and merciful, and He is the One who made the love you feel for your pet.\n\nGrief over a pet is real, and kindness to animals is rewarded (Sahih al-Bukhari 2363).\n\nSource: Qur\'an 6:38; Sahih Muslim 2582; Sahih al-Bukhari 2363.\n[GO:/kids]',
+    topic: 'pets',
+    beforeGate: true,
+    reviewNote: 'Silence of the text; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'fear-dark-nightmare',
+    patterns: <String>[
+      r'\b(?:scared|afraid|fear\w*|frightened|terrified)\b.*\b(?:dark|night|nightmares?|monsters?|sleep\w*|alone in (?:my |his |her )?room)\b',
+    ],
+    answer: 'You are safe, and Allah is always with you. Here is what the Prophet ﷺ taught for night fears:\n- Before sleep, cup your hands, blow into them lightly and recite Surah al-Ikhlas, al-Falaq and an-Nas, then wipe over your body (Sahih al-Bukhari 5017).\n- Recite Ayat al-Kursi (Qur\'an 2:255): a protector from Allah stays with you through the night (Sahih al-Bukhari 2311).\n- After a bad dream: spit lightly three times to your left, seek refuge in Allah from Shaytan and the evil of the dream, turn to your other side, and do not tell anyone; it will not harm you (Sahih Muslim 2261).\n\nFor a young child, say it together and keep a small light on if it helps. A bad dream is not a sign of anything.\n\nSource: Sahih al-Bukhari 5017, 2311; Sahih Muslim 2261.\n[GO:/adhkar]',
+    topic: 'fear',
+    beforeGate: true,
+    reviewNote: 'Night-fear adhkar; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'prayer-time-now',
+    patterns: <String>[
+      r'\bwhat time (?:is|does|do|will) (?:the )?(?:fajr|dhuhr|zuhr|asr|maghrib|isha|sunrise|iftar|suhoor)\b',
+      r'\bwhen (?:is|does|do|will) (?:the )?(?:fajr|dhuhr|zuhr|asr|maghrib|isha|iftar|suhoor)\b.*\b(?:today|tonight|tomorrow|now)\b',
+      r'\b(?:fajr|dhuhr|zuhr|asr|maghrib|isha|iftar|suhoor) (?:time )?(?:today|tonight|tomorrow)\b',
+    ],
+    answer: 'The time changes with your place and the date, so I will not guess one. The Prayer Times screen works out today\'s times on your device from your location, and can remind you before each prayer.\n\nThe window, in short: Fajr starts at true dawn and ends at sunrise; Dhuhr starts after the sun passes its highest point; Asr in the afternoon; Maghrib at sunset; Isha when the red twilight has gone.\n[GO:/prayer]',
+    topic: 'prayer times',
+    beforeGate: true,
+  ),
+  CoreEntry(
+    id: 'play-nasheed',
+    patterns: <String>[
+      r'\b(?:play|sing|put on|open|find|show) (?:me )?(?:a |an |some |the )?(?:nasheeds?|anasheed|naat|qasida)\b',
+      r'\bsing (?:me )?(?:something|a song)\b',
+    ],
+    answer: 'I cannot sing or play sound myself, but the Player has nasheeds and Qur\'an recitation you can open now.\n[GO:/player]',
+    topic: 'nasheed',
+    beforeGate: true,
+  ),
+  CoreEntry(
+    id: 'what-can-muslims-eat',
+    patterns: <String>[
+      r'\bwhat (?:should|can|do|could) (?:i|we|muslims) (?:eat|not eat)\b',
+      r'\bwhat (?:food|foods) (?:is|are) (?:halal|allowed|permitted|haram)\b',
+      r'\bwhat (?:is|are) (?:halal|haram) (?:food|foods)\b',
+      r'\bwhat can muslims eat\b',
+    ],
+    answer: 'Allah says "O mankind, eat from whatever is on earth [that is] lawful and good" (Qur\'an 2:168). The rule is that food is halal unless the text forbids it. The forbidden foods are named in the Qur\'an (5:3): carrion (an animal that died by itself), flowing blood, pork, and what was slaughtered in the name of other than Allah. Alcohol and intoxicants are forbidden too (Qur\'an 5:90).\n\nIn practice:\n- Fruit, vegetables, grains, milk, eggs, honey and fish or seafood are fine (seafood: Qur\'an 5:96; the schools differ on some kinds).\n- Meat and poultry must be halal, slaughtered in Allah\'s name; many Muslims buy only from halal sellers.\n- Check labels for gelatin, alcohol-based flavourings, and animal rennet or fat from a non-halal source.\n\nThe Halal Food tab on the Masajid screen helps you find halal places near you.\n\nSource: Qur\'an 2:168, 5:3, 5:90, 5:96.\n[GO:/masajid]',
+    topic: 'food',
+    beforeGate: true,
+    reviewNote: 'Standard summary of food rulings; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'work-at-bank',
+    patterns: <String>[
+      r'\b(?:work|working|job|jobs|career|employed|employment|apply)\b.*\b(?:bank|banks|banking|mortgage broker|casino|brewery|liquor store)\b',
+      r'\b(?:bank|banks|banking)\b.*\b(?:job|jobs|work|working|career|employee)\b',
+    ],
+    answer: 'It depends on the job, and scholars differ. Interest (riba) is forbidden, and the Prophet ﷺ cursed the one who takes it, the one who pays it, the one who writes it down and the two who witness it (Sahih Muslim 1598). So most scholars say a role that directly makes or records interest contracts (loan officer, mortgage or credit-card sales, writing the interest records) is not allowed. For work that is further from it, such as cleaning, security or general IT, some scholars allow it out of need while looking for something better, and others advise against any job in a conventional bank.\n\nThere are halal routes: Islamic banks, and other work in finance or technology. Allah promises "whoever fears Allah - He will make for him a way out" (Qur\'an 65:2) and "will provide for him from where he does not expect" (Qur\'an 65:3). For your own job offer, ask a scholar you trust with the exact duties.\n\nSource: Sahih Muslim 1598; Qur\'an 2:275, 65:2-3.\n[GO:/zakat]',
+    topic: 'bank',
+    beforeGate: true,
+    reviewNote: 'Scholars differ on indirect roles; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'keep-old-friends',
+    patterns: <String>[
+      r'\b(?:can|should|must|do) (?:i|we)\b.*\b(?:keep|stay|see|stop|lose|leave)\b.*\b(?:old |non muslim |my )?friends?\b',
+      r'\bnon muslim friends?\b',
+      r'\bfriends? (?:who|that) (?:are not|arent|are non) muslim\b',
+    ],
+    avoid: <String>[r'\b(?:marry|marriage|date|dating|boyfriend|girlfriend)\b'],
+    answer: 'You do not have to lose your friends. Allah does not forbid kindness and fairness to people who are not at war with you: "being righteous toward them and acting justly toward them" (Qur\'an 60:8), toward those who do not fight you because of religion. Even with parents who disagree, we are told to keep good company in this world (Qur\'an 31:15).\n\nTwo things to think about: the Prophet ﷺ said a person follows the way of his close friend, so look at who you spend most time with (reported by Abu Dawud and at-Tirmidhi, graded hasan by al-Albani); and be gently open about what you no longer join, such as drinking. Good friends respect that, and some will respect you more for it. You can also find new friends who share your path, at the mosque or in a new-Muslim group.\n\nSource: Qur\'an 60:8, 31:15.\n[GO:/new-muslim]',
+    topic: 'friends',
+    beforeGate: true,
+    reviewNote: 'Guidance for converts; scholar to confirm.',
+  ),
+  CoreEntry(
+    id: 'lost-job',
+    patterns: <String>[
+      r'\b(?:i|we) (?:lost|just lost) (?:my|our) (?:job|work|income)\b',
+      r'\b(?:i|we) (?:was|were|got|been) (?:fired|laid off|made redundant|let go)\b',
+      r'\b(?:i am|im|i was) (?:unemployed|jobless|out of work)\b',
+      r'\b(?:cant|cannot|can not) (?:find|get) (?:a )?(?:job|work)\b',
+    ],
+    answer: 'I am sorry; losing a job is hard, and it is natural to feel worried. A few things from the Qur\'an and Sunnah:\n- Provision is in Allah\'s hands, and He promises "whoever fears Allah - He will make for him a way out" (Qur\'an 65:2) and "will provide for him from where he does not expect" (Qur\'an 65:3).\n- Trust in Allah comes with taking the means: the Prophet ﷺ told a man to tie his camel and then trust in Allah (Jami\' at-Tirmidhi 2517, hasan per Darussalam). So apply, ask people you know, and keep going.\n- Allah does not burden a soul beyond its capacity (Qur\'an 2:286).\n\nA du\'a for this time: "Hasbunallahu wa ni\'mal wakeel" (Allah is sufficient for us, and He is the best disposer of affairs, Qur\'an 3:173). If money is tight, your local mosque or community may have help, and you are allowed to ask for it. Talk to someone you trust; you do not have to carry this alone.\n\nSource: Qur\'an 65:2-3, 2:286, 3:173; Jami\' at-Tirmidhi 2517, hasan per Darussalam.\n[GO:/academy/dua]',
+    topic: 'job loss',
+    beforeGate: true,
+    reviewNote: 'Comfort and means; scholar to confirm hadith grade.',
+  ),
+  CoreEntry(
+    id: 'bullying',
+    patterns: <String>[
+      r'\b(?:bully|bullies|bullied|bullying)\b',
+      r'\b(?:someone|kids?|they|he|she) (?:is |are )?(?:being )?(?:mean|hurting|hitting|picking on|teasing) (?:to )?(?:me|my)\b',
+    ],
+    answer: 'I am sorry this is happening to you. It is not your fault, and you do not have to put up with it alone.\n- Tell a grown-up you trust today: a parent, a teacher, or someone at your mosque. Telling is not tattling; it keeps you safe.\n- Stay near friends or a teacher when you can, and walk away from the person if it is safe to.\n- If someone is hurting you or you are in danger, get to a safe place and tell an adult straight away.\n\nIslam teaches that no one has the right to hurt you: "a Muslim is the one from whose tongue and hand people are safe" (Sahih al-Bukhari 10). You are loved, and Allah sees everything. When things were hard, the Prophet Ibrahim and the Prophet Muhammad ﷺ said "Hasbunallahu wa ni\'mal wakeel" (Allah is enough for us, and He is the best protector; Sahih al-Bukhari 4563). You can say it too.\n\nIf you are a parent reading this: please take it seriously, speak to the school, and listen without judging.\n\nSource: Sahih al-Bukhari 10, 4563.\n[GO:/support]',
+    topic: 'bullying',
+    beforeGate: true,
+    reviewNote: 'Child-safe wording; scholar and child-safety reviewer to confirm.',
+  ),
+  CoreEntry(
+    id: 'teen-stopped-praying',
+    patterns: <String>[
+      r'\b(?:my|our) (?:teen\w*|son|daughter|kids?|children|child|boy|girl)\b.*\b(?:stopped|stop|quit|left|wont|will not|refuses?|refused|doesnt|does not|not) (?:to )?(?:pray|praying|prayer|salah|salat|fast|fasting|islam)\b',
+      r'\b(?:teen\w*|son|daughter|kids?|children|child)\b.*\bnot (?:interested in )?(?:islam|praying|religion)\b',
+    ],
+    answer: 'This is one of the hardest things for a parent, and many families go through it. A few things that help:\n- Stay close. Ask gently what changed, and listen first. Shame, lectures and ultimatums usually push a teenager further away.\n- Lead by example and keep the home warm; Allah says "enjoin prayer upon your family and be steadfast therein" (Qur\'an 20:132). That is patience over years, not one conversation.\n- The Prophet ﷺ taught to ask children to pray at seven and to be firmer at ten (Sunan Abu Dawud 495, hasan sahih per al-Albani); for an older teen the way is love, example and good company, not force.\n- Make du\'a for them, as the prophets did: "Our Lord, grant us from among our wives and offspring comfort to our eyes" (Qur\'an 25:74).\n- Find a mentor they respect, such as a young imam, an older cousin or a youth group. Teens often listen to someone who is not their parent.\n\nSource: Qur\'an 20:132, 25:74; Sunan Abu Dawud 495, hasan sahih per al-Albani.\n[GO:/support]',
+    topic: 'teen',
+    beforeGate: true,
+    reviewNote: 'Parenting guidance; scholar to confirm hadith grade.',
+  ),
+
   CoreEntry(
     id: 'app-free-cost',
     patterns: <String>[
@@ -312,6 +471,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
       r'\bdo i (?:have to|need to|must|really need to) (?:pray|recite|say|read|learn).*\barabic\b',
       r'\bcan i (?:pray|recite|say|read) .*\b(?:own language|my language|translation)\b',
       r'\bpray without (?:knowing|learning|memori\w+|speaking|understanding) arabic\b',
+      r'\b(?:pray|prayer|dua|recite|read)\b.*\b(?:mein|me|main) (?:urdu|hindi|punjabi|pashto|gujarati|bangla|bengali|tamil|apni zuban)\b',
       r'\barabic (?:required|necessary|needed|mandatory|compulsory) (?:for|in) (?:the )?prayers?\b',
       r'\bi (?:dont|do not|cant|cannot) (?:speak|know|read) arabic\b.*\bpray\b',
       r'\bis it (?:okay|ok|allowed|permissible|valid) to pray in (?:english|another language|my language)\b',
@@ -1744,19 +1904,34 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     reviewNote: 'The scholars\' disagreement on conventional mortgages for Muslims in the West is described neutrally; flagged for scholar review.',
   ),
   CoreEntry(
-    id: 'crypto-stocks-insurance',
+    id: 'crypto-halal',
     patterns: <String>[
       r'\b(?:bitcoin|btc|ethereum|eth|crypto\w*|altcoin\w*|nft\w*|dogecoin|token\w*)\b',
+    ],
+    answer: 'Bitcoin and other crypto: scholars disagree. Some say it is permitted as a commodity or digital asset, subject to the usual rules (no fraud, no interest, no gambling-style speculation). Others say it is not allowed because it has no real backing, is highly uncertain (gharar), and is mostly used for speculation. Because of this real difference, please ask a scholar you trust before you buy; do not buy something you do not understand.\n\nEverything here is general, and these are areas where scholarly opinions differ. Check with a qualified scholar or an Islamic finance advisor for your own money. The Zakat guide in this app walks the pillar that keeps wealth clean.\n[GO:/zakat]',
+    topic: 'crypto',
+    beforeGate: true,
+  ),
+  CoreEntry(
+    id: 'stocks-halal',
+    patterns: <String>[
       r'\b(?:stock|stocks|share|shares|equities|investing|investment|investments|day trading|forex|trading|options trading|etf|etfs|mutual funds?|index funds?|dividends?)\b.*\b(?:halal|haram|allowed|permissible|islam\w*|sharia|shariah|forbidden)\b',
       r'\b(?:halal|haram|allowed|permissible|islam\w*|sharia|shariah|forbidden)\b.*\b(?:stock|stocks|share|shares|equities|investing|investment|investments|day trading|forex|trading|options|etf|etfs|mutual funds?|index funds?|dividends?)\b',
-      r'\b(?:insurance|takaful)\b',
       r'\bshort ?selling\b',
       r'\bmargin\b.*\btrading\b',
     ],
-    answer: 'Bitcoin and other crypto: scholars disagree. Some say it is permitted as a commodity or digital asset, subject to the usual rules (no fraud, no interest, no gambling-style speculation). Others say it is not allowed because it has no real backing, is highly uncertain (gharar), and is mostly used for speculation. Because of this real difference, please ask a scholar you trust before you buy; do not buy something you do not understand.\n\nStocks and shares: owning a share in a real business is generally permitted by most contemporary scholars, if the business itself is halal (not alcohol, pork, gambling, interest-based banking, adult entertainment) and the share is not mostly debt-funded or interest-earning. Many halal screening services and Islamic funds exist for this. Day trading, margin trading, short selling, and options are widely seen as speculative or involving interest, and many scholars forbid them.\n\nInsurance: conventional insurance has uncertainty and an element of gambling, and many scholars forbid it, while allowing what the law requires (such as car insurance) because of need. Takaful (cooperative insurance) is the Islamic alternative.\n\nEverything here is general, and these are areas where scholarly opinions differ. Check with a qualified scholar or an Islamic finance advisor for your own money. The Zakat guide in this app walks the pillar that keeps wealth clean.\n[GO:/zakat]',
-    topic: 'investing',
+    answer: 'Stocks and shares: owning a share in a real business is generally permitted by most contemporary scholars, if the business itself is halal (not alcohol, pork, gambling, interest-based banking, adult entertainment) and the share is not mostly debt-funded or interest-earning. Many halal screening services and Islamic funds exist for this. Day trading, margin trading, short selling, and options are widely seen as speculative or involving interest, and many scholars forbid them.\n\nEverything here is general, and these are areas where scholarly opinions differ. Check with a qualified scholar or an Islamic finance advisor for your own money. The Zakat guide in this app walks the pillar that keeps wealth clean.\n[GO:/zakat]',
+    topic: 'stocks',
     beforeGate: true,
-    reviewNote: 'Crypto, stock screening, trading and insurance are contested contemporary issues and are described neutrally; flagged for scholar review.',
+  ),
+  CoreEntry(
+    id: 'insurance-halal',
+    patterns: <String>[
+      r'\b(?:insurance|takaful)\b',
+    ],
+    answer: 'Insurance: conventional insurance has uncertainty and an element of gambling, and many scholars forbid it, while allowing what the law requires (such as car insurance) because of need. Takaful (cooperative insurance) is the Islamic alternative.\n\nEverything here is general, and these are areas where scholarly opinions differ. Check with a qualified scholar or an Islamic finance advisor for your own money. The Zakat guide in this app walks the pillar that keeps wealth clean.\n[GO:/zakat]',
+    topic: 'insurance',
+    beforeGate: true,
   ),
   CoreEntry(
     id: 'gambling-lottery',
