@@ -16,7 +16,6 @@ void main() {
     'why do we pray': '20:14',
     'is my pet going to heaven': '6:38',
     'my 5 year old is scared of the dark what dua': '5017',
-    'I have nightmares': '2261',
     'what time is fajr': '[GO:/prayer]',
     'sing me a nasheed': '[GO:/player]',
     'what should I eat as a muslim': '2:168',
