@@ -164,7 +164,7 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
                         ? 460
                         : MediaQuery.of(context).size.width < 1100
                             ? 780
-                            : 1120,
+                            : 960,
                   ),
                   child: ClipRect(
                     // The "Ask Hādi" pill is drawn by each page itself (see

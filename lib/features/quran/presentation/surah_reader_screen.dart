@@ -714,7 +714,11 @@ class _ReaderToolbar extends ConsumerWidget {
     );
     // At large text the tools alone fill most of the screen and push the
     // verses down: fold them into one line the reader can open.
-    if (!isTightLayout(context)) return tools;
+    // A small phone (about 320 x 568) has the same problem: five wrapped
+    // rows of tools above the first verse.
+    final Size screen = MediaQuery.sizeOf(context);
+    final bool smallPhone = screen.width < 360 || screen.height < 600;
+    if (!isTightLayout(context) && !smallPhone) return tools;
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
