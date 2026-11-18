@@ -498,7 +498,7 @@ In the app, the Hadith section lets you read and search; every hadith Hadi quote
   review='General description; the six-book list is standard.')
 
 E('islam-overview',
-  m=[r'^tell me (?:something |a (?:bit|little) |more )?about islam$', r'^what is islam$', r'^explain islam$', r'^islam (?:overview|basics|101|for beginners)$', r'^teach me (?:about )?islam$'],
+  m=[r'^tell me (?:something |a (?:bit|little) |more )?about islam$', r'^islam (?:overview|basics|101|for beginners)$'],
   topic='an overview of Islam',
   go=['/new-muslim', '/academy'],
   text="""
