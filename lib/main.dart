@@ -111,6 +111,11 @@ Future<void> _start() async {
   // First-run gate: fresh installs walk the onboarding flow once.
   final bool showOnboarding = await OnboardingScreen.shouldShow();
 
+  // Flutter web draws to a canvas, so screen readers (and any tool that reads
+  // the page) see nothing unless the semantics tree is on. It is normally
+  // switched on only after a hidden button is activated; keep it on.
+  if (kIsWeb) SemanticsBinding.instance.ensureSemantics();
+
   runApp(
     ProviderScope(
       overrides: [

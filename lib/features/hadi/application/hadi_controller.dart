@@ -1253,6 +1253,26 @@ class HadiController extends Notifier<HadiState> {
         notes: labels,
       );
     }
+    if (FaithAndIdentity.detect(q)) {
+      final int prior = state.messages
+          .where((HadiMessage m) => m.fromHadi && m.sensitive)
+          .length;
+      return HadiMessage(
+        fromHadi: true,
+        text: FaithAndIdentity.build(prior),
+        sensitive: true,
+        helpScope: 'general',
+        notes: labels,
+      );
+    }
+    if (KillingQuestion.detect(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: KillingQuestion.reply,
+        sensitive: false,
+        notes: labels,
+      );
+    }
     if (AboutHadi.saysOnlyFriend(q)) {
       final String t = AboutHadi
           .onlyFriend[_aboutHadiCount++ % AboutHadi.onlyFriend.length];
