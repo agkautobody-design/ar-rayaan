@@ -1052,7 +1052,9 @@ class OfflineHadiProvider implements HadiProvider {
     // A question with several parts ("tell me about X, tell me about Y") is
     // answered part by part, so the second part is not silently dropped.
     final List<String> parts = HadiMultiPart.split(question);
-    if (parts.length >= 2 && CrisisDetector.detect(question) == null) {
+    if (parts.length >= 2 &&
+        CrisisDetector.detect(question) == null &&
+        !HadiGameAsk.isGameAsk(question)) {
       final List<String> got = <String>[];
       final List<String> missed = <String>[];
       final Set<String> seen = <String>{};

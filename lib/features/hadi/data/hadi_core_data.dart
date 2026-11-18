@@ -4406,7 +4406,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
       r'\bhow to memori[sz]e\b',
     ],
     avoid: <String>[
-      r'\b(?:quran|quran|hifz|surah|arabic)\b',
+      r'\b(?:quran|quran|hifz|surah|arabic|english|french|spanish|german|urdu|language|languages)\b',
     ],
     answer: 'General advice: study in short blocks with breaks, test yourself instead of rereading, sleep before an exam rather than cramming all night, and put the phone in another room.\n\nFrom Islam: the Qur\'an teaches a du\'a for more knowledge (Qur\'an 20:114), and asks whether those who know are equal to those who do not (Qur\'an 39:9). Ask Allah for ease before you start, then do the work: both are part of it.\n\nSource: Qur\'an 20:114, 39:9.\n[GO:/academy/hifz]',
     topic: 'studying',

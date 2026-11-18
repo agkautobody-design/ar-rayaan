@@ -70,7 +70,7 @@ From Islam: work done honestly is worship, and the Qur'an tells believers to spr
 
 E('everyday-study',
   m=[r'\bhow (?:to|do i|can i) (?:study|learn|revise|focus|concentrate)\b', r'\bstudy (?:tips|habits|routine|better)\b', r'\bexam (?:stress|tips|prep|preparation)\b', r'\bhow to memori[sz]e\b'],
-  x=[r'\b(?:quran|qur an|hifz|surah|arabic)\b'],
+  x=[r'\b(?:quran|qur an|hifz|surah|arabic|english|french|spanish|german|urdu|language|languages)\b'],
   topic='studying',
   go=['/academy/hifz'],
   text="""

@@ -17,6 +17,9 @@ abstract final class HadiMultiPart {
       r'i want to learn(?: about islam)?|i would like to learn(?: about islam)?|'
       r'please)\W*$',
       caseSensitive: false);
+  static final RegExp _modifier = RegExp(
+      r'\b(?:sources?|references?|evidence|proof|cite|citation|dalil)\b',
+      caseSensitive: false);
   static final RegExp _joiner =
       RegExp(r'^(?:and|also|then)\s+', caseSensitive: false);
 
@@ -26,7 +29,11 @@ abstract final class HadiMultiPart {
       String p = raw.trim().replaceAll(RegExp(r'[;?]+$'), '').trim();
       p = p.replaceFirst(_joiner, '').trim();
       if (p.isEmpty || _lead.hasMatch(p)) continue;
-      if (p.split(RegExp(r'\s+')).length < 3) continue;
+      final int words = p.split(RegExp(r'\s+')).length;
+      if (words < 3) continue;
+      // "Give me the source" modifies the question before it; it is not a
+      // second question.
+      if (words <= 6 && _modifier.hasMatch(p)) continue;
       out.add(p);
       if (out.length == 3) break;
     }
