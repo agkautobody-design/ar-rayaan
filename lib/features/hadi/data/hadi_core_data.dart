@@ -4296,4 +4296,20 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     beforeGate: true,
     reviewNote: 'Surah details checked; the remark on the grading of the virtue reports is the common scholarly position and needs a scholar to confirm the wording.',
   ),
+  CoreEntry(
+    id: 'months-shaban',
+    patterns: <String>[
+      r'\bwhat is (?:the )?(?:islamic )?(?:month of )?sha ?ban\b',
+      r'\bsha ?ban (?:month|meaning|fasting)\b',
+      r'\bnight of bara ?at\b',
+      r'\bshab[\- ]?e[\- ]?bara ?at\b',
+      r'\b15th (?:of )?sha ?ban\b',
+      r'\bnisf sha ?ban\b',
+      r'\bmid ?sha ?ban\b',
+    ],
+    answer: 'Sha\'ban is the month before Ramadan. The Prophet ﷺ fasted more in it than in any other month except Ramadan (Sahih al-Bukhari 1969).\n\nThe 15th night of Sha\'ban, called the Night of Bara\'at in South Asia, is where scholars differ. Some hold that reports about it strengthen each other and that praying and asking forgiveness that night is fine as a private act. Many others hold that the reports are weak, that no special prayer or gathering is established, and that fixing a ritual for it is an innovation. If you want to be safe, fast as the Prophet ﷺ did in Sha\'ban and ask forgiveness at any time of the year, and ask a qualified scholar about the rest.\n\nSource: Sahih al-Bukhari 1969.\n[GO:/calendar]',
+    topic: 'Sha\'ban',
+    beforeGate: true,
+    reviewNote: 'The hadith is checked; the account of the scholarly difference over the 15th night is a summary and needs a scholar to confirm the wording.',
+  ),
 ];

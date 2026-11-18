@@ -240,7 +240,7 @@ No particular prayer or fast for Rajab is established in the authentic hadith, a
 """,
   review='Hadith and the sacred-month verse checked; the remarks on weak reports and on the date of the Isra are the common scholarly position and need a scholar to confirm the wording.')
 
-E('months-sha ?ban',
+E('months-shaban',
   m=[r'\bwhat is (?:the )?(?:islamic )?(?:month of )?sha ?ban\b', r'\bsha ?ban (?:month|meaning|fasting)\b', r'\bnight of bara ?at\b', r'\bshab[\- ]?e[\- ]?bara ?at\b', r'\b15th (?:of )?sha ?ban\b', r'\bnisf sha ?ban\b', r'\bmid ?sha ?ban\b'],
   topic='Sha\'ban',
   go=['/calendar'],
