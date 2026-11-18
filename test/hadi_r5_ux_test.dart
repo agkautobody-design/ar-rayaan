@@ -22,7 +22,6 @@ void main() {
     'what is the best laptop',
     'Who will win the football match?',
     'how to plan my weekend',
-    'time management tips',
   ];
 
   group('one plain scope reply for everything Hādi cannot answer', () {

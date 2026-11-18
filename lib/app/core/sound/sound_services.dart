@@ -9,6 +9,7 @@ import '../../../features/academy/application/recitation_player_provider.dart'
     show RecitationPlaybackState, recitationPlayerProvider;
 import '../../../features/academy/domain/recitation_audio.dart'
     show AyahRange, AyahRef, PlaybackEvent, RecitationPlanEngine;
+import 'voice_picker.dart';
 
 /// Sound in Ar-Rayaan (Founder directive: "the whole app needs to be
 /// communicative verbally"):
@@ -343,57 +344,64 @@ recitationServiceProvider =
 class SpeechService {
   FlutterTts? _tts;
   bool _busy = false;
-  bool _voiceTuned = false;
+  List<Map<dynamic, dynamic>>? _voices;
+  final Map<VoiceProfile, VoiceChoice> _choices =
+      <VoiceProfile, VoiceChoice>{};
 
-  /// Natural-sounding voices by platform (mobile-webview pitfall: the
-  /// default browser voice "sounds like a robot"). Best-effort: picks the
-  /// first available from the list, else any English voice.
-  static const List<String> _preferredVoices = <String>[
-    'Samantha', // iOS
-    'Google US English', // Android / Chrome
-    'Microsoft Aria', // Edge
-    'Karen',
-    'Daniel',
-  ];
-
-  Future<void> _tuneVoice() async {
-    if (_voiceTuned || _tts == null) return;
-    _voiceTuned = true;
+  Future<VoiceChoice> _choiceFor(VoiceProfile profile) async {
+    final VoiceChoice? known = _choices[profile];
+    if (known != null) return known;
     try {
-      final dynamic raw = await _tts!.getVoices;
-      final List<dynamic> voices = raw is List ? raw : <dynamic>[];
-      final List<Map<dynamic, dynamic>> english = voices
-          .whereType<Map<dynamic, dynamic>>()
-          .where((Map<dynamic, dynamic> v) =>
-              (v['locale'] ?? '').toString().startsWith('en'))
-          .toList();
-      Map<dynamic, dynamic>? chosen;
-      for (final String want in _preferredVoices) {
-        chosen = english.firstWhere(
-          (Map<dynamic, dynamic> v) =>
-              (v['name'] ?? '').toString().contains(want),
-          orElse: () => <dynamic, dynamic>{},
-        );
-        if (chosen.isNotEmpty) break;
-        chosen = null;
+      if (_voices == null) {
+        final dynamic raw = await _tts!.getVoices;
+        _voices = (raw is List ? raw : <dynamic>[])
+            .whereType<Map<dynamic, dynamic>>()
+            .toList();
       }
-      chosen ??= english.isNotEmpty ? english.first : null;
-      if (chosen != null) {
-        await _tts!.setVoice(<String, String>{
-          'name': chosen['name'].toString(),
-          'locale': chosen['locale'].toString(),
-        });
+    } catch (_) {
+      _voices = <Map<dynamic, dynamic>>[];
+    }
+    List<Map<dynamic, dynamic>> pool = _voices ?? <Map<dynamic, dynamic>>[];
+    VoiceChoice c = VoicePicker.choose(pool, profile);
+    if (profile == VoiceProfile.neutral) {
+      // Old behaviour: a natural default voice, not the robotic one.
+      const List<String> preferred = <String>[
+        'Samantha', 'Google US English', 'Microsoft Aria', 'Karen', 'Daniel',
+      ];
+      for (final String want in preferred) {
+        for (final Map<dynamic, dynamic> v in pool) {
+          if ((v['locale'] ?? '').toString().startsWith('en') &&
+              (v['name'] ?? '').toString().contains(want)) {
+            c = VoiceChoice(
+                name: v['name'].toString(),
+                locale: v['locale'].toString(),
+                pitch: 1.0,
+                rate: 0.48);
+            _choices[profile] = c;
+            return c;
+          }
+        }
       }
-    } catch (_) {}
+    }
+    _choices[profile] = c;
+    return c;
   }
 
-  Future<void> speak(String text) async {
+  Future<void> speak(String text,
+      {VoiceProfile profile = VoiceProfile.neutral}) async {
     if (text.trim().isEmpty) return;
     try {
       _tts ??= FlutterTts();
       await _tts!.setLanguage('en-US');
-      await _tts!.setSpeechRate(0.48);
-      await _tuneVoice();
+      final VoiceChoice c = await _choiceFor(profile);
+      if (c.name != null) {
+        await _tts!.setVoice(<String, String>{
+          'name': c.name!,
+          'locale': c.locale ?? 'en-US',
+        });
+      }
+      await _tts!.setSpeechRate(c.rate);
+      await _tts!.setPitch(c.pitch);
       if (_busy) await _tts!.stop();
       _busy = true;
       await _tts!.speak(text);

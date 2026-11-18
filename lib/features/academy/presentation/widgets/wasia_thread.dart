@@ -94,6 +94,7 @@ class _WasiaThreadState extends ConsumerState<WasiaThread> {
                                 .copyWith(fontSize: 13, height: 1.5))),
                     const SizedBox(width: 6),
                     SpeakButton(
+                      profile: VoiceProfile.wasia,
                       text: m.text,
                       size: 18,
                       minTapTarget: SpeakButton.minTarget,

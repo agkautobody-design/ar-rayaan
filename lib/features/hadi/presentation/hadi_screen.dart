@@ -1618,6 +1618,7 @@ class _Bubble extends ConsumerWidget {
                                 ),
                               ),
                               SpeakButton(
+                                profile: VoiceProfile.hadi,
                                 text: HadiMarkdown.plain(shown),
                                 minTapTarget: 48,
                                 semanticLabel: 'Read this reply aloud',

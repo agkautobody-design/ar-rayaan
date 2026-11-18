@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:flutter_tts/flutter_tts.dart';
 
+import '../../../app/core/sound/voice_picker.dart';
+
 /// Handles voice input (speech-to-text) and voice output (text-to-speech)
 /// for the Hadi conversation experience.
 ///
@@ -37,9 +39,24 @@ class HadiVoiceService {
 
   Future<void> _initTts() async {
     await _tts.setLanguage('en-US');
-    await _tts.setSpeechRate(0.45);
     await _tts.setVolume(1.0);
-    await _tts.setPitch(1.0);
+    VoiceChoice c = const VoiceChoice(pitch: 0.82, rate: 0.46);
+    try {
+      final dynamic raw = await _tts.getVoices;
+      c = VoicePicker.choose(
+          (raw is List ? raw : <dynamic>[])
+              .whereType<Map<dynamic, dynamic>>()
+              .toList(),
+          VoiceProfile.hadi);
+      if (c.name != null) {
+        await _tts.setVoice(<String, String>{
+          'name': c.name!,
+          'locale': c.locale ?? 'en-US',
+        });
+      }
+    } catch (_) {}
+    await _tts.setSpeechRate(c.rate);
+    await _tts.setPitch(c.pitch);
   }
 
   /// Start listening for voice input. Returns transcribed text when done.

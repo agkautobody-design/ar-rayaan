@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/sound/sound_services.dart';
 import '../app_colors.dart';
 import 'focus_safe_semantics.dart';
+import '../../core/sound/voice_picker.dart';
+export '../../core/sound/voice_picker.dart' show VoiceProfile;
 
 /// Small gold speaker button that reads English text aloud via the device
 /// voice — the app's "verbally communicative" layer (NOOR, Hādi, du'as).
@@ -18,8 +20,11 @@ class SpeakButton extends ConsumerWidget {
     this.minTapTarget = 0,
     this.semanticLabel = 'Read aloud',
     super.key,
+    this.profile = VoiceProfile.neutral,
   });
 
+  /// Whose voice reads this: Hādi (a man), Wasia (a gentle woman) or neutral.
+  final VoiceProfile profile;
   final String text;
   final double size;
   final double minTapTarget;
@@ -30,7 +35,7 @@ class SpeakButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void speak() => ref.read(speechServiceProvider).speak(text);
+    void speak() => ref.read(speechServiceProvider).speak(text, profile: profile);
     final Widget circle = Container(
       width: size,
       height: size,

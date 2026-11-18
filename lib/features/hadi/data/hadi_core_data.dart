@@ -4312,4 +4312,173 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     beforeGate: true,
     reviewNote: 'The hadith is checked; the account of the scholarly difference over the 15th night is a summary and needs a scholar to confirm the wording.',
   ),
+  // ── Everyday life (18 Nov 2026), from tool/hadi_core/spec_92_everyday.py ──
+  CoreEntry(
+    id: 'shower-wudu',
+    patterns: <String>[
+      r'\b(?:wudu|ablution|wudhu|wuzu)\b.*\b(?:shower|showering|bath|bathing|bathroom)\b',
+      r'\b(?:shower|showering|bath|bathing)\b.*\b(?:wudu|ablution|wudhu|wuzu)\b',
+      r'\bwash(?:ing)? for prayer (?:in|while|when) (?:the )?(?:shower|bath)\b',
+    ],
+    answer: 'Yes, many scholars accept wudu done in the shower, as long as you do what wudu is. The Qur\'an names the parts: the face, the arms to the elbows, wiping the head and the feet (Qur\'an 5:6).\n\nWhat matters is that water reaches each of those parts, and that you intend it as wudu. If you shower with that intention and wash those parts, it counts for most scholars. The schools differ on details: whether the order must be kept (face, arms, head, feet), and whether the parts must be washed one right after the other without a long gap. If you follow a school, follow its rule: the safest way in any school is to do the parts in the usual order with your intention, even in the shower.\n\nMany scholars also hold that a full ghusl done with the intention to purify includes wudu, so you do not need to repeat it.\n\nIf you are unsure, the simple way is to step out of the flow, do the wudu in order under the running water, and then pray. This is the difference-of-opinion view, not a ruling on your case; for that ask a scholar of your school.\n\nSource: Qur\'an 5:6.\n[GO:/academy]\n[GO:/prayer]',
+    topic: 'wudu in the shower',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: schools differ on tartib and muwalat; wording is a summary of the common positions.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-sleep',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:sleep|sleep better|fall asleep)\b',
+      r'\bcant sleep\b',
+      r'\binsomnia\b',
+      r'\b(?:sleep|sleeping) (?:well|better|routine|schedule)\b',
+      r'\bhow much sleep\b',
+    ],
+    avoid: <String>[
+      r'\b(?:prayer|salah|dua|dhikr|adhkar|sunnah)\b',
+    ],
+    answer: 'General advice (not medical): most adults do best on seven to nine hours, at regular times, with screens put away for the last hour, a cooler dark room, and less caffeine after midday. If you lie awake most nights for weeks, see a doctor.\n\nFrom Islam: the Qur\'an counts sleep among the signs of Allah\'s care (Qur\'an 30:23) and calls the night a time of rest (Qur\'an 78:9). The Sunnah bedtime du\'as and the night prayer are in the Dhikr and Du\'a screen if you want to end the day that way.\n\nSource: Qur\'an 30:23, 78:9.\n[GO:/adhkar]',
+    topic: 'sleep',
+    beforeGate: true,
+    reviewNote: 'General health advice is common guidance, not medical; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-healthy-eating',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:eat|eating) (?:healthy|healthier|better|well)\b',
+      r'\bhealthy (?:eating|diet|food)\b',
+      r'\beat(?:ing)? less\b',
+      r'\boverea?ting\b',
+    ],
+    avoid: <String>[
+      r'\b(?:halal|haram|ruling|fasting|ramadan)\b',
+    ],
+    answer: 'General advice (not medical): more vegetables, fruit, water and whole foods, less sugar and fried food, and smaller portions eaten slowly. A doctor or dietitian is the right person for a condition or a specific diet.\n\nFrom Islam: the Qur\'an says to eat of what is lawful and good (Qur\'an 2:168) and not to waste or go to excess (Qur\'an 7:31). Scholars take that as a principle for food as for everything else: eat to be well, give thanks, and do not eat to excess.\n\nSource: Qur\'an 2:168, 7:31.',
+    topic: 'eating well',
+    beforeGate: true,
+    reviewNote: 'General nutrition advice is not medical; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-money-saving',
+    patterns: <String>[
+      r'\bhow (?:to|do i|can i) (?:save|saving) money\b',
+      r'\bbudget(?:ing)?\b',
+      r'\bget out of debt\b',
+      r'\bhow (?:to|do i) manage (?:my )?money\b',
+      r'\bspend(?:ing)? less\b',
+    ],
+    avoid: <String>[
+      r'\b(?:zakat|riba|interest|mortgage|invest\w*|stocks?|crypto\w*|halal|haram)\b',
+    ],
+    answer: 'General advice (not financial advice): write down what comes in and goes out for a month, pay the bills and debts first, set aside a fixed amount as soon as you are paid, and cut the small regular costs you do not notice. An emergency fund of a few months of costs comes before anything else.\n\nFrom Islam: the Qur\'an praises those who are neither wasteful nor stingy but between the two (Qur\'an 25:67), and warns against waste (Qur\'an 17:26). For halal and haram in money matters, ask me about the specific question, and for zakat there is a calculator.\n\nSource: Qur\'an 25:67, 17:26.\n[GO:/zakat]\n[GO:/academy/transactions]',
+    topic: 'saving money',
+    beforeGate: true,
+    reviewNote: 'General money advice, not financial advice; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-job-work',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:find|get|look for) (?:a )?(?:job|work|employment)\b',
+      r'\bjob (?:search|hunting)\b',
+      r'\b(?:how to|tips for) (?:do )?(?:well|better) at work\b',
+      r'\bwork(?:place)? (?:advice|ethics)\b',
+      r'\bhow to be (?:a )?good (?:employee|worker|boss)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:halal|haram|ruling|interview)\b',
+    ],
+    answer: 'General advice: tell people you know that you are looking, keep your CV short and specific, apply steadily rather than in bursts, and prepare for each interview by learning what the employer actually does.\n\nFrom Islam: work done honestly is worship, and the Qur\'an tells believers to spread out in the land and seek Allah\'s bounty after prayer (Qur\'an 62:10). Do the work you are paid for properly, be honest about your hours, and be fair to those who work for you. If a job is in a doubtful area, ask me about that specific work.\n\nSource: Qur\'an 62:10.\n[GO:/academy/transactions]',
+    topic: 'work and jobs',
+    beforeGate: true,
+    reviewNote: 'General career advice; Qur\'an ref is checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-study',
+    patterns: <String>[
+      r'\bhow (?:to|do i|can i) (?:study|learn|revise|focus|concentrate)\b',
+      r'\bstudy (?:tips|habits|routine|better)\b',
+      r'\bexam (?:stress|tips|prep|preparation)\b',
+      r'\bhow to memori[sz]e\b',
+    ],
+    avoid: <String>[
+      r'\b(?:quran|quran|hifz|surah|arabic|english|french|spanish|german|urdu|language|languages)\b',
+    ],
+    answer: 'General advice: study in short blocks with breaks, test yourself instead of rereading, sleep before an exam rather than cramming all night, and put the phone in another room.\n\nFrom Islam: the Qur\'an teaches a du\'a for more knowledge (Qur\'an 20:114), and asks whether those who know are equal to those who do not (Qur\'an 39:9). Ask Allah for ease before you start, then do the work: both are part of it.\n\nSource: Qur\'an 20:114, 39:9.\n[GO:/academy/hifz]',
+    topic: 'studying',
+    beforeGate: true,
+    reviewNote: 'General study advice; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-parenting',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:raise|parent|discipline) (?:my )?(?:kids?|children|child|toddler|teen\w*)\b',
+      r'\bparenting (?:advice|tips|help)\b',
+      r'\bmy (?:kid|child|son|daughter|toddler|teenager) (?:wont|will not|refuses|is not listening)\b',
+      r'\btantrums?\b',
+    ],
+    avoid: <String>[
+      r'\b(?:abuse|hit|beat|hurt)\w*\b',
+    ],
+    answer: 'General advice: be calm and consistent, set a few clear rules and keep them, explain the reason, notice good behaviour more than bad, and give regular one to one time. Children copy what they see more than what they are told. For a serious or lasting difficulty, a doctor or a family counsellor can help.\n\nFrom Islam: the Qur\'an tells believers to guard themselves and their families (Qur\'an 66:6), and a parent\'s du\'a for their children is part of the work (Qur\'an 25:74). The Family section of the Academy has more.\n\nSource: Qur\'an 66:6, 25:74.\n[GO:/academy/family]\n[GO:/kids]',
+    topic: 'parenting',
+    beforeGate: true,
+    reviewNote: 'General parenting advice; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-neighbours-manners',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:treat|deal with|be good to) (?:my )?(?:neighbou?rs?|guests?|co-?workers?|colleagues?)\b',
+      r'\bgood manners\b',
+      r'\bhow (?:to|do i) be polite\b',
+      r'\bneighbou?rs? (?:rights|noise|problem)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:ruling|halal|haram)\b',
+    ],
+    answer: 'General advice: greet them, keep noise down at night, return what you borrow, bring a dish on occasions, and speak to them privately and kindly before a small problem becomes a big one.\n\nFrom Islam: the Qur\'an puts kindness to the neighbour next to kindness to parents and relatives (Qur\'an 4:36), and tells us to speak to people well (Qur\'an 2:83). The Character section of the Academy goes further.\n\nSource: Qur\'an 4:36, 2:83.\n[GO:/academy/character]',
+    topic: 'neighbours and manners',
+    beforeGate: true,
+    reviewNote: 'General manners advice; Qur\'an refs are checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-time-management',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:manage|use|organi[sz]e|plan) (?:my )?(?:time|day)\b',
+      r'\btime management\b',
+      r'\bbe more productive\b',
+      r'\bprocrastinat\w*\b',
+    ],
+    avoid: <String>[
+      r'\b(?:prayer|salah|salat)\b',
+    ],
+    answer: 'General advice: choose the one or two things that matter most each day and do them first, keep a short list, and protect a block of time without interruptions. The five prayers give a day its natural frame: plan around them rather than squeezing them in.\n\nFrom Islam: the Qur\'an swears by time and says people are at a loss except those who believe, do good, and urge one another to truth and patience (Qur\'an 103:1). Prayer Times shows when each prayer begins where you are.\n\nSource: Qur\'an 103:1.\n[GO:/prayer]',
+    topic: 'using time well',
+    beforeGate: true,
+    reviewNote: 'General productivity advice; Qur\'an ref is checked.',
+  ),
+
+  CoreEntry(
+    id: 'everyday-travel',
+    patterns: <String>[
+      r'\b(?:how (?:to|do i)|tips? (?:to|for)) (?:travel|plan a trip|pack)\b',
+      r'\btravel(?:l?ing)? tips\b',
+      r'\bwhat to pack\b',
+      r'\bplanning a (?:trip|holiday|vacation)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:hajj|umrah|qasr|shorten\w*|combine\w*|jam)\b',
+    ],
+    answer: 'General advice: check the weather, keep copies of your documents, carry a charger and some water, and tell someone your plan. Look up where you will stay before you arrive.\n\nFor a Muslim traveller the app helps with the prayer side: Prayer Times and Qibla work from your location, and the Mosques screen shows places to pray nearby. If you want the rules for shortening or joining prayers on a journey, ask me that directly.\n[GO:/prayer]\n[GO:/qibla]\n[GO:/masajid]',
+    topic: 'travelling',
+    beforeGate: true,
+    reviewNote: 'General travel advice; app pointers only, no ruling.',
+  ),
 ];
