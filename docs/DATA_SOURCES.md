@@ -185,3 +185,16 @@ in the scholar register as `translit.program-made-gap-fill`. Not added to shares
   for this app not confirmed, see `docs/OWNER_ACTIONS.md` item 5). Credit line
   unchanged. Not used in shares.
 - Everything else: the `meaning` / `en` field of the item's own registry.
+
+
+## Weather: MET Norway (api.met.no)
+
+- Used for: `GET https://api.met.no/weatherapi/locationforecast/2.0/compact`,
+  only when the person asks Hādi about the weather. Code: `lib/features/hadi/data/hadi_weather.dart`.
+- Terms: https://developer.yr.no/doc/TermsOfService/ (read 18 Nov 2026). Data is
+  CC BY 4.0; credit is shown under every weather answer and on Our Sources.
+  Coordinates are cut to 4 decimals. No call is made unless a weather
+  question is asked. Browser cross-origin use tested live (HTTP 200).
+- Not done yet: the Expires / If-Modified-Since cache. Calls are one per
+  question, so volume is low; add the cache if it grows.
+- Open-Meteo was rejected: its free tier is non-commercial.

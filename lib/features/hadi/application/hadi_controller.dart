@@ -29,6 +29,8 @@ import '../data/hadi_game_ask.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
+import '../data/hadi_weather.dart';
+import '../../prayer/application/prayer_providers.dart';
 import '../data/hosted_ai.dart';
 import '../data/hosted_cache.dart';
 import '../data/local_knowledge.dart';
@@ -1433,6 +1435,35 @@ class HadiController extends Notifier<HadiState> {
         await _stat(HadiAnswerKind.safety);
         return fixedMsg.text;
       }
+    }
+
+    // Weather: real numbers from MET Norway for the saved prayer location.
+    if (crisis == null && HadiWeather.detect(q)) {
+      String text;
+      try {
+        final loc = ref.read(prayerLocationProvider);
+        if (loc.isPlaceholder) {
+          text = HadiWeather.noLocation;
+        } else {
+          final hours =
+              await HadiWeather.fetch(loc.latitude, loc.longitude);
+          text = hours == null
+              ? HadiWeather.noConnection
+              : HadiWeather.reply(q, hours, loc.longitude);
+        }
+      } catch (_) {
+        text = HadiWeather.noConnection;
+      }
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q, sensitive: true),
+          HadiMessage(fromHadi: true, text: text, sensitive: true),
+        ],
+        typing: false,
+      );
+      await _stat(HadiAnswerKind.safety);
+      return text;
     }
 
     // "Remember that ...", "What do you know about me?", "Delete everything".

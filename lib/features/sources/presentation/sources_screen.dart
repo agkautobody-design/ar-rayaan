@@ -276,6 +276,14 @@ class SourcesScreen extends ConsumerWidget {
                         ),
                         _Divider(),
                         _SourceRow(
+                          key: Key('source-weather'),
+                          title: 'Weather · MET Norway',
+                          subtitle:
+                              'When you ask Hādi about the weather it sends your saved location, cut to four decimals, to the Norwegian Meteorological Institute (api.met.no) and shows the forecast it returns. Nothing is sent until you ask. Data: MET Norway, CC BY 4.0.',
+                          link: 'https://api.met.no',
+                        ),
+                        _Divider(),
+                        _SourceRow(
                           title: 'Adhan · Masjid al-Haram',
                           subtitle:
                               'The call to prayer from the Sacred Mosque, Makkah',
