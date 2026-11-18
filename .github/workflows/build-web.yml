@@ -33,8 +33,31 @@ jobs:
       # here first (python only, seconds) so a bad entry stops the deploy
       # with a clear message and opens the failure issue below, instead of
       # surfacing as an unrelated test failure after a long build.
+      # The bots bump content_version.json but never regenerated
+      # content_manifest.json, so ContentSync rejected every remote pack
+      # (SHA-256 mismatch) and users stayed on the bundled copy. Both files
+      # below are derived, so rebuild them here and commit them back to main
+      # (a push by GITHUB_TOKEN does not start another run).
+      - name: Regenerate derived content files
+        run: |
+          python3 tool/gen_content_manifest.py
+          python3 tool/sync_app_toc.py
+
       - name: Daily content check
         run: python3 tool/check_daily_content.py
+
+      - name: Commit derived content files to main
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- assets/content_manifest.json assets/share/app_toc.json; then
+            echo "Derived content files already in step."
+            exit 0
+          fi
+          git config user.name "Ar-Rayaan Builder"
+          git config user.email "builder@ar-rayaan.app"
+          git add assets/content_manifest.json assets/share/app_toc.json
+          git commit -m "Regenerate content manifest and app TOC [skip ci]"
+          git push origin HEAD:main
 
       - uses: subosito/flutter-action@v2
         with:

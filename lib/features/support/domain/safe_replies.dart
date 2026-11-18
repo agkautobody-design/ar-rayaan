@@ -272,6 +272,130 @@ abstract final class LeavingQuestion {
       'safeguarding review needed.';
 }
 
+// ── "I am gay and Muslim. Will Allah hate me?" ────────────────────────────
+
+/// A person who says they are lesbian, gay, bisexual or trans (or attracted to
+/// the same sex) and asks whether Allah hates them, or whether they can still
+/// be Muslim. The answer is warmth first and honesty second: no disgust, no
+/// "Allah hates you", and no pretending the scholarly position is other than
+/// it is. Not a ruling on the person's life.
+///
+/// SCHOLAR, CLINICIAN and SAFEGUARDING REVIEW NEEDED
+/// (docs/SCHOLAR_REVIEW_REGISTER.md, `support.safe-replies`).
+abstract final class FaithAndIdentity {
+  static const List<String> _identity = <String>[
+    'gay', 'lesbian', 'bisexual', 'lgbt', 'lgbtq', 'queer', 'transgender',
+    'trans', 'homosexual', 'same sex', 'attracted to men', 'attracted to women',
+    'attracted to the same', 'attracted to my own gender',
+  ];
+
+  static const List<String> _speaker = <String>[
+    'i', 'im', 'ive', 'am', 'my', 'me', 'myself',
+  ];
+
+  static const List<String> _faith = <String>[
+    'muslim', 'islam', 'allah', 'god', 'hate me', 'hates me', 'hell',
+    'punish', 'punished', 'sin', 'sinner', 'forgive', 'forgiven', 'deen',
+    'iman', 'pray', 'accept me', 'accepted',
+  ];
+
+  /// True for a first-person disclosure beside a faith worry. A plain
+  /// question about the ruling ("what does Islam say about gay marriage")
+  /// has no speaker word and goes to the normal answer.
+  static bool detect(String text) {
+    final String p = _Words.pad(text);
+    if (!_Words.any(p, _identity)) return false;
+    if (!_Words.any(p, _speaker)) return false;
+    return _Words.any(p, _faith);
+  }
+
+  static const List<String> replies = <String>[
+    'Thank you for trusting me with something this personal. I am not '
+        'disgusted, and I am not going to tell you that Allah hates you. '
+        'Allah introduces Himself as ar-Rahman, ar-Rahim, and the Prophet ﷺ '
+        'told us that Allah\'s mercy overcomes His anger (Sahih Muslim '
+        '2751). Qur\'an 39:53 speaks to servants who have wronged themselves '
+        'and tells them not to despair of Allah\'s mercy.\n\n'
+        'I will also be honest, because you deserve that more than comfort '
+        'that is not true: mainstream Islamic scholarship holds that '
+        'same-sex acts are not permitted, and I am an app, not a scholar, so '
+        'I cannot rule on your life. Many scholars also separate feelings a '
+        'person did not choose from what a person does, and nobody has the '
+        'right to humiliate you for what you carry. Many Muslims carry this '
+        'quietly and alone, and that is a heavy way to carry it.\n\n'
+        'It can help to talk, in confidence, to a scholar or a counsellor '
+        'who will treat you with care. Is there anyone you trust enough to '
+        'tell? And are you safe right now?',
+    'I am glad you said it out loud. You are still a person Allah made, '
+        'and a question like yours comes from someone who cares about their '
+        'faith. Hatred is not what the sources teach us to expect from Allah: '
+        'His mercy overcomes His anger (Sahih Muslim 2751), and the door of '
+        'tawbah is open to everyone.\n\n'
+        'I will not pretend there is no difficulty. Scholars have long held '
+        'that same-sex acts are not permitted, and I cannot rule on your '
+        'case. They have also taught that nobody is to be hated or '
+        'mistreated for what they feel, and that Allah knows the struggle '
+        'it is. A scholar or counsellor who listens first can walk with you '
+        'in private.\n\n'
+        'How are you doing with all of this today? If it ever feels too '
+        'heavy, the lines below are free and confidential.',
+  ];
+
+  /// The reply, rotated by how many have already been given.
+  static String build(int prior) => replies[prior % replies.length];
+}
+
+// ── "Which people deserve to be killed in Islam?" ─────────────────────────
+
+/// A question that asks Islam who may be killed, or says that some group
+/// should be. It is not answered with a definition of Islam and not with a
+/// list of targets. The answer is the sanctity of life, that no individual
+/// or group may decide such a thing or act on it, and an offer to explain
+/// what scholars say about courts and war.
+///
+/// SCHOLAR REVIEW NEEDED (docs/SCHOLAR_REVIEW_REGISTER.md,
+/// `support.safe-replies`).
+abstract final class KillingQuestion {
+  static const List<String> _frames = <String>[
+    'deserve to be killed', 'deserve to die', 'deserves to be killed',
+    'deserves to die', 'should be killed', 'should die', 'must be killed',
+    'ought to be killed', 'okay to kill', 'ok to kill', 'allowed to kill',
+    'is it halal to kill', 'permissible to kill', 'kill non muslims',
+    'kill nonmuslims', 'kill kafirs', 'kill the kafir', 'kill disbelievers',
+    'kill infidels', 'kill apostates', 'kill jews', 'kill christians',
+    'kill people who',
+  ];
+
+  /// A request to HURT someone ("how to kill") belongs to the harm refusal,
+  /// not here. This is about what the religion says.
+  static bool detect(String text) {
+    final String p = _Words.pad(text);
+    return _Words.any(p, _frames);
+  }
+
+  static const String reply =
+      'Short answer: no person or group gets to decide that someone deserves '
+      'to die and then act on it. Islam treats the taking of a life as one '
+      'of the gravest things there is. Qur\'an 5:32 says that whoever kills '
+      'a soul, other than for a soul or for corruption in the land, it is as '
+      'if he had killed all mankind, and Qur\'an 6:151 and 17:33 forbid '
+      'taking a life that Allah has made sacred except by a right. The '
+      'Prophet ﷺ warned that whoever kills a person under a covenant of '
+      'protection will not smell the fragrance of Paradise (Sahih '
+      'al-Bukhari 3166), and he said that the blood of a Muslim is not '
+      'lawful except in a few narrow cases (Sahih al-Bukhari 6878).\n\n'
+      'Where scholars discuss any penalty for a crime, or the rules of '
+      'war, they place it with a court and a ruler, with proof, a defence '
+      'and conditions, never with an individual who has decided for '
+      'himself. Anyone who tells you that a type of person simply deserves '
+      'to be killed is not speaking from the sources.\n\n'
+      'If you are asking because of something you read or were told, or '
+      'because you feel anger at someone, I am happy to go through what the '
+      'scholars actually say. If you are thinking of hurting someone, please '
+      'talk to someone you trust or call your local emergency number first. '
+      'General information, not a fatwa.';
+}
+
 // ── "Are you a therapist?" and "Can you be my only friend?" ───────────────
 
 /// Honest answers about what Hadi is, and a nudge toward real people.

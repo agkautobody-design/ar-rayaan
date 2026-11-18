@@ -1,0 +1,65 @@
+{
+ "bukhari:4449": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Aisha: the Prophet died in her house, leaning against her chest (read against the hadith-api English edition)"
+ },
+ "bukhari:24": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Haya (modesty) is a part of faith (read against hadith-api and sunnah.com)"
+ },
+ "bukhari:3197": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Abu Bakra: twelve months, four sacred (Dhul-Qa'dah, Dhul-Hijjah, Muharram, Rajab) (read against hadith-api)"
+ },
+ "bukhari:1969": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Aisha: he fasted most in Sha'ban of any month apart from Ramadan (read against hadith-api)"
+ },
+ "bukhari:6035": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Masruq from Abdullah ibn Amr: the best among you are the best in character (checked against sunnah.com)"
+ },
+ "bukhari:1981": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Abu Huraira: the Prophet advised three things: fast three days a month, two rak'ahs of Duha, witr before sleeping (read against hadith-api)"
+ },
+ "bukhari:5186": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Abu Huraira: take care of the women, treat them well (read against hadith-api)"
+ },
+ "bukhari:6192": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Abu Huraira: the Prophet changed Barrah's name to Zaynab (read against hadith-api)"
+ },
+ "bukhari:5640": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-18",
+  "note": "Aisha: no calamity befalls a Muslim but Allah expiates some sins by it (read against hadith-api)"
+ }
+}

@@ -247,7 +247,7 @@ A credit card is a loan tool, so the answer depends on how it is used, not on th
 
 Which view to follow in your own case is for a qualified scholar. The Tayyib Finance section of this app lists halal options.
 """,
-  go=['/finance'],
+  go=['/academy/transactions'],
   review='The two scholarly positions (allowed when paid in full; avoid the conventional card) are standard contemporary teaching, not text-checked here.')
 
 E('riba-interest',
@@ -270,7 +270,7 @@ What to do:
 
 For mortgages, see the separate answer. Ask a scholar for your own situation. The Tayyib Finance section of this app lists halal options.
 """,
-  go=['/finance'],
+  go=['/academy/transactions'],
   review='The treatment of bank interest (give it away), credit cards paid in full, and existing loans are contemporary-scholar positions; not text-checked here.')
 
 E('mortgage',
@@ -285,7 +285,7 @@ The widely accepted route is a halal home finance product: a diminishing partner
 
 Meanwhile, saving for a larger deposit or renting a home is always allowed. For your own decision, please talk to a qualified scholar who knows the local options.
 """,
-  go=['/finance'],
+  go=['/academy/transactions'],
   review='The scholars\' disagreement on conventional mortgages for Muslims in the West is described neutrally; flagged for scholar review.')
 
 E('crypto-stocks-insurance',
@@ -302,7 +302,7 @@ Insurance: conventional insurance has uncertainty and an element of gambling, an
 
 Everything here is general, and these are areas where scholarly opinions differ. Check with a qualified scholar or an Islamic finance advisor for your own money. The Tayyib Finance section may help.
 """,
-  go=['/finance'],
+  go=['/academy/transactions'],
   review='Crypto, stock screening, trading and insurance are contested contemporary issues and are described neutrally; flagged for scholar review.')
 
 E('gambling-lottery',
@@ -316,5 +316,5 @@ This includes casinos, betting on sports, lotteries, raffles where you pay and m
 
 What is allowed: a fair prize in a skill contest where the prize is paid by a sponsor (not from the entrants' fees), and games for fun with no stake. If you have won money by gambling, many scholars say to give it away to the poor without expecting reward, and to repent and stop.
 """,
-  go=['/finance'],
+  go=['/academy/transactions'],
   review='The handling of past winnings is the view of many scholars; not text-checked here.')

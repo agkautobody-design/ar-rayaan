@@ -375,3 +375,4 @@ Every claim in these three packs was re-checked against the bundled Qur'an, the 
 | khutbahs | kh-good-or-silent | 3 | C | Bukhari 6018 and 6065 verified against Sunnah.com. (Audit 2026-11-13.) |
 | khutbahs | kh-good-or-silent | 4 | RF | Application only; no new factual claim. Label: Reflection. (Audit 2026-11-13.) |
 | khutbahs | kh-good-or-silent | 5 | RF | Closing du’a; no factual claim. Label: Reflection. (Audit 2026-11-13.) |
+| modernhadith | mh-family-38 | 1 | C | Citation corrected 2026-11-18: the added story cited Bukhari 6035 (the ‘best in character’ hadith) and Muslim 2318 (a different wording, ‘no mercy shown to him who shows none’). The quoted ‘not of us’ wording is Abu Dawud 4943 (sahih, Al-Albani) and Tirmidhi 1919 (hasan, Darussalam), both with ok verdicts on file. (Audit 2026-11-18.) |

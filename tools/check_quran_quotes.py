@@ -99,6 +99,10 @@ def check_text(label, text, issues, stats):
             continue
         if re.search(r'\d{1,2}:\d{2}\s*(am|pm|AM|PM)|\d{2}:\d{2}:\d{2}', ctx):
             continue
+        # Opening hours such as "08:00-20:00": zero-padded two-digit pairs are
+        # clock times, never a verse reference, unless the text names the Qur'an.
+        if re.fullmatch(r'\d{2}:\d{2}', m.group(0)) and not re.search(r'Qur|Surah|ayah|Sura', ctx):
+            continue
         if not re.search(r'Qur|Surah|ayah|Sura|\(\d|\[\d|Q\.|\u2014|\u00b7|—', ctx) and s > 114:
             continue
         stats['refs'] += 1
