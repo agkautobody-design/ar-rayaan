@@ -9,7 +9,7 @@ library;
 
 abstract final class HadiMultiPart {
   static final RegExp _cut = RegExp(
-      r'(?<=[?;])\s+|\s+(?=(?:and\s+|also\s+|then\s+)?'
+      r'(?<=[?;])\s+|\s+(?=(?:(?:and|also|then)\s+)*'
       r'(?:tell me|explain|teach me|show me|what about)\b)',
       caseSensitive: false);
   static final RegExp _lead = RegExp(
@@ -20,14 +20,16 @@ abstract final class HadiMultiPart {
   static final RegExp _modifier = RegExp(
       r'\b(?:sources?|references?|evidence|proof|cite|citation|dalil)\b',
       caseSensitive: false);
+  static final RegExp _trail =
+      RegExp(r'(?:\s+(?:and|also|then))+$', caseSensitive: false);
   static final RegExp _joiner =
-      RegExp(r'^(?:and|also|then)\s+', caseSensitive: false);
+      RegExp(r'^(?:(?:and|also|then)\s+)+', caseSensitive: false);
 
   static List<String> split(String q) {
     final List<String> out = <String>[];
     for (final String raw in q.trim().split(_cut)) {
       String p = raw.trim().replaceAll(RegExp(r'[;?]+$'), '').trim();
-      p = p.replaceFirst(_joiner, '').trim();
+      p = p.replaceFirst(_joiner, '').replaceFirst(_trail, '').trim();
       if (p.isEmpty || _lead.hasMatch(p)) continue;
       final int words = p.split(RegExp(r'\s+')).length;
       if (words < 3) continue;
