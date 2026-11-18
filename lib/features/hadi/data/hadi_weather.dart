@@ -76,7 +76,8 @@ abstract final class HadiWeather {
       final List<dynamic> ts = j['properties']['timeseries'] as List<dynamic>;
       final List<WeatherHour> out = <WeatherHour>[];
       for (final dynamic e in ts) {
-        final Map<String, dynamic> d = e['data']['instant']['details'];
+        final Map<String, dynamic> d =
+            e['data']['instant']['details'] as Map<String, dynamic>;
         final dynamic n1 = e['data']['next_1_hours'];
         final dynamic n6 = e['data']['next_6_hours'];
         final dynamic n = n1 ?? n6;
