@@ -497,16 +497,6 @@ In the app, the Hadith section lets you read and search; every hadith Hadi quote
 """,
   review='General description; the six-book list is standard.')
 
-E('islam-overview',
-  m=[r'^tell me (?:something |a (?:bit|little) |more )?about islam$', r'^islam (?:overview|basics|101|for beginners)$'],
-  topic='an overview of Islam',
-  go=['/new-muslim', '/academy'],
-  text="""
-Islam means peaceful submission to Allah, the one God, who has no partner. Muslims believe He sent messengers to every people, among them Ibrahim, Musa and Isa, and that Muhammad ﷺ is the last of them, who brought the Qur'an. Its practice rests on five pillars: the declaration of faith, the five daily prayers, zakat (giving), fasting in Ramadan and Hajj if one is able ({H bukhari:8|Ibn Umar reported the Prophet said Islam is based on five: to testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger, to offer prayer, to pay zakat, to perform Hajj, and to fast in Ramadan}).
-
-The faith is held together by belief in Allah, His angels, books, messengers, the Last Day and the divine decree ({QR 2:285}), and by good character toward everyone. Ask me about any part of it, or start the Academy for a guided path.
-""",
-  review='Overview of the common creed; the hadith is checked.')
 
 E('names-allah-rahman-wadud',
   m=[r'\bwhat (?:is|does) (?:the name )?(?:ar ?|al ?)rahman\b', r'\b(?:meaning|mean) of (?:ar ?|al ?)?rahman\b', r'\bwhat (?:is|does) (?:the name )?(?:al ?)?wadud\b', r'\b(?:meaning|mean) of (?:al ?)?wadud\b'],

@@ -4269,17 +4269,6 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     reviewNote: 'General description; the six-book list is standard.',
   ),
   CoreEntry(
-    id: 'islam-overview',
-    patterns: <String>[
-      r'^(?:tell me )?(?:something |a (?:bit|little) |more )?about islam$',
-      r'^islam (?:overview|basics|101|for beginners)$',
-    ],
-    answer: 'Islam means peaceful submission to Allah, the one God, who has no partner. Muslims believe He sent messengers to every people, among them Ibrahim, Musa and Isa, and that Muhammad ﷺ is the last of them, who brought the Qur\'an. Its practice rests on five pillars: the declaration of faith, the five daily prayers, zakat (giving), fasting in Ramadan and Hajj if one is able (Sahih al-Bukhari 8).\n\nThe faith is held together by belief in Allah, His angels, books, messengers, the Last Day and the divine decree (Qur\'an 2:285), and by good character toward everyone. Ask me about any part of it, or start the Academy for a guided path.\n\nSource: Sahih al-Bukhari 8; Qur\'an 2:285.\n[GO:/new-muslim]\n[GO:/academy]',
-    topic: 'an overview of Islam',
-    beforeGate: true,
-    reviewNote: 'Overview of the common creed; the hadith is checked.',
-  ),
-  CoreEntry(
     id: 'names-allah-rahman-wadud',
     patterns: <String>[
       r'\bwhat (?:is|does) (?:the name )?(?:ar ?|al ?)rahman\b',
