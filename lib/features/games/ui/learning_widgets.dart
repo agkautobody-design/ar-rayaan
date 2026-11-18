@@ -210,7 +210,8 @@ class _AskHadiSheetState extends ConsumerState<_AskHadiSheet> {
                 Expanded(
                   child: Text('HADI EXPLAINS', style: AppText.eyebrow),
                 ),
-                if (reply != null) SpeakButton(text: HadiTokens.strip(reply)),
+                if (reply != null) SpeakButton(
+                    profile: VoiceProfile.hadi, text: HadiTokens.strip(reply)),
                 IconButton(
                   key: const Key('ask-hadi-sheet-close'),
                   tooltip: 'Close and return to the game',

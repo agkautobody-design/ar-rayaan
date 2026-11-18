@@ -405,6 +405,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       Row(children: [
                         Expanded(child: Text('WASIA \u00b7 YOUR TEACHER', style: AppText.eyebrow)),
                         SpeakButton(
+                          profile: VoiceProfile.wasia,
                           text: current.text ?? '',
                           minTapTarget: SpeakButton.minTarget,
                         ),

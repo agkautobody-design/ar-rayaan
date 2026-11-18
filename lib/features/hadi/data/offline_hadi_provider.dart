@@ -7,6 +7,7 @@ import 'hadi_explain.dart';
 import 'hadi_finder.dart';
 import 'hadi_game_ask.dart';
 import 'hadi_game_help.dart';
+import 'hadi_multipart.dart';
 import 'hadi_prophets.dart';
 import 'hadi_routing.dart';
 
@@ -1048,6 +1049,33 @@ class OfflineHadiProvider implements HadiProvider {
 
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
+    // A question with several parts ("tell me about X, tell me about Y") is
+    // answered part by part, so the second part is not silently dropped.
+    final List<String> parts = HadiMultiPart.split(question);
+    if (parts.length >= 2 && CrisisDetector.detect(question) == null) {
+      final List<String> got = <String>[];
+      final List<String> missed = <String>[];
+      final Set<String> seen = <String>{};
+      for (final String part in parts) {
+        final String a = await _askOne(part, history);
+        if (isDecline(a) || HadiRouting.isRefusal(a)) {
+          missed.add(part);
+        } else if (seen.add(a)) {
+          got.add('**${HadiMultiPart.label(part)}**\n\n$a');
+        }
+      }
+      if (got.length >= 2) {
+        final String tail = missed.isEmpty
+            ? ''
+            : '\n\nI do not have a checked answer for: '
+                '${missed.map(HadiMultiPart.label).join('; ')}.';
+        return got.join('\n\n') + tail;
+      }
+    }
+    return _askOne(question, history);
+  }
+
+  Future<String> _askOne(String question, List<HadiMessage> history) async {
     // Defence in depth: the controller screens for crisis first, but this
     // provider must never answer a crisis message from the shelf either.
     final CrisisKind? crisis = CrisisDetector.detect(question);
