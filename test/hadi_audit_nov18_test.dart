@@ -20,7 +20,7 @@ void main() {
         final String r = FaithAndIdentity.build(i);
         expect(r.toLowerCase(), isNot(contains('allah hates you')));
         expect(r, contains('2751'));
-        expect(r.toLowerCase(), contains('not a scholar'));
+        expect(r.toLowerCase(), contains('cannot rule'));
       }
       expect(FaithAndIdentity.build(0), isNot(FaithAndIdentity.build(1)));
     });
