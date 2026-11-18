@@ -171,6 +171,9 @@ abstract final class DistressSignal {
     'empty in salah', 'empty in prayer', 'no khushu', 'khushu',
     'ashamed to come back', 'ashamed to return', 'do not feel close to allah',
     'dont feel close to allah', 'feel far from', 'drifting from allah',
+    'losing my faith', 'lose my faith', 'losing faith', 'lost my faith',
+    'losing my iman', 'lost my iman', 'doubting my faith', 'doubting islam',
+    'doubts about my faith', 'doubts about islam', 'losing my belief',
   ];
 
   /// Exhaustion and burnout.
