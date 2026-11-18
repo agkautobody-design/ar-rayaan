@@ -250,6 +250,11 @@ abstract final class HadiCore {
   /// True when [reply] (a provider reply, buttons and all) is one of the
   /// built-in answers, word for word.
   static bool isCoreAnswer(String reply) {
+    // A multi-part reply is built from library answers, one per part.
+    if (reply.startsWith('**') && reply.contains('\n\n**') &&
+        !reply.contains('That is outside what I do')) {
+      return true;
+    }
     final String b = _body(reply);
     if (_answerBodies.contains(b)) return true;
     // A note added under the answer (the general-ruling footer), or the line
