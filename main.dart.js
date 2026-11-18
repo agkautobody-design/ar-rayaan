@@ -20648,7 +20648,10 @@ if(B.c.aP(p.b,new A.b6o(a)))return p.a}return null},
 ctv(a){var s=A.BN(a)
 if(s.split(" ").length>40)return null
 return A.b6m(s)},
-ctu(a){var s=A.ctr(a),r=$.cP6()
+ctu(a){var s,r
+if(B.d.aa(a,"**")&&B.d.j(a,"\n\n**")&&!B.d.j(a,"That is outside what I do"))return!0
+s=A.ctr(a)
+r=$.cP6()
 if(r.j(0,s))return!0
 if(!r.aP(0,B.d.gaD5(s))){r=$.cPd()
 r=B.d.j(s,r)&&r.length!==0}else r=!0
