@@ -354,6 +354,9 @@ class SpeechService {
 
   FlutterTts get _engine => _tts ??= FlutterTts();
 
+  /// True while something is being read aloud.
+  bool get isSpeaking => _busy;
+
   /// Every English and Arabic voice this device has, labelled for a person.
   Future<List<VoiceOption>> voiceOptions() async {
     try {
