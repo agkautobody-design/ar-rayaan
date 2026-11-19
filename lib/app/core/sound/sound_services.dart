@@ -366,6 +366,16 @@ class SpeechService {
     }
   }
 
+  /// Whether this phone has a voice that is clearly the right gender for
+  /// [profile], so "automatic" will not fall back to the default voice.
+  Future<bool> hasMatchingVoice(VoiceProfile profile) async {
+    try {
+      return VoicePicker.hasMatching(await book.rawVoices(_engine), profile);
+    } catch (_) {
+      return true; // cannot tell: say nothing
+    }
+  }
+
   /// Plays [text] in one specific voice, to audition it. Not saved.
   Future<void> sample(VoiceOption option, String text) async {
     try {

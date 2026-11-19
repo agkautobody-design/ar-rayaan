@@ -90,6 +90,11 @@ abstract final class VoicePicker {
       if (_codeMale.contains(code)) return VoiceGender.male;
       if (_codeFemale.contains(code)) return VoiceGender.female;
     }
+    // Samsung's engine ends its ids in f or m and two digits: en-US-SMTf00.
+    final RegExpMatch? smt = RegExp(r'smt([fm])\d\d').firstMatch(n);
+    if (smt != null) {
+      return smt.group(1) == 'f' ? VoiceGender.female : VoiceGender.male;
+    }
     if (n == 'google us english') return VoiceGender.female;
     for (final String x in _male) {
       if (RegExp('\\b$x\\b').hasMatch(n)) return VoiceGender.male;
@@ -178,6 +183,13 @@ abstract final class VoicePicker {
         VoiceProfile.wasia => 0.42,
         VoiceProfile.neutral => 0.48,
       };
+
+  /// True when the phone has an English voice whose name says it is the right
+  /// gender for [profile] (a man for Hādi, a woman for Wasia). When false,
+  /// "automatic" can only use the phone's default voice.
+  static bool hasMatching(List<Map<dynamic, dynamic>> voices,
+      VoiceProfile profile) =>
+      profile == VoiceProfile.neutral || choose(voices, profile).name != null;
 
   /// An Arabic voice, preferring the guide's gender. A name of null means the
   /// device has no Arabic voice installed.
