@@ -21,6 +21,7 @@ import '../../academy/application/academy_providers.dart';
 import '../../academy/application/family_service.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
+import '../../auth/application/auth_providers.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../noor/application/noor_providers.dart';
 import '../../noor/domain/noor_entry.dart';
@@ -463,6 +464,8 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               quick,
+              const SizedBox(height: 4),
+              const _GuestSignIn(),
               if (!newToIslam)
                 _NextStepCard(
                   step: step,
@@ -1231,6 +1234,46 @@ class _SemanticTap extends StatelessWidget {
                 child: Align(alignment: Alignment.center, widthFactor: 1, child: child),
               )
             : child,
+      ),
+    );
+  }
+}
+
+/// A guest sees one quiet line on Home that says where sign-in is, so nobody
+/// has to guess that the Guest card on You opens it. Hidden when signed in,
+/// while the state is loading, or if auth is unavailable.
+class _GuestSignIn extends ConsumerWidget {
+  const _GuestSignIn();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AsyncValue<dynamic> auth = ref.watch(authStateProvider);
+    if (auth.hasError || !auth.hasValue || auth.value != null) {
+      return const SizedBox.shrink();
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: _SemanticTap(
+        label: 'Sign in. Keep your progress and what Hadi has learned about '
+            'you on your account.',
+        onTap: () => context.go(AppRoutes.login),
+        minHeight: 48,
+        child: GlassCard(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(children: [
+              const Icon(Icons.login, color: AppColors.gold, size: 22),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  'Sign in to keep your progress on your account',
+                  style: AppText.body,
+                ),
+              ),
+              const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
+            ]),
+          ),
+        ),
       ),
     );
   }
