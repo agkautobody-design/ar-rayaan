@@ -111,20 +111,26 @@ class ProfileScreen extends ConsumerWidget {
                         if (signedIn)
                           const Icon(Icons.chevron_right, color: AppColors.gold)
                         else
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 14,
-                              vertical: 8,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(color: AppColors.gold),
-                            ),
-                            child: Text(
-                              'Sign in',
-                              style: AppText.body.copyWith(
-                                color: AppColors.gold,
-                                fontSize: 13,
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 84),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(color: AppColors.gold),
+                              ),
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  'Sign in',
+                                  style: AppText.body.copyWith(
+                                    color: AppColors.gold,
+                                    fontSize: 13,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
