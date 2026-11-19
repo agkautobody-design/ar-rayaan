@@ -13,6 +13,13 @@ void main() {
     'tell me something interesting': 'curious-something-interesting',
     'show me something interesting': 'curious-something-interesting',
     'give me a fun fact that is cool': 'curious-something-interesting',
+    'tell me about uhud': 'battle-uhud',
+    'tell me about the trench': 'battle-trench',
+    'tell me about the companions': 'companions-sahabah',
+    'tell me about prophet muhammad': 'prophet-biography',
+    'tell me about the quran': 'quran-what',
+    'tell me about yourself': 'hadi-who',
+    'tell me about wasia': 'wasia-who',
   };
   cases.forEach((String q, String id) {
     test('"$q" reaches $id', () {
