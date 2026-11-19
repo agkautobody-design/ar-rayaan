@@ -351,7 +351,11 @@ service cloud.firestore {
     // should cover next.
     match /hadi_misses/{id} {
       allow read: if isFounder();
+      // The id ends with the sender's anonymous sign-in number, so each
+      // person counts once per question (create-only) and nobody can write
+      // under another person's number.
       allow create: if signedIn()
+        && id.matches('^[0-9a-f]{24}_' + request.auth.uid + '$')
         && request.resource.data.keys().hasOnly(['question', 'kind', 'createdAt'])
         && request.resource.data.question is string
         && request.resource.data.question.size() >= 6
