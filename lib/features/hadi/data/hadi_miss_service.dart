@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto/crypto.dart' as crypto;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'hadi_report_service.dart';
+import 'hosted_cache.dart' show normaliseQuestion;
 
 /// "Help Hādi learn": when switched on in Settings (off by default), the
 /// words of a question Hādi could not answer are sent, with no user id, so
@@ -59,7 +61,13 @@ class HadiMissService {
     if (FirebaseAuth.instance.currentUser == null) {
       await FirebaseAuth.instance.signInAnonymously();
     }
-    await FirebaseFirestore.instance.collection('hadi_misses').add(
+    // The document id ends with the anonymous sign-in number, so the same
+    // person asking the same thing twice is one document (create-only: the
+    // second write is refused) and "asked by two different people" can be
+    // counted without a name, an email or any account detail.
+    final String uid = FirebaseAuth.instance.currentUser!.uid;
+    final String id = '${crypto.sha256.convert(utf8.encode(normaliseQuestion(question))).toString().substring(0, 24)}_$uid';
+    await FirebaseFirestore.instance.collection('hadi_misses').doc(id).set(
       <String, Object?>{
         'question': question,
         'kind': 'miss',

@@ -25,6 +25,7 @@ import 'features/support/data/helplines_loader.dart';
 import 'features/support/data/pack_repository.dart';
 import 'features/support/data/secret_store.dart';
 import 'features/support/application/support_settings.dart';
+import 'features/hadi/data/hadi_learned.dart';
 import 'features/hadi/data/hadi_miss_service.dart';
 import 'features/hadi/data/hadi_report_service.dart';
 import 'features/onboarding/presentation/onboarding_screen.dart';
@@ -101,6 +102,7 @@ Future<void> _start() async {
   // Reports saved on the device while offline go out now that Firebase is up.
   if (firebaseLive) unawaited(HadiReportService(prefs).flush());
   if (firebaseLive) unawaited(HadiMissService(prefs).flush());
+  unawaited(HadiLearned.load());
 
   final AuthRepository authRepo;
   if (firebaseLive) {

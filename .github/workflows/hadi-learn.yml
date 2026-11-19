@@ -1,0 +1,80 @@
+name: Hadi learns
+
+# Nightly: reads the questions people chose to share ("Help Hadi learn"),
+# keeps those asked by two or more different people, drafts one answer per
+# question, runs every deterministic gate (tool/hadi_learn/learn.py) and, only
+# if all pass, installs it in assets/qa/hadi_learned.json on main. Held items
+# are listed in docs/hadi_learning_queue.json. Needs two secrets:
+#   FIREBASE_SERVICE_ACCOUNT  JSON key that can read Firestore (hadi_misses)
+#   GROQ_API_KEY              optional: drafts answers; without it nothing is
+#                             installed and the queue only lists what waits
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hadi-learn
+  cancel-in-progress: false
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    env:
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for the service account secret
+        id: gate
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "::notice::FIREBASE_SERVICE_ACCOUNT is not set, so Hadi did not learn tonight. See docs/OWNER_ACTIONS.md."
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == 'true'
+        with:
+          python-version: '3.12'
+      - name: Run the pipeline's own tests
+        if: steps.gate.outputs.go == 'true'
+        run: python3 tool/hadi_learn/test_learn.py
+      - name: Export the shared questions
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          pip install --quiet google-cloud-firestore
+          python3 - <<'PY'
+          import json, os
+          from google.cloud import firestore
+          from google.oauth2 import service_account
+          info = json.loads(os.environ['FIREBASE_SERVICE_ACCOUNT'])
+          cred = service_account.Credentials.from_service_account_info(info)
+          db = firestore.Client(project=info['project_id'], credentials=cred)
+          out = []
+          for d in db.collection('hadi_misses').limit(5000).stream():
+              uid = d.id.split('_', 1)[1] if '_' in d.id else d.id
+              out.append({'q': d.to_dict().get('question', ''), 'uid': uid})
+          json.dump(out, open('/tmp/misses.json', 'w'))
+          print(len(out), 'shared questions')
+          PY
+      - name: Learn
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          if [ -n "$GROQ_API_KEY" ]; then GEN=--gen; else GEN=; fi
+          python3 tool/hadi_learn/learn.py --misses /tmp/misses.json $GEN
+          python3 tool/gen_content_manifest.py
+          python3 tool/check_daily_content.py
+      - name: Commit to main
+        if: steps.gate.outputs.go == 'true'
+        run: |
+          git config user.name "hadi-learn"
+          git config user.email "hadi-learn@users.noreply.github.com"
+          git add assets/qa/hadi_learned.json assets/content_version.json assets/content_manifest.json docs/hadi_learning_queue.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Hadi learned: checked answers installed [skip ci]"
+          git push origin HEAD:main

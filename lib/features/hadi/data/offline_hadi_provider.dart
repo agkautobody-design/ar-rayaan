@@ -7,6 +7,7 @@ import 'hadi_explain.dart';
 import 'hadi_finder.dart';
 import 'hadi_game_ask.dart';
 import 'hadi_game_help.dart';
+import 'hadi_learned.dart';
 import 'hadi_multipart.dart';
 import 'hadi_prophets.dart';
 import 'hadi_routing.dart';
@@ -1198,6 +1199,10 @@ class OfflineHadiProvider implements HadiProvider {
 
     final CoreHit? core = HadiCore.answer(asked, history);
     if (core != null) return core.text;
+    // Answers learned from what people asked, checked before they were
+    // installed (see HadiLearned). Exact question match only.
+    final String? learned = HadiLearned.answer(asked);
+    if (learned != null) return learned;
     final String? more = HadiCore.moreReply(asked, history);
     if (more != null) return more;
     final String? gameHelp = HadiGameHelp.answer(asked) ??

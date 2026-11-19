@@ -30,6 +30,11 @@
    "sha256": "c39c3d7f0394e0db54b9a71b11d2af292a8fa7ee08d84218d078d8e4dc5a785f",
    "version": 16
   },
+  "qa/hadi_learned.json": {
+   "bytes": 33,
+   "sha256": "444ca4297a343e8ab2af0150a3a390d2f7d60c210c8de3762fc7756e6ef8ebcc",
+   "version": 1
+  },
   "share/cards.json": {
    "bytes": 2808,
    "sha256": "058f33655fbb30b589a4d38f273cbc8ba01598f6d80562f057d2a19cfc02313c",
