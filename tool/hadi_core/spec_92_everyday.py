@@ -142,7 +142,7 @@ So there is no single agreed answer, and I would not state one as settled. A taf
   review='Scholar review needed: the reports differ and the order depends on which one is preferred.')
 
 E('something-inspiring',
-  m=[r'\b(?:tell|give) me something (?:inspiring|uplifting|motivating|encouraging)\b', r'\binspire me\b', r'\bmotivate me\b', r'\bi need (?:some )?(?:motivation|inspiration|encouragement)\b'],
+  m=[r'\b(?:(?:tell|give) me )?something (?:inspiring|uplifting|motivating|encouraging)\b', r'\binspire me\b', r'\bmotivate me\b', r'\bi need (?:some )?(?:motivation|inspiration|encouragement)\b'],
   x=[r'\b(?:suicid\w*|kill myself|end it|hopeless|worthless|depress\w*)\b'],
   topic='encouragement',
   go=['/stories', '/feelings'],
