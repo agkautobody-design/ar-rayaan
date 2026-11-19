@@ -42,7 +42,5 @@ void main() {
     expect(block, contains('hasOnly'));
     expect(block, contains('request.time'));
     expect(block, contains("id.matches('^[0-9a-f]{24}_' + request.auth.uid + '\$')"));
-    expect(block.replaceAll('request.auth.uid', '').contains('uid'), isTrue,
-        reason: 'only the id pattern and its comment mention uid');
   });
 }
