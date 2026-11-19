@@ -40,18 +40,41 @@ class UserKnowsNotifier extends Notifier<UserKnows> {
 
   SharedPreferences get _p => ref.read(sharedPreferencesProvider);
 
+  /// Settings are read defensively: where they are not available (a screen
+  /// built without them) nothing is noticed and nothing breaks.
+  bool _flag(String key, bool fallback) {
+    try {
+      return _p.getBool(key) ?? fallback;
+    } catch (_) {
+      return fallback;
+    }
+  }
+
   @override
-  UserKnows build() =>
-      UserKnowsRules.tidy(UserKnows.decode(_p.getString(dataPref)), DateTime.now());
+  UserKnows build() {
+    try {
+      return UserKnowsRules.tidy(
+          UserKnows.decode(_p.getString(dataPref)), DateTime.now());
+    } catch (_) {
+      return UserKnows.empty;
+    }
+  }
 
   /// Whether noticing is switched on (it is, unless the person turned it off).
-  bool get on => _p.getBool(onPref) ?? true;
+  bool get on => _flag(onPref, true);
 
   /// Whether the account copy is used for a signed-in grown-up.
-  bool get sync => _p.getBool(syncPref) ?? true;
+  bool get sync => _flag(syncPref, true);
 
-  /// Whether the one-time first-use note has been answered.
-  bool get noticeSeen => _p.getBool(noticePref) ?? false;
+  /// Whether the one-time first-use note has been answered. Counts as
+  /// answered where settings are not available, so no note is shown there.
+  bool get noticeSeen {
+    try {
+      return _p.getBool(noticePref) ?? false;
+    } catch (_) {
+      return true;
+    }
+  }
 
   Future<bool> _allowedHere() async {
     if (!on) return false;
