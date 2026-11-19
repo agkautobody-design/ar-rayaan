@@ -51,6 +51,12 @@ class PrayerAlertController extends Notifier<Set<String>> {
     await _persist();
   }
 
+  /// Switches all five prayer alerts on (the Home invitation).
+  Future<void> enableAll() async {
+    state = <String>{...alertable};
+    await _persist();
+  }
+
   bool isEnabled(String prayer) => state.contains(prayer);
 }
 

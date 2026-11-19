@@ -16,6 +16,7 @@ import '../../../app/core/modules/module_status.dart';
 import '../../../app/core/providers.dart';
 import '../../onboarding/presentation/onboarding_screen.dart';
 import '../domain/next_step.dart';
+import 'notify_invite.dart';
 import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen, pathRevisionProvider;
 import '../../academy/application/academy_providers.dart';
 import '../../academy/application/family_service.dart';
@@ -476,6 +477,7 @@ class HomeScreen extends ConsumerWidget {
               quick,
               const SizedBox(height: 4),
               const _GuestSignIn(),
+              const NotifyInvite(),
               if (!newToIslam)
                 _NextStepCard(
                   step: step,

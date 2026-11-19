@@ -25,6 +25,7 @@ import '../../calendar/domain/hijri_date.dart';
 import '../application/iqamah_settings.dart';
 import '../application/jumuah_countdown.dart';
 import '../application/location_providers.dart';
+import '../application/alert_permission.dart';
 import '../application/prayer_alerts.dart';
 import '../application/prayer_log.dart';
 import '../application/prayer_notification_plan.dart';
@@ -592,9 +593,6 @@ class _PrayerRow extends ConsumerWidget {
       constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
       tooltip: alertOn ? 'Turn off the $name alert' : 'Turn on the $name alert',
       onPressed: () async {
-        final PrayerNotificationScheduler scheduler = ref.read(
-          prayerNotificationSchedulerProvider,
-        );
         final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
         await ref.read(prayerAlertsProvider.notifier).toggle(name);
         if (alertOn) {
@@ -605,22 +603,7 @@ class _PrayerRow extends ConsumerWidget {
         }
         // Turning an alert on is the moment to ask for permission, and to
         // say plainly whether it will actually ring.
-        final bool browserOk = await WebNotifier.ensurePermission();
-        String note;
-        if (scheduler.supported) {
-          final bool ok = await scheduler.requestPermission();
-          note = ok
-              ? '$name alert is on. It rings even when the app is closed.'
-              : '$name alert is on, but notifications are blocked for '
-                  'Ar-Rayaan. Allow them in your phone\u2019s settings.';
-        } else {
-          note = browserOk
-              ? '$name alert is on. In a browser it rings only while this '
-                  'page is open; the Android and iPhone apps ring when closed.'
-              : '$name alert is on. Your browser is blocking notifications, '
-                  'so you get the banner and adhan only while this page is '
-                  'open.';
-        }
+        final String note = await askAlertPermission(ref, '$name alert is on');
         messenger
           ..hideCurrentSnackBar()
           ..showSnackBar(
