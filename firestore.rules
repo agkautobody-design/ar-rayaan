@@ -344,6 +344,23 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
+    // ── Hadi misses ("Help Hadi learn", off by default) ───────────────
+    // The words of a question Hadi could not answer, sent only when the
+    // person switched sharing on in Settings. Create-only; no user id is
+    // stored. Only a founder can read them, to decide what the library
+    // should cover next.
+    match /hadi_misses/{id} {
+      allow read: if isFounder();
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['question', 'kind', 'createdAt'])
+        && request.resource.data.question is string
+        && request.resource.data.question.size() >= 6
+        && request.resource.data.question.size() <= 300
+        && request.resource.data.kind == 'miss'
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
     // ── Community map (masajid, halal food, events) ────────────────────
     // Anyone can read. Only people signed in with a REAL account can add —
     // the anonymous sign-in the games fall back to does not count, so abuse

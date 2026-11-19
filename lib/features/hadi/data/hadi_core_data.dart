@@ -4481,4 +4481,35 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     beforeGate: true,
     reviewNote: 'General travel advice; app pointers only, no ruling.',
   ),
+
+  CoreEntry(
+    id: 'last-surah-revealed',
+    patterns: <String>[
+      r'\blast (?:surah|sura|chapter) (?:that )?(?:was )?revealed\b',
+      r'\b(?:which|what) (?:surah|sura|chapter) was (?:the )?last (?:revealed|to be revealed)\b',
+      r'\blast (?:ayah|verse) (?:that )?(?:was )?revealed\b',
+      r'\blast thing (?:that )?(?:was )?revealed\b',
+    ],
+    answer: 'Scholars give more than one answer, because the reports differ.\n\nFor the last complete surah, the view most often given is An-Nasr (surah 110), reported from Ibn Abbas (Qur\'an 110:1). For the last verses, the reports name different ones, and the ones most often mentioned are the verse that warns of the Day you are returned to Allah (Qur\'an 2:281), and the verse that says the religion is completed (Qur\'an 5:3), which was revealed at the farewell pilgrimage.\n\nSo there is no single agreed answer, and I would not state one as settled. A tafsir book by a recognised scholar lays out the reports.\n\nSource: Qur\'an 110:1, 2:281, 5:3.\n[GO:/quran]',
+    topic: 'last revelation',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: the reports differ and the order depends on which one is preferred.',
+  ),
+
+  CoreEntry(
+    id: 'something-inspiring',
+    patterns: <String>[
+      r'\b(?:tell|give) me something (?:inspiring|uplifting|motivating|encouraging)\b',
+      r'\binspire me\b',
+      r'\bmotivate me\b',
+      r'\bi need (?:some )?(?:motivation|inspiration|encouragement)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:suicid\w*|kill myself|end it|hopeless|worthless|depress\w*)\b',
+    ],
+    answer: 'Here is one from the Qur\'an: with hardship comes ease, and the verse says it twice (Qur\'an 94:5, Qur\'an 94:6). The difficulty you are in is real, and the promise is that it is not the end of the story.\n\nAnother: Allah does not burden a soul beyond what it can bear (Qur\'an 2:286).\n\nIf you would like more, the Stories screen has the lives of the prophets, and For Your Heart has verses and du\'as for how you feel today.\n\nSource: Qur\'an 94:5, 94:6, 2:286.\n[GO:/stories]\n[GO:/feelings]',
+    topic: 'encouragement',
+    beforeGate: true,
+    reviewNote: 'Qur\'an refs only; encouragement, not advice.',
+  ),
 ];

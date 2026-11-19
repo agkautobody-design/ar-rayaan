@@ -160,6 +160,18 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'unless you press Send.',
   ),
   LegalSection(
+    'Help Hādi learn (optional)',
+    'This is off unless you switch it on in Settings. When on, the words of '
+        'a question Hādi could not answer (shortened to 300 characters) are '
+        'sent to our Firebase Firestore database (Google) using an anonymous '
+        'sign-in number that is not linked to your name or email, so the '
+        'library can cover that question in a later update. No answer, '
+        'history or account detail is sent. Text about a crisis, support, '
+        'health, a person under 18, links, e-mail addresses or long numbers '
+        'is never sent. Only the founders can read these. Switching it off '
+        'stops sending and clears anything waiting on your device.',
+  ),
+  LegalSection(
     'The Majlis',
     'What you post in the Majlis (title, text, display name and an '
         'identifier for your account, plus the community room you chose) '

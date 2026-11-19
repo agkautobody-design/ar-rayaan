@@ -19,6 +19,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
+import '../../hadi/data/hadi_miss_service.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
 import '../../reading/presentation/reading_settings.dart';
@@ -424,6 +425,37 @@ class SettingsScreen extends ConsumerWidget {
                                 .read(soundSettingsProvider.notifier)
                                 .setAmbient(v);
                             ref.read(ambientServiceProvider).setEnabled(v);
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('HĀDI', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
+                        child: StatefulBuilder(
+                          builder: (BuildContext ctx, StateSetter setLocal) {
+                            final SharedPreferences prefs =
+                                ref.read(sharedPreferencesProvider);
+                            return SwitchRow(
+                              icon: Icons.school_outlined,
+                              title: 'Help Hādi learn',
+                              subtitle:
+                                  'Off by default. When on, the words of a question Hādi could not answer are sent, with no name or account, so the library can cover it. Nothing else is sent, and private or sensitive questions never are.',
+                              value:
+                                  prefs.getBool(HadiMissService.enabledPref) ??
+                                      false,
+                              onChanged: (bool v) async {
+                                await prefs.setBool(
+                                    HadiMissService.enabledPref, v);
+                                setLocal(() {});
+                              },
+                            );
                           },
                         ),
                       ),

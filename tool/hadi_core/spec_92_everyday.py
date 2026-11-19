@@ -127,3 +127,30 @@ General advice: check the weather, keep copies of your documents, carry a charge
 For a Muslim traveller the app helps with the prayer side: Prayer Times and Qibla work from your location, and the Mosques screen shows places to pray nearby. If you want the rules for shortening or joining prayers on a journey, ask me that directly.
 """,
   review='General travel advice; app pointers only, no ruling.')
+
+E('last-surah-revealed',
+  m=[r'\blast (?:surah|sura|chapter) (?:that )?(?:was )?revealed\b', r'\b(?:which|what) (?:surah|sura|chapter) was (?:the )?last (?:revealed|to be revealed)\b', r'\blast (?:ayah|verse) (?:that )?(?:was )?revealed\b', r'\blast thing (?:that )?(?:was )?revealed\b'],
+  topic='last revelation',
+  go=['/quran'],
+  text="""
+Scholars give more than one answer, because the reports differ.
+
+For the last complete surah, the view most often given is An-Nasr (surah 110), reported from Ibn Abbas ({QR 110:1}). For the last verses, the reports name different ones, and the ones most often mentioned are the verse that warns of the Day you are returned to Allah ({QR 2:281}), and the verse that says the religion is completed ({QR 5:3}), which was revealed at the farewell pilgrimage.
+
+So there is no single agreed answer, and I would not state one as settled. A tafsir book by a recognised scholar lays out the reports.
+""",
+  review='Scholar review needed: the reports differ and the order depends on which one is preferred.')
+
+E('something-inspiring',
+  m=[r'\b(?:tell|give) me something (?:inspiring|uplifting|motivating|encouraging)\b', r'\binspire me\b', r'\bmotivate me\b', r'\bi need (?:some )?(?:motivation|inspiration|encouragement)\b'],
+  x=[r'\b(?:suicid\w*|kill myself|end it|hopeless|worthless|depress\w*)\b'],
+  topic='encouragement',
+  go=['/stories', '/feelings'],
+  text="""
+Here is one from the Qur'an: with hardship comes ease, and the verse says it twice ({QR 94:5}, {QR 94:6}). The difficulty you are in is real, and the promise is that it is not the end of the story.
+
+Another: Allah does not burden a soul beyond what it can bear ({QR 2:286}).
+
+If you would like more, the Stories screen has the lives of the prophets, and For Your Heart has verses and du'as for how you feel today.
+""",
+  review='Qur\'an refs only; encouragement, not advice.')
