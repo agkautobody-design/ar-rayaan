@@ -527,6 +527,23 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     keywords: <String>['invite', 'invite a friend', 'tell a friend'],
   ),
   AppDestination(
+    id: 'naat-words',
+    title: 'Naat Words',
+    subtitle: 'Read and learn the words of naats, in your language',
+    route: '/player/words',
+    keywords: <String>[
+      'naat words',
+      'naat lyrics',
+      'nasheed lyrics',
+      'lyrics',
+      'words of naat',
+      'burda',
+      'tala al badru',
+      'lab pe aati hai dua',
+      'learn naat',
+    ],
+  ),
+  AppDestination(
     id: 'nasheeds',
     title: 'Nasheed Player',
     subtitle: 'Nasheeds and naats',

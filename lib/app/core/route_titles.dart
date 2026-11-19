@@ -46,6 +46,7 @@ abstract final class RouteTitles {
     '/player/my-additions': 'My Additions',
     '/player/playlists': 'My Playlists',
     '/player/request': 'Request a Nasheed',
+    '/player/words': 'Naat Words',
     '/majlis': 'Majlis',
     '/majlis/new': 'New Thread',
     '/notes': 'Notes',
@@ -144,6 +145,7 @@ abstract final class RouteTitles {
   /// Paths with an id: matched by prefix, most specific first.
   static const List<(String, String)> _prefixes = <(String, String)>[
     ('/family/child/', 'Speak to Wasia'),
+    ('/player/words/', 'Naat Words'),
     ('/support/', 'Support'),
     ('/quran/madinah/', 'Qur’an Page View'),
     ('/quran/', 'Qur’an'),
