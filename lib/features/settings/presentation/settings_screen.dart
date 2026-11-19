@@ -429,9 +429,19 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
+                      Text(
+                        'Adhan, Qur’an recitation, and read-aloud always play '
+                        'when you tap them — this switch is only for the '
+                        'background soundscape.',
+                        style: AppText.bodyMuted.copyWith(
+                          fontSize: 12,
+                          height: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('HĀDI', style: AppText.eyebrow),
+                        child: Text('HĀDI & PRIVACY', style: AppText.eyebrow),
                       ),
                       GlassCard(
                         padding: const EdgeInsets.symmetric(
@@ -459,63 +469,7 @@ class SettingsScreen extends ConsumerWidget {
                           },
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      Text(
-                        'Adhan, Qur’an recitation, and read-aloud always play '
-                        'when you tap them — this switch is only for the '
-                        'background soundscape.',
-                        style: AppText.bodyMuted.copyWith(
-                          fontSize: 12,
-                          height: 1.5,
-                        ),
-                      ),
-                      if (kReturnLoopEnabled) ...<Widget>[
-                        const SizedBox(height: 20),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 4, bottom: 8),
-                          child: Text('COMING BACK', style: AppText.eyebrow),
-                        ),
-                        GlassCard(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 6,
-                          ),
-                          child: SwitchRow(
-                            icon: Icons.wb_twilight_outlined,
-                            title: 'Keep a private log',
-                            subtitle: 'Totals and a calendar for Qur\u2019an '
-                                'reading, dhikr and lessons, kept on this '
-                                'device only. Prayers and fasting come from '
-                                'your own logs and are never shared.',
-                            value: ref.watch(returnLoopEnabledProvider),
-                            onChanged: (bool v) => unawaited(
-                              ref
-                                  .read(returnLoopEnabledProvider.notifier)
-                                  .set(v),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'It only adds up what you log. Switching this off '
-                          'erases the days it saved.',
-                          style: AppText.bodyMuted.copyWith(
-                            fontSize: 12,
-                            height: 1.5,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        TextButton(
-                          key: const Key('open-my-log'),
-                          onPressed: () => context.open(AppRoutes.tracking),
-                          child: const Text('Open my log'),
-                        ),
-                      ],
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('HĀDI', style: AppText.eyebrow),
-                      ),
+                      const SizedBox(height: 8),
                       GlassCard(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -566,6 +520,49 @@ class SettingsScreen extends ConsumerWidget {
                           height: 1.5,
                         ),
                       ),
+                      if (kReturnLoopEnabled) ...<Widget>[
+                        const SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4, bottom: 8),
+                          child: Text('COMING BACK', style: AppText.eyebrow),
+                        ),
+                        GlassCard(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 6,
+                          ),
+                          child: SwitchRow(
+                            icon: Icons.wb_twilight_outlined,
+                            title: 'Keep a private log',
+                            subtitle: 'Totals and a calendar for Qur\u2019an '
+                                'reading, dhikr and lessons, kept on this '
+                                'device only. Prayers and fasting come from '
+                                'your own logs and are never shared.',
+                            value: ref.watch(returnLoopEnabledProvider),
+                            onChanged: (bool v) => unawaited(
+                              ref
+                                  .read(returnLoopEnabledProvider.notifier)
+                                  .set(v),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'It only adds up what you log. Switching this off '
+                          'erases the days it saved.',
+                          style: AppText.bodyMuted.copyWith(
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          key: const Key('open-my-log'),
+                          onPressed: () => context.open(AppRoutes.tracking),
+                          child: const Text('Open my log'),
+                        ),
+                      ],
+                      const SizedBox(height: 20),
                       const SizedBox(height: 4),
                       FocusSafeSemantics(
                         button: true,
