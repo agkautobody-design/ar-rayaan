@@ -22,6 +22,7 @@ import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../../app/core/subscription/billing_gateway.dart';
 import '../../../app/core/providers.dart';
+import '../../../app/core/sound/sound_services.dart' show speechServiceProvider;
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
@@ -158,7 +159,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   void initState() {
     super.initState();
-    _voice = HadiVoiceService();
+    _voice = HadiVoiceService(speech: ref.read(speechServiceProvider));
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _takeInitialQuery();
       // Coming back to an earlier conversation: start at the latest message.

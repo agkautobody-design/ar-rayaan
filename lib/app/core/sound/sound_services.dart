@@ -9,6 +9,8 @@ import '../../../features/academy/application/recitation_player_provider.dart'
     show RecitationPlaybackState, recitationPlayerProvider;
 import '../../../features/academy/domain/recitation_audio.dart'
     show AyahRange, AyahRef, PlaybackEvent, RecitationPlanEngine;
+import '../providers.dart' show sharedPreferencesProvider;
+import 'voice_book.dart';
 import 'voice_picker.dart';
 
 /// Sound in Ar-Rayaan (Founder directive: "the whole app needs to be
@@ -342,76 +344,76 @@ recitationServiceProvider =
 // ---------------------------------------------------------------------------
 
 class SpeechService {
+  SpeechService([SharedPreferences? prefs]) : book = VoiceBook(prefs);
+
+  /// The person's voice choices (which voice, speed, Arabic).
+  final VoiceBook book;
   FlutterTts? _tts;
   bool _busy = false;
-  List<Map<dynamic, dynamic>>? _voices;
-  final Map<VoiceProfile, VoiceChoice> _choices =
-      <VoiceProfile, VoiceChoice>{};
+  int _gen = 0;
 
-  Future<VoiceChoice> _choiceFor(VoiceProfile profile) async {
-    final VoiceChoice? known = _choices[profile];
-    if (known != null) return known;
+  FlutterTts get _engine => _tts ??= FlutterTts();
+
+  /// Every English and Arabic voice this device has, labelled for a person.
+  Future<List<VoiceOption>> voiceOptions() async {
     try {
-      if (_voices == null) {
-        final dynamic raw = await _tts!.getVoices;
-        _voices = (raw is List ? raw : <dynamic>[])
-            .whereType<Map<dynamic, dynamic>>()
-            .toList();
-      }
+      return await book.options(_engine);
     } catch (_) {
-      _voices = <Map<dynamic, dynamic>>[];
+      return <VoiceOption>[];
     }
-    List<Map<dynamic, dynamic>> pool = _voices ?? <Map<dynamic, dynamic>>[];
-    VoiceChoice c = VoicePicker.choose(pool, profile);
-    if (profile == VoiceProfile.neutral) {
-      // Old behaviour: a natural default voice, not the robotic one.
-      const List<String> preferred = <String>[
-        'Samantha', 'Google US English', 'Microsoft Aria', 'Karen', 'Daniel',
-      ];
-      for (final String want in preferred) {
-        for (final Map<dynamic, dynamic> v in pool) {
-          if ((v['locale'] ?? '').toString().startsWith('en') &&
-              (v['name'] ?? '').toString().contains(want)) {
-            c = VoiceChoice(
-                name: v['name'].toString(),
-                locale: v['locale'].toString(),
-                pitch: 1.0,
-                rate: 0.48);
-            _choices[profile] = c;
-            return c;
-          }
-        }
-      }
-    }
-    _choices[profile] = c;
-    return c;
   }
 
+  /// Plays [text] in one specific voice, to audition it. Not saved.
+  Future<void> sample(VoiceOption option, String text) async {
+    try {
+      final FlutterTts tts = _engine;
+      _gen++;
+      await tts.stop();
+      await tts.awaitSpeakCompletion(true);
+      await book.applyOption(tts, option);
+      await tts.speak(text);
+    } catch (_) {}
+  }
+
+  /// Strips what a voice should not read out: markdown marks, links and the
+  /// in-app jump tags.
+  static String clean(String text) => text
+      .replaceAll(RegExp(r'\[GO:[^\]]*\]'), ' ')
+      .replaceAll(RegExp(r'https?://\S+'), ' ')
+      .replaceAll(RegExp(r'[*_`#>]+'), ' ')
+      .replaceAll(RegExp(r'[ \t]+'), ' ')
+      .trim();
+
+  /// Speaks [text] in the guide's voice. Resolves when it has finished or has
+  /// been stopped. Arabic stretches go to an Arabic voice when there is one.
   Future<void> speak(String text,
       {VoiceProfile profile = VoiceProfile.neutral}) async {
-    if (text.trim().isEmpty) return;
+    final String t = clean(text);
+    if (t.isEmpty) return;
+    final int gen = ++_gen;
     try {
-      _tts ??= FlutterTts();
-      await _tts!.setLanguage('en-US');
-      final VoiceChoice c = await _choiceFor(profile);
-      if (c.name != null) {
-        await _tts!.setVoice(<String, String>{
-          'name': c.name!,
-          'locale': c.locale ?? 'en-US',
-        });
-      }
-      await _tts!.setSpeechRate(c.rate);
-      await _tts!.setPitch(c.pitch);
-      if (_busy) await _tts!.stop();
+      final FlutterTts tts = _engine;
+      await tts.awaitSpeakCompletion(true);
+      if (_busy) await tts.stop();
       _busy = true;
-      await _tts!.speak(text);
-      _busy = false;
+      final List<SpeechRun> runs = book.readArabic
+          ? SpeechRuns.split(t)
+          : <SpeechRun>[SpeechRun(t, false)];
+      for (final SpeechRun r in runs) {
+        if (gen != _gen) break;
+        final bool ok = await book.apply(tts, profile, arabic: r.arabic);
+        if (!ok || gen != _gen) continue;
+        await tts.speak(r.text);
+      }
     } catch (_) {
-      _busy = false;
+      // No voice engine here: stay quiet rather than fail.
+    } finally {
+      if (gen == _gen) _busy = false;
     }
   }
 
   Future<void> stop() async {
+    _gen++;
     try {
       await _tts?.stop();
     } catch (_) {}
@@ -422,7 +424,13 @@ class SpeechService {
 final Provider<SpeechService> speechServiceProvider = Provider<SpeechService>((
   Ref ref,
 ) {
-  final SpeechService service = SpeechService();
+  SharedPreferences? prefs;
+  try {
+    prefs = ref.read(sharedPreferencesProvider);
+  } catch (_) {
+    prefs = null; // built without preferences (tests): defaults
+  }
+  final SpeechService service = SpeechService(prefs);
   ref.onDispose(() => service.stop());
   return service;
 });

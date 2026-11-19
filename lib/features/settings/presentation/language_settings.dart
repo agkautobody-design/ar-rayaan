@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import 'voice_settings_card.dart';
 
 class LanguageSettingsScreen extends ConsumerWidget {
   const LanguageSettingsScreen({super.key});
@@ -78,18 +79,7 @@ class LanguageSettingsScreen extends ConsumerWidget {
                 ]),
               ),
               const SizedBox(height: 12),
-              GlassCard(
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(l10n.t('settings.voice'), style: AppText.eyebrow),
-                  const SizedBox(height: 4),
-                  Text(l10n.t('settings.voice.sub'), style: AppText.bodyMuted),
-                  const SizedBox(height: 10),
-                  Text('Natural, human-sounding voices are not available yet. '
-                      'Until they are, the device reads the words in its own '
-                      'voice.',
-                      style: AppText.bodyMuted.copyWith(height: 1.5)),
-                ]),
-              ),
+              const VoiceSettingsCard(),
               const SizedBox(height: 12),
               GlassCard(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

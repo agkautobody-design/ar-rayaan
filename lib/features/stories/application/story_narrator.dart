@@ -14,6 +14,11 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../app/core/providers.dart' show sharedPreferencesProvider;
+import '../../../app/core/sound/voice_book.dart';
+import '../../../app/core/sound/voice_picker.dart';
 
 /// Speech rates in flutter_tts units. Normal matches the rest of the app.
 const double kNarratorNormalRate = 0.48;
@@ -65,6 +70,10 @@ abstract class TtsEngine {
 /// speech synthesis). Every call is guarded: a missing plugin or voice makes
 /// speak() return false.
 class FlutterTtsEngine implements TtsEngine {
+  FlutterTtsEngine([this._book]);
+
+  /// The person's voice choices; stories are read in Wasia's voice.
+  final VoiceBook? _book;
   FlutterTts? _tts;
   Completer<void>? _done;
   bool _wired = false;
@@ -84,7 +93,12 @@ class FlutterTtsEngine implements TtsEngine {
         tts.setCancelHandler(_finish);
         tts.setErrorHandler((dynamic _) => _finish());
       }
-      await tts.setLanguage('en-US');
+      final VoiceBook? book = _book;
+      if (book != null) {
+        await book.apply(tts, VoiceProfile.wasia, arabic: false);
+      } else {
+        await tts.setLanguage('en-US');
+      }
       await tts.setSpeechRate(rate);
       final Completer<void> done = Completer<void>();
       _done = done;
@@ -110,7 +124,15 @@ class FlutterTtsEngine implements TtsEngine {
 
 /// The engine the narrator uses. Tests override this with a fake.
 final Provider<TtsEngine> storyTtsEngineProvider = Provider<TtsEngine>(
-  (Ref ref) => FlutterTtsEngine(),
+  (Ref ref) {
+    SharedPreferences? prefs;
+    try {
+      prefs = ref.read(sharedPreferencesProvider);
+    } catch (_) {
+      prefs = null; // built without preferences (tests): defaults
+    }
+    return FlutterTtsEngine(VoiceBook(prefs));
+  },
 );
 
 enum NarratorStatus { idle, playing, paused }

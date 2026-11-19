@@ -106,7 +106,7 @@ You change the language on the Language & Voice screen: open the menu and choose
 - Indonesian: only the Language & Voice labels are translated.
 - French, Turkish and Malay: not translated yet; the app stays in English.
 
-Lessons, stories, hadith, my answers, the prayer screens and every long text are still in English, with the original Arabic for scripture. I answer in English only. Natural human-sounding voices are not available yet: until they are, the device reads the words in its own voice.
+Lessons, stories, hadith, my answers, the prayer screens and every long text are still in English, with the original Arabic for scripture. I answer in English only. When I read aloud, I use the voices installed on your phone. On the same screen you can choose my voice and Wasia\'s, hear each one first, set the speed, and have Arabic read in Arabic.
 """,
   go=['/settings/language'],
   review='Checked against the Language & Voice screen by test/hadi_eval/app_help_facts_test.dart.')
