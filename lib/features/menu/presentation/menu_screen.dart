@@ -105,7 +105,7 @@ class MenuScreen extends ConsumerWidget {
     // Kill switch: ar.flag.academy=false removes every Academy entry point.
     final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
     final L10n l10n = ref.watch(l10nProvider);
-    final bool signedIn = ref.watch(authStateProvider).valueOrNull != null;
+    final bool signedIn = hasAccount(ref.watch(authStateProvider).valueOrNull);
     return ScenicScaffold.pattern(
       body: SafeArea(
         bottom: false,

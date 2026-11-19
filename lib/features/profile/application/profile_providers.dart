@@ -15,6 +15,6 @@ final Provider<ProfileRepository> profileRepositoryProvider =
 final FutureProvider<UserProfile?> userProfileProvider =
     FutureProvider<UserProfile?>((ref) async {
       final user = await ref.watch(authStateProvider.future);
-      if (user == null) return null;
+      if (user == null || !hasAccount(user)) return null;
       return ref.watch(profileRepositoryProvider).ensureProfile(user);
     });
