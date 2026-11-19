@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
-import 'package:flutter_tts/flutter_tts.dart';
 
+import '../../../app/core/sound/sound_services.dart' show SpeechService;
 import '../../../app/core/sound/voice_picker.dart';
 
 /// Handles voice input (speech-to-text) and voice output (text-to-speech)
 /// for the Hadi conversation experience.
 ///
 /// Usage:
-///   final voice = HadiVoiceService();
+///   final voice = HadiVoiceService(speech: ref.read(speechServiceProvider));
 ///   final text = await voice.startListening(...);
 ///   await voice.speak('Hadi response here');
 class HadiVoiceService {
-  HadiVoiceService() {
+  HadiVoiceService({required SpeechService speech}) : _out = speech {
     _initSpeech();
-    _initTts();
   }
 
   final stt.SpeechToText _speech = stt.SpeechToText();
-  final FlutterTts _tts = FlutterTts();
+
+  /// The one shared voice engine: it holds the man's voice the person chose
+  /// for Hādi, the speed, and reads Arabic in Arabic.
+  final SpeechService _out;
   bool _speechAvailable = false;
   bool _isListening = false;
 
@@ -35,28 +37,6 @@ class HadiVoiceService {
       },
       onError: (error) => debugPrint('Speech error: $error'),
     );
-  }
-
-  Future<void> _initTts() async {
-    await _tts.setLanguage('en-US');
-    await _tts.setVolume(1.0);
-    VoiceChoice c = const VoiceChoice(pitch: 0.82, rate: 0.46);
-    try {
-      final dynamic raw = await _tts.getVoices;
-      c = VoicePicker.choose(
-          (raw is List ? raw : <dynamic>[])
-              .whereType<Map<dynamic, dynamic>>()
-              .toList(),
-          VoiceProfile.hadi);
-      if (c.name != null) {
-        await _tts.setVoice(<String, String>{
-          'name': c.name!,
-          'locale': c.locale ?? 'en-US',
-        });
-      }
-    } catch (_) {}
-    await _tts.setSpeechRate(c.rate);
-    await _tts.setPitch(c.pitch);
   }
 
   /// Start listening for voice input. Returns transcribed text when done.
@@ -103,17 +83,16 @@ class HadiVoiceService {
   /// Speak Hadi's response aloud.
   Future<void> speak(String text) async {
     if (text.isEmpty) return;
-    await _tts.stop();
-    await _tts.speak(text);
+    await _out.speak(text, profile: VoiceProfile.hadi);
   }
 
   /// Stop speaking.
   Future<void> stopSpeaking() async {
-    await _tts.stop();
+    await _out.stop();
   }
 
   void dispose() {
     _speech.stop();
-    _tts.stop();
+    _out.stop();
   }
 }

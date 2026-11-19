@@ -3350,7 +3350,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     avoid: <String>[
       r'\b(?:learn|teach|lessons?|school|arabic letters|quranic arabic|grammar)\b',
     ],
-    answer: 'You change the language on the Language & Voice screen: open the menu and choose "Language & Voice" (or Settings, then the language row). The app offers English, Urdu, Arabic, Indonesian, French, Turkish, Bangla and Malay, but not all of them are translated yet, and the screen says so for each one:\n- Arabic, Bangla and Urdu: the menu and tab names, the titles on the Home screen, the first questions you see when you open the app, and the top of Settings are translated. These are first drafts waiting for a native speaker to check them. Arabic and Urdu also turn the layout right-to-left.\n- Indonesian: only the Language & Voice labels are translated.\n- French, Turkish and Malay: not translated yet; the app stays in English.\n\nLessons, stories, hadith, my answers, the prayer screens and every long text are still in English, with the original Arabic for scripture. I answer in English only. Natural human-sounding voices are not available yet: until they are, the device reads the words in its own voice.\n[GO:/settings/language]',
+    answer: 'You change the language on the Language & Voice screen: open the menu and choose "Language & Voice" (or Settings, then the language row). The app offers English, Urdu, Arabic, Indonesian, French, Turkish, Bangla and Malay, but not all of them are translated yet, and the screen says so for each one:\n- Arabic, Bangla and Urdu: the menu and tab names, the titles on the Home screen, the first questions you see when you open the app, and the top of Settings are translated. These are first drafts waiting for a native speaker to check them. Arabic and Urdu also turn the layout right-to-left.\n- Indonesian: only the Language & Voice labels are translated.\n- French, Turkish and Malay: not translated yet; the app stays in English.\n\nLessons, stories, hadith, my answers, the prayer screens and every long text are still in English, with the original Arabic for scripture. I answer in English only. When I read aloud, I use the voices installed on your phone. On the same screen you can choose my voice and Wasia\'s, hear each one first, set the speed, and have Arabic read in Arabic.\n[GO:/settings/language]',
     topic: 'language',
     beforeGate: true,
     reviewNote: 'Checked against the Language & Voice screen by test/hadi_eval/app_help_facts_test.dart.',
@@ -4313,6 +4313,19 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     reviewNote: 'The hadith is checked; the account of the scholarly difference over the 15th night is a summary and needs a scholar to confirm the wording.',
   ),
   // ── Everyday life (18 Nov 2026), from tool/hadi_core/spec_92_everyday.py ──
+  CoreEntry(
+    id: 'dua-anxiety',
+    patterns: <String>[
+      r'\b(?:dua|supplication|prayer)s?\b.*\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|sad|heavy heart|overwhelmed)\b',
+      r'\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|overwhelmed)\b.*\b(?:dua|supplication)s?\b',
+      r'\bwhat (?:do i|should i|can i|to) (?:say|recite|read)\b.*\b(?:anxious|anxiety|worried|worry|stressed|sad|distressed|overwhelmed)\b',
+      r'\b(?:say|recite|read)\b.*\b(?:when|if|while)\b.*\b(?:anxious|worried|stressed|sad|distressed|overwhelmed)\b',
+    ],
+    answer: 'The Prophet ﷺ used to ask Allah for refuge from worry and sadness (Sahih al-Bukhari 6369):\n\nاللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْجُبْنِ وَالْبُخْلِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ\n\nAllahumma inni a\'udhu bika minal-hammi wal-hazan, wal-\'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala\'id-dayni wa ghalabatir-rijal.\nMeaning: O Allah, I seek refuge in You from worry and grief, from weakness and laziness, from miserliness and cowardice, from the burden of debt and from being overpowered by people.\n\nYou can say it at any time, in any language you pray in, and as often as you need. The Qur\'an also speaks of hearts finding rest in remembering Allah (Qur\'an 13:28).\n\nA du\'a is a strong help, and it sits alongside the other help, not instead of it. If anxiety is heavy or does not lift, talking to someone you trust or to a doctor is part of looking after yourself, and it is no sign of weak faith. If you want to talk, tell me and I will stay with it.\n\nSource: Sahih al-Bukhari 6369; Qur\'an 13:28.\n[GO:/adhkar]',
+    topic: 'a du\'a for worry and anxiety',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: the du\'a is cited to Sahih al-Bukhari 6369 (checked); the transliteration is typed by hand; the closing advice is general wellbeing guidance, not medical.',
+  ),
   CoreEntry(
     id: 'shower-wudu',
     patterns: <String>[

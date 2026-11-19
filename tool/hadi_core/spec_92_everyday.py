@@ -154,3 +154,24 @@ Another: Allah does not burden a soul beyond what it can bear ({QR 2:286}).
 If you would like more, the Stories screen has the lives of the prophets, and For Your Heart has verses and du'as for how you feel today.
 """,
   review='Qur\'an refs only; encouragement, not advice.')
+
+E('dua-anxiety',
+  m=[r'\b(?:dua|supplication|prayer)s?\b.*\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|sad|heavy heart|overwhelmed)\b',
+     r'\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|overwhelmed)\b.*\b(?:dua|supplication)s?\b',
+     r'\bwhat (?:do i|should i|can i|to) (?:say|recite|read)\b.*\b(?:anxious|anxiety|worried|worry|stressed|sad|distressed|overwhelmed)\b',
+     r'\b(?:say|recite|read)\b.*\b(?:when|if|while)\b.*\b(?:anxious|worried|stressed|sad|distressed|overwhelmed)\b'],
+  topic='a du\'a for worry and anxiety',
+  go=['/adhkar'],
+  text="""
+The Prophet ﷺ used to ask Allah for refuge from worry and sadness ({H bukhari:6369|Anas reported that the Prophet used to say: O Allah, I seek refuge in You from worry and grief, from weakness and laziness, from miserliness and cowardice, from the burden of debt and from being overpowered by men}):
+
+{AR bukhari:6369|اللهم إني أعوذ بك من الهم والحزن|وغلبة الرجال}
+
+Allahumma inni a'udhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayni wa ghalabatir-rijal.
+Meaning: O Allah, I seek refuge in You from worry and grief, from weakness and laziness, from miserliness and cowardice, from the burden of debt and from being overpowered by people.
+
+You can say it at any time, in any language you pray in, and as often as you need. The Qur'an also speaks of hearts finding rest in remembering Allah ({QR 13:28}).
+
+A du'a is a strong help, and it sits alongside the other help, not instead of it. If anxiety is heavy or does not lift, talking to someone you trust or to a doctor is part of looking after yourself, and it is no sign of weak faith. If you want to talk, tell me and I will stay with it.
+""",
+  review='Scholar review needed: the du\'a is cited to Sahih al-Bukhari 6369 (checked); the transliteration is typed by hand; the closing advice is general wellbeing guidance, not medical.')

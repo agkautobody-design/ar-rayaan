@@ -22,6 +22,7 @@ import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../../app/core/subscription/billing_gateway.dart';
 import '../../../app/core/providers.dart';
+import '../../../app/core/sound/sound_services.dart' show speechServiceProvider;
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
@@ -101,7 +102,6 @@ class HadiScreen extends ConsumerStatefulWidget {
 
 class _HadiScreenState extends ConsumerState<HadiScreen> {
   late final HadiVoiceService _voice;
-  bool _speakingResponse = false;
 
   Future<void> _onVoiceTap() async {
     if (_voice.isListening) {
@@ -123,16 +123,6 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     }
   }
 
-  Future<void> _speakResponse(String text) async {
-    if (_speakingResponse) {
-      await _voice.stopSpeaking();
-      setState(() => _speakingResponse = false);
-    } else {
-      setState(() => _speakingResponse = true);
-      await _voice.speak(text);
-      setState(() => _speakingResponse = false);
-    }
-  }
   bool _allStarters = false;
 
   /// On a narrow phone the intro is one line until the person opens it.
@@ -158,7 +148,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   void initState() {
     super.initState();
-    _voice = HadiVoiceService();
+    _voice = HadiVoiceService(speech: ref.read(speechServiceProvider));
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _takeInitialQuery();
       // Coming back to an earlier conversation: start at the latest message.
@@ -923,8 +913,6 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       child: _Bubble(
                       message: hadi.messages[i],
                       isLatest: i == hadi.messages.length - 1 && !hadi.typing,
-                      speaking: _speakingResponse,
-                      onSpeak: _speakResponse,
                       // Opened ON TOP of the chat (a tab route is reached
                       // with go, as always), so Back returns to the
                       // conversation instead of jumping Home.
@@ -1434,8 +1422,6 @@ class _Bubble extends ConsumerWidget {
     this.onRetry,
     this.onOnlineMode,
     this.isLatest = false,
-    this.speaking = false,
-    this.onSpeak,
   });
 
   final HadiMessage message;
@@ -1454,12 +1440,6 @@ class _Bubble extends ConsumerWidget {
   /// Opens Hādi's settings for the optional online mode; null when the
   /// person already has it on.
   final VoidCallback? onOnlineMode;
-
-  /// True while this reply is being read aloud.
-  final bool speaking;
-
-  /// Reads the reply aloud (or stops the reading). Null hides the speaker.
-  final Future<void> Function(String text)? onSpeak;
 
   /// Puts the reply on the clipboard (without markup, with the passages it
   /// cites) and says so.
@@ -1680,17 +1660,6 @@ class _Bubble extends ConsumerWidget {
                     ),
                   ),
           ),
-                  // Speaker button for Hadi's responses
-                  if (hadi && !message.ephemeral && onSpeak != null)
-                    IconButton(
-                      icon: Icon(
-                        speaking ? Icons.volume_up : Icons.volume_up_outlined,
-                        size: 18,
-                        color: AppColors.gold,
-                      ),
-                      onPressed: () => onSpeak!(message.text),
-                      tooltip: 'Listen',
-                    ),
         ],
       ),
     );

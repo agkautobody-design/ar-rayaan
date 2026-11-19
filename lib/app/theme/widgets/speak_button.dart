@@ -35,7 +35,15 @@ class SpeakButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void speak() => ref.read(speechServiceProvider).speak(text, profile: profile);
+    // A second tap while it is reading stops it.
+    void speak() {
+      final SpeechService speech = ref.read(speechServiceProvider);
+      if (speech.isSpeaking) {
+        speech.stop();
+      } else {
+        speech.speak(text, profile: profile);
+      }
+    }
     final Widget circle = Container(
       width: size,
       height: size,
