@@ -85,7 +85,8 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'your password private. You can delete your account at any time '
         'from the Delete account screen. An account only identifies you '
         'when you sign in: your progress, bookmarks and settings are kept on '
-        'your device and are not backed up to the account, so clearing the '
+        'your device and are not backed up to the account (the one exception '
+        'is what Hādi notices about you, described below), so clearing the '
         'app\u2019s data removes them.',
   ),
   LegalSection(
@@ -170,6 +171,26 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'health, a person under 18, links, e-mail addresses or long numbers '
         'is never sent. Only the founders can read these. Switching it off '
         'stops sending and clears anything waiting on your device.',
+  ),
+  LegalSection(
+    'What Hādi notices about you',
+    'This is on unless you switch it off in Settings, under Support & '
+        'wellbeing. Hādi notes which subjects you ask about (for example '
+        'prayer, fasting or the Qur\u2019an) and a few plain things you say '
+        'about yourself (that you have children, are studying, or are new to '
+        'Islam), so his suggestions fit you. It never keeps your questions, '
+        'and never anything about health, safety, support, a crisis, or a '
+        'person under 18. It learns nothing in Private mode, in Child mode, '
+        'in Kids Corner or while a child profile is active. It stays on your '
+        'device. If you are signed in with an account and leave '
+        '\u201cKeep it in my account\u201d on, a copy is also kept in your own '
+        'account in Firebase Firestore (Google), readable only by you, so '
+        'your other devices know you too. It is never shared with other '
+        'people and never joins what Hādi learns for everyone. You can see '
+        'every line, delete one, or delete everything (this device and the '
+        'account copy) in Settings or by saying \u201cdelete everything\u201d '
+        'to Hādi. Subjects you stop asking about are forgotten after 90 '
+        'days, and deleting your account deletes the copy.',
   ),
   LegalSection(
     'The Majlis',

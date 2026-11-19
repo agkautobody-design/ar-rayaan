@@ -31,6 +31,8 @@ import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
 import '../data/hadi_miss_service.dart';
+import 'user_knows_provider.dart';
+import '../data/user_knows.dart';
 import '../data/hadi_weather.dart';
 import '../../prayer/application/prayer_providers.dart';
 import '../data/hosted_ai.dart';
@@ -836,16 +838,35 @@ class HadiController extends Notifier<HadiState> {
     final SupportSettings s = ref.read(supportSettingsProvider);
     if (_deleteAll.hasMatch(q)) {
       await n.deleteAllMemory();
+      try {
+        await ref.read(userKnowsProvider.notifier).forgetAll();
+      } catch (_) {}
       await clearThread();
-      return 'Done. I have forgotten everything I had saved, and this conversation is cleared.';
+      return 'Done. I have forgotten everything I had saved or noticed, and this conversation is cleared.';
     }
     if (_askKnows.hasMatch(q)) {
-      if (!s.remember) {
-        return 'Nothing. I only keep things if you switch on "Let Hadi remember things I tell it" in Settings, under Support & wellbeing.';
+      // What he noticed by himself (subjects you ask about), if switched on.
+      List<String> noticed = <String>[];
+      try {
+        if (ref.read(userKnowsProvider.notifier).on) {
+          noticed = UserKnowsRules.describe(ref.read(userKnowsProvider));
+        }
+      } catch (_) {}
+      final List<MemoryItem> items = s.remember ? n.memory : <MemoryItem>[];
+      if (items.isEmpty && noticed.isEmpty) {
+        return s.remember
+            ? 'Nothing yet. You can ask me to remember something, and you can see and delete it all in Settings.'
+            : 'Nothing yet. I only keep things if you switch on "Let Hadi remember things I tell it" in Settings, under Support & wellbeing.';
       }
-      final List<MemoryItem> items = n.memory;
-      if (items.isEmpty) return 'Nothing yet. You can ask me to remember something, and you can see and delete it all in Settings.';
-      return 'This is what you asked me to remember:\n${items.map((MemoryItem i) => '- ${i.text}').join('\n')}\nYou can edit or delete any of it in Settings, under Support & wellbeing.';
+      final StringBuffer b = StringBuffer();
+      if (items.isNotEmpty) {
+        b.write('This is what you asked me to remember:\n${items.map((MemoryItem i) => '- ${i.text}').join('\n')}\n');
+      }
+      if (noticed.isNotEmpty) {
+        b.write('This is what I have noticed from your questions:\n${noticed.map((String l) => '- $l').join('\n')}\n');
+      }
+      b.write('You can see, change or delete all of it in Settings, under Support & wellbeing, or say "delete everything".');
+      return b.toString();
     }
     final String? ask = UserMemory.requestedText(q);
     if (ask == null) return null;
@@ -1146,6 +1167,13 @@ class HadiController extends Notifier<HadiState> {
         try {
           unawaited(HadiMissService(ref.read(sharedPreferencesProvider))
               .record(question));
+        } catch (_) {}
+      } else {
+        // "What Hadi has noticed": the subject of a question he answered, on
+        // this device only (never in Private or child sessions, never from
+        // health, safety or support text).
+        try {
+          unawaited(ref.read(userKnowsProvider.notifier).noteQuestion(question));
         } catch (_) {}
       }
       return result;

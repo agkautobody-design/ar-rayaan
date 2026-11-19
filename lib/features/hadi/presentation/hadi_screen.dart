@@ -25,6 +25,9 @@ import '../../../app/core/providers.dart';
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
+import '../application/user_knows_provider.dart';
+import '../data/user_knows.dart';
+import 'knows_notice.dart';
 import '../data/hadi_report_service.dart';
 import '../data/hadi_routing.dart';
 import '../grounding/corpus.dart';
@@ -973,14 +976,20 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       ),
                     ),
                   if (hadi.messages.every((HadiMessage m) => m.fromHadi))
+                    const KnowsNotice(),
+                  if (hadi.messages.every((HadiMessage m) => m.fromHadi))
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: <Widget>[
                         for (final HadiExchange e in _allStarters
                             ? kProposedHadiExchanges
-                            : kProposedHadiExchanges
-                                .take(kHadiOpeningChipCount))
+                            : UserKnowsRules.rank<HadiExchange>(
+                                kProposedHadiExchanges,
+                                activeKnows(ref),
+                                (HadiExchange x) => x.question,
+                                window: kHadiOpeningChipCount,
+                              ).take(kHadiOpeningChipCount))
                           _StarterChip(
                             label: e.question,
                             onTap: () => _send(e.question),
