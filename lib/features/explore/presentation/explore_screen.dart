@@ -57,7 +57,6 @@ class ExploreScreen extends ConsumerWidget {
           'Marriage \u00b7 the Nikah guide',
           '${AppRoutes.hudaGuide}?id=huda-nikah',
         ),
-        (Icons.sports_esports_outlined, 'Games', AppRoutes.games),
         (Icons.favorite_border, 'For Your Heart', AppRoutes.feelings),
         (Icons.forum_outlined, 'Majlis \u2014 Community', AppRoutes.majlis),
         (Icons.mosque_outlined, 'Masajid \u00b7 mosques near you', '/masajid'),
@@ -70,7 +69,6 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.calculate_outlined, 'Zakat Calculator', AppRoutes.zakat),
         (Icons.school_outlined, 'The Academy', AppRoutes.academyGate),
         (Icons.nightlight_round, 'Ramadan Mode \u00b7 the season, complete', '/ramadan'),
-        (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
       ],
     ),
     (
@@ -93,10 +91,17 @@ class ExploreScreen extends ConsumerWidget {
       [
         // Same targets as the Menu (verified: Family Life school opens with
         // the Marriage unit; the Family Wing is the parents' space).
-        (Icons.handshake_outlined, 'Marriage & Family Life', '/academy/family-life'),
+        (Icons.handshake_outlined, 'Family Life school \u00b7 marriage & parenting', '/academy/family-life'),
         (Icons.child_care_outlined, 'Family Wing \u00b7 for parents', '/academy/family'),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
+      ],
+    ),
+    (
+      'Play & Personalise',
+      [
+        (Icons.sports_esports_outlined, 'Games', AppRoutes.games),
+        (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
       ],
     ),
     (
