@@ -14,13 +14,12 @@ class PushNotificationService {
     // startup-error screen. Skip until web push is set up deliberately.
     if (kIsWeb) return;
 
-    // Request permission (iOS)
-    final settings = await _messaging.requestPermission(
-      alert: true,
-      badge: true,
-      sound: true,
-      provisional: false,
-    );
+    // Never ask at launch: the permission prompt belongs to the moment a
+    // person switches a prayer bell on (the local scheduler asks then). Here
+    // we only read the current state, so nothing pops up before they have
+    // done anything.
+    final NotificationSettings settings =
+        await _messaging.getNotificationSettings();
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       // Get FCM token for targeting
