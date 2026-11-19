@@ -384,7 +384,6 @@ class HomeScreen extends ConsumerWidget {
                   compact: compact,
                   label: ui('home.nextStep'),
                 ),
-              const _GuestSignIn(),
               _SemanticTap(
                 label: ref.watch(elderModeProvider)
                     ? '${ui('home.elder')}, ${ui('home.elderOn')}. Open the Elder home.'
@@ -465,6 +464,8 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               quick,
+              const SizedBox(height: 4),
+              const _GuestSignIn(),
               if (!newToIslam)
                 _NextStepCard(
                   step: step,
