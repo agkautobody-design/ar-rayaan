@@ -13,6 +13,11 @@ final StreamProvider<AuthUser?> authStateProvider = StreamProvider<AuthUser?>(
   (ref) => ref.watch(authRepositoryProvider).authStateChanges(),
 );
 
+/// True only for a real account (one with an email). The app also signs in an
+/// anonymous Firebase user in the background (feedback, Hadi questions), and
+/// that is not a person who has signed in.
+bool hasAccount(AuthUser? user) => user != null && user.email.isNotEmpty;
+
 /// Controls async auth actions from the screens (loading / error states).
 class AuthController extends Notifier<AsyncValue<AuthUser?>> {
   AuthRepository get _repo => ref.read(authRepositoryProvider);

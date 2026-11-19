@@ -22,6 +22,7 @@ import '../../academy/application/family_service.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
 import '../../auth/application/auth_providers.dart';
+import '../../auth/application/auth_repository.dart' show AuthUser;
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../noor/application/noor_providers.dart';
 import '../../noor/domain/noor_entry.dart';
@@ -1247,8 +1248,8 @@ class _GuestSignIn extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<dynamic> auth = ref.watch(authStateProvider);
-    if (auth.hasError || !auth.hasValue || auth.value != null) {
+    final AsyncValue<AuthUser?> auth = ref.watch(authStateProvider);
+    if (auth.hasError || !auth.hasValue || hasAccount(auth.value)) {
       return const SizedBox.shrink();
     }
     return Padding(
