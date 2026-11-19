@@ -48,7 +48,8 @@ class NextStepRoutes {
 /// Picks the card. [need] is the stored `ar.need` (null when the person
 /// skipped the choice). [nextPrayer] is a ready label such as
 /// "Asr at 3:42 PM", or null while no location is set. [adhkarLeft] is the
-/// repetitions left in today's first adhkar set, null when unknown.
+/// repetitions left in today's adhkar set ([adhkarName]: morning before noon,
+/// evening after), null when unknown.
 /// [quranResume] is a label such as "Al-Baqarah 2:5", null when nothing has
 /// been read yet. [newMuslimDone] counts finished path lessons.
 NextStep resolveNextStep({
@@ -56,6 +57,7 @@ NextStep resolveNextStep({
   required bool academyOn,
   String? nextPrayer,
   int? adhkarLeft,
+  String adhkarName = 'morning',
   String? quranResume,
   int newMuslimDone = 0,
   int lessonsDone = 0,
@@ -66,8 +68,8 @@ NextStep resolveNextStep({
       final String adhkarLine = adhkarLeft == null
           ? 'Then your adhkar.'
           : adhkarLeft <= 0
-          ? 'Your morning adhkar are done.'
-          : 'Then your morning adhkar: $adhkarLeft left in that set.';
+          ? 'Your $adhkarName adhkar are done.'
+          : 'Then your $adhkarName adhkar: $adhkarLeft left in that set.';
       return NextStep(
         headline: nextPrayer == null
             ? 'Choose your place for prayer times'

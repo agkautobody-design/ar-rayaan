@@ -141,19 +141,27 @@ class HomeScreen extends ConsumerWidget {
       }
     }
 
-    String dhikrSub = ui('sub.morningAdhkar');
+    // Morning until noon, evening after: asking for the morning set at 5 pm
+    // reads as if the app does not know what time it is.
+    final bool eveningNow = DateTime.now().hour >= 12;
+    final String adhkarLabel =
+        ui(eveningNow ? 'sub.eveningAdhkar' : 'sub.morningAdhkar');
+    String dhikrSub = adhkarLabel;
     int? adhkarLeft;
     final List<AdhkarSet>? sets = ref.watch(adhkarSetsProvider).valueOrNull;
     if (sets != null && sets.isNotEmpty) {
       ref.watch(adhkarProgressProvider);
-      final AdhkarSet morning = sets.first;
+      final AdhkarSet today = sets.firstWhere(
+        (AdhkarSet s) => s.id == (eveningNow ? 'evening' : 'morning'),
+        orElse: () => sets.first,
+      );
       final int done = ref
           .read(adhkarProgressProvider.notifier)
-          .completedInSet(morning);
-      adhkarLeft = morning.totalRepetitions - done;
+          .completedInSet(today);
+      adhkarLeft = today.totalRepetitions - done;
       dhikrSub = l10n.locale.languageCode == 'en'
-          ? '${ui('sub.morningAdhkar')} · $adhkarLeft ${ui('home.remaining')}'
-          : '${ui('sub.morningAdhkar')} · ${ui('home.remaining')} $adhkarLeft';
+          ? '$adhkarLabel · $adhkarLeft ${ui('home.remaining')}'
+          : '$adhkarLabel · ${ui('home.remaining')} $adhkarLeft';
     }
 
     final List<(IconData, String, String, String?)> tiles = [
@@ -251,6 +259,7 @@ class HomeScreen extends ConsumerWidget {
       academyOn: showAcademy,
       nextPrayer: nextPrayerLabel,
       adhkarLeft: adhkarLeft,
+      adhkarName: eveningNow ? 'evening' : 'morning',
       quranResume: quranResume,
     );
 
@@ -723,6 +732,7 @@ NextStep _nextStepFor(
   required bool academyOn,
   required String? nextPrayer,
   required int? adhkarLeft,
+  String adhkarName = 'morning',
   required String? quranResume,
 }) {
   final String? need = ref.watch(homeNeedProvider);
@@ -752,6 +762,7 @@ NextStep _nextStepFor(
     childrenAdded: kids,
     nextPrayer: nextPrayer,
     adhkarLeft: adhkarLeft,
+    adhkarName: adhkarName,
     quranResume: quranResume,
     newMuslimDone: newMuslimDone,
     lessonsDone: lessonsDone,

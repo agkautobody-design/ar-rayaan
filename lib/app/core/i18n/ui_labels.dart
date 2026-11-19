@@ -456,6 +456,12 @@ kUiLabels = <String, Map<String, String>>{
     'bn': 'সকালের যিকির',
     'ur': 'صبح کے اذکار',
   },
+  'sub.eveningAdhkar': {
+    'en': 'Evening Adhkar',
+    'ar': 'أذكار المساء',
+    'bn': 'সন্ধ্যার যিকির',
+    'ur': 'شام کے اذکار',
+  },
   'menu.title': {
     'en': 'Menu',
     'ar': 'القائمة',
