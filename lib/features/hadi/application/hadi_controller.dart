@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart' show visibleForTesting;
@@ -29,6 +30,7 @@ import '../data/hadi_game_ask.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
+import '../data/hadi_miss_service.dart';
 import '../data/hadi_weather.dart';
 import '../../prayer/application/prayer_providers.dart';
 import '../data/hosted_ai.dart';
@@ -1137,7 +1139,16 @@ class HadiController extends Notifier<HadiState> {
     }
     final int before = state.messages.length;
     try {
-      return await _ask(question, provider: provider);
+      final String result = await _ask(question, provider: provider);
+      // "Help Hādi learn" (off by default): an unanswered question may be
+      // shared, with no user id, so the library can cover it later.
+      if (HadiRouting.isRefusal(result)) {
+        try {
+          unawaited(HadiMissService(ref.read(sharedPreferencesProvider))
+              .record(question));
+        } catch (_) {}
+      }
+      return result;
     } catch (_) {
       try {
         final List<HadiMessage> shown = <HadiMessage>[...state.messages];
