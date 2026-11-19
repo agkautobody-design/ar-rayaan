@@ -13,6 +13,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/core/sound/voice_picker.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../../kids/domain/child_duas.dart';
@@ -767,7 +768,7 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
                 Expanded(
                     child: Text(_answer!,
                         style: AppText.body.copyWith(height: 1.6, fontSize: 13))),
-                SpeakButton(text: _answer!),
+                SpeakButton(profile: VoiceProfile.wasia, text: _answer!),
               ],
             ),
           ],

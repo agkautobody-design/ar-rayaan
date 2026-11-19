@@ -30,6 +30,15 @@ class _VoiceSettingsCardState extends ConsumerState<VoiceSettingsCard> {
       'الله';
 
   double? _speed;
+  Future<bool>? _hadiFound;
+  Future<bool>? _wasiaFound;
+
+  @override
+  void initState() {
+    super.initState();
+    _hadiFound = _speech.hasMatchingVoice(VoiceProfile.hadi);
+    _wasiaFound = _speech.hasMatchingVoice(VoiceProfile.wasia);
+  }
 
   SpeechService get _speech => ref.read(speechServiceProvider);
 
@@ -40,8 +49,16 @@ class _VoiceSettingsCardState extends ConsumerState<VoiceSettingsCard> {
 
   Future<void> _choose(VoiceProfile profile) async {
     final String name = profile == VoiceProfile.hadi ? 'Hādi' : 'Wasia';
-    final List<VoiceOption> options = await _speech.voiceOptions();
+    final List<VoiceOption> all = await _speech.voiceOptions();
     if (!mounted) return;
+    // The right gender first, so the best candidates are at the top.
+    final VoiceGender want =
+        profile == VoiceProfile.hadi ? VoiceGender.male : VoiceGender.female;
+    final List<VoiceOption> options = <VoiceOption>[
+      ...all.where((VoiceOption o) => !o.arabic && o.gender == want),
+      ...all.where((VoiceOption o) => !o.arabic && o.gender != want),
+      ...all.where((VoiceOption o) => o.arabic),
+    ];
     final (String, String)? mine = _speech.book.saved(profile);
     final VoiceOption? picked = await showModalBottomSheet<VoiceOption?>(
       context: context,
@@ -140,6 +157,23 @@ class _VoiceSettingsCardState extends ConsumerState<VoiceSettingsCard> {
               children: <Widget>[
                 Text('$name · $who', style: AppText.body),
                 Text(_currentLabel(p), style: AppText.bodyMuted),
+                if (_speech.book.saved(p) == null)
+                  FutureBuilder<bool>(
+                    future: p == VoiceProfile.hadi ? _hadiFound : _wasiaFound,
+                    builder: (BuildContext _, AsyncSnapshot<bool> snap) {
+                      if (snap.data != false) return const SizedBox.shrink();
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          'No ${p == VoiceProfile.hadi ? 'man\u2019s' : 'woman\u2019s'} '
+                          'voice was recognised on this phone, so the phone\u2019s '
+                          'own voice is used. Tap Choose and pick one you like.',
+                          style: AppText.bodyMuted
+                              .copyWith(color: AppColors.gold, height: 1.4),
+                        ),
+                      );
+                    },
+                  ),
               ],
             ),
           ),

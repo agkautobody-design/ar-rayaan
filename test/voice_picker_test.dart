@@ -52,6 +52,8 @@ void main() {
       expect(VoicePicker.genderOf('Google UK English Male'), VoiceGender.male);
       expect(VoicePicker.genderOf('Google UK English Female'),
           VoiceGender.female);
+      expect(VoicePicker.genderOf('en-US-SMTf00'), VoiceGender.female);
+      expect(VoicePicker.genderOf('en-US-SMTm01'), VoiceGender.male);
       expect(VoicePicker.genderOf('English United States'),
           VoiceGender.unknown);
     });
