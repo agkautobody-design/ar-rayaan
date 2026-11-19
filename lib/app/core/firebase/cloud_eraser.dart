@@ -9,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 /// app is known to write:
 ///
 ///   users/{uid}
+///   users/{uid}/private/hadi_knows
 ///   families/{uid}/children/{child}/exams | lessons | mastery
 ///
 /// It is best effort: each step is attempted even if an earlier one failed,
@@ -65,6 +66,10 @@ class CloudEraser {
       await attempt(() => child.reference.delete());
     }
     await attempt(() => family.delete());
+    // What Hadi has noticed (a sub-collection, so deleting the user document
+    // would leave it behind).
+    await attempt(() => deleteAll(
+        db.collection('users').doc(uid).collection('private')));
     await attempt(() => db.collection('users').doc(uid).delete());
     return failures;
   }

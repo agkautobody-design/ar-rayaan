@@ -16,6 +16,8 @@ import '../application/support_settings.dart';
 import '../data/secret_store.dart';
 import '../domain/checkin_scheduler.dart';
 import '../domain/user_memory.dart';
+import '../../hadi/application/user_knows_provider.dart';
+import '../../hadi/presentation/what_hadi_noticed_screen.dart';
 
 /// Settings > Support & wellbeing. Plain wording, every control a labelled
 /// row of at least 48 dp, so a screen reader reads it as a list of choices.
@@ -154,6 +156,53 @@ class SupportWellbeingScreen extends ConsumerWidget {
                       ),
                       _note('View, edit, delete one item, delete all, or export. Hadi never '
                           'keeps anything about safety, health or substances, even if asked.'),
+                      _head('WHAT HADI NOTICES'),
+                      Consumer(builder: (BuildContext ctx, WidgetRef ref, Widget? _) {
+                        ref.watch(userKnowsProvider);
+                        final UserKnowsNotifier kn =
+                            ref.read(userKnowsProvider.notifier);
+                        return Column(children: <Widget>[
+                          GlassCard(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                            child: SwitchRow(
+                              icon: Icons.favorite_border,
+                              title: 'Let Hadi get to know me',
+                              subtitle: 'On by default. He notices the subjects you ask '
+                                  'about so his suggestions fit you. Never your '
+                                  'questions, and nothing in Private mode.',
+                              value: kn.on,
+                              onChanged: (bool v) => kn.setOn(v),
+                            ),
+                          ),
+                          GlassCard(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                            child: SwitchRow(
+                              icon: Icons.sync,
+                              title: 'Keep it in my account',
+                              subtitle: 'Only when you are signed in. A copy only you can '
+                                  'read, so every device you use knows you.',
+                              value: kn.sync,
+                              onChanged: (bool v) => kn.setSync(v),
+                            ),
+                          ),
+                          GlassCard(
+                            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                                builder: (_) => const WhatHadiNoticedScreen())),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                            child: Row(children: <Widget>[
+                              const Icon(Icons.visibility_outlined, size: 18, color: AppColors.gold),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                  child: Text('What Hadi has noticed',
+                                      style: AppText.body.copyWith(fontSize: 14))),
+                              const Icon(Icons.chevron_right, size: 16),
+                            ]),
+                          ),
+                        ]);
+                      }),
+                      _note('He never notices anything about health, safety or hard '
+                          'times, and nothing from a child profile. See, delete one '
+                          'or delete all, any time.'),
                       _head('ONLINE MODEL'),
                       GlassCard(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
