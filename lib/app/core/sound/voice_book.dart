@@ -56,7 +56,7 @@ abstract final class SpeechRuns {
       // A run of only punctuation or digits is not worth a voice switch.
       final bool hasLetter =
           s.runes.any((int r) => isArabicRune(r) || _isLatinLetter(r));
-      if (hasLetter) out.add(SpeechRun(s, arabic!));
+      if (hasLetter) out.add(SpeechRun(s, arabic));
     }
 
     for (final int r in text.runes) {

@@ -20,6 +20,10 @@ void main() {
     'tell me about the quran': 'quran-what',
     'tell me about yourself': 'hadi-who',
     'tell me about wasia': 'wasia-who',
+    'a dua for anxiety': 'dua-anxiety',
+    "a du'a for anxiety": 'dua-anxiety',
+    'dua for worry': 'dua-anxiety',
+    'what should i read when i am anxious': 'dua-anxiety',
   };
   cases.forEach((String q, String id) {
     test('"$q" reaches $id', () {
@@ -30,5 +34,12 @@ void main() {
   test('a person in despair is not given the inspiring pack', () {
     expect(HadiCore.match('tell me something inspiring i feel hopeless')?.id,
         isNot('something-inspiring'));
+  });
+
+  test('the anxiety du\'a gives the du\'a itself, cited, with the Arabic', () {
+    final String a = HadiCore.match('a dua for anxiety')!.answer;
+    expect(a, contains('Sahih al-Bukhari 6369'));
+    expect(RegExp(r'[\u0600-\u06FF]').hasMatch(a), isTrue);
+    expect(a, contains('Allahumma inni a'));
   });
 }

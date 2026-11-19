@@ -4314,6 +4314,19 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
   ),
   // ── Everyday life (18 Nov 2026), from tool/hadi_core/spec_92_everyday.py ──
   CoreEntry(
+    id: 'dua-anxiety',
+    patterns: <String>[
+      r'\b(?:dua|supplication|prayer)s?\b.*\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|sad|heavy heart|overwhelmed)\b',
+      r'\b(?:anxiety|anxious|worry|worries|worried|stress|stressed|sorrow|grief|distress|distressed|sadness|overwhelmed)\b.*\b(?:dua|supplication)s?\b',
+      r'\bwhat (?:do i|should i|can i|to) (?:say|recite|read)\b.*\b(?:anxious|anxiety|worried|worry|stressed|sad|distressed|overwhelmed)\b',
+      r'\b(?:say|recite|read)\b.*\b(?:when|if|while)\b.*\b(?:anxious|worried|stressed|sad|distressed|overwhelmed)\b',
+    ],
+    answer: 'The Prophet ﷺ used to ask Allah for refuge from worry and sadness (Sahih al-Bukhari 6369):\n\nاللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْجُبْنِ وَالْبُخْلِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ\n\nAllahumma inni a\'udhu bika minal-hammi wal-hazan, wal-\'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala\'id-dayni wa ghalabatir-rijal.\nMeaning: O Allah, I seek refuge in You from worry and grief, from weakness and laziness, from miserliness and cowardice, from the burden of debt and from being overpowered by people.\n\nYou can say it at any time, in any language you pray in, and as often as you need. The Qur\'an also speaks of hearts finding rest in remembering Allah (Qur\'an 13:28).\n\nA du\'a is a strong help, and it sits alongside the other help, not instead of it. If anxiety is heavy or does not lift, talking to someone you trust or to a doctor is part of looking after yourself, and it is no sign of weak faith. If you want to talk, tell me and I will stay with it.\n\nSource: Sahih al-Bukhari 6369; Qur\'an 13:28.\n[GO:/adhkar]',
+    topic: 'a du\'a for worry and anxiety',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: the du\'a is cited to Sahih al-Bukhari 6369 (checked); the transliteration is typed by hand; the closing advice is general wellbeing guidance, not medical.',
+  ),
+  CoreEntry(
     id: 'shower-wudu',
     patterns: <String>[
       r'\b(?:wudu|ablution|wudhu|wuzu)\b.*\b(?:shower|showering|bath|bathing|bathroom)\b',
