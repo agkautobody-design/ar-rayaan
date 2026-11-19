@@ -595,13 +595,40 @@ class _PrayerRow extends ConsumerWidget {
         final PrayerNotificationScheduler scheduler = ref.read(
           prayerNotificationSchedulerProvider,
         );
+        final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
         await ref.read(prayerAlertsProvider.notifier).toggle(name);
-        if (alertOn) return;
-        // Turning an alert on is the moment to ask for permission.
-        unawaited(WebNotifier.ensurePermission());
-        if (scheduler.supported) {
-          unawaited(scheduler.requestPermission());
+        if (alertOn) {
+          messenger
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(content: Text('$name alert is off.')));
+          return;
         }
+        // Turning an alert on is the moment to ask for permission, and to
+        // say plainly whether it will actually ring.
+        final bool browserOk = await WebNotifier.ensurePermission();
+        String note;
+        if (scheduler.supported) {
+          final bool ok = await scheduler.requestPermission();
+          note = ok
+              ? '$name alert is on. It rings even when the app is closed.'
+              : '$name alert is on, but notifications are blocked for '
+                  'Ar-Rayaan. Allow them in your phone\u2019s settings.';
+        } else {
+          note = browserOk
+              ? '$name alert is on. In a browser it rings only while this '
+                  'page is open; the Android and iPhone apps ring when closed.'
+              : '$name alert is on. Your browser is blocking notifications, '
+                  'so you get the banner and adhan only while this page is '
+                  'open.';
+        }
+        messenger
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: Text(note),
+              duration: const Duration(seconds: 6),
+            ),
+          );
       },
       icon: Icon(
         alertOn ? Icons.notifications_active : Icons.notifications_none,
