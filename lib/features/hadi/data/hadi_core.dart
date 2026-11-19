@@ -168,7 +168,7 @@ abstract final class HadiCore {
     r'i\s+was\s+wondering|i\s+am\s+wondering|im\s+wondering|'
     r'i\s+would\s+like\s+to\s+know|i\s+want\s+to\s+know|i\s+wanna\s+know|'
     r'i\s+need\s+to\s+know|id\s+like\s+to\s+know|do\s+you\s+know|'
-    r'tell\s+me|let\s+me\s+know|explain\s+to\s+me|explain)\s+)+',
+    r'tell\s+me\s+about|tell\s+me|let\s+me\s+know|explain\s+to\s+me|explain)\s+)+',
   );
 
   static final RegExp _trail = RegExp(

@@ -3649,7 +3649,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
   CoreEntry(
     id: 'curious-something-interesting',
     patterns: <String>[
-      r'^(?:please )?(?:tell|give|show) me (?:something|a fact|a story|a fun fact)(?: that is| thats| that s)? (?:interesting|cool|fun|nice|new)\??$',
+      r'^(?:please )?(?:(?:tell|give|show) me )?(?:something|a fact|a story|a fun fact)(?: that is| thats| that s)? (?:interesting|cool|fun|nice|new)\??$',
       r'^something interesting\??$',
       r'^(?:i am|im|i m) bored\??$',
     ],
@@ -4499,7 +4499,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
   CoreEntry(
     id: 'something-inspiring',
     patterns: <String>[
-      r'\b(?:tell|give) me something (?:inspiring|uplifting|motivating|encouraging)\b',
+      r'\b(?:(?:tell|give) me )?something (?:inspiring|uplifting|motivating|encouraging)\b',
       r'\binspire me\b',
       r'\bmotivate me\b',
       r'\bi need (?:some )?(?:motivation|inspiration|encouragement)\b',
