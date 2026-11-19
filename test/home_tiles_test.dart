@@ -18,12 +18,13 @@ void main() {
     expect(find.text('Riyad as-Salihin · Chapter 1'), findsNothing);
     expect(find.text('Dhuhr 12:47 PM'), findsNothing);
     expect(find.text('Morning Adhkar · 28 remaining'), findsNothing);
+    expect(find.text('Evening Adhkar · 28 remaining'), findsNothing);
     expect(find.text('Continue Reading · Surah Al-Kahf'), findsNothing);
 
     // Live / honest content in their place.
     expect(find.text('The Forty Hadith · An-Nawawi'), findsOneWidget);
     expect(find.text('Begin Reading · Al-Fatihah'), findsOneWidget);
-    expect(find.textContaining('Morning Adhkar'), findsWidgets);
+    expect(find.textContaining(RegExp('(Morning|Evening) Adhkar')), findsWidgets);
     // The Stories tile opens the stories library, and says so.
     expect(find.text('Stories, khutbahs & duas'), findsOneWidget);
     expect(find.text('Articles, Lessons & Courses'), findsNothing);

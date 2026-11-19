@@ -26,7 +26,6 @@ class ExploreScreen extends ConsumerWidget {
       'Faith & Worship',
       [
         // The things a first-time visitor looks for come first.
-        (Icons.touch_app_outlined, 'Tasbeeh counter', AppRoutes.tasbeeh),
         (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
         (Icons.explore_outlined, 'Qibla \u00b7 which way to pray', AppRoutes.qibla),
         (
@@ -35,6 +34,13 @@ class ExploreScreen extends ConsumerWidget {
           '${AppRoutes.hudaGuide}?id=huda-prayer',
         ),
         (Icons.menu_book_outlined, 'Qur’an', AppRoutes.quran),
+        (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
+        (Icons.touch_app_outlined, 'Tasbeeh counter', AppRoutes.tasbeeh),
+        (
+          Icons.volunteer_activism_outlined,
+          'New to Islam \u00b7 a 30-day path',
+          AppRoutes.newMuslimPath,
+        ),
         (
           Icons.psychology_outlined,
           'Memorise the Qur\u2019an \u00b7 Hifz planner',
@@ -47,11 +53,6 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.menu_book_outlined, 'Huda \u2014 Worship Guides', AppRoutes.huda),
         // Life-event guides that used to be findable only through Search.
         (
-          Icons.volunteer_activism_outlined,
-          'New to Islam \u00b7 a 30-day path',
-          AppRoutes.newMuslimPath,
-        ),
-        (
           Icons.handshake_outlined,
           'Marriage \u00b7 the Nikah guide',
           '${AppRoutes.hudaGuide}?id=huda-nikah',
@@ -61,7 +62,6 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.forum_outlined, 'Majlis \u2014 Community', AppRoutes.majlis),
         (Icons.mosque_outlined, 'Masajid \u00b7 mosques near you', '/masajid'),
         (Icons.ios_share_outlined, 'Verse Cards \u00b7 share the light', '/share'),
-        (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
         (
           Icons.calendar_month_outlined,
           'Islamic Calendar \u00b7 Hijri date & Ramadan',
