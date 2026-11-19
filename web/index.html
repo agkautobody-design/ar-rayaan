@@ -194,7 +194,30 @@
         shown = true;
       }
       var retry = el('ar-boot-retry');
-      if (retry) retry.addEventListener('click', function () { location.reload(); });
+      // Try again also drops the saved app shell and the service worker, so a
+      // stuck old copy cannot keep failing. Downloaded recitation (ar-dl-*)
+      // is never touched.
+      if (retry) retry.addEventListener('click', function () {
+        var jobs = [];
+        try {
+          if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+            jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
+              return Promise.all(rs.map(function (r) { return r.unregister(); }));
+            }));
+          }
+          if (window.caches && caches.keys) {
+            jobs.push(caches.keys().then(function (ks) {
+              return Promise.all(ks.filter(function (k) {
+                return k.indexOf('ar-dl-') !== 0;
+              }).map(function (k) { return caches.delete(k); }));
+            }));
+          }
+        } catch (e) {}
+        var done = false;
+        function go() { if (!done) { done = true; location.reload(); } }
+        Promise.all(jobs).then(go, go);
+        setTimeout(go, 3000);
+      });
       function offline() {
         try { return navigator.onLine === false; } catch (e) { return false; }
       }
