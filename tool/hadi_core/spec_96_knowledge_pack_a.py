@@ -215,3 +215,24 @@ After the meal: Mu'adh ibn Anas reported the Prophet ﷺ said {HS tirmidhi:3458|
 And for children and everyone at the table: {HS bukhari:5376|the Prophet told the boy Umar ibn Abi Salamah to mention the name of Allah, eat with his right hand, and eat from what is nearer to him}.
 """,
   review='Scholar review needed: the forgiveness line in Tirmidhi is as stated in the report.')
+
+E('sick-visit-comfort',
+  m=[r'\b(?:someone|somebody|person|friend|mother|father|mum|mom|dad|brother|sister|family|relative|parent|grandmother|grandfather|he|she|they) (?:is|was|are|who is|who s) (?:sick|ill|unwell|in hospital|not well)\b.*\b(?:say|saying|prayer|dua|du a|supplication|comfort|feel better|get well|cheer|help)\b',
+     r'\b(?:what|which) (?:can|should|do|to) (?:i|you|we)? ?(?:say|recite|read|pray|ask)\b.*\b(?:sick|ill|unwell|patient)\b',
+     r'\b(?:dua|du a|supplication|prayer|saying)\b.*\b(?:for|to)\b.*\b(?:sick|ill|unwell|patient|get well|recover|healing|heal)\b',
+     r'\b(?:visit(?:ing)?|comfort(?:ing)?|cheer(?:ing)?)\b.*\b(?:sick|ill|unwell|patient|hospital)\b',
+     r'\b(?:sick|ill|unwell)\b.*\b(?:feel better|get well|get better|recover|recovery)\b',
+     r'\bget well (?:soon )?(?:message|dua|words|wishes)\b'],
+  x=[r'\b(?:fast\w*|ramadan|zakat|janazah|funeral|salah|prayers? (?:when|while|if) (?:i|im|i am))\b'],
+  topic='visiting and praying for the sick',
+  go=['/adhkar'],
+  text="""
+Yes. Visiting the sick is a duty of a Muslim to a Muslim: al-Bara' reported that the Prophet ﷺ {HS muslim:2066|commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet everybody}.
+
+When you visit, make good du'a: Umm Salamah reported the Prophet ﷺ said {HS muslim:919|when you visit the sick or the dead, say good things, because the angels say Amen to whatever you say}.
+
+A du'a the Prophet ﷺ used for the sick: Aisha reported that {HS bukhari:5743|he used to pass his right hand over the place of ailment and say "O Allah, Lord of the people, remove the trouble and heal the patient, for You are the Healer, no healing is of any avail but Yours, a healing that leaves behind no ailment"}.
+
+In Arabic: Allahumma rabban-nas, adhhibil-ba's, washfi anta ash-Shafi, la shifa'a illa shifa'uk, shifa'an la yughadiru saqama. You can also simply ask Allah to heal them in your own words, and be kind and gentle with the person.
+""",
+  review='Scholar review needed: the du\'a wording and the Arabic transliteration are from the report; the closing sentence is the app\'s advice.')

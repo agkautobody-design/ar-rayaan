@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5921,
+ "total": 5925,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,12 +40,12 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 608,
+   "items": 609,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 603,
+   "items": 606,
    "high_priority": 119
   },
   "stories-prophets": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2565,
-  "Fiqh scholar (per madhab)": 722,
+  "Hadith / aqidah scholar": 2568,
+  "Fiqh scholar (per madhab)": 723,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1319,
-  "normal": 3785,
+  "normal": 3789,
   "low": 817
  },
  "items": [
@@ -39988,6 +39988,32 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.sick-visit-comfort",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"sick-visit-comfort\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='sick-visit-comfort'",
+   "what_to_review": "Built-in answer \"sick-visit-comfort\": Yes. Visiting the sick is a duty of a Muslim to a Muslim: al-Bara' reported that the Prophet ﷺ commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet everybody (Sahih M…",
+   "why_flagged": "Scholar review needed: the du'a wording and the Arabic transliteration are from the report; the closing sentence is the app's advice.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -56849,6 +56875,63 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5743",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5743",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5743]",
+   "what_to_review": "Sahih al-Bukhari 5743: \"he used to pass his right hand over the place of ailment and say \"O Allah, Lord of the people, remove the trouble and heal the patient, for You are t…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-2066",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 2066",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-2066]",
+   "what_to_review": "Sahih Muslim 2066: \"commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet eve…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-919",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 919",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-919]",
+   "what_to_review": "Sahih Muslim 919: \"when you visit the sick or the dead, say good things, because the angels say Amen to whatever you say\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],

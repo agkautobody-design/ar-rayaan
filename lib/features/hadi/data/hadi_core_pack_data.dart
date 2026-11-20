@@ -204,4 +204,22 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     beforeGate: true,
     reviewNote: 'Scholar review needed: the forgiveness line in Tirmidhi is as stated in the report.',
   ),
+  CoreEntry(
+    id: 'sick-visit-comfort',
+    patterns: <String>[
+      r'\b(?:someone|somebody|person|friend|mother|father|mum|mom|dad|brother|sister|family|relative|parent|grandmother|grandfather|he|she|they) (?:is|was|are|who is|whos) (?:sick|ill|unwell|in hospital|not well)\b.*\b(?:say|saying|prayer|dua|du a|supplication|comfort|feel better|get well|cheer|help)\b',
+      r'\b(?:what|which) (?:can|should|do|to) (?:i|you|we)? ?(?:say|recite|read|pray|ask)\b.*\b(?:sick|ill|unwell|patient)\b',
+      r'\b(?:dua|du a|supplication|prayer|saying)\b.*\b(?:for|to)\b.*\b(?:sick|ill|unwell|patient|get well|recover|healing|heal)\b',
+      r'\b(?:visit(?:ing)?|comfort(?:ing)?|cheer(?:ing)?)\b.*\b(?:sick|ill|unwell|patient|hospital)\b',
+      r'\b(?:sick|ill|unwell)\b.*\b(?:feel better|get well|get better|recover|recovery)\b',
+      r'\bget well (?:soon )?(?:message|dua|words|wishes)\b',
+    ],
+    avoid: <String>[
+      r'\b(?:fast\w*|ramadan|zakat|janazah|funeral|salah|prayers? (?:when|while|if) (?:i|im|i am))\b',
+    ],
+    answer: 'Yes. Visiting the sick is a duty of a Muslim to a Muslim: al-Bara\' reported that the Prophet ﷺ commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet everybody (Sahih Muslim 2066).\n\nWhen you visit, make good du\'a: Umm Salamah reported the Prophet ﷺ said when you visit the sick or the dead, say good things, because the angels say Amen to whatever you say (Sahih Muslim 919).\n\nA du\'a the Prophet ﷺ used for the sick: Aisha reported that he used to pass his right hand over the place of ailment and say "O Allah, Lord of the people, remove the trouble and heal the patient, for You are the Healer, no healing is of any avail but Yours, a healing that leaves behind no ailment" (Sahih al-Bukhari 5743).\n\nIn Arabic: Allahumma rabban-nas, adhhibil-ba\'s, washfi anta ash-Shafi, la shifa\'a illa shifa\'uk, shifa\'an la yughadiru saqama. You can also simply ask Allah to heal them in your own words, and be kind and gentle with the person.\n\nSource: Sahih Muslim 2066, 919; Sahih al-Bukhari 5743.\n[GO:/adhkar]',
+    topic: 'visiting and praying for the sick',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: the du\'a wording and the Arabic transliteration are from the report; the closing sentence is the app\'s advice.',
+  ),
 ];
