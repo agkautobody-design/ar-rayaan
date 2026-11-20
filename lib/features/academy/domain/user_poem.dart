@@ -13,11 +13,12 @@ const Map<String, String> kUserPoemLanguages = <String, String>{
   'en': 'English',
   'bn': 'বাংলা',
   'hi': 'हिन्दी',
+  'pa': 'پنجابی',
   'xx': 'Other',
 };
 
 /// Languages the app can read aloud on a phone, if the phone has the voice.
-const Set<String> kRecitalLanguages = <String>{'ar', 'ur', 'en', 'bn', 'hi'};
+const Set<String> kRecitalLanguages = <String>{'ar', 'ur', 'en', 'bn', 'hi', 'pa'};
 
 /// One non-empty trimmed line per row of [text].
 List<String> parsePoemLines(String text) => <String>[

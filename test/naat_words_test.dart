@@ -47,6 +47,8 @@ void main() {
           // Scripts match their language (guards against a swapped column).
           expect(_bangla.hasMatch(l.meaning['bn']!), isTrue);
           expect(_devanagari.hasMatch(l.meaning['hi']!), isTrue);
+          // Punjabi is in Shahmukhi (Urdu-style) script, not Gurmukhi.
+          expect(_arabicScript.hasMatch(l.meaning['pa']!), isTrue);
           if (l.devanagari != null) {
             expect(_devanagari.hasMatch(l.devanagari!), isTrue);
             expect(l.devanagari!.split('\n').length, l.original.split('\n').length);
@@ -140,6 +142,15 @@ void main() {
       await tester.tap(find.byKey(const Key('naat-lang-hi')));
       await tester.pump();
       expect(find.textContaining('रहमत की जान हैं'), findsOneWidget);
+    });
+
+    testWidgets('Punjabi in Shahmukhi shows for an Arabic poem', (
+      WidgetTester tester,
+    ) async {
+      await boot(tester, const NaatReaderScreen(id: 'tala-al-badru'));
+      await tester.tap(find.byKey(const Key('naat-lang-pa')));
+      await tester.pump();
+      expect(find.textContaining('پورے چن دا چاند'), findsOneWidget);
     });
 
     testWidgets('an unknown id says so instead of crashing', (

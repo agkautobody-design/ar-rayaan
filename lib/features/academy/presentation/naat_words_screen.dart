@@ -71,7 +71,7 @@ class NaatWordsScreen extends ConsumerWidget {
                   original: p.lines.first,
                   title: p.title,
                   line: 'Added by you · on this phone only',
-                  rtl: p.lang == 'ar' || p.lang == 'ur',
+                  rtl: p.lang == 'ar' || p.lang == 'ur' || p.lang == 'pa',
                 ),
                 const SizedBox(height: 12),
               ],
@@ -345,8 +345,9 @@ class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
                     : (v.meaningLangs.contains('en')
                           ? (v.lang == 'en' ? v.meaningLangs.first : 'en')
                           : v.meaningLangs.first)));
-    final bool rtlMeaning = lang == 'ur' || lang == 'ar';
-    final bool rtlOriginal = v.lang == 'ar' || v.lang == 'ur';
+    final bool rtlMeaning = lang == 'ur' || lang == 'ar' || lang == 'pa';
+    final bool rtlOriginal =
+        v.lang == 'ar' || v.lang == 'ur' || v.lang == 'pa';
     final bool anySounds = v.lines.any((_VLine l) => l.sounds != null);
     final bool anyHindi = v.lines.any((_VLine l) => l.hindi != null);
 
@@ -562,7 +563,7 @@ class _RecitalBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     if (!view.canRecite) {
       return Text(
-        'Reading aloud is available for Arabic, Urdu, Hindi, English and Bangla.',
+        'Reading aloud is available for Arabic, Urdu, Hindi, Punjabi, English and Bangla.',
         style: AppText.bodyMuted.copyWith(fontSize: 12),
       );
     }
