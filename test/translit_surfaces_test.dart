@@ -190,6 +190,8 @@ void main() {
       // Screens that lay the three layers out themselves.
       'adhkar_screen', 'story_reader_screen', 'huda_screens', 'surah_reader_screen',
       'mushaf_page_view', 'handout_screen',
+      // Lays out original, sounds and a meaning in the reader's chosen language.
+      'naat_words_screen',
       // The shared block.
       'arabic_block',
     };
