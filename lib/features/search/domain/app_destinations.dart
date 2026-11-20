@@ -540,7 +540,7 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
       'burda',
       'tala al badru',
       'lab pe aati hai dua',
-      'learn naat',
+      'learn naat', 'hindi naat', 'urdu naat', 'mustafa jaan e rahmat', 'salam', 'devanagari',
     ],
   ),
   AppDestination(

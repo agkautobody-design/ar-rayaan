@@ -8,6 +8,8 @@ final RegExp _latin = RegExp(r'[A-Za-z]');
 final RegExp _arabicScript = RegExp(r'[؀-ۿ]');
 final RegExp _bangla = RegExp(r'[ঀ-৿]');
 
+final RegExp _devanagari = RegExp(r'[\u0900-\u097F]');
+
 void main() {
   group('the library', () {
     test('has works, with unique ids', () {
@@ -44,6 +46,11 @@ void main() {
           }
           // Scripts match their language (guards against a swapped column).
           expect(_bangla.hasMatch(l.meaning['bn']!), isTrue);
+          expect(_devanagari.hasMatch(l.meaning['hi']!), isTrue);
+          if (l.devanagari != null) {
+            expect(_devanagari.hasMatch(l.devanagari!), isTrue);
+            expect(l.devanagari!.split('\n').length, l.original.split('\n').length);
+          }
           if (l.meaning['ur'] != null) {
             expect(_arabicScript.hasMatch(l.meaning['ur']!), isTrue);
           }
@@ -61,6 +68,7 @@ void main() {
         'tala-al-badru',
         'burda-opening',
         'lab-pe-aati-hai-dua',
+        'mustafa-jan-e-rahmat',
       };
       for (final NaatWork w in kNaatWorks) {
         expect(allowed.contains(w.id), isTrue,
@@ -118,6 +126,20 @@ void main() {
       await tester.tap(find.byKey(const Key('naat-sounds')));
       await tester.pump();
       expect(find.textContaining('ṭalaʿa l-badru'), findsNothing);
+    });
+
+    testWidgets('Urdu poems can be read in Hindi script and meant in Hindi', (
+      WidgetTester tester,
+    ) async {
+      await boot(tester, const NaatReaderScreen(id: 'mustafa-jan-e-rahmat'));
+      expect(find.byKey(const Key('naat-lang-hi')), findsOneWidget);
+      expect(find.textContaining('मुस्तफ़ा जान-ए-रहमत'), findsNothing);
+      await tester.tap(find.byKey(const Key('naat-devanagari')));
+      await tester.pump();
+      expect(find.textContaining('मुस्तफ़ा जान-ए-रहमत'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('naat-lang-hi')));
+      await tester.pump();
+      expect(find.textContaining('रहमत की जान हैं'), findsOneWidget);
     });
 
     testWidgets('an unknown id says so instead of crashing', (
