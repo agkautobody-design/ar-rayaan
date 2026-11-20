@@ -65,6 +65,7 @@ class FlutterRecitalVoice implements RecitalVoice {
           'ur' => 'ur-PK',
           'bn' => 'bn-BD',
           'hi' => 'hi-IN',
+          'pa' => 'pa-PK',
           _ => 'en-US',
         };
         final dynamic ok = await tts.isLanguageAvailable(locale);
