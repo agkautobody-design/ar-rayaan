@@ -253,6 +253,71 @@ List<OrderRound> buildSeerahOrder(
   return out;
 }
 
+/// One dated event of the Islamic History bank.
+typedef HistoryEvent = ({
+  String id,
+  String label,
+  int year,
+  String date,
+  String source,
+  String url,
+  String basis,
+});
+
+/// Builds [rounds] rounds of [size] events, earliest first. Years in one round
+/// are at least [minGap] apart, so the right order never rests on a year the
+/// sources could argue over.
+List<OrderRound> buildHistoryOrder(
+  List<HistoryEvent> events,
+  Random rnd, {
+  int rounds = 4,
+  int size = 5,
+  int minGap = 8,
+}) {
+  final List<HistoryEvent> ok = <HistoryEvent>[
+    for (final HistoryEvent e in events)
+      if (e.url.isNotEmpty && e.basis.isNotEmpty) e,
+  ]..sort((HistoryEvent a, HistoryEvent b) => a.year.compareTo(b.year));
+  if (ok.length < size) return <OrderRound>[];
+  final List<OrderRound> out = <OrderRound>[];
+  final Set<String> seen = <String>{};
+  int guard = 0;
+  while (out.length < rounds && guard++ < rounds * 60) {
+    final List<int> picks = List<int>.generate(ok.length, (int i) => i)
+      ..shuffle(rnd);
+    final List<int> chosen = picks.take(size).toList()..sort();
+    bool gapOk = true;
+    for (int i = 1; i < chosen.length; i++) {
+      if (ok[chosen[i]].year - ok[chosen[i - 1]].year < minGap) gapOk = false;
+    }
+    final String key = chosen.map((int i) => ok[i].id).join(',');
+    if (!gapOk || !seen.add(key)) continue;
+    final List<HistoryEvent> es = <HistoryEvent>[
+      for (final int i in chosen) ok[i],
+    ];
+    out.add(OrderRound(
+      id: 'history-order-${out.length + 1}',
+      prompt: 'Put these events of Islamic history in the order they '
+          'happened, earliest first.',
+      items: <OrderItem>[
+        for (final HistoryEvent e in es)
+          OrderItem(id: e.id, label: e.label, detail: '${e.date} CE'),
+      ],
+      explanation: <String>[
+        for (int i = 0; i < es.length; i++)
+          '${i + 1}. ${es[i].label}: ${es[i].date} (${es[i].basis})',
+      ].join('\n'),
+      citation: <String>[
+        for (final HistoryEvent e in es) '${e.source}: ${e.url}',
+      ].join('\n'),
+      note: 'Years are CE, as each article states them. They have not yet '
+          'been reviewed by a named scholar, and sources can differ by a year '
+          'or more, so events are only asked when they are far apart.',
+    ));
+  }
+  return out;
+}
+
 // ---------------------------------------------------------------------------
 // Prophets in order
 // ---------------------------------------------------------------------------

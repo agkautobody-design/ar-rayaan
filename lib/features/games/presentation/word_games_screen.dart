@@ -28,6 +28,42 @@ const String _wordSource = 'The glossary of the Huda guides in the app: the '
     'a ruling.';
 
 /// The Huda glossary terms with their meanings, as a sentence for Hadi.
+const String _spellingSource = 'The name as the Qur’an spells it: the same '
+    'letters occur as a word in the Qur’an text bundled in the app (the first '
+    'verse is shown with each name). English names follow the Messengers’ '
+    'tree. There is no audio.';
+
+/// Loads the names for Arabic Spelling, then plays them in the scramble
+/// screen with the letters laid out right to left.
+class ArabicSpellingScreen extends StatefulWidget {
+  const ArabicSpellingScreen({super.key});
+
+  @override
+  State<ArabicSpellingScreen> createState() => _ArabicSpellingState();
+}
+
+class _ArabicSpellingState extends State<ArabicSpellingScreen> {
+  late final Future<List<WordClue>> _pool = LearningLoader.spellingPool();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<WordClue>>(
+      future: _pool,
+      builder: (BuildContext c, AsyncSnapshot<List<WordClue>> snap) {
+        if (snap.hasError) return const _WordsFailed(title: 'Arabic Spelling');
+        final List<WordClue>? pool = snap.data;
+        if (pool == null) {
+          return const Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+        return ScrambleScreen(spellingPool: pool);
+      },
+    );
+  }
+}
+
 String _askAbout(Iterable<WordClue> words) => HadiGameAsk.words(
       entries: <({String term, String meaning})>[
         for (final WordClue w in words) (term: w.term, meaning: w.clue),
@@ -361,7 +397,11 @@ class _GridCell extends StatelessWidget {
 /// /games/g/scramble/play - put the letters of a glossary word back in order,
 /// with its plain meaning as the clue. No timer; free hints.
 class ScrambleScreen extends ConsumerStatefulWidget {
-  const ScrambleScreen({super.key});
+  const ScrambleScreen({super.key, this.spellingPool});
+
+  /// Arabic Spelling uses this screen with its own pool of Arabic names. Null
+  /// means the glossary Word Scramble.
+  final List<WordClue>? spellingPool;
 
   @override
   ConsumerState<ScrambleScreen> createState() => _ScrambleState();
@@ -373,9 +413,16 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
   String _message = '';
   GameResult? _result;
 
+  bool get _spell => widget.spellingPool != null;
+  String get _title => _spell ? 'Arabic Spelling' : 'Word Scramble';
+  String get _gid => _spell ? 'arabic-spelling' : 'scramble';
+  String get _src => _spell ? _spellingSource : _wordSource;
+
   void _ensure() {
     if (_s != null) return;
-    final List<WordClue> pool = LearningLoader.wordPool()..shuffle(_rnd);
+    final List<WordClue> pool = (widget.spellingPool ?? LearningLoader.wordPool())
+        .toList()
+      ..shuffle(_rnd);
     final List<WordClue> words = pool.take(6).toList();
     if (words.length < 3) return;
     _s = ScrambleSession(
@@ -401,9 +448,9 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
     final ScrambleSession s = _s!;
     final int now = DateTime.now().millisecondsSinceEpoch;
     final GameResult r = GameResult(
-      id: 'scramble-$now',
-      gameId: 'scramble',
-      title: 'Word Scramble',
+      id: '$_gid-$now',
+      gameId: _gid,
+      title: _title,
       finishedMs: now,
       outcome: '${s.firstTry} of ${s.total} words right on the first check',
     );
@@ -423,7 +470,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
   Widget build(BuildContext context) {
     _ensure();
     final ScrambleSession? s = _s;
-    if (s == null) return const _WordsFailed(title: 'Word Scramble');
+    if (s == null) return _WordsFailed(title: _title);
     final GameResult? done = _result;
     if (done != null) {
       return Scaffold(
@@ -431,15 +478,15 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
         body: ListView(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
           children: <Widget>[
-            const ScreenHeader(
-              title: 'Word Scramble',
+            ScreenHeader(
+              title: _title,
               close: true,
               showSettings: false,
             ),
             ResultSummaryView(result: done),
             const SizedBox(height: 12),
             Text(
-              'Source: $_wordSource',
+              'Source: $_src',
               textAlign: TextAlign.center,
               style: AppText.bodyMuted.copyWith(height: 1.5),
             ),
@@ -468,8 +515,8 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
-          const ScreenHeader(
-            title: 'Word Scramble',
+          ScreenHeader(
+            title: _title,
             close: true,
             showSettings: false,
           ),
@@ -484,7 +531,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('The meaning', style: AppText.eyebrow),
+                Text(_spell ? 'The name' : 'The meaning', style: AppText.eyebrow),
                 const SizedBox(height: 6),
                 Text(
                   '${w.clue} (${w.word.length} letters)',
@@ -522,7 +569,10 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
               children: <Widget>[
                 Text('Your word', style: AppText.bodyMuted),
                 const SizedBox(height: 6),
-                Wrap(
+                Directionality(
+                  textDirection:
+                      _spell ? TextDirection.rtl : TextDirection.ltr,
+                  child: Wrap(
                   spacing: 6,
                   runSpacing: 6,
                   children: <Widget>[
@@ -543,11 +593,15 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
                             : null,
                       ),
                   ],
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text('Letters', style: AppText.bodyMuted),
                 const SizedBox(height: 6),
-                Wrap(
+                Directionality(
+                  textDirection:
+                      _spell ? TextDirection.rtl : TextDirection.ltr,
+                  child: Wrap(
                   spacing: 6,
                   runSpacing: 6,
                   children: <Widget>[
@@ -569,6 +623,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
                                 }),
                       ),
                   ],
+                  ),
                 ),
               ],
             ),
@@ -602,13 +657,22 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'It means: ${w.clue}.',
-                    style: AppText.body.copyWith(height: 1.5),
-                  ),
+                  if (_spell)
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Text(
+                        w.word,
+                        style: AppText.titleMedium.copyWith(fontSize: 34),
+                      ),
+                    )
+                  else
+                    Text(
+                      'It means: ${w.clue}.',
+                      style: AppText.body.copyWith(height: 1.5),
+                    ),
                   const SizedBox(height: 8),
                   Text(
-                    'Source: $_wordSource',
+                    'Source: $_src',
                     style: AppText.bodyMuted.copyWith(height: 1.5),
                   ),
                   const SizedBox(height: 12),

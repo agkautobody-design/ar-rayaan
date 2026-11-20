@@ -39,6 +39,8 @@ abstract final class HadiGameHelp {
     _Alias('prophets-order', <String>['prophets in order', 'order of the prophets game',
       'order the prophets']),
     _Alias('hadith', <String>['hadith knowledge', 'hadith quiz', 'hadith game']),
+    _Alias('islamic-history', <String>['islamic history', 'history game', 'caliphs game']),
+    _Alias('arabic-spelling', <String>['arabic spelling', 'spelling game', 'spell the prophets']),
     _Alias('hajj-map', <String>['hajj map', 'hajj game', 'hajj steps game']),
     _Alias('salah-wudu', <String>['wudu and salah steps', 'wudu steps game',
       'salah steps game', 'wudu game', 'prayer steps game']),
