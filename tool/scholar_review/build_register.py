@@ -563,7 +563,7 @@ def hadi_reviewer(cid, note, answer):
 
 
 def build_hadi():
-    s = rd('lib/features/hadi/data/hadi_core_data.dart')
+    s = rd('lib/features/hadi/data/hadi_core_data.dart') + '\n' + rd('lib/features/hadi/data/hadi_core_pack_data.dart')
     # entries: id, answer (first line), reviewNote
     blocks = re.split(r"\n  CoreEntry\(\n", s)
     for b in blocks[1:]:

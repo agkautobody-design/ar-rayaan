@@ -3436,23 +3436,23 @@
    "id": "h:bukhari-5376",
    "collection": "Sahih al-Bukhari",
    "number": "5376",
-   "english": "Umar ibn Abi Salama said the Prophet told him to mention the name of Allah, eat with his right hand and eat from what is nearest to him",
+   "english": "the Prophet told the boy Umar ibn Abi Salamah to mention the name of Allah, eat with his right hand, and eat from what is nearer to him",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "umar",
-    "salama",
     "told",
+    "umar",
+    "salamah",
     "mention",
     "name",
     "right",
     "hand",
-    "nearest"
+    "nearer"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:5376",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-8",
@@ -4044,23 +4044,22 @@
    "id": "h:abudawud-3767",
    "collection": "Sunan Abu Dawud",
    "number": "3767",
-   "english": "Aisha: when one of you eats he should mention Allah's name; if he forgets at the start, he should say \"In the name of Allah at its beginning and its end\".",
+   "english": "when one of you eats he should mention Allah's name, and if he forgets to do so at the beginning he should say \"In the name of Allah at the beginning and at the end of it\"",
    "grade": "Sahih",
    "grader": "al-Albani",
    "topics": [
-    "aisha",
     "eats",
     "should",
     "mention",
     "allah's",
     "name",
     "forgets",
-    "start"
+    "beginning"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:3767",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-3850",
@@ -4195,45 +4194,45 @@
    "id": "h:abudawud-5088",
    "collection": "Sunan Abu Dawud",
    "number": "5088",
-   "english": "Uthman ibn Affan: whoever says three times \"In the name of Allah, with whose name nothing on earth or in heaven can cause harm, and He is the Hearing, the Knowing\", will not be struck by sudden affliction that morning or evening.",
+   "english": "whoever says it three times will not suffer a sudden affliction until the morning, and whoever says it in the morning will not suffer sudden affliction until the evening",
    "grade": "Sahih",
    "grader": "Darussalam",
    "topics": [
-    "uthman",
-    "affan",
     "whoever",
     "three",
     "times",
-    "name",
-    "whose",
-    "nothing"
+    "suffer",
+    "sudden",
+    "affliction",
+    "until",
+    "morning"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:5088",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-5095",
    "collection": "Sunan Abu Dawud",
    "number": "5095",
-   "english": "Anas: when a man leaves his house and says \"In the name of Allah, I trust in Allah, there is no might or power but with Allah\", it is said to him \"You are guided, defended and protected\".",
+   "english": "when a man goes out of his house and says these words it will be said to him that he is guided, defended and protected, and the devils will go far from him",
    "grade": "Hasan",
    "grader": "Darussalam",
    "topics": [
-    "anas",
-    "leaves",
+    "goes",
     "house",
-    "name",
-    "trust",
-    "there",
-    "might",
-    "power"
+    "these",
+    "words",
+    "guided",
+    "defended",
+    "protected",
+    "devils"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:5095",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-5096",
@@ -4305,20 +4304,21 @@
    "id": "h:bukhari-1032",
    "collection": "Sahih al-Bukhari",
    "number": "1032",
-   "english": "Aisha: when the Prophet saw rain he would say \"O Allah, make it a beneficial downpour\".",
+   "english": "whenever Allah's Messenger ﷺ saw the rain he used to say \"O Allah, let it be a strong, fruitful rain\"",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "aisha",
+    "whenever",
+    "allah's",
     "rain",
-    "make",
-    "beneficial",
-    "downpour"
+    "used",
+    "strong",
+    "fruitful"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1032",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-106",
@@ -4716,23 +4716,23 @@
    "id": "h:bukhari-2311",
    "collection": "Sahih al-Bukhari",
    "number": "2311",
-   "english": "Abu Hurayrah: while he guarded the zakat of Ramadan a thief came; he released him twice; the third time the thief taught him to recite Ayat al-Kursi at night for Allah's protection, and the Prophet said he had told the truth.",
+   "english": "Abu Hurayrah was taught that reciting Ayat al-Kursi at bedtime means Allah appoints a guard and no devil comes near until morning",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
     "hurayrah",
-    "while",
-    "guarded",
-    "zakat",
-    "ramadan",
-    "thief",
-    "came",
-    "released"
+    "taught",
+    "reciting",
+    "ayat",
+    "kursi",
+    "bedtime",
+    "means",
+    "appoints"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2311",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-2320",
@@ -5442,23 +5442,23 @@
    "id": "h:bukhari-5009",
    "collection": "Sahih al-Bukhari",
    "number": "5009",
-   "english": "Abu Masud: whoever recites the last two verses of Surat al-Baqarah at night, they will be enough for him.",
+   "english": "the Prophet said that whoever recites the last two verses of Surat Al-Baqarah at night, that is sufficient for him",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "masud",
     "whoever",
     "recites",
     "last",
     "verses",
     "surat",
     "baqarah",
-    "night"
+    "night",
+    "sufficient"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:5009",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-5013",
@@ -5895,23 +5895,23 @@
    "id": "h:bukhari-6224",
    "collection": "Sahih al-Bukhari",
    "number": "6224",
-   "english": "Abu Hurayrah: when one of you sneezes he should say \"Praise be to Allah\"; his brother replies \"May Allah have mercy on you\", and he answers \"May Allah guide you and set your affairs right\".",
+   "english": "if anyone of you sneezes he should say \"Al-hamdu lillah\" (praise be to Allah), and his Muslim brother or companion should say to him \"Yarhamuka Allah\" (may Allah have mercy on you), and when he says that the sneezer should reply \"Yahdikum Allah wa yuslih balakum\" (may Allah guide you and put your affairs right)",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
+    "anyone",
     "sneezes",
     "should",
+    "hamdu",
+    "lillah",
     "praise",
-    "brother",
-    "replies",
-    "mercy",
-    "answers"
+    "muslim",
+    "brother"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6224",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6306",
@@ -6520,23 +6520,23 @@
    "id": "h:muslim-1342",
    "collection": "Sahih Muslim",
    "number": "1342",
-   "english": "Ibn Umar: when setting out on a journey the Prophet said \"Allahu akbar\" three times and then the travel supplication \"Glory to Him who subjected this to us\".",
+   "english": "whenever he mounted his camel to set out on a journey he said Allahu Akbar three times and then said \"Glory be to Him who subjected this to us, and we could not have done it ourselves, and to our Lord we shall return\"",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "umar",
-    "setting",
+    "whenever",
+    "mounted",
+    "camel",
     "journey",
     "allahu",
     "akbar",
     "three",
-    "times",
-    "travel"
+    "times"
    ],
    "verifiedAt": "https://sunnah.com/muslim:1342",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-1349",
@@ -6779,23 +6779,23 @@
    "id": "h:muslim-2018",
    "collection": "Sahih Muslim",
    "number": "2018",
-   "english": "Jabir: when a man mentions Allah's name on entering his house and while eating, Satan says there is no lodging or supper here for you; if he does not, Satan finds both.",
+   "english": "when a person enters his house and mentions the name of Allah when entering and while eating, Satan says to himself that there is no place to spend the night and no evening meal for him there, but when he enters without mentioning Allah's name, Satan says he has found a place to spend the night",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "jabir",
+    "person",
+    "enters",
+    "house",
     "mentions",
-    "allah's",
     "name",
     "entering",
-    "house",
     "while",
     "eating"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2018",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-2109",
@@ -7148,23 +7148,20 @@
    "id": "h:muslim-2589",
    "collection": "Sahih Muslim",
    "number": "2589",
-   "english": "Abu Hurayrah: backbiting is mentioning your brother in a way he dislikes; if what you say is true it is backbiting, and if it is false it is slander.",
+   "english": "backbiting is talking about your brother in a way he does not like",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "backbiting",
-    "mentioning",
+    "talking",
+    "about",
     "brother",
-    "dislikes",
-    "true",
-    "false",
-    "slander"
+    "like"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2589",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-259",
@@ -7602,23 +7599,23 @@
    "id": "h:muslim-54",
    "collection": "Sahih Muslim",
    "number": "54",
-   "english": "Abu Hurayrah: you will not enter Paradise until you believe, and you will not believe until you love one another; the Prophet recommended spreading the greeting of peace to foster that love.",
+   "english": "you will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not direct you to something that, if you do it, you will love one another? Spread the greeting of peace among yourselves",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "enter",
     "paradise",
     "until",
     "believe",
     "love",
     "another",
-    "recommended"
+    "direct",
+    "something"
    ],
    "verifiedAt": "https://sunnah.com/muslim:54",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-572",
@@ -7734,23 +7731,23 @@
    "id": "h:muslim-713",
    "collection": "Sahih Muslim",
    "number": "713",
-   "english": "Abu Usayd: on entering the mosque say \"O Allah, open for me the doors of Your mercy\", and on leaving say \"O Allah, I ask You for Your bounty\".",
+   "english": "when any one of you enters the mosque he should say \"O Allah, open for me the doors of Your mercy\", and when he steps out he should say \"O Allah, I ask You for Your grace\"",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "usayd",
-    "entering",
+    "enters",
     "mosque",
+    "should",
     "open",
     "doors",
     "mercy",
-    "leaving",
-    "bounty"
+    "steps",
+    "grace"
    ],
    "verifiedAt": "https://sunnah.com/muslim:713",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-761",
@@ -8086,23 +8083,23 @@
    "id": "h:tirmidhi-1956",
    "collection": "Jamiʿ at-Tirmidhi",
    "number": "1956",
-   "english": "Abu Dharr: smiling in your brother's face is charity, enjoining good and forbidding evil is charity, guiding a lost man, removing a stone or thorn from the road, and pouring from your bucket into your brother's bucket are charity.",
+   "english": "your smiling in the face of your brother is charity, commanding good and forbidding evil is charity, giving directions to a man lost in the land is charity, helping a man of poor sight is charity, and removing a rock, a thorn or a bone from the road is charity",
    "grade": "Sahih",
    "grader": "al-Albani",
    "topics": [
-    "dharr",
     "smiling",
-    "brother's",
     "face",
+    "brother",
     "charity",
-    "enjoining",
+    "commanding",
     "good",
-    "forbidding"
+    "forbidding",
+    "evil"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:1956",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:tirmidhi-2307",
@@ -8283,23 +8280,23 @@
    "id": "h:tirmidhi-3388",
    "collection": "Jamiʿ at-Tirmidhi",
    "number": "3388",
-   "english": "Uthman ibn Affan: whoever says three times morning and evening \"In the name of Allah, with whose name nothing on earth or in heaven can harm, and He is the Hearing, the Knowing\", nothing will harm him.",
+   "english": "there is no servant who says every morning and every evening \"In the name of Allah, with whose name nothing on earth or in the heavens can cause harm, and He is the Hearing, the Knowing\" three times, but nothing will harm him",
    "grade": "Hasan sahih",
    "grader": "al-Albani",
    "topics": [
-    "uthman",
-    "affan",
-    "whoever",
-    "three",
-    "times",
+    "there",
+    "servant",
+    "every",
     "morning",
     "evening",
-    "name"
+    "name",
+    "whose",
+    "nothing"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:3388",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:tirmidhi-3431",
@@ -8349,23 +8346,23 @@
    "id": "h:tirmidhi-3458",
    "collection": "Jamiʿ at-Tirmidhi",
    "number": "3458",
-   "english": "Muadh ibn Anas: whoever eats food and says \"Praise be to Allah who fed me this and provided it without any might or power from me\", his past sins are forgiven.",
+   "english": "whoever eats food and then says \"All praise is due to Allah who fed me this and granted it to me without any strength or power from me\", his earlier sins will be forgiven",
    "grade": "Hasan",
    "grader": "al-Albani",
    "topics": [
-    "muadh",
-    "anas",
     "whoever",
     "eats",
     "food",
     "praise",
-    "provided",
-    "without"
+    "granted",
+    "without",
+    "strength",
+    "power"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:3458",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:tirmidhi-3524",
@@ -9430,6 +9427,153 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-18"
+  },
+  {
+   "id": "h:bukhari-6312",
+   "collection": "Sahih al-Bukhari",
+   "number": "6312",
+   "english": "when he went to bed he would say \"In Your name, O Allah, I die and I live\", and when he got up he would say \"Praise be to Allah who gave us life after He had made us die, and to Him is the resurrection\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "went",
+    "name",
+    "live",
+    "praise",
+    "gave",
+    "life",
+    "after",
+    "made"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6312",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6407",
+   "collection": "Sahih al-Bukhari",
+   "number": "6407",
+   "english": "the example of the one who remembers his Lord compared to the one who does not is that of a living creature compared to a dead one",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "example",
+    "remembers",
+    "lord",
+    "compared",
+    "living",
+    "creature",
+    "dead"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6407",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-780",
+   "collection": "Sahih Muslim",
+   "number": "780",
+   "english": "do not make your houses into graveyards, for Satan runs away from the house in which Surah Al-Baqarah is recited",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "make",
+    "houses",
+    "into",
+    "graveyards",
+    "satan",
+    "runs",
+    "away",
+    "house"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:780",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-809",
+   "collection": "Sahih Muslim",
+   "number": "809",
+   "english": "if anyone learns by heart the first ten verses of Surah al-Kahf, he will be protected from the Dajjal",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "anyone",
+    "learns",
+    "heart",
+    "first",
+    "verses",
+    "surah",
+    "kahf",
+    "protected"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:809",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-2517",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2517",
+   "english": "He answered \"Tie it and rely on Allah\"",
+   "grade": "Hasan",
+   "grader": "Darussalam",
+   "topics": [
+    "answered",
+    "rely"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2517",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-3426",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3426",
+   "english": "whoever says when leaving his house \"In the name of Allah, I place my trust in Allah, there is no might or power except by Allah\" will be told that he is sufficed and protected",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "whoever",
+    "leaving",
+    "house",
+    "name",
+    "place",
+    "trust",
+    "there",
+    "might"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3426",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-3505",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3505",
+   "english": "the supplication of Dhun-Nun when he supplicated in the belly of the whale was \"There is none worthy of worship except You, glory be to You, I was among the wrongdoers\"",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "supplication",
+    "dhun",
+    "supplicated",
+    "belly",
+    "whale",
+    "there",
+    "none",
+    "worthy"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3505",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
   }
  ]
 }

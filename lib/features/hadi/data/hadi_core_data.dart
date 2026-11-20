@@ -2665,6 +2665,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     ],
     avoid: <String>[
       r'\b(?:slaughter\w*|halal meat|zabiha)\b',
+      r'\b(?:forgot|forget|forgotten|forgetting)\b',
     ],
     answer: 'Bismillah is short for "Bismillahi r-Rahmani r-Rahim": "In the name of Allah, the Entirely Merciful, the Especially Merciful" (Qur\'an 1:1). It is the first verse of the Qur\'an\'s opening chapter, and it begins every surah except Surah At-Tawbah.\n\nMuslims say it to begin an action in Allah\'s name: eating, drinking, entering the home, starting wudu, studying, travelling. Teach children to begin with Allah\'s name. Umar ibn Abi Salama said the Prophet told him to mention the name of Allah, eat with his right hand and eat from what is nearest to him (Sahih al-Bukhari 5376). Saying "Bismillah" reminds you that you do it with Allah\'s help and for what He allows.\n\nAt the end, "Alhamdulillah" (all praise is due to Allah) is said to thank Him.\n\nSource: Qur\'an 1:1; Sahih al-Bukhari 5376.\n[GO:/adhkar]',
     topic: 'bismillah',
@@ -3206,7 +3207,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
       r'\bwho are you\b',
       r'\bwho is hadi\b',
       r'\bwhat (?:is|s) hadi\b',
-      r'\bwhat are you\b',
+      r'^what are you(?: hadi)?$',
       r'^hadi$',
       r'\bwhat does hadi mean\b',
       r'^(?:tell me about )?(?:yourself|hadi)\b',
