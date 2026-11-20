@@ -134,7 +134,10 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
         data: (List<Name99> names) => _form(g, names: names),
       );
     }
-    if (g.id == 'seerah' || g.id == 'hadith' || g.id == 'arabic-words') {
+    if (g.id == 'seerah' ||
+        g.id == 'seerah-scenarios' ||
+        g.id == 'hadith' ||
+        g.id == 'arabic-words') {
       // One size per game: every topic has at least 56 questions.
       final AsyncValue<int> async = ref.watch(
         poolSizeProvider('${g.id}|mixed'),

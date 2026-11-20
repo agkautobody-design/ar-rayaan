@@ -34,8 +34,10 @@ abstract final class LearningLoader {
     };
   }
 
-  static Future<List<Map<String, dynamic>>> _seerahBank() async {
-    final Map<String, dynamic> d = (await _json('assets/games/seerah_quiz.json'))
+  static Future<List<Map<String, dynamic>>> _seerahBank([
+    String file = 'seerah_quiz',
+  ]) async {
+    final Map<String, dynamic> d = (await _json('assets/games/$file.json'))
         as Map<String, dynamic>;
     return _maps(d['questions']);
   }
@@ -95,6 +97,24 @@ abstract final class LearningLoader {
         rnd,
         count: count,
       );
+
+  /// Seerah: How Would You Respond? Situations from the same stories, with
+  /// what the story says the Prophet ﷺ said or did.
+  static Future<List<QuizQuestion>> seerahScenarioQuiz(
+    Random rnd,
+    int count,
+  ) async =>
+      buildSeerahQuiz(
+        await _seerahBank('seerah_scenarios'),
+        await _seerahStories(),
+        rnd,
+        count: count,
+      );
+
+  static Future<int> seerahScenarioCount() async => seerahPool(
+        await _seerahBank('seerah_scenarios'),
+        await _seerahStories(),
+      ).length;
 
   static Future<int> seerahCount() async =>
       seerahPool(await _seerahBank(), await _seerahStories()).length;
@@ -265,6 +285,8 @@ final poolSizeProvider =
   final String game = parts.first;
   final String topic = parts.length > 1 ? parts[1] : 'mixed';
   switch (game) {
+    case 'seerah-scenarios':
+      return LearningLoader.seerahScenarioCount();
     case 'seerah':
       return LearningLoader.seerahCount();
     case 'hadith':

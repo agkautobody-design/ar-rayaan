@@ -210,15 +210,26 @@ const List<GameDef> kLearningGames = <GameDef>[
   GameDef(
     id: 'seerah-scenarios',
     title: 'Seerah: How Would You Respond?',
-    blurb: 'Choices in the footsteps of the Prophet ﷺ',
+    blurb: 'A situation from the Seerah: what did the Prophet ﷺ say or do?',
     category: GameCategory.islamic,
     modes: <PlayMode>{PlayMode.solo},
-    route: '/games',
+    route: '/games/g/seerah-scenarios',
     iconKey: 'seerah',
-    kind: GameEngineKind.own,
-    hidden: true,
-    sourceNote: 'Hidden until a scholar supplies the situations and answers.',
-    howToPlay: <String>['Not available yet.'],
+    kind: GameEngineKind.quiz,
+    hasSetup: true,
+    hasQuestions: true,
+    hasHints: true,
+    sourceNote: 'Each situation is one of the Seerah School’s own stories, '
+        'and the right answer is what that story says the Prophet ﷺ said or '
+        'did. It is a record of what is reported, not a ruling. After each '
+        'answer you see the story’s own source lines. The stories are marked '
+        '"scholar review needed". No images of any prophet are used.',
+    howToPlay: <String>[
+      'Choose how many questions.',
+      'Pick what you think the Prophet ﷺ said or did. There is no timer.',
+      'After each answer you see the source and a short explanation.',
+      'A hint hides two wrong answers. You get three free hints a game.',
+    ],
   ),
   GameDef(
     id: 'arabic-spelling',
