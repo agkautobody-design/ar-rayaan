@@ -186,10 +186,13 @@ class _View {
 }
 
 class _VLine {
-  const _VLine(this.original, this.sounds, this.meaning);
+  const _VLine(this.original, this.sounds, this.meaning, [this.hindi]);
 
   final String original;
   final String? sounds;
+
+  /// The original in Hindi script, when the poem has it.
+  final String? hindi;
   final Map<String, String> meaning;
 }
 
@@ -208,7 +211,8 @@ _View? _viewFor(String id, List<UserPoem> mine) {
           if (l != w.originalLang) l,
       ],
       lines: <_VLine>[
-        for (final NaatLine l in w.lines) _VLine(l.original, l.sounds, l.meaning),
+        for (final NaatLine l in w.lines)
+          _VLine(l.original, l.sounds, l.meaning, l.devanagari),
       ],
     );
   }
@@ -254,6 +258,7 @@ class NaatReaderScreen extends ConsumerStatefulWidget {
 class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
   String? _lang;
   bool _sounds = true;
+  bool _hindiScript = false;
   final Map<int, GlobalKey> _keys = <int, GlobalKey>{};
 
   void _follow(int index) {
@@ -343,6 +348,7 @@ class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
     final bool rtlMeaning = lang == 'ur' || lang == 'ar';
     final bool rtlOriginal = v.lang == 'ar' || v.lang == 'ur';
     final bool anySounds = v.lines.any((_VLine l) => l.sounds != null);
+    final bool anyHindi = v.lines.any((_VLine l) => l.hindi != null);
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -428,6 +434,18 @@ class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
                   onChanged: (bool x) => setState(() => _sounds = x),
                 ),
               ],
+              if (anyHindi)
+                SwitchListTile(
+                  key: const Key('naat-devanagari'),
+                  contentPadding: EdgeInsets.zero,
+                  title: Text('Show in Hindi script', style: AppText.body),
+                  subtitle: Text(
+                    'The words in Devanagari (हिन्दी)',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
+                  ),
+                  value: _hindiScript,
+                  onChanged: (bool x) => setState(() => _hindiScript = x),
+                ),
               const SizedBox(height: 8),
               for (int i = 0; i < v.lines.length; i++) ...<Widget>[
                 KeyedSubtree(
@@ -470,6 +488,17 @@ class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
                                 height: 1.9,
                               ),
                             ),
+                            if (_hindiScript && v.lines[i].hindi != null) ...<Widget>[
+                              const SizedBox(height: 8),
+                              m.Text(
+                                v.lines[i].hindi!,
+                                textAlign: TextAlign.center,
+                                style: AppText.body.copyWith(
+                                  fontSize: 20,
+                                  height: 1.7,
+                                ),
+                              ),
+                            ],
                             if (_sounds && v.lines[i].sounds != null) ...<Widget>[
                               const SizedBox(height: 8),
                               TranslitLine(v.lines[i].sounds!, centered: true),
@@ -533,7 +562,7 @@ class _RecitalBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     if (!view.canRecite) {
       return Text(
-        'Reading aloud is available for Arabic, Urdu, English and Bangla.',
+        'Reading aloud is available for Arabic, Urdu, Hindi, English and Bangla.',
         style: AppText.bodyMuted.copyWith(fontSize: 12),
       );
     }

@@ -15,6 +15,7 @@ class NaatLine {
     required this.original,
     required this.sounds,
     required this.meaning,
+    this.devanagari,
   });
 
   /// The original text. Two halves of a couplet are separated by a newline.
@@ -22,6 +23,10 @@ class NaatLine {
 
   /// The original written in Latin letters (a reading aid; left to right).
   final String sounds;
+
+  /// The original written in Hindi script (Devanagari), for works whose
+  /// original is Urdu; null when not provided. A reading aid, a draft.
+  final String? devanagari;
 
   /// The meaning by language code: `en`, `ur`, `ar`, `bn`. The original's own
   /// language is not repeated here.
@@ -73,11 +78,12 @@ const Map<String, String> kNaatLanguages = <String, String>{
   'ur': 'اردو',
   'ar': 'العربية',
   'bn': 'বাংলা',
+  'hi': 'हिन्दी',
 };
 
 const String kNaatDraftNote =
     'The original words were checked against published text. The '
-    'transliteration and the translations (English, Urdu, Arabic, Bangla) are '
+    'transliteration and the translations (English, Urdu, Hindi, Arabic, Bangla) are '
     'drafts written for this app: a native speaker and a scholar still have '
     'to check them. Other languages are not available yet.';
 
@@ -103,6 +109,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'طلع البدر علينا\nمن ثنيات الوداع',
         sounds: "ṭalaʿa l-badru ʿalaynā\nmin thaniyyāti l-wadāʿ",
         meaning: <String, String>{
+          'hi': 'पूर्णिमा का चाँद हम पर निकला, वदा की घाटियों की ओर से।',
           'en':
               'The full moon has risen over us, from the valleys of Wadāʿ.',
           'ur': 'ہم پر چودھویں کا چاند طلوع ہوا، ثنیات الوداع کی گھاٹیوں سے۔',
@@ -114,6 +121,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'وجب الشكر علينا\nما دعا لله داع',
         sounds: "wajaba sh-shukru ʿalaynā\nmā daʿā li-llāhi dāʿ",
         meaning: <String, String>{
+          'hi': 'हम पर शुक्र वाजिब है, जब तक कोई अल्लाह की ओर बुलाने वाला बुलाता रहे।',
           'en':
               'Gratitude is owed by us, for as long as anyone calls to Allah.',
           'ur':
@@ -126,6 +134,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'أيها المبعوث فينا\nجئت بالأمر المطاع',
         sounds: "ayyuha l-mabʿūthu fīnā\njiʾta bi-l-amri l-muṭāʿ",
         meaning: <String, String>{
+          'hi': 'ऐ हमारे बीच भेजे गए, आप ऐसा हुक्म लेकर आए जिसे माना जाए।',
           'en':
               'O you who were sent among us, you came with a command to be obeyed.',
           'ur':
@@ -159,6 +168,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "a-min tadhakkuri jīrānin bi-dhī salamin\nmazajta damʿan jarā min muqlatin bi-damī",
         meaning: <String, String>{
+          'hi': 'क्या पड़ोसियों "ज़ी सलम" की याद ने तेरी आँख से बहते आँसुओं में ख़ून मिला दिया?',
           'en':
               'Is it the memory of neighbours at Dhū Salam that made you mix tears flowing from your eye with blood?',
           'ur':
@@ -172,6 +182,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "am habbati r-rīḥu min tilqāʾi kāẓimatin\nwa-awmaḍa l-barqu fi ẓ-ẓalmāʾi min iḍami",
         meaning: <String, String>{
+          'hi': 'या कज़िमा की ओर से हवा चली, और इज़म की अँधेरी रात में बिजली चमकी?',
           'en':
               'Or did the wind blow from the direction of Kāẓima, and lightning flash in the dark from Iḍam?',
           'ur':
@@ -185,6 +196,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "fa-mā li-ʿaynayka in qulta kfufā hamatā\nwa-mā li-qalbika in qulta stafiq yahimī",
         meaning: <String, String>{
+          'hi': 'तेरी आँखों को क्या हुआ कि तू रुकने को कहे तो और बरसती हैं, और तेरे दिल को क्या हुआ कि तू सँभलने को कहे तो और बेचैन होता है?',
           'en':
               'What is wrong with your eyes, that they stream when you tell them “stop”, and your heart, that it wanders when you tell it “come to yourself”?',
           'ur':
@@ -198,6 +210,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "a-yaḥsabu ṣ-ṣabbu anna l-ḥubba munkatimun\nmā bayna munsajimin minhu wa-muḍṭarimī",
         meaning: <String, String>{
+          'hi': 'क्या आशिक़ समझता है कि उसका प्रेम छिपा रह जाएगा, जबकि वह बहते आँसू और भड़कती आग के बीच है?',
           'en':
               'Does the lover think his love can stay hidden, between tears pouring and a heart on fire?',
           'ur':
@@ -211,6 +224,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "lawlā l-hawā lam turiq damʿan ʿalā ṭalalin\nwa-lā ariqta li-dhikri l-bāni wa-l-ʿalami",
         meaning: <String, String>{
+          'hi': 'अगर प्रेम न होता तो तू खंडहर पर आँसू न बहाता, और बान के पेड़ और पर्वत की याद में रातें न जागता।',
           'en':
               'Were it not for love you would not shed tears over a ruin, nor lie sleepless remembering the ban trees and the mountain.',
           'ur':
@@ -224,6 +238,7 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         sounds:
             "fa-kayfa tunkiru ḥubban baʿda mā shahidat\nbihī ʿalayka ʿudūlu d-damʿi wa-s-saqami",
         meaning: <String, String>{
+          'hi': 'फिर तू प्रेम से कैसे इनकार करता है, जबकि तेरे आँसू और तेरी बीमारी के दो न्यायप्रिय गवाह तेरे विरुद्ध गवाही दे चुके?',
           'en':
               'How then can you deny love, after the honest witnesses of tears and sickness have testified to it against you?',
           'ur':
@@ -255,7 +270,9 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'لب پہ آتی ہے دعا بن کے تمنا میری\nزندگی شمع کی صورت ہو خدایا میری',
         sounds:
             "lab pe aati hai dua ban ke tamanna meri\nzindagi shama ki surat ho Khudaya meri",
+        devanagari: 'लब पे आती है दुआ बन के तमन्ना मेरी\nज़िन्दगी शम्अ की सूरत हो ख़ुदाया मेरी',
         meaning: <String, String>{
+          'hi': 'मेरी तमन्ना दुआ बनकर मेरे होंठों पर आती है: ऐ ख़ुदा, मेरी ज़िंदगी शम्अ जैसी हो।',
           'en':
               'My longing comes to my lips as a prayer: O God, may my life be like a candle.',
           'ar':
@@ -268,7 +285,9 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'دور دنیا کا مرے دم سے اندھیرا ہو جائے\nہر جگہ میرے چمکنے سے اجالا ہو جائے',
         sounds:
             "dur duniya ka mere dam se andhera ho jae\nhar jagah mere chamakne se ujala ho jae",
+        devanagari: 'दूर दुनिया का मेरे दम से अँधेरा हो जाए\nहर जगह मेरे चमकने से उजाला हो जाए',
         meaning: <String, String>{
+          'hi': 'मेरे दम से दुनिया का अँधेरा दूर हो जाए; मेरे चमकने से हर जगह उजाला हो जाए।',
           'en':
               'May the darkness of the world be gone because of me; may every place be bright because I shine.',
           'ar':
@@ -281,7 +300,9 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'ہو مرے دم سے یونہی میرے وطن کی زینت\nجس طرح پھول سے ہوتی ہے چمن کی زینت',
         sounds:
             "ho mere dam se yunhi mere watan ki zinat\njis tarah phul se hoti hai chaman ki zinat",
+        devanagari: 'हो मेरे दम से यूँ ही मेरे वतन की ज़ीनत\nजिस तरह फूल से होती है चमन की ज़ीनत',
         meaning: <String, String>{
+          'hi': 'मेरे दम से मेरे वतन की शोभा ऐसे हो, जैसे फूल से बाग़ की शोभा होती है।',
           'en':
               'May my homeland be adorned through me, as a garden is adorned by a flower.',
           'ar':
@@ -294,7 +315,9 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'زندگی ہو مری پروانے کی صورت یا رب\nعلم کی شمع سے ہو مجھ کو محبت یا رب',
         sounds:
             "zindagi ho meri parwane ki surat ya Rab\nilm ki shama se ho mujh ko muhabbat ya Rab",
+        devanagari: 'ज़िन्दगी हो मेरी परवाने की सूरत या रब\nइल्म की शम्अ से हो मुझ को मुहब्बत या रब',
         meaning: <String, String>{
+          'hi': 'ऐ मेरे रब, मेरी ज़िंदगी परवाने जैसी हो; इल्म की शम्अ से मुझे मुहब्बत हो।',
           'en':
               'May my life be like the moth’s, my Lord; may I love the candle of knowledge, my Lord.',
           'ar':
@@ -307,7 +330,9 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'ہو مرا کام غریبوں کی حمایت کرنا\nدردمندوں سے ضعیفوں سے محبت کرنا',
         sounds:
             "ho mera kaam gharibon ki himayat karna\ndardmandon se zaifon se muhabbat karna",
+        devanagari: 'हो मेरा काम ग़रीबों की हिमायत करना\nदर्दमंदों से ज़ईफ़ों से मुहब्बत करना',
         meaning: <String, String>{
+          'hi': 'मेरा काम ग़रीबों की मदद करना हो; दर्दमंदों और कमज़ोरों से मुहब्बत करना हो।',
           'en':
               'May my work be to stand up for the poor, and to love the suffering and the weak.',
           'ar':
@@ -320,13 +345,69 @@ const List<NaatWork> kNaatWorks = <NaatWork>[
         original: 'مرے اللہ! برائی سے بچانا مجھ کو\nنیک جو راہ ہو اس رہ پہ چلانا مجھ کو',
         sounds:
             "mere Allah! burai se bachana mujh ko\nnek jo rah ho us rah pe chalana mujh ko",
+        devanagari: 'मेरे अल्लाह! बुराई से बचाना मुझ को\nनेक जो राह हो उस रह पे चलाना मुझ को',
         meaning: <String, String>{
+          'hi': 'ऐ मेरे अल्लाह, मुझे बुराई से बचाना; जो राह नेक हो उसी पर मुझे चलाना।',
           'en':
               'My Allah, keep me from evil, and walk me on every path that is good.',
           'ar':
               'يا الله، احفظني من الشرّ، وسِر بي على كل طريق صالح.',
           'bn':
               'হে আমার আল্লাহ, আমাকে মন্দ থেকে বাঁচাও; যে পথ ভালো সেই পথে আমাকে চালাও।',
+        },
+      ),
+    ],
+  ),
+  NaatWork(
+    id: 'mustafa-jan-e-rahmat',
+    title: 'Mustafa Jaan-e-Rahmat · the first lines',
+    titleOriginal: 'مصطفیٰ جانِ رحمت پہ لاکھوں سلام',
+    poet: 'Imam Ahmad Raza Khan (1856–1921)',
+    kind: 'Salam to the Prophet ﷺ',
+    originalLang: 'ur',
+    about:
+        'The best loved Urdu salam, sung in gatherings across South Asia, '
+        'from the collection Hadāʾiq-i Bakhshish (1907). It is long; only the '
+        'opening couplet and the couplet in praise of Abū Bakr are here, '
+        'because those are the lines whose wording was checked. The poet died '
+        'in 1921, so the poem is in the public domain.',
+    source:
+        'Wording as quoted from the salam by musjidulhaq.com (the opening '
+        'couplet) and dawateislami.net (the couplet on Abū Bakr). Published '
+        'text of Hadāʾiq-i Bakhshish still has to be checked line by line.',
+    lines: <NaatLine>[
+      NaatLine(
+        original: 'مصطفےٰ جانِ رحمت پہ لاکھوں سلام\nشمعِ بزمِ ہدایت پہ لاکھوں سلام',
+        sounds:
+            "Mustafā jān-e-raḥmat pe lākhon salām\nshamʿ-e-bazm-e-hidāyat pe lākhon salām",
+        devanagari:
+            'मुस्तफ़ा जान-ए-रहमत पे लाखों सलाम\nशम्अ-ए-बज़्म-ए-हिदायत पे लाखों सलाम',
+        meaning: <String, String>{
+          'hi':
+              'मुस्तफ़ा ﷺ पर, जो रहमत की जान हैं, लाखों सलाम; हिदायत की महफ़िल की शम्अ पर लाखों सलाम।',
+          'en':
+              'Millions of salutations on Mustafa ﷺ, the soul of mercy; millions on the lamp of the gathering of guidance.',
+          'ar':
+              'ألف ألف سلام على المصطفى ﷺ روح الرحمة، وعلى شمعة مجلس الهداية.',
+          'bn':
+              'মুস্তফা ﷺ-এর ওপর, যিনি রহমতের প্রাণ, লক্ষ লক্ষ সালাম; হিদায়াতের মজলিসের প্রদীপের ওপর লক্ষ লক্ষ সালাম।',
+        },
+      ),
+      NaatLine(
+        original: 'عزّ و نازِ خلافت پہ لاکھوں سلام\nثانیَ اثنینِ ہجرت پہ لاکھوں سلام',
+        sounds:
+            "ʿizz-o-nāz-e-khilāfat pe lākhon salām\nsānī-e-ithnain-e-hijrat pe lākhon salām",
+        devanagari:
+            'इज़्ज़-ओ-नाज़-ए-ख़िलाफ़त पे लाखों सलाम\nसानी-ए-इसनैन-ए-हिजरत पे लाखों सलाम',
+        meaning: <String, String>{
+          'hi':
+              'ख़िलाफ़त की शान और नाज़ पर लाखों सलाम; हिजरत में "दो में से दूसरे" (अबू बक्र रज़ियल्लाहु अन्हु) पर लाखों सलाम।',
+          'en':
+              'Millions of salutations on the honour and pride of the caliphate, and on the "second of the two" on the migration (Abū Bakr, may Allah be pleased with him).',
+          'ar':
+              'ألف ألف سلام على عزّ الخلافة وفخرها، وعلى «ثاني اثنين» في الهجرة (أبي بكر رضي الله عنه).',
+          'bn':
+              'খিলাফতের মর্যাদা ও গৌরবের ওপর লক্ষ লক্ষ সালাম; হিজরতের "দুজনের দ্বিতীয়জন" (আবু বকর রাদিয়াল্লাহু আনহু)-এর ওপর লক্ষ লক্ষ সালাম।',
         },
       ),
     ],
