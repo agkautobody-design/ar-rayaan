@@ -26,6 +26,18 @@ MAP = {
 }
 
 
+# slot, file, output size, crop (size -> box) or None, ext, note
+SECOND = [
+    ("hubHeader", "6a5168be-image.png", (1200, 550), None, "webp",
+     "Clean arch with lanterns, flowers and skyline; empty dark sky, no text or buttons."),
+    ("goldDivider", "9258bd75-image.png", None, None, "png",
+     "Thin gold rule with centre diamond on transparent."),
+    ("settingsHeader", "adfb1ec1-image.png", (941, 222),
+     lambda sz: (0, sz[1] - round(sz[0] * 222 / 941), sz[0], sz[1]), "webp",
+     "Skyline strip, bottom of the delivered 2172 x 724 image; empty dark sky."),
+]
+
+
 def save(im, slot, size, ext="webp"):
     if size and im.size != size:
         im = im.resize(size, Image.LANCZOS)
@@ -57,6 +69,19 @@ def main():
                                       "sourceScreen": "Owner delivery 20 Nov 2026", "box": [0, 0, 1254, 1254],
                                       "size": list(sz), "transparent": True,
                                       "note": "Gold floral top-left corner on transparent; the app mirrors it."}
+    # Second delivery (20 Nov 2026): clean headers and divider.
+    for slot, fn, size, crop, ext, note in SECOND:
+        im = Image.open(os.path.join(a.src, fn))
+        im = im.convert("RGBA") if ext == "png" else im.convert("RGB")
+        if crop:
+            im = im.crop(crop(im.size))
+        path, sz = save(im, slot, size, ext)
+        man["slots"][slot] = {"file": path, "kind": "exact", "source": fn,
+                              "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
+                              "box": [0, 0, im.size[0], im.size[1]], "size": list(sz),
+                              "transparent": ext == "png", "note": note}
+        man["fallback"].pop(slot, None)
+    man["totalBytes"] = sum(os.path.getsize(v["file"]) for v in man["slots"].values())
     json.dump(man, open(f"{ART}/manifest.json", "w"), indent=2, ensure_ascii=False)
     open(f"{ART}/manifest.json", "a").write("\n")
 

@@ -3,21 +3,21 @@
   "slots": {
     "hubHeader": {
       "file": "assets/games/art/hubHeader.webp",
-      "kind": "patched",
-      "source": "855838e9-image.png",
-      "sourceScreen": "All Games Collection",
+      "kind": "exact",
+      "source": "6a5168be-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
       "box": [
         0,
-        50,
-        941,
-        480
+        0,
+        1852,
+        849
       ],
       "size": [
-        941,
-        430
+        1200,
+        550
       ],
       "transparent": false,
-      "note": "Arch, lanterns, skyline. Title, tagline, status bar and the two round buttons painted out; the buttons leave a soft glow."
+      "note": "Clean arch with lanterns, flowers and skyline; empty dark sky, no text or buttons."
     },
     "skylineBand": {
       "file": "assets/games/art/skylineBand.webp",
@@ -453,21 +453,21 @@
     },
     "goldDivider": {
       "file": "assets/games/art/goldDivider.png",
-      "kind": "patched",
-      "source": "985cb0f6-image.png",
-      "sourceScreen": "Qur’an Knowledge waiting room",
+      "kind": "exact",
+      "source": "9258bd75-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
       "box": [
-        205,
-        1237,
-        735,
-        1257
+        0,
+        0,
+        1060,
+        40
       ],
       "size": [
-        530,
-        20
+        1060,
+        40
       ],
       "transparent": true,
-      "note": "Thin gold rule with a diamond in the middle. Dark panels only."
+      "note": "Thin gold rule with centre diamond on transparent."
     },
     "bottomNavFrame": {
       "file": "assets/games/art/bottomNavFrame.webp",
@@ -648,15 +648,28 @@
       ],
       "transparent": false,
       "note": "Mosque-at-sunset arch with lanterns, dark navy below for panels."
-    }
-  },
-  "fallback": {
+    },
     "settingsHeader": {
-      "kind": "fallback",
-      "note": "No Games settings screen exists on main yet, and no design crop is text-free."
+      "file": "assets/games/art/settingsHeader.webp",
+      "kind": "exact",
+      "source": "adfb1ec1-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
+      "box": [
+        0,
+        0,
+        2172,
+        512
+      ],
+      "size": [
+        941,
+        222
+      ],
+      "transparent": false,
+      "note": "Skyline strip, bottom of the delivered 2172 x 724 image; empty dark sky."
     }
   },
-  "totalBytes": 519286,
+  "fallback": {},
+  "totalBytes": 1392072,
   "boards": {
     "chess_royal": {
       "image": [
