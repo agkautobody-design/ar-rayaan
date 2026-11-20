@@ -1,0 +1,110 @@
+{
+ "note": "Arabic Spelling. Each name is the plain spelling of a prophet's name; the test checks that the same letters (marks removed, alef forms and alef maqsura normalised) occur as a word in assets/quran/quran.json, and 'ref' is the first verse found. English names follow the Messengers' tree (assets/family/tree.json). No audio and no meaning other than the name itself. Names whose Qur'anic spelling drops a letter (Salih, Sulayman, Ibrahim, Ismail, Ishaq, Harun, Adam) are left out.",
+ "words": [
+  {
+   "id": "nuh",
+   "name": "Nuh",
+   "arabic": "نوح",
+   "clue": "Spell the Arabic name of the Prophet Nuh, peace be upon him",
+   "ref": "Qur'an 4:163"
+  },
+  {
+   "id": "hud",
+   "name": "Hud",
+   "arabic": "هود",
+   "clue": "Spell the Arabic name of the Prophet Hud, peace be upon him",
+   "ref": "Qur'an 11:60"
+  },
+  {
+   "id": "lut",
+   "name": "Lut",
+   "arabic": "لوط",
+   "clue": "Spell the Arabic name of the Prophet Lut, peace be upon him",
+   "ref": "Qur'an 11:70"
+  },
+  {
+   "id": "yunus",
+   "name": "Yunus",
+   "arabic": "يونس",
+   "clue": "Spell the Arabic name of the Prophet Yunus, peace be upon him",
+   "ref": "Qur'an 10:98"
+  },
+  {
+   "id": "musa",
+   "name": "Musa",
+   "arabic": "موسى",
+   "clue": "Spell the Arabic name of the Prophet Musa, peace be upon him",
+   "ref": "Qur'an 2:51"
+  },
+  {
+   "id": "isa",
+   "name": "Isa",
+   "arabic": "عيسى",
+   "clue": "Spell the Arabic name of the Prophet Isa, peace be upon him",
+   "ref": "Qur'an 2:87"
+  },
+  {
+   "id": "yusuf",
+   "name": "Yusuf",
+   "arabic": "يوسف",
+   "clue": "Spell the Arabic name of the Prophet Yusuf, peace be upon him",
+   "ref": "Qur'an 12:4"
+  },
+  {
+   "id": "yaqub",
+   "name": "Ya'qub",
+   "arabic": "يعقوب",
+   "clue": "Spell the Arabic name of the Prophet Ya'qub, peace be upon him",
+   "ref": "Qur'an 2:133"
+  },
+  {
+   "id": "ayyub",
+   "name": "Ayyub",
+   "arabic": "أيوب",
+   "clue": "Spell the Arabic name of the Prophet Ayyub, peace be upon him",
+   "ref": "Qur'an 38:41"
+  },
+  {
+   "id": "dawud",
+   "name": "Dawud",
+   "arabic": "داود",
+   "clue": "Spell the Arabic name of the Prophet Dawud, peace be upon him",
+   "ref": "Qur'an 2:251"
+  },
+  {
+   "id": "idris",
+   "name": "Idris",
+   "arabic": "إدريس",
+   "clue": "Spell the Arabic name of the Prophet Idris, peace be upon him",
+   "ref": "Qur'an 19:56"
+  },
+  {
+   "id": "shuayb",
+   "name": "Shu'ayb",
+   "arabic": "شعيب",
+   "clue": "Spell the Arabic name of the Prophet Shu'ayb, peace be upon him",
+   "ref": "Qur'an 26:177"
+  },
+  {
+   "id": "zakariya",
+   "name": "Zakariya",
+   "arabic": "زكريا",
+   "clue": "Spell the Arabic name of the Prophet Zakariya, peace be upon him",
+   "ref": "Qur'an 3:37"
+  },
+  {
+   "id": "yahya",
+   "name": "Yahya",
+   "arabic": "يحيى",
+   "clue": "Spell the Arabic name of the Prophet Yahya, peace be upon him",
+   "ref": "Qur'an 19:7"
+  },
+  {
+   "id": "muhammad",
+   "name": "Muhammad",
+   "arabic": "محمد",
+   "clue": "Spell the Arabic name of the Prophet Muhammad ﷺ",
+   "ref": "Qur'an 3:144"
+  }
+ ]
+}
