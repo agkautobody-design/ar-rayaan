@@ -31,7 +31,7 @@ import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_nearest_masjid.dart';
 import '../../masjid/domain/masjid_search_service.dart'
-    show Mosque, MapSearchOutcome, searchNearby;
+    show MapSearchOutcome, searchNearby;
 import '../../places/application/places_providers.dart' show jumuahTimesProvider;
 import '../../places/domain/jumuah_time.dart' show JumuahEntry;
 import 'package:http/http.dart' as http;
