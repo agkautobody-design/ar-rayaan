@@ -61,9 +61,9 @@
    "version": 16
   },
   "stories/modernhadith.json": {
-   "bytes": 58108,
-   "sha256": "4fa94b01308aaa890a085f35242943ed3084cb1fc5bee003f21d4381e2fe7666",
-   "version": 32
+   "bytes": 59552,
+   "sha256": "8da2a2d8778c9a0358aafee9e08f0361a017f650a92421324c885f152d7bab9f",
+   "version": 33
   },
   "stories/newmuslim.json": {
    "bytes": 62186,
