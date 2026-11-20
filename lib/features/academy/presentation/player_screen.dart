@@ -55,6 +55,24 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               children: <Widget>[
                 const ScreenHeader(title: 'The Ar-Rayaan Player'),
                 GestureDetector(
+                  key: const Key('player-naat-words'),
+                  onTap: () => context.push(AppRoutes.naatWords),
+                  child: GlassCard(
+                    child: Row(
+                      children: <Widget>[
+                        const Icon(Icons.menu_book_outlined, color: AppColors.gold),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text('Naat Words · read and learn',
+                              style: AppText.titleMedium),
+                        ),
+                        const Icon(Icons.chevron_right, color: AppColors.gold),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                GestureDetector(
                   onTap: () => context.push(AppRoutes.requestNasheed),
                   child: GlassCard(
                     child: Row(

@@ -21,6 +21,7 @@ import '../features/academy/presentation/course_overview_screen.dart';
 import '../features/academy/presentation/lesson_v3_screen.dart';
 import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
+import '../features/academy/presentation/naat_words_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/player_screen.dart';
@@ -199,6 +200,7 @@ abstract final class AppRoutes {
   static const String myAdditions = '/player/my-additions';
   static const String myPlaylists = '/player/playlists';
   static const String requestNasheed = '/player/request';
+  static const String naatWords = '/player/words';
   static String academyLesson(String c, String u, String l) =>
       '/academy/lesson/$c/$u/$l';
 
@@ -959,6 +961,15 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.requestNasheed,
         pageBuilder: (c, s) => _fade(const RequestNasheedScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.naatWords,
+        pageBuilder: (c, s) => _fade(const NaatWordsScreen()),
+      ),
+      GoRoute(
+        path: '${AppRoutes.naatWords}/:id',
+        pageBuilder: (c, s) =>
+            _fade(NaatReaderScreen(id: s.pathParameters['id'] ?? '')),
       ),
       GoRoute(
         path: AppRoutes.settings,
