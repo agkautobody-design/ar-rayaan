@@ -12,6 +12,7 @@ import '../../masjid/domain/masjid_search_service.dart';
 import '../application/places_providers.dart';
 import '../data/community_places_service.dart';
 import '../domain/community_place.dart';
+import 'jumuah_line.dart';
 import 'report_place_sheet.dart';
 
 /// A community-submitted place, shown above the open-map results with its
@@ -85,6 +86,8 @@ class CommunityPlaceCard extends ConsumerWidget {
             if (place.confirms > 0)
               _chip('confirmed by ${place.confirms}'),
           ]),
+          if (place.type == CommunityPlaceType.mosque)
+            JumuahLine(masjidKey: place.id, name: place.name),
           const SizedBox(height: 6),
           Wrap(spacing: 4, children: [
             TextButton(

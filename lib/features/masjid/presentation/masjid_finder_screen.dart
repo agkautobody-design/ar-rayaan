@@ -25,6 +25,7 @@ import '../../prayer/application/prayer_repository.dart';
 import '../../places/application/places_providers.dart';
 import '../../places/domain/community_place.dart';
 import '../../places/presentation/community_place_card.dart';
+import '../../places/presentation/jumuah_line.dart';
 import '../../places/presentation/report_place_sheet.dart';
 import '../../../app/router.dart';
 import '../domain/google_places_service.dart';
@@ -789,6 +790,11 @@ class _MosqueCard extends StatelessWidget {
             if (m.hours != null) _chip(m.hours!),
             _chip('from open map data \u2014 verify'),
           ]),
+          JumuahLine(
+            masjidKey: PlacesPolicy.osmTargetId(m.name, m.lat, m.lon),
+            name: m.name,
+            mapTime: m.jumuah,
+          ),
           const SizedBox(height: 6),
           Row(children: [
             if (site != null)

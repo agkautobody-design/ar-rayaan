@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../domain/community_place.dart';
+import '../domain/jumuah_time.dart';
 
 /// A write the policy refused before it left the device, or that needs a
 /// signed-in account first. [message] is safe to show to the person.
@@ -33,6 +34,8 @@ class CommunityPlacesService {
       _db.collection('community_events');
   CollectionReference<Map<String, dynamic>> get _reports =>
       _db.collection('place_reports');
+  CollectionReference<Map<String, dynamic>> get _jumuah =>
+      _db.collection('jumuah_times');
   DocumentReference<Map<String, dynamic>> _rateDoc(String uid) =>
       _db.collection('places_rate').doc(uid);
 
@@ -62,6 +65,22 @@ class CommunityPlacesService {
         .snapshots()
         .map((s) => s.docs.map(CommunityEvent.fromDoc).toList());
   }
+
+  /// Newest Jumu'ah times people added (any masjid); the screens pick the
+  /// newest per masjid with [JumuahPolicy.newestByKey].
+  Stream<List<JumuahEntry>> jumuahTimes() => _jumuah
+      .orderBy('createdAt', descending: true)
+      .limit(300)
+      .snapshots()
+      .map((s) => s.docs.map((d) {
+            final Map<String, dynamic> m = d.data();
+            return JumuahEntry(
+              key: (m['key'] as String?) ?? '',
+              text: (m['text'] as String?) ?? '',
+              uid: (m['uid'] as String?) ?? '',
+              createdAt: (m['createdAt'] as Timestamp?)?.toDate(),
+            );
+          }).where((e) => e.key.isNotEmpty && e.text.isNotEmpty).toList());
 
   /// Reports queue — readable by founders only (the rules say so).
   Stream<QuerySnapshot<Map<String, dynamic>>> reports() => _reports
@@ -191,6 +210,34 @@ class CommunityPlacesService {
     await batch.commit();
     await _noteWrite();
     return ref.id;
+  }
+
+  /// Adds (or updates) this person's Jumu'ah time for a masjid. [key] is
+  /// [PlacesPolicy.osmTargetId] for a map result or the place id for a
+  /// community masjid. One entry per person per masjid.
+  Future<void> submitJumuah({
+    required String key,
+    required String text,
+  }) async {
+    final String? problem = JumuahPolicy.validate(text);
+    if (problem != null) throw PlacesRejected(problem);
+    if (key.isEmpty || key.length > 100) {
+      throw const PlacesRejected('That masjid cannot take a time.');
+    }
+    await _checkAllowedToWrite();
+    final User u = _requireAccount();
+    final WriteBatch batch = _db.batch();
+    batch.set(_jumuah.doc('${key}__${u.uid}'), <String, dynamic>{
+      'key': key,
+      'text': text.trim(),
+      'uid': u.uid,
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+    batch.set(_rateDoc(u.uid), <String, dynamic>{
+      'lastWriteAt': FieldValue.serverTimestamp(),
+    });
+    await batch.commit();
+    await _noteWrite();
   }
 
   /// Adds a community event. It shows until a day after it starts.
