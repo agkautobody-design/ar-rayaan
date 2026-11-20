@@ -149,6 +149,59 @@ void main() {
       _checkRounds(rs);
     });
 
+    test('Islamic History: sourced years, rounds in year order, far apart',
+        () async {
+      final Map<String, dynamic> d =
+          _read('assets/games/history_events.json') as Map<String, dynamic>;
+      final Map<String, int> year = <String, int>{};
+      for (final dynamic e in d['events'] as List) {
+        final Map<String, dynamic> m = e as Map<String, dynamic>;
+        expect((m['url'] as String).startsWith('https://'), isTrue,
+            reason: m['id'] as String);
+        expect((m['basis'] as String).trim(), isNotEmpty);
+        expect((m['date'] as String).contains('${m['year']}') ||
+            (m['date'] as String).contains('${m['year']}/'), isTrue,
+            reason: '${m['id']}: date text must carry the year');
+        year[m['id'] as String] = m['year'] as int;
+      }
+      expect(year.values.toSet().length, year.length);
+      final List<OrderRound> rs =
+          await LearningLoader.orderRounds('islamic-history', '', Random(4));
+      expect(rs.length, 4);
+      _checkRounds(rs);
+      for (final OrderRound r in rs) {
+        final List<int> ys = r.items.map((OrderItem i) => year[i.id]!).toList();
+        for (int i = 1; i < ys.length; i++) {
+          expect(ys[i] - ys[i - 1], greaterThanOrEqualTo(8), reason: r.id);
+        }
+      }
+    });
+
+    test('Arabic Spelling: every name occurs as a word in the Qur\'an text', () async {
+      String norm(String s) => s
+          .replaceAll(RegExp('[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]'), '')
+          .replaceAll(RegExp('[\u0671\u0623\u0625\u0622]'), '\u0627')
+          .replaceAll('\u06CC', '\u064A');
+      final Set<String> quranWords = <String>{};
+      for (final dynamic s in _read('assets/quran/quran.json') as List) {
+        for (final dynamic v in (s as Map<String, dynamic>)['v'] as List) {
+          for (final String w in ((v as List)[1] as String).split(' ')) {
+            quranWords.add(norm(w));
+          }
+        }
+      }
+      final List<WordClue> pool = await LearningLoader.spellingPool();
+      expect(pool.length, greaterThanOrEqualTo(12));
+      for (final WordClue w in pool) {
+        expect(quranWords.contains(norm(w.word)), isTrue, reason: w.term);
+        expect(w.word.length, greaterThanOrEqualTo(3), reason: w.term);
+        expect(w.term, contains('Qur\'an '), reason: 'needs its verse');
+        expect(w.clue.trim(), isNotEmpty);
+      }
+      final ScrambleSession s = ScrambleSession(pool.take(6).toList(), Random(2));
+      expect(s.tiles.join() == s.current.word, isFalse);
+    });
+
     test('Prophets in Order: each round is supported by the tree', () async {
       final List<OrderRound> rs =
           await LearningLoader.orderRounds('prophets-order', '', Random(6));

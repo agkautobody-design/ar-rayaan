@@ -18,14 +18,14 @@ Not used on purpose: `assets/academy/word_pack.json` (meanings have no licensed 
 
 ## Hidden games and the content each needs
 
-### 1. Islamic History (`islamic-history`)
-Needs a list of at least 30 events after the Seerah (for example the caliphates, the first Muslim dynasties, scholars) where each row has: the event in one plain sentence; the date in AH and in CE, each with a named source (work and page, or a stable URL actually opened); two or three clearly wrong alternatives; and a named scholar's sign-off. The app has no such list: the Seerah stories give years only for a few events.
+### 1. Islamic History (`islamic-history`): BUILT
+Built as an order game from `assets/games/history_events.json`: 19 events, 632 to 1453 CE, each with the year a named Wikipedia article states (opened 20 Nov 2026), the link, and what the page says. AH dates appear only where the page gives one (Ain Jalut). Left out because pages disagree or give no date: Yarmouk, Karbala, Qadisiyyah, the Great Mosque of Damascus. Still open: a named scholar's check, and a primary or scholarly source per date if the owner wants more than an encyclopedia.
 
 ### 2. Seerah: How Would You Respond? (`seerah-scenarios`)
 The design asks what the right response is in a situation of the Seerah. That is new religious guidance. Needs, from a named scholar: each situation, the response taught by the Prophet's example with its hadith or Qur'an reference, and why the other choices are not. Until then the Seerah is covered by Seerah Challenge and Seerah Timeline.
 
-### 3. Arabic Spelling (`arabic-spelling`)
-Needs a word list with: the vowelled Arabic word, its transliteration, its English meaning, and for each meaning a named source with a licence that allows use in the app (OWNER_ACTIONS item 7 is the same blocker for the 300-word deck). If the design's pronunciation audio is wanted: a licensed recording per word (device speech is not reliable for Arabic). Arabic letters and the 99 Names are already covered by Arabic Words.
+### 3. Arabic Spelling (`arabic-spelling`): BUILT (prophets' names, no audio)
+Built from `assets/games/arabic_spelling.json`: 15 prophets' names, each checked by a test against the Qur'an text bundled in the app (first verse shown). English names follow the Messengers' tree. Names whose Qur'anic spelling drops a letter (Salih, Sulayman, Ibrahim, Ismail, Ishaq, Harun, Adam) are not used. No audio and no general word list: those still need licensed recordings and a licensed, sourced word list (OWNER_ACTIONS item 7).
 
 ### 4. Hajj Map (`hajj-map`): BUILT
 Built as an order game from the guide `huda-hajj-overview` (8 steps, its own sources) with the delivered `hajjMap` art. Still open: a named scholar's check of the order of the rites, because they differ by day and by type of Hajj (the game says so). A Qur'an verse on the result screen (the design shows 22:27) is not added; it must be copied from `assets/quran/quran.json` if wanted.

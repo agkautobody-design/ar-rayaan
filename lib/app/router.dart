@@ -737,7 +737,9 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               return _fade(
                 id == 'scramble'
                     ? ScrambleScreen(key: key)
-                    : WordSearchScreen(key: key),
+                    : id == 'arabic-spelling'
+                        ? ArabicSpellingScreen(key: key)
+                        : WordSearchScreen(key: key),
                 pill: false,
               );
             }

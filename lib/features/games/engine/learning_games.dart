@@ -191,15 +191,21 @@ const List<GameDef> kLearningGames = <GameDef>[
   GameDef(
     id: 'islamic-history',
     title: 'Islamic History',
-    blurb: 'Dated events after the Seerah',
+    blurb: 'Put 19 events from 632 to 1453 in order, caliphs to Constantinople',
     category: GameCategory.islamic,
     modes: <PlayMode>{PlayMode.solo},
-    route: '/games',
+    route: '/games/g/islamic-history/play',
     iconKey: 'timeline',
-    kind: GameEngineKind.own,
-    hidden: true,
-    sourceNote: 'Hidden until a dated, sourced list of events is supplied.',
-    howToPlay: <String>['Not available yet.'],
+    kind: GameEngineKind.order,
+    sourceNote: 'Each year is the one a named article states, with its link '
+        'shown after every round. Years are CE. The dates have not yet been '
+        'reviewed by a named scholar.',
+    howToPlay: <String>[
+      'Use the up and down buttons to move the cards.',
+      'Tap Check. A wrong check costs nothing; try again.',
+      'After each round you see every date and where it comes from.',
+      'There is no timer.',
+    ],
   ),
   GameDef(
     id: 'seerah-scenarios',
@@ -217,16 +223,21 @@ const List<GameDef> kLearningGames = <GameDef>[
   GameDef(
     id: 'arabic-spelling',
     title: 'Arabic Spelling',
-    blurb: 'Spell Arabic words with the audio',
+    blurb: 'Put the letters of a prophet’s name in order, right to left',
     category: GameCategory.words,
     modes: <PlayMode>{PlayMode.solo},
-    route: '/games',
+    route: '/games/g/arabic-spelling/play',
     iconKey: 'letters',
-    kind: GameEngineKind.own,
-    hidden: true,
-    sourceNote: 'Hidden until a word list with sourced meanings and licensed '
-        'audio is supplied.',
-    howToPlay: <String>['Not available yet.'],
+    kind: GameEngineKind.words,
+    sourceNote: 'Each name is checked against the Qur’an text in the app and '
+        'shows its first verse. English names follow the Messengers’ tree. '
+        'There is no audio: no licensed recordings are in the app.',
+    howToPlay: <String>[
+      'Tap the letters in order. The first letter goes on the right.',
+      'Tap a placed letter to take it back.',
+      'A hint puts the next right letter down. Hints are free.',
+      'There is no timer.',
+    ],
   ),
   GameDef(
     id: 'hajj-map',

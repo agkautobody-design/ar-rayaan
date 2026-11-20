@@ -1,0 +1,176 @@
+{
+ "note": "Islamic History order game. Every year is the one a named Wikipedia article states (CE), opened on 20 Nov 2026; 'basis' says exactly what the page states. AH dates are shown only where the page gives one. Years that pages disagree on or leave out (Yarmouk, Karbala, Qadisiyyah, the Great Mosque of Damascus) are not used. Not yet reviewed by a named scholar.",
+ "events": [
+  {
+   "id": "abu-bakr",
+   "label": "Abu Bakr becomes the first caliph",
+   "year": 632,
+   "date": "632",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page gives the succession to Muhammad ﷺ as 632."
+  },
+  {
+   "id": "umar",
+   "label": "Umar takes power as caliph",
+   "year": 634,
+   "date": "23 August 634",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page says he took power on 23 August 634."
+  },
+  {
+   "id": "jerusalem-637",
+   "label": "Jerusalem surrenders to the Muslims",
+   "year": 637,
+   "date": "April 637",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page says Jerusalem surrendered in April 637."
+  },
+  {
+   "id": "alexandria",
+   "label": "Alexandria surrendered by treaty",
+   "year": 641,
+   "date": "8 November 641",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page says the treaty was signed on 8 November 641."
+  },
+  {
+   "id": "uthman",
+   "label": "Uthman is elected caliph",
+   "year": 644,
+   "date": "644",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page gives the election of Uthman as 644."
+  },
+  {
+   "id": "ali",
+   "label": "Ali is elected caliph",
+   "year": 656,
+   "date": "656",
+   "source": "Rashidun Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Rashidun_Caliphate",
+   "basis": "The page gives the election of Ali as 656."
+  },
+  {
+   "id": "muawiya",
+   "label": "Mu'awiya becomes caliph: the Umayyad Caliphate begins",
+   "year": 661,
+   "date": "661",
+   "source": "Umayyad Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Umayyad_Caliphate",
+   "basis": "The page says he became caliph in 661."
+  },
+  {
+   "id": "dome",
+   "label": "The Dome of the Rock is completed",
+   "year": 691,
+   "date": "691/692",
+   "source": "Umayyad Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Umayyad_Caliphate",
+   "basis": "The page gives completion as 691/692."
+  },
+  {
+   "id": "guadalete",
+   "label": "Tariq ibn Ziyad wins at Guadalete",
+   "year": 711,
+   "date": "19 July 711",
+   "source": "Umayyad conquest of Hispania",
+   "url": "https://en.wikipedia.org/wiki/Umayyad_conquest_of_Hispania",
+   "basis": "The page says Roderic's army was defeated on 19 July 711."
+  },
+  {
+   "id": "tours",
+   "label": "The Battle of Tours",
+   "year": 732,
+   "date": "732",
+   "source": "Umayyad Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Umayyad_Caliphate",
+   "basis": "The page gives the Battle of Tours as 732."
+  },
+  {
+   "id": "abbasid-rise",
+   "label": "The Abbasids rise to power",
+   "year": 750,
+   "date": "750",
+   "source": "Abbasid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate",
+   "basis": "The page says the Abbasids rose to power in 750."
+  },
+  {
+   "id": "talas",
+   "label": "The Battle of Talas",
+   "year": 751,
+   "date": "751",
+   "source": "Abbasid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate",
+   "basis": "The page gives the Battle of Talas as 751."
+  },
+  {
+   "id": "baghdad-founded",
+   "label": "Al-Mansur founds Baghdad",
+   "year": 762,
+   "date": "762",
+   "source": "Abbasid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate",
+   "basis": "The page says al-Mansur founded Baghdad in 762."
+  },
+  {
+   "id": "fatimid",
+   "label": "The Fatimid Caliphate is founded",
+   "year": 909,
+   "date": "909",
+   "source": "Fatimid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+   "basis": "The page says al-Mahdi became the first caliph and founder in 909."
+  },
+  {
+   "id": "cairo",
+   "label": "Cairo is founded under the Fatimids",
+   "year": 969,
+   "date": "969",
+   "source": "Fatimid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+   "basis": "The page gives the founding of Cairo as 969."
+  },
+  {
+   "id": "hattin",
+   "label": "Saladin wins the Battle of Hattin",
+   "year": 1187,
+   "date": "4 July 1187",
+   "source": "Battle of Hattin",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Hattin",
+   "basis": "The page gives 4 July 1187; Jerusalem surrendered to Saladin on 2 October 1187."
+  },
+  {
+   "id": "baghdad-sack",
+   "label": "The Mongols sack Baghdad",
+   "year": 1258,
+   "date": "February 1258",
+   "source": "Abbasid Caliphate",
+   "url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate",
+   "basis": "The page says the sack began on 13 February 1258."
+  },
+  {
+   "id": "ain-jalut",
+   "label": "The Mamluks win at Ain Jalut",
+   "year": 1260,
+   "date": "3 September 1260 (26 Ramadan 658 H)",
+   "source": "Battle of Ain Jalut",
+   "url": "https://en.wikipedia.org/wiki/Battle_of_Ain_Jalut",
+   "basis": "The page's infobox gives 3 September 1260 (26 Ramadan 658 H)."
+  },
+  {
+   "id": "constantinople",
+   "label": "Mehmed II takes Constantinople",
+   "year": 1453,
+   "date": "29 May 1453",
+   "source": "Fall of Constantinople",
+   "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople",
+   "basis": "The page gives 29 May 1453."
+  }
+ ]
+}

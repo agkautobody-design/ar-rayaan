@@ -161,6 +161,23 @@ abstract final class LearningLoader {
       };
       return buildSeerahOrder(events, stories, rnd);
     }
+    if (gameId == 'islamic-history') {
+      final Map<String, dynamic> d =
+          (await _json('assets/games/history_events.json'))
+              as Map<String, dynamic>;
+      return buildHistoryOrder(<HistoryEvent>[
+        for (final Map<String, dynamic> e in _maps(d['events']))
+          (
+            id: e['id'] as String,
+            label: e['label'] as String,
+            year: e['year'] as int,
+            date: e['date'] as String,
+            source: e['source'] as String,
+            url: e['url'] as String,
+            basis: e['basis'] as String,
+          ),
+      ], rnd);
+    }
     if (gameId == 'prophets-order') {
       final Map<String, dynamic> d =
           (await _json('assets/games/order_rounds.json'))
@@ -216,6 +233,22 @@ abstract final class LearningLoader {
   }
 
   /// The words for Word Search and Word Scramble: the Huda glossary.
+  /// The Arabic names of Arabic Spelling. `word` is the Arabic letters, `term`
+  /// the English name, `clue` the prompt.
+  static Future<List<WordClue>> spellingPool() async {
+    final Map<String, dynamic> d =
+        (await _json('assets/games/arabic_spelling.json'))
+            as Map<String, dynamic>;
+    return <WordClue>[
+      for (final Map<String, dynamic> w in _maps(d['words']))
+        WordClue(
+          word: w['arabic'] as String,
+          clue: w['clue'] as String,
+          term: '${w['name']} (${w['ref']})',
+        ),
+    ];
+  }
+
   static List<WordClue> wordPool() => wordsFromGlossary(
         <({String term, String gloss})>[
           for (final GlossaryEntry e in kGuideGlossary)

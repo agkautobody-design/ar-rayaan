@@ -116,6 +116,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
         'seerah-timeline' => ArtSlot.seerahTimelineBoard,
         'prophets-order' => ArtSlot.prophetsOrderBoard,
         'hajj-map' => ArtSlot.hajjMap,
+        'islamic-history' => ArtSlot.seerahTimelineBoard,
         _ => widget.topic == 'salah'
             ? ArtSlot.salahStepsBoard
             : ArtSlot.wuduStepsBoard,
