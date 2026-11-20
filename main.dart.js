@@ -117774,34 +117774,34 @@ agR(){var s,r=this.gQp(),q=B.l.aV(Math.abs(r))
 if(q===0)return"0\xb0"
 s=r>0?"E":"W"
 return""+q+"\xb0 "+s},
-v(a){var s,r,q,p,o=this,n=null,m="Magnetic declination ",l=o.z,k=l==null?n:A.ajF(l+o.gQp()),j=k==null,i=j?n:A.cye(k,o.a.d),h=i!=null,g=h&&Math.abs(i)<=3
-if(g&&!o.as)A.Px()
-o.as=g
-s=A.d4c(o.Q)
-r=o.gakJ()
-j=j?0:-k*3.141592653589793/180
+v(a){var s,r,q,p,o,n=this,m=null,l="Magnetic declination ",k=n.z,j=k==null?m:A.ajF(k+n.gQp()),i=j==null,h=i?m:A.cye(j,n.a.d),g=h!=null,f=g&&Math.abs(h)<=3
+if(f&&!n.as)A.Px()
+n.as=f
+s=A.d4c(n.Q)
+r=n.gakJ()
+i=i?0:-j*3.141592653589793/180
 q=t.p
-j=A.a([A.ca(A.a6E(B.M,j,new A.aJe(o.a.d,n)),272,272),B.ao],q)
-p=o.y
-if(p===B.a6n&&h){if(g)h="Facing the Qibla"
-else h=i>0?"Turn right "+B.l.aV(i)+"\xb0":"Turn left "+B.l.aV(-i)+"\xb0"
-h=A.a([A.d(h,n,n,n,n,n,n,B.n.fk(g?B.v:B.K,B.W),n,n,n)],q)
-if(s)B.c.u(h,A.a([B.G,A.d(u.BK,n,n,n,n,n,n,B.f.ba(B.v,12),B.y,n,n)],q))
-h.push(B.G)
-p=o.at==null?m+o.agR()+" \xb7 automatic, from the World Magnetic Model for your location":m+o.agR()+" \xb7 set by you (west is negative)"
-h.push(A.d(p,n,n,n,n,n,n,B.f.S(12),B.y,n,n))
-if(o.at==null&&!r.b)h.push(A.d(u.si,n,n,n,n,n,n,B.f.S(12),B.y,n,n))
-q=A.a([A.bD(B.i,n,n,n,B.or,n,n,new A.bX7(o),n,n,n,"Declination 1\xb0 more west",n),A.bD(B.i,n,n,n,B.ot,n,n,new A.bX8(o),n,n,n,"Declination 1\xb0 more east",n)],q)
-if(o.at!=null)q.push(A.az(A.d("Use automatic",n,n,n,n,n,n,B.f.Z(B.i),n,n,n),n,new A.bX9(o),n))
-q.push(A.az(A.d("Stop compass",n,n,n,n,n,n,B.f.Z(B.i),n,n,n),n,o.gb68(),n))
-h.push(A.U(q,B.m,n,B.bx,B.h,0,n))
-h.push(A.d(u.it,n,n,n,n,n,n,B.f.S(12),B.y,n,n))
-B.c.u(j,h)}else{h=p===B.a6m
-p=h?n:o.gb67()
-q=A.a([A.db(B.KB,n,n,A.d(h?"Starting\u2026":"Start live compass",n,n,n,n,n,n,n,n,n,n),p,A.d6(n,n,n,n,n,n,n,n,n,B.v,n,n,n,n,n,n,n,n,n,n,n))],q)
-if(o.y===B.a6o)q.push(A.d(u.q5,n,n,n,n,n,n,B.f.S(12),B.y,n,n))
-if(o.y===B.a6p)q.push(A.d(u.eF,n,n,n,n,n,n,B.f.S(12),B.y,n,n))
-B.c.u(j,q)}return A.u(j,B.m,n,B.e,B.h,0,B.k)}}
+i=A.a([A.ca(A.a6E(B.M,i,new A.aJe(n.a.d,m)),272,272),B.ao],q)
+if(n.y===B.a6n&&g){if(f)g="Facing the Qibla"
+else g=h>0?"Turn right "+B.l.aV(h)+"\xb0":"Turn left "+B.l.aV(-h)+"\xb0"
+g=A.a([A.d(g,m,m,m,m,m,m,B.n.fk(f?B.v:B.K,B.W),m,m,m)],q)
+if(s)B.c.u(g,A.a([B.G,A.d(u.BK,m,m,m,m,m,m,B.f.ba(B.v,12),B.y,m,m)],q))
+g.push(B.G)
+p=n.at==null?l+n.agR()+" \xb7 automatic, from the World Magnetic Model for your location":l+n.agR()+" \xb7 set by you (west is negative)"
+g.push(A.d(p,m,m,m,m,m,m,B.f.S(12),B.y,m,m))
+if(n.at==null&&!r.b)g.push(A.d(u.si,m,m,m,m,m,m,B.f.S(12),B.y,m,m))
+q=A.a([A.bD(B.i,m,m,m,B.or,m,m,new A.bX7(n),m,m,m,"Declination 1\xb0 more west",m),A.bD(B.i,m,m,m,B.ot,m,m,new A.bX8(n),m,m,m,"Declination 1\xb0 more east",m)],q)
+if(n.at!=null)q.push(A.az(A.d("Use automatic",m,m,m,m,m,m,B.f.Z(B.i),m,m,m),m,new A.bX9(n),m))
+q.push(A.az(A.d("Stop compass",m,m,m,m,m,m,B.f.Z(B.i),m,m,m),m,n.gb68(),m))
+g.push(A.U(q,B.m,m,B.bx,B.h,0,m))
+g.push(A.d(u.it,m,m,m,m,m,m,B.f.S(12),B.y,m,m))
+B.c.u(i,g)}else{g=A.d("In this picture N is just the top of the screen, not your phone\u2019s north. Tap \u201cStart live compass\u201d and the dial turns to point at real north (hold the phone flat).",m,m,m,m,m,m,B.f.S(12),B.y,m,m)
+p=n.y===B.a6m
+o=p?m:n.gb67()
+g=A.a([g,A.db(B.KB,m,m,A.d(p?"Starting\u2026":"Start live compass",m,m,m,m,m,m,m,m,m,m),o,A.d6(m,m,m,m,m,m,m,m,m,B.v,m,m,m,m,m,m,m,m,m,m,m))],q)
+if(n.y===B.a6o)g.push(A.d(u.q5,m,m,m,m,m,m,B.f.S(12),B.y,m,m))
+if(n.y===B.a6p)g.push(A.d(u.eF,m,m,m,m,m,m,B.f.S(12),B.y,m,m))
+B.c.u(i,g)}return A.u(i,B.m,m,B.e,B.h,0,B.k)}}
 A.bX2.prototype={
 $0(){return this.a.y=B.a6m},
 $S:0}
