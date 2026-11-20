@@ -373,9 +373,39 @@ abstract final class HadiExplain {
   static bool asksNearestMasjidFirst(String question) {
     final String n = _norm(question);
     if (n.split(' ').length > 16) return false;
-    if (!_nearOnly.hasMatch(n) || _rulingWord.hasMatch(n)) return false;
+    if (_rulingWord.hasMatch(n)) return false;
+    // "where is juma", "where's jummah": a short question naming Friday
+    // prayer with "where" is a request for a place, not for the rules.
+    if (_whereFriday(n)) return true;
+    if (!_nearOnly.hasMatch(n)) return false;
     return _masjidWord.hasMatch(n) || _namesFriday(n) || _halalWord.hasMatch(n);
   }
+
+  static final RegExp _whereWord = RegExp(r'\bwheres?\b');
+  static final RegExp _notAPlace = RegExp(
+    r'\b(?:quran|hadith|mentioned|written|come\s+from|came\s+from|why|'
+    r'history|began|start|started|origin|rule|rules|miss|missed|skip|'
+    r'women|woman|travell?ing|traveller)\b',
+  );
+
+  static bool _whereFriday(String n) =>
+      n.split(' ').length <= 7 &&
+      _whereWord.hasMatch(n) &&
+      _namesFriday(n) &&
+      !_notAPlace.hasMatch(n);
+
+  /// True for a place request about Friday prayer or a masjid, which Hadi
+  /// can answer with real masajid near the saved location (not halal food).
+  static bool asksFridayOrMasjidPlace(String question) {
+    final String n = _norm(question);
+    if (n.split(' ').length > 16 || _rulingWord.hasMatch(n)) return false;
+    if (_halalWord.hasMatch(n) && !_masjidWord.hasMatch(n)) return false;
+    return asksNearestMasjidFirst(question) || asksNearestMasjid(question);
+  }
+
+  /// True when the question names Friday prayer (for the reply wording).
+  static bool namesFridayPrayer(String question) =>
+      _namesFriday(_norm(question));
 
   static bool asksNearestMasjid(String question) {
     final String n = _norm(question);
