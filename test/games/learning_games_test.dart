@@ -80,6 +80,32 @@ void main() {
     });
   });
 
+  group('Seerah: How Would You Respond?', () {
+    test('every situation is sourced and its evidence is in the story', () async {
+      final List<QuizQuestion> qs =
+          await LearningLoader.seerahScenarioQuiz(Random(1), 1000);
+      _checkBank(qs, 'seerah-scenarios');
+      expect(qs.length, greaterThanOrEqualTo(12));
+      final Map<String, dynamic> bank =
+          _read('assets/games/seerah_scenarios.json') as Map<String, dynamic>;
+      final Map<String, String> story = <String, String>{
+        for (final dynamic s in _read('assets/stories/seerah.json') as List)
+          (s as Map<String, dynamic>)['id'] as String: _norm(_allText(s)),
+      };
+      for (final dynamic q in bank['questions'] as List) {
+        final Map<String, dynamic> m = q as Map<String, dynamic>;
+        final String ev = _norm(m['evidence'] as String);
+        expect(ev, isNotEmpty, reason: '${m['id']}');
+        expect(story[m['story']]!.contains(ev), isTrue,
+            reason: '${m['id']}: evidence not in ${m['story']}');
+        for (final dynamic w in m['wrong'] as List) {
+          expect(story[m['story']]!.contains(_norm(w as String)), isFalse,
+              reason: '${m['id']}: a wrong option is in the story');
+        }
+      }
+    });
+  });
+
   group('Hadith Knowledge', () {
     test('every question cites number, collection and a named grader', () async {
       final List<QuizQuestion> qs =
@@ -330,10 +356,9 @@ void main() {
   });
 
   group('Registry', () {
-    test('every hidden game is named in GAMES_CONTENT_NEEDED.md', () {
+    test('any hidden game is named in GAMES_CONTENT_NEEDED.md', () {
       final String doc =
           File('docs/content_needed/GAMES_CONTENT_NEEDED.md').readAsStringSync();
-      expect(hiddenGames, isNotEmpty);
       for (final GameDef g in hiddenGames) {
         expect(g.hidden, isTrue);
         expect(doc.contains('`${g.id}`'), isTrue, reason: '${g.id} not listed');

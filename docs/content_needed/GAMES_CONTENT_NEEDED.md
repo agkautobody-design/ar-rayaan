@@ -1,6 +1,6 @@
 # Games: what is built, what is hidden, and exactly what content is needed
 
-Branch `feat/learning-games`, 26 Oct 2026. Rule followed: a learning game is built only from content already in the app, and every question or round shows its source and an explanation. Where the app lacks verified content, the game is registered as `hidden: true` in `lib/features/games/engine/learning_games.dart` (no hub card, no page, `gameById` returns null) and its need is listed here. `test/games/learning_games_test.dart` fails if a hidden game is missing from this file.
+Branch `feat/learning-games`, 26 Oct 2026; every game on the list is now built (20 Nov 2026). Rule followed: a learning game is built only from content already in the app, and every question or round shows its source and an explanation. Where the app lacks verified content, the game is registered as `hidden: true` in `lib/features/games/engine/learning_games.dart` (no hub card, no page, `gameById` returns null) and its need is listed here. `test/games/learning_games_test.dart` fails if a hidden game is missing from this file.
 
 ## Built from content already in the repo
 
@@ -21,8 +21,8 @@ Not used on purpose: `assets/academy/word_pack.json` (meanings have no licensed 
 ### 1. Islamic History (`islamic-history`): BUILT
 Built as an order game from `assets/games/history_events.json`: 19 events, 632 to 1453 CE, each with the year a named Wikipedia article states (opened 20 Nov 2026), the link, and what the page says. AH dates appear only where the page gives one (Ain Jalut). Left out because pages disagree or give no date: Yarmouk, Karbala, Qadisiyyah, the Great Mosque of Damascus. Still open: a named scholar's check, and a primary or scholarly source per date if the owner wants more than an encyclopedia.
 
-### 2. Seerah: How Would You Respond? (`seerah-scenarios`)
-The design asks what the right response is in a situation of the Seerah. That is new religious guidance. Needs, from a named scholar: each situation, the response taught by the Prophet's example with its hadith or Qur'an reference, and why the other choices are not. Until then the Seerah is covered by Seerah Challenge and Seerah Timeline.
+### 2. Seerah: How Would You Respond? (`seerah-scenarios`): BUILT
+Built from `assets/games/seerah_scenarios.json`: 13 situations, each from a Seerah School story, each answer being what that story says the Prophet ﷺ said or did (an evidence phrase is tested word for word against the story). It records what is reported and never asks "what is the ruling". Still open: a named scholar's check of the stories themselves, and more situations if the owner wants them.
 
 ### 3. Arabic Spelling (`arabic-spelling`): BUILT (prophets' names, no audio)
 Built from `assets/games/arabic_spelling.json`: 15 prophets' names, each checked by a test against the Qur'an text bundled in the app (first verse shown). English names follow the Messengers' tree. Names whose Qur'anic spelling drops a letter (Salih, Sulayman, Ibrahim, Ismail, Ishaq, Harun, Adam) are not used. No audio and no general word list: those still need licensed recordings and a licensed, sourced word list (OWNER_ACTIONS item 7).

@@ -1,0 +1,174 @@
+{
+ "note": "Seerah: How Would You Respond? Each situation is one the Seerah School's story gives, and the answer is what the story says the Prophet ﷺ said or did, never a ruling or a lesson written for the game. Every question names its story and an 'evidence' phrase that must appear word for word in that story's text or source lines (test). The wrong options are not in the story. Stories are marked scholar review needed.",
+ "questions": [
+  {
+   "id": "ss-01",
+   "story": "seerah-11",
+   "prompt": "At Qarn al-Tha'alib, after the chiefs of Thaqif turned him away, Jibril and the angel of the mountains offered to crush the people between the two mountains. What did the Prophet ﷺ do?",
+   "answer": "He declined, hoping that Allah would bring from their descendants people who worship Allah alone",
+   "wrong": [
+    "He accepted, and asked them to crush the people",
+    "He asked them to wait until Quraysh could be crushed as well",
+    "He said nothing and turned back to Makkah in anger"
+   ],
+   "evidence": "he declined, hoping that Allah would bring from their descendants people who worship Allah alone",
+   "why": "This is Bukhari 3231, from Aisha. The story notes that the hadith itself does not mention stones or the word Ta'if."
+  },
+  {
+   "id": "ss-02",
+   "story": "seerah-11",
+   "prompt": "Driven into a vineyard after Thaqif's chiefs refused him, how does Ibn Ishaq's account say the Prophet ﷺ turned to Allah?",
+   "answer": "He complained to Allah of his weakness and lack of resources, and said, 'If You are not displeased with me, then I do not care'",
+   "wrong": [
+    "He asked Allah to send punishment on Thaqif at once",
+    "He asked his companions to take revenge",
+    "He said nothing, and prayed only that night"
+   ],
+   "evidence": "to You I complain of my weakness, my lack of resources and my humiliation before the people",
+   "why": "Ibn Ishaq introduces this prayer with 'as it was told to me', without a full chain of narrators, so the story gives it as Ibn Ishaq's account."
+  },
+  {
+   "id": "ss-03",
+   "story": "seerah-11",
+   "prompt": "Utba and Shayba's slave Addas brought the Prophet ﷺ a bunch of grapes. What did Addas hear him say before eating?",
+   "answer": "'In the name of Allah'",
+   "wrong": [
+    "Nothing; he ate in silence",
+    "A prayer for the owners of the vineyard by name",
+    "The name of the town he had come from"
+   ],
+   "evidence": "he heard the Prophet ﷺ say 'in the name of Allah' before eating",
+   "why": "In Ibn Ishaq's account (Ibn Hisham, vol. 1 p. 421), which he gives with 'it was told to me', not as a hadith."
+  },
+  {
+   "id": "ss-04",
+   "story": "seerah-18",
+   "prompt": "After Badr the Prophet ﷺ distributed the prisoners among his companions. What did he say about them?",
+   "answer": "'Treat the prisoners well'",
+   "wrong": [
+    "'Hold them in chains until ransom is paid'",
+    "'Let them go without condition'",
+    "'Keep them apart and give them nothing'"
+   ],
+   "evidence": "Treat the prisoners well",
+   "why": "Ibn Ishaq reports it (Ibn Hisham, vol. 1 p. 645). Abu Aziz, one of the prisoners, later said the men who held him gave him bread while they ate dates."
+  },
+  {
+   "id": "ss-05",
+   "story": "seerah-13",
+   "prompt": "In the cave of Thawr, Abu Bakr said that if one of the pursuers looked down at his own feet he would see them. What did the Prophet ﷺ answer?",
+   "answer": "What do you think of two whose third is Allah?",
+   "wrong": [
+    "Let us leave the cave at once",
+    "Be quiet and hide further inside",
+    "That the pursuers would surely turn back by themselves"
+   ],
+   "evidence": "what do you think of two whose third is Allah",
+   "why": "This is Bukhari 3653. The Qur'an keeps the same moment: 'Do not grieve; indeed Allah is with us' (9:40)."
+  },
+  {
+   "id": "ss-06",
+   "story": "seerah-22",
+   "prompt": "Quraysh barred the Muslims from the House at Hudaybiyyah. In the text Ibn Hisham gives, what did the two sides agree?",
+   "answer": "To put war away from the people for ten years",
+   "wrong": [
+    "That the Muslims would stay at Hudaybiyyah for ten years",
+    "That Quraysh would leave Makkah to the Muslims at once",
+    "That neither side would ever speak to the other"
+   ],
+   "evidence": "put war away from the people for ten years",
+   "why": "Ibn Hisham, vol. 2 p. 317. The story notes that the treaty looked like surrender, and that Umar could not bear it."
+  },
+  {
+   "id": "ss-07",
+   "story": "seerah-15",
+   "prompt": "After the Hijrah, what did the Prophet ﷺ do about the Jews of Madinah, in Ibn Ishaq's account?",
+   "answer": "He made a truce with them, confirming them in their religion and property",
+   "wrong": [
+    "He ordered them out of Madinah",
+    "He asked them to take the Muslims' religion at once",
+    "He made no agreement with them"
+   ],
+   "evidence": "made a truce with the Jews of Madinah, confirming them in their religion and property",
+   "why": "Ibn Ishaq gives the text of the document without a chain of narrators (Ibn Hisham, vol. 1 pp. 501-504). The story gives only what the document says."
+  },
+  {
+   "id": "ss-08",
+   "story": "seerah-21",
+   "prompt": "Nu'aym ibn Mas'ud came to the Prophet ﷺ during the Trench and said he had become Muslim but his people did not know. What did the Prophet ﷺ tell him?",
+   "answer": "To sow discord among the enemy if he could",
+   "wrong": [
+    "To leave Madinah at once",
+    "To tell his people openly that he was a Muslim",
+    "To fight in the front of the line"
+   ],
+   "evidence": "told him to sow discord among the enemy if he could",
+   "why": "Ibn Hisham, vol. 2 p. 229. Nu'aym then went to Banu Qurayza. The story says the Qur'an credits Allah with the wind (33:9)."
+  },
+  {
+   "id": "ss-09",
+   "story": "seerah-24",
+   "prompt": "On the day of the conquest, Sa'd ibn Ubada, carrying the Ansar's banner, said, 'Today is the day of a great battle'. How did the Prophet ﷺ answer?",
+   "answer": "That Sa'd was mistaken: today Allah will exalt the Ka'bah and it will be covered with its cloth",
+   "wrong": [
+    "That Sa'd was right and the army should prepare to fight",
+    "That Sa'd should lead the army into Makkah",
+    "Nothing; he let the words pass"
+   ],
+   "evidence": "today Allah will exalt the Ka'bah and it will be covered with its cloth",
+   "why": "Bukhari 4280. Ibn Ishaq gives a similar report, in which the Prophet ﷺ had Ali take the banner from Sa'd."
+  },
+  {
+   "id": "ss-10",
+   "story": "seerah-24",
+   "prompt": "Ibn Hisham gives the Prophet's ﷺ address to Quraysh after the conquest. They had answered kindly when he asked what they thought he would do with them. What did he say?",
+   "answer": "'Go, for you are the freed ones'",
+   "wrong": [
+    "'You will pay for every wrong you did to us'",
+    "'Leave Makkah and never return'",
+    "'Stay, and give up half your wealth'"
+   ],
+   "evidence": "Go, for you are the freed ones",
+   "why": "Ibn Hisham, vol. 2 p. 412."
+  },
+  {
+   "id": "ss-11",
+   "story": "seerah-24",
+   "prompt": "Inside the House at the conquest, what did the Prophet ﷺ order about the pictures there, in Ibn Hisham's account?",
+   "answer": "That they be effaced",
+   "wrong": [
+    "That they be kept as they were",
+    "That they be sold",
+    "That they be covered and left"
+   ],
+   "evidence": "He ordered the pictures in the House effaced",
+   "why": "Ibn Hisham, vol. 2 p. 413."
+  },
+  {
+   "id": "ss-12",
+   "story": "seerah-24",
+   "prompt": "Around the Ka'bah were 360 idols. What did the Prophet ﷺ say as he struck them with the stick in his hand?",
+   "answer": "'Truth has come and falsehood has departed'",
+   "wrong": [
+    "'Allah is greater than all that you worship'",
+    "'Let no one worship anything here again'",
+    "He said nothing as he struck them"
+   ],
+   "evidence": "saying 'Truth has come and falsehood has departed'",
+   "why": "Bukhari 4287, with the same words in Qur'an 17:81."
+  },
+  {
+   "id": "ss-13",
+   "story": "seerah-25",
+   "prompt": "After Hunayn the Prophet ﷺ gave the spoils to the Tulaqa' and the Muhajirun, and the Ansar were dissatisfied. He gathered them in a leather tent. What did he ask them?",
+   "answer": "Are you not pleased that the people return with sheep and camels while you return with the Messenger of Allah?",
+   "wrong": [
+    "Why did you not fight better at Hunayn?",
+    "Which of you spoke against me?",
+    "Whether they wanted a share of the spoils taken from the others"
+   ],
+   "evidence": "are you not pleased that the people return with sheep and camels while you return with the Messenger of Allah",
+   "why": "Bukhari 4333. The Ansar's reply is not in that report; in Ibn Ishaq's account they wept until their beards were wet."
+  }
+ ]
+}

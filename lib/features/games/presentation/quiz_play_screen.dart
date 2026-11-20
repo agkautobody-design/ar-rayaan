@@ -94,6 +94,8 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
           );
         } else if (widget.gameId == 'seerah') {
           qs = await LearningLoader.seerahQuiz(_rnd, c.count);
+        } else if (widget.gameId == 'seerah-scenarios') {
+          qs = await LearningLoader.seerahScenarioQuiz(_rnd, c.count);
         } else if (widget.gameId == 'hadith') {
           qs = await LearningLoader.hadithQuiz(_rnd, c.count);
         } else if (widget.gameId == 'arabic-words') {
