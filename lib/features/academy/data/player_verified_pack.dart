@@ -15,7 +15,7 @@ import '../domain/stream_link.dart';
 import 'player_sources_pack.dart';
 
 const String kVerifiedCatalogSha256 =
-    '38121d92689cb2a35158e0aa9732fe1580deeed9317c4937df2ab6c3dd08b9b2';
+    '6a8f99acdeb0d3da5a641bde47df328f34cb09e89a4abb72bfd25d994f81f005';
 
 abstract final class PlayerVerifiedPack {
   static const String assetPath = 'assets/academy/player_catalog_verified.json';
