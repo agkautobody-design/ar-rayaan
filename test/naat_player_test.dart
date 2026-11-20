@@ -232,6 +232,8 @@ void main() {
       final FakeVoice v = FakeVoice();
       await boot(tester, const NaatReaderScreen(id: 'lab-pe-aati-hai-dua'), voice: v);
       await tester.scrollUntilVisible(find.byKey(const Key('naat-line-4')), 300);
+      await tester.ensureVisible(find.byKey(const Key('naat-line-4')));
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('naat-line-4')));
       await tester.pumpAndSettle();
       expect(v.said.length, 2);
