@@ -29,6 +29,12 @@ import '../data/hadi_core.dart';
 import '../data/hadi_game_ask.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
+import '../data/hadi_nearest_masjid.dart';
+import '../../masjid/domain/masjid_search_service.dart'
+    show Mosque, MapSearchOutcome, searchNearby;
+import '../../places/application/places_providers.dart' show jumuahTimesProvider;
+import '../../places/domain/jumuah_time.dart' show JumuahEntry;
+import 'package:http/http.dart' as http;
 import '../data/hadi_routing.dart';
 import '../data/hadi_miss_service.dart';
 import 'user_knows_provider.dart';
@@ -1503,6 +1509,61 @@ class HadiController extends Notifier<HadiState> {
       );
       await _stat(HadiAnswerKind.safety);
       return text;
+    }
+
+    // "Where is juma", "closest masjid": real masajid near the saved
+    // location, with the Jumu'ah time where one is known. With no saved
+    // location, or no connection, the built-in reply below says so.
+    if (crisis == null && HadiExplain.asksFridayOrMasjidPlace(q)) {
+      String? text;
+      try {
+        final loc = ref.read(prayerLocationProvider);
+        if (!loc.isPlaceholder) {
+          final http.Client client = http.Client();
+          try {
+            final MapSearchOutcome out = await searchNearby(
+              client: client,
+              lat: loc.latitude,
+              lon: loc.longitude,
+              food: false,
+            );
+            Map<String, JumuahEntry> community = const <String, JumuahEntry>{};
+            try {
+              community = await ref
+                  .read(jumuahTimesProvider.future)
+                  .timeout(const Duration(seconds: 4));
+            } catch (_) {}
+            text = HadiNearestMasjid.reply(
+              mosques: out.mosques,
+              lat: loc.latitude,
+              lon: loc.longitude,
+              friday: HadiExplain.namesFridayPrayer(q),
+              community: community,
+            );
+          } finally {
+            client.close();
+          }
+        }
+      } catch (_) {
+        text = null;
+      }
+      if (text != null) {
+        final String shown = HadiTokens.strip(text);
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q),
+            HadiMessage(
+              fromHadi: true,
+              text: shown,
+              routes: const <String>['/masajid'],
+            ),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.local);
+        return shown;
+      }
     }
 
     // "Remember that ...", "What do you know about me?", "Delete everything".
