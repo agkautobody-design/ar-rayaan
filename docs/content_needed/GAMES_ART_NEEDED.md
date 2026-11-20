@@ -76,7 +76,7 @@ These three look right but are not clean. Replace them with a clean export when 
 | `salahStepsBoard` | `salahStepsBoard.webp` | 1080 x 1600 | no | Steps background of the Salah screen. No people. |
 | `wordSearchGrid` | `wordSearchGrid.webp` | 1080 x 1080 | no | Grid background of Word Search, no letters. |
 | `scrambleTile` | `scrambleTile.webp` | 1080 x 900 | no | Letter-tile background of Word Scramble, no letters. |
-| `hajjMap` | `hajjMap.webp` | 1080 x 1400 | no | Schematic map for the hidden Hajj Map game (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no photos). Not used until that game is unhidden. |
+| `hajjMap` | `hajjMap.webp` | 1080 x 1400 | no | Schematic map for the hidden Hajj Map game (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no photos). Delivered 20 Nov 2026 and used by the Hajj Map game. |
 
 ## Where the art is applied
 

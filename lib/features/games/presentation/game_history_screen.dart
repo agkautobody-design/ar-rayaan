@@ -104,6 +104,17 @@ class _GameHistoryState extends ConsumerState<GameHistoryScreen> {
             ],
           ),
           const SizedBox(height: 14),
+          if (empty && _filter == HistoryFilter.all)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: GamesArt.asset(ArtSlot.historyEmpty),
+                ),
+              ),
+            ),
           if (empty)
             GamePanel(
               child: Text(

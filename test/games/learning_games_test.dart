@@ -174,6 +174,14 @@ void main() {
       }
     });
 
+    test('hajj map: 3 rounds, the last has all 8 steps, own labels', () async {
+      final List<OrderRound> rs =
+          await LearningLoader.orderRounds('hajj-map', '', Random(3));
+      expect(rs.length, 3);
+      expect(rs.last.items.length, kHajjCardLabels.length);
+      _checkRounds(rs);
+    });
+
     for (final String topic in <String>['wudu', 'salah']) {
       test('$topic steps: 3 rounds, guide order, school-of-law note', () async {
         final List<OrderRound> rs =
@@ -293,11 +301,15 @@ void main() {
       }
     });
 
-    test('the board slots are in the manifest as fallbacks and the docs', () {
+    test('the board slots are in the manifest and the docs', () {
       final String doc =
           File('docs/content_needed/GAMES_ART_NEEDED.md').readAsStringSync();
-      final Map<String, dynamic> fb = (_read('assets/games/art/manifest.json')
-          as Map<String, dynamic>)['fallback'] as Map<String, dynamic>;
+      final Map<String, dynamic> man =
+          _read('assets/games/art/manifest.json') as Map<String, dynamic>;
+      final Map<String, dynamic> fb = <String, dynamic>{
+        ...(man['slots'] as Map<String, dynamic>),
+        ...(man['fallback'] as Map<String, dynamic>),
+      };
       for (final ArtSlot s in <ArtSlot>[
         ArtSlot.seerahTimelineBoard,
         ArtSlot.prophetsOrderBoard,
