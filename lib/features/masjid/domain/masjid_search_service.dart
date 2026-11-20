@@ -4,11 +4,16 @@ import 'dart:math' as math;
 
 import 'package:http/http.dart' as http;
 
+import '../../places/domain/jumuah_time.dart';
+
 /// A masjid from open map data.
 class Mosque {
   final String name;
   final double lat, lon;
   final String? addr, website, phone, denomination, hours;
+
+  /// Friday rules from the OpenStreetMap `service_times` tag, as written.
+  final String? jumuah;
   final bool wheelchair;
   const Mosque({
     required this.name,
@@ -19,6 +24,7 @@ class Mosque {
     this.phone,
     this.denomination,
     this.hours,
+    this.jumuah,
     this.wheelchair = false,
   });
 }
@@ -262,6 +268,7 @@ MapSearchOutcome _fromOverpass(
         phone: tags['phone'] as String? ?? tags['contact:phone'] as String?,
         denomination: tags['denomination'] as String?,
         hours: tags['opening_hours'] as String?,
+        jumuah: JumuahPolicy.fromServiceTimes(tags['service_times'] as String?),
         wheelchair: tags['wheelchair'] == 'yes',
       ));
     }
@@ -397,6 +404,8 @@ Future<MapSearchOutcome> _nominatim(
           phone: (extra['phone'] ?? extra['contact:phone']) as String?,
           denomination: extra['denomination'] as String?,
           hours: extra['opening_hours'] as String?,
+          jumuah:
+              JumuahPolicy.fromServiceTimes(extra['service_times'] as String?),
           wheelchair: extra['wheelchair'] == 'yes',
         ));
       }

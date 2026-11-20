@@ -442,6 +442,29 @@ service cloud.firestore {
              == get(p).data.flags + (newFlag ? 1 : 0) - (hadFlag ? 1 : 0);
     }
 
+    // Jumu'ah times people add for a masjid. One document per person per
+    // masjid (the id is key + '__' + uid), so nobody can overwrite another
+    // person's entry; the app shows the newest. Moves the same rate counter
+    // as a place submission.
+    match /jumuah_times/{id} {
+      allow read: if true;
+      allow create, update: if realAccount() && notBlocked()
+        && request.resource.data.keys().hasOnly(['key', 'text', 'uid', 'createdAt'])
+        && request.resource.data.keys().hasAll(['key', 'text', 'uid', 'createdAt'])
+        && request.resource.data.key is string
+        && request.resource.data.key.size() >= 1
+        && request.resource.data.key.size() <= 100
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 1
+        && request.resource.data.text.size() <= 60
+        && request.resource.data.uid == request.auth.uid
+        && id == request.resource.data.key + '__' + request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && placesRateMoved();
+      allow delete: if isFounder()
+        || (realAccount() && id.matches('.*__' + request.auth.uid));
+    }
+
     match /community_places/{placeId} {
       allow read: if true;
 

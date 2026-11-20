@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../auth/application/auth_providers.dart';
 import '../data/community_places_service.dart';
 import '../domain/community_place.dart';
+import '../domain/jumuah_time.dart';
 
 /// Null when this build has no Firebase project (local mode): the screens
 /// then hide every community-places control, exactly like the community
@@ -45,4 +46,13 @@ final FutureProvider<bool> isFounderProvider = FutureProvider<bool>((ref) {
   final auth = ref.watch(authStateProvider).value;
   if (svc == null || auth == null) return false;
   return svc.isFounder();
+});
+
+/// Newest community Jumu'ah time per masjid key.
+final StreamProvider<Map<String, JumuahEntry>> jumuahTimesProvider =
+    StreamProvider<Map<String, JumuahEntry>>((ref) {
+  final CommunityPlacesService? svc =
+      ref.watch(communityPlacesServiceProvider);
+  if (svc == null) return Stream.value(const <String, JumuahEntry>{});
+  return svc.jumuahTimes().map(JumuahPolicy.newestByKey);
 });
