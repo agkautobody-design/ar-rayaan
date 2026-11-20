@@ -22,21 +22,6 @@ A longer du'a for entering and leaving the home is reported in Abu Dawud, but it
 """,
   review='Scholar review needed: confirm the bismillah and salam wording and the note on the weak Abu Dawud du\'a.')
 
-E('home-leave-say',
-  m=[r'\b(?:what|which) (?:do|should|must|can|are) (?:i|we|you|one|a muslim) (?:say|supposed to say|recite|read)\b.*\b(?:leav(?:e|ing)|go(?:ing)? out of|exit(?:ing)?|step(?:ping)? out of|head(?:ing)? out of)\b.*\b(?:home|house)\b',
-     r'\b(?:dua|du a|supplication|dhikr) (?:for |when |before |upon |on )?(?:leav(?:e|ing)|going out|exit(?:ing)?|stepping out)\b.*\b(?:home|house)\b',
-     r'\bleav(?:e|ing) (?:the |a |my |your )?(?:home|house)\b.*\b(?:dua|du a|supplication|say|recite|sunnah)\b',
-     r'\bwhat (?:to|do i|should i) say (?:when|as|before) (?:i )?(?:leave|go out|step out|head out|exit)\b'],
-  x=[r'\b(?:mosque|masjid|toilet|bathroom|haram|ruling)\b'],
-  topic='leaving the home',
-  go=['/adhkar'],
-  text="""
-When you leave your home, the Prophet ﷺ taught these words: {HS tirmidhi:3426|whoever says when leaving his house "In the name of Allah, I place my trust in Allah, there is no might or power except by Allah" will be told that he is sufficed and protected}.
-
-In Arabic: Bismillah, tawakkaltu 'ala Allah, la hawla wa la quwwata illa billah. Abu Dawud has the same du'a with the addition that the devils go far from him ({HS abudawud:5095|when a man goes out of his house and says these words it will be said to him that he is guided, defended and protected, and the devils will go far from him}).
-""",
-  review='Scholar review needed: wording and grades are taken from the collections; confirm before wider release.')
-
 E('home-protect-surah',
   m=[r'\b(?:which|what) (?:surah|sura|surat|ayah|ayat|verse|verses|quran|dua|du a)\b.*\b(?:protect|protects|protection|bless|blessing|hang|hung|put|place|read|recite)\b.*\b(?:home|house|door|entrance|doorway|entry)\b',
      r'\b(?:surah|sura|surat|ayah|ayat|verse|verses)\b.*\b(?:hang|hung|hanging|over|above|on)\b.*\b(?:entrance|door|doorway|entry|front door)\b',
@@ -57,21 +42,6 @@ About hanging verses or writing them over the door: I did not find a report wher
 """,
   review='Scholar review needed: the note on hanging verses summarises a difference of opinion; no ruling given.')
 
-E('masjid-dua',
-  m=[r'\b(?:what|which) (?:do|should|must|can|are) (?:i|we|you|one|a muslim) (?:say|supposed to say|recite|read)\b.*\b(?:enter(?:ing)?|leav(?:e|ing)|go(?:ing)? (?:into|out of)|walk(?:ing)? into)\b.*\b(?:mosque|masjid)\b',
-     r'\b(?:dua|du a|supplication) (?:for |when |before |upon |on )?(?:enter(?:ing)?|leav(?:e|ing)|going (?:in|into|out))\b.*\b(?:mosque|masjid)\b',
-     r'\b(?:enter(?:ing)?|leav(?:e|ing)) (?:the |a )?(?:mosque|masjid)\b.*\b(?:dua|du a|supplication|say|recite|sunnah)\b',
-     r'\b(?:mosque|masjid) (?:entering|entry|leaving|exit) (?:dua|du a)\b'],
-  x=[r'\b(?:haram|ruling|women|woman|menstruat\w*|period)\b'],
-  topic='entering the masjid',
-  go=['/adhkar'],
-  text="""
-Abu Usayd reported that the Prophet ﷺ said: {HS muslim:713|when any one of you enters the mosque he should say "O Allah, open for me the doors of Your mercy", and when he steps out he should say "O Allah, I ask You for Your grace"}.
-
-In Arabic: on entering, Allahumma iftah li abwaba rahmatik; on leaving, Allahumma inni as'aluka min fadlik. Many scholars also teach entering with the right foot and leaving with the left; I am not citing a hadith for that here.
-""",
-  review='Scholar review needed: the right-foot note is the scholars\' practice, no hadith cited.')
-
 E('travel-dua',
   m=[r'\b(?:dua|du a|supplication|dhikr|words?)\b.*\b(?:travel|travelling|traveling|journey|trip|car|vehicle|plane|flight|riding|mount|setting out)\b',
      r'\b(?:travel|travelling|traveling|journey|trip|car|vehicle|plane|flight|riding|setting out)\b.*\b(?:dua|du a|supplication)\b',
@@ -86,23 +56,6 @@ Ibn Umar reported how the Prophet ﷺ began a journey: {HS muslim:1342|whenever 
 The words are from the Qur'an ({QR 43:13-14}). People say them when they get into a car, board a plane or start any trip. The full du'a in the hadith continues with asking Allah for goodness and piety on the journey; the Dhikr and Du'a screen has it in full.
 """,
   review='Scholar review needed: confirm the continuation wording before quoting it in full.')
-
-E('sleep-wake-dua',
-  m=[r'\b(?:what|which)\b.*\b(?:say|recite|read|dua|du a|supplication)\b.*\b(?:before (?:i )?(?:sleep|sleeping|go(?:ing)? to (?:sleep|bed))|when (?:i )?(?:go to (?:sleep|bed)|wake|waking|get up)|waking up|after (?:i )?wak(?:e|ing))\b',
-     r'\b(?:sleep|sleeping|bedtime|bed time|waking up|wake up|morning wake)\b.*\b(?:dua|du a|supplication|sunnah|adhkar)\b',
-     r'\b(?:dua|du a|supplication|sunnah|adhkar)\b.*\b(?:sleep|sleeping|bedtime|bed time|waking up|wake up)\b',
-     r'\bwhat (?:to|do i|should i) say (?:before|when) (?:i )?(?:sleep|go to bed|go to sleep|wake up|get up)\b'],
-  x=[r'\b(?:can t|cant|cannot|insomnia|how much|tips?|nightmare|nightmares|haram|ruling)\b'],
-  topic='sleep and waking du\'as',
-  go=['/adhkar'],
-  text="""
-Hudhayfah reported how the Prophet ﷺ began and ended his day: {HS bukhari:6312|when he went to bed he would say "In Your name, O Allah, I die and I live", and when he got up he would say "Praise be to Allah who gave us life after He had made us die, and to Him is the resurrection"}.
-
-In Arabic: at night, Bismika Allahumma amutu wa ahya; on waking, Al-hamdu lillahi alladhi ahyana ba'da ma amatana wa ilayhin-nushur.
-
-Also recommended before sleep: Ayat al-Kursi ({QR 2:255}), ({HS bukhari:2311|Abu Hurayrah was taught that reciting Ayat al-Kursi at bedtime means Allah appoints a guard and no devil comes near until morning}), and the last two verses of Al-Baqarah ({QR 2:285-286}), which {HS bukhari:5009|the Prophet said that whoever recites the last two verses of Surat Al-Baqarah at night, that is sufficient for him}.
-""",
-  review='Scholar review needed: Arabic transliterations are given from the reports; confirm before wider release.')
 
 E('sneeze-etiquette',
   m=[r'\bwhat (?:to|do i|should i|do you) say (?:when|if|after) (?:i |you |someone |he |she )?sneez(?:e|es|ed|ing)\b',
@@ -204,20 +157,6 @@ Abu Musa reported the Prophet ﷺ saying: {HS bukhari:6407|the example of the on
 The Tasbeeh counter and the Dhikr and Du'a screen are in the app.
 """,
   review='Scholar review needed: the first sentence is a short general definition by the app.')
-
-E('kahf-dajjal',
-  m=[r'\b(?:surah|sura|surat) (?:al )?kahf\b',
-     r'\b(?:cave|kahf)\b.*\b(?:dajjal|friday|jumuah|jumah|virtue|reward|benefit)\b',
-     r'\bprotect(?:ed|ion)? (?:from|against) (?:the )?dajjal\b',
-     r'\bfirst (?:ten|10) (?:verses|ayat|ayahs) of (?:surah )?(?:al )?kahf\b'],
-  topic='Surah Al-Kahf',
-  go=['/quran'],
-  text="""
-Abu Darda reported the Prophet ﷺ saying: {HS muslim:809|if anyone learns by heart the first ten verses of Surah al-Kahf, he will be protected from the Dajjal}.
-
-Surah al-Kahf is surah 18 of the Qur'an ({QR 18:1}). Many people read it on Fridays; I am not citing a hadith for the Friday reading here, so ask me if you want the sources for that separately.
-""",
-  review='Scholar review needed: the Friday reading is flagged as not covered here on purpose.')
 
 E('yunus-dua',
   m=[r'\b(?:dua|du a|supplication|prayer)\b.*\b(?:yunus|yunis|jonah|dhun nun|dhul nun|whale|fish)\b',

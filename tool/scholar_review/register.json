@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5925,
+ "total": 5921,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,7 +40,7 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 612,
+   "items": 608,
    "high_priority": 20
   },
   "hadith": {
@@ -131,7 +131,7 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2565,
-  "Fiqh scholar (per madhab)": 726,
+  "Fiqh scholar (per madhab)": 722,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1319,
-  "normal": 3789,
+  "normal": 3785,
   "low": 817
  },
  "items": [
@@ -39671,32 +39671,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.home-leave-say",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"home-leave-say\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='home-leave-say'",
-   "what_to_review": "Built-in answer \"home-leave-say\": When you leave your home, the Prophet ﷺ taught these words: whoever says when leaving his house \"In the name of Allah, I place my trust in Allah, there is no might or power except by Allah\" will be told that he is sufficed and protected (Jami' at-Tirmidhi 342…",
-   "why_flagged": "Scholar review needed: wording and grades are taken from the collections; confirm before wider release.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.home-protect-surah",
    "area": "hadi",
    "subarea": "core-answer",
@@ -39716,32 +39690,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.masjid-dua",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"masjid-dua\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='masjid-dua'",
-   "what_to_review": "Built-in answer \"masjid-dua\": Abu Usayd reported that the Prophet ﷺ said: when any one of you enters the mosque he should say \"O Allah, open for me the doors of Your mercy\", and when he steps out he should say \"O Allah, I ask You for Your grace\" (Sahih Muslim 713). In Arabic: on entering,…",
-   "why_flagged": "Scholar review needed: the right-foot note is the scholars' practice, no hadith cited.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.travel-dua",
    "area": "hadi",
    "subarea": "core-answer",
@@ -39750,32 +39698,6 @@
    "key": "CoreEntry id='travel-dua'",
    "what_to_review": "Built-in answer \"travel-dua\": Ibn Umar reported how the Prophet ﷺ began a journey: whenever he mounted his camel to set out on a journey he said Allahu Akbar three times and then said \"Glory be to Him who subjected this to us, and we could not have done it ourselves, and to our Lord we sh…",
    "why_flagged": "Scholar review needed: confirm the continuation wording before quoting it in full.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.sleep-wake-dua",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"sleep-wake-dua\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='sleep-wake-dua'",
-   "what_to_review": "Built-in answer \"sleep-wake-dua\": Hudhayfah reported how the Prophet ﷺ began and ended his day: when he went to bed he would say \"In Your name, O Allah, I die and I live\", and when he got up he would say \"Praise be to Allah who gave us life after He had made us die, and to Him is the resurrec…",
-   "why_flagged": "Scholar review needed: Arabic transliterations are given from the reports; confirm before wider release.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -39951,32 +39873,6 @@
    "key": "CoreEntry id='dhikr-living-dead'",
    "what_to_review": "Built-in answer \"dhikr-living-dead\": Dhikr means remembering Allah: with the tongue (saying His praise), and with the heart. The Qur'an says: remember Me and I will remember you (Qur'an 2:152). Abu Musa reported the Prophet ﷺ saying: the example of the one who remembers his Lord compared to the…",
    "why_flagged": "Scholar review needed: the first sentence is a short general definition by the app.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.kahf-dajjal",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"kahf-dajjal\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='kahf-dajjal'",
-   "what_to_review": "Built-in answer \"kahf-dajjal\": Abu Darda reported the Prophet ﷺ saying: if anyone learns by heart the first ten verses of Surah al-Kahf, he will be protected from the Dajjal (Sahih Muslim 809). Surah al-Kahf is surah 18 of the Qur'an (Qur'an 18:1). Many people read it on Fridays; I am not…",
-   "why_flagged": "Scholar review needed: the Friday reading is flagged as not covered here on purpose.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

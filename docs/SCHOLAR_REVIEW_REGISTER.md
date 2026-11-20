@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5925 items.** High priority: 1319. Normal: 3789. Low: 817.
+**5921 items.** High priority: 1319. Normal: 3785. Low: 817.
 
 ### By area
 
@@ -25,7 +25,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 612 | 20 |
+| Hadi built-in answers | 608 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 603 | 119 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5925** | **1319** |
+| **Total** | **5921** | **1319** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2565 | 1134 |
-| Fiqh scholar (per madhab) | 726 | 257 |
+| Hadith / aqidah scholar | 2565 | 1130 |
+| Fiqh scholar (per madhab) | 722 | 257 |
 | Women's scholar | 151 | 97 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -72,7 +72,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 332 | 280 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 332 | 276 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 603 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2565 lead, 1134 also)
+### Hadith / aqidah scholar (2565 lead, 1130 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (726 lead, 257 also)
+### Fiqh scholar (per madhab) (722 lead, 257 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 280 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 276 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -1743,7 +1743,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-612 items, 20 high priority. Area key `hadi`.
+608 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -1995,11 +1995,8 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.last-surah-revealed` | Hadi chat > built-in answer "last-surah-revealed" | Built-in answer "last-surah-revealed": Scholars give more than one answer, because the reports differ. For the last complete surah, the view most often given is An-Nasr (surah 110), reported from Ibn… | Scholar review needed: the reports differ and the order depends on which one is preferred. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.something-inspiring` | Hadi chat > built-in answer "something-inspiring" | Built-in answer "something-inspiring": Here is one from the Qur'an: with hardship comes ease, and the verse says it twice (Qur'an 94:5, Qur'an 94:6). The difficulty you are in is real, and the promis… | Qur'an refs only; encouragement, not advice. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.home-enter-say` | Hadi chat > built-in answer "home-enter-say" | Built-in answer "home-enter-say": The Sunnah when you go into your home is to mention Allah's name. The Prophet ﷺ said: when a person enters his house and mentions the name of Allah when entering and… | Scholar review needed: confirm the bismillah and salam wording and the note on the weak Abu Dawud du'a. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.home-leave-say` | Hadi chat > built-in answer "home-leave-say" | Built-in answer "home-leave-say": When you leave your home, the Prophet ﷺ taught these words: whoever says when leaving his house "In the name of Allah, I place my trust in Allah, there is no might o… | Scholar review needed: wording and grades are taken from the collections; confirm before wider release. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.home-protect-surah` | Hadi chat > built-in answer "home-protect-surah" | Built-in answer "home-protect-surah": The reports are about reciting, not hanging. Abu Hurayrah reported the Prophet ﷺ saying: do not make your houses into graveyards, for Satan runs away from the ho… | Scholar review needed: the note on hanging verses summarises a difference of opinion; no ruling given. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.masjid-dua` | Hadi chat > built-in answer "masjid-dua" | Built-in answer "masjid-dua": Abu Usayd reported that the Prophet ﷺ said: when any one of you enters the mosque he should say "O Allah, open for me the doors of Your mercy", and when he steps out he… | Scholar review needed: the right-foot note is the scholars' practice, no hadith cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.travel-dua` | Hadi chat > built-in answer "travel-dua" | Built-in answer "travel-dua": Ibn Umar reported how the Prophet ﷺ began a journey: whenever he mounted his camel to set out on a journey he said Allahu Akbar three times and then said "Glory be to Hi… | Scholar review needed: confirm the continuation wording before quoting it in full. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.sleep-wake-dua` | Hadi chat > built-in answer "sleep-wake-dua" | Built-in answer "sleep-wake-dua": Hudhayfah reported how the Prophet ﷺ began and ended his day: when he went to bed he would say "In Your name, O Allah, I die and I live", and when he got up he would… | Scholar review needed: Arabic transliterations are given from the reports; confirm before wider release. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.sneeze-etiquette` | Hadi chat > built-in answer "sneeze-etiquette" | Built-in answer "sneeze-etiquette": Abu Hurayrah reported the Prophet ﷺ saying: if anyone of you sneezes he should say "Al-hamdu lillah" (praise be to Allah), and his Muslim brother or companion shou… | Scholar review needed: the summary is of the first part of the report; the reply wording is as in the hadith. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.rain-dua` | Hadi chat > built-in answer "rain-dua" | Built-in answer "rain-dua": Aisha reported: whenever Allah's Messenger ﷺ saw the rain he used to say "O Allah, let it be a strong, fruitful rain" (Sahih al-Bukhari 1032). In Arabic: Allahumma sayyiba… | Scholar review needed: the note on du'a during rain is the scholars' view with no hadith cited here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.morning-evening-protection` | Hadi chat > built-in answer "morning-evening-protection" | Built-in answer "morning-evening-protection": Uthman ibn Affan reported the Prophet ﷺ saying: there is no servant who says every morning and every evening "In the name of Allah, with whose name nothi… | Scholar review needed: confirm the closing line about trust in Allah, which is the app's wording, not a quotation. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2007,7 +2004,6 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.smile-charity` | Hadi chat > built-in answer "smile-charity" | Built-in answer "smile-charity": Abu Dharr reported the Prophet ﷺ saying: your smiling in the face of your brother is charity, commanding good and forbidding evil is charity, giving directions to a m… | Scholar review needed: the summary lists the first items of the report only. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.love-one-another-salam` | Hadi chat > built-in answer "love-one-another-salam" | Built-in answer "love-one-another-salam": Abu Hurayrah reported the Prophet ﷺ saying: you will not enter Paradise until you believe, and you will not believe until you love one another. Shall I not d… | Scholar review needed: the summary closes the report with the instruction to spread the greeting. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dhikr-living-dead` | Hadi chat > built-in answer "dhikr-living-dead" | Built-in answer "dhikr-living-dead": Dhikr means remembering Allah: with the tongue (saying His praise), and with the heart. The Qur'an says: remember Me and I will remember you (Qur'an 2:152). Abu M… | Scholar review needed: the first sentence is a short general definition by the app. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.kahf-dajjal` | Hadi chat > built-in answer "kahf-dajjal" | Built-in answer "kahf-dajjal": Abu Darda reported the Prophet ﷺ saying: if anyone learns by heart the first ten verses of Surah al-Kahf, he will be protected from the Dajjal (Sahih Muslim 809). Surah… | Scholar review needed: the Friday reading is flagged as not covered here on purpose. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.yunus-dua` | Hadi chat > built-in answer "yunus-dua" | Built-in answer "yunus-dua": When Prophet Yunus was in the darkness of the whale, the Qur'an records his call: there is no god but You, glory be to You, I was among the wrongdoers (Qur'an 21:87), and… | Scholar review needed: the closing clause of the hadith is paraphrased; confirm full wording. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.tawakkul-tie-camel` | Hadi chat > built-in answer "tawakkul-tie-camel" | Built-in answer "tawakkul-tie-camel": A man asked the Prophet ﷺ whether he should tie his camel and rely on Allah or leave it loose and rely on Allah. He answered "Tie it and rely on Allah" (Jami' at… | Scholar review needed: the "usual meaning" line is a summary of scholars' explanation, no named scholar cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.ayat-kursi-benefit` | Hadi chat > built-in answer "ayat-kursi-benefit" | Built-in answer "ayat-kursi-benefit": Ayat al-Kursi is verse 255 of Surah Al-Baqarah (Qur'an 2:255), the verse of the Throne. Abu Hurayrah was told this by a thief, and the Prophet ﷺ confirmed it was… | Scholar review needed: the summary stops at the bedtime report on purpose. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
