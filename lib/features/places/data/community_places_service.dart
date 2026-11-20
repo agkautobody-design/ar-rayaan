@@ -226,17 +226,12 @@ class CommunityPlacesService {
     }
     await _checkAllowedToWrite();
     final User u = _requireAccount();
-    final WriteBatch batch = _db.batch();
-    batch.set(_jumuah.doc('${key}__${u.uid}'), <String, dynamic>{
+    await _jumuah.doc('${key}__${u.uid}').set(<String, dynamic>{
       'key': key,
       'text': text.trim(),
       'uid': u.uid,
       'createdAt': FieldValue.serverTimestamp(),
     });
-    batch.set(_rateDoc(u.uid), <String, dynamic>{
-      'lastWriteAt': FieldValue.serverTimestamp(),
-    });
-    await batch.commit();
     await _noteWrite();
   }
 

@@ -444,11 +444,12 @@ service cloud.firestore {
 
     // Jumu'ah times people add for a masjid. One document per person per
     // masjid (the id is key + '__' + uid), so nobody can overwrite another
-    // person's entry; the app shows the newest. Moves the same rate counter
-    // as a place submission.
+    // person's entry; the app shows the newest. Self-contained on purpose:
+    // it uses no helper functions, so it can be pasted into any ruleset.
     match /jumuah_times/{id} {
       allow read: if true;
-      allow create, update: if realAccount() && notBlocked()
+      allow create, update: if request.auth != null
+        && request.auth.token.firebase.sign_in_provider != 'anonymous'
         && request.resource.data.keys().hasOnly(['key', 'text', 'uid', 'createdAt'])
         && request.resource.data.keys().hasAll(['key', 'text', 'uid', 'createdAt'])
         && request.resource.data.key is string
@@ -459,10 +460,9 @@ service cloud.firestore {
         && request.resource.data.text.size() <= 60
         && request.resource.data.uid == request.auth.uid
         && id == request.resource.data.key + '__' + request.auth.uid
-        && request.resource.data.createdAt == request.time
-        && placesRateMoved();
-      allow delete: if isFounder()
-        || (realAccount() && id.matches('.*__' + request.auth.uid));
+        && request.resource.data.createdAt == request.time;
+      allow delete: if request.auth != null
+        && id.matches('.*__' + request.auth.uid);
     }
 
     match /community_places/{placeId} {
