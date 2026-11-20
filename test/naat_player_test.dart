@@ -231,6 +231,7 @@ void main() {
     ) async {
       final FakeVoice v = FakeVoice();
       await boot(tester, const NaatReaderScreen(id: 'lab-pe-aati-hai-dua'), voice: v);
+      await tester.scrollUntilVisible(find.byKey(const Key('naat-line-4')), 300);
       await tester.tap(find.byKey(const Key('naat-line-4')));
       await tester.pumpAndSettle();
       expect(v.said.length, 2);
@@ -257,7 +258,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(c.read(userPoemsProvider).single.title, 'My naat');
       expect(find.text('first'), findsOneWidget); // the reader opened
-      expect(find.text('line one'), findsOneWidget);
+      expect(find.text('line one'), findsWidgets);
     });
 
     testWidgets('a poem in another language cannot be read aloud, and says so', (

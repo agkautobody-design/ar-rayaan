@@ -293,7 +293,12 @@ class _NaatReaderScreenState extends ConsumerState<NaatReaderScreen> {
     );
     if (yes != true || !mounted) return;
     await ref.read(userPoemsProvider.notifier).remove(v.id);
-    if (mounted) context.pop();
+    if (!mounted) return;
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go(AppRoutes.naatWords);
+    }
   }
 
   @override
