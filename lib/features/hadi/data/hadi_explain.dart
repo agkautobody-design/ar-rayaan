@@ -381,7 +381,7 @@ abstract final class HadiExplain {
     return _masjidWord.hasMatch(n) || _namesFriday(n) || _halalWord.hasMatch(n);
   }
 
-  static final RegExp _whereWord = RegExp(r'\bwhere\b');
+  static final RegExp _whereWord = RegExp(r'\bwheres?\b');
   static final RegExp _notAPlace = RegExp(
     r'\b(?:quran|hadith|mentioned|written|come\s+from|came\s+from|why|'
     r'history|began|start|started|origin|rule|rules|miss|missed|skip|'
