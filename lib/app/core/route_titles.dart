@@ -47,6 +47,7 @@ abstract final class RouteTitles {
     '/player/playlists': 'My Playlists',
     '/player/request': 'Request a Nasheed',
     '/player/words': 'Naat Words',
+    '/player/words/add': 'Add a poem',
     '/majlis': 'Majlis',
     '/majlis/new': 'New Thread',
     '/notes': 'Notes',
