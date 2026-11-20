@@ -23,7 +23,7 @@
       "file": "assets/games/art/skylineBand.webp",
       "kind": "exact",
       "source": "985cb0f6-image.png",
-      "sourceScreen": "Qur\u2019an Knowledge waiting room",
+      "sourceScreen": "Qur’an Knowledge waiting room",
       "box": [
         0,
         262,
@@ -149,7 +149,7 @@
       "file": "assets/games/art/gameQuranKnowledge.webp",
       "kind": "exact",
       "source": "c86399a6-image.png",
-      "sourceScreen": "Game Setup, Qur\u2019an Knowledge",
+      "sourceScreen": "Game Setup, Qur’an Knowledge",
       "box": [
         94,
         384,
@@ -161,13 +161,13 @@
         172
       ],
       "transparent": false,
-      "note": "Open Qur\u2019an on a rehal with a lantern."
+      "note": "Open Qur’an on a rehal with a lantern."
     },
     "heroQuranKnowledge": {
       "file": "assets/games/art/heroQuranKnowledge.webp",
       "kind": "exact",
       "source": "8197268e-image.png",
-      "sourceScreen": "Qur\u2019an Knowledge details",
+      "sourceScreen": "Qur’an Knowledge details",
       "box": [
         72,
         168,
@@ -179,7 +179,7 @@
         347
       ],
       "transparent": false,
-      "note": "Wide hero: Qur\u2019an, mosque at sunset, lanterns."
+      "note": "Wide hero: Qur’an, mosque at sunset, lanterns."
     },
     "gameStories": {
       "file": "assets/games/art/gameStories.webp",
@@ -287,7 +287,7 @@
         144
       ],
       "transparent": false,
-      "note": "Open Qur\u2019an with mosque behind."
+      "note": "Open Qur’an with mosque behind."
     },
     "gameChess": {
       "file": "assets/games/art/gameChess.webp",
@@ -435,27 +435,27 @@
     },
     "cornerOrnament": {
       "file": "assets/games/art/cornerOrnament.png",
-      "kind": "patched",
-      "source": "d87e652c-image.png",
-      "sourceScreen": "Astronomy Explorer (ornate panel)",
+      "kind": "exact",
+      "source": "7dad9f46-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
       "box": [
-        47,
-        710,
-        140,
-        800
+        0,
+        0,
+        1254,
+        1254
       ],
       "size": [
-        93,
-        90
+        256,
+        256
       ],
       "transparent": true,
-      "note": "Islamic pattern panel corner (top-left). Cut out of a dark panel; mirror it for the other corners. Dark panels only."
+      "note": "Gold floral top-left corner on transparent; the app mirrors it."
     },
     "goldDivider": {
       "file": "assets/games/art/goldDivider.png",
       "kind": "patched",
       "source": "985cb0f6-image.png",
-      "sourceScreen": "Qur\u2019an Knowledge waiting room",
+      "sourceScreen": "Qur’an Knowledge waiting room",
       "box": [
         205,
         1237,
@@ -468,52 +468,192 @@
       ],
       "transparent": true,
       "note": "Thin gold rule with a diamond in the middle. Dark panels only."
+    },
+    "bottomNavFrame": {
+      "file": "assets/games/art/bottomNavFrame.webp",
+      "kind": "exact",
+      "source": "d53d25bf-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1080,
+        240
+      ],
+      "size": [
+        1080,
+        240
+      ],
+      "transparent": true,
+      "note": "Empty gold nav frame with the raised centre tab; transparent."
+    },
+    "scrambleTile": {
+      "file": "assets/games/art/scrambleTile.webp",
+      "kind": "exact",
+      "source": "a4e16fdb-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1080,
+        900
+      ],
+      "size": [
+        1080,
+        900
+      ],
+      "transparent": true,
+      "note": "Rounded star-border panel for Word Scramble tiles; transparent corners."
+    },
+    "wordSearchGrid": {
+      "file": "assets/games/art/wordSearchGrid.webp",
+      "kind": "exact",
+      "source": "01cec129-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1080,
+        1080
+      ],
+      "size": [
+        1080,
+        1080
+      ],
+      "transparent": false,
+      "note": "12 x 12 grid with a star border, no letters."
+    },
+    "hajjMap": {
+      "file": "assets/games/art/hajjMap.webp",
+      "kind": "exact",
+      "source": "dd4ff163-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1102,
+        1427
+      ],
+      "size": [
+        1080,
+        1399
+      ],
+      "transparent": false,
+      "note": "Schematic mountain map with ornament frame, no labels, no text."
+    },
+    "prophetsOrderBoard": {
+      "file": "assets/games/art/prophetsOrderBoard.webp",
+      "kind": "exact",
+      "source": "cdcbe6f4-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1030,
+        1527
+      ],
+      "size": [
+        1030,
+        1527
+      ],
+      "transparent": false,
+      "note": "Floral prayer-rug arch frame, text-free."
+    },
+    "wuduStepsBoard": {
+      "file": "assets/games/art/wuduStepsBoard.webp",
+      "kind": "exact",
+      "source": "51c62566-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1030,
+        1527
+      ],
+      "size": [
+        1030,
+        1527
+      ],
+      "transparent": false,
+      "note": "Arch frame with water ripples at the foot, text-free."
+    },
+    "salahStepsBoard": {
+      "file": "assets/games/art/salahStepsBoard.webp",
+      "kind": "exact",
+      "source": "b8faba35-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1003,
+        1568
+      ],
+      "size": [
+        1003,
+        1568
+      ],
+      "transparent": false,
+      "note": "Blue and gold geometric mihrab frame, text-free."
+    },
+    "seerahTimelineBoard": {
+      "file": "assets/games/art/seerahTimelineBoard.webp",
+      "kind": "exact",
+      "source": "db933de8-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1003,
+        1568
+      ],
+      "size": [
+        1003,
+        1568
+      ],
+      "transparent": false,
+      "note": "Dark board with corner stars and desert dunes, text-free."
+    },
+    "historyEmpty": {
+      "file": "assets/games/art/historyEmpty.webp",
+      "kind": "exact",
+      "source": "41263e4b-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "size": [
+        600,
+        400
+      ],
+      "transparent": false,
+      "note": "Lantern and closed book, no text."
+    },
+    "backdropFull": {
+      "file": "assets/games/art/backdropFull.webp",
+      "kind": "exact",
+      "source": "393c5818-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026",
+      "box": [
+        0,
+        0,
+        852,
+        1846
+      ],
+      "size": [
+        852,
+        1846
+      ],
+      "transparent": false,
+      "note": "Mosque-at-sunset arch with lanterns, dark navy below for panels."
     }
   },
   "fallback": {
-    "bottomNavFrame": {
-      "kind": "fallback",
-      "note": "The gold nav pill exists only with icons and labels baked in. The app keeps its own shared bottom nav."
-    },
-    "backdropFull": {
-      "kind": "fallback",
-      "note": "No design crop is a clean full-screen background: every screen has its title, cards or buttons baked in."
-    },
-    "historyEmpty": {
-      "kind": "fallback",
-      "note": "No design for an empty history list."
-    },
     "settingsHeader": {
       "kind": "fallback",
       "note": "No Games settings screen exists on main yet, and no design crop is text-free."
-    },
-    "seerahTimelineBoard": {
-      "kind": "fallback",
-      "note": "Card-list background of the Seerah Timeline screen. The screen draws the same theme in code."
-    },
-    "prophetsOrderBoard": {
-      "kind": "fallback",
-      "note": "Card-list background of the Prophets in Order screen. No faces or figures."
-    },
-    "wuduStepsBoard": {
-      "kind": "fallback",
-      "note": "Steps background of the Wudu screen. No faces or figures."
-    },
-    "salahStepsBoard": {
-      "kind": "fallback",
-      "note": "Steps background of the Salah screen. No faces or figures."
-    },
-    "wordSearchGrid": {
-      "kind": "fallback",
-      "note": "Grid background of Word Search."
-    },
-    "scrambleTile": {
-      "kind": "fallback",
-      "note": "Letter-tile background of Word Scramble."
-    },
-    "hajjMap": {
-      "kind": "fallback",
-      "note": "Schematic Hajj map (hidden game, not used yet)."
     }
   },
   "totalBytes": 519286,
