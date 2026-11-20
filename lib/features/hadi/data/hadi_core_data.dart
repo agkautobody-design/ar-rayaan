@@ -870,6 +870,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     ],
     avoid: <String>[
       r'\b(?:fast\w*|ramadan|zakat|janazah|funeral)\b',
+      r'\b(?:feel better|get well|get better|cheer|comfort|console|visit\w*|make them|what (?:can|should|do) (?:i|you|we) say|dua for|cure)\b',
     ],
     answer: 'Yes. Prayer is never dropped because of illness; it is made easier. If you cannot stand, pray sitting; if you cannot sit, pray lying on your side. The Prophet ﷺ told \'Imran ibn Husayn, who had piles: pray standing, and if you cannot, then sitting, and if you cannot, then on your side (Sahih al-Bukhari 1117).\n\nHow: if you can stand for part of the prayer, stand for that part. If you can stand but not go down to the ground, stand for the standing and bow and prostrate by nodding. If you cannot go down, nod your head for ruku\' and again, lower, for sujud. Sitting on a chair is acceptable when sitting on the floor is not possible. The Qur\'an says "Allah does not charge a soul except [with that within] its capacity" (Qur\'an 2:286).\n\nIf you are too ill to pray at the right time, you may combine Dhuhr with Asr and Maghrib with Isha according to the Hanbali school (and some Shafi\'i and Maliki scholars); otherwise pray each as best you can. Keep praying as long as you have your mind; if you lose consciousness, ask a scholar about making it up.\n\nThe Illness and Patience guide has more help.\n\nSource: Sahih al-Bukhari 1117; Qur\'an 2:286.\n[GO:/huda/guide?id=huda-illness]',
     topic: 'sick prayer',

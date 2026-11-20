@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5921 items.** High priority: 1319. Normal: 3785. Low: 817.
+**5925 items.** High priority: 1319. Normal: 3789. Low: 817.
 
 ### By area
 
@@ -25,8 +25,8 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 608 | 20 |
-| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 603 | 119 |
+| Hadi built-in answers | 609 | 20 |
+| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 606 | 119 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 198 | 62 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5921** | **1319** |
+| **Total** | **5925** | **1319** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2565 | 1130 |
-| Fiqh scholar (per madhab) | 722 | 257 |
+| Hadith / aqidah scholar | 2568 | 1131 |
+| Fiqh scholar (per madhab) | 723 | 257 |
 | Women's scholar | 151 | 97 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -72,8 +72,8 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 332 | 276 |  |  |  |  |  |  |  |
-| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 603 |  |  |  |  |  |  |  |  |
+| Hadi built-in answers | 332 | 277 |  |  |  |  |  |  |  |
+| Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 606 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 198 |  |  |  |  |  |  |  |  |
@@ -93,14 +93,14 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2565 lead, 1130 also)
+### Hadith / aqidah scholar (2568 lead, 1131 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
 - Huda guides and their madhhab notes: 16 items (3 high). Ids start with `huda.guide`.
 - Q&A bank rulings: 3 items (0 high). Ids start with `qa.07`, `qa.14`, `qa.16`.
 - Hadi built-in answers: 332 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
-- Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 603 items (119 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
+- Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 606 items (119 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
 - Stories: the unseen, signs, tales, khutbahs: 198 items (62 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (722 lead, 257 also)
+### Fiqh scholar (per madhab) (723 lead, 257 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 276 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 277 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -1743,7 +1743,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-608 items, 20 high priority. Area key `hadi`.
+609 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2008,6 +2008,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.tawakkul-tie-camel` | Hadi chat > built-in answer "tawakkul-tie-camel" | Built-in answer "tawakkul-tie-camel": A man asked the Prophet ﷺ whether he should tie his camel and rely on Allah or leave it loose and rely on Allah. He answered "Tie it and rely on Allah" (Jami' at… | Scholar review needed: the "usual meaning" line is a summary of scholars' explanation, no named scholar cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.ayat-kursi-benefit` | Hadi chat > built-in answer "ayat-kursi-benefit" | Built-in answer "ayat-kursi-benefit": Ayat al-Kursi is verse 255 of Surah Al-Baqarah (Qur'an 2:255), the verse of the Throne. Abu Hurayrah was told this by a thief, and the Prophet ﷺ confirmed it was… | Scholar review needed: the summary stops at the bedtime report on purpose. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.eat-after-forgot-bismillah` | Hadi chat > built-in answer "eat-after-forgot-bismillah" | Built-in answer "eat-after-forgot-bismillah": If you forget to say Bismillah at the start of the meal: Aisha reported the Prophet ﷺ said when one of you eats he should mention Allah's name, and if he… | Scholar review needed: the forgiveness line in Tirmidhi is as stated in the report. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.sick-visit-comfort` | Hadi chat > built-in answer "sick-visit-comfort" | Built-in answer "sick-visit-comfort": Yes. Visiting the sick is a duty of a Muslim to a Muslim: al-Bara' reported that the Prophet ﷺ commanded us to visit the sick, follow the funeral procession, ans… | Scholar review needed: the du'a wording and the Arabic transliteration are from the report; the closing sentence is the app's advice. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.routing` | Hadi chat > choosing which answer to show | Which question gets which answer (for example prepaid funeral plan, combining prayers answer leading with shortening, ibuprofen while fasting). | FIX_HADI_REPORT and E_games_hadi list wrong-topic answers in a confident frame; the routing is the app's own. | Hadith / aqidah scholar + Fiqh scholar | normal | FIX_HADI_REPORT (known gaps); E_games_hadi audit |
 | `hadi.explain` | Hadi > "Hadi checked this reply" and how-it-works text | The wording that says what Hadi checked and what a scholar has not. | Honesty copy; the "checked" claim must stay accurate. | Hadith / aqidah scholar | normal | E_games_hadi audit |
 | `hadi.ai-tier` | Hadi optional AI tier (own key) | Any answer generated by an AI model with the user's own key is not from the built-in library and carries no review. | R9_T1 / R9_T4: "optionally your own AI key"; the Qur'an is never produced from memory. | Hadith / aqidah scholar | high | R9_T4_everyday_skeptic |
@@ -2361,7 +2362,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus
 
-603 items, 119 high priority. Area key `hadith`.
+606 items, 119 high priority. Area key `hadith`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2883,6 +2884,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadith.corpus.tirmidhi-2517` | Hadi answers that cite Jamiʿ at-Tirmidhi 2517 | Jamiʿ at-Tirmidhi 2517: "He answered "Tie it and rely on Allah"" (grade Hasan, Darussalam). | Hadi grounding corpus: grade: Hasan (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus). | Hadith / aqidah scholar | high | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.corpus.tirmidhi-3426` | Hadi answers that cite Jamiʿ at-Tirmidhi 3426 | Jamiʿ at-Tirmidhi 3426: "whoever says when leaving his house "In the name of Allah, I place my trust in Allah, there is no might or power except by Allah" will be told that h…" (grade Sahih, al-Alban… | Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus). | Hadith / aqidah scholar | high | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.corpus.tirmidhi-3505` | Hadi answers that cite Jamiʿ at-Tirmidhi 3505 | Jamiʿ at-Tirmidhi 3505: "the supplication of Dhun-Nun when he supplicated in the belly of the whale was "There is none worthy of worship except You, glory be to You, I was am…" (grade Sahih, al-Alban… | Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus). | Hadith / aqidah scholar | high | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
+| `hadith.corpus.bukhari-5743` | Hadi answers that cite Sahih al-Bukhari 5743 | Sahih al-Bukhari 5743: "he used to pass his right hand over the place of ailment and say "O Allah, Lord of the people, remove the trouble and heal the patient, for You are t…" (grade In Sahih al-Bukh… | Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar. | Hadith / aqidah scholar | normal | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
+| `hadith.corpus.muslim-2066` | Hadi answers that cite Sahih Muslim 2066 | Sahih Muslim 2066: "commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet eve…" (grade In Sahih Muslim, Inc… | Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar. | Hadith / aqidah scholar | normal | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
+| `hadith.corpus.muslim-919` | Hadi answers that cite Sahih Muslim 919 | Sahih Muslim 919: "when you visit the sick or the dead, say good things, because the angels say Amen to whatever you say" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no sep… | Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar. | Hadith / aqidah scholar | normal | assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar |
 | `hadith.grade-mismatches` | Stories, Academy, Games, Hadi: hadith grade labels | Grade labels in stories, academy, games and Hadi that differed from the corpus (examples: Tirmidhi 3513, 3404; Ibn Majah 1565, 4080, 3663). | FIX_QURAN_HADITH_REPORT "Out of scope": mismatches listed for owners; C_knowledge audit. Graders differ on several of these. / Tirmidhi 3153 and Ibn Majah 4080: repo said "Darussalam (sahih)"; the corpus has al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'i… | Hadith / aqidah scholar | high | FIX_QURAN_HADITH_REPORT; C_knowledge audit; FACT_S1_prophets (SCHOLAR REVIEW: Tirmidhi 3153, Ibn Majah 4080); FIX_HADI_REPORT (Laylat al-Qa… |
 | `hadith.grade.tirmidhi-3513` | Where Tirmidhi 3513 is cited | Tirmidhi 3513 (du'a for Laylat al-Qadr) | Graders disagree: Zubair Ali Za'i da'if; al-Albani sahih. / Tirmidhi 3513 (du'a for Laylat al-Qadr): graders disagree (Zubair Ali Za'i da'if, al-Albani sahih). | Hadith / aqidah scholar | high | FIX_HADI_REPORT; FIX_QURAN_HADITH_REPORT; FIX_HADI_REPORT (Laylat al-Qadr du'a, graders disagree) |
 | `hadith.grade.tirmidhi-3153` | Where Tirmidhi 3153 is cited | Tirmidhi 3153 (Gog and Magog, Dhul-Qarnayn) | Shakir sahih, al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'if; shown as "graders differ". / Tirmidhi 3153 and Ibn Majah 4080: repo said "Darussalam (sahih)"; the corpus has al-Albani sahih, Bashar hasan, Zubair Ali Za'i da'if. Now "graders differ". | Hadith / aqidah scholar | high | FACT_S1_prophets; FACT_S1_prophets (SCHOLAR REVIEW: Tirmidhi 3153, Ibn Majah 4080) |
