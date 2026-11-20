@@ -19,7 +19,7 @@ Not used on purpose: `assets/academy/word_pack.json` (meanings have no licensed 
 ## Hidden games and the content each needs
 
 ### 1. Islamic History (`islamic-history`): BUILT
-Built as an order game from `assets/games/history_events.json`: 19 events, 632 to 1453 CE, each with the year a named Wikipedia article states (opened 20 Nov 2026), the link, and what the page says. AH dates appear only where the page gives one (Ain Jalut). Left out because pages disagree or give no date: Yarmouk, Karbala, Qadisiyyah, the Great Mosque of Damascus. Still open: a named scholar's check, and a primary or scholarly source per date if the owner wants more than an encyclopedia.
+Built as an order game from `assets/games/history_events.json`: 18 events, 632 to 1453 CE, each with the year a named Wikipedia article states (opened 20 Nov 2026), the link, and what the page says. AH dates appear only where the page gives one (Ain Jalut). Left out because sources disagree: Jerusalem (637 or 638); also or give no date: Yarmouk, Karbala, Qadisiyyah, the Great Mosque of Damascus. Still open: a named scholar's check, and a primary or scholarly source per date if the owner wants more than an encyclopedia.
 
 ### 2. Seerah: How Would You Respond? (`seerah-scenarios`): BUILT
 Built from `assets/games/seerah_scenarios.json`: 13 situations, each from a Seerah School story, each answer being what that story says the Prophet ﷺ said or did (an evidence phrase is tested word for word against the story). It records what is reported and never asks "what is the ruling". Still open: a named scholar's check of the stories themselves, and more situations if the owner wants them.
