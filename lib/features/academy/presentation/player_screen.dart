@@ -73,6 +73,23 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                 ),
                 const SizedBox(height: 12),
                 GestureDetector(
+                  key: const Key('player-free-downloads'),
+                  onTap: () => context.push(AppRoutes.freeDownloads),
+                  child: GlassCard(
+                    child: Row(
+                      children: <Widget>[
+                        const Icon(Icons.download_outlined, color: AppColors.gold),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text('Free downloads', style: AppText.titleMedium),
+                        ),
+                        const Icon(Icons.chevron_right, color: AppColors.gold),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                GestureDetector(
                   onTap: () => context.push(AppRoutes.requestNasheed),
                   child: GlassCard(
                     child: Row(
