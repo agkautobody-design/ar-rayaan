@@ -50,7 +50,7 @@ class JumuahLine extends ConsumerWidget {
                   TextSpan(text: 'Jumu’ah: $time', style: gold),
                   TextSpan(
                       text: '  · $source — confirm with the masjid',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12)),
                 ]))
               : Text('Jumu’ah time not listed',
                   key: const Key('jumuah-not-listed'),
@@ -172,7 +172,7 @@ class _AddJumuahSheetState extends ConsumerState<_AddJumuahSheet> {
             Text(
               'Only add a time you know from the masjid itself. It shows for '
               'everyone as added by a community member.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             const SizedBox(height: 10),
             GoldButton(
