@@ -191,7 +191,7 @@ const List<GameDef> kLearningGames = <GameDef>[
   GameDef(
     id: 'islamic-history',
     title: 'Islamic History',
-    blurb: 'Put 19 events from 632 to 1453 in order, caliphs to Constantinople',
+    blurb: 'Put 18 events from 632 to 1453 in order, caliphs to Constantinople',
     category: GameCategory.islamic,
     modes: <PlayMode>{PlayMode.solo},
     route: '/games/g/islamic-history/play',
