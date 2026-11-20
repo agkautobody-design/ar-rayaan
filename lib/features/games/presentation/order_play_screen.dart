@@ -115,6 +115,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
   ArtSlot get _slot => switch (widget.gameId) {
         'seerah-timeline' => ArtSlot.seerahTimelineBoard,
         'prophets-order' => ArtSlot.prophetsOrderBoard,
+        'hajj-map' => ArtSlot.hajjMap,
         _ => widget.topic == 'salah'
             ? ArtSlot.salahStepsBoard
             : ArtSlot.wuduStepsBoard,

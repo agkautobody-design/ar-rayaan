@@ -231,15 +231,22 @@ const List<GameDef> kLearningGames = <GameDef>[
   GameDef(
     id: 'hajj-map',
     title: 'Hajj Map',
-    blurb: 'Place the rites of Hajj on the map',
+    blurb: 'Put the rites of Hajj in order, from ihram to the farewell tawaf',
     category: GameCategory.islamic,
     modes: <PlayMode>{PlayMode.solo},
-    route: '/games',
+    route: '/games/g/hajj-map/play',
     iconKey: 'route',
-    kind: GameEngineKind.own,
-    hidden: true,
-    sourceNote: 'Hidden until the map art is supplied and the order of the '
-        'rites is checked against the guides.',
-    howToPlay: <String>['Not available yet.'],
+    kind: GameEngineKind.order,
+    sourceNote: 'The steps are the Huda guide “Hajj — Step-by-Step '
+        'Walkthrough” in the app, in the guide’s own order, with its '
+        'sources. The guide’s note on schools of law is shown with each '
+        'round. The order of the rites has not yet been reviewed by a named '
+        'scholar.',
+    howToPlay: <String>[
+      'Use the up and down buttons to move the cards.',
+      'Tap Check. A wrong check costs nothing; try again.',
+      'After each round you see the guide’s words and sources.',
+      'Follow your group’s guide for real times and places.',
+    ],
   ),
 ];

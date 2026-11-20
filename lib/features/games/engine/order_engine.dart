@@ -412,6 +412,21 @@ const Map<String, String> _fullLabels = <String, String>{
           'salaam to the right and left',
 };
 
+/// Card labels for the eight steps of the Huda guide "Hajj — Step-by-Step
+/// Walkthrough", one per step and in the guide's order. Each only shortens
+/// what the step already says and names the place; nothing is added. Used
+/// only while the guide still has exactly eight steps.
+const List<String> kHajjCardLabels = <String>[
+  'Enter ihram at the miqat with the intention for Hajj',
+  '8th of Dhul-Hijjah: go to Mina',
+  '9th: stay at Arafah and make dua until sunset',
+  'After sunset: go to Muzdalifah, pray Maghrib and Isha together',
+  '10th: stone Jamrat al-Aqabah, the sacrifice, then shave or shorten',
+  'Go to Makkah for the tawaf of Ifadah (and the sa\'i if not yet done)',
+  '11th, 12th (and 13th): stay at Mina and stone the three jamarat',
+  'Before leaving Makkah: the farewell tawaf',
+];
+
 /// A short card label for a guide step: the words before the first dash,
 /// semicolon or bracket, cut at a word if it is still long.
 String stepLabel(String step) {
@@ -464,17 +479,20 @@ bool _isOrderedStep(String step) {
 
 /// Builds the step rounds for one guide: the first half, the second half, and
 /// all the steps together. The right order is the guide's own order.
-List<OrderRound> buildStepOrder(GuideSteps g) {
+List<OrderRound> buildStepOrder(GuideSteps g, {List<String>? labels}) {
   final List<String> steps = <String>[
     for (final String s in g.steps)
       if (s.trim().isNotEmpty && _isOrderedStep(s.trim())) s.trim(),
   ];
   if (steps.length < 4 || g.sources.isEmpty) return <OrderRound>[];
+  // Own card labels are used only when there is exactly one per step, so a
+  // guide that gains or loses a step falls back to the automatic labels.
+  final bool own = labels != null && labels.length == steps.length;
   final List<OrderItem> items = <OrderItem>[
     for (int i = 0; i < steps.length; i++)
       OrderItem(
         id: '${g.id}-${i + 1}',
-        label: stepLabel(steps[i]),
+        label: own ? labels[i] : stepLabel(steps[i]),
         detail: steps[i],
       ),
   ];

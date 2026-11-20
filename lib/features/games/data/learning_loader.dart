@@ -179,6 +179,24 @@ abstract final class LearningLoader {
       };
       return buildProphetOrder(bank, nodes, rnd);
     }
+    if (gameId == 'hajj-map') {
+      for (final Map<String, dynamic> g
+          in _maps(await _json('assets/guides/guides.json'))) {
+        if (g['id'] != 'huda-hajj-overview') continue;
+        return buildStepOrder(
+          (
+            id: 'huda-hajj-overview',
+            title: g['title'] as String,
+            steps:
+                ((g['steps'] as List<dynamic>?) ?? <dynamic>[]).cast<String>(),
+            sources: ((g['sources'] as List<dynamic>?) ?? <dynamic>[])
+                .cast<String>(),
+            madhhabNote: g['madhhabNote'] as String?,
+          ),
+          labels: kHajjCardLabels,
+        );
+      }
+    }
     if (gameId == 'salah-wudu') {
       final String guideId = topic == 'salah' ? 'huda-prayer' : 'huda-wudu';
       for (final Map<String, dynamic> g

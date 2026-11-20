@@ -27,8 +27,8 @@ The design asks what the right response is in a situation of the Seerah. That is
 ### 3. Arabic Spelling (`arabic-spelling`)
 Needs a word list with: the vowelled Arabic word, its transliteration, its English meaning, and for each meaning a named source with a licence that allows use in the app (OWNER_ACTIONS item 7 is the same blocker for the 300-word deck). If the design's pronunciation audio is wanted: a licensed recording per word (device speech is not reliable for Arabic). Arabic letters and the 99 Names are already covered by Arabic Words.
 
-### 4. Hajj Map (`hajj-map`)
-Needs (a) the schematic map art (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no photos), and (b) a named scholar's check of the order of the rites as the guides (`huda-ihram`, `huda-tawaf`, `huda-arafat`, `huda-arafat-day`, `huda-ihram-rites`, `huda-hajj-overview`) give them, because the rites differ by day and by type of Hajj. A Qur'an verse on the result screen (the design shows 22:27) must be copied from `assets/quran/quran.json`.
+### 4. Hajj Map (`hajj-map`): BUILT
+Built as an order game from the guide `huda-hajj-overview` (8 steps, its own sources) with the delivered `hajjMap` art. Still open: a named scholar's check of the order of the rites, because they differ by day and by type of Hajj (the game says so). A Qur'an verse on the result screen (the design shows 22:27) is not added; it must be copied from `assets/quran/quran.json` if wanted.
 
 ## Content that would grow the games that are built
 
