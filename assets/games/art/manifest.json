@@ -666,10 +666,46 @@
       ],
       "transparent": false,
       "note": "Skyline strip, bottom of the delivered 2172 x 724 image; empty dark sky."
+    },
+    "resultBanner": {
+      "file": "assets/games/art/resultBanner.webp",
+      "kind": "exact",
+      "source": "da4dee82-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
+      "box": [
+        0,
+        0,
+        2011,
+        782
+      ],
+      "size": [
+        1080,
+        420
+      ],
+      "transparent": false,
+      "note": "Gold star-and-arch ornament with rays on dark navy; no text."
+    },
+    "titlePlaque": {
+      "file": "assets/games/art/titlePlaque.webp",
+      "kind": "exact",
+      "source": "064478e8-image.png",
+      "sourceScreen": "Owner delivery 20 Nov 2026 (2)",
+      "box": [
+        0,
+        0,
+        2112,
+        380
+      ],
+      "size": [
+        1100,
+        198
+      ],
+      "transparent": false,
+      "note": "Gold rounded plaque with a raised centre and two corner ornaments, empty inside; the app writes the label."
     }
   },
   "fallback": {},
-  "totalBytes": 1392072,
+  "totalBytes": 1421028,
   "boards": {
     "chess_royal": {
       "image": [

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_typography.dart';
 import '../engine/game_registry.dart';
 import 'games_theme.dart';
 
@@ -49,6 +50,8 @@ enum ArtSlot {
   gameLogicTiles,
   // Results and decoration.
   resultTrophy,
+  resultBanner,
+  titlePlaque,
   cornerOrnament,
   goldDivider,
   // Slots the designs give no clean art for (fallback only until exported).
@@ -334,10 +337,86 @@ class PanelCorners extends StatelessWidget {
   }
 }
 
-/// The trophy picture at the top of a result: a rounded, gold-edged banner.
-/// Draws nothing when the file is missing.
+/// A short label on the gold plaque. The plain text when the file is missing.
+class PlaqueLabel extends StatelessWidget {
+  const PlaqueLabel(this.text, {super.key});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget label = Text(
+      text,
+      textAlign: TextAlign.center,
+      style: AppText.eyebrow,
+    );
+    return ArtBuilder(
+      slot: ArtSlot.titlePlaque,
+      builder: (BuildContext context, bool present) {
+        if (!present) return Center(child: label);
+        return Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 420),
+            child: AspectRatio(
+              aspectRatio: 1100 / 198,
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  Positioned.fill(
+                    child: ExcludeSemantics(
+                      child: GamesArt.asset(
+                        ArtSlot.titlePlaque,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  label,
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// The picture at the top of a result: the gold star-and-arch banner, or the
+/// older trophy banner if that file is missing. Draws nothing when neither is
+/// there.
 class ResultTrophyArt extends StatelessWidget {
   const ResultTrophyArt({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ArtBuilder(
+      slot: ArtSlot.resultBanner,
+      builder: (BuildContext context, bool banner) {
+        if (!banner) return const _OldTrophyArt();
+        return Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 10),
+          child: ExcludeSemantics(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 420),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(GamesTheme.radius),
+                  child: AspectRatio(
+                    aspectRatio: 1080 / 420,
+                    child: GamesArt.asset(ArtSlot.resultBanner),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _OldTrophyArt extends StatelessWidget {
+  const _OldTrophyArt();
 
   @override
   Widget build(BuildContext context) {
