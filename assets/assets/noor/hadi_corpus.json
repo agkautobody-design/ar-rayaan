@@ -9574,6 +9574,72 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5743",
+   "collection": "Sahih al-Bukhari",
+   "number": "5743",
+   "english": "he used to pass his right hand over the place of ailment and say \"O Allah, Lord of the people, remove the trouble and heal the patient, for You are the Healer, no healing is of any avail but Yours, a healing that leaves behind no ailment\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "used",
+    "pass",
+    "right",
+    "hand",
+    "over",
+    "place",
+    "ailment",
+    "lord"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5743",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-2066",
+   "collection": "Sahih Muslim",
+   "number": "2066",
+   "english": "commanded us to visit the sick, follow the funeral procession, answer the sneezer, fulfil the vow, help the poor, accept the invitation and greet everybody",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "commanded",
+    "visit",
+    "sick",
+    "follow",
+    "funeral",
+    "procession",
+    "answer",
+    "sneezer"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2066",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-919",
+   "collection": "Sahih Muslim",
+   "number": "919",
+   "english": "when you visit the sick or the dead, say good things, because the angels say Amen to whatever you say",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "visit",
+    "sick",
+    "dead",
+    "good",
+    "things",
+    "because",
+    "angels",
+    "amen"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:919",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
   }
  ]
 }
