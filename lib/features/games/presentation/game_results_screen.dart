@@ -33,7 +33,7 @@ class ResultSummaryView extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: 12),
         const ResultTrophyArt(),
-        Center(child: Text('FINISHED', style: AppText.eyebrow)),
+        const PlaqueLabel('FINISHED'),
         const SizedBox(height: 6),
         Center(
           child: Semantics(
