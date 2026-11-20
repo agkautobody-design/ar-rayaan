@@ -22,10 +22,10 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5782;
+const int kScholarReviewTotal = 5925;
 
 /// Items marked high priority.
-const int kScholarReviewHighPriority = 1316;
+const int kScholarReviewHighPriority = 1319;
 
 const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
@@ -35,12 +35,12 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('arabic-tajweed', 'Arabic, tajweed, Hifz and Qur\'an recitation teaching', 88, 42),
     ScholarReviewArea('huda', 'Huda guides and their madhhab notes', 118, 104),
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
-    ScholarReviewArea('hadi', 'Hadi built-in answers', 497, 20),
-    ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 579, 116),
+    ScholarReviewArea('hadi', 'Hadi built-in answers', 612, 20),
+    ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 603, 119),
     ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 258, 52),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
     ScholarReviewArea('stories-unseen', 'Stories: the unseen, signs, tales, khutbahs', 198, 62),
-    ScholarReviewArea('stories-modern', 'Stories: modern hadith', 63, 11),
+    ScholarReviewArea('stories-modern', 'Stories: modern hadith', 66, 11),
     ScholarReviewArea('dua-dhikr', 'Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas', 155, 24),
     ScholarReviewArea('new-muslim', 'New Muslim 30-day path', 30, 13),
     ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 68, 40),
@@ -48,7 +48,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
     ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 11, 6),
     ScholarReviewArea('games', 'Games and quizzes with religious content', 14, 9),
-    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 244, 125),
+    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 245, 125),
     ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 10, 10),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
@@ -56,12 +56,12 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 ];
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
-    ScholarReviewerCount('Hadith / aqidah scholar', 2509),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 640),
+    ScholarReviewerCount('Hadith / aqidah scholar', 2565),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 726),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 526),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1086),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 280),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 281),
     ScholarReviewerCount('Privacy lawyer', 15),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 569),

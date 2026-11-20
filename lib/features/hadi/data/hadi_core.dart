@@ -18,6 +18,7 @@ library;
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import 'hadi_core_data.dart';
+import 'hadi_core_pack_data.dart';
 
 /// One built-in answer.
 class CoreEntry {
@@ -197,8 +198,10 @@ abstract final class HadiCore {
 
   // ── The entries ──────────────────────────────────────────────────────
 
+  static final List<CoreEntry> _all = <CoreEntry>[...kHadiCoreEntries, ...kHadiPackEntries];
+
   static final List<_Compiled> _compiled = <_Compiled>[
-    for (final CoreEntry e in kHadiCoreEntries)
+    for (final CoreEntry e in _all)
       _Compiled(
         e,
         <RegExp>[for (final String p in e.patterns) RegExp(p)],
@@ -207,13 +210,13 @@ abstract final class HadiCore {
   ];
 
   static final Set<String> _answerBodies = <String>{
-    for (final CoreEntry e in kHadiCoreEntries) _body(e.answer),
+    for (final CoreEntry e in _all) _body(e.answer),
   };
 
   static final RegExp _tokenRe = RegExp(r'\s*\[GO:[^\]]*\]');
 
   static final String _zakatSumBody = <String>[
-    for (final CoreEntry e in kHadiCoreEntries)
+    for (final CoreEntry e in _all)
       if (e.id == 'zakat-sum') _body(e.answer),
   ].join();
 
@@ -221,7 +224,7 @@ abstract final class HadiCore {
       s.replaceAll(_tokenRe, '').replaceAll(RegExp(r'\s+'), ' ').trim();
 
   /// Every built-in answer (for the tests that check them all).
-  static List<CoreEntry> get entries => kHadiCoreEntries;
+  static List<CoreEntry> get entries => _all;
 
   /// The entry for an already-canonical question, or null.
   static CoreEntry? _find(String canonical) {

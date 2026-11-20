@@ -3,7 +3,7 @@
 # Game rules are not here: they are built at runtime from the game list (hadi_game_help.dart).
 
 E('hadi-who',
-  m=[r'\bwho are you\b', r'\bwho is hadi\b', r'\bwhat (?:is|s) hadi\b', r'\bwhat are you\b', r'^hadi$', r'\bwhat does hadi mean\b', r'\btell me about (?:yourself|hadi)\b', r'\bintroduce yourself\b'],
+  m=[r'\bwho are you\b', r'\bwho is hadi\b', r'\bwhat (?:is|s) hadi\b', r'^what are you(?: hadi)?$', r'^hadi$', r'\bwhat does hadi mean\b', r'\btell me about (?:yourself|hadi)\b', r'\bintroduce yourself\b'],
   x=[r'\b(?:hits?|beats?|divorce|talaq|my husband|my wife)\b'],
   topic='about hadi',
   text="""
