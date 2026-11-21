@@ -9,13 +9,12 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_button.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/tr_text.dart';
-import '../../share/application/share_service.dart';
-import '../../share/presentation/share_actions.dart' show copyWithFeedback;
 import '../data/game_invite.dart';
 import '../data/game_rooms_service.dart';
 import '../data/race_link.dart';
 import '../data/race_protocol.dart';
 import '../engine/game_registry.dart';
+import 'game_invite_screen.dart' show sendGameInvite;
 import 'online_lobby.dart';
 
 /// The table before a race: the host gets a link to send and waits, the guest
@@ -172,9 +171,7 @@ class _RaceTableState extends State<RaceTableScreen> {
     final String? code = _code;
     if (code == null) return;
     final String text = GameInvite.raceMessage(_title, code);
-    final bool shared = await ShareService.shareText(text,
-        subject: 'Come and play with me');
-    if (!shared && mounted) await copyWithFeedback(context, text);
+    await sendGameInvite(context, text);
   }
 
   @override

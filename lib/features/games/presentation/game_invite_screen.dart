@@ -19,6 +19,15 @@ import 'online_lobby.dart';
 /// any app. The friend opens the link, the free web app opens at the table
 /// and they play, with no account. It is only an invitation to play: the
 /// message says nothing about the sender and asks for nothing.
+/// Sends an invitation [text]: the share sheet when there is one, else it is
+/// copied. The one place a game invitation leaves the app (the screens that
+/// make an invitation call this).
+Future<void> sendGameInvite(BuildContext context, String text) async {
+  final bool shared =
+      await ShareService.shareText(text, subject: 'Come and play with me');
+  if (!shared && context.mounted) await copyWithFeedback(context, text);
+}
+
 class GameInviteScreen extends StatefulWidget {
   const GameInviteScreen({super.key, this.service});
 
