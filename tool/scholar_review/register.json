@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5976,
+ "total": 6014,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,12 +40,12 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 640,
+   "items": 672,
    "high_priority": 20
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 626,
+   "items": 632,
    "high_priority": 122
   },
   "stories-prophets": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2592,
-  "Fiqh scholar (per madhab)": 750,
+  "Hadith / aqidah scholar": 2604,
+  "Fiqh scholar (per madhab)": 776,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1322,
-  "normal": 3837,
+  "normal": 3875,
   "low": 817
  },
  "items": [
@@ -40792,6 +40792,796 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.ihsan-meaning",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ihsan-meaning\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ihsan-meaning'",
+   "what_to_review": "Built-in answer \"ihsan-meaning\": Ihsan means doing good with excellence, and in worship it means awareness that Allah sees you. In the hadith of Gabriel, Abu Hurayrah reported that the angel asked the Prophet ﷺ about Ihsan, and he answered: to worship Allah as if you see Him, and if you cann…",
+   "why_flagged": "Scholar review needed: the first sentence is the app's short definition; the summary of the hadith stops at the answer on Ihsan.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.halal-haram-general",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"halal-haram-general\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='halal-haram-general'",
+   "what_to_review": "Built-in answer \"halal-haram-general\": Halal means permitted and haram means forbidden. The Prophet ﷺ said, as reported by An-Nu'man ibn Bashir: the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has prote…",
+   "why_flagged": "Scholar review needed: the summary stops before the shepherd example.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.bidah-innovation",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"bidah-innovation\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='bidah-innovation'",
+   "what_to_review": "Built-in answer \"bidah-innovation\": Bid'ah means innovation. Aisha reported the Prophet ﷺ saying: if somebody innovates something which is not in harmony with the principles of our religion, that thing is rejected (Sahih al-Bukhari 2697). And in his sermons, as Jabir reported, he said the best…",
+   "why_flagged": "Scholar review needed: the last paragraph states the difference of opinion in general terms, with no named scholar.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.itikaf-seclusion",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"itikaf-seclusion\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='itikaf-seclusion'",
+   "what_to_review": "Built-in answer \"itikaf-seclusion\": I'tikaf is staying in the masjid for worship for a period, usually in the last days of Ramadan. Ibn Umar reported: Allah's Messenger ﷺ used to practise i'tikaf in the last ten days of the month of Ramadan (Sahih al-Bukhari 2025). The Qur'an mentions it in the…",
+   "why_flagged": "Scholar review needed: conditions are intentionally not stated; confirm.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.rahmah-mercy",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"rahmah-mercy\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='rahmah-mercy'",
+   "what_to_review": "Built-in answer \"rahmah-mercy\": Rahmah is mercy. The Qur'an says Allah sent the Prophet ﷺ as a mercy to the worlds (Qur'an 21:107). Jarir reported the Prophet ﷺ saying: he who is not merciful to others will not be treated mercifully (Sahih al-Bukhari 6013). So mercy is both something Allah…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.adl-justice",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"adl-justice\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='adl-justice'",
+   "what_to_review": "Built-in answer \"adl-justice\": Adl is justice. The Qur'an says Allah commands justice and doing good (Qur'an 16:90), and tells believers to stand firmly for justice as witnesses to Allah, even against themselves or their parents or relatives (Qur'an 4:135). It also says not to let hatred o…",
+   "why_flagged": "Scholar review needed: the verses are paraphrased, not quoted.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.amanah-trust",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"amanah-trust\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='amanah-trust'",
+   "what_to_review": "Built-in answer \"amanah-trust\": Amanah is a trust: whatever someone puts in your care, and every duty you hold. The Qur'an says Allah commands you to return trusts to their owners (Qur'an 4:58). The Prophet ﷺ listed betrayal of trust among the signs of a hypocrite (Sahih al-Bukhari 33). Sou…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.qadr-destiny",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"qadr-destiny\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='qadr-destiny'",
+   "what_to_review": "Built-in answer \"qadr-destiny\": Qadr is Allah's decree, one of the six articles of faith. The Qur'an says that everything has been created with a measure (Qur'an 54:49), and that no disaster strikes the earth or yourselves except that it is in a record before it is brought into being (Qur'a…",
+   "why_flagged": "Scholar review needed: the second paragraph states the mainstream scholarly position without a named scholar.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.ikhlas-sincerity",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ikhlas-sincerity\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ikhlas-sincerity'",
+   "what_to_review": "Built-in answer \"ikhlas-sincerity\": Ikhlas is sincerity: doing worship purely for Allah. The Qur'an says people were only commanded to worship Allah, sincere to Him in religion (Qur'an 98:5), and tells the Prophet ﷺ to worship Allah, making the religion sincerely His (Qur'an 39:2). The opposite…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.surah-ikhlas-about",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"surah-ikhlas-about\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='surah-ikhlas-about'",
+   "what_to_review": "Built-in answer \"surah-ikhlas-about\": Surah Al-Ikhlas is surah 112 and has four verses. It says that Allah is One (Qur'an 112:1), the one everything depends on (Qur'an 112:2), that He neither begets nor was begotten (Qur'an 112:3), and that none is equal to Him (Qur'an 112:4). It is short and is…",
+   "why_flagged": "Scholar review needed: the verses are summarised; the reward is flagged as not covered.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.shaytan-iblis",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"shaytan-iblis\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='shaytan-iblis'",
+   "what_to_review": "Built-in answer \"shaytan-iblis\": Iblis is the one who refused when Allah told the angels to prostrate to Adam. The Qur'an says he refused and was arrogant and became one of the disbelievers (Qur'an 2:34), and that his reason was that he was made from fire while Adam was from clay (Qur'an 7:1…",
+   "why_flagged": "Scholar review needed: whether Iblis was an angel or a jinn is a difference of opinion and is not stated here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.shahid-martyr",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"shahid-martyr\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='shahid-martyr'",
+   "what_to_review": "Built-in answer \"shahid-martyr\": Shahid means witness, and it is the word for a martyr. The Qur'an says not to think of those killed in the way of Allah as dead; they are alive with their Lord, provided for (Qur'an 3:169). I am not listing every kind of shahid or ruling on a particular case…",
+   "why_flagged": "Scholar review needed: the kinds of shahid in the hadith are intentionally not listed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.islamic-calendar",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"islamic-calendar\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='islamic-calendar'",
+   "what_to_review": "Built-in answer \"islamic-calendar\": The Islamic (Hijri) calendar is a lunar calendar of twelve months. The Qur'an says the number of months with Allah is twelve (Qur'an 9:36), four of them sacred. Years are counted from the Hijrah, the migration of the Prophet ﷺ to Madinah. A lunar year is abou…",
+   "why_flagged": "Scholar review needed: the counting from the Hijrah and the eleven-day figure are general facts with no hadith cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.people-of-the-cave",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"people-of-the-cave\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='people-of-the-cave'",
+   "what_to_review": "Built-in answer \"people-of-the-cave\": The story is told in Surah Al-Kahf, which begins by saying the youths of the cave were one of Allah's wonders (Qur'an 18:9). In outline: some young believers fled their people to protect their faith, took refuge in a cave, and Allah caused them to sleep for y…",
+   "why_flagged": "Scholar review needed: the outline follows the verses cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.dhul-qarnayn",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"dhul-qarnayn\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='dhul-qarnayn'",
+   "what_to_review": "Built-in answer \"dhul-qarnayn\": Dhul-Qarnayn is a righteous ruler whose story is in Surah Al-Kahf (Qur'an 18:83). The Qur'an says Allah gave him power on earth and means to everything (Qur'an 18:84), and that he travelled to the west and the east. He met a people who asked for protection fr…",
+   "why_flagged": "Scholar review needed: the identity of Dhul-Qarnayn is intentionally not stated.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.luqman-wisdom",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"luqman-wisdom\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='luqman-wisdom'",
+   "what_to_review": "Built-in answer \"luqman-wisdom\": Luqman is a man to whom Allah gave wisdom (Qur'an 31:12), and the surah named after him records his advice to his son. He tells him not to associate anything with Allah, because shirk is a great wrong (Qur'an 31:13); to establish prayer, enjoin good and forbi…",
+   "why_flagged": "Scholar review needed: the advice is paraphrased from the verses cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.prophet-nuh",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"prophet-nuh\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='prophet-nuh'",
+   "what_to_review": "Built-in answer \"prophet-nuh\": Nuh called his people to worship Allah alone for a very long time. The Qur'an says he stayed among them a thousand years less fifty (Qur'an 29:14), and Surah Nuh (surah 71) records how he called them night and day (Qur'an 71:5). Allah told him to build the sh…",
+   "why_flagged": "Scholar review needed: the account follows the verses cited.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.prophet-ayyub",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"prophet-ayyub\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='prophet-ayyub'",
+   "what_to_review": "Built-in answer \"prophet-ayyub\": Ayyub is the Qur'an's example of patience in sickness and loss. He called to his Lord that harm had touched him and that He is the most merciful of the merciful (Qur'an 21:83), and Allah answered, removed his harm and gave him his family and more like them (Q…",
+   "why_flagged": "Scholar review needed: details beyond the verses (the length or kind of his illness) are not stated.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.prophet-sulayman",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"prophet-sulayman\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='prophet-sulayman'",
+   "what_to_review": "Built-in answer \"prophet-sulayman\": Sulayman was a prophet and a king, the son of Dawud. The Qur'an says Allah gave him knowledge (Qur'an 27:15) and that he was given the language of the birds (Qur'an 27:16). His armies of jinn, men and birds were gathered before him (Qur'an 27:17), and he hear…",
+   "why_flagged": "Scholar review needed: the account is limited to verses cited.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.prophet-dawud",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"prophet-dawud\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='prophet-dawud'",
+   "what_to_review": "Built-in answer \"prophet-dawud\": Dawud was a prophet and a king. The Qur'an says Allah gave him the Zabur (Qur'an 4:163), that the mountains and birds joined him in glorifying Allah (Qur'an 38:18-19), and that Allah made iron soft for him (Qur'an 34:10). It also records that he killed Jalut…",
+   "why_flagged": "Scholar review needed: the account is limited to verses cited.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.prophet-adam",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"prophet-adam\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='prophet-adam'",
+   "what_to_review": "Built-in answer \"prophet-adam\": Adam is the first human being and a prophet. The Qur'an says Allah told the angels He would place a vicegerent on earth (Qur'an 2:30), taught Adam the names (Qur'an 2:31), and told the angels to prostrate to him; Iblis refused (Qur'an 2:34). Adam and his wife…",
+   "why_flagged": "Scholar review needed: the account is limited to verses cited; the name of the tree and the kind of the \"tree\" are not stated.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.maryam-and-isa",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"maryam-and-isa\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='maryam-and-isa'",
+   "what_to_review": "Built-in answer \"maryam-and-isa\": Maryam is the only woman named in the Qur'an, and Surah Maryam (surah 19) is named after her. The Qur'an says Allah chose her above the women of the worlds (Qur'an 3:42) and gave her the good news of a word from Him, whose name is the Messiah, Isa son of Mary…",
+   "why_flagged": "Scholar review needed: the final sentence is a statement of the Muslim position; check wording before release.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.opening-dua-prayer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"opening-dua-prayer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='opening-dua-prayer'",
+   "what_to_review": "Built-in answer \"opening-dua-prayer\": Abu Hurayrah reported that he asked the Prophet ﷺ what he said in the pause between the takbir and the recitation, and the Prophet ﷺ answered: \"O Allah, set me apart from my sins as You set the east and west apart from each other; O Allah, clean me from sins…",
+   "why_flagged": "Scholar review needed: other openings and the schools' preferences are stated in general terms only.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.dhikr-after-prayer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"dhikr-after-prayer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='dhikr-after-prayer'",
+   "what_to_review": "Built-in answer \"dhikr-after-prayer\": Abu Hurayrah reported that poor Companions complained that the wealthy had higher ranks because they gave more in charity. The Prophet ﷺ answered: say \"Subhan Allah\", \"Alhamdulillah\" and \"Allahu Akbar\" thirty-three times each after every obligatory prayer (Sa…",
+   "why_flagged": "Scholar review needed: the note on other reports with different totals is stated in general terms.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.sujud-dua-closeness",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"sujud-dua-closeness\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='sujud-dua-closeness'",
+   "what_to_review": "Built-in answer \"sujud-dua-closeness\": Abu Hurayrah reported the Prophet ﷺ saying: the nearest a servant comes to his Lord is when he is prostrating himself, so make du'a in it (Sahih Muslim 482). The Qur'an says the same: prostrate and draw near (Qur'an 96:19). So sujud is a time to ask Allah in…",
+   "why_flagged": "Scholar review needed: \"in whatever language\" is the scholars' general view; the hadith does not specify.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.learn-teach-quran",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"learn-teach-quran\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='learn-teach-quran'",
+   "what_to_review": "Built-in answer \"learn-teach-quran\": 'Uthman reported the Prophet ﷺ saying: the best among you are those who learn the Qur'an and teach it (Sahih al-Bukhari 5027). On memorising, Abu Musa reported: commit yourself to the Qur'an, for by Him in whose Hand is my soul, it is more prone to escape tha…",
+   "why_flagged": "Scholar review needed: the last paragraph is general study advice without a cited source.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.good-muslim-conduct",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"good-muslim-conduct\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='good-muslim-conduct'",
+   "what_to_review": "Built-in answer \"good-muslim-conduct\": The Prophet ﷺ described a Muslim by conduct: Abdullah ibn Amr reported a Muslim is the one who avoids harming Muslims with his tongue and hands (Sahih al-Bukhari 10). And Anas reported none of you will have faith until he wishes for his brother what he likes…",
+   "why_flagged": "Scholar review needed: the closing paragraph is the app's summary of the pillars.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.humility-forgiveness",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"humility-forgiveness\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='humility-forgiveness'",
+   "what_to_review": "Built-in answer \"humility-forgiveness\": Abu Hurayrah reported the Prophet ﷺ saying: charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for Allah except that Allah raises his status (Sahih Muslim 2588). The Qur'an asks believe…",
+   "why_flagged": "Scholar review needed: the summary covers all three statements in the report.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.women-in-the-masjid",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"women-in-the-masjid\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='women-in-the-masjid'",
+   "what_to_review": "Built-in answer \"women-in-the-masjid\": Ibn Umar reported that the Prophet ﷺ said: do not stop Allah's women from going to Allah's mosques (Sahih al-Bukhari 900). So women may go to the masjid. The scholars discuss conditions such as safety and dress, and say that for women the prayer at home is al…",
+   "why_flagged": "Scholar review needed: the second paragraph summarises the scholars' discussion in general terms.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.ummah-meaning",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ummah-meaning\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ummah-meaning'",
+   "what_to_review": "Built-in answer \"ummah-meaning\": The ummah is the community of Muslims worldwide. The Qur'an says: you are the best community brought out for mankind, enjoining what is right and forbidding what is wrong and believing in Allah (Qur'an 3:110), and: this ummah of yours is one ummah, and I am y…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.fatwa-imam-mufti",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"fatwa-imam-mufti\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='fatwa-imam-mufti'",
+   "what_to_review": "Built-in answer \"fatwa-imam-mufti\": A fatwa is a scholar's answer to a question about Islamic law. A mufti is the scholar qualified to give fatwas. An imam, in a masjid, is the person who leads the prayer, and often teaches and advises the community; the word is also used for the great scholars…",
+   "why_flagged": "Scholar review needed: general definitions with no hadith cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.fiqh-ijma-qiyas",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"fiqh-ijma-qiyas\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='fiqh-ijma-qiyas'",
+   "what_to_review": "Built-in answer \"fiqh-ijma-qiyas\": Fiqh is the scholars' understanding of Islamic law, drawn from the sources. The agreed primary sources are the Qur'an and the Sunnah. Beyond them, scholars use ijma (the agreement of scholars on a ruling) and qiyas (extending a ruling to a new case with the s…",
+   "why_flagged": "Scholar review needed: general definitions of usul, no hadith cited; the schools differ in how they weigh secondary sources.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -53350,7 +54140,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2025",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-2025]",
-   "what_to_review": "Sahih al-Bukhari 2025: \"Abdullah ibn Umar: the Prophet used to practise i'tikaf in the last ten days of Ramadan.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 2025: \"Allah's Messenger ﷺ used to practise i'tikaf in the last ten days of the month of Ramadan\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53521,7 +54311,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2697",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-2697]",
-   "what_to_review": "Sahih al-Bukhari 2697: \"Aisha: whoever introduces into this matter of ours something that is not part of it, it is rejected.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 2697: \"if somebody innovates something which is not in harmony with the principles of our religion, that thing is rejected\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54015,7 +54805,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 50",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-50]",
-   "what_to_review": "Sahih al-Bukhari 50: \"Abu Hurayrah: the angel Jibril asked the Prophet about faith, Islam and ihsan, and the Prophet explained each; Islam is worshipping Allah alone, the…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 50: \"to worship Allah as if you see Him, and if you cannot achieve this state, then to know that He sees you\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54091,7 +54881,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5027",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-5027]",
-   "what_to_review": "Sahih al-Bukhari 5027: \"Uthman: the best among you are those who learn the Qur'an and teach it.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 5027: \"the best among you are those who learn the Qur'an and teach it\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54300,7 +55090,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6013",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-6013]",
-   "what_to_review": "Sahih al-Bukhari 6013: \"Jarir ibn Abdullah: whoever is not merciful to people, Allah is not merciful to him.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 6013: \"he who is not merciful to others will not be treated mercifully\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54623,7 +55413,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 900",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-900]",
-   "what_to_review": "Sahih al-Bukhari 900: \"Ibn Umar: the Prophet said do not stop Allah's female servants from going to Allah's mosques; a wife of Umar used to attend the Fajr and Isha prayers…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 900: \"do not stop Allah's women from going to Allah's mosques\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -55517,7 +56307,7 @@
    "where_in_app": "Hadi answers that cite Sahih Muslim 2588",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:muslim-2588]",
-   "what_to_review": "Sahih Muslim 2588: \"Abu Hurayrah: charity does not decrease wealth; Allah increases in honour the one who forgives, and raises the one who is humble for His sake.\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "what_to_review": "Sahih Muslim 2588: \"charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for Allah except that Al…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -56144,7 +56934,7 @@
    "where_in_app": "Hadi answers that cite Sahih Muslim 867",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:muslim-867]",
-   "what_to_review": "Sahih Muslim 867: \"Jabir: the Prophet's Friday sermon, in which he said the best speech is the Book of Allah, the best guidance is the guidance of Muhammad, and the wor…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "what_to_review": "Sahih Muslim 867: \"the best of speech is the Book of Allah, the best guidance is the guidance of Muhammad, the most evil affairs are the innovations, and every innovati…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -58086,6 +58876,120 @@
    "key": "hadith[id=h:muslim-2132]",
    "what_to_review": "Sahih Muslim 2132: \"the names dearest to Allah are Abdullah and Abd al-Rahman\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-10",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 10",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-10]",
+   "what_to_review": "Sahih al-Bukhari 10: \"a Muslim is the one who avoids harming Muslims with his tongue and hands\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-13",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 13",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-13]",
+   "what_to_review": "Sahih al-Bukhari 13: \"none of you will have faith until he wishes for his brother what he likes for himself\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5033",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5033",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5033]",
+   "what_to_review": "Sahih al-Bukhari 5033: \"commit yourself to the Qur'an, for by Him in whose Hand is my soul, it is more prone to escape than a camel in its tether\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-52",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 52",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-52]",
+   "what_to_review": "Sahih al-Bukhari 52: \"the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has p…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-744",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 744",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-744]",
+   "what_to_review": "Sahih al-Bukhari 744: \"\"O Allah, set me apart from my sins as You set the east and west apart from each other; O Allah, clean me from sins as a white garment is cleaned of…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-843",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 843",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-843]",
+   "what_to_review": "Sahih al-Bukhari 843: \"say \"Subhan Allah\", \"Alhamdulillah\" and \"Allahu Akbar\" thirty-three times each after every obligatory prayer\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
