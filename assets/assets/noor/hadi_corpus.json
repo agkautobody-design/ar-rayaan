@@ -4647,23 +4647,23 @@
    "id": "h:bukhari-2025",
    "collection": "Sahih al-Bukhari",
    "number": "2025",
-   "english": "Abdullah ibn Umar: the Prophet used to practise i'tikaf in the last ten days of Ramadan.",
+   "english": "Allah's Messenger ﷺ used to practise i'tikaf in the last ten days of the month of Ramadan",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "abdullah",
-    "umar",
+    "allah's",
     "used",
     "practise",
     "i'tikaf",
     "last",
     "days",
+    "month",
     "ramadan"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2025",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-2044",
@@ -4845,23 +4845,23 @@
    "id": "h:bukhari-2697",
    "collection": "Sahih al-Bukhari",
    "number": "2697",
-   "english": "Aisha: whoever introduces into this matter of ours something that is not part of it, it is rejected.",
+   "english": "if somebody innovates something which is not in harmony with the principles of our religion, that thing is rejected",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "aisha",
-    "whoever",
-    "introduces",
-    "into",
-    "matter",
-    "ours",
+    "somebody",
+    "innovates",
     "something",
-    "part"
+    "harmony",
+    "principles",
+    "religion",
+    "thing",
+    "rejected"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2697",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-2736",
@@ -5417,23 +5417,21 @@
    "id": "h:bukhari-50",
    "collection": "Sahih al-Bukhari",
    "number": "50",
-   "english": "Abu Hurayrah: the angel Jibril asked the Prophet about faith, Islam and ihsan, and the Prophet explained each; Islam is worshipping Allah alone, the prayer, zakat and fasting Ramadan.",
+   "english": "to worship Allah as if you see Him, and if you cannot achieve this state, then to know that He sees you",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "angel",
-    "jibril",
-    "asked",
-    "about",
-    "faith",
-    "islam",
-    "ihsan"
+    "worship",
+    "cannot",
+    "achieve",
+    "state",
+    "know",
+    "sees"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:50",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-5009",
@@ -5505,11 +5503,10 @@
    "id": "h:bukhari-5027",
    "collection": "Sahih al-Bukhari",
    "number": "5027",
-   "english": "Uthman: the best among you are those who learn the Qur'an and teach it.",
+   "english": "the best among you are those who learn the Qur'an and teach it",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "uthman",
     "best",
     "among",
     "those",
@@ -5520,7 +5517,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5027",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-5173",
@@ -5741,20 +5738,19 @@
    "id": "h:bukhari-6013",
    "collection": "Sahih al-Bukhari",
    "number": "6013",
-   "english": "Jarir ibn Abdullah: whoever is not merciful to people, Allah is not merciful to him.",
+   "english": "he who is not merciful to others will not be treated mercifully",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "jarir",
-    "abdullah",
-    "whoever",
     "merciful",
-    "people"
+    "others",
+    "treated",
+    "mercifully"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6013",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6014",
@@ -6109,23 +6105,20 @@
    "id": "h:bukhari-900",
    "collection": "Sahih al-Bukhari",
    "number": "900",
-   "english": "Ibn Umar: the Prophet said do not stop Allah's female servants from going to Allah's mosques; a wife of Umar used to attend the Fajr and Isha prayers for this reason.",
+   "english": "do not stop Allah's women from going to Allah's mosques",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "umar",
     "stop",
     "allah's",
-    "female",
-    "servants",
+    "women",
     "going",
-    "mosques",
-    "wife"
+    "mosques"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:900",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-935",
@@ -7118,23 +7111,23 @@
    "id": "h:muslim-2588",
    "collection": "Sahih Muslim",
    "number": "2588",
-   "english": "Abu Hurayrah: charity does not decrease wealth; Allah increases in honour the one who forgives, and raises the one who is humble for His sake.",
+   "english": "charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for Allah except that Allah raises his status",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "charity",
     "decrease",
     "wealth",
-    "increases",
-    "honour",
     "forgives",
-    "raises"
+    "another",
+    "except",
+    "increases",
+    "honour"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2588",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-2589",
@@ -7833,23 +7826,23 @@
    "id": "h:muslim-867",
    "collection": "Sahih Muslim",
    "number": "867",
-   "english": "Jabir: the Prophet's Friday sermon, in which he said the best speech is the Book of Allah, the best guidance is the guidance of Muhammad, and the worst of matters are those newly invented.",
+   "english": "the best of speech is the Book of Allah, the best guidance is the guidance of Muhammad, the most evil affairs are the innovations, and every innovation is error",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "jabir",
-    "prophet's",
-    "friday",
-    "sermon",
     "best",
     "speech",
     "book",
-    "guidance"
+    "guidance",
+    "muhammad",
+    "most",
+    "evil",
+    "affairs"
    ],
    "verifiedAt": "https://sunnah.com/muslim:867",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-87",
@@ -10058,6 +10051,135 @@
     "rahman"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2132",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-10",
+   "collection": "Sahih al-Bukhari",
+   "number": "10",
+   "english": "a Muslim is the one who avoids harming Muslims with his tongue and hands",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "muslim",
+    "avoids",
+    "harming",
+    "muslims",
+    "tongue",
+    "hands"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:10",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-13",
+   "collection": "Sahih al-Bukhari",
+   "number": "13",
+   "english": "none of you will have faith until he wishes for his brother what he likes for himself",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "none",
+    "faith",
+    "until",
+    "wishes",
+    "brother",
+    "likes",
+    "himself"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:13",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5033",
+   "collection": "Sahih al-Bukhari",
+   "number": "5033",
+   "english": "commit yourself to the Qur'an, for by Him in whose Hand is my soul, it is more prone to escape than a camel in its tether",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "commit",
+    "yourself",
+    "qur'an",
+    "whose",
+    "hand",
+    "soul",
+    "more",
+    "prone"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5033",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-52",
+   "collection": "Sahih al-Bukhari",
+   "number": "52",
+   "english": "the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has protected his religion and his honour",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "lawful",
+    "clear",
+    "unlawful",
+    "between",
+    "doubtful",
+    "matters",
+    "most",
+    "people"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:52",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-744",
+   "collection": "Sahih al-Bukhari",
+   "number": "744",
+   "english": "\"O Allah, set me apart from my sins as You set the east and west apart from each other; O Allah, clean me from sins as a white garment is cleaned of dirt; O Allah, wash my sins with water, snow and hail\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "apart",
+    "sins",
+    "east",
+    "west",
+    "each",
+    "other",
+    "clean",
+    "white"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:744",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-843",
+   "collection": "Sahih al-Bukhari",
+   "number": "843",
+   "english": "say \"Subhan Allah\", \"Alhamdulillah\" and \"Allahu Akbar\" thirty-three times each after every obligatory prayer",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "subhan",
+    "alhamdulillah",
+    "allahu",
+    "akbar",
+    "thirty",
+    "three",
+    "times",
+    "each"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:843",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-20"
