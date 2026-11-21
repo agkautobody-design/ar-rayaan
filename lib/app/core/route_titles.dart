@@ -65,6 +65,7 @@ abstract final class RouteTitles {
     '/auth/reset': 'Reset password',
     '/auth/verify': 'Verify email',
     '/prayer': 'Prayer Times',
+    '/prayer/after': 'After Prayer',
     '/quran': 'Qur’an',
     '/quran/bookmarks': 'Qur’an Bookmarks',
     '/hadith': 'Forty Hadith',

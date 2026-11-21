@@ -75,6 +75,7 @@ import '../features/adhkar/presentation/adhkar_screen.dart';
 import '../features/tasbeeh/presentation/tasbeeh_screen.dart';
 import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
+import '../features/prayer/presentation/after_prayer_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/marriage_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
@@ -218,6 +219,7 @@ abstract final class AppRoutes {
 
   // Feature modules (WP5 — pending Founder approval)
   static const String prayerTimes = '/prayer';
+  static const String afterPrayer = '/prayer/after';
   static const String quran = '/quran';
   static const String hadith = '/hadith';
   static const String feelings = '/feelings';
@@ -321,6 +323,7 @@ String parentRouteOf(String path) {
   if (p.startsWith('${AppRoutes.huda}/')) return AppRoutes.huda;
   if (p.startsWith('${AppRoutes.feelings}/')) return AppRoutes.feelings;
   if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
+  if (p == AppRoutes.afterPrayer) return AppRoutes.prayerTimes;
   if (p == AppRoutes.parentListening) return AppRoutes.family;
   if (p == AppRoutes.teacherGuidance) return AppRoutes.academy;
   if (p == AppRoutes.kidsGrownups || p == AppRoutes.kidsAsk) return AppRoutes.kids;
@@ -885,6 +888,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.prayerTimes,
         pageBuilder: (c, s) => _fade(const PrayerTimesScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.afterPrayer,
+        pageBuilder: (c, s) => _fade(const AfterPrayerScreen()),
       ),
       GoRoute(
         path: AppRoutes.quran,

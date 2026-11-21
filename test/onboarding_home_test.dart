@@ -201,6 +201,35 @@ void main() {
           '/prayer');
     });
 
+    testWidgets('goals can be ticked many, and unticked; the first is the door',
+        (tester) async {
+      final GoRouter router = await pumpOnboarding(tester);
+      await tester.tap(find.text('Next'));
+      await tester.pumpAndSettle();
+      for (final String t in <String>[
+        'Praying on time',
+        'Peace for my heart',
+        'A community',
+      ]) {
+        await tester.ensureVisible(find.text(t));
+        await tester.tap(find.text(t));
+        await tester.pump();
+      }
+      // Untick one: a second tap removes it.
+      await tester.ensureVisible(find.text('A community'));
+      await tester.tap(find.text('A community'));
+      await tester.pump();
+      await tester.tap(find.text('Begin'));
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pump(const Duration(milliseconds: 300));
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      expect(p.getStringList(OnboardingScreen.needsPref),
+          <String>['pray', 'peace']);
+      expect(p.getString(OnboardingScreen.needPref), 'pray');
+      expect(router.routerDelegate.currentConfiguration.last.matchedLocation,
+          '/prayer');
+    });
+
     testWidgets('Skip lands on Home and still marks it seen', (tester) async {
       final GoRouter router = await pumpOnboarding(tester);
       await tester.tap(find.text('Skip'));
