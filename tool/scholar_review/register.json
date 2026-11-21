@@ -42882,7 +42882,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='dajjal-warning'",
    "what_to_review": "Built-in answer \"dajjal-warning\": The Dajjal is the great deceiver who will appear near the end of time. Anas reported the Prophet ﷺ saying: no prophet was sent without warning his people about the one-eyed liar, who is blind in one eye while your Lord is not, and the word Kafir will be writt…",
-   "why_flagged": "Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration (Muslim 588) before approval if the reviewer agrees.",
+   "why_flagged": "Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration with its number before approval if the reviewer agrees.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -42986,7 +42986,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='first-judged-bloodshed'",
    "what_to_review": "Built-in answer \"first-judged-bloodshed\": 'Abdullah ibn Mas'ud reported the Prophet ﷺ saying: the first cases to be judged between the people are those of bloodshed (Jami' at-Tirmidhi 1396, sahih per al-Albani). This is about disputes between people. As for the worship of a person, scholars quote a s…",
-   "why_flagged": "Scholar review needed: the final sentence is stated without a source; add the narration (Tirmidhi 413 or Nasa'i 465) with its grade before approval.",
+   "why_flagged": "Scholar review needed: the final sentence is stated without a source; add the narration with its number and grade before approval.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -43012,7 +43012,7 @@
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='front-rows-prayer'",
    "what_to_review": "Built-in answer \"front-rows-prayer\": Abu Hurayrah reported the Prophet ﷺ saying: the best rows for men are the first rows and the worst the last, and the best rows for women are the last and the worst for them the first (Sahih Muslim 440). This refers to prayer in a mixed congregation, where the…",
-   "why_flagged": "Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows (Bukhari 723 or Muslim 433) before approval if wanted.",
+   "why_flagged": "Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows before approval if wanted.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

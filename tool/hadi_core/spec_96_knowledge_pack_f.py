@@ -60,7 +60,7 @@ Anas reported the Prophet ﷺ saying: {HS bukhari:7131|no prophet was sent witho
 
 The Prophet ﷺ also taught believers to seek refuge from the trial of the Dajjal at the end of the prayer. Details of his coming are reported in many narrations, and scholars advise learning them from reliable books.
 """,
-  review='Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration (Muslim 588) before approval if the reviewer agrees.')
+  review='Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration with its number before approval if the reviewer agrees.')
 
 E('firdaws-paradise',
   m=[r'\b(?:firdaws|firdous|firdaus|al firdaws)\b', r'\b(?:levels?|grades?|degrees?|ranks?) of (?:paradise|jannah)\b', r'\bhighest (?:part|level|place) (?:of|in) (?:paradise|jannah)\b', r'\bwhat should i ask allah for in jannah\b'],
@@ -105,7 +105,7 @@ E('first-judged-bloodshed',
 
 This is about disputes between people. As for the worship of a person, scholars quote a separate narration that the first thing the servant is held to account for is the prayer.
 """,
-  review='Scholar review needed: the final sentence is stated without a source; add the narration (Tirmidhi 413 or Nasa\'i 465) with its grade before approval.')
+  review='Scholar review needed: the final sentence is stated without a source; add the narration with its number and grade before approval.')
 
 E('front-rows-prayer',
   m=[r'\b(?:virtue|reward|importance|benefit) (?:of )?(?:the )?(?:first|front) (?:row|rows|saff)\b', r'\bwhy (?:is|are) (?:the )?(?:first|front) rows? (?:best|better|important)\b', r'\bbest rows? (?:for|in) (?:men|women|prayer)\b', r'\bstraight\w* (?:the )?rows? (?:in|for) (?:prayer|salah)\b'],
@@ -116,4 +116,4 @@ Abu Hurayrah reported the Prophet ﷺ saying: {HS muslim:440|the best rows for m
 
 This refers to prayer in a mixed congregation, where the women's rows are behind the men's. Keeping the rows straight and filling the gaps is also part of the prayer.
 """,
-  review='Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows (Bukhari 723 or Muslim 433) before approval if wanted.')
+  review='Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows before approval if wanted.')

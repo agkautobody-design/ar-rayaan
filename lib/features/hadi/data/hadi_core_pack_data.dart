@@ -1746,7 +1746,7 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     answer: 'The Dajjal is the great deceiver who will appear near the end of time.\n\nAnas reported the Prophet ﷺ saying: no prophet was sent without warning his people about the one-eyed liar, who is blind in one eye while your Lord is not, and the word Kafir will be written between his eyes (Sahih al-Bukhari 7131).\n\nThe Prophet ﷺ also taught believers to seek refuge from the trial of the Dajjal at the end of the prayer. Details of his coming are reported in many narrations, and scholars advise learning them from reliable books.\n\nSource: Sahih al-Bukhari 7131.\n[GO:/hadith]',
     topic: 'the Dajjal',
     beforeGate: true,
-    reviewNote: 'Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration (Muslim 588) before approval if the reviewer agrees.',
+    reviewNote: 'Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration with its number before approval if the reviewer agrees.',
   ),
   CoreEntry(
     id: 'firdaws-paradise',
@@ -1803,7 +1803,7 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     answer: '\'Abdullah ibn Mas\'ud reported the Prophet ﷺ saying: the first cases to be judged between the people are those of bloodshed (Jami\' at-Tirmidhi 1396, sahih per al-Albani).\n\nThis is about disputes between people. As for the worship of a person, scholars quote a separate narration that the first thing the servant is held to account for is the prayer.\n\nSource: Jami\' at-Tirmidhi 1396, sahih per al-Albani.\n[GO:/hadith]',
     topic: 'the first cases judged between people',
     beforeGate: true,
-    reviewNote: 'Scholar review needed: the final sentence is stated without a source; add the narration (Tirmidhi 413 or Nasa\'i 465) with its grade before approval.',
+    reviewNote: 'Scholar review needed: the final sentence is stated without a source; add the narration with its number and grade before approval.',
   ),
   CoreEntry(
     id: 'front-rows-prayer',
@@ -1816,6 +1816,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     answer: 'Abu Hurayrah reported the Prophet ﷺ saying: the best rows for men are the first rows and the worst the last, and the best rows for women are the last and the worst for them the first (Sahih Muslim 440).\n\nThis refers to prayer in a mixed congregation, where the women\'s rows are behind the men\'s. Keeping the rows straight and filling the gaps is also part of the prayer.\n\nSource: Sahih Muslim 440.\n[GO:/prayer]',
     topic: 'the rows in congregational prayer',
     beforeGate: true,
-    reviewNote: 'Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows (Bukhari 723 or Muslim 433) before approval if wanted.',
+    reviewNote: 'Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows before approval if wanted.',
   ),
 ];
