@@ -57,7 +57,7 @@ For a ruling on your own situation, such as a marriage, a debt, an inheritance o
   review='Statement of what Hadi does not do.')
 
 E('hadi-about',
-  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b', r'\bhow can you help\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b', r'\bhow (?:do|does) (?:you|hadi) work\b',
+  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b(?!\s+about\s+\w)', r'\bhow can you help\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b', r'\bhow (?:do|does) (?:you|hadi) work\b',
      r'\bare you (?:an? )?(?:ai|bot|robot|human|real|person|scholar|sheikh|shaykh|imam|mufti|alim)\b', r'\bis this (?:an? )?(?:ai|bot|human|person)\b', r'\bcan i trust you\b', r'\bare you reliable\b', r'\bare your answers (?:correct|right|accurate|reliable)\b', r'\bcan you make mistakes\b', r'\bdo you make mistakes\b'],
   x=[r'\b(?:hits?|beats?|divorce|talaq|my husband|my wife)\b'],
   topic='about hadi',
