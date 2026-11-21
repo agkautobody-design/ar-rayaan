@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ar_rayaan/features/games/data/race_protocol.dart';
+import 'package:ar_rayaan/features/games/engine/game_registry.dart';
 
 void main() {
   test('each side has its own move numbers', () {
@@ -84,5 +85,13 @@ void main() {
       status: 'playing',
     );
     expect(s.opponent.finishedMs, 12345);
+  });
+
+  test('Lineage can be raced; the other explorer screens cannot', () {
+    expect(gameById('lineage')!.canRace, isTrue);
+    expect(gameById('lineage')!.offersMode(PlayMode.friends), isTrue);
+    for (final String id in <String>['names99', 'hijrah', 'hifz']) {
+      expect(gameById(id)!.canRace, isFalse, reason: id);
+    }
   });
 }
