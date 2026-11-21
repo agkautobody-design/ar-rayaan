@@ -20,8 +20,8 @@ void main() {
           <String, dynamic>{...(i as Map<String, dynamic>), 'set': s['id']},
     ];
 
-    test('50 of the 52 items now carry a transliteration with its source', () {
-      expect(items.length, 52);
+    test('51 of the 53 items now carry a transliteration with its source', () {
+      expect(items.length, 53);
       final List<String> missing = <String>[
         for (final Map<String, dynamic> i in items)
           if (i['tl'] == null) '${i['set']} ${i['n']}',
