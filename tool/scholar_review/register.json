@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6117,
+ "total": 6133,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 736,
+   "items": 745,
    "high_priority": 22
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 670,
-   "high_priority": 127
+   "items": 677,
+   "high_priority": 131
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2648,
-  "Fiqh scholar (per madhab)": 835,
+  "Hadith / aqidah scholar": 2656,
+  "Fiqh scholar (per madhab)": 843,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 569
  },
  "totals_by_priority": {
-  "high": 1329,
-  "normal": 3971,
+  "high": 1333,
+  "normal": 3983,
   "low": 817
  },
  "items": [
@@ -43214,6 +43214,233 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.black-seed-healing",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"black-seed-healing\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='black-seed-healing'",
+   "what_to_review": "Built-in answer \"black-seed-healing\": Abu Hurayrah reported the Prophet ﷺ saying: there is healing in black cumin for all diseases except death (Sahih al-Bukhari 5688). Many Muslims take it as seeds or oil. This is a blessing and a sunnah, and it does not replace seeing a doctor and taking the tr…",
+   "why_flagged": "Scholar review needed: the second paragraph is a general caution, not a ruling; check wording before approval.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.honey-healing",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"honey-healing\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='honey-healing'",
+   "what_to_review": "Built-in answer \"honey-healing\": Ibn 'Abbas reported the Prophet ﷺ saying: healing is in three things: a gulp of honey, cupping, and branding with fire, but I forbid my followers to use branding with fire (Sahih al-Bukhari 5680). The Qur'an also says of the bee that from its bellies comes a…",
+   "why_flagged": "Scholar review needed: the advice on babies and moderation is added from general medical guidance, not from the hadith.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.ajwa-dates-morning",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ajwa-dates-morning\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ajwa-dates-morning'",
+   "what_to_review": "Built-in answer \"ajwa-dates-morning\": Sa'd ibn Abi Waqqas reported the Prophet ﷺ saying: whoever has seven Ajwa dates for his morning meal will not be harmed that day by poison or magic (Sunan Abu Dawud 3876, sahih per al-Albani). Ajwa dates are a kind of date grown around Madinah. Many Muslims k…",
+   "why_flagged": "Scholar review needed: the second paragraph is general background; confirm wording and the scholars' discussion of poison and magic.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.health-and-free-time",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"health-and-free-time\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='health-and-free-time'",
+   "what_to_review": "Built-in answer \"health-and-free-time\": Ibn 'Abbas reported the Prophet ﷺ saying: there are two blessings that many people are deceived into losing: health and free time (Sahih al-Bukhari 6412). They are easy to waste because they feel permanent. Use your good health and free hours for prayer, Qur'…",
+   "why_flagged": "Scholar review needed: the second paragraph is a general reading of the hadith.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.best-muslim-tongue-hand",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"best-muslim-tongue-hand\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='best-muslim-tongue-hand'",
+   "what_to_review": "Built-in answer \"best-muslim-tongue-hand\": Abu Musa reported that the Prophet ﷺ was asked which of the Muslims is the most virtuous. he said it is the one from whose tongue and hand the Muslims are safe (Jami' at-Tirmidhi 2504, sahih per al-Albani). So excellence is measured by how safe people are fro…",
+   "why_flagged": "Scholar review needed: the second paragraph states the conclusion drawn by scholars.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.be-mindful-of-allah",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"be-mindful-of-allah\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='be-mindful-of-allah'",
+   "what_to_review": "Built-in answer \"be-mindful-of-allah\": Ibn 'Abbas was behind the Prophet ﷺ one day when he said: be mindful of Allah and He will protect you; be mindful of Allah and you will find Him before you; when you ask, ask Allah, and when you seek aid, seek Allah's aid; if the whole creation gathered to be…",
+   "why_flagged": "Scholar review needed: the last sentence is the usual reading of the hadith, not cited; the summary is shorter than the full narration.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.believer-is-mirror",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"believer-is-mirror\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='believer-is-mirror'",
+   "what_to_review": "Built-in answer \"believer-is-mirror\": Abu Hurayrah reported the Prophet ﷺ saying: the believer is the believer's mirror, and the believer is the believer's brother who guards him against loss and protects him when he is absent (Sunan Abu Dawud 4918, hasan per Darussalam). A mirror shows you a fla…",
+   "why_flagged": "Scholar review needed: the second paragraph is a general reading of the hadith.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.miswak-siwak",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"miswak-siwak\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='miswak-siwak'",
+   "what_to_review": "Built-in answer \"miswak-siwak\": Abu Hurayrah reported the Prophet ﷺ saying: if it had not been hard for my followers, I would have ordered them to clean their teeth with the siwak for every prayer (Sahih al-Bukhari 887). So using the miswak before prayer and wudu is a strong sunnah. A tooth…",
+   "why_flagged": "Scholar review needed: the last sentence on the toothbrush is the scholars' general view and carries no source here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zakat-fitr-amount",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zakat-fitr-amount\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zakat-fitr-amount'",
+   "what_to_review": "Built-in answer \"zakat-fitr-amount\": Ibn 'Umar reported: the Prophet ﷺ enjoined one sa' of dates or one sa' of barley as Zakat-ul-Fitr on every Muslim, slave or free, male or female, young or old, to be paid before the people went out to the 'Eid prayer (Sahih al-Bukhari 1503). So it is due on e…",
+   "why_flagged": "Scholar review needed: the second paragraph (money value, the amount today) is the scholars' common view and differs by school; the amounts are not given here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -52635,7 +52862,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1503",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-1503]",
-   "what_to_review": "Sahih al-Bukhari 1503: \"Ibn Umar said the Prophet made zakat al-fitr a sa' of dates or barley on every Muslim, and ordered it be paid before people go out to the Eid prayer\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 1503: \"the Prophet ﷺ enjoined one sa' of dates or one sa' of barley as Zakat-ul-Fitr on every Muslim, slave or free, male or female, young or old, to be pai…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53529,7 +53756,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 887",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-887]",
-   "what_to_review": "Sahih al-Bukhari 887: \"The Prophet said that if it were not hard on his followers he would have ordered the siwak for every prayer\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 887: \"if it had not been hard for my followers, I would have ordered them to clean their teeth with the siwak for every prayer\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -61348,6 +61575,139 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-3876",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 3876",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-3876]",
+   "what_to_review": "Sunan Abu Dawud 3876: \"whoever has seven Ajwa dates for his morning meal will not be harmed that day by poison or magic\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-4918",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 4918",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-4918]",
+   "what_to_review": "Sunan Abu Dawud 4918: \"the believer is the believer's mirror, and the believer is the believer's brother who guards him against loss and protects him when he is absent\" (grade Hasan, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Hasan (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5680",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5680",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5680]",
+   "what_to_review": "Sahih al-Bukhari 5680: \"healing is in three things: a gulp of honey, cupping, and branding with fire, but I forbid my followers to use branding with fire\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5688",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5688",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5688]",
+   "what_to_review": "Sahih al-Bukhari 5688: \"there is healing in black cumin for all diseases except death\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-6412",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6412",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-6412]",
+   "what_to_review": "Sahih al-Bukhari 6412: \"there are two blessings that many people are deceived into losing: health and free time\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-2504",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2504",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-2504]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2504: \"he said it is the one from whose tongue and hand the Muslims are safe\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-2516",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2516",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-2516]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2516: \"be mindful of Allah and He will protect you; be mindful of Allah and you will find Him before you; when you ask, ask Allah, and when you seek aid, se…\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],
