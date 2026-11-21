@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6133,
+ "total": 6146,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 745,
+   "items": 752,
    "high_priority": 22
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 677,
-   "high_priority": 131
+   "items": 683,
+   "high_priority": 136
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2656,
-  "Fiqh scholar (per madhab)": 843,
+  "Hadith / aqidah scholar": 2662,
+  "Fiqh scholar (per madhab)": 850,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 569
  },
  "totals_by_priority": {
-  "high": 1333,
-  "normal": 3983,
+  "high": 1338,
+  "normal": 3991,
   "low": 817
  },
  "items": [
@@ -43441,6 +43441,188 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.gentleness-rifq",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"gentleness-rifq\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='gentleness-rifq'",
+   "what_to_review": "Built-in answer \"gentleness-rifq\": Aisha reported the Prophet ﷺ saying: Allah is Gentle and loves gentleness in all things (Sunan Ibn Majah 3689, sahih per al-Albani). Gentleness is meant in speech, in teaching, in dealing with family and with those under your care. Source: Sunan Ibn Majah 368…",
+   "why_flagged": "Scholar review needed: the second paragraph is a general reading of the hadith.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.good-character-scale",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"good-character-scale\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='good-character-scale'",
+   "what_to_review": "Built-in answer \"good-character-scale\": Abu ad-Darda' reported the Prophet ﷺ saying: nothing is heavier on the believer's Scale on the Day of Judgement than good character, and Allah is angered by the shameless, obscene person (Jami' at-Tirmidhi 2002, sahih per Darussalam). So good character weighs…",
+   "why_flagged": "Scholar review needed: the second paragraph is a general reading; the narration continues in the corpus line with more than is given here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.world-prison-believer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"world-prison-believer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='world-prison-believer'",
+   "what_to_review": "Built-in answer \"world-prison-believer\": Abu Hurayrah reported the Prophet ﷺ saying: the world is a prison for the believer and Paradise for the disbeliever (Jami' at-Tirmidhi 2324, sahih per al-Albani). Scholars explain that the believer is held to limits in this world, and what is waiting for him…",
+   "why_flagged": "Scholar review needed: the second paragraph gives the scholars' explanation and is not cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.seven-in-the-shade",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"seven-in-the-shade\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='seven-in-the-shade'",
+   "what_to_review": "Built-in answer \"seven-in-the-shade\": Abu Hurayrah reported the Prophet ﷺ saying: seven will be shaded by Allah on the day when there is no shade but His: a just ruler; a young man raised in worshipping Allah; a man whose heart is attached to the mosque; two who love each other for Allah's sake,…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.dua-between-adhan-iqamah",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"dua-between-adhan-iqamah\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='dua-between-adhan-iqamah'",
+   "what_to_review": "Built-in answer \"dua-between-adhan-iqamah\": Anas ibn Malik reported the Prophet ﷺ saying: the supplication made between the adhan and the iqamah is not rejected (Jami' at-Tirmidhi 212, sahih per Darussalam). So when you hear the adhan, answer it, pray for the Prophet ﷺ and then ask Allah for what you n…",
+   "why_flagged": "Scholar review needed: the second paragraph adds the steps after the adhan from general guidance and is not cited here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.friday-ghusl-early",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"friday-ghusl-early\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='friday-ghusl-early'",
+   "what_to_review": "Built-in answer \"friday-ghusl-early\": Aws ibn Aws reported the Prophet ﷺ saying: whoever performs ghusl on Friday and bathes completely, goes early, gets close, listens and is silent, will have for every step the reward of a year of fasting and standing in prayer (Jami' at-Tirmidhi 496, sahih per…",
+   "why_flagged": "Scholar review needed: the closing line restates the actions in the hadith; other Friday sunnahs are not given.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.haya-modesty",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"haya-modesty\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='haya-modesty'",
+   "what_to_review": "Built-in answer \"haya-modesty\": Abu Hurayrah reported the Prophet ﷺ saying: faith consists of more than sixty branches, and haya is a part of faith (Sahih al-Bukhari 9). Haya covers modesty, shame before Allah, self-respect and shyness at doing wrong. It guards the tongue, the eyes and the…",
+   "why_flagged": "Scholar review needed: the second paragraph explains haya in the scholars' words; the number of branches is not listed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -59878,7 +60060,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1423",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-1423]",
-   "what_to_review": "Sahih al-Bukhari 1423: \"Abu Hurayrah reported the Prophet said that among the seven shaded by Allah on the day when there will be no shade but His is a man who gives charity…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 1423: \"seven will be shaded by Allah on the day when there is no shade but His: a just ruler; a young man raised in worshipping Allah; a man whose heart is…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -61704,6 +61886,120 @@
    "key": "hadith[id=h:tirmidhi-2516]",
    "what_to_review": "Jamiʿ at-Tirmidhi 2516: \"be mindful of Allah and He will protect you; be mindful of Allah and you will find Him before you; when you ask, ask Allah, and when you seek aid, se…\" (grade Sahih, al-Albani).",
    "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-9",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 9",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-9]",
+   "what_to_review": "Sahih al-Bukhari 9: \"faith consists of more than sixty branches, and haya is a part of faith\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.ibnmajah-3689",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Ibn Majah 3689",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:ibnmajah-3689]",
+   "what_to_review": "Sunan Ibn Majah 3689: \"Allah is Gentle and loves gentleness in all things\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-2002",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2002",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-2002]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2002: \"nothing is heavier on the believer's Scale on the Day of Judgement than good character, and Allah is angered by the shameless, obscene person\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-212",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 212",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-212]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 212: \"the supplication made between the adhan and the iqamah is not rejected\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-2324",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2324",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-2324]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2324: \"the world is a prison for the believer and Paradise for the disbeliever\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-496",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 496",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-496]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 496: \"whoever performs ghusl on Friday and bathes completely, goes early, gets close, listens and is silent, will have for every step the reward of a year…\" (grade Sahih, Darussalam).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
