@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6105,
+ "total": 6117,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 729,
-   "high_priority": 21
+   "items": 736,
+   "high_priority": 22
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 665,
-   "high_priority": 126
+   "items": 670,
+   "high_priority": 127
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2643,
-  "Fiqh scholar (per madhab)": 828,
+  "Hadith / aqidah scholar": 2648,
+  "Fiqh scholar (per madhab)": 835,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 569
  },
  "totals_by_priority": {
-  "high": 1327,
-  "normal": 3961,
+  "high": 1329,
+  "normal": 3971,
   "low": 817
  },
  "items": [
@@ -43031,6 +43031,189 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.signs-of-the-hour",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"signs-of-the-hour\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='signs-of-the-hour'",
+   "what_to_review": "Built-in answer \"signs-of-the-hour\": Anas reported the Prophet ﷺ saying: among the portents of the Hour are that religious knowledge will be taken away, religious ignorance will prevail, alcohol will be very common, and open illegal sexual intercourse will be widespread (Sahih al-Bukhari 80). Th…",
+   "why_flagged": "Scholar review needed: other signs (major and minor) are reported in many narrations and are not listed here; scholars divide them into minor and major.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.last-ten-nights-effort",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"last-ten-nights-effort\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='last-ten-nights-effort'",
+   "what_to_review": "Built-in answer \"last-ten-nights-effort\": Aisha reported: when the last ten days of Ramadan began, the Prophet ﷺ would tighten his waist belt, pray all night, and keep his family awake for prayer (Sahih al-Bukhari 2024). Laylat al-Qadr is sought in these nights, and Allah says it is better than a tho…",
+   "why_flagged": "Scholar review needed: the last sentence is general guidance; scholars recommend seeking the night in the odd nights and sitting in i'tikaf. | Tirmidhi 3513 (du'a for Laylat al-Qadr): graders disagree (Zubair Ali Za'i da'if, al-Albani sahih).",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)",
+    "FIX_HADI_REPORT (Laylat al-Qadr du'a, graders disagree)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.wudu-forgiveness-reward",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"wudu-forgiveness-reward\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='wudu-forgiveness-reward'",
+   "what_to_review": "Built-in answer \"wudu-forgiveness-reward\": 'Uthman ibn 'Affan performed wudu in front of people and reported the Prophet ﷺ saying: if anyone performs ablution like mine and prays two rak'ahs without letting his mind wander to other things, his past sins will be forgiven (Sahih al-Bukhari 159). So wudu…",
+   "why_flagged": "Scholar review needed: scholars discuss which sins are meant (the minor sins) in this and similar narrations.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.religion-is-sincerity",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"religion-is-sincerity\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='religion-is-sincerity'",
+   "what_to_review": "Built-in answer \"religion-is-sincerity\": Tamim ad-Dari reported the Prophet ﷺ saying: the religion is sincerity; when asked to whom, he said to Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their masses (Sahih Muslim 55). Nasihah means wishing and doing good for the oth…",
+   "why_flagged": "Scholar review needed: the second paragraph explains the hadith in the usual words of scholars and is not cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.yawning-manners",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"yawning-manners\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='yawning-manners'",
+   "what_to_review": "Built-in answer \"yawning-manners\": Abu Hurayrah reported the Prophet ﷺ saying: yawning is from the devil, so when one of you yawns he should restrain it as far as he can (Sahih Muslim 2994). Scholars add that you can cover your mouth with your hand, and not make a sound while you do. Source: S…",
+   "why_flagged": "Scholar review needed: covering the mouth is mentioned in a separate narration that is not cited here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.ease-in-religion",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ease-in-religion\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ease-in-religion'",
+   "what_to_review": "Built-in answer \"ease-in-religion\": Allah says: Allah intends ease for you and does not intend hardship (Qur'an 2:185). Abu Musa reported the Prophet ﷺ saying: give people good news and do not scare them; make things easy and do not make them difficult (Sunan Abu Dawud 4835, sahih per al-Albani…",
+   "why_flagged": "Scholar review needed: the concessions named are examples in the second paragraph, and the narration given has a longer wording in the corpus.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.mercy-to-children",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"mercy-to-children\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='mercy-to-children'",
+   "what_to_review": "Built-in answer \"mercy-to-children\": Abu Hurayrah reported that the Prophet ﷺ kissed his grandson al-Hasan, and a man said he had ten children and had never kissed one of them. The Prophet ﷺ looked at him and said: whoever is not merciful to others will not be treated mercifully (Sahih al-Bukhar…",
+   "why_flagged": "Scholar review needed: the second paragraph states the conclusion drawn by scholars.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -52928,7 +53111,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 159",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-159]",
-   "what_to_review": "Sahih al-Bukhari 159: \"Uthman called for water, washed his hands three times, rinsed his mouth and nose, washed his face and arms to the elbows three times, wiped his head…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 159: \"if anyone performs ablution like mine and prays two rak'ahs without letting his mind wander to other things, his past sins will be forgiven\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53954,7 +54137,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5997",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-5997]",
-   "what_to_review": "Sahih al-Bukhari 5997: \"Whoever is not merciful to others will not be treated mercifully\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 5997: \"whoever is not merciful to others will not be treated mercifully\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -61070,6 +61253,101 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.abudawud-4835",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sunan Abu Dawud 4835",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:abudawud-4835]",
+   "what_to_review": "Sunan Abu Dawud 4835: \"give people good news and do not scare them; make things easy and do not make them difficult\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-2024",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2024",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-2024]",
+   "what_to_review": "Sahih al-Bukhari 2024: \"when the last ten days of Ramadan began, the Prophet ﷺ would tighten his waist belt, pray all night, and keep his family awake for prayer\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-80",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 80",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-80]",
+   "what_to_review": "Sahih al-Bukhari 80: \"among the portents of the Hour are that religious knowledge will be taken away, religious ignorance will prevail, alcohol will be very common, and op…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-2994",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 2994",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-2994]",
+   "what_to_review": "Sahih Muslim 2994: \"yawning is from the devil, so when one of you yawns he should restrain it as far as he can\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-55",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 55",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-55]",
+   "what_to_review": "Sahih Muslim 55: \"the religion is sincerity; when asked to whom, he said to Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their masses\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],

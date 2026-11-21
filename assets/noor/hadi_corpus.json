@@ -1627,23 +1627,23 @@
    "id": "h:bukhari-159",
    "collection": "Sahih al-Bukhari",
    "number": "159",
-   "english": "Uthman called for water, washed his hands three times, rinsed his mouth and nose, washed his face and arms to the elbows three times, wiped his head and washed his feet to the ankles three times, and said the Prophet taught that whoever does wudu like this and prays two rak'ahs with full attention is forgiven his earlier sins",
+   "english": "if anyone performs ablution like mine and prays two rak'ahs without letting his mind wander to other things, his past sins will be forgiven",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "uthman",
-    "called",
-    "water",
-    "washed",
-    "hands",
-    "three",
-    "times",
-    "rinsed"
+    "anyone",
+    "performs",
+    "ablution",
+    "like",
+    "mine",
+    "prays",
+    "rak'ahs",
+    "without"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:159",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-172",
@@ -2795,7 +2795,7 @@
    "id": "h:bukhari-5997",
    "collection": "Sahih al-Bukhari",
    "number": "5997",
-   "english": "Whoever is not merciful to others will not be treated mercifully",
+   "english": "whoever is not merciful to others will not be treated mercifully",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
@@ -2808,7 +2808,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5997",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-7257",
@@ -10856,6 +10856,112 @@
     "bloodshed"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:1396",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:abudawud-4835",
+   "collection": "Sunan Abu Dawud",
+   "number": "4835",
+   "english": "give people good news and do not scare them; make things easy and do not make them difficult",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "give",
+    "people",
+    "good",
+    "news",
+    "scare",
+    "make",
+    "things",
+    "easy"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:4835",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-2024",
+   "collection": "Sahih al-Bukhari",
+   "number": "2024",
+   "english": "when the last ten days of Ramadan began, the Prophet ﷺ would tighten his waist belt, pray all night, and keep his family awake for prayer",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "last",
+    "days",
+    "ramadan",
+    "began",
+    "tighten",
+    "waist",
+    "belt",
+    "pray"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2024",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-80",
+   "collection": "Sahih al-Bukhari",
+   "number": "80",
+   "english": "among the portents of the Hour are that religious knowledge will be taken away, religious ignorance will prevail, alcohol will be very common, and open illegal sexual intercourse will be widespread",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "among",
+    "portents",
+    "hour",
+    "religious",
+    "knowledge",
+    "taken",
+    "away",
+    "ignorance"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:80",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:muslim-2994",
+   "collection": "Sahih Muslim",
+   "number": "2994",
+   "english": "yawning is from the devil, so when one of you yawns he should restrain it as far as he can",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "yawning",
+    "devil",
+    "yawns",
+    "should",
+    "restrain"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2994",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:muslim-55",
+   "collection": "Sahih Muslim",
+   "number": "55",
+   "english": "the religion is sincerity; when asked to whom, he said to Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their masses",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "religion",
+    "sincerity",
+    "asked",
+    "book",
+    "leaders",
+    "muslims",
+    "masses"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:55",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-21"
