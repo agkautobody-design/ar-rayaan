@@ -70,11 +70,20 @@
        frame renders. Keeps first paint on-brand instead of a white flash. -->
   <div id="ar-boot" style="position:fixed;inset:0;background:#05090F;z-index:0;overflow:hidden;">
     <img src="assets/assets/images/splash.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(40px) brightness(0.45);" />
-    <img src="assets/assets/images/splash.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0.96;" />
+    <img id="ar-boot-art" src="assets/assets/images/splash.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0.96;" />
     <div style="position:absolute;left:50%;bottom:64px;transform:translateX(-50%);width:120px;height:2px;background:rgba(212,175,55,0.25);border-radius:2px;overflow:hidden;">
       <div style="width:40%;height:100%;background:#D4AF37;border-radius:2px;animation:ar-load 1.4s ease-in-out infinite;"></div>
     </div>
-    <style>@keyframes ar-load{0%{margin-left:-40%}100%{margin-left:100%}}</style>
+    <style>
+      @keyframes ar-load{0%{margin-left:-40%}100%{margin-left:100%}}
+      /* The artwork is landscape. On a tall phone screen it would sit small in
+         the middle, so there it is shown about twice as large, centred on the
+         gate and the verse (the two pillars are trimmed at the sides). The
+         blurred copy behind it fills the rest. */
+      @media (orientation: portrait) {
+        #ar-boot-art{inset:auto;top:50%;left:50%;width:min(198vw,150vh);height:auto;max-width:none;object-fit:fill;transform:translate(-50%,-50%);}
+      }
+    </style>
     <!-- Shown by the watchdog script below if the app has not drawn its first
          frame after 20 s, or if the app script fails to load at all. -->
     <div id="ar-boot-msg" role="alert" hidden
@@ -92,7 +101,7 @@
        files so the app opens again with no internet once it has been opened
        online in this browser. It is NETWORK FIRST: whenever a connection
        exists the newest build is fetched and kept, and the kept copy is used
-       only when the network fails or takes more than 6 seconds. That keeps the
+       only when the network fails or takes more than 2.5 seconds. That keeps the
        reason the earlier version had no caching worker (a stale build means
        stale content and stale safety text) while ending the "No internet"
        browser page on reopen. Flutter's own worker is not used: it is the
