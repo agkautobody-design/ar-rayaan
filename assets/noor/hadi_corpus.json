@@ -1087,23 +1087,23 @@
    "id": "h:bukhari-1503",
    "collection": "Sahih al-Bukhari",
    "number": "1503",
-   "english": "Ibn Umar said the Prophet made zakat al-fitr a sa' of dates or barley on every Muslim, and ordered it be paid before people go out to the Eid prayer",
+   "english": "the Prophet ﷺ enjoined one sa' of dates or one sa' of barley as Zakat-ul-Fitr on every Muslim, slave or free, male or female, young or old, to be paid before the people went out to the 'Eid prayer",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "umar",
-    "made",
-    "zakat",
-    "fitr",
+    "enjoined",
     "dates",
     "barley",
+    "zakat",
+    "fitr",
     "every",
-    "muslim"
+    "muslim",
+    "slave"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1503",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2010",
@@ -2100,13 +2100,15 @@
    "id": "h:bukhari-887",
    "collection": "Sahih al-Bukhari",
    "number": "887",
-   "english": "The Prophet said that if it were not hard on his followers he would have ordered the siwak for every prayer",
+   "english": "if it had not been hard for my followers, I would have ordered them to clean their teeth with the siwak for every prayer",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
     "hard",
     "followers",
     "ordered",
+    "clean",
+    "teeth",
     "siwak",
     "every",
     "prayer"
@@ -2114,7 +2116,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:887",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1162",
@@ -10962,6 +10964,156 @@
     "masses"
    ],
    "verifiedAt": "https://sunnah.com/muslim:55",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:abudawud-3876",
+   "collection": "Sunan Abu Dawud",
+   "number": "3876",
+   "english": "whoever has seven Ajwa dates for his morning meal will not be harmed that day by poison or magic",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "whoever",
+    "seven",
+    "ajwa",
+    "dates",
+    "morning",
+    "meal",
+    "harmed",
+    "poison"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:3876",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:abudawud-4918",
+   "collection": "Sunan Abu Dawud",
+   "number": "4918",
+   "english": "the believer is the believer's mirror, and the believer is the believer's brother who guards him against loss and protects him when he is absent",
+   "grade": "Hasan",
+   "grader": "Darussalam",
+   "topics": [
+    "believer",
+    "believer's",
+    "mirror",
+    "brother",
+    "guards",
+    "against",
+    "loss",
+    "protects"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:4918",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-5680",
+   "collection": "Sahih al-Bukhari",
+   "number": "5680",
+   "english": "healing is in three things: a gulp of honey, cupping, and branding with fire, but I forbid my followers to use branding with fire",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "healing",
+    "three",
+    "things",
+    "gulp",
+    "honey",
+    "cupping",
+    "branding",
+    "fire"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5680",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-5688",
+   "collection": "Sahih al-Bukhari",
+   "number": "5688",
+   "english": "there is healing in black cumin for all diseases except death",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "there",
+    "healing",
+    "black",
+    "cumin",
+    "diseases",
+    "except",
+    "death"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5688",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-6412",
+   "collection": "Sahih al-Bukhari",
+   "number": "6412",
+   "english": "there are two blessings that many people are deceived into losing: health and free time",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "there",
+    "blessings",
+    "many",
+    "people",
+    "deceived",
+    "into",
+    "losing",
+    "health"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6412",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-2504",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2504",
+   "english": "he said it is the one from whose tongue and hand the Muslims are safe",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "whose",
+    "tongue",
+    "hand",
+    "muslims",
+    "safe"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2504",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-2516",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2516",
+   "english": "be mindful of Allah and He will protect you; be mindful of Allah and you will find Him before you; when you ask, ask Allah, and when you seek aid, seek Allah's aid; if the whole creation gathered to benefit you, you would get nothing except what Allah has written for you, and if they gathered to harm you, they could harm you only with what Allah has written; the pens are lifted and the pages are dried",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "mindful",
+    "protect",
+    "find",
+    "before",
+    "seek",
+    "allah's",
+    "whole",
+    "creation"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2516",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-21"
