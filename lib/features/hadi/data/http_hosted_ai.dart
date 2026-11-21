@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../../app/core/backend/token_store.dart';
 import '../application/hadi_provider.dart';
 import 'groq_hadi_provider.dart' show HadiProviderException;
 import 'hosted_ai.dart';
@@ -15,16 +14,16 @@ import 'hosted_ai.dart';
 class HttpHostedAi implements HostedAi {
   HttpHostedAi({
     required String baseUrl,
-    required TokenStore tokens,
+    required Future<String?> Function() readToken,
     http.Client? client,
     Duration timeout = const Duration(seconds: 30),
   })  : _base = baseUrl.replaceAll(RegExp(r'/+$'), ''),
-        _tokens = tokens,
+        _readToken = readToken,
         _client = client ?? http.Client(),
         _timeout = timeout;
 
   final String _base;
-  final TokenStore _tokens;
+  final Future<String?> Function() _readToken;
   final http.Client _client;
   final Duration _timeout;
 
@@ -52,7 +51,7 @@ class HttpHostedAi implements HostedAi {
 
   @override
   Future<HostedAiReply> ask(HostedAiRequest request) async {
-    final String? token = await _tokens.read();
+    final String? token = await _readToken();
     if (token == null) {
       throw const HadiProviderException(
           'Sign in to use live answers. The built-in library still works.');

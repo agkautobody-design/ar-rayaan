@@ -10,6 +10,7 @@ import 'app/app.dart';
 import 'app/core/child_mode.dart';
 import 'app/core/env_config.dart';
 import 'app/core/error_handling.dart';
+import 'app/core/hadi_ai_wiring.dart';
 import 'app/core/restart_app.dart';
 import 'app/crashlytics_initializer.dart';
 import 'app/push_notification_service.dart';
@@ -126,6 +127,7 @@ Future<void> _start() async {
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
         authRepositoryProvider.overrideWithValue(authRepo),
+        ...hadiAiOverrides(),
       ],
       child: WorshipBoot(
         child: ArRayaanApp(env: env, showOnboarding: showOnboarding),

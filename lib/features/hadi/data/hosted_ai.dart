@@ -1,15 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../app/core/backend/backend_config.dart';
-import '../../../app/core/backend/prefs_token_store.dart';
 import '../../../app/core/packages/hadi_package.dart';
-import '../../../app/core/providers.dart';
 import '../../../app/core/packages/usage_meter.dart';
 import '../application/hadi_provider.dart';
 import 'groq_hadi_provider.dart' show HadiProviderException;
 import 'user_knows.dart';
 import 'hosted_cache.dart';
-import 'http_hosted_ai.dart';
 
 /// The hosted-AI seam for Hādi: answers out-of-library questions for people
 /// on a package that allows it.
@@ -137,20 +133,13 @@ class UnavailableHostedAi implements HostedAi {
   }
 }
 
-/// The proxy client when this build was compiled for the real service
-/// (`COMMUNITY_BACKEND=http` and `COMMUNITY_API_URL`, the same server as the
-/// community features), otherwise [UnavailableHostedAi]. The server answers
-/// 503 until the owner has put a provider key on it, in which case the app
-/// simply keeps using the built-in library.
-final Provider<HostedAi> hostedAiProvider = Provider<HostedAi>((ref) {
-  if (BackendConfig.mode != BackendMode.http) return const UnavailableHostedAi();
-  final HttpHostedAi api = HttpHostedAi(
-    baseUrl: BackendConfig.apiUrl,
-    tokens: PrefsTokenStore(ref.watch(sharedPreferencesProvider)),
-  );
-  ref.onDispose(api.close);
-  return api;
-});
+/// No backend by default. A build compiled for the owner's service replaces
+/// this with [HttpHostedAi] from outside the Hādi feature (see
+/// app/core/hadi_ai_wiring.dart), so Hādi code never reaches the community
+/// service. The server answers 503 until the owner has put a provider key on
+/// it, in which case the app simply keeps using the built-in library.
+final Provider<HostedAi> hostedAiProvider =
+    Provider<HostedAi>((ref) => const UnavailableHostedAi());
 
 /// The label every hosted answer carries, in the reply itself so it survives
 /// saving and restoring the conversation.
