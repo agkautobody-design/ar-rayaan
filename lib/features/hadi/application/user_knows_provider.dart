@@ -98,10 +98,11 @@ class UserKnowsNotifier extends Notifier<UserKnows> {
   }
 
   /// Learns from a question Hadi answered. Never throws.
-  Future<void> noteQuestion(String question) async {
+  Future<void> noteQuestion(String question, {String? answerId}) async {
     try {
       if (!await _allowedHere()) return;
-      final UserKnows next = UserKnowsRules.learn(state, question, DateTime.now());
+      final UserKnows next = UserKnowsRules.learn(state, question, DateTime.now(),
+          answerId: answerId);
       if (identical(next, state)) return;
       await _save(next);
       unawaited(_syncUp());
@@ -142,6 +143,11 @@ class UserKnowsNotifier extends Notifier<UserKnows> {
 
   Future<void> forgetRole(String key) async {
     await _save(state.withoutRole(key));
+    unawaited(_syncUp());
+  }
+
+  Future<void> forgetCovered(String key) async {
+    await _save(state.withoutCovered(key));
     unawaited(_syncUp());
   }
 

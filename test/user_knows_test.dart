@@ -86,14 +86,16 @@ void main() {
       expect(k.asked, 3);
     });
 
-    test('a subject unmentioned for 90 days is forgotten', () {
+    test('a subject unmentioned for a year is forgotten, not before', () {
       final UserKnows k = _learn(UserKnows.empty, 'what is zakat on gold');
-      final UserKnows later = _learn(k, 'how do I pray witr', _now.add(const Duration(days: 120)));
+      final UserKnows mid = _learn(k, 'how do I pray witr', _now.add(const Duration(days: 120)));
+      expect(mid.topics.containsKey('zakat'), isTrue);
+      final UserKnows later = _learn(k, 'how do I pray witr', _now.add(const Duration(days: 400)));
       expect(later.topics.containsKey('zakat'), isFalse);
       expect(later.topics.containsKey('prayer'), isTrue);
     });
 
-    test('only the strongest eight subjects are kept', () {
+    test('only the strongest subjects are kept', () {
       UserKnows k = UserKnows.empty;
       for (final String q in <String>[
         'how do I pray witr', 'what is zakat on gold', 'how do I make wudu',
@@ -238,5 +240,57 @@ void main() {
     final String block = rules.substring(at, rules.indexOf('// ── Online game rooms', at));
     expect(block, contains('request.auth.uid == uid'));
     expect(block, contains('{document=**}'));
+  });
+
+  group('answers already given (long-term memory)', () {
+    test('an answer id is remembered with its count and day', () {
+      UserKnows k = UserKnowsRules.learn(
+          UserKnows.empty, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      k = UserKnowsRules.learn(k, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      expect(k.covered['tarawih-prayer']!.count, 2);
+      expect(k.covered['tarawih-prayer']!.last, '2026-11-18');
+    });
+
+    test('it survives encode/decode and a bad id is dropped', () {
+      final UserKnows k = UserKnowsRules.learn(
+          UserKnows.empty, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      final UserKnows back = UserKnows.decode(k.encode());
+      expect(back.covered.keys, <String>['tarawih-prayer']);
+      final UserKnows bad = UserKnows.fromJson(<String, Object>{
+        'e': <String, Object>{
+          'Bad Id!': <String, Object>{'c': 1, 'd': '2026-11-18'},
+        },
+      });
+      expect(bad.covered, isEmpty);
+    });
+
+    test('a sensitive question teaches nothing, not even an answer id', () {
+      final UserKnows k = UserKnowsRules.learn(
+          UserKnows.empty, 'I have diabetes, can I fast', _now,
+          answerId: 'fasting-sick');
+      expect(k.covered, isEmpty);
+    });
+
+    test('merge keeps the larger count, and delete removes one', () {
+      final UserKnows a = UserKnowsRules.learn(
+          UserKnows.empty, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      final UserKnows b = UserKnowsRules.learn(a, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      final UserKnows m = UserKnowsRules.merge(a, b, _now);
+      expect(m.covered['tarawih-prayer']!.count, 2);
+      expect(m.withoutCovered('tarawih-prayer').covered, isEmpty);
+    });
+
+    test('it is forgotten after a year', () {
+      final UserKnows a = UserKnowsRules.learn(
+          UserKnows.empty, 'how do I pray tarawih', _now,
+          answerId: 'tarawih-prayer');
+      final UserKnows later = UserKnowsRules.tidy(a, _now.add(const Duration(days: 400)));
+      expect(later.covered, isEmpty);
+    });
   });
 }
