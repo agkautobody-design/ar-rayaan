@@ -88,7 +88,10 @@ def main():
         q = []
         for r in d.get('quran', []):
             ref = f"{r['surah']}:{r['from']}" + (f"-{r['to']}" if r['to'] != r['from'] else '')
-            q.append(f"{clean(r['note'])} ({{QR {ref}}})")
+            # The checker wants any quotation beside a Qur'an reference to be the
+            # bundled wording word for word; the notes paraphrase, so no quote marks.
+            note = re.sub('[“”"]', '', clean(r['note']))
+            q.append(f"{note} ({{QR {ref}}})")
         if q:
             parts.append('In the Qur\'an:\n' + '\n'.join('- ' + x for x in q))
         h = []

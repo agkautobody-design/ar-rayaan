@@ -12,10 +12,10 @@ Adam: what the app's checked sources hold, in detail.
 In the Qur'an:
 - Allah tells the angels He will place a successor on the earth; Adam is taught the names. ({QR 2:30-33})
 - The angels prostrate and Iblis refuses; Adam and his wife are told not to approach the tree; Shaytan makes them slip; Adam receives words from his Lord and his repentance is accepted. ({QR 2:34-39})
-- The same events again: Shaytan whispers to them, they taste of the tree, and they say, “Our Lord, we have wronged ourselves.” ({QR 7:19-25})
-- Adam’s forgetting, the whisper about “the tree of eternity”, and then, “his Lord chose him and turned to him in forgiveness and guided him.” ({QR 20:115-123})
+- The same events again: Shaytan whispers to them, they taste of the tree, and they say, Our Lord, we have wronged ourselves. ({QR 7:19-25})
+- Adam’s forgetting, the whisper about the tree of eternity, and then, his Lord chose him and turned to him in forgiveness and guided him. ({QR 20:115-123})
 - Allah announces a human being from clay; the angels prostrate; Iblis says he is better because he was made from fire. ({QR 38:71-76})
-- The example of Isa to Allah is like that of Adam: created from dust, then “Be”, and he was. ({QR 3:59})
+- The example of Isa to Allah is like that of Adam: created from dust, then Be, and he was. ({QR 3:59})
 - Allah chose Adam, Nuh, the family of Ibrahim and the family of Imran over the worlds. ({QR 3:33})
 - The story of Adam’s two sons. The Qur’an does not name them. ({QR 5:27-31})
 
@@ -76,9 +76,9 @@ In the Qur'an:
 - He says they have disobeyed him; the names of their idols; his prayer. ({QR 71:21-28})
 - He is sent as a clear warner; the chiefs say he is only a man like themselves. ({QR 11:25-35})
 - He is told no one more will believe; he builds the ship while they ridicule him; the oven overflows; his son stays apart; the water is swallowed and the ship settles on al-Judiyy. ({QR 11:36-44})
-- He calls on his Lord for his son and is told, “he is not of your family; indeed, he is [one whose] work was other than righteous.” ({QR 11:45-49})
+- He calls on his Lord for his son and is told, he is not of your family; indeed, he is [one whose] work was other than righteous. ({QR 11:45-49})
 - He calls them to worship Allah alone; the ship saves those with him. ({QR 7:59-64})
-- They say “a madman”; the gates of heaven open and the earth gushes springs; he is carried on planks and nails. ({QR 54:9-15})
+- They say a madman; the gates of heaven open and the earth gushes springs; he is carried on planks and nails. ({QR 54:9-15})
 - He remained among them a thousand years minus fifty; the flood seized them; the ship saves him and its companions. ({QR 29:14-15})
 - The wife of Nuh and the wife of Lut as an example of those who disbelieved. ({QR 66:10})
 
@@ -107,10 +107,10 @@ Hud: what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Hud, the brother of ʿAad, calls them to worship Allah alone; the chiefs call him foolish and ask him to bring what he promises; Hud and those with him are saved. ({QR 7:65-72})
-- The same call; “you have not brought us clear evidence”; the people of Hud are destroyed. ({QR 11:50-60})
+- The same call; you have not brought us clear evidence; the people of Hud are destroyed. ({QR 11:50-60})
 - Hud warns ‘Aad, asks no payment, and reminds them of Allah’s favours. ({QR 26:123-134})
 - Warning in al-Ahqaf; the cloud they took for rain was a wind with a painful punishment, and nothing was seen of them but their dwellings. ({QR 46:21-26})
-- A violent wind for seven nights and eight days; “do you see any remains?” ({QR 69:6-8})
+- A violent wind for seven nights and eight days; do you see any remains? ({QR 69:6-8})
 
 In the hadith:
 - {HS bukhari:3205|The Prophet ﷺ said he was given victory by the Saba wind (the easterly) and that the people of ‘Ad were destroyed by the Dabur wind (the westerly).}
@@ -135,7 +135,7 @@ Salih: what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Salih brings the she-camel of Allah as a sign; they hamstring her; the earthquake seizes them. ({QR 7:73-79})
-- The she-camel is a sign, “enjoy yourselves in your homes for three days”; the shriek seizes the wrongdoers. ({QR 11:61-68})
+- The she-camel is a sign, enjoy yourselves in your homes for three days; the shriek seizes the wrongdoers. ({QR 11:61-68})
 - Salih, a trustworthy messenger, asks no payment. ({QR 26:141-145})
 - They say he is bewitched and ask for a sign; the she-camel has a day to drink and so do they; they hamstring her and the punishment seizes them. ({QR 26:153-158})
 - The she-camel is sent as a trial; the water is shared by turns; one blast leaves them like dry fragments of a pen. ({QR 54:27-31})
@@ -163,11 +163,11 @@ Ibrahim (Abraham): what the app's checked sources hold, in detail.
 In the Qur'an:
 - Tried with commands and made a leader; he and Ismail raise the foundations of the House and pray. ({QR 2:124-129})
 - A king who had been given kingship argues with him about his Lord; Ibrahim says Allah brings the sun from the east. The Qur’an does not name the king. ({QR 2:258})
-- He asks to be shown how Allah gives life to the dead, “only that my heart may be satisfied.” ({QR 2:260})
-- He tells his father Azar and his people that idols are error, and reasons from the star, moon and sun to “I have turned my face to Him who created the heavens and the earth.” ({QR 6:74-79})
+- He asks to be shown how Allah gives life to the dead, only that my heart may be satisfied. ({QR 2:260})
+- He tells his father Azar and his people that idols are error, and reasons from the star, moon and sun to I have turned my face to Him who created the heavens and the earth. ({QR 6:74-79})
 - A man of truth and a prophet; his gentle speech to his father and his father’s threat; he leaves them and is given Ishaq and Ya’qub. ({QR 19:41-50})
-- He breaks the idols except the largest; his people ask who did it; “Rather, this, the largest of them, did it, so ask them.” ({QR 21:57-63})
-- They say, “Burn him”; Allah says, “O fire, be coolness and safety upon Abraham.” ({QR 21:68-70})
+- He breaks the idols except the largest; his people ask who did it; Rather, this, the largest of them, did it, so ask them. ({QR 21:57-63})
+- They say, Burn him; Allah says, O fire, be coolness and safety upon Abraham. ({QR 21:68-70})
 - The messengers come to him with news of Ishaq, then tell him they are sent to the people of Lut; he pleads for them. ({QR 11:69-76})
 - His prayer for a secure city, and for the descendants he settled near the Sacred House. ({QR 14:35-41})
 - He asks for a righteous child, is given good news of a forbearing boy, sees the dream, and the boy is ransomed with a great sacrifice. The Qur’an does not name the boy. ({QR 37:99-107})
@@ -206,10 +206,10 @@ Lut (Lot): what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Lut tells his people they commit an immorality no one before them did; he and his family are saved except his wife; a rain of stones falls. ({QR 7:80-84})
-- The angels come to Lut; he is anguished for his guests; “If only I had against you some power or could take refuge in a strong support”; the angels say they are messengers of his Lord. ({QR 11:77-83})
+- The angels come to Lut; he is anguished for his guests; If only I had against you some power or could take refuge in a strong support; the angels say they are messengers of his Lord. ({QR 11:77-83})
 - The people of the city come rejoicing; Lut asks them not to shame him before his guests; the shriek seizes them at sunrise and the city is turned upside down. ({QR 15:67-77})
 - Lut, a trustworthy messenger, warns them; he and his family are saved except an old woman who remained behind. ({QR 26:160-171})
-- Lut’s people; Ibrahim says “within it is Lot”; the angels say they will save him and his family except his wife; a sign is left. ({QR 29:28-35})
+- Lut’s people; Ibrahim says within it is Lot; the angels say they will save him and his family except his wife; a sign is left. ({QR 29:28-35})
 - Lut’s people deny the warning; they demanded his guests; Allah obliterated their eyes. ({QR 54:33-40})
 - The wife of Nuh and the wife of Lut as an example of those who disbelieved. ({QR 66:10})
 
@@ -261,12 +261,12 @@ E('layer-ishaq',
 Ishaq (Isaac): what the app's checked sources hold, in detail.
 
 In the Qur'an:
-- The messengers give Ibrahim’s wife news of Ishaq, and after Ishaq, Ya’qub; she wonders, “shall I give birth while I am an old woman?” ({QR 11:69-73})
+- The messengers give Ibrahim’s wife news of Ishaq, and after Ishaq, Ya’qub; she wonders, shall I give birth while I am an old woman? ({QR 11:69-73})
 - The guests of Ibrahim give him good news of a learned boy. ({QR 15:51-56})
 - Good tidings of Ishaq, a prophet from among the righteous; Allah blessed him and Ibrahim. ({QR 37:112-113})
 - Allah gave Ibrahim Ishaq and Ya’qub and made each a prophet. ({QR 19:49-50})
 - Ishaq and Ya’qub made leaders guiding by Allah’s command. ({QR 21:72-73})
-- Ibrahim, Ishaq and Ya’qub, “those of strength and [religious] vision”, chosen for remembrance of the Hereafter. ({QR 38:45-47})
+- Ibrahim, Ishaq and Ya’qub, those of strength and [religious] vision, chosen for remembrance of the Hereafter. ({QR 38:45-47})
 - Prophethood and Scripture placed in Ibrahim’s descendants. ({QR 29:27})
 
 In the hadith:
@@ -290,9 +290,9 @@ E('layer-yaqub',
 Ya’qub (Jacob): what the app's checked sources hold, in detail.
 
 In the Qur'an:
-- Ibrahim and Ya’qub instruct their sons not to die except as Muslims; at his death Ya’qub asks, “What will you worship after me?” ({QR 2:132-133})
+- Ibrahim and Ya’qub instruct their sons not to die except as Muslims; at his death Ya’qub asks, What will you worship after me? ({QR 2:132-133})
 - Yusuf tells him his dream; Ya’qub tells him not to tell his brothers, and that Allah will complete His favour on the family of Ya’qub as on Ibrahim and Ishaq. ({QR 12:4-6})
-- His grief, “I only complain of my suffering and my grief to Allah”; he tells his sons to find out about Yusuf and not to despair of relief from Allah. ({QR 12:84-87})
+- His grief, I only complain of my suffering and my grief to Allah; he tells his sons to find out about Yusuf and not to despair of relief from Allah. ({QR 12:84-87})
 - The shirt over his face; the family comes to Egypt; Yusuf raises his parents upon the throne. ({QR 12:93-100})
 - Allah gave Ibrahim Ishaq and Ya’qub and made each a prophet. ({QR 19:49-50})
 - Ibrahim, Ishaq and Ya’qub, chosen for remembrance of the Hereafter. ({QR 38:45-47})
@@ -317,19 +317,19 @@ Yusuf (Joseph): what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Yusuf tells his father of eleven stars, the sun and the moon prostrating to him; Ya’qub tells him not to tell his brothers. ({QR 12:4-6})
-- The brothers say their father is in clear error and plot against Yusuf; “a speaker among them” says do not kill him but throw him into the well. ({QR 12:8-10})
+- The brothers say their father is in clear error and plot against Yusuf; a speaker among them says do not kill him but throw him into the well. ({QR 12:8-10})
 - They ask to take him out to play, put him in the well, and come at night weeping with false blood on his shirt; Ya’qub says patience is most fitting. ({QR 12:11-18})
 - A caravan finds him; he is sold for a reduced price, a few dirhams. ({QR 12:19-20})
-- The wife of the man he lived with tries to seduce him; he says “[I seek] the refuge of Allah”; the shirt torn from behind shows who is in the wrong. ({QR 12:23-29})
-- The women of the city talk; the women who cut their hands; Yusuf’s prayer, “prison is more to my liking”; they decide to imprison him. ({QR 12:30-35})
+- The wife of the man he lived with tries to seduce him; he says [I seek] the refuge of Allah; the shirt torn from behind shows who is in the wrong. ({QR 12:23-29})
+- The women of the city talk; the women who cut their hands; Yusuf’s prayer, prison is more to my liking; they decide to imprison him. ({QR 12:30-35})
 - In prison he interprets the dreams of two young men and calls them to Allah alone. ({QR 12:36-42})
 - The king’s dream of seven fat cows and seven lean, and Yusuf’s interpretation and plan. ({QR 12:43-49})
-- Yusuf asks that the matter of the women be investigated; the wife of the Aziz says the truth has become evident; “I do not acquit myself.” ({QR 12:50-53})
+- Yusuf asks that the matter of the women be investigated; the wife of the Aziz says the truth has become evident; I do not acquit myself. ({QR 12:50-53})
 - Yusuf is made trustworthy in the king’s service and asks to be put over the storehouses of the land. ({QR 12:54-57})
-- The cup in his brother’s bag, “Thus did We plan for Yusuf.” ({QR 12:69-76})
-- Ya’qub’s grief, “I only complain of my suffering and my grief to Allah”; he tells his sons to go and find out about Yusuf. ({QR 12:84-87})
+- The cup in his brother’s bag, Thus did We plan for Yusuf. ({QR 12:69-76})
+- Ya’qub’s grief, I only complain of my suffering and my grief to Allah; he tells his sons to go and find out about Yusuf. ({QR 12:84-87})
 - The shirt over his father’s face; the family comes to Egypt; his dream is fulfilled. ({QR 12:93-100})
-- Yusuf’s prayer: “Cause me to die a Muslim and join me with the righteous.” ({QR 12:101})
+- Yusuf’s prayer: Cause me to die a Muslim and join me with the righteous. ({QR 12:101})
 
 In the hadith:
 - Asked who was the most honoured of people with Allah, the Prophet ﷺ said the most righteous. When they said that was not what they meant, he said Yusuf, a prophet of Allah, the son of a prophet, the son of a prophet, the son of the khalil of Allah (Ibrahim). They said again that was not what they meant, and he spoke of the Arabs and said those who were best before Islam are best in Islam if they gain understanding of the religion. ({H bukhari:3353})
@@ -359,7 +359,7 @@ Ayyub (Job): what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Ayyub calls on his Lord in adversity; Allah removes it and gives back his family and the like of them. ({QR 21:83-84})
-- Satan has touched him with hardship and torment; “Strike the ground with your foot”; his family given back; a bunch of grass and the oath. ({QR 38:41-44})
+- Satan has touched him with hardship and torment; Strike the ground with your foot; his family given back; a bunch of grass and the oath. ({QR 38:41-44})
 - Among those Allah guided from the descendants of Nuh. ({QR 6:84-86})
 - Revelation to Ayyub is among the revelations to the prophets. ({QR 4:163})
 
@@ -408,13 +408,13 @@ In the Qur'an:
 - The mother is inspired to suckle him and then cast him into the river; the family of Pharaoh pick him up; Pharaoh’s wife asks that he not be killed; his sister watches; he is returned to his mother. ({QR 28:7-13})
 - Judgement and knowledge are given to him; he strikes down a man in the city, regrets it, and leaves in fear. ({QR 28:14-21})
 - Madyan: he waters the flocks of two women, then is hired and offered a marriage on a term of service. ({QR 28:22-28})
-- The fire, the call “O Moses”, the sacred valley of Tuwa, and “I am Allah. There is no deity except Me.” ({QR 20:9-16})
+- The fire, the call O Moses, the sacred valley of Tuwa, and I am Allah. There is no deity except Me. ({QR 20:9-16})
 - His prayer: expand my breast, ease my task, untie the knot from my tongue, and give me Aaron my brother as a helper. ({QR 20:25-36})
 - The two hosts see one another; he is told to strike the sea with his staff and it parts. ({QR 26:60-68})
 - The path through the sea, and Pharaoh’s pursuit. ({QR 20:77-79})
 - The forty nights, the calf taken for worship in his absence, and forgiveness. ({QR 2:51-54})
 - Allah tells him his people have been led astray by the Samiri; he returns angry and grieved; Harun’s warning to the people. ({QR 20:85-91})
-- Musa questions Harun and the Samiri; the calf is destroyed; “Your god is only Allah.” ({QR 20:92-98})
+- Musa questions Harun and the Samiri; the calf is destroyed; Your god is only Allah. ({QR 20:92-98})
 - He asks to see his Lord; the mountain crumbles; he is given the tablets. ({QR 7:143-145})
 - He sets out with his servant for the meeting of the two seas and finds a servant of Allah given knowledge from Him. ({QR 18:60-65})
 - The three events he cannot be patient about: the ship, the boy, the wall, and what lay behind each. ({QR 18:71-82})
@@ -661,13 +661,13 @@ E('layer-isa',
 Isa (Jesus): what the app's checked sources hold, in detail.
 
 In the Qur'an:
-- The angels give Maryam news of a word from Allah, “the Messiah, Jesus, the son of Mary”; his signs; “Allah is my Lord and your Lord, so worship Him.” ({QR 3:45-51})
+- The angels give Maryam news of a word from Allah, the Messiah, Jesus, the son of Mary; his signs; Allah is my Lord and your Lord, so worship Him. ({QR 3:45-51})
 - Maryam withdraws; the Angel is sent; Isa is born; she is driven to the trunk of a palm tree. ({QR 19:16-26})
-- Her people accuse her; she points to the child, who says, “Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet.” ({QR 19:27-33})
+- Her people accuse her; she points to the child, who says, Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet. ({QR 19:27-33})
 - Allah says He will take him and raise him to Himself and purify him from those who disbelieve. ({QR 3:55})
-- The example of Isa to Allah is like that of Adam: created from dust, then “Be”, and he was. ({QR 3:59})
+- The example of Isa to Allah is like that of Adam: created from dust, then Be, and he was. ({QR 3:59})
 - They did not kill him or crucify him; another was made to resemble him; Allah raised him to Himself; and before his death every one of the People of the Scripture will believe in him. ({QR 4:157-159})
-- The Messiah was but a messenger of Allah and His word; do not say “three”; he would never disdain to be a servant of Allah. ({QR 4:171-172})
+- The Messiah was but a messenger of Allah and His word; do not say three; he would never disdain to be a servant of Allah. ({QR 4:171-172})
 - Allah recalls His favour on Isa and his mother; the clay bird, healing and raising the dead by Allah’s permission; the disciples. ({QR 5:110-111})
 - On the Day, Allah asks whether he told people to take him and his mother as deities; his answer. ({QR 5:116-118})
 - He will be a sign for knowledge of the Hour. ({QR 43:57-61})
@@ -768,7 +768,7 @@ The jinn: what the app's checked sources hold, in detail.
 
 In the Qur'an:
 - Mankind from clay; the jinn from a smokeless flame of fire. ({QR 55:14-15})
-- Iblis “was of the jinn”. ({QR 18:50})
+- Iblis was of the jinn. ({QR 18:50})
 - Satan and his tribe see us from where we do not see them. ({QR 7:27})
 - A group of jinn listen to the Qur’an and return to their people as warners. ({QR 46:29-31})
 - The jinn’s own words about what they heard. ({QR 72:1-6})

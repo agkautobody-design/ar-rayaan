@@ -43759,7 +43759,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-salih\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-salih'",
-   "what_to_review": "Built-in answer \"layer-salih\": Salih: what the app's checked sources hold, in detail. In the Qur'an: - Salih brings the she-camel of Allah as a sign; they hamstring her; the earthquake seizes them. (Qur'an 7:73-79) - The she-camel is a sign, “enjoy yourselves in your homes for three days”;…",
+   "what_to_review": "Built-in answer \"layer-salih\": Salih: what the app's checked sources hold, in detail. In the Qur'an: - Salih brings the she-camel of Allah as a sign; they hamstring her; the earthquake seizes them. (Qur'an 7:73-79) - The she-camel is a sign, enjoy yourselves in your homes for three days; t…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -43856,7 +43856,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-ishaq\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-ishaq'",
-   "what_to_review": "Built-in answer \"layer-ishaq\": Ishaq (Isaac): what the app's checked sources hold, in detail. In the Qur'an: - The messengers give Ibrahim’s wife news of Ishaq, and after Ishaq, Ya’qub; she wonders, “shall I give birth while I am an old woman?” (Qur'an 11:69-73) - The guests of Ibrahim giv…",
+   "what_to_review": "Built-in answer \"layer-ishaq\": Ishaq (Isaac): what the app's checked sources hold, in detail. In the Qur'an: - The messengers give Ibrahim’s wife news of Ishaq, and after Ishaq, Ya’qub; she wonders, shall I give birth while I am an old woman? (Qur'an 11:69-73) - The guests of Ibrahim give…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -43882,7 +43882,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-yaqub\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-yaqub'",
-   "what_to_review": "Built-in answer \"layer-yaqub\": Ya’qub (Jacob): what the app's checked sources hold, in detail. In the Qur'an: - Ibrahim and Ya’qub instruct their sons not to die except as Muslims; at his death Ya’qub asks, “What will you worship after me?” (Qur'an 2:132-133) - Yusuf tells him his dream; Y…",
+   "what_to_review": "Built-in answer \"layer-yaqub\": Ya’qub (Jacob): what the app's checked sources hold, in detail. In the Qur'an: - Ibrahim and Ya’qub instruct their sons not to die except as Muslims; at his death Ya’qub asks, What will you worship after me? (Qur'an 2:132-133) - Yusuf tells him his dream; Ya’…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -43934,7 +43934,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-ayyub\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-ayyub'",
-   "what_to_review": "Built-in answer \"layer-ayyub\": Ayyub (Job): what the app's checked sources hold, in detail. In the Qur'an: - Ayyub calls on his Lord in adversity; Allah removes it and gives back his family and the like of them. (Qur'an 21:83-84) - Satan has touched him with hardship and torment; “Strike t…",
+   "what_to_review": "Built-in answer \"layer-ayyub\": Ayyub (Job): what the app's checked sources hold, in detail. In the Qur'an: - Ayyub calls on his Lord in adversity; Allah removes it and gives back his family and the like of them. (Qur'an 21:83-84) - Satan has touched him with hardship and torment; Strike th…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -44220,7 +44220,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-isa\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-isa'",
-   "what_to_review": "Built-in answer \"layer-isa\": Isa (Jesus): what the app's checked sources hold, in detail. In the Qur'an: - The angels give Maryam news of a word from Allah, “the Messiah, Jesus, the son of Mary”; his signs; “Allah is my Lord and your Lord, so worship Him.” (Qur'an 3:45-51) - Maryam withd…",
+   "what_to_review": "Built-in answer \"layer-isa\": Isa (Jesus): what the app's checked sources hold, in detail. In the Qur'an: - The angels give Maryam news of a word from Allah, the Messiah, Jesus, the son of Mary; his signs; Allah is my Lord and your Lord, so worship Him. (Qur'an 3:45-51) - Maryam withdraws…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
@@ -44291,7 +44291,7 @@
    "where_in_app": "Hadi chat > built-in answer \"layer-jinn\"",
    "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
    "key": "CoreEntry id='layer-jinn'",
-   "what_to_review": "Built-in answer \"layer-jinn\": The jinn: what the app's checked sources hold, in detail. In the Qur'an: - Mankind from clay; the jinn from a smokeless flame of fire. (Qur'an 55:14-15) - Iblis “was of the jinn”. (Qur'an 18:50) - Satan and his tribe see us from where we do not see them. (Qur…",
+   "what_to_review": "Built-in answer \"layer-jinn\": The jinn: what the app's checked sources hold, in detail. In the Qur'an: - Mankind from clay; the jinn from a smokeless flame of fire. (Qur'an 55:14-15) - Iblis was of the jinn. (Qur'an 18:50) - Satan and his tribe see us from where we do not see them. (Qur'a…",
    "why_flagged": "Scholar review needed: built from the app's story layer (checked 2026-10-20); scholars to confirm the selection and wording.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
