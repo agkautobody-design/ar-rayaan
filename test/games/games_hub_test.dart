@@ -244,7 +244,7 @@ void main() {
     ) async {
       await pumpScreen(tester, const GameSetupScreen(gameId: 'ludo'));
       expect(find.text('Play Hadi'), findsOneWidget);
-      expect(find.text('With a friend online'), findsOneWidget);
+      expect(find.text('Play online with a friend'), findsOneWidget);
       expect(find.text('Free hints'), findsNothing);
       await pumpScreen(tester, const GameSetupScreen(gameId: 'chess'));
       expect(find.text('Beginner'), findsOneWidget);
