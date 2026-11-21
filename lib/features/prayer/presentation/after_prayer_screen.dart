@@ -10,7 +10,6 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
-import '../../reading/application/reading_prefs.dart';
 import '../../reading/presentation/arabic_block.dart';
 
 /// "After prayer": the remembrance said after the obligatory prayers, laid
@@ -25,7 +24,6 @@ class AfterPrayerScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<List<AdhkarSet>> sets = ref.watch(adhkarSetsProvider);
-    final ReadingPrefs rp = ref.watch(readingPrefsProvider);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -70,7 +68,7 @@ class AfterPrayerScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 12),
                       for (final Dhikr d in found.items)
-                        _AfterPrayerCard(dhikr: d, prefs: rp),
+                        _AfterPrayerCard(dhikr: d),
                       const SizedBox(height: 4),
                       Center(
                         child: TextButton.icon(
@@ -96,14 +94,12 @@ class AfterPrayerScreen extends ConsumerWidget {
 }
 
 class _AfterPrayerCard extends StatelessWidget {
-  const _AfterPrayerCard({required this.dhikr, required this.prefs});
+  const _AfterPrayerCard({required this.dhikr});
 
   final Dhikr dhikr;
-  final ReadingPrefs prefs;
 
   @override
   Widget build(BuildContext context) {
-    final String? tl = dhikr.transliteration;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: GlassCard(
@@ -135,34 +131,13 @@ class _AfterPrayerCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            Text(
-              dhikr.arabic,
-              textAlign: TextAlign.right,
-              textDirection: TextDirection.rtl,
-              style: AppText.arabicLarge
-                  .copyWith(fontSize: 22, height: 2.0, color: AppColors.sand),
+            ArabicBlock(
+              arabic: dhikr.arabic,
+              translit: dhikr.transliteration,
+              translitSource: dhikr.transliterationSource,
+              meaning: dhikr.translation,
+              arabicSize: 22,
             ),
-            if (tl != null && prefs.translit() != LayerView.hidden) ...<Widget>[
-              const SizedBox(height: 8),
-              prefs.translit() == LayerView.button
-                  ? TranslitLayer(text: tl, view: LayerView.button, fontSize: 13)
-                  : Text(
-                      tl,
-                      textDirection: TextDirection.ltr,
-                      textAlign: TextAlign.left,
-                      locale: kLatinLocale,
-                      style: AppText.bodyMuted.copyWith(
-                        fontSize: 13,
-                        height: 1.55,
-                        fontStyle: FontStyle.italic,
-                        color: AppColors.goldLight.withValues(alpha: 0.9),
-                      ),
-                    ),
-            ],
-            if (dhikr.translation != null && prefs.showMeaning) ...<Widget>[
-              const SizedBox(height: 8),
-              MeaningLine(dhikr.translation!, fontSize: 14),
-            ],
             if (dhikr.source != null) ...<Widget>[
               const SizedBox(height: 8),
               Text(
