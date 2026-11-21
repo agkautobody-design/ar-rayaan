@@ -9056,23 +9056,23 @@
    "id": "h:bukhari-1423",
    "collection": "Sahih al-Bukhari",
    "number": "1423",
-   "english": "Abu Hurayrah reported the Prophet said that among the seven shaded by Allah on the day when there will be no shade but His is a man who gives charity so secretly that his left hand does not know what his right hand has given",
+   "english": "seven will be shaded by Allah on the day when there is no shade but His: a just ruler; a young man raised in worshipping Allah; a man whose heart is attached to the mosque; two who love each other for Allah's sake, meeting and parting for it; a man who refuses an attractive woman of rank and says he fears Allah; one who gives charity so secretly his left hand does not know what his right gave; and one who remembers Allah alone and his eyes overflow",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "reported",
-    "among",
     "seven",
     "shaded",
     "there",
     "shade",
-    "gives"
+    "just",
+    "ruler",
+    "young",
+    "raised"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1423",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-18"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1969",
@@ -11114,6 +11114,129 @@
     "creation"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:2516",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-9",
+   "collection": "Sahih al-Bukhari",
+   "number": "9",
+   "english": "faith consists of more than sixty branches, and haya is a part of faith",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "faith",
+    "consists",
+    "more",
+    "than",
+    "sixty",
+    "branches",
+    "haya",
+    "part"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:9",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:ibnmajah-3689",
+   "collection": "Sunan Ibn Majah",
+   "number": "3689",
+   "english": "Allah is Gentle and loves gentleness in all things",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "gentle",
+    "loves",
+    "gentleness",
+    "things"
+   ],
+   "verifiedAt": "https://sunnah.com/ibnmajah:3689",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-2002",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2002",
+   "english": "nothing is heavier on the believer's Scale on the Day of Judgement than good character, and Allah is angered by the shameless, obscene person",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "nothing",
+    "heavier",
+    "believer's",
+    "scale",
+    "judgement",
+    "than",
+    "good",
+    "character"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2002",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-212",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "212",
+   "english": "the supplication made between the adhan and the iqamah is not rejected",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "supplication",
+    "made",
+    "between",
+    "adhan",
+    "iqamah",
+    "rejected"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:212",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-2324",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2324",
+   "english": "the world is a prison for the believer and Paradise for the disbeliever",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "world",
+    "prison",
+    "believer",
+    "paradise",
+    "disbeliever"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2324",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-496",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "496",
+   "english": "whoever performs ghusl on Friday and bathes completely, goes early, gets close, listens and is silent, will have for every step the reward of a year of fasting and standing in prayer",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "whoever",
+    "performs",
+    "ghusl",
+    "friday",
+    "bathes",
+    "completely",
+    "goes",
+    "early"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:496",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-21"

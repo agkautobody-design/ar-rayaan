@@ -2705,7 +2705,7 @@
   "verdict": "ok",
   "grade": "",
   "grader": "",
-  "checked": "2026-11-18",
+  "checked": "2026-11-21",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "bukhari:1549": {
@@ -3377,6 +3377,48 @@
   "verdict": "ok",
   "grade": "Sahih",
   "grader": "al-Albani",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:9": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "ibnmajah:3689": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:2002": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:212": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:2324": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-11-21",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:496": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
   "checked": "2026-11-21",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  }
