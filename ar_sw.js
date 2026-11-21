@@ -9,7 +9,7 @@
  *
  * What it must never do: serve an old build while a network is available. So
  * every request goes to the network FIRST and the cached copy is used only
- * when the network fails or is very slow (more than 6 seconds). Each good
+ * when the network fails or is very slow (more than 2.5 seconds). Each good
  * network answer replaces the cached copy, so the cache always holds the
  * newest build this browser has seen, and a new deploy is picked up the next
  * time the app opens online. The earlier decision not to register a caching
@@ -25,7 +25,7 @@
  */
 
 const CACHE = 'ar-app-v1';
-const SLOW_MS = 6000;
+const SLOW_MS = 2500;
 
 // Fetched on install so a first visit that goes offline straight afterwards
 // still has the core. Everything else is added as it is used (see 'fetch')
