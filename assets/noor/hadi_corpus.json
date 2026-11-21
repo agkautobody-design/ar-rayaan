@@ -2208,7 +2208,7 @@
    "id": "h:bukhari-1521",
    "collection": "Sahih al-Bukhari",
    "number": "1521",
-   "english": "The Prophet said whoever performs Hajj for Allah's pleasure and avoids sexual relations and sins returns as if born anew",
+   "english": "whoever performs Hajj for Allah's pleasure and does not have sexual relations nor do wrong, will return as if he were born anew",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
@@ -2217,14 +2217,14 @@
     "hajj",
     "allah's",
     "pleasure",
-    "avoids",
     "sexual",
-    "relations"
+    "relations",
+    "wrong"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1521",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-1773",
@@ -3238,23 +3238,20 @@
    "id": "h:bukhari-12",
    "collection": "Sahih al-Bukhari",
    "number": "12",
-   "english": "Abdullah ibn Amr reported a man asked the Prophet which deeds of Islam are good, and he said to feed the poor and greet those whom you know and those whom you do not know",
+   "english": "to feed the poor and greet those whom you know and those whom you do not know",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "abdullah",
-    "reported",
-    "asked",
-    "deeds",
-    "islam",
-    "good",
     "feed",
-    "poor"
+    "poor",
+    "greet",
+    "those",
+    "know"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:12",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-2916",
@@ -4867,23 +4864,23 @@
    "id": "h:bukhari-2736",
    "collection": "Sahih al-Bukhari",
    "number": "2736",
-   "english": "Abu Hurayrah: Allah has ninety-nine names, one hundred less one, and whoever learns them will enter Paradise.",
+   "english": "Allah has ninety-nine names, one hundred minus one, and whoever knows them will go to Paradise",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "ninety",
     "nine",
     "names",
     "hundred",
-    "less",
+    "minus",
     "whoever",
-    "learns"
+    "knows",
+    "paradise"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2736",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-2742",
@@ -5395,23 +5392,23 @@
    "id": "h:bukhari-4986",
    "collection": "Sahih al-Bukhari",
    "number": "4986",
-   "english": "Zayd ibn Thabit: after many reciters died at Yamama, Umar urged Abu Bakr to have the Qur'an collected, and Abu Bakr asked Zayd to gather it from written pieces and from memory.",
+   "english": "Abu Bakr sent for Zayd after the people of Yamama were killed, and Umar told Abu Bakr that many reciters had died and he feared more would die and much of the Qur'an be lost, so Zayd was asked to collect it",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
+    "bakr",
+    "sent",
     "zayd",
-    "thabit",
     "after",
-    "many",
-    "reciters",
-    "died",
+    "people",
     "yamama",
+    "killed",
     "umar"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:4986",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-50",
@@ -5650,23 +5647,23 @@
    "id": "h:bukhari-5889",
    "collection": "Sahih al-Bukhari",
    "number": "5889",
-   "english": "Abu Hurayrah: five things are of the fitrah: circumcision, shaving the pubic hair, clipping the nails, plucking the underarm hair and trimming the moustache.",
+   "english": "five practices are characteristics of the fitrah: circumcision, shaving the pubic region, clipping the nails and cutting the moustache short",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "five",
-    "things",
+    "practices",
+    "characteristics",
     "fitrah",
     "circumcision",
     "shaving",
     "pubic",
-    "hair"
+    "region"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:5889",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-5954",
@@ -5822,23 +5819,23 @@
    "id": "h:bukhari-6094",
    "collection": "Sahih al-Bukhari",
    "number": "6094",
-   "english": "Abdullah ibn Masud: truthfulness leads to righteousness and righteousness leads to Paradise; lying leads to wickedness and wickedness leads to the Fire.",
+   "english": "truthfulness leads to righteousness and righteousness leads to Paradise, while falsehood leads to wickedness and wickedness leads to the Fire",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "abdullah",
-    "masud",
     "truthfulness",
     "leads",
     "righteousness",
     "paradise",
-    "lying",
-    "wickedness"
+    "while",
+    "falsehood",
+    "wickedness",
+    "fire"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6094",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6114",
@@ -6042,23 +6039,23 @@
    "id": "h:bukhari-645",
    "collection": "Sahih al-Bukhari",
    "number": "645",
-   "english": "Abdullah ibn Umar: prayer in congregation is twenty-seven times better than the prayer of a person alone.",
+   "english": "the prayer in congregation is twenty-seven times superior to the prayer offered by a person alone",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "abdullah",
-    "umar",
     "prayer",
     "congregation",
     "twenty",
     "seven",
     "times",
-    "better"
+    "superior",
+    "offered",
+    "person"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:645",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-7352",
@@ -6273,21 +6270,18 @@
    "id": "h:muslim-101",
    "collection": "Sahih Muslim",
    "number": "101",
-   "english": "Abu Hurayrah: whoever takes up arms against us is not one of us, and whoever deceives us is not one of us.",
+   "english": "he who acted dishonestly towards us is not of us",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "whoever",
-    "takes",
-    "arms",
-    "against",
-    "deceives"
+    "acted",
+    "dishonestly",
+    "towards"
    ],
    "verifiedAt": "https://sunnah.com/muslim:101",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-1015",
@@ -7067,23 +7061,23 @@
    "id": "h:muslim-257",
    "collection": "Sahih Muslim",
    "number": "257",
-   "english": "Abu Hurayrah: five things are of the fitrah: circumcision, shaving the pubic hair, clipping the nails, plucking the underarm hair and trimming the moustache.",
+   "english": "five are the acts of fitrah: circumcision, shaving the pubic hair, cutting the nails, plucking the hair under the armpits, and clipping the moustache",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "five",
-    "things",
+    "acts",
     "fitrah",
     "circumcision",
     "shaving",
     "pubic",
-    "hair"
+    "hair",
+    "cutting"
    ],
    "verifiedAt": "https://sunnah.com/muslim:257",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-2586",
@@ -7172,23 +7166,23 @@
    "id": "h:muslim-2605",
    "collection": "Sahih Muslim",
    "number": "2605",
-   "english": "Umm Kulthum bint Uqba: the Prophet said the one who reconciles people by speaking good or conveying good is not a liar.",
+   "english": "a liar is not one who tries to bring reconciliation among people and speaks good or conveys good",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "kulthum",
-    "bint",
-    "uqba",
-    "reconciles",
+    "liar",
+    "tries",
+    "bring",
+    "reconciliation",
+    "among",
     "people",
-    "speaking",
-    "good",
-    "conveying"
+    "speaks",
+    "good"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2605",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-2607",
@@ -7523,21 +7517,19 @@
    "id": "h:muslim-408",
    "collection": "Sahih Muslim",
    "number": "408",
-   "english": "Abu Hurayrah: whoever sends blessings on me once, Allah sends blessings on him ten times.",
+   "english": "he who blesses me once, Allah will bless him ten times",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "whoever",
-    "sends",
-    "blessings",
+    "blesses",
     "once",
+    "bless",
     "times"
    ],
    "verifiedAt": "https://sunnah.com/muslim:408",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-442",
@@ -10180,6 +10172,313 @@
     "each"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:843",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:abudawud-3580",
+   "collection": "Sunan Abu Dawud",
+   "number": "3580",
+   "english": "the Messenger of Allah ﷺ cursed the one who gives a bribe and the one who takes it",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "cursed",
+    "gives",
+    "bribe",
+    "takes"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:3580",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-2079",
+   "collection": "Sahih al-Bukhari",
+   "number": "2079",
+   "english": "if both parties speak the truth and describe the defects and qualities of the goods, they will be blessed in their transaction, and if they tell lies or hide something, the blessing will be lost",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "both",
+    "parties",
+    "speak",
+    "truth",
+    "describe",
+    "defects",
+    "qualities",
+    "goods"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2079",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-2227",
+   "collection": "Sahih al-Bukhari",
+   "number": "2227",
+   "english": "I will be against three on the Day of Resurrection: one who makes a covenant in My name and betrays it, one who sells a free person and eats the price, and one who hires a labourer, gets the full work from him and does not pay him his wages",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "against",
+    "three",
+    "resurrection",
+    "makes",
+    "covenant",
+    "name",
+    "betrays",
+    "sells"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2227",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-2766",
+   "collection": "Sahih al-Bukhari",
+   "number": "2766",
+   "english": "avoid the seven great destructive sins: joining others in worship with Allah, sorcery, killing a life Allah has forbidden without a just cause, taking riba, taking an orphan's wealth, fleeing from the battlefield, and accusing chaste women",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "avoid",
+    "seven",
+    "great",
+    "destructive",
+    "sins",
+    "joining",
+    "others",
+    "worship"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2766",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3371",
+   "collection": "Sahih al-Bukhari",
+   "number": "3371",
+   "english": "I seek refuge with Allah's perfect words from every devil and from poisonous pests and from every evil, harmful eye",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "seek",
+    "refuge",
+    "allah's",
+    "perfect",
+    "words",
+    "every",
+    "devil",
+    "poisonous"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3371",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3559",
+   "collection": "Sahih al-Bukhari",
+   "number": "3559",
+   "english": "never used bad language, and used to say that the best among you are those with the best manners and character",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "never",
+    "used",
+    "language",
+    "best",
+    "among",
+    "those",
+    "manners",
+    "character"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3559",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3636",
+   "collection": "Sahih al-Bukhari",
+   "number": "3636",
+   "english": "during the lifetime of the Prophet ﷺ the moon was split into two parts, and the Prophet said \"Bear witness to this\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "during",
+    "lifetime",
+    "moon",
+    "split",
+    "into",
+    "parts",
+    "bear",
+    "witness"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3636",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5976",
+   "collection": "Sahih al-Bukhari",
+   "number": "5976",
+   "english": "joining partners with Allah and being undutiful to parents, and a forged statement and false witness",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "joining",
+    "partners",
+    "being",
+    "undutiful",
+    "parents",
+    "forged",
+    "statement",
+    "false"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5976",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6005",
+   "collection": "Sahih al-Bukhari",
+   "number": "6005",
+   "english": "I and the one who looks after an orphan and provides for him will be in Paradise like this",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "looks",
+    "after",
+    "orphan",
+    "provides",
+    "paradise",
+    "like"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6005",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6384",
+   "collection": "Sahih al-Bukhari",
+   "number": "6384",
+   "english": "one of the treasures of Paradise",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "treasures",
+    "paradise"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6384",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6389",
+   "collection": "Sahih al-Bukhari",
+   "number": "6389",
+   "english": "\"O Allah, give us good in this world and good in the Hereafter, and save us from the torment of the Fire\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "give",
+    "good",
+    "world",
+    "hereafter",
+    "save",
+    "torment",
+    "fire"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6389",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-1605",
+   "collection": "Sahih Muslim",
+   "number": "1605",
+   "english": "he who hoards is a sinner",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "hoards",
+    "sinner"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1605",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-2725",
+   "collection": "Sahih Muslim",
+   "number": "2725",
+   "english": "O Allah, direct me to the right path and make me adhere to the straight path",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "direct",
+    "right",
+    "path",
+    "make",
+    "adhere",
+    "straight"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2725",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-657",
+   "collection": "Sahih Muslim",
+   "number": "657",
+   "english": "he who prayed the morning prayer in congregation is under the protection of Allah",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "prayed",
+    "morning",
+    "prayer",
+    "congregation",
+    "under",
+    "protection"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:657",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-3433",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3433",
+   "english": "whoever sits in a sitting and engages in much empty, meaningless speech and then says before getting up \"Glory is to You, O Allah, and praise, I bear witness that there is none worthy of worship except You, I seek Your forgiveness and I repent to You\", whatever occurred in that sitting will be forgiven to him",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "whoever",
+    "sits",
+    "sitting",
+    "engages",
+    "much",
+    "empty",
+    "meaningless",
+    "speech"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3433",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-20"
