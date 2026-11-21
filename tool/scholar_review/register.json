@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5983,
+ "total": 5976,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,7 +40,7 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 647,
+   "items": 640,
    "high_priority": 20
   },
   "hadith": {
@@ -131,7 +131,7 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2592,
-  "Fiqh scholar (per madhab)": 757,
+  "Fiqh scholar (per madhab)": 750,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1322,
-  "normal": 3844,
+  "normal": 3837,
   "low": 817
  },
  "items": [
@@ -40274,32 +40274,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.dua-deceased",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"dua-deceased\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='dua-deceased'",
-   "what_to_review": "Built-in answer \"dua-deceased\": When you hear of a death, the Qur'an teaches the words of those who are patient: we belong to Allah and to Him we return (Qur'an 2:156). For the deceased, 'Awf ibn Malik reported the Prophet's funeral du'a: \"O Allah, forgive him, have mercy on him, give him p…",
-   "why_flagged": "Scholar review needed: this is the funeral du'a; confirm full Arabic before showing it.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.condolences",
    "area": "hadi",
    "subarea": "core-answer",
@@ -40379,32 +40353,6 @@
    "key": "CoreEntry id='anger-refuge'",
    "what_to_review": "Built-in answer \"anger-refuge\": Sulayman ibn Surad reported that two men were abusing each other before the Prophet ﷺ and one became furious with his face turning red. The Prophet ﷺ said: \"I know a word which, if he said it, would make his anger go away: I seek refuge with Allah from Satan,…",
    "why_flagged": "Scholar review needed: the second report is cited separately from the first.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.khadijah",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"khadijah\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='khadijah'",
-   "what_to_review": "Built-in answer \"khadijah\": Khadijah was the first wife of the Prophet ﷺ and the first person to believe in him. When the first revelation came and he returned home trembling, she comforted him (the report is in Sahih al-Bukhari 3). Abu Hurayrah reported that Jibril once came and said:…",
-   "why_flagged": "Scholar review needed: the first sentence rests on Bukhari 3, summarised in the answer.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -40509,32 +40457,6 @@
    "key": "CoreEntry id='rakats-fajr'",
    "what_to_review": "Built-in answer \"rakats-fajr\": Fajr has two rak'ahs as the obligatory prayer, and the Prophet ﷺ prayed two more rak'ahs of sunnah before it. Aisha reported he said: the two rak'ahs at dawn are better than this world and what it contains (Sahih Muslim 725). The app's Prayer guide shows how…",
    "why_flagged": "Scholar review needed: the two obligatory rak'ahs are the agreed position and no hadith is cited for them here.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.tahajjud-night-prayer",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"tahajjud-night-prayer\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='tahajjud-night-prayer'",
-   "what_to_review": "Built-in answer \"tahajjud-night-prayer\": Tahajjud is the voluntary prayer in the night, after sleeping and before Fajr. The Qur'an tells the Prophet ﷺ to pray part of the night as an additional prayer (Qur'an 17:79). Abu Hurayrah reported that when the Prophet ﷺ was asked which prayer is best after…",
-   "why_flagged": "Scholar review needed: the final sentence is a statement about what is cited here, not a ruling.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"
@@ -40661,58 +40583,6 @@
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
    "madhabs": [],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.dua-parents",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"dua-parents\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='dua-parents'",
-   "what_to_review": "Built-in answer \"dua-parents\": The Qur'an gives this du'a for parents: my Lord, have mercy on them as they brought me up when I was small (Qur'an 17:24). Prophet Ibrahim asked: our Lord, forgive me and my parents and the believers on the Day the account is established (Qur'an 14:41). In Ar…",
-   "why_flagged": "Scholar review needed.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.hijrah-meaning",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"hijrah-meaning\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='hijrah-meaning'",
-   "what_to_review": "Built-in answer \"hijrah-meaning\": The Hijrah is the migration of the Prophet ﷺ and the early Muslims from Makkah to Madinah, where they were able to practise their religion. The Qur'an praises those who believed and migrated and strove for the sake of Allah (Qur'an 2:218). The Islamic calenda…",
-   "why_flagged": "Scholar review needed: the calendar statement is a general fact, no source cited here.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
    "priority": "normal",
    "source_of_flag": [
     "hadi_core_data.dart reviewNote (kept for the review list)"
@@ -40896,32 +40766,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.story-yusuf",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"story-yusuf\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='story-yusuf'",
-   "what_to_review": "Built-in answer \"story-yusuf\": Surah Yusuf (surah 12) tells his whole story in one place, and Allah calls it the best of stories (Qur'an 12:3). It begins with a dream he saw as a boy of eleven stars, the sun and the moon bowing to him (Qur'an 12:4). In outline from the surah: his brothers'…",
-   "why_flagged": "Scholar review needed: the outline is from the surah's own events.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.story-musa",
    "area": "hadi",
    "subarea": "core-answer",
@@ -40930,32 +40774,6 @@
    "key": "CoreEntry id='story-musa'",
    "what_to_review": "Built-in answer \"story-musa\": Musa is the prophet named most often in the Qur'an. He was raised in Pharaoh's house, was sent to Pharaoh with signs, and led the Children of Israel out of Egypt (Qur'an 20:77). He spoke with Allah (Qur'an 4:164), and was given the Torah. The full account is…",
    "why_flagged": "Scholar review needed: the outline is from the surahs named.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.dua-someone-dies",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"dua-someone-dies\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='dua-someone-dies'",
-   "what_to_review": "Built-in answer \"dua-someone-dies\": When you hear of a death, the Qur'an teaches the words of the patient: we belong to Allah and to Him we return (Qur'an 2:156). In Arabic: Inna lillahi wa inna ilayhi raji'un. For the deceased, ask Allah to forgive them and have mercy on them: the funeral du'a…",
-   "why_flagged": "Scholar review needed.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

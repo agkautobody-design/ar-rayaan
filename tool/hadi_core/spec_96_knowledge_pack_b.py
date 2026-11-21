@@ -122,21 +122,6 @@ If a du'a seems unanswered, that does not mean you are rejected; stay patient an
 """,
   review='Scholar review needed: the forms of an answer are the scholars\' explanation, no named source here.')
 
-E('dua-deceased',
-  m=[r'\b(?:dua|du a|supplication|prayer)\b.*\b(?:deceased|dead|died|passed away|death of|the dead|funeral)\b', r'\bwhat (?:to|do i|should i) say (?:when|if|for) (?:someone|somebody|a person|he|she|my \w+) (?:dies|died|passes away|passed away)\b',
-     r'\bwhat (?:to|do i|should i) say when (?:i )?(?:hear|heard|hears) (?:of |about )?(?:a |someones )?death\b', r'\binna lillahi\b'],
-  x=[r'\b(?:janazah|burial|wash\w*|shroud|ruling|haram)\b'],
-  topic='dua for the deceased',
-  go=['/adhkar'],
-  text="""
-When you hear of a death, the Qur'an teaches the words of those who are patient: we belong to Allah and to Him we return ({QR 2:156}).
-
-For the deceased, 'Awf ibn Malik reported the Prophet's funeral du'a: {HS muslim:963|"O Allah, forgive him, have mercy on him, give him peace and pardon him, receive him with honour, make his grave spacious, wash him with water, snow and hail, cleanse him of faults as a white garment is cleansed of dirt, give him a home better than his home, a family better than his family, and protect him from the torment of the grave and the torment of the Fire"}.
-
-Umm Salamah also reported he said that when you visit the sick or the dead you should say good, because the angels say Amen to what you say ({H muslim:919}).
-""",
-  review='Scholar review needed: this is the funeral du\'a; confirm full Arabic before showing it.')
-
 E('condolences',
   m=[r'\bhow (?:do|can|should|to) (?:i )?(?:give|offer|say|send|express|write) (?:my )?(?:condolences|sympathy)\b', r'\bwhat (?:to|do i|should i|can i) say (?:to|when) (?:someone|somebody|a person|a friend|my \w+)?\s*(?:who )?(?:lost|loses|lose|has lost|is grieving|is mourning|is sad)\b', r'\b(?:condolences|condolence)\b.*\b(?:islam|islamic|muslim|dua|say)\b', r'\bwhat to say (?:at|in) (?:a )?(?:funeral|death|bereavement)\b'],
   topic='condolences',
@@ -179,16 +164,6 @@ Sulayman ibn Surad reported that two men were abusing each other before the Prop
 In Arabic: A'udhu billahi minash-shaytanir-rajim. Another report in the same collection says the strong person is the one who controls himself in anger ({HS bukhari:6114|the strong is not the one who overcomes people by strength, but the one who controls himself while in anger}).
 """,
   review='Scholar review needed: the second report is cited separately from the first.')
-
-E('khadijah',
-  m=[r'\b(?:who (?:is|was)|tell me about|story of|life of|about) (?:khadijah|khadija|khadeeja|khadeejah)\b', r'\b(?:khadijah|khadija|khadeeja)\b.*\b(?:wife|prophet|first|believer|who)\b'],
-  topic='Khadijah bint Khuwaylid',
-  text="""
-Khadijah was the first wife of the Prophet ﷺ and the first person to believe in him. When the first revelation came and he returned home trembling, she comforted him (the report is in Sahih al-Bukhari 3).
-
-Abu Hurayrah reported that Jibril once came and said: {HS bukhari:3820|"This is Khadijah coming with a dish of food; when she reaches you, greet her on behalf of her Lord and on mine, and give her the good news of a palace in Paradise in which there will be no noise and no fatigue"}.
-""",
-  review='Scholar review needed: the first sentence rests on Bukhari 3, summarised in the answer.')
 
 E('aisha',
   m=[r'\b(?:who (?:is|was)|tell me about|story of|life of|about) (?:aisha|aishah|ayesha|ayisha|a isha)\b', r'\b(?:aisha|aishah|ayesha)\b.*\b(?:wife|prophet|who|mother of the believers|scholar)\b'],
@@ -235,19 +210,6 @@ Fajr has two rak'ahs as the obligatory prayer, and the Prophet ﷺ prayed two mo
 The app's Prayer guide shows how each prayer is performed. This answer is the general position; the schools agree on two obligatory rak'ahs.
 """,
   review='Scholar review needed: the two obligatory rak\'ahs are the agreed position and no hadith is cited for them here.')
-
-E('tahajjud-night-prayer',
-  m=[r'\b(?:what is|whats|explain|define|meaning of) (?:tahajjud|qiyam|qiyam al layl|night prayer|qiyaam)\b', r'\bhow (?:do|to|can) (?:i )?(?:pray|perform|do|offer) (?:tahajjud|qiyam|night prayer)\b', r'\b(?:tahajjud|qiyam|night prayer)\b.*\b(?:time|reward|virtue|rakat|rakats|how many|best)\b', r'\bbest prayer after (?:the )?(?:obligatory|fard|compulsory)\b'],
-  topic='night prayer',
-  go=['/prayer'],
-  text="""
-Tahajjud is the voluntary prayer in the night, after sleeping and before Fajr. The Qur'an tells the Prophet ﷺ to pray part of the night as an additional prayer ({QR 17:79}).
-
-Abu Hurayrah reported that when the Prophet ﷺ was asked which prayer is best after the prescribed prayers, he said {HS muslim:1163|the prayer in the middle of the night}.
-
-The Prayer guide in the app covers how to pray; the number of rak'ahs is not fixed in the sources I cite here.
-""",
-  review='Scholar review needed: the final sentence is a statement about what is cited here, not a ruling.')
 
 E('best-dhikr-tawhid',
   m=[r'\b(?:what is|whats|meaning of|explain|define) (?:the )?(?:kalimah|kalima|shahada|shahadah|la ilaha illallah|la ilaha illa allah|tawhid statement)\b', r'\b(?:best|greatest|most (?:virtuous|beloved|excellent)) (?:dhikr|remembrance|words?|phrase|statement)\b', r'\bmeaning of la ilaha illa ?(?:allah|allah)\b', r'\bwhat does la ilaha illallah mean\b'],
@@ -310,28 +272,6 @@ Prophet Musa asked Allah for ease when given a hard task: my Lord, expand my che
 Making the effort comes first and the du'a goes with it; I am not citing a hadith for exam du'as.
 """,
   review='Scholar review needed: the use of the Musa du\'a before exams is common practice, not a stated Sunnah.')
-
-E('dua-parents',
-  m=[r'\b(?:dua|du a|supplication)\b.*\b(?:my parents|for parents|for my mother|for my father|for my mum|for my dad|for my mom)\b', r'\bwhat (?:to|do i|should i) say (?:for|to ask (?:allah )?for) (?:my )?(?:parents|mother|father|mum|dad|mom)\b', r'\brabbi irhamhuma\b'],
-  x=[r'\b(?:deceased|dead|died|passed away|funeral)\b'],
-  topic='dua for parents',
-  go=['/adhkar'],
-  text="""
-The Qur'an gives this du'a for parents: my Lord, have mercy on them as they brought me up when I was small ({QR 17:24}). Prophet Ibrahim asked: our Lord, forgive me and my parents and the believers on the Day the account is established ({QR 14:41}).
-
-In Arabic: Rabbi irhamhuma kama rabbayani saghira.
-""",
-  review='Scholar review needed.')
-
-E('hijrah-meaning',
-  m=[r'\b(?:what is|whats|meaning of|explain|define|what was) (?:the )?(?:hijrah|hijra|migration|the migration)\b', r'\bwhy (?:did|was) the (?:prophet|muslims?) (?:migrate|leave makkah|leave mecca|go to (?:madinah|medina))\b', r'\bwhat (?:happened|was) in (?:the )?hijrah\b'],
-  topic='the Hijrah',
-  text="""
-The Hijrah is the migration of the Prophet ﷺ and the early Muslims from Makkah to Madinah, where they were able to practise their religion. The Qur'an praises those who believed and migrated and strove for the sake of Allah ({QR 2:218}).
-
-The Islamic calendar counts years from it. I am not giving more detail here; ask me about a particular part, such as the journey or the first masjid.
-""",
-  review='Scholar review needed: the calendar statement is a general fact, no source cited here.')
 
 E('rizq-provision',
   m=[r'\b(?:dua|du a)\b.*\b(?:rizq|rizk|provision|sustenance|wealth|money|income|job|work)\b', r'\bhow (?:do|can|should|to) (?:i )?(?:increase|get|ask for|seek) (?:my )?(?:rizq|rizk|provision|sustenance)\b', r'\b(?:what is|meaning of|explain) (?:rizq|rizk)\b', r'\bwho provides (?:for )?(?:us|everyone|sustenance)\b'],
@@ -411,19 +351,6 @@ When he was thrown into the fire, he said "Allah is sufficient for us and the be
 """,
   review='Scholar review needed: Bukhari 4563 is cited in the closing sentence in plain text.')
 
-E('story-yusuf',
-  m=[r'\b(?:story|tale|life) of (?:prophet )?(?:yusuf|yusuf|joseph|yousef|yousuf)\b', r'\b(?:who was|tell me about) (?:prophet )?(?:yusuf|joseph|yousef|yousuf)\b', r'\bsurah (?:al )?yusuf\b', r'\b(?:yusuf|joseph)\b.*\b(?:story|brothers|prison|dream|egypt)\b'],
-  topic='Prophet Yusuf',
-  go=['/quran'],
-  text="""
-Surah Yusuf (surah 12) tells his whole story in one place, and Allah calls it the best of stories ({QR 12:3}). It begins with a dream he saw as a boy of eleven stars, the sun and the moon bowing to him ({QR 12:4}).
-
-In outline from the surah: his brothers' envy, being cast in a well, being sold in Egypt, being tempted and falsely accused, prison, and then being raised to a high position, and the family being reunited. The surah ends by saying there is a lesson in their stories for people of understanding ({QR 12:111}).
-
-Read the surah for the details; I am only outlining it.
-""",
-  review='Scholar review needed: the outline is from the surah\'s own events.')
-
 E('story-musa',
   m=[r'\b(?:story|tale|life) of (?:prophet )?(?:musa|moses|moosa)\b', r'\b(?:who was|tell me about) (?:prophet )?(?:musa|moses|moosa)\b', r'\b(?:musa|moses|moosa)\b.*\b(?:story|pharaoh|firaun|fir aun|red sea|staff|torah)\b'],
   topic='Prophet Musa',
@@ -434,14 +361,3 @@ Musa is the prophet named most often in the Qur'an. He was raised in Pharaoh's h
 The full account is spread across many surahs, with a long telling in Surah Ta-Ha and Surah Al-Qasas. I am only giving a short outline; ask me about a part of it.
 """,
   review='Scholar review needed: the outline is from the surahs named.')
-
-E('dua-someone-dies',
-  m=[r'\bwhat (?:is|s) the (?:dua|du a|supplication) (?:when|if) (?:someone|somebody|a person|he|she|my \w+) (?:dies|died|passes away|passed away)\b', r'\bwhat (?:is|s) the (?:dua|du a) (?:for|when i hear) (?:of )?(?:a )?death\b'],
-  topic='when someone dies',
-  go=['/adhkar'],
-  text="""
-When you hear of a death, the Qur'an teaches the words of the patient: we belong to Allah and to Him we return ({QR 2:156}). In Arabic: Inna lillahi wa inna ilayhi raji'un.
-
-For the deceased, ask Allah to forgive them and have mercy on them: the funeral du'a of the Prophet ﷺ is in the answer about du'a for the deceased; ask me for it.
-""",
-  review='Scholar review needed.')

@@ -361,22 +361,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: the forms of an answer are the scholars\' explanation, no named source here.',
   ),
   CoreEntry(
-    id: 'dua-deceased',
-    patterns: <String>[
-      r'\b(?:dua|du a|supplication|prayer)\b.*\b(?:deceased|dead|died|passed away|death of|the dead|funeral)\b',
-      r'\bwhat (?:to|do i|should i) say (?:when|if|for) (?:someone|somebody|a person|he|she|my \w+) (?:dies|died|passes away|passed away)\b',
-      r'\bwhat (?:to|do i|should i) say when (?:i )?(?:hear|heard|hears) (?:of |about )?(?:a |someones )?death\b',
-      r'\binna lillahi\b',
-    ],
-    avoid: <String>[
-      r'\b(?:janazah|burial|wash\w*|shroud|ruling|haram)\b',
-    ],
-    answer: 'When you hear of a death, the Qur\'an teaches the words of those who are patient: we belong to Allah and to Him we return (Qur\'an 2:156).\n\nFor the deceased, \'Awf ibn Malik reported the Prophet\'s funeral du\'a: "O Allah, forgive him, have mercy on him, give him peace and pardon him, receive him with honour, make his grave spacious, wash him with water, snow and hail, cleanse him of faults as a white garment is cleansed of dirt, give him a home better than his home, a family better than his family, and protect him from the torment of the grave and the torment of the Fire" (Sahih Muslim 963).\n\nUmm Salamah also reported he said that when you visit the sick or the dead you should say good, because the angels say Amen to what you say (Sahih Muslim 919).\n\nSource: Qur\'an 2:156; Sahih Muslim 963, 919.\n[GO:/adhkar]',
-    topic: 'dua for the deceased',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: this is the funeral du\'a; confirm full Arabic before showing it.',
-  ),
-  CoreEntry(
     id: 'condolences',
     patterns: <String>[
       r'\bhow (?:do|can|should|to) (?:i )?(?:give|offer|say|send|express|write) (?:my )?(?:condolences|sympathy)\b',
@@ -436,17 +420,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: the second report is cited separately from the first.',
   ),
   CoreEntry(
-    id: 'khadijah',
-    patterns: <String>[
-      r'\b(?:who (?:is|was)|tell me about|story of|life of|about) (?:khadijah|khadija|khadeeja|khadeejah)\b',
-      r'\b(?:khadijah|khadija|khadeeja)\b.*\b(?:wife|prophet|first|believer|who)\b',
-    ],
-    answer: 'Khadijah was the first wife of the Prophet ﷺ and the first person to believe in him. When the first revelation came and he returned home trembling, she comforted him (the report is in Sahih al-Bukhari 3).\n\nAbu Hurayrah reported that Jibril once came and said: "This is Khadijah coming with a dish of food; when she reaches you, greet her on behalf of her Lord and on mine, and give her the good news of a palace in Paradise in which there will be no noise and no fatigue" (Sahih al-Bukhari 3820).\n\nSource: Sahih al-Bukhari 3820.',
-    topic: 'Khadijah bint Khuwaylid',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the first sentence rests on Bukhari 3, summarised in the answer.',
-  ),
-  CoreEntry(
     id: 'aisha',
     patterns: <String>[
       r'\b(?:who (?:is|was)|tell me about|story of|life of|about) (?:aisha|aishah|ayesha|ayisha|a isha)\b',
@@ -497,19 +470,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'Fajr rakats',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the two obligatory rak\'ahs are the agreed position and no hadith is cited for them here.',
-  ),
-  CoreEntry(
-    id: 'tahajjud-night-prayer',
-    patterns: <String>[
-      r'\b(?:what is|whats|explain|define|meaning of) (?:tahajjud|qiyam|qiyam al layl|night prayer|qiyaam)\b',
-      r'\bhow (?:do|to|can) (?:i )?(?:pray|perform|do|offer) (?:tahajjud|qiyam|night prayer)\b',
-      r'\b(?:tahajjud|qiyam|night prayer)\b.*\b(?:time|reward|virtue|rakat|rakats|how many|best)\b',
-      r'\bbest prayer after (?:the )?(?:obligatory|fard|compulsory)\b',
-    ],
-    answer: 'Tahajjud is the voluntary prayer in the night, after sleeping and before Fajr. The Qur\'an tells the Prophet ﷺ to pray part of the night as an additional prayer (Qur\'an 17:79).\n\nAbu Hurayrah reported that when the Prophet ﷺ was asked which prayer is best after the prescribed prayers, he said the prayer in the middle of the night (Sahih Muslim 1163).\n\nThe Prayer guide in the app covers how to pray; the number of rak\'ahs is not fixed in the sources I cite here.\n\nSource: Qur\'an 17:79; Sahih Muslim 1163.\n[GO:/prayer]',
-    topic: 'night prayer',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the final sentence is a statement about what is cited here, not a ruling.',
   ),
   CoreEntry(
     id: 'best-dhikr-tawhid',
@@ -577,33 +537,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'dua for knowledge and exams',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the use of the Musa du\'a before exams is common practice, not a stated Sunnah.',
-  ),
-  CoreEntry(
-    id: 'dua-parents',
-    patterns: <String>[
-      r'\b(?:dua|du a|supplication)\b.*\b(?:my parents|for parents|for my mother|for my father|for my mum|for my dad|for my mom)\b',
-      r'\bwhat (?:to|do i|should i) say (?:for|to ask (?:allah )?for) (?:my )?(?:parents|mother|father|mum|dad|mom)\b',
-      r'\brabbi irhamhuma\b',
-    ],
-    avoid: <String>[
-      r'\b(?:deceased|dead|died|passed away|funeral)\b',
-    ],
-    answer: 'The Qur\'an gives this du\'a for parents: my Lord, have mercy on them as they brought me up when I was small (Qur\'an 17:24). Prophet Ibrahim asked: our Lord, forgive me and my parents and the believers on the Day the account is established (Qur\'an 14:41).\n\nIn Arabic: Rabbi irhamhuma kama rabbayani saghira.\n\nSource: Qur\'an 17:24, 14:41.\n[GO:/adhkar]',
-    topic: 'dua for parents',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed.',
-  ),
-  CoreEntry(
-    id: 'hijrah-meaning',
-    patterns: <String>[
-      r'\b(?:what is|whats|meaning of|explain|define|what was) (?:the )?(?:hijrah|hijra|migration|the migration)\b',
-      r'\bwhy (?:did|was) the (?:prophet|muslims?) (?:migrate|leave makkah|leave mecca|go to (?:madinah|medina))\b',
-      r'\bwhat (?:happened|was) in (?:the )?hijrah\b',
-    ],
-    answer: 'The Hijrah is the migration of the Prophet ﷺ and the early Muslims from Makkah to Madinah, where they were able to practise their religion. The Qur\'an praises those who believed and migrated and strove for the sake of Allah (Qur\'an 2:218).\n\nThe Islamic calendar counts years from it. I am not giving more detail here; ask me about a particular part, such as the journey or the first masjid.\n\nSource: Qur\'an 2:218.',
-    topic: 'the Hijrah',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the calendar statement is a general fact, no source cited here.',
   ),
   CoreEntry(
     id: 'rizq-provision',
@@ -703,19 +636,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: Bukhari 4563 is cited in the closing sentence in plain text.',
   ),
   CoreEntry(
-    id: 'story-yusuf',
-    patterns: <String>[
-      r'\b(?:story|tale|life) of (?:prophet )?(?:yusuf|yusuf|joseph|yousef|yousuf)\b',
-      r'\b(?:who was|tell me about) (?:prophet )?(?:yusuf|joseph|yousef|yousuf)\b',
-      r'\bsurah (?:al )?yusuf\b',
-      r'\b(?:yusuf|joseph)\b.*\b(?:story|brothers|prison|dream|egypt)\b',
-    ],
-    answer: 'Surah Yusuf (surah 12) tells his whole story in one place, and Allah calls it the best of stories (Qur\'an 12:3). It begins with a dream he saw as a boy of eleven stars, the sun and the moon bowing to him (Qur\'an 12:4).\n\nIn outline from the surah: his brothers\' envy, being cast in a well, being sold in Egypt, being tempted and falsely accused, prison, and then being raised to a high position, and the family being reunited. The surah ends by saying there is a lesson in their stories for people of understanding (Qur\'an 12:111).\n\nRead the surah for the details; I am only outlining it.\n\nSource: Qur\'an 12:3, 12:4, 12:111.\n[GO:/quran]',
-    topic: 'Prophet Yusuf',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the outline is from the surah\'s own events.',
-  ),
-  CoreEntry(
     id: 'story-musa',
     patterns: <String>[
       r'\b(?:story|tale|life) of (?:prophet )?(?:musa|moses|moosa)\b',
@@ -726,16 +646,5 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'Prophet Musa',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the outline is from the surahs named.',
-  ),
-  CoreEntry(
-    id: 'dua-someone-dies',
-    patterns: <String>[
-      r'\bwhat (?:is|s) the (?:dua|du a|supplication) (?:when|if) (?:someone|somebody|a person|he|she|my \w+) (?:dies|died|passes away|passed away)\b',
-      r'\bwhat (?:is|s) the (?:dua|du a) (?:for|when i hear) (?:of )?(?:a )?death\b',
-    ],
-    answer: 'When you hear of a death, the Qur\'an teaches the words of the patient: we belong to Allah and to Him we return (Qur\'an 2:156). In Arabic: Inna lillahi wa inna ilayhi raji\'un.\n\nFor the deceased, ask Allah to forgive them and have mercy on them: the funeral du\'a of the Prophet ﷺ is in the answer about du\'a for the deceased; ask me for it.\n\nSource: Qur\'an 2:156.\n[GO:/adhkar]',
-    topic: 'when someone dies',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed.',
   ),
 ];

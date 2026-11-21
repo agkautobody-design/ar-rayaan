@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5983 items.** High priority: 1322. Normal: 3844. Low: 817.
+**5976 items.** High priority: 1322. Normal: 3837. Low: 817.
 
 ### By area
 
@@ -25,7 +25,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 647 | 20 |
+| Hadi built-in answers | 640 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 626 | 122 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **5983** | **1322** |
+| **Total** | **5976** | **1322** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2592 | 1165 |
-| Fiqh scholar (per madhab) | 757 | 257 |
+| Hadith / aqidah scholar | 2592 | 1158 |
+| Fiqh scholar (per madhab) | 750 | 257 |
 | Women's scholar | 151 | 97 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -72,7 +72,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 336 | 311 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 336 | 304 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 626 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2592 lead, 1165 also)
+### Hadith / aqidah scholar (2592 lead, 1158 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (757 lead, 257 also)
+### Fiqh scholar (per madhab) (750 lead, 257 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 311 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 304 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -1743,7 +1743,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-647 items, 20 high priority. Area key `hadi`.
+640 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2019,24 +2019,19 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.good-friends` | Hadi chat > built-in answer "good-friends" | Built-in answer "good-friends": The Prophet ﷺ gave a picture, reported by Abu Musa: a good companion and an evil one are like a person carrying musk and a person blowing a pair of bellows: the musk c… | Scholar review needed: the last sentence is the app's advice. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-best-time` | Hadi chat > built-in answer "dua-best-time" | Built-in answer "dua-best-time": Two reports are clear. Jabir reported the Prophet ﷺ saying: there is an hour in the night in which no Muslim asks Allah for good in this world and the next without Al… | Scholar review needed: the hadith does not say which hour of the night. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-answered` | Hadi chat > built-in answer "dua-answered" | Built-in answer "dua-answered": The Qur'an says: call on Me and I will respond to you (Qur'an 40:60), and: I am near, I answer the call of the caller when he calls on Me (Qur'an 2:186). Scholars teac… | Scholar review needed: the forms of an answer are the scholars' explanation, no named source here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.dua-deceased` | Hadi chat > built-in answer "dua-deceased" | Built-in answer "dua-deceased": When you hear of a death, the Qur'an teaches the words of those who are patient: we belong to Allah and to Him we return (Qur'an 2:156). For the deceased, 'Awf ibn Mal… | Scholar review needed: this is the funeral du'a; confirm full Arabic before showing it. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.condolences` | Hadi chat > built-in answer "condolences" | Built-in answer "condolences": The Prophet ﷺ gave his own words when his daughter sent news that her child was dying. Usama ibn Zayd reported: he sent word to her that whatever Allah takes is His, wh… | Scholar review needed: the final sentence summarises the continuation of the report. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.wedding-dua` | Hadi chat > built-in answer "wedding-dua" | Built-in answer "wedding-dua": Abu Hurayrah reported how the Prophet ﷺ congratulated a man on his marriage: he said "May Allah bless for you and may He bless on you and combine both of you in good" (… | Scholar review needed: Arabic transliteration is given as in the report. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.hasbunallah-fear` | Hadi chat > built-in answer "hasbunallah-fear" | Built-in answer "hasbunallah-fear": Ibn Abbas reported: "Allah is sufficient for us and He is the best disposer of affairs" was said by Abraham when he was thrown into the fire, and by Muhammad when… | Scholar review needed. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.anger-refuge` | Hadi chat > built-in answer "anger-refuge" | Built-in answer "anger-refuge": Sulayman ibn Surad reported that two men were abusing each other before the Prophet ﷺ and one became furious with his face turning red. The Prophet ﷺ said: "I know a w… | Scholar review needed: the second report is cited separately from the first. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.khadijah` | Hadi chat > built-in answer "khadijah" | Built-in answer "khadijah": Khadijah was the first wife of the Prophet ﷺ and the first person to believe in him. When the first revelation came and he returned home trembling, she comforted him (the… | Scholar review needed: the first sentence rests on Bukhari 3, summarised in the answer. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.aisha` | Hadi chat > built-in answer "aisha" | Built-in answer "aisha": Aisha was a wife of the Prophet ﷺ and the daughter of Abu Bakr. The Prophet ﷺ died in her house, leaning on her chest (Sahih al-Bukhari 4449). Abu Musa reported the Prophet ﷺ… | Scholar review needed: the final sentence is a general statement and needs a named source. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.adhan-meaning` | Hadi chat > built-in answer "adhan-meaning" | Built-in answer "adhan-meaning": The adhan is the call to prayer, and the iqamah is the call made when the prayer is about to start. Anas reported that Bilal was ordered to pronounce the adhan by say… | Scholar review needed: schools differ on the exact repetition in the iqamah; this report is one narration. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.adhan-dua` | Hadi chat > built-in answer "adhan-dua" | Built-in answer "adhan-dua": When you hear the adhan, repeat what the muadhdhin says. Abdullah ibn Amr reported the Prophet ﷺ saying: when you hear the muadhdhin, repeat what he says, then send bless… | Scholar review needed: both reports are summarised; confirm Arabic. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.rakats-fajr` | Hadi chat > built-in answer "rakats-fajr" | Built-in answer "rakats-fajr": Fajr has two rak'ahs as the obligatory prayer, and the Prophet ﷺ prayed two more rak'ahs of sunnah before it. Aisha reported he said: the two rak'ahs at dawn are better… | Scholar review needed: the two obligatory rak'ahs are the agreed position and no hadith is cited for them here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.tahajjud-night-prayer` | Hadi chat > built-in answer "tahajjud-night-prayer" | Built-in answer "tahajjud-night-prayer": Tahajjud is the voluntary prayer in the night, after sleeping and before Fajr. The Qur'an tells the Prophet ﷺ to pray part of the night as an additional praye… | Scholar review needed: the final sentence is a statement about what is cited here, not a ruling. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.best-dhikr-tawhid` | Hadi chat > built-in answer "best-dhikr-tawhid" | Built-in answer "best-dhikr-tawhid": La ilaha illa Allah means there is no god but Allah. The Qur'an says: know that there is no god but Allah (Qur'an 47:19). Jabir reported the Prophet ﷺ saying: the… | Scholar review needed: the final sentence is the scholars' explanation, no named scholar. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.subhanallah-meaning` | Hadi chat > built-in answer "subhanallah-meaning" | Built-in answer "subhanallah-meaning": Subhan Allah means glory be to Allah: declaring Him far above any fault or likeness. Alhamdulillah means all praise is for Allah. Abu Hurayrah reported the Prop… | Scholar review needed: the meanings in the first paragraph are the app's short definitions. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.jinn-what-are` | Hadi chat > built-in answer "jinn-what-are" | Built-in answer "jinn-what-are": The jinn are a creation of Allah, unseen by us and given free will like humans. The Qur'an says Allah created humankind and jinn only to worship Him (Qur'an 51:56), a… | Scholar review needed: the answer only restates three verses. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.hasanat-reward` | Hadi chat > built-in answer "hasanat-reward" | Built-in answer "hasanat-reward": Hasanat (singular hasanah) are good deeds and their reward. The Qur'an says: whoever brings a good deed will have ten times the like of it (Qur'an 6:160), and whoeve… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-knowledge-exam` | Hadi chat > built-in answer "dua-knowledge-exam" | Built-in answer "dua-knowledge-exam": The Qur'an gives the du'a: and say, "My Lord, increase me in knowledge" (Qur'an 20:114). Prophet Musa asked Allah for ease when given a hard task: my Lord, expan… | Scholar review needed: the use of the Musa du'a before exams is common practice, not a stated Sunnah. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.dua-parents` | Hadi chat > built-in answer "dua-parents" | Built-in answer "dua-parents": The Qur'an gives this du'a for parents: my Lord, have mercy on them as they brought me up when I was small (Qur'an 17:24). Prophet Ibrahim asked: our Lord, forgive me a… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.hijrah-meaning` | Hadi chat > built-in answer "hijrah-meaning" | Built-in answer "hijrah-meaning": The Hijrah is the migration of the Prophet ﷺ and the early Muslims from Makkah to Madinah, where they were able to practise their religion. The Qur'an praises those… | Scholar review needed: the calendar statement is a general fact, no source cited here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.rizq-provision` | Hadi chat > built-in answer "rizq-provision" | Built-in answer "rizq-provision": Rizq is what Allah provides: money, food, health, family and more. The Qur'an says there is no creature on earth but its provision is on Allah (Qur'an 11:6), and tha… | Scholar review needed: the du'a is cited for lawful provision, and the hadith is graded hasan. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-debt` | Hadi chat > built-in answer "dua-debt" | Built-in answer "dua-debt": Ali reported that the Prophet ﷺ taught this du'a: "O Allah, suffice me with Your lawful against Your prohibited, and make me independent of all besides You by Your grace"… | Scholar review needed: the du'a is graded hasan; the last sentence is the app's advice. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-new-clothes` | Hadi chat > built-in answer "dua-new-clothes" | Built-in answer "dua-new-clothes": Abu Sa'id al-Khudri reported: when the Prophet ﷺ put on a new garment he mentioned it by name, whether turban or shirt, and said "O Allah, praise be to You as You h… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2044,9 +2039,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.dua-shaytan-protection` | Hadi chat > built-in answer "dua-shaytan-protection" | Built-in answer "dua-shaytan-protection": The Qur'an says: if an evil suggestion from Satan comes to you, seek refuge in Allah, for He is the Hearing, the Knowing (Qur'an 7:200). It also gives a du'a… | Scholar review needed: the mention of the last three surahs is common practice with no hadith cited here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-new-baby-name` | Hadi chat > built-in answer "dua-new-baby-name" | Built-in answer "dua-new-baby-name": Ibn Umar reported the Prophet ﷺ saying: the names dearest to Allah are Abdullah and Abd al-Rahman (Sahih Muslim 2132). Scholars also recommend a name with a good… | Scholar review needed: aqiqah is flagged as not covered on purpose. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dua-ibrahim` | Hadi chat > built-in answer "dua-ibrahim" | Built-in answer "dua-ibrahim": Ibrahim is called Allah's friend, and the Qur'an gives his du'as. At the Ka'bah he and Ismail asked: our Lord, accept this from us, You are the Hearing, the Knowing (Qu… | Scholar review needed: Bukhari 4563 is cited in the closing sentence in plain text. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.story-yusuf` | Hadi chat > built-in answer "story-yusuf" | Built-in answer "story-yusuf": Surah Yusuf (surah 12) tells his whole story in one place, and Allah calls it the best of stories (Qur'an 12:3). It begins with a dream he saw as a boy of eleven stars,… | Scholar review needed: the outline is from the surah's own events. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.story-musa` | Hadi chat > built-in answer "story-musa" | Built-in answer "story-musa": Musa is the prophet named most often in the Qur'an. He was raised in Pharaoh's house, was sent to Pharaoh with signs, and led the Children of Israel out of Egypt (Qur'an… | Scholar review needed: the outline is from the surahs named. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.dua-someone-dies` | Hadi chat > built-in answer "dua-someone-dies" | Built-in answer "dua-someone-dies": When you hear of a death, the Qur'an teaches the words of the patient: we belong to Allah and to Him we return (Qur'an 2:156). In Arabic: Inna lillahi wa inna ilay… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.routing` | Hadi chat > choosing which answer to show | Which question gets which answer (for example prepaid funeral plan, combining prayers answer leading with shortening, ibuprofen while fasting). | FIX_HADI_REPORT and E_games_hadi list wrong-topic answers in a confident frame; the routing is the app's own. | Hadith / aqidah scholar + Fiqh scholar | normal | FIX_HADI_REPORT (known gaps); E_games_hadi audit |
 | `hadi.explain` | Hadi > "Hadi checked this reply" and how-it-works text | The wording that says what Hadi checked and what a scholar has not. | Honesty copy; the "checked" claim must stay accurate. | Hadith / aqidah scholar | normal | E_games_hadi audit |
 | `hadi.ai-tier` | Hadi optional AI tier (own key) | Any answer generated by an AI model with the user's own key is not from the built-in library and carries no review. | R9_T1 / R9_T4: "optionally your own AI key"; the Qur'an is never produced from memory. | Hadith / aqidah scholar | high | R9_T4_everyday_skeptic |

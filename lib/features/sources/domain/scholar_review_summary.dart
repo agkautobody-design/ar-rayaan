@@ -22,7 +22,7 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5983;
+const int kScholarReviewTotal = 5976;
 
 /// Items marked high priority.
 const int kScholarReviewHighPriority = 1322;
@@ -35,7 +35,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('arabic-tajweed', 'Arabic, tajweed, Hifz and Qur\'an recitation teaching', 88, 42),
     ScholarReviewArea('huda', 'Huda guides and their madhhab notes', 118, 104),
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
-    ScholarReviewArea('hadi', 'Hadi built-in answers', 647, 20),
+    ScholarReviewArea('hadi', 'Hadi built-in answers', 640, 20),
     ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 626, 122),
     ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 258, 52),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
@@ -57,7 +57,7 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Hadith / aqidah scholar', 2592),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 757),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 750),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 526),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1086),
