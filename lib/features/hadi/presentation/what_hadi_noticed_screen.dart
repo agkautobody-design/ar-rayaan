@@ -57,7 +57,11 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
                     'subjects, the answers he has already given you and a few '
                     'things you said about yourself, never your questions, '
                     'health, safety or hard times. It is kept on this device, and in '
-                    'your own account if you sign in.',
+                    'your own account if you sign in. When Hadi asks the live '
+                    'AI service about something outside his library, these '
+                    'subject names (never your own words) go with the question '
+                    'so the answer fits you. Switch noticing off and nothing '
+                    'is used or sent.',
                     style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
                   ),
                   const SizedBox(height: 12),

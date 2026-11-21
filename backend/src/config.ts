@@ -27,6 +27,11 @@ export interface Config {
   sessionTtlDays: number;
   logLevel: 'fatal' | 'error' | 'warn' | 'info' | 'debug' | 'trace' | 'silent';
   trustProxy: boolean;
+  /** Provider key for Hadi's live answers. Unset = the route answers 503. */
+  hadiAiApiKey: string | undefined;
+  hadiAiModel: string;
+  /** Live answers one person may use per day (server-enforced). */
+  hadiAiDailyCap: number;
 }
 
 export class ConfigError extends Error {
@@ -59,6 +64,9 @@ const schema = z.object({
   TRUST_PROXY: z
     .enum(['true', 'false'])
     .optional(),
+  HADI_AI_API_KEY: z.string().min(1).optional(),
+  HADI_AI_MODEL: z.string().min(1).default('claude-haiku-5-5'),
+  HADI_AI_DAILY_CAP: z.coerce.number().int().min(1).max(1000).default(20),
 });
 
 export function loadConfig(env: Record<string, string | undefined>): Config {
@@ -123,5 +131,8 @@ export function loadConfig(env: Record<string, string | undefined>): Config {
     // Render terminates TLS in front of the service, so the client address
     // arrives in X-Forwarded-For. Trust it in production only by default.
     trustProxy: e.TRUST_PROXY ? e.TRUST_PROXY === 'true' : production,
+    hadiAiApiKey: e.HADI_AI_API_KEY,
+    hadiAiModel: e.HADI_AI_MODEL,
+    hadiAiDailyCap: e.HADI_AI_DAILY_CAP,
   };
 }

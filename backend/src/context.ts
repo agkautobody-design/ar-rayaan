@@ -2,6 +2,7 @@ import type { Config } from './config.js';
 import type { Db, Queryable } from './db.js';
 import type { EmailSender } from './email.js';
 import type { FirebaseVerifier } from './firebaseVerifier.js';
+import type { HadiModel } from './hadi.js';
 import type { RateLimiter } from './rateLimit.js';
 
 export interface Deps {
@@ -11,6 +12,8 @@ export interface Deps {
   limiter: RateLimiter;
   /** Overridable in tests; built from config when authMode needs it. */
   firebase?: FirebaseVerifier;
+  /** Hadi's live-answer model; built from config when a key is set. */
+  hadiModel?: HadiModel;
   now: () => Date;
 }
 

@@ -4,6 +4,7 @@ import { buildApp } from '../src/app.js';
 import { loadConfig, type Config } from '../src/config.js';
 import { PgDb, type Db } from '../src/db.js';
 import type { FirebaseVerifier } from '../src/firebaseVerifier.js';
+import type { HadiModel } from '../src/hadi.js';
 import { MemoryEmailSender } from '../src/email.js';
 import { createLogger } from '../src/logging.js';
 import { migrate } from '../src/migrate.js';
@@ -51,7 +52,7 @@ export interface Ctx {
 }
 
 export async function makeCtx(
-  opts: { db?: Db; env?: Record<string, string>; firebase?: FirebaseVerifier } = {},
+  opts: { db?: Db; env?: Record<string, string>; firebase?: FirebaseVerifier; hadiModel?: HadiModel } = {},
 ): Promise<Ctx> {
   const db = opts.db ?? (await openTestDb());
   const config = loadConfig({ NODE_ENV: 'test', LOG_LEVEL: 'info', ...opts.env });
@@ -66,7 +67,15 @@ export async function makeCtx(
   const clock = makeClock();
   const limiter = new RateLimiter(() => clock.now().getTime());
   const app = await buildApp({
-    deps: { config, db, email, limiter, now: clock.now, ...(opts.firebase ? { firebase: opts.firebase } : {}) },
+    deps: {
+      config,
+      db,
+      email,
+      limiter,
+      now: clock.now,
+      ...(opts.firebase ? { firebase: opts.firebase } : {}),
+      ...(opts.hadiModel ? { hadiModel: opts.hadiModel } : {}),
+    },
     logger: createLogger(config, stream),
   });
   await app.ready();

@@ -7,6 +7,7 @@ import { ApiError } from './errors.js';
 import { registerForumRoutes } from './forums.js';
 import { registerFriendRoutes } from './friends.js';
 import { registerGuardianRoutes } from './guardian.js';
+import { AnthropicHadiModel, registerHadiRoutes } from './hadi.js';
 import { registerInviteRoutes } from './invites.js';
 import { registerMeRoutes } from './me.js';
 import { registerMeetupRoutes } from './meetups.js';
@@ -146,6 +147,14 @@ export async function buildApp({ deps, logger }: BuildOptions): Promise<FastifyI
   await registerAuthRoutes(app, deps);
   await registerMeRoutes(app, deps);
   await registerGuardianRoutes(app, deps);
+  await registerHadiRoutes(
+    app,
+    deps,
+    deps.hadiModel ??
+      (config.hadiAiApiKey
+        ? new AnthropicHadiModel(config.hadiAiApiKey, config.hadiAiModel)
+        : undefined),
+  );
   await registerFriendRoutes(app, deps);
   await registerInviteRoutes(app, deps);
   await registerForumRoutes(app, deps);
