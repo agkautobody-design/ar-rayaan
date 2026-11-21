@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6089,
+ "total": 6105,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,13 +40,13 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 719,
+   "items": 729,
    "high_priority": 21
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 659,
-   "high_priority": 124
+   "items": 665,
+   "high_priority": 126
   },
   "stories-prophets": {
    "title": "Stories: prophets, layers and earlier accounts",
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2636,
-  "Fiqh scholar (per madhab)": 819,
+  "Hadith / aqidah scholar": 2643,
+  "Fiqh scholar (per madhab)": 828,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -141,8 +141,8 @@
   "App owner (product wording and voice, not a scholar)": 569
  },
  "totals_by_priority": {
-  "high": 1325,
-  "normal": 3947,
+  "high": 1327,
+  "normal": 3961,
   "low": 817
  },
  "items": [
@@ -42778,6 +42778,259 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.kindness-to-animals",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"kindness-to-animals\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='kindness-to-animals'",
+   "what_to_review": "Built-in answer \"kindness-to-animals\": Islam teaches mercy to every living creature. Abu Hurayrah reported the Prophet ﷺ telling of a thirsty man who found a panting dog: the man filled his shoe with water and watered the dog, and Allah thanked him and forgave him (Sahih al-Bukhari 2363). When the…",
+   "why_flagged": "Scholar review needed: the last sentence is a general conclusion; scholars give detail on hunting, slaughter and keeping pets.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.planting-trees-reward",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"planting-trees-reward\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='planting-trees-reward'",
+   "what_to_review": "Built-in answer \"planting-trees-reward\": Anas ibn Malik reported the Prophet ﷺ saying: there is no Muslim who plants a tree or sows seeds, and then a bird, a person or an animal eats from it, but it is counted as a charity for him (Sahih al-Bukhari 2320). The reward continues for as long as anything…",
+   "why_flagged": "Scholar review needed: the second paragraph is the scholars' common explanation.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.surah-mulk-virtue",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"surah-mulk-virtue\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='surah-mulk-virtue'",
+   "what_to_review": "Built-in answer \"surah-mulk-virtue\": Abu Hurayrah reported the Prophet ﷺ saying: there is a surah of thirty verses that intercedes for a man until he is forgiven, Tabarak Alladhi bi-Yadihil-Mulk (Jami' at-Tirmidhi 2891, hasan per al-Albani). That is Surah Al-Mulk, the 67th surah. Many Muslims re…",
+   "why_flagged": "Scholar review needed: the nightly habit is a practice and not in this hadith.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.munkar-nakir-grave",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"munkar-nakir-grave\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='munkar-nakir-grave'",
+   "what_to_review": "Built-in answer \"munkar-nakir-grave\": Abu Hurayrah reported the Prophet ﷺ saying: when the deceased is buried two angels, black and blue-eyed, come, one called Al-Munkar and the other An-Nakir, and ask what he used to say about this man; the believer says that he is Allah's slave and His Messenge…",
+   "why_flagged": "Scholar review needed: the second paragraph paraphrases the rest of the narration from the corpus; confirm the wording and how scholars explain the barzakh.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.dajjal-warning",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"dajjal-warning\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='dajjal-warning'",
+   "what_to_review": "Built-in answer \"dajjal-warning\": The Dajjal is the great deceiver who will appear near the end of time. Anas reported the Prophet ﷺ saying: no prophet was sent without warning his people about the one-eyed liar, who is blind in one eye while your Lord is not, and the word Kafir will be writt…",
+   "why_flagged": "Scholar review needed: the seeking of refuge is stated from general knowledge and not cited here; add the narration with its number before approval if the reviewer agrees.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.firdaws-paradise",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"firdaws-paradise\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='firdaws-paradise'",
+   "what_to_review": "Built-in answer \"firdaws-paradise\": Abu Hurayrah reported the Prophet ﷺ saying: Paradise has a hundred grades, each as far from the next as heaven is from earth, and when you ask Allah ask for Al-Firdaws, which is the best and highest part of Paradise (Sahih al-Bukhari 2790). Allah says of the…",
+   "why_flagged": "Scholar review needed: the Bukhari narration also connects the hundred grades to those who strive in Allah's cause; the summary here keeps only the part about asking for Al-Firdaws.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.walking-to-masjid-reward",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"walking-to-masjid-reward\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='walking-to-masjid-reward'",
+   "what_to_review": "Built-in answer \"walking-to-masjid-reward\": Anas reported that the people of Banu Salimah wanted to move closer to the Prophet ﷺ, and he said: for every step toward the mosque there is a reward, and your footprints are counted (Sahih al-Bukhari 655). So even a long walk to the masjid is rewarded. Sourc…",
+   "why_flagged": "Scholar review needed: the summary shortens a longer narration.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.friday-virtue",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"friday-virtue\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='friday-virtue'",
+   "what_to_review": "Built-in answer \"friday-virtue\": Abu Hurayrah reported the Prophet ﷺ saying: the best day on which the sun has risen is Friday; on it Adam was created and made to enter Paradise, and on it he was expelled from it, and the Last Hour will take place on a Friday (Sahih Muslim 854). So Friday is…",
+   "why_flagged": "Scholar review needed: the last paragraph lists customs reported elsewhere (ghusl, Surah Al-Kahf); each needs its own source before approval.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.first-judged-bloodshed",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"first-judged-bloodshed\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='first-judged-bloodshed'",
+   "what_to_review": "Built-in answer \"first-judged-bloodshed\": 'Abdullah ibn Mas'ud reported the Prophet ﷺ saying: the first cases to be judged between the people are those of bloodshed (Jami' at-Tirmidhi 1396, sahih per al-Albani). This is about disputes between people. As for the worship of a person, scholars quote a s…",
+   "why_flagged": "Scholar review needed: the final sentence is stated without a source; add the narration with its number and grade before approval.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.front-rows-prayer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"front-rows-prayer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='front-rows-prayer'",
+   "what_to_review": "Built-in answer \"front-rows-prayer\": Abu Hurayrah reported the Prophet ﷺ saying: the best rows for men are the first rows and the worst the last, and the best rows for women are the last and the worst for them the first (Sahih Muslim 440). This refers to prayer in a mixed congregation, where the…",
+   "why_flagged": "Scholar review needed: the second paragraph is general explanation; add narrations on straightening rows before approval if wanted.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -55412,7 +55665,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2320",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-2320]",
-   "what_to_review": "Sahih al-Bukhari 2320: \"Anas: no Muslim plants a tree or sows a field and then a bird, person or animal eats from it, except that it counts as charity for him.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 2320: \"there is no Muslim who plants a tree or sows seeds, and then a bird, a person or an animal eats from it, but it is counted as a charity for him\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -55450,7 +55703,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2363",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-2363]",
-   "what_to_review": "Sahih al-Bukhari 2363: \"Abu Hurayrah: a man gave water to a thirsty dog and Allah thanked him for it and forgave him; the people asked whether there is reward in serving ani…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 2363: \"the man filled his shoe with water and watered the dog, and Allah thanked him and forgave him\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -58453,7 +58706,7 @@
    "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 2891",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:tirmidhi-2891]",
-   "what_to_review": "Jamiʿ at-Tirmidhi 2891: \"Abu Hurayrah: there is a surah of thirty verses that intercedes for its reciter until he is forgiven, Tabarak, Surat al-Mulk.\" (grade Hasan, al-Albani).",
+   "what_to_review": "Jamiʿ at-Tirmidhi 2891: \"there is a surah of thirty verses that intercedes for a man until he is forgiven, Tabarak Alladhi bi-Yadihil-Mulk\" (grade Hasan, al-Albani).",
    "why_flagged": "Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -58834,7 +59087,7 @@
    "where_in_app": "Hadi answers that cite Sahih Muslim 854",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:muslim-854]",
-   "what_to_review": "Sahih Muslim 854: \"Abu Hurayrah reported the Prophet said the best day on which the sun has risen is Friday, on which Adam was created\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "what_to_review": "Sahih Muslim 854: \"the best day on which the sun has risen is Friday; on it Adam was created and made to enter Paradise, and on it he was expelled from it, and the Last…\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -60703,6 +60956,120 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-2790",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2790",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-2790]",
+   "what_to_review": "Sahih al-Bukhari 2790: \"Paradise has a hundred grades, each as far from the next as heaven is from earth, and when you ask Allah ask for Al-Firdaws, which is the best and hi…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-655",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 655",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-655]",
+   "what_to_review": "Sahih al-Bukhari 655: \"for every step toward the mosque there is a reward, and your footprints are counted\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-7131",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 7131",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-7131]",
+   "what_to_review": "Sahih al-Bukhari 7131: \"no prophet was sent without warning his people about the one-eyed liar, who is blind in one eye while your Lord is not, and the word Kafir will be wr…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-440",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 440",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-440]",
+   "what_to_review": "Sahih Muslim 440: \"the best rows for men are the first rows and the worst the last, and the best rows for women are the last and the worst for them the first\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-1071",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 1071",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-1071]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 1071: \"when the deceased is buried two angels, black and blue-eyed, come, one called Al-Munkar and the other An-Nakir, and ask what he used to say about thi…\" (grade Hasan, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Hasan (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.tirmidhi-1396",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Jamiʿ at-Tirmidhi 1396",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:tirmidhi-1396]",
+   "what_to_review": "Jamiʿ at-Tirmidhi 1396: \"the first cases to be judged between the people are those of bloodshed\" (grade Sahih, al-Albani).",
+   "why_flagged": "Hadi grounding corpus: grade: Sahih (al-Albani). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],
