@@ -1504,18 +1504,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: the "count per letter" report is intentionally not given here.',
   ),
   CoreEntry(
-    id: 'neighbours-rights',
-    patterns: <String>[
-      r'\b(?:rights? of|treat\w*|good to|kind to|be kind to|harm\w*|hurt\w*) (?:a |my |the |your )?neighbou?rs?\b',
-      r'\bneighbou?rs?\b.*\b(?:islam|rights?|harm\w*|treat\w*|kindness|good)\b',
-      r'\bhow (?:should|do) i (?:treat|be with) (?:my )?neighbou?rs?\b',
-    ],
-    answer: 'The Qur\'an places the neighbour next to parents, relatives and the needy in the list of those to be treated well, mentioning both the neighbour who is near and the one who is far (Qur\'an 4:36).\n\nAisha reported the Prophet ﷺ saying: Gabriel kept advising him about treating neighbours kindly until he thought neighbours might be made heirs (Sahih al-Bukhari 6014).\n\nAbu Hurayrah reported: whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should speak good or keep quiet (Sahih al-Bukhari 6018).\n\nIn practice: do not trouble them with noise or blocked paths, greet them, share food, and help when they are in need.\n\nSource: Qur\'an 4:36; Sahih al-Bukhari 6014, 6018.\n[GO:/huda]',
-    topic: 'the rights of a neighbour',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the closing practical line is general guidance, not a quoted ruling.',
-  ),
-  CoreEntry(
     id: 'family-ties-kinship',
     patterns: <String>[
       r'\b(?:importance of|keep\w*|maintain\w*|break\w*|cut\w*|sever\w*|strengthen\w*) (?:the )?(?:family |kinship )?ties\b',
@@ -1670,20 +1658,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'choosing a name for a child',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the guidance after the hadith is general advice from scholars and is not cited.',
-  ),
-  CoreEntry(
-    id: 'istikhara-prayer',
-    patterns: <String>[
-      r'\bistikhara\b',
-      r'\bistikharah\b',
-      r'\bsalat(?:ul)?\s?(?:al )?istikhar\w*\b',
-      r'\b(?:prayer|dua) (?:for|of) guidance (?:in|about|on) (?:a )?(?:decision|choice|marriage|job|matter)\b',
-      r'\bhow (?:do|can) i (?:ask allah|pray) to (?:help me )?(?:decide|choose)\b',
-    ],
-    answer: 'Istikhara means asking Allah for what is best in a matter. Jabir reported: the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of the Qur\'an (Sahih al-Bukhari 1166).\n\nHe ﷺ said: if one of you intends to do something, he should pray two rak\'ahs other than the obligatory prayer, then say the istikhara du\'a, in which he names his matter, asking Allah to decide for him what is good and to turn him away from what is not. The words of the du\'a are in Bukhari 1166 and in books of du\'as such as Hisn al-Muslim.\n\nIt is not a dream test: you do it, then take the practical steps and consult people, and trust that Allah will make it easy if it is good.\n\nSource: Sahih al-Bukhari 1166.\n[GO:/adhkar]',
-    topic: 'the istikhara prayer',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the last paragraph is general explanation; the du\'a is not reproduced here, so check wording before adding it.',
   ),
   CoreEntry(
     id: 'tarawih-prayer',

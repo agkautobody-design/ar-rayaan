@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6091,
+ "total": 6089,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,7 +40,7 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 721,
+   "items": 719,
    "high_priority": 21
   },
   "hadith": {
@@ -131,7 +131,7 @@
  },
  "totals_by_reviewer_type": {
   "Hadith / aqidah scholar": 2636,
-  "Fiqh scholar (per madhab)": 821,
+  "Fiqh scholar (per madhab)": 819,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1325,
-  "normal": 3949,
+  "normal": 3947,
   "low": 817
  },
  "items": [
@@ -42413,32 +42413,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.neighbours-rights",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"neighbours-rights\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='neighbours-rights'",
-   "what_to_review": "Built-in answer \"neighbours-rights\": The Qur'an places the neighbour next to parents, relatives and the needy in the list of those to be treated well, mentioning both the neighbour who is near and the one who is far (Qur'an 4:36). Aisha reported the Prophet ﷺ saying: Gabriel kept advising him ab…",
-   "why_flagged": "Scholar review needed: the closing practical line is general guidance, not a quoted ruling.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.family-ties-kinship",
    "area": "hadi",
    "subarea": "core-answer",
@@ -42734,32 +42708,6 @@
    "key": "CoreEntry id='good-names-child'",
    "what_to_review": "Built-in answer \"good-names-child\": Ibn Umar reported the Prophet ﷺ saying: the names dearest to Allah are Abdullah and Abd al-Rahman (Sahih Muslim 2132). Choose a name with a good meaning, preferably that of a prophet, a righteous person or a servant of Allah (Abd followed by one of His names)…",
    "why_flagged": "Scholar review needed: the guidance after the hadith is general advice from scholars and is not cited.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.istikhara-prayer",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"istikhara-prayer\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='istikhara-prayer'",
-   "what_to_review": "Built-in answer \"istikhara-prayer\": Istikhara means asking Allah for what is best in a matter. Jabir reported: the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of the Qur'an (Sahih al-Bukhari 1166). He ﷺ said: if one of you intends to do something, he should p…",
-   "why_flagged": "Scholar review needed: the last paragraph is general explanation; the du'a is not reproduced here, so check wording before adding it.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

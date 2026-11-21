@@ -2,21 +2,6 @@
 # found missing by a fourth probe. Hadith are read against the corpus by build.py.
 # Contested rulings are deliberately not answered here.
 
-E('neighbours-rights',
-  m=[r'\b(?:rights? of|treat\w*|good to|kind to|be kind to|harm\w*|hurt\w*) (?:a |my |the |your )?neighbou?rs?\b', r'\bneighbou?rs?\b.*\b(?:islam|rights?|harm\w*|treat\w*|kindness|good)\b', r'\bhow (?:should|do) i (?:treat|be with) (?:my )?neighbou?rs?\b'],
-  topic='the rights of a neighbour',
-  go=['/huda'],
-  text="""
-The Qur'an places the neighbour next to parents, relatives and the needy in the list of those to be treated well, mentioning both the neighbour who is near and the one who is far ({QR 4:36}).
-
-Aisha reported the Prophet ﷺ saying: {HS bukhari:6014|Gabriel kept advising him about treating neighbours kindly until he thought neighbours might be made heirs}.
-
-Abu Hurayrah reported: {HS bukhari:6018|whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should speak good or keep quiet}.
-
-In practice: do not trouble them with noise or blocked paths, greet them, share food, and help when they are in need.
-""",
-  review='Scholar review needed: the closing practical line is general guidance, not a quoted ruling.')
-
 E('family-ties-kinship',
   m=[r'\b(?:importance of|keep\w*|maintain\w*|break\w*|cut\w*|sever\w*|strengthen\w*) (?:the )?(?:family |kinship )?ties\b', r'\bsilat (?:al )?rahim\b', r'\bties of kinship\b', r'\bkeep\w* (?:in )?touch with (?:my )?(?:relatives|family)\b', r'\bqat(?:i|a)?\s?(?:ah|a) (?:al )?rahim\b'],
   topic='keeping family ties',
@@ -172,19 +157,6 @@ Choose a name with a good meaning, preferably that of a prophet, a righteous per
 For the du'a at the naming, see the du'a for a new baby.
 """,
   review='Scholar review needed: the guidance after the hadith is general advice from scholars and is not cited.')
-
-E('istikhara-prayer',
-  m=[r'\bistikhara\b', r'\bistikharah\b', r'\bsalat(?:ul)?\s?(?:al )?istikhar\w*\b', r'\b(?:prayer|dua) (?:for|of) guidance (?:in|about|on) (?:a )?(?:decision|choice|marriage|job|matter)\b', r'\bhow (?:do|can) i (?:ask allah|pray) to (?:help me )?(?:decide|choose)\b'],
-  topic='the istikhara prayer',
-  go=['/adhkar'],
-  text="""
-Istikhara means asking Allah for what is best in a matter. Jabir reported: {HS bukhari:1166|the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of the Qur'an}.
-
-He ﷺ said: if one of you intends to do something, he should pray two rak'ahs other than the obligatory prayer, then say the istikhara du'a, in which he names his matter, asking Allah to decide for him what is good and to turn him away from what is not. The words of the du'a are in Bukhari 1166 and in books of du'as such as Hisn al-Muslim.
-
-It is not a dream test: you do it, then take the practical steps and consult people, and trust that Allah will make it easy if it is good.
-""",
-  review='Scholar review needed: the last paragraph is general explanation; the du\'a is not reproduced here, so check wording before adding it.')
 
 E('tarawih-prayer',
   m=[r'\btara[wv]ee?h\b', r'\btarawih\b', r'\bhow many (?:rakats?|rakahs?|rakaat|raka ?ah) (?:in|for|is|are) (?:the )?tara\w*\b', r'\bnight prayers? in ramadan\b', r'\bqiyam (?:al )?(?:layl|lail) (?:in )?ramadan\b'],

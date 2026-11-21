@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**6091 items.** High priority: 1325. Normal: 3949. Low: 817.
+**6089 items.** High priority: 1325. Normal: 3947. Low: 817.
 
 ### By area
 
@@ -25,7 +25,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 721 | 21 |
+| Hadi built-in answers | 719 | 21 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 659 | 124 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **6091** | **1325** |
+| **Total** | **6089** | **1325** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2636 | 1229 |
-| Fiqh scholar (per madhab) | 821 | 257 |
+| Hadith / aqidah scholar | 2636 | 1227 |
+| Fiqh scholar (per madhab) | 819 | 257 |
 | Women's scholar | 151 | 98 |
 | Arabic / tajweed / qira'at specialist | 526 | 196 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -72,7 +72,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 346 | 375 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 346 | 373 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 659 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2636 lead, 1229 also)
+### Hadith / aqidah scholar (2636 lead, 1227 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (821 lead, 257 also)
+### Fiqh scholar (per madhab) (819 lead, 257 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 375 items (13 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 373 items (13 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -1743,7 +1743,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-721 items, 21 high priority. Area key `hadi`.
+719 items, 21 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2105,7 +2105,6 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.reward-congregation-fajr` | Hadi chat > built-in answer "reward-congregation-fajr" | Built-in answer "reward-congregation-fajr": Ibn Umar reported the Prophet ﷺ saying: the prayer in congregation is twenty-seven times superior to the prayer offered by a person alone (Sahih al-Bukhari… | Scholar review needed: the Muslim report continues with a warning not summarised here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.reward-feeding-salam-salawat` | Hadi chat > built-in answer "reward-feeding-salam-salawat" | Built-in answer "reward-feeding-salam-salawat": A man asked the Prophet ﷺ which deeds are best in Islam, and he answered, as Abdullah ibn Amr reported: to feed the poor and greet those whom you know… | Scholar review needed: the summary of Bukhari 6384 is limited to the statement about the treasures of Paradise. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.qur-an-recite-reward` | Hadi chat > built-in answer "qur-an-recite-reward" | Built-in answer "qur-an-recite-reward": The Qur'an says that those who recite the Book of Allah, establish prayer and spend from what We provided them, secretly and openly, hope for a trade that will… | Scholar review needed: the "count per letter" report is intentionally not given here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.neighbours-rights` | Hadi chat > built-in answer "neighbours-rights" | Built-in answer "neighbours-rights": The Qur'an places the neighbour next to parents, relatives and the needy in the list of those to be treated well, mentioning both the neighbour who is near and th… | Scholar review needed: the closing practical line is general guidance, not a quoted ruling. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.family-ties-kinship` | Hadi chat > built-in answer "family-ties-kinship" | Built-in answer "family-ties-kinship": Keeping the ties of kinship is a duty the Qur'an links with fearing Allah (Qur'an 4:1). Abu Hurayrah reported the Prophet ﷺ saying: whoever is pleased to have h… | Scholar review needed: the last paragraph is general guidance; scholars discuss the limits when a relative causes harm. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.raising-daughters` | Hadi chat > built-in answer "raising-daughters" | Built-in answer "raising-daughters": Anas reported the Prophet ﷺ saying: whoever brings up two girls properly until they reach maturity, he and I will come on the Day of Resurrection like this, and h… | Scholar review needed: the narrator's name was not shown in the corpus line; confirm Anas, and the second paragraph is a general explanation. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.choosing-spouse` | Hadi chat > built-in answer "choosing-spouse" | Built-in answer "choosing-spouse": Abu Hurayrah reported the Prophet ﷺ saying: a woman is married for four things: her wealth, her family, her beauty and her religion, so marry the one with religion… | Scholar review needed: the hadith speaks of choosing a wife; applying it to men and the closing advice are scholars' general guidance. | Fiqh scholar + Women's scholar, Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2118,7 +2117,6 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.days-of-tashreeq` | Hadi chat > built-in answer "days-of-tashreeq" | Built-in answer "days-of-tashreeq": The days of Tashriq are the three days after the Day of Sacrifice (the 11th, 12th and 13th of Dhul Hijjah). Nubayshah al-Hudhali reported the Prophet ﷺ saying: the… | Scholar review needed: the dates, the fasting ruling and the exception are the scholars' accounts; the hadith line given is only the first part of the narration. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.newborn-sunnah` | Hadi chat > built-in answer "newborn-sunnah" | Built-in answer "newborn-sunnah": Abu Musa reported: a son was born to him and he took him to the Prophet ﷺ, who named him Ibrahim, put a chewed date in his mouth (tahnik), prayed for blessing for hi… | Scholar review needed: the last paragraph is the scholars' general account; the details of the aqiqah are not given. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.good-names-child` | Hadi chat > built-in answer "good-names-child" | Built-in answer "good-names-child": Ibn Umar reported the Prophet ﷺ saying: the names dearest to Allah are Abdullah and Abd al-Rahman (Sahih Muslim 2132). Choose a name with a good meaning, preferabl… | Scholar review needed: the guidance after the hadith is general advice from scholars and is not cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.istikhara-prayer` | Hadi chat > built-in answer "istikhara-prayer" | Built-in answer "istikhara-prayer": Istikhara means asking Allah for what is best in a matter. Jabir reported: the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of t… | Scholar review needed: the last paragraph is general explanation; the du'a is not reproduced here, so check wording before adding it. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.tarawih-prayer` | Hadi chat > built-in answer "tarawih-prayer" | Built-in answer "tarawih-prayer": Tarawih is the voluntary night prayer of Ramadan, prayed after the 'Isha' prayer, often in congregation. Aisha was asked how the Prophet ﷺ prayed in Ramadan: she sai… | Scholar review needed: the figures twenty and eight are the schools' positions, not cited here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.eclipse-prayer` | Hadi chat > built-in answer "eclipse-prayer" | Built-in answer "eclipse-prayer": Aisha reported: in the Prophet's lifetime the sun eclipsed and he led the people in a prayer with long standing, a long bow, a second shorter standing and bow, and l… | Scholar review needed: the second paragraph is a short description of the form of the prayer; the sermon wording is only part of the narration. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.routing` | Hadi chat > choosing which answer to show | Which question gets which answer (for example prepaid funeral plan, combining prayers answer leading with shortening, ibuprofen while fasting). | FIX_HADI_REPORT and E_games_hadi list wrong-topic answers in a confident frame; the routing is the app's own. | Hadith / aqidah scholar + Fiqh scholar | normal | FIX_HADI_REPORT (known gaps); E_games_hadi audit |
