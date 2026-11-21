@@ -28,6 +28,7 @@ tags:
   - name: invites
   - name: forums
   - name: safety
+  - name: hadi
   - name: moderation
   - name: meetups
   - name: notifications
@@ -184,6 +185,41 @@ paths:
         '200': { description: Profile }
         '409': { $ref: '#/components/responses/Error' }
         '422': { $ref: '#/components/responses/Error' }
+  /v1/hadi/ask:
+    post:
+      tags: [hadi]
+      security: [{ bearer: [] }]
+      summary: Hadi's live answer for a question the built-in library cannot answer. Capped per person per day.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [question]
+              properties:
+                question: { type: string, maxLength: 8000 }
+                history:
+                  type: array
+                  maxItems: 4
+                  items:
+                    type: object
+                    required: [from, text]
+                    properties:
+                      from: { type: string, enum: [user, hadi] }
+                      text: { type: string, maxLength: 1500 }
+                package: { type: string, enum: [free, plus, family] }
+                maxReplyChars: { type: integer }
+                maxOutputTokens: { type: integer, maximum: 400 }
+                preferSmallModel: { type: boolean }
+                memory:
+                  type: object
+                  description: Subject ids and answer ids only, from fixed lists. Never words the person wrote.
+      responses:
+        '200': { description: The answer, as {text} }
+        '429': { $ref: '#/components/responses/Error' }
+        '502': { $ref: '#/components/responses/Error' }
+        '503': { $ref: '#/components/responses/Error' }
   /v1/me/export:
     get:
       tags: [me]

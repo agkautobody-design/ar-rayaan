@@ -1216,6 +1216,19 @@ class HadiController extends Notifier<HadiState> {
     }
   }
 
+  /// Whether what Hādi has come to know about this person may shape a reply:
+  /// only while noticing is on, never in Private mode, Child mode or Kids
+  /// Corner.
+  bool _mayUseKnows() {
+    try {
+      if (kChildMode.value || kKidsMode.value) return false;
+      if (ref.read(supportSettingsProvider).privateMode) return false;
+      return ref.read(userKnowsProvider.notifier).on;
+    } catch (_) {
+      return false;
+    }
+  }
+
   /// The hosted provider for [q], or null when the built-in library answers
   /// it (the normal case) or a configured package limit is reached (the
   /// library's own reply is then shown, with no message about it).
@@ -1234,7 +1247,12 @@ class HadiController extends Notifier<HadiState> {
     // A very short message may be a follow-up that depends on the thread:
     // never cached.
     final bool cacheable = norm.split(' ').length >= 3;
+    HostedMemory memory = const HostedMemory();
+    try {
+      if (_mayUseKnows()) memory = HostedMemory.from(ref.read(userKnowsProvider));
+    } catch (_) {}
     return HostedHadiProvider(
+      memory: memory,
       backend: ref.read(hostedAiProvider),
       meter: meter,
       package: pkg,
@@ -2213,11 +2231,7 @@ class HadiController extends Notifier<HadiState> {
         if (hit != null && HadiCore.isCoreAnswer(clean)) {
           UserKnows knows = UserKnows.empty;
           try {
-            if (!kChildMode.value &&
-                !kKidsMode.value &&
-                ref.read(userKnowsProvider.notifier).on) {
-              knows = ref.read(userKnowsProvider);
-            }
+            if (_mayUseKnows()) knows = ref.read(userKnowsProvider);
           } catch (_) {}
           clean = HadiVoice.dress(
             question: q,

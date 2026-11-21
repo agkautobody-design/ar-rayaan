@@ -1,10 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/backend/backend_config.dart';
+import '../../../app/core/backend/prefs_token_store.dart';
 import '../../../app/core/packages/hadi_package.dart';
+import '../../../app/core/providers.dart';
 import '../../../app/core/packages/usage_meter.dart';
 import '../application/hadi_provider.dart';
 import 'groq_hadi_provider.dart' show HadiProviderException;
+import 'user_knows.dart';
 import 'hosted_cache.dart';
+import 'http_hosted_ai.dart';
 
 /// The hosted-AI seam for Hādi: answers out-of-library questions for people
 /// on a package that allows it.
@@ -39,6 +44,7 @@ class HostedAiRequest {
     required this.maxReplyChars,
     this.maxOutputTokens = kHostedMaxOutputTokens,
     this.preferSmallModel = kHostedSmallModelFirst,
+    this.memory = const HostedMemory(),
   });
 
   /// The question with the app's grounding context already attached.
@@ -58,6 +64,50 @@ class HostedAiRequest {
   /// Small-model-first policy: the server should try its small, cheap model
   /// and only escalate when it must. The app never names a model.
   final bool preferSmallModel;
+
+  /// What Hādi has come to know about this person, as ids from fixed lists
+  /// only (never words the person wrote). Empty when they switched noticing
+  /// off, are in Private mode, or this is a child session.
+  final HostedMemory memory;
+}
+
+/// The long-term memory sent with a hosted question so the answer is pitched
+/// at this person and does not repeat what was already covered. Subject keys,
+/// role keys and answer ids: nothing a person typed, nothing from a support,
+/// health, safety or crisis exchange (UserKnows never learns those).
+class HostedMemory {
+  const HostedMemory({
+    this.roles = const <String>[],
+    this.topics = const <String>[],
+    this.covered = const <String>[],
+  });
+
+  final List<String> roles;
+  final List<String> topics;
+  final List<String> covered;
+
+  bool get isEmpty => roles.isEmpty && topics.isEmpty && covered.isEmpty;
+
+  /// The strongest subjects and the most recent answers of [k].
+  factory HostedMemory.from(UserKnows k) {
+    final List<MapEntry<String, KnownTopic>> t = k.topics.entries.toList()
+      ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
+          b.value.count.compareTo(a.value.count));
+    final List<MapEntry<String, KnownTopic>> c = k.covered.entries.toList()
+      ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
+          b.value.last.compareTo(a.value.last));
+    return HostedMemory(
+      roles: (k.roles.toList()..sort()).take(3).toList(),
+      topics: t.map((MapEntry<String, KnownTopic> e) => e.key).take(6).toList(),
+      covered: c.map((MapEntry<String, KnownTopic> e) => e.key).take(12).toList(),
+    );
+  }
+
+  Map<String, Object> toJson() => <String, Object>{
+        'roles': roles,
+        'topics': topics,
+        'covered': covered,
+      };
 }
 
 class HostedAiReply {
@@ -87,10 +137,20 @@ class UnavailableHostedAi implements HostedAi {
   }
 }
 
-/// TODO-OWNER: replace with the real proxy client once a server and provider
-/// exist. Override this provider; no other code changes.
-final Provider<HostedAi> hostedAiProvider =
-    Provider<HostedAi>((ref) => const UnavailableHostedAi());
+/// The proxy client when this build was compiled for the real service
+/// (`COMMUNITY_BACKEND=http` and `COMMUNITY_API_URL`, the same server as the
+/// community features), otherwise [UnavailableHostedAi]. The server answers
+/// 503 until the owner has put a provider key on it, in which case the app
+/// simply keeps using the built-in library.
+final Provider<HostedAi> hostedAiProvider = Provider<HostedAi>((ref) {
+  if (BackendConfig.mode != BackendMode.http) return const UnavailableHostedAi();
+  final HttpHostedAi api = HttpHostedAi(
+    baseUrl: BackendConfig.apiUrl,
+    tokens: PrefsTokenStore(ref.watch(sharedPreferencesProvider)),
+  );
+  ref.onDispose(api.close);
+  return api;
+});
 
 /// The label every hosted answer carries, in the reply itself so it survives
 /// saving and restoring the conversation.
@@ -179,7 +239,11 @@ class HostedHadiProvider implements HadiProvider {
     required this.limits,
     this.cache,
     this.cacheKey = '',
+    this.memory = const HostedMemory(),
   });
+
+  /// See [HostedAiRequest.memory].
+  final HostedMemory memory;
 
   final HostedAi backend;
   final UsageMeter meter;
@@ -214,6 +278,7 @@ class HostedHadiProvider implements HadiProvider {
               : history,
           package: package.name,
           maxReplyChars: limits.maxReplyChars,
+          memory: memory,
         ),
       );
       await cache?.put(cacheKey, r.text);
