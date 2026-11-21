@@ -912,23 +912,23 @@
    "id": "h:muslim-963",
    "collection": "Sahih Muslim",
    "number": "963",
-   "english": "'Awf ibn Malik remembered the Prophet's du'a over a dead man: forgive him, have mercy on him, make his grave wide, wash him with water, snow and hail, admit him to Paradise and protect him from the torment of the grave and the Fire",
+   "english": "\"O Allah, forgive him, have mercy on him, give him peace and pardon him, receive him with honour, make his grave spacious, wash him with water, snow and hail, cleanse him of faults as a white garment is cleansed of dirt, give him a home better than his home, a family better than his family, and protect him from the torment of the grave and the torment of the Fire\"",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "'awf",
-    "malik",
-    "remembered",
-    "prophet's",
-    "du'a",
-    "over",
-    "dead",
-    "forgive"
+    "forgive",
+    "mercy",
+    "give",
+    "peace",
+    "pardon",
+    "receive",
+    "honour",
+    "make"
    ],
    "verifiedAt": "https://sunnah.com/muslim:963",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-832",
@@ -3891,22 +3891,19 @@
    "id": "h:abudawud-2130",
    "collection": "Sunan Abu Dawud",
    "number": "2130",
-   "english": "Abu Hurayrah: to a man on his marriage the Prophet said \"May Allah bless for you, bless upon you, and bring you together in good\".",
+   "english": "he said \"May Allah bless for you and may He bless on you and combine both of you in good\"",
    "grade": "Sahih",
    "grader": "al-Albani",
    "topics": [
-    "hurayrah",
-    "marriage",
     "bless",
-    "upon",
-    "bring",
-    "together",
+    "combine",
+    "both",
     "good"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:2130",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-2838",
@@ -5156,23 +5153,23 @@
    "id": "h:bukhari-33",
    "collection": "Sahih al-Bukhari",
    "number": "33",
-   "english": "Abu Hurayrah: the signs of a hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays.",
+   "english": "the signs of a hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays the trust",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "signs",
     "hypocrite",
     "three",
     "speaks",
     "lies",
     "promises",
-    "breaks"
+    "breaks",
+    "trusted"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:33",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-3365",
@@ -5354,23 +5351,23 @@
    "id": "h:bukhari-4563",
    "collection": "Sahih al-Bukhari",
    "number": "4563",
-   "english": "Ibn Abbas: \"Allah is sufficient for us and the best Disposer of affairs\" was said by Ibrahim when thrown into the fire and by Muhammad when told that people had gathered against them.",
+   "english": "\"Allah is sufficient for us and He is the best disposer of affairs\" was said by Abraham when he was thrown into the fire, and by Muhammad when people told them an army was gathering against them, and it only increased their faith",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "abbas",
     "sufficient",
     "best",
     "disposer",
     "affairs",
-    "ibrahim",
+    "abraham",
     "thrown",
-    "into"
+    "into",
+    "fire"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:4563",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-4937",
@@ -5851,45 +5848,45 @@
    "id": "h:bukhari-6114",
    "collection": "Sahih al-Bukhari",
    "number": "6114",
-   "english": "Abu Hurayrah: the strong person is not the one who overpowers others but the one who controls himself in anger.",
+   "english": "the strong is not the one who overcomes people by strength, but the one who controls himself while in anger",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "strong",
-    "person",
-    "overpowers",
-    "others",
+    "overcomes",
+    "people",
+    "strength",
     "controls",
     "himself",
+    "while",
     "anger"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6114",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-614",
    "collection": "Sahih al-Bukhari",
    "number": "614",
-   "english": "Jabir: whoever says the supplication after the call to prayer (\"O Allah, Lord of this perfect call...\") will be granted the Prophet's intercession on the Day of Resurrection.",
+   "english": "whoever after hearing the adhan says \"O Allah, Lord of this perfect call and of the prayer to be established, give Muhammad the Wasilah and the virtue, and raise him to the praised station You promised him\", my intercession for him will be allowed on the Day of Resurrection",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "jabir",
     "whoever",
-    "supplication",
     "after",
-    "call",
-    "prayer",
+    "hearing",
+    "adhan",
     "lord",
-    "perfect"
+    "perfect",
+    "call",
+    "prayer"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:614",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6224",
@@ -5917,23 +5914,23 @@
    "id": "h:bukhari-6306",
    "collection": "Sahih al-Bukhari",
    "number": "6306",
-   "english": "Shaddad ibn Aws: the best way of asking forgiveness (sayyid al-istighfar) is \"O Allah, You are my Lord, there is no god but You...\"; whoever says it with certainty by day and dies before evening will be among the people of Paradise.",
+   "english": "the most superior way of asking forgiveness is to say \"O Allah, You are my Lord, there is no god but You, You created me and I am Your servant, I keep Your covenant and promise as best I can, I seek refuge in You from the evil I have done, I acknowledge Your favour upon me and I acknowledge my sin, so forgive me, for none forgives sins but You\"",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "shaddad",
-    "best",
+    "most",
+    "superior",
     "asking",
     "forgiveness",
-    "sayyid",
-    "istighfar",
     "lord",
-    "there"
+    "there",
+    "created",
+    "servant"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6306",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6309",
@@ -6411,23 +6408,18 @@
    "id": "h:muslim-1163",
    "collection": "Sahih Muslim",
    "number": "1163",
-   "english": "Abu Hurayrah: the best fast after Ramadan is in Allah's month of Muharram, and the best prayer after the obligatory prayers is the night prayer.",
+   "english": "the prayer in the middle of the night",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "best",
-    "fast",
-    "after",
-    "ramadan",
-    "allah's",
-    "month",
-    "muharram"
+    "prayer",
+    "middle",
+    "night"
    ],
    "verifiedAt": "https://sunnah.com/muslim:1163",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-1169",
@@ -6951,23 +6943,23 @@
    "id": "h:muslim-223",
    "collection": "Sahih Muslim",
    "number": "223",
-   "english": "Abu Malik al-Ashari: cleanliness is half of faith, \"Alhamdulillah\" fills the scale, prayer is light, charity is proof, patience is illumination, and the Qur'an is an argument for you or against you.",
+   "english": "Alhamdulillah fills the scale, and Subhan Allah and Alhamdulillah fill what is between the heavens and the earth",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "malik",
-    "ashari",
-    "cleanliness",
-    "half",
-    "faith",
     "alhamdulillah",
     "fills",
-    "scale"
+    "scale",
+    "subhan",
+    "fill",
+    "between",
+    "heavens",
+    "earth"
    ],
    "verifiedAt": "https://sunnah.com/muslim:223",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-224",
@@ -7472,23 +7464,23 @@
    "id": "h:muslim-2999",
    "collection": "Sahih Muslim",
    "number": "2999",
-   "english": "Suhayb: the believer's affair is all good: if good befalls him he is grateful and that is good for him, and if harm befalls him he is patient and that is good for him.",
+   "english": "a believer's affairs are all good: if he has an occasion for delight he thanks Allah and there is good in it, and if he gets into trouble and endures it patiently there is good in it",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "suhayb",
     "believer's",
-    "affair",
+    "affairs",
     "good",
-    "befalls",
-    "grateful",
-    "harm",
-    "patient"
+    "occasion",
+    "delight",
+    "thanks",
+    "there",
+    "gets"
    ],
    "verifiedAt": "https://sunnah.com/muslim:2999",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-362",
@@ -7516,23 +7508,23 @@
    "id": "h:muslim-384",
    "collection": "Sahih Muslim",
    "number": "384",
-   "english": "Abdullah ibn Amr: when you hear the muadhdhin, repeat what he says, then send blessings on me and ask Allah for the wasila (a rank in Paradise) for me; whoever asks it for me, my intercession is guaranteed for him.",
+   "english": "when you hear the muadhdhin, repeat what he says, then send blessings on me, for whoever sends one blessing on me Allah sends ten on him, then ask Allah for al-Wasilah for me, a rank in Paradise",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "abdullah",
     "hear",
     "muadhdhin",
     "repeat",
     "send",
     "blessings",
-    "wasila",
-    "rank"
+    "whoever",
+    "sends",
+    "blessing"
    ],
    "verifiedAt": "https://sunnah.com/muslim:384",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:muslim-408",
@@ -9637,6 +9629,435 @@
     "amen"
    ],
    "verifiedAt": "https://sunnah.com/muslim:919",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-1284",
+   "collection": "Sahih al-Bukhari",
+   "number": "1284",
+   "english": "he sent word to her that whatever Allah takes is His, whatever He gives is His, and everything with Him has a fixed term, so she should be patient and hope for Allah's reward",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "sent",
+    "word",
+    "whatever",
+    "takes",
+    "gives",
+    "everything",
+    "fixed",
+    "term"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1284",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-1469",
+   "collection": "Sahih al-Bukhari",
+   "number": "1469",
+   "english": "nobody is given a blessing better and greater than patience",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "nobody",
+    "given",
+    "blessing",
+    "better",
+    "greater",
+    "than",
+    "patience"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1469",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3769",
+   "collection": "Sahih al-Bukhari",
+   "number": "3769",
+   "english": "the superiority of Aisha to other women is like the superiority of tharid, an Arabic dish, to other meals",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "superiority",
+    "aisha",
+    "other",
+    "women",
+    "like",
+    "tharid",
+    "arabic",
+    "dish"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3769",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3820",
+   "collection": "Sahih al-Bukhari",
+   "number": "3820",
+   "english": "\"This is Khadijah coming with a dish of food; when she reaches you, greet her on behalf of her Lord and on mine, and give her the good news of a palace in Paradise in which there will be no noise and no fatigue\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "khadijah",
+    "coming",
+    "dish",
+    "food",
+    "reaches",
+    "greet",
+    "behalf",
+    "lord"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3820",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5534",
+   "collection": "Sahih al-Bukhari",
+   "number": "5534",
+   "english": "a good companion and an evil one are like a person carrying musk and a person blowing a pair of bellows: the musk carrier gives you perfume, or you buy some or at least smell a good scent, while the bellows blower burns your clothes or you get a bad smell",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "good",
+    "companion",
+    "evil",
+    "like",
+    "person",
+    "carrying",
+    "musk",
+    "blowing"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5534",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-603",
+   "collection": "Sahih al-Bukhari",
+   "number": "603",
+   "english": "Bilal was ordered to pronounce the adhan by saying its wordings twice and the iqamah by saying its wordings once",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "bilal",
+    "ordered",
+    "pronounce",
+    "adhan",
+    "saying",
+    "wordings",
+    "twice",
+    "iqamah"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:603",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6064",
+   "collection": "Sahih al-Bukhari",
+   "number": "6064",
+   "english": "beware of suspicion, do not look for others' faults, do not spy, do not envy one another, and do not desert one another, but be servants of Allah and brothers",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "beware",
+    "suspicion",
+    "look",
+    "others'",
+    "faults",
+    "envy",
+    "another",
+    "desert"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6064",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6115",
+   "collection": "Sahih al-Bukhari",
+   "number": "6115",
+   "english": "\"I know a word which, if he said it, would make his anger go away: I seek refuge with Allah from Satan, the outcast\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "know",
+    "word",
+    "make",
+    "anger",
+    "away",
+    "seek",
+    "refuge",
+    "satan"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6115",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6406",
+   "collection": "Sahih al-Bukhari",
+   "number": "6406",
+   "english": "there are two expressions, light on the tongue, heavy in the balance and dear to the Merciful: \"Subhan Allah al-Azim\" and \"Subhan Allah wa bihamdihi\"",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "there",
+    "expressions",
+    "light",
+    "tongue",
+    "heavy",
+    "balance",
+    "dear",
+    "merciful"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6406",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-1631",
+   "collection": "Sahih Muslim",
+   "number": "1631",
+   "english": "when a man dies his deeds come to an end except three: recurring charity, knowledge from which people benefit, or a pious son who prays for him",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "dies",
+    "deeds",
+    "come",
+    "except",
+    "three",
+    "recurring",
+    "charity",
+    "knowledge"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1631",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-26",
+   "collection": "Sahih Muslim",
+   "number": "26",
+   "english": "he who died knowing that there is no god but Allah entered Paradise",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "died",
+    "knowing",
+    "there",
+    "entered",
+    "paradise"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:26",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-482",
+   "collection": "Sahih Muslim",
+   "number": "482",
+   "english": "the nearest a servant comes to his Lord is when he is prostrating himself, so make du'a in it",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "nearest",
+    "servant",
+    "comes",
+    "lord",
+    "prostrating",
+    "himself",
+    "make",
+    "du'a"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:482",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-725",
+   "collection": "Sahih Muslim",
+   "number": "725",
+   "english": "the two rak'ahs at dawn are better than this world and what it contains",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "rak'ahs",
+    "dawn",
+    "better",
+    "than",
+    "world",
+    "contains"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:725",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-757",
+   "collection": "Sahih Muslim",
+   "number": "757",
+   "english": "there is an hour in the night in which no Muslim asks Allah for good in this world and the next without Allah giving it to him, and that applies to every night",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "there",
+    "hour",
+    "night",
+    "muslim",
+    "asks",
+    "good",
+    "world",
+    "next"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:757",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-91",
+   "collection": "Sahih Muslim",
+   "number": "91",
+   "english": "he who has in his heart the weight of a mustard seed of pride will not enter Paradise",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "heart",
+    "weight",
+    "mustard",
+    "seed",
+    "pride",
+    "enter",
+    "paradise"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:91",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-3383",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3383",
+   "english": "the best remembrance is \"there is none worthy of worship except Allah\" and the best supplication is \"All praise is due to Allah\"",
+   "grade": "Hasan",
+   "grader": "Darussalam",
+   "topics": [
+    "best",
+    "remembrance",
+    "there",
+    "none",
+    "worthy",
+    "worship",
+    "except",
+    "supplication"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3383",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:tirmidhi-3563",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3563",
+   "english": "\"O Allah, suffice me with Your lawful against Your prohibited, and make me independent of all besides You by Your grace\"",
+   "grade": "Hasan",
+   "grader": "Darussalam",
+   "topics": [
+    "suffice",
+    "lawful",
+    "against",
+    "prohibited",
+    "make",
+    "independent",
+    "besides",
+    "grace"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3563",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:abudawud-4020",
+   "collection": "Sunan Abu Dawud",
+   "number": "4020",
+   "english": "when the Prophet ﷺ put on a new garment he mentioned it by name, whether turban or shirt, and said \"O Allah, praise be to You as You have clothed me with it, I ask You for its good and the good of that for which it was made, and I seek refuge in You from its evil and the evil of that for which it was made\"",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "garment",
+    "mentioned",
+    "name",
+    "whether",
+    "turban",
+    "shirt",
+    "praise",
+    "clothed"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:4020",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5747",
+   "collection": "Sahih al-Bukhari",
+   "number": "5747",
+   "english": "a good dream is from Allah and a bad dream is from Satan, so if anyone sees something he dislikes in a dream, when he wakes he should blow three times on his left side and seek refuge with Allah from its evil, and it will not harm him",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "good",
+    "dream",
+    "satan",
+    "anyone",
+    "sees",
+    "something",
+    "dislikes",
+    "wakes"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5747",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-2132",
+   "collection": "Sahih Muslim",
+   "number": "2132",
+   "english": "the names dearest to Allah are Abdullah and Abd al-Rahman",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "names",
+    "dearest",
+    "abdullah",
+    "rahman"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2132",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-20"
