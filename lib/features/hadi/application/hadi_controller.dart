@@ -37,6 +37,9 @@ import '../../places/domain/jumuah_time.dart' show JumuahEntry;
 import 'package:http/http.dart' as http;
 import '../data/hadi_routing.dart';
 import '../data/hadi_miss_service.dart';
+import '../../../app/core/child_mode.dart';
+import '../../../app/core/kids_mode.dart';
+import 'hadi_voice.dart';
 import 'user_knows_provider.dart';
 import '../data/user_knows.dart';
 import '../data/hadi_weather.dart';
@@ -1179,7 +1182,13 @@ class HadiController extends Notifier<HadiState> {
         // this device only (never in Private or child sessions, never from
         // health, safety or support text).
         try {
-          unawaited(ref.read(userKnowsProvider.notifier).noteQuestion(question));
+          final CoreEntry? ce = HadiCore.match(question);
+          unawaited(ref.read(userKnowsProvider.notifier).noteQuestion(
+                question,
+                answerId: ce != null && HadiCore.isCoreAnswer(result)
+                    ? ce.id
+                    : null,
+              ));
         } catch (_) {}
       }
       return result;
@@ -2196,7 +2205,30 @@ class HadiController extends Notifier<HadiState> {
             : HadiCore.isCoreAnswer(clean)
                 ? 6
                 : 5,
-      );      // Said once per conversation, plainly: with no key, every answer here
+      );
+      // A friend's voice around the checked text (never inside it): an
+      // opening that fits the question, and at times a line inviting more.
+      try {
+        final CoreHit? hit = HadiCore.answer(q, history);
+        if (hit != null && HadiCore.isCoreAnswer(clean)) {
+          UserKnows knows = UserKnows.empty;
+          try {
+            if (!kChildMode.value &&
+                !kKidsMode.value &&
+                ref.read(userKnowsProvider.notifier).on) {
+              knows = ref.read(userKnowsProvider);
+            }
+          } catch (_) {}
+          clean = HadiVoice.dress(
+            question: q,
+            entry: hit.entry,
+            answer: clean,
+            history: history,
+            knows: knows,
+          );
+        }
+      } catch (_) {}
+      // Said once per conversation, plainly: with no key, every answer here
       // comes from the app's built-in checked library and nothing else.
       if (!grief &&
           !HadiRouting.isRefusal(clean) &&

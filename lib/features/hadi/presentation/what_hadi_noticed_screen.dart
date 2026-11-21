@@ -35,6 +35,12 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
     final List<MapEntry<String, KnownTopic>> topics = k.topics.entries.toList()
       ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
           b.value.count.compareTo(a.value.count));
+    final List<String> covered = (k.covered.entries.toList()
+          ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
+              b.value.last.compareTo(a.value.last)))
+        .map((MapEntry<String, KnownTopic> e) => e.key)
+        .take(12)
+        .toList();
     return Scaffold(
       body: Stack(children: <Widget>[
         const ScenicBackground.pattern(),
@@ -46,10 +52,11 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                 children: <Widget>[
                   Text(
-                    'Hadi builds this from the questions you ask, so his '
-                    'suggestions fit you. It is only subjects and a few things '
-                    'you said about yourself, never your questions, health, '
-                    'safety or hard times. It is kept on this device, and in '
+                    'Hadi builds this over time from the questions you ask, so he '
+                    'gets to know you and his answers fit you. It is only '
+                    'subjects, the answers he has already given you and a few '
+                    'things you said about yourself, never your questions, '
+                    'health, safety or hard times. It is kept on this device, and in '
                     'your own account if you sign in.',
                     style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
                   ),
@@ -73,6 +80,12 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
                       'Delete this one',
                       () => n.forgetTopic(e.key),
                     ),
+                  for (final String id in covered)
+                    _row(
+                      'We have been through: ${id.replaceAll('-', ' ')}',
+                      'Delete this one',
+                      () => n.forgetCovered(id),
+                    ),
                   const SizedBox(height: 12),
                   OutlinedButton(
                     key: const Key('noticed-delete-all'),
@@ -82,8 +95,8 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Subjects you have not asked about for 90 days are '
-                    'forgotten by themselves.',
+                    'Anything you have not come back to for a year is forgotten by '
+                    'itself.',
                     style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
                   ),
                 ],

@@ -37,6 +37,7 @@ class UserKnows {
     this.roles = const <String>{},
     this.asked = 0,
     this.since = '',
+    this.covered = const <String, KnownTopic>{},
   });
 
   static const UserKnows empty = UserKnows();
@@ -54,7 +55,27 @@ class UserKnows {
   /// The day it started, YYYY-MM-DD.
   final String since;
 
-  bool get isEmpty => topics.isEmpty && roles.isEmpty;
+  /// Built-in answers Hadi has already given this person (answer id → how
+  /// often and when). Ids only, never the question or the words, so he can
+  /// say "we went over this" and not repeat himself. Kept for a year.
+  final Map<String, KnownTopic> covered;
+
+  bool get isEmpty => topics.isEmpty && roles.isEmpty && covered.isEmpty;
+
+  UserKnows copyWith({
+    Map<String, KnownTopic>? topics,
+    Set<String>? roles,
+    int? asked,
+    String? since,
+    Map<String, KnownTopic>? covered,
+  }) =>
+      UserKnows(
+        topics: topics ?? this.topics,
+        roles: roles ?? this.roles,
+        asked: asked ?? this.asked,
+        since: since ?? this.since,
+        covered: covered ?? this.covered,
+      );
 
   Map<String, Object> toJson() => <String, Object>{
         't': <String, Object>{
@@ -64,6 +85,10 @@ class UserKnows {
         'r': roles.toList()..sort(),
         'n': asked,
         's': since,
+        'e': <String, Object>{
+          for (final MapEntry<String, KnownTopic> e in covered.entries)
+            e.key: e.value.toJson(),
+        },
       };
 
   String encode() => json.encode(toJson());
@@ -98,6 +123,15 @@ class UserKnows {
         }
       }
     }
+    final Map<String, KnownTopic> covered = <String, KnownTopic>{};
+    final Object? ce = d['e'];
+    if (ce is Map) {
+      for (final MapEntry<dynamic, dynamic> e in ce.entries) {
+        final String k = e.key.toString();
+        final KnownTopic? v = KnownTopic.fromJson(e.value);
+        if (v != null && UserKnowsRules.idRe.hasMatch(k)) covered[k] = v;
+      }
+    }
     final Object? n = d['n'];
     final Object? s = d['s'];
     return UserKnows(
@@ -105,36 +139,42 @@ class UserKnows {
       roles: roles,
       asked: n is int ? n : 0,
       since: s is String ? s : '',
+      covered: covered,
     );
   }
 
-  UserKnows withoutTopic(String key) => UserKnows(
+  UserKnows withoutTopic(String key) => copyWith(
         topics: <String, KnownTopic>{
           for (final MapEntry<String, KnownTopic> e in topics.entries)
             if (e.key != key) e.key: e.value,
         },
-        roles: roles,
-        asked: asked,
-        since: since,
       );
 
-  UserKnows withoutRole(String key) => UserKnows(
-        topics: topics,
-        roles: <String>{...roles}..remove(key),
-        asked: asked,
-        since: since,
+  UserKnows withoutRole(String key) =>
+      copyWith(roles: <String>{...roles}..remove(key));
+
+  UserKnows withoutCovered(String key) => copyWith(
+        covered: <String, KnownTopic>{
+          for (final MapEntry<String, KnownTopic> e in covered.entries)
+            if (e.key != key) e.key: e.value,
+        },
       );
 }
 
 /// What may be noticed, and how. Pure, so it is tested without a screen.
 abstract final class UserKnowsRules {
   static const int maxCount = 50;
-  static const int maxTopics = 8;
+  static const int maxTopics = 12;
+  static const int maxCovered = 40;
+
+  /// An answer id as stored: lower-case words joined by dashes.
+  static final RegExp idRe = RegExp(r'^[a-z0-9][a-z0-9-]{1,60}$');
 
   static int cap(int n) => n < 1 ? 1 : (n > maxCount ? maxCount : n);
 
-  /// A subject unmentioned for this many days is forgotten.
-  static const int forgetAfterDays = 90;
+  /// A subject unmentioned for this many days is forgotten (a year: Hadi is
+  /// meant to know a person over time, not for a week).
+  static const int forgetAfterDays = 365;
 
   /// Subject key → how it is shown to the person.
   static const Map<String, String> labels = <String, String>{
@@ -235,24 +275,37 @@ abstract final class UserKnowsRules {
     final List<MapEntry<String, KnownTopic>> sorted = kept.entries.toList()
       ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
           b.value.count.compareTo(a.value.count));
-    return UserKnows(
+    final Map<String, KnownTopic> keptCovered = <String, KnownTopic>{};
+    for (final MapEntry<String, KnownTopic> e in k.covered.entries) {
+      final DateTime? d = DateTime.tryParse(e.value.last);
+      if (d != null && now.difference(d).inDays > forgetAfterDays) continue;
+      keptCovered[e.key] = e.value;
+    }
+    final List<MapEntry<String, KnownTopic>> newest = keptCovered.entries.toList()
+      ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
+          b.value.last.compareTo(a.value.last));
+    return k.copyWith(
       topics: <String, KnownTopic>{
         for (final MapEntry<String, KnownTopic> e in sorted.take(maxTopics))
           e.key: e.value,
       },
-      roles: k.roles,
-      asked: k.asked,
-      since: k.since,
+      covered: <String, KnownTopic>{
+        for (final MapEntry<String, KnownTopic> e in newest.take(maxCovered))
+          e.key: e.value,
+      },
     );
   }
 
   /// What [k] becomes after the person asks [question]. Unchanged when
   /// nothing may be noticed.
-  static UserKnows learn(UserKnows k, String question, DateTime now) {
+  static UserKnows learn(UserKnows k, String question, DateTime now,
+      {String? answerId}) {
     if (!mayLearnFrom(question)) return k;
     final String? topic = topicOf(question);
     final Set<String> roles = rolesOf(question);
-    if (topic == null && roles.isEmpty) return k;
+    final String? id =
+        answerId != null && idRe.hasMatch(answerId) ? answerId : null;
+    if (topic == null && roles.isEmpty && id == null) return k;
     final String today = day(now);
     final Map<String, KnownTopic> topics = <String, KnownTopic>{...k.topics};
     if (topic != null) {
@@ -262,12 +315,18 @@ abstract final class UserKnowsRules {
         last: today,
       );
     }
+    final Map<String, KnownTopic> covered = <String, KnownTopic>{...k.covered};
+    if (id != null) {
+      final KnownTopic? old = covered[id];
+      covered[id] = KnownTopic(count: cap((old?.count ?? 0) + 1), last: today);
+    }
     return tidy(
-      UserKnows(
+      k.copyWith(
         topics: topics,
         roles: <String>{...k.roles, ...roles},
         asked: k.asked + 1,
         since: k.since.isEmpty ? today : k.since,
+        covered: covered,
       ),
       now,
     );
@@ -290,12 +349,23 @@ abstract final class UserKnowsRules {
     final String since = a.since.isEmpty
         ? b.since
         : (b.since.isEmpty || a.since.compareTo(b.since) <= 0 ? a.since : b.since);
+    final Map<String, KnownTopic> covered = <String, KnownTopic>{...a.covered};
+    for (final MapEntry<String, KnownTopic> e in b.covered.entries) {
+      final KnownTopic? o = covered[e.key];
+      covered[e.key] = o == null
+          ? e.value
+          : KnownTopic(
+              count: o.count > e.value.count ? o.count : e.value.count,
+              last: o.last.compareTo(e.value.last) >= 0 ? o.last : e.value.last,
+            );
+    }
     return tidy(
       UserKnows(
         topics: topics,
         roles: <String>{...a.roles, ...b.roles},
         asked: a.asked > b.asked ? a.asked : b.asked,
         since: since,
+        covered: covered,
       ),
       now,
     );

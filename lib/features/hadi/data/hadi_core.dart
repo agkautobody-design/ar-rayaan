@@ -223,6 +223,10 @@ abstract final class HadiCore {
   static String _body(String s) =>
       s.replaceAll(_tokenRe, '').replaceAll(RegExp(r'\s+'), ' ').trim();
 
+  /// [s] with its buttons removed and its spaces folded, for comparing a
+  /// reply with an entry's own text.
+  static String bodyOf(String s) => _body(s);
+
   /// Every built-in answer (for the tests that check them all).
   static List<CoreEntry> get entries => _all;
 
@@ -263,7 +267,9 @@ abstract final class HadiCore {
     // A note added under the answer (the general-ruling footer), or the line
     // of arithmetic above the zakat answer, does not make it a different
     // answer.
-    return _answerBodies.any(b.startsWith) ||
+    // A friendly opening or closing line around the answer (HadiVoice) does
+    // not make it a different answer either.
+    return _answerBodies.any((String a) => a.length >= 40 && b.contains(a)) ||
         (b.contains(_zakatSumBody) && _zakatSumBody.isNotEmpty);
   }
 
@@ -371,7 +377,8 @@ abstract final class HadiCore {
       if (!m.fromHadi) continue;
       final String b = _body(m.text);
       for (final _Compiled e in _compiled) {
-        if (b.startsWith(_body(e.entry.answer))) return e.entry;
+        final String a = _body(e.entry.answer);
+        if (b.startsWith(a) || (a.length >= 40 && b.contains(a))) return e.entry;
       }
       return null;
     }
