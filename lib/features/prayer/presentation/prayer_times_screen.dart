@@ -67,7 +67,21 @@ class PrayerTimesScreen extends ConsumerWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const ScreenHeader(title: 'Prayer Times'),
+            ScreenHeader(
+              title: 'Prayer Times',
+              actions: <HeaderAction>[
+                HeaderAction(
+                  icon: Icons.auto_awesome_outlined,
+                  tooltip: 'After prayer',
+                  onTap: () => context.open(AppRoutes.afterPrayer),
+                ),
+                HeaderAction(
+                  icon: Icons.settings_outlined,
+                  tooltip: 'Settings',
+                  onTap: () => context.open(AppRoutes.settings),
+                ),
+              ],
+            ),
             const NativeReviewNote(inset: true),
             const ScholarReviewNote(
               reviewKey: 'prayer',
@@ -1099,7 +1113,7 @@ class _QuickLinks extends StatelessWidget {
         ),
         TextButton.icon(
           onPressed: () =>
-              context.open('${AppRoutes.adhkar}?set=after-prayer'),
+              context.open(AppRoutes.afterPrayer),
           icon: const Icon(Icons.auto_awesome_outlined, size: 16),
           label: const Text('After prayer'),
           style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),

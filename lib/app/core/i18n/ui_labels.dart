@@ -165,10 +165,10 @@ kUiLabels = <String, Map<String, String>>{
     'ur': 'الریان میں خوش آمدید',
   },
   'onb.choose': {
-    'en': 'Choose one — it only sets your first door. Or press Begin to go straight Home.',
-    'ar': 'اختر واحدًا — فهو يحدد بابك الأول فقط. أو اضغط «ابدأ» للذهاب إلى الرئيسية مباشرة.',
-    'bn': 'একটি বেছে নিন — এটি শুধু আপনার প্রথম দরজা ঠিক করে। অথবা সরাসরি হোমে যেতে «শুরু করুন» চাপুন।',
-    'ur': 'ایک چنیں — یہ صرف آپ کا پہلا دروازہ طے کرتا ہے۔ یا سیدھا ہوم جانے کے لیے «شروع کریں» دبائیں۔',
+    'en': 'Choose as many as you like — your first pick sets your first door. Or press Begin to go straight Home.',
+    'ar': 'اختر ما شئت — يحدد أول اختيار بابك الأول. أو اضغط «ابدأ» للذهاب إلى الرئيسية مباشرة.',
+    'bn': 'যতগুলো খুশি বেছে নিন — আপনার প্রথম পছন্দ প্রথম দরজা ঠিক করে। অথবা সরাসরি হোমে যেতে «শুরু করুন» চাপুন।',
+    'ur': 'جتنے چاہیں چنیں — آپ کی پہلی پسند پہلا دروازہ طے کرتی ہے۔ یا سیدھا ہوم جانے کے لیے «شروع کریں» دبائیں۔',
   },
   'onb.body': {
     'en': 'Prayer times, the Qur’an, stories, a school for your children, and Hādi, a guide you can ask in plain words. You do not need to be Muslim to look around.',

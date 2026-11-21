@@ -34,6 +34,10 @@ class OnboardingScreen extends ConsumerStatefulWidget {
   static const pref = 'ar.onboarded.v1';
   static const needPref = 'ar.need';
 
+  /// All goals ticked (a list of keys, first = first door). `ar.need` keeps
+  /// the first one for the parts of the app that read a single goal.
+  static const needsPref = 'ar.needs';
+
   /// Every claim here is checked against the app: nothing in it asks for a
   /// card, the free list is in Settings, and no screen needed for prayer
   /// times, the Qur\u2019an or stories asks for an account. (No "no ads":
@@ -100,7 +104,11 @@ class _Need {
 class _OnboardingState extends ConsumerState<OnboardingScreen> {
   final _page = PageController();
   int _i = 0;
-  String? _need;
+  /// Every goal the person ticked, in the order they ticked it. Any number
+  /// may be chosen; the first one is the "first door" (where Begin lands and
+  /// what Home suggests next).
+  final List<String> _picked = <String>[];
+  String? get _need => _picked.isEmpty ? null : _picked.first;
   ArabicAnswer? _arabicAnswer;
 
   /// Set at once when the introduction ends, so a button mashed twice (or
@@ -133,6 +141,9 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
       final p = await SharedPreferences.getInstance();
       await p.setBool(OnboardingScreen.pref, true);
       if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
+      if (_picked.isNotEmpty) {
+        await p.setStringList(OnboardingScreen.needsPref, _picked);
+      }
     } catch (_) {}
     if (_need != null && mounted) {
       ref.read(homeNeedProvider.notifier).state = _need;
@@ -556,19 +567,23 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
     );
   }
 
+  /// Ticks or unticks a goal; as many as the person likes.
+  void _toggleNeed(String key) => setState(() {
+        if (!_picked.remove(key)) _picked.add(key);
+      });
+
   Widget _needCard(_Need n, L10n l10n) {
-    final bool selected = _need == n.key;
+    final bool selected = _picked.contains(n.key);
     // A real button for a screen reader (with its chosen state spoken) and
     // for the keyboard (Tab, Enter or Space, with a visible ring).
     return FocusSafeSemantics(
       button: true,
       selected: selected,
-      inMutuallyExclusiveGroup: true,
       label: '${l10n.english(n.title)}. ${l10n.english(n.blurb)}',
       excludeSemantics: true,
-      onTap: () => setState(() => _need = n.key),
+      onTap: () => _toggleNeed(n.key),
       child: FocusableTap(
-      onTap: () => setState(() => _need = n.key),
+      onTap: () => _toggleNeed(n.key),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
