@@ -92,29 +92,29 @@ void main() {
         expect(LudoBoardArt.loop[LudoRules.startCell[c]], LudoBoardArt.start[c]);
       }
       expect(LudoBoardArt.start, const <LudoCell>[
+        LudoCell(1, 6),
         LudoCell(8, 1),
         LudoCell(13, 8),
         LudoCell(6, 13),
-        LudoCell(1, 6),
       ]);
       final Set<LudoCell> safe = <LudoCell>{
         for (final int i in LudoRules.safeCells) LudoBoardArt.loop[i],
       };
       expect(safe, <LudoCell>{...LudoBoardArt.start, ...LudoBoardArt.extraStars});
       expect(LudoBoardArt.extraStars.toSet(), <LudoCell>{
+        const LudoCell(2, 8),
         const LudoCell(6, 2),
         const LudoCell(12, 6),
         const LudoCell(8, 12),
-        const LudoCell(2, 8),
       });
     });
 
     test('home columns: 5 squares each, leading from the entry to the centre', () {
       const List<List<LudoCell>> expected = <List<LudoCell>>[
+        <LudoCell>[LudoCell(1, 7), LudoCell(2, 7), LudoCell(3, 7), LudoCell(4, 7), LudoCell(5, 7)],
         <LudoCell>[LudoCell(7, 1), LudoCell(7, 2), LudoCell(7, 3), LudoCell(7, 4), LudoCell(7, 5)],
         <LudoCell>[LudoCell(13, 7), LudoCell(12, 7), LudoCell(11, 7), LudoCell(10, 7), LudoCell(9, 7)],
         <LudoCell>[LudoCell(7, 13), LudoCell(7, 12), LudoCell(7, 11), LudoCell(7, 10), LudoCell(7, 9)],
-        <LudoCell>[LudoCell(1, 7), LudoCell(2, 7), LudoCell(3, 7), LudoCell(4, 7), LudoCell(5, 7)],
       ];
       for (int c = 0; c < 4; c++) {
         expect(LudoBoardArt.column[c], expected[c]);
@@ -229,8 +229,8 @@ void main() {
       }
       // Plain track squares are cream.
       for (final LudoCell cell in <LudoCell>[
-        const LudoCell(6, 0), const LudoCell(8, 3), const LudoCell(3, 6),
-        const LudoCell(11, 8), const LudoCell(8, 10), const LudoCell(6, 11),
+        const LudoCell(0, 8), const LudoCell(3, 6), const LudoCell(6, 11),
+        const LudoCell(8, 3), const LudoCell(10, 6), const LudoCell(11, 8),
       ]) {
         final LudoPt p = at(cell.col, cell.row);
         expect(_classify(px.median(p.x, p.y)), 'cream', reason: '$cell');

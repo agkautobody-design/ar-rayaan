@@ -11,12 +11,14 @@
 ///
 /// Layout (cells): arms 6 long and 3 wide; yards 6 x 6 in the corners:
 /// Red top-left (0-5, 0-5), Blue top-right (9-14, 0-5), Yellow bottom-right
-/// (9-14, 9-14), Green bottom-left (0-5, 9-14).
+/// (9-14, 9-14), Green bottom-left (0-5, 9-14). Each colour's start square and
+/// home column are on the arm beside its own yard, as on a standard board:
 ///
-/// Home columns (five coloured squares leading to the centre): Red column 7
-/// rows 1-5, Blue row 7 cols 13..9, Yellow column 7 rows 13..9, Green row 7
-/// cols 1-5. Start squares: Red (8,1), Blue (13,8), Yellow (6,13), Green
-/// (1,6). Gold stars: those four plus (6,2), (12,6), (8,12), (2,8).
+/// Home columns (five coloured squares leading to the centre): Red row 7
+/// cols 1-5 (left arm), Blue column 7 rows 1-5 (top arm), Yellow row 7 cols
+/// 13..9 (right arm), Green column 7 rows 13..9 (bottom arm). Start squares:
+/// Red (1,6), Blue (8,1), Yellow (13,8), Green (6,13). Gold stars: those four
+/// plus (2,8), (6,2), (12,6), (8,12).
 library;
 
 import 'ludo_rules.dart';
@@ -72,8 +74,8 @@ abstract final class LudoBoardArt {
 
   /// Size of the picture and of its square playing grid (measured).
   static const double imageSize = 1254;
-  static const double gridLeft = 76.83;
-  static const double gridTop = 76.69;
+  static const double gridLeft = 76.69;
+  static const double gridTop = 73.77;
   static const double cell = 73.56;
   static const int gridCells = 15;
 
@@ -84,6 +86,18 @@ abstract final class LudoBoardArt {
   /// The 52 squares of the shared loop, clockwise from the top of the top
   /// arm, (8,0). Index = [LudoRules] loop square.
   static final List<LudoCell> loop = List<LudoCell>.unmodifiable(<LudoCell>[
+    for (final LudoCell c in _loopUnrotated) _turn(c),
+  ]);
+
+  /// The picture is the board turned a quarter turn anticlockwise (so each
+  /// colour's start square and home column sit beside its own yard, red at
+  /// the top left with its column on the left arm). Squares are written
+  /// below for the upright board and turned here: (col, row) -> (row,
+  /// 14 - col). A turn keeps the clockwise order, so the loop numbers, the
+  /// start squares by number and the safe squares by number do not change.
+  static LudoCell _turn(LudoCell c) => LudoCell(c.row, 14 - c.col);
+
+  static final List<LudoCell> _loopUnrotated = <LudoCell>[
     for (int r = 0; r <= 5; r++) LudoCell(8, r), //            0-5
     for (int c = 9; c <= 14; c++) LudoCell(c, 6), //           6-11
     const LudoCell(14, 7), //                                  12
@@ -96,11 +110,20 @@ abstract final class LudoBoardArt {
     for (int c = 0; c <= 5; c++) LudoCell(c, 6), //            39-44
     for (int r = 5; r >= 0; r--) LudoCell(6, r), //            45-50
     const LudoCell(7, 0), //                                   51
-  ]);
+  ];
 
   /// Home-column squares per colour (red, blue, yellow, green), in walking
   /// order from the square after the entry square to the last one.
-  static const List<List<LudoCell>> column = <List<LudoCell>>[
+  static final List<List<LudoCell>> column = List<List<LudoCell>>.unmodifiable(
+    <List<LudoCell>>[
+      for (final List<LudoCell> col in _columnUnrotated)
+        List<LudoCell>.unmodifiable(<LudoCell>[
+          for (final LudoCell c in col) _turn(c),
+        ]),
+    ],
+  );
+
+  static const List<List<LudoCell>> _columnUnrotated = <List<LudoCell>>[
     <LudoCell>[
       LudoCell(7, 1), LudoCell(7, 2), LudoCell(7, 3), LudoCell(7, 4),
       LudoCell(7, 5),
@@ -121,12 +144,12 @@ abstract final class LudoBoardArt {
 
   /// Start squares per colour.
   static const List<LudoCell> start = <LudoCell>[
-    LudoCell(8, 1), LudoCell(13, 8), LudoCell(6, 13), LudoCell(1, 6),
+    LudoCell(1, 6), LudoCell(8, 1), LudoCell(13, 8), LudoCell(6, 13),
   ];
 
   /// The four stars that are not start squares.
   static const List<LudoCell> extraStars = <LudoCell>[
-    LudoCell(6, 2), LudoCell(12, 6), LudoCell(8, 12), LudoCell(2, 8),
+    LudoCell(2, 8), LudoCell(6, 2), LudoCell(12, 6), LudoCell(8, 12),
   ];
 
   /// The four pawn sockets of each yard, per colour, token 0..3 (top left,
@@ -162,10 +185,10 @@ abstract final class LudoBoardArt {
   ];
 
   /// Where finished pawns of each colour rest: the middle of its triangle of
-  /// the centre square (cell units): red top, blue right, yellow bottom,
-  /// green left.
+  /// the centre square (cell units): red left, blue top, yellow right,
+  /// green bottom.
   static const List<(double, double)> homeUnits = <(double, double)>[
-    (7.5, 6.55), (8.45, 7.5), (7.5, 8.45), (6.55, 7.5),
+    (6.55, 7.5), (7.5, 6.55), (8.45, 7.5), (7.5, 8.45),
   ];
 
   /// Offsets, in cells, of up to four finished pawns around a triangle's
