@@ -1038,7 +1038,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1147",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1229",
@@ -1125,7 +1125,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2010",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3370",
@@ -2224,7 +2224,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1521",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1773",
@@ -2701,7 +2701,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5090",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5136",
@@ -3251,7 +3251,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:12",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2916",
@@ -3317,7 +3317,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3231",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3448",
@@ -3449,7 +3449,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5376",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-8",
@@ -3900,7 +3900,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:2130",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-2838",
@@ -3921,7 +3921,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:2838",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-3106",
@@ -4052,7 +4052,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:3767",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-3850",
@@ -4203,7 +4203,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:5088",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-5095",
@@ -4311,7 +4311,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1032",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-106",
@@ -4656,7 +4656,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2025",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2044",
@@ -4722,29 +4722,29 @@
    "verifiedAt": "https://sunnah.com/bukhari:2311",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2320",
    "collection": "Sahih al-Bukhari",
    "number": "2320",
-   "english": "Anas: no Muslim plants a tree or sows a field and then a bird, person or animal eats from it, except that it counts as charity for him.",
+   "english": "there is no Muslim who plants a tree or sows seeds, and then a bird, a person or an animal eats from it, but it is counted as a charity for him",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "anas",
+    "there",
     "muslim",
     "plants",
     "tree",
     "sows",
-    "field",
+    "seeds",
     "bird",
     "person"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2320",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2322",
@@ -4772,23 +4772,21 @@
    "id": "h:bukhari-2363",
    "collection": "Sahih al-Bukhari",
    "number": "2363",
-   "english": "Abu Hurayrah: a man gave water to a thirsty dog and Allah thanked him for it and forgave him; the people asked whether there is reward in serving animals, and he said there is a reward in every living creature.",
+   "english": "the man filled his shoe with water and watered the dog, and Allah thanked him and forgave him",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "gave",
+    "filled",
+    "shoe",
     "water",
-    "thirsty",
+    "watered",
     "thanked",
-    "forgave",
-    "people",
-    "asked"
+    "forgave"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2363",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-247",
@@ -4854,7 +4852,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2697",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2736",
@@ -5162,7 +5160,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:33",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3365",
@@ -5360,7 +5358,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:4563",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-4937",
@@ -5404,7 +5402,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:4986",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-50",
@@ -5424,7 +5422,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:50",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5009",
@@ -5446,7 +5444,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5009",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5013",
@@ -5510,7 +5508,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5027",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5173",
@@ -5659,7 +5657,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5889",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5954",
@@ -5743,7 +5741,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6013",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6014",
@@ -5853,7 +5851,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6114",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-614",
@@ -5875,7 +5873,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:614",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6224",
@@ -5897,7 +5895,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6224",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6306",
@@ -5919,7 +5917,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6306",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6309",
@@ -6051,7 +6049,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:645",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-7352",
@@ -6111,7 +6109,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:900",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-935",
@@ -6277,7 +6275,7 @@
    "verifiedAt": "https://sunnah.com/muslim:101",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1015",
@@ -6511,7 +6509,7 @@
    "verifiedAt": "https://sunnah.com/muslim:1342",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1349",
@@ -6770,7 +6768,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2018",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2109",
@@ -6942,7 +6940,7 @@
    "verifiedAt": "https://sunnah.com/muslim:223",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-224",
@@ -7073,7 +7071,7 @@
    "verifiedAt": "https://sunnah.com/muslim:257",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2586",
@@ -7117,7 +7115,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2588",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2589",
@@ -7136,7 +7134,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2589",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-259",
@@ -7463,7 +7461,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2999",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-362",
@@ -7507,7 +7505,7 @@
    "verifiedAt": "https://sunnah.com/muslim:384",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-408",
@@ -7525,7 +7523,7 @@
    "verifiedAt": "https://sunnah.com/muslim:408",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-442",
@@ -7588,7 +7586,7 @@
    "verifiedAt": "https://sunnah.com/muslim:54",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-572",
@@ -7830,7 +7828,7 @@
    "verifiedAt": "https://sunnah.com/muslim:867",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-87",
@@ -8072,7 +8070,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:1956",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-2307",
@@ -8187,23 +8185,23 @@
    "id": "h:tirmidhi-2891",
    "collection": "Jamiʿ at-Tirmidhi",
    "number": "2891",
-   "english": "Abu Hurayrah: there is a surah of thirty verses that intercedes for its reciter until he is forgiven, Tabarak, Surat al-Mulk.",
+   "english": "there is a surah of thirty verses that intercedes for a man until he is forgiven, Tabarak Alladhi bi-Yadihil-Mulk",
    "grade": "Hasan",
    "grader": "al-Albani",
    "topics": [
-    "hurayrah",
     "there",
     "surah",
     "thirty",
     "verses",
     "intercedes",
-    "reciter",
-    "until"
+    "until",
+    "forgiven",
+    "tabarak"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:2891",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-2910",
@@ -8269,7 +8267,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3388",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3431",
@@ -8335,7 +8333,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3458",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3524",
@@ -8625,22 +8623,23 @@
    "id": "h:muslim-854",
    "collection": "Sahih Muslim",
    "number": "854",
-   "english": "Abu Hurayrah reported the Prophet said the best day on which the sun has risen is Friday, on which Adam was created",
+   "english": "the best day on which the sun has risen is Friday; on it Adam was created and made to enter Paradise, and on it he was expelled from it, and the Last Hour will take place on a Friday",
    "grade": "In Sahih Muslim",
    "grader": "Included in Sahih Muslim; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
-    "reported",
     "best",
     "risen",
     "friday",
     "adam",
-    "created"
+    "created",
+    "made",
+    "enter",
+    "paradise"
    ],
    "verifiedAt": "https://sunnah.com/muslim:854",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3513",
@@ -9442,7 +9441,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6407",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-780",
@@ -9464,7 +9463,7 @@
    "verifiedAt": "https://sunnah.com/muslim:780",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-809",
@@ -9502,7 +9501,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:2517",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3426",
@@ -9546,7 +9545,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3505",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5743",
@@ -9568,7 +9567,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5743",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2066",
@@ -9590,7 +9589,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2066",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-919",
@@ -9612,7 +9611,7 @@
    "verifiedAt": "https://sunnah.com/muslim:919",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1284",
@@ -9634,7 +9633,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1284",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1469",
@@ -9655,7 +9654,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1469",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3769",
@@ -9677,7 +9676,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3769",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3820",
@@ -9721,7 +9720,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5534",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-603",
@@ -9743,7 +9742,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:603",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6064",
@@ -9765,7 +9764,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6064",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6115",
@@ -9787,7 +9786,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6115",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6406",
@@ -9809,7 +9808,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6406",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1631",
@@ -9831,7 +9830,7 @@
    "verifiedAt": "https://sunnah.com/muslim:1631",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-26",
@@ -9850,7 +9849,7 @@
    "verifiedAt": "https://sunnah.com/muslim:26",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-482",
@@ -9872,7 +9871,7 @@
    "verifiedAt": "https://sunnah.com/muslim:482",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-725",
@@ -9892,7 +9891,7 @@
    "verifiedAt": "https://sunnah.com/muslim:725",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-757",
@@ -9914,7 +9913,7 @@
    "verifiedAt": "https://sunnah.com/muslim:757",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-91",
@@ -9935,7 +9934,7 @@
    "verifiedAt": "https://sunnah.com/muslim:91",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3383",
@@ -9957,7 +9956,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3383",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3563",
@@ -9979,7 +9978,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3563",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-4020",
@@ -10001,7 +10000,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:4020",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5747",
@@ -10023,7 +10022,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5747",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2132",
@@ -10041,7 +10040,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2132",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-10",
@@ -10104,7 +10103,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5033",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-52",
@@ -10126,7 +10125,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:52",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-744",
@@ -10148,7 +10147,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:744",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-843",
@@ -10170,7 +10169,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:843",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:abudawud-3580",
@@ -10188,7 +10187,7 @@
    "verifiedAt": "https://sunnah.com/abudawud:3580",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2079",
@@ -10210,7 +10209,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2079",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2227",
@@ -10232,7 +10231,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2227",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2766",
@@ -10254,7 +10253,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2766",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3371",
@@ -10276,7 +10275,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3371",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3559",
@@ -10298,7 +10297,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3559",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3636",
@@ -10320,7 +10319,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3636",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5976",
@@ -10342,7 +10341,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5976",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6005",
@@ -10362,7 +10361,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6005",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6384",
@@ -10378,7 +10377,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6384",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6389",
@@ -10399,7 +10398,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6389",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1605",
@@ -10415,7 +10414,7 @@
    "verifiedAt": "https://sunnah.com/muslim:1605",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2725",
@@ -10435,7 +10434,7 @@
    "verifiedAt": "https://sunnah.com/muslim:2725",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-657",
@@ -10455,7 +10454,7 @@
    "verifiedAt": "https://sunnah.com/muslim:657",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:tirmidhi-3433",
@@ -10477,7 +10476,7 @@
    "verifiedAt": "https://sunnah.com/tirmidhi:3433",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1044",
@@ -10499,7 +10498,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1044",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-17",
@@ -10519,7 +10518,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:17",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-1739",
@@ -10541,7 +10540,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:1739",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-2731",
@@ -10563,7 +10562,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:2731",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-3077",
@@ -10585,7 +10584,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:3077",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-4287",
@@ -10607,7 +10606,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:4287",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5467",
@@ -10629,7 +10628,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5467",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5984",
@@ -10648,7 +10647,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5984",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-5985",
@@ -10670,7 +10669,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:5985",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:bukhari-6416",
@@ -10690,7 +10689,7 @@
    "verifiedAt": "https://sunnah.com/bukhari:6416",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-1141",
@@ -10708,7 +10707,7 @@
    "verifiedAt": "https://sunnah.com/muslim:1141",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
   },
   {
    "id": "h:muslim-2631",
@@ -10730,7 +10729,136 @@
    "verifiedAt": "https://sunnah.com/muslim:2631",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-11-20"
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-2790",
+   "collection": "Sahih al-Bukhari",
+   "number": "2790",
+   "english": "Paradise has a hundred grades, each as far from the next as heaven is from earth, and when you ask Allah ask for Al-Firdaws, which is the best and highest part of Paradise",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "paradise",
+    "hundred",
+    "grades",
+    "each",
+    "next",
+    "heaven",
+    "earth",
+    "firdaws"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2790",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-655",
+   "collection": "Sahih al-Bukhari",
+   "number": "655",
+   "english": "for every step toward the mosque there is a reward, and your footprints are counted",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "every",
+    "step",
+    "toward",
+    "mosque",
+    "there",
+    "reward",
+    "footprints",
+    "counted"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:655",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-7131",
+   "collection": "Sahih al-Bukhari",
+   "number": "7131",
+   "english": "no prophet was sent without warning his people about the one-eyed liar, who is blind in one eye while your Lord is not, and the word Kafir will be written between his eyes",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "sent",
+    "without",
+    "warning",
+    "people",
+    "about",
+    "eyed",
+    "liar",
+    "blind"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:7131",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:muslim-440",
+   "collection": "Sahih Muslim",
+   "number": "440",
+   "english": "the best rows for men are the first rows and the worst the last, and the best rows for women are the last and the worst for them the first",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "best",
+    "rows",
+    "first",
+    "worst",
+    "last",
+    "women"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:440",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-1071",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "1071",
+   "english": "when the deceased is buried two angels, black and blue-eyed, come, one called Al-Munkar and the other An-Nakir, and ask what he used to say about this man; the believer says that he is Allah's slave and His Messenger, and his grave is made wide and lit for him and he is told to sleep like a newlywed",
+   "grade": "Hasan",
+   "grader": "al-Albani",
+   "topics": [
+    "deceased",
+    "buried",
+    "angels",
+    "black",
+    "blue",
+    "eyed",
+    "come",
+    "called"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:1071",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:tirmidhi-1396",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "1396",
+   "english": "the first cases to be judged between the people are those of bloodshed",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "first",
+    "cases",
+    "judged",
+    "between",
+    "people",
+    "those",
+    "bloodshed"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:1396",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
   }
  ]
 }
