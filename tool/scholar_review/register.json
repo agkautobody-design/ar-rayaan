@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6063,
+ "total": 6089,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,12 +40,12 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 705,
+   "items": 719,
    "high_priority": 21
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 647,
+   "items": 659,
    "high_priority": 124
   },
   "stories-prophets": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2624,
-  "Fiqh scholar (per madhab)": 805,
+  "Hadith / aqidah scholar": 2636,
+  "Fiqh scholar (per madhab)": 819,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1325,
-  "normal": 3921,
+  "normal": 3947,
   "low": 817
  },
  "items": [
@@ -42413,6 +42413,371 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.family-ties-kinship",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"family-ties-kinship\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='family-ties-kinship'",
+   "what_to_review": "Built-in answer \"family-ties-kinship\": Keeping the ties of kinship is a duty the Qur'an links with fearing Allah (Qur'an 4:1). Abu Hurayrah reported the Prophet ﷺ saying: whoever is pleased to have his provision widened and his life prolonged should keep good relations with his relatives (Sahih al…",
+   "why_flagged": "Scholar review needed: the last paragraph is general guidance; scholars discuss the limits when a relative causes harm.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.raising-daughters",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"raising-daughters\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='raising-daughters'",
+   "what_to_review": "Built-in answer \"raising-daughters\": Anas reported the Prophet ﷺ saying: whoever brings up two girls properly until they reach maturity, he and I will come on the Day of Resurrection like this, and he joined his fingers (Sahih Muslim 2631). The hadith is about caring for girls well: feeding, edu…",
+   "why_flagged": "Scholar review needed: the narrator's name was not shown in the corpus line; confirm Anas, and the second paragraph is a general explanation.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.choosing-spouse",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"choosing-spouse\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='choosing-spouse'",
+   "what_to_review": "Built-in answer \"choosing-spouse\": Abu Hurayrah reported the Prophet ﷺ saying: a woman is married for four things: her wealth, her family, her beauty and her religion, so marry the one with religion (Sahih al-Bukhari 5090). The Qur'an describes marriage as a sign of Allah: He made spouses from…",
+   "why_flagged": "Scholar review needed: the hadith speaks of choosing a wife; applying it to men and the closing advice are scholars' general guidance.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Women's scholar",
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.hudaybiyyah",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"hudaybiyyah\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='hudaybiyyah'",
+   "what_to_review": "Built-in answer \"hudaybiyyah\": In the sixth year after the Hijrah the Prophet ﷺ set out toward Makkah to perform 'Umrah and the Quraysh tried to stop him. Al-Miswar ibn Makhramah and Marwan reported: the Prophet ﷺ set out at the time of Hudaybiyyah, his camel sat down, and he said she was…",
+   "why_flagged": "Scholar review needed: the year and the link of Al-Fath to Hudaybiyyah are the scholars' accounts and carry no named source here; the treaty terms are not given.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.conquest-makkah",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"conquest-makkah\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='conquest-makkah'",
+   "what_to_review": "Built-in answer \"conquest-makkah\": Abdullah (ibn Mas'ud) reported: when the Prophet ﷺ entered Makkah on the day of the conquest there were 360 idols around the Ka'bah, and he struck them with a stick saying that truth has come and falsehood will neither start nor return (Sahih al-Bukhari 4287)…",
+   "why_flagged": "Scholar review needed: the Bukhari summaries are brief and the verse link is the app's own connection.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.farewell-sermon",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"farewell-sermon\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='farewell-sermon'",
+   "what_to_review": "Built-in answer \"farewell-sermon\": On the Day of Sacrifice in his last Hajj the Prophet ﷺ gave a sermon. Ibn Abbas reported: he asked which day, which town and which month it was, and when they said it was sacred he said that their blood, their property and their honour are sacred to one anoth…",
+   "why_flagged": "Scholar review needed: other narrations of the sermon (about rights of women, riba, and holding to the Qur'an) are not given here; the link of 5:3 to that Hajj is the scholars' account.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.taif-journey",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"taif-journey\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='taif-journey'",
+   "what_to_review": "Built-in answer \"taif-journey\": Aisha asked the Prophet ﷺ whether he had met a day harder than Uhud. he said the hardest was the day of 'Aqabah, when he presented himself to Ibn Abd Yalil and was not answered; he left overwhelmed with sorrow, and at Qarn ath-Tha'alib Gabriel and the Angel o…",
+   "why_flagged": "Scholar review needed: the identification of the day of Aqabah with Ta'if and the year of sorrow are the scholars' accounts, not stated in the hadith.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.ansar-muhajirun",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"ansar-muhajirun\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='ansar-muhajirun'",
+   "what_to_review": "Built-in answer \"ansar-muhajirun\": The Muhajirun are the Companions who left Makkah for Allah's sake; the Ansar ('helpers') are the people of Madinah who gave them shelter and support. The Qur'an praises both: the poor emigrants who were driven from their homes (Qur'an 59:8), and those who mad…",
+   "why_flagged": "Scholar review needed.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.zuhd-detachment",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"zuhd-detachment\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='zuhd-detachment'",
+   "what_to_review": "Built-in answer \"zuhd-detachment\": Zuhd is not owning less for its own sake; it is keeping the world in your hand and not in your heart. Ibn Umar reported: the Prophet ﷺ took hold of his shoulder and said to be in this world as if a stranger or a traveller (Sahih al-Bukhari 6416). Ibn Umar use…",
+   "why_flagged": "Scholar review needed: the first sentence is a common description of zuhd without a named source.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.days-of-tashreeq",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"days-of-tashreeq\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='days-of-tashreeq'",
+   "what_to_review": "Built-in answer \"days-of-tashreeq\": The days of Tashriq are the three days after the Day of Sacrifice (the 11th, 12th and 13th of Dhul Hijjah). Nubayshah al-Hudhali reported the Prophet ﷺ saying: the days of Tashriq are days of eating and drinking (Sahih Muslim 1141). Because of this, fasting o…",
+   "why_flagged": "Scholar review needed: the dates, the fasting ruling and the exception are the scholars' accounts; the hadith line given is only the first part of the narration.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.newborn-sunnah",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"newborn-sunnah\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='newborn-sunnah'",
+   "what_to_review": "Built-in answer \"newborn-sunnah\": Abu Musa reported: a son was born to him and he took him to the Prophet ﷺ, who named him Ibrahim, put a chewed date in his mouth (tahnik), prayed for blessing for him and returned him (Sahih al-Bukhari 5467). Samurah reported the Prophet ﷺ saying: a boy is in…",
+   "why_flagged": "Scholar review needed: the last paragraph is the scholars' general account; the details of the aqiqah are not given.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.good-names-child",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"good-names-child\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='good-names-child'",
+   "what_to_review": "Built-in answer \"good-names-child\": Ibn Umar reported the Prophet ﷺ saying: the names dearest to Allah are Abdullah and Abd al-Rahman (Sahih Muslim 2132). Choose a name with a good meaning, preferably that of a prophet, a righteous person or a servant of Allah (Abd followed by one of His names)…",
+   "why_flagged": "Scholar review needed: the guidance after the hadith is general advice from scholars and is not cited.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.tarawih-prayer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"tarawih-prayer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='tarawih-prayer'",
+   "what_to_review": "Built-in answer \"tarawih-prayer\": Tarawih is the voluntary night prayer of Ramadan, prayed after the 'Isha' prayer, often in congregation. Aisha was asked how the Prophet ﷺ prayed in Ramadan: she said he never exceeded eleven rak'ahs in Ramadan or other months, four, then four, then three (Sa…",
+   "why_flagged": "Scholar review needed: the figures twenty and eight are the schools' positions, not cited here.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
+   "id": "hadi.core.eclipse-prayer",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"eclipse-prayer\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='eclipse-prayer'",
+   "what_to_review": "Built-in answer \"eclipse-prayer\": Aisha reported: in the Prophet's lifetime the sun eclipsed and he led the people in a prayer with long standing, a long bow, a second shorter standing and bow, and long prostrations, in each rak'ah; then he gave a sermon, and said the sun and moon are two sig…",
+   "why_flagged": "Scholar review needed: the second paragraph is a short description of the form of the prayer; the sermon wording is only part of the narration.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -51777,7 +52142,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1147",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-1147]",
-   "what_to_review": "Sahih al-Bukhari 1147: \"A'ishah said the Prophet never exceeded eleven rak'ahs at night in Ramadan or other months\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 1147: \"she said he never exceeded eleven rak'ahs in Ramadan or other months, four, then four, then three\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -51853,7 +52218,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2010",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-2010]",
-   "what_to_review": "Sahih al-Bukhari 2010: \"Umar saw people praying in scattered groups in Ramadan and gathered them behind one reciter, saying what a good innovation this is\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 2010: \"Abd ar-Rahman ibn Abd al-Qari reported that 'Umar gathered the people behind Ubayy ibn Ka'b\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53241,7 +53606,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5090",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-5090]",
-   "what_to_review": "Sahih al-Bukhari 5090: \"The Prophet said a woman is married for four things: her wealth, her family status, her beauty and her religion, so marry the religious one\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 5090: \"a woman is married for four things: her wealth, her family, her beauty and her religion, so marry the one with religion\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -53792,7 +54157,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 3231",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-3231]",
-   "what_to_review": "Sahih al-Bukhari 3231: \"Aisha asked the Prophet about the hardest day and he said it was the day at Aqaba when he went to Ibn Abd Yalil and he did not respond, and the angel…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 3231: \"he said the hardest was the day of 'Aqabah, when he presented himself to Ibn Abd Yalil and was not answered; he left overwhelmed with sorrow, and at…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54324,7 +54689,7 @@
    "where_in_app": "Hadi answers that cite Sunan Abu Dawud 2838",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:abudawud-2838]",
-   "what_to_review": "Sunan Abu Dawud 2838: \"Samurah: a boy is held in pledge for his aqiqah, which is sacrificed for him on the seventh day, with his head shaved and a name given.\" (grade Sahih, Darussalam).",
+   "what_to_review": "Sunan Abu Dawud 2838: \"a boy is in pledge for his 'aqiqah, which is sacrificed for him on the seventh day, when his head is shaved and he is named\" (grade Sahih, Darussalam).",
    "why_flagged": "Hadi grounding corpus: grade: Sahih (Darussalam). Summary or short excerpt written for this app; not reviewed by a named scholar. Graded outside the two Sahihs: graders can differ (checked against the fawazahmed0 corpus).",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -54723,7 +55088,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1166",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-1166]",
-   "what_to_review": "Sahih al-Bukhari 1166: \"Jabir: the Prophet taught the istikhara prayer for all matters, two rak'ahs followed by the supplication \"O Allah, I seek Your guidance by Your knowl…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 1166: \"the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of the Qur'an\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -55940,7 +56305,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6014",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-6014]",
-   "what_to_review": "Sahih al-Bukhari 6014: \"Aisha: the Prophet said Jibril kept advising him to be kind to the neighbour until he thought he would make the neighbour an heir.\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 6014: \"Gabriel kept advising him about treating neighbours kindly until he thought neighbours might be made heirs\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -55978,7 +56343,7 @@
    "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6018",
    "file": "assets/noor/hadi_corpus.json",
    "key": "hadith[id=h:bukhari-6018]",
-   "what_to_review": "Sahih al-Bukhari 6018: \"Abu Hurayrah: whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should say what is good or keep…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "what_to_review": "Sahih al-Bukhari 6018: \"whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should speak good or keep quiet\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
    "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [],
@@ -60110,6 +60475,234 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-1044",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1044",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-1044]",
+   "what_to_review": "Sahih al-Bukhari 1044: \"in the Prophet's lifetime the sun eclipsed and he led the people in a prayer with long standing, a long bow, a second shorter standing and bow, and l…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-17",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 17",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-17]",
+   "what_to_review": "Sahih al-Bukhari 17: \"love of the Ansar is a sign of faith and hatred of the Ansar is a sign of hypocrisy\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-1739",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1739",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-1739]",
+   "what_to_review": "Sahih al-Bukhari 1739: \"he asked which day, which town and which month it was, and when they said it was sacred he said that their blood, their property and their honour are…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-2731",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 2731",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-2731]",
+   "what_to_review": "Sahih al-Bukhari 2731: \"the Prophet ﷺ set out at the time of Hudaybiyyah, his camel sat down, and he said she was stopped by the One who stopped the elephant; he said that i…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-3077",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 3077",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-3077]",
+   "what_to_review": "Sahih al-Bukhari 3077: \"there is no migration after the conquest, but striving and good intentions, and when you are called to strive, respond\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-4287",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 4287",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-4287]",
+   "what_to_review": "Sahih al-Bukhari 4287: \"when the Prophet ﷺ entered Makkah on the day of the conquest there were 360 idols around the Ka'bah, and he struck them with a stick saying that trut…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5467",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5467",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5467]",
+   "what_to_review": "Sahih al-Bukhari 5467: \"a son was born to him and he took him to the Prophet ﷺ, who named him Ibrahim, put a chewed date in his mouth (tahnik), prayed for blessing for him a…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5984",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5984",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5984]",
+   "what_to_review": "Sahih al-Bukhari 5984: \"the one who cuts the bond of kinship will not enter Paradise\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-5985",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 5985",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-5985]",
+   "what_to_review": "Sahih al-Bukhari 5985: \"whoever is pleased to have his provision widened and his life prolonged should keep good relations with his relatives\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-6416",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 6416",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-6416]",
+   "what_to_review": "Sahih al-Bukhari 6416: \"the Prophet ﷺ took hold of his shoulder and said to be in this world as if a stranger or a traveller\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-1141",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 1141",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-1141]",
+   "what_to_review": "Sahih Muslim 1141: \"the days of Tashriq are days of eating and drinking\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-2631",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 2631",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-2631]",
+   "what_to_review": "Sahih Muslim 2631: \"whoever brings up two girls properly until they reach maturity, he and I will come on the Day of Resurrection like this, and he joined his fingers\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],

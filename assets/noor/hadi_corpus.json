@@ -1022,23 +1022,23 @@
    "id": "h:bukhari-1147",
    "collection": "Sahih al-Bukhari",
    "number": "1147",
-   "english": "A'ishah said the Prophet never exceeded eleven rak'ahs at night in Ramadan or other months",
+   "english": "she said he never exceeded eleven rak'ahs in Ramadan or other months, four, then four, then three",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "a'ishah",
     "never",
     "exceeded",
     "eleven",
     "rak'ahs",
-    "night",
     "ramadan",
-    "other"
+    "other",
+    "months",
+    "four"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1147",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-1229",
@@ -1109,23 +1109,23 @@
    "id": "h:bukhari-2010",
    "collection": "Sahih al-Bukhari",
    "number": "2010",
-   "english": "Umar saw people praying in scattered groups in Ramadan and gathered them behind one reciter, saying what a good innovation this is",
+   "english": "Abd ar-Rahman ibn Abd al-Qari reported that 'Umar gathered the people behind Ubayy ibn Ka'b",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "umar",
-    "people",
-    "praying",
-    "scattered",
-    "groups",
-    "ramadan",
+    "rahman",
+    "qari",
+    "reported",
+    "'umar",
     "gathered",
-    "behind"
+    "people",
+    "behind",
+    "ubayy"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:2010",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-3370",
@@ -2685,7 +2685,7 @@
    "id": "h:bukhari-5090",
    "collection": "Sahih al-Bukhari",
    "number": "5090",
-   "english": "The Prophet said a woman is married for four things: her wealth, her family status, her beauty and her religion, so marry the religious one",
+   "english": "a woman is married for four things: her wealth, her family, her beauty and her religion, so marry the one with religion",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
@@ -2695,13 +2695,13 @@
     "things",
     "wealth",
     "family",
-    "status",
-    "beauty"
+    "beauty",
+    "religion"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:5090",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-5136",
@@ -3301,23 +3301,23 @@
    "id": "h:bukhari-3231",
    "collection": "Sahih al-Bukhari",
    "number": "3231",
-   "english": "Aisha asked the Prophet about the hardest day and he said it was the day at Aqaba when he went to Ibn Abd Yalil and he did not respond, and the angel of the mountains offered to let two mountains fall on them, and he said no, hoping Allah would bring from them those who worship Allah alone",
+   "english": "he said the hardest was the day of 'Aqabah, when he presented himself to Ibn Abd Yalil and was not answered; he left overwhelmed with sorrow, and at Qarn ath-Tha'alib Gabriel and the Angel of the Mountains came and offered to crush the people between two mountains, but he said no, hoping Allah would bring from them people who worship Allah alone",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "aisha",
-    "asked",
-    "about",
     "hardest",
-    "aqaba",
-    "went",
+    "'aqabah",
+    "presented",
+    "himself",
     "yalil",
-    "respond"
+    "answered",
+    "left",
+    "overwhelmed"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:3231",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-3448",
@@ -3906,23 +3906,22 @@
    "id": "h:abudawud-2838",
    "collection": "Sunan Abu Dawud",
    "number": "2838",
-   "english": "Samurah: a boy is held in pledge for his aqiqah, which is sacrificed for him on the seventh day, with his head shaved and a name given.",
+   "english": "a boy is in pledge for his 'aqiqah, which is sacrificed for him on the seventh day, when his head is shaved and he is named",
    "grade": "Sahih",
    "grader": "Darussalam",
    "topics": [
-    "samurah",
-    "held",
     "pledge",
-    "aqiqah",
+    "'aqiqah",
     "sacrificed",
     "seventh",
     "head",
-    "shaved"
+    "shaved",
+    "named"
    ],
    "verifiedAt": "https://sunnah.com/abudawud:2838",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:abudawud-3106",
@@ -4360,23 +4359,20 @@
    "id": "h:bukhari-1166",
    "collection": "Sahih al-Bukhari",
    "number": "1166",
-   "english": "Jabir: the Prophet taught the istikhara prayer for all matters, two rak'ahs followed by the supplication \"O Allah, I seek Your guidance by Your knowledge\".",
+   "english": "the Prophet ﷺ taught them the istikhara in all matters as he taught them the surahs of the Qur'an",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "jabir",
     "taught",
     "istikhara",
-    "prayer",
     "matters",
-    "rak'ahs",
-    "followed",
-    "supplication"
+    "surahs",
+    "qur'an"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:1166",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-1280",
@@ -5753,23 +5749,23 @@
    "id": "h:bukhari-6014",
    "collection": "Sahih al-Bukhari",
    "number": "6014",
-   "english": "Aisha: the Prophet said Jibril kept advising him to be kind to the neighbour until he thought he would make the neighbour an heir.",
+   "english": "Gabriel kept advising him about treating neighbours kindly until he thought neighbours might be made heirs",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "aisha",
-    "jibril",
+    "gabriel",
     "kept",
     "advising",
-    "kind",
-    "neighbour",
-    "until",
-    "thought"
+    "about",
+    "treating",
+    "neighbours",
+    "kindly",
+    "until"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6014",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6015",
@@ -5797,23 +5793,23 @@
    "id": "h:bukhari-6018",
    "collection": "Sahih al-Bukhari",
    "number": "6018",
-   "english": "Abu Hurayrah: whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should say what is good or keep silent.",
+   "english": "whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and should speak good or keep quiet",
    "grade": "In Sahih al-Bukhari",
    "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
    "topics": [
-    "hurayrah",
     "whoever",
     "believes",
     "last",
     "should",
     "harm",
     "neighbour",
-    "honour"
+    "honour",
+    "guest"
    ],
    "verifiedAt": "https://sunnah.com/bukhari:6018",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
-   "verifiedOn": "2026-10-27"
+   "verifiedOn": "2026-11-20"
   },
   {
    "id": "h:bukhari-6094",
@@ -10479,6 +10475,259 @@
     "speech"
    ],
    "verifiedAt": "https://sunnah.com/tirmidhi:3433",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-1044",
+   "collection": "Sahih al-Bukhari",
+   "number": "1044",
+   "english": "in the Prophet's lifetime the sun eclipsed and he led the people in a prayer with long standing, a long bow, a second shorter standing and bow, and long prostrations, in each rak'ah; then he gave a sermon, and said the sun and moon are two signs of Allah that do not eclipse for anyone's death or life, so when you see it remember Allah, say takbir, pray and give charity",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "prophet's",
+    "lifetime",
+    "eclipsed",
+    "people",
+    "prayer",
+    "long",
+    "standing",
+    "second"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1044",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-17",
+   "collection": "Sahih al-Bukhari",
+   "number": "17",
+   "english": "love of the Ansar is a sign of faith and hatred of the Ansar is a sign of hypocrisy",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "love",
+    "ansar",
+    "sign",
+    "faith",
+    "hatred",
+    "hypocrisy"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:17",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-1739",
+   "collection": "Sahih al-Bukhari",
+   "number": "1739",
+   "english": "he asked which day, which town and which month it was, and when they said it was sacred he said that their blood, their property and their honour are sacred to one another like this day, in this town, in this month; he repeated it, asked whether he had conveyed the message, and told those present to pass it on to those absent",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "asked",
+    "town",
+    "month",
+    "sacred",
+    "blood",
+    "property",
+    "honour",
+    "another"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1739",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-2731",
+   "collection": "Sahih al-Bukhari",
+   "number": "2731",
+   "english": "the Prophet ﷺ set out at the time of Hudaybiyyah, his camel sat down, and he said she was stopped by the One who stopped the elephant; he said that if the Quraysh asked for anything that honoured Allah's sanctities he would grant it",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "time",
+    "hudaybiyyah",
+    "camel",
+    "down",
+    "stopped",
+    "elephant",
+    "quraysh",
+    "asked"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2731",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-3077",
+   "collection": "Sahih al-Bukhari",
+   "number": "3077",
+   "english": "there is no migration after the conquest, but striving and good intentions, and when you are called to strive, respond",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "there",
+    "migration",
+    "after",
+    "conquest",
+    "striving",
+    "good",
+    "intentions",
+    "called"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3077",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-4287",
+   "collection": "Sahih al-Bukhari",
+   "number": "4287",
+   "english": "when the Prophet ﷺ entered Makkah on the day of the conquest there were 360 idols around the Ka'bah, and he struck them with a stick saying that truth has come and falsehood will neither start nor return",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "entered",
+    "makkah",
+    "conquest",
+    "there",
+    "idols",
+    "around",
+    "ka'bah",
+    "struck"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:4287",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5467",
+   "collection": "Sahih al-Bukhari",
+   "number": "5467",
+   "english": "a son was born to him and he took him to the Prophet ﷺ, who named him Ibrahim, put a chewed date in his mouth (tahnik), prayed for blessing for him and returned him",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "born",
+    "took",
+    "named",
+    "ibrahim",
+    "chewed",
+    "date",
+    "mouth",
+    "tahnik"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5467",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5984",
+   "collection": "Sahih al-Bukhari",
+   "number": "5984",
+   "english": "the one who cuts the bond of kinship will not enter Paradise",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "cuts",
+    "bond",
+    "kinship",
+    "enter",
+    "paradise"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5984",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-5985",
+   "collection": "Sahih al-Bukhari",
+   "number": "5985",
+   "english": "whoever is pleased to have his provision widened and his life prolonged should keep good relations with his relatives",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "whoever",
+    "pleased",
+    "provision",
+    "widened",
+    "life",
+    "prolonged",
+    "should",
+    "keep"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5985",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:bukhari-6416",
+   "collection": "Sahih al-Bukhari",
+   "number": "6416",
+   "english": "the Prophet ﷺ took hold of his shoulder and said to be in this world as if a stranger or a traveller",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "took",
+    "hold",
+    "shoulder",
+    "world",
+    "stranger",
+    "traveller"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6416",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-1141",
+   "collection": "Sahih Muslim",
+   "number": "1141",
+   "english": "the days of Tashriq are days of eating and drinking",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "days",
+    "tashriq",
+    "eating",
+    "drinking"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1141",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-20"
+  },
+  {
+   "id": "h:muslim-2631",
+   "collection": "Sahih Muslim",
+   "number": "2631",
+   "english": "whoever brings up two girls properly until they reach maturity, he and I will come on the Day of Resurrection like this, and he joined his fingers",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "whoever",
+    "brings",
+    "girls",
+    "properly",
+    "until",
+    "reach",
+    "maturity",
+    "come"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2631",
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-20"
