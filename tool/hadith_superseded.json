@@ -4,7 +4,8 @@
   "rest.json": {
    "bukhari:1131": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
    "bukhari:5049": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
-   "tirmidhi:3573": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A."
+   "tirmidhi:3573": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",
+   "tirmidhi:3433": "old claim used 3433 for the dua on seeing the afflicted; 3433 is the closing-of-gathering dua, now cited as such (hadi_core.json ok)"
   },
   "stories.json": {
    "bukhari:1145": "An earlier check of an OLD claim (since corrected or removed from the content). The remaining 'ok' verdict from another file describes the claim the app makes now. Reviewed in Round 2 pass A.",

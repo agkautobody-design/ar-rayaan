@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**6062 items.** High priority: 1325. Normal: 3920. Low: 817.
+**6063 items.** High priority: 1325. Normal: 3921. Low: 817.
 
 ### By area
 
@@ -31,7 +31,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Stories: seerah, companions, women | 164 | 128 |
 | Stories: the unseen, signs, tales, khutbahs | 198 | 62 |
 | Stories: modern hadith | 66 | 11 |
-| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 155 | 24 |
+| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 156 | 24 |
 | New Muslim 30-day path | 30 | 13 |
 | Sakina rooms, feelings, safety copy, health | 68 | 40 |
 | Zakat, will and estate, halal finance | 18 | 18 |
@@ -43,16 +43,16 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **6062** | **1325** |
+| **Total** | **6063** | **1325** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2623 | 1213 |
+| Hadith / aqidah scholar | 2624 | 1213 |
 | Fiqh scholar (per madhab) | 805 | 257 |
 | Women's scholar | 151 | 97 |
-| Arabic / tajweed / qira'at specialist | 526 | 195 |
+| Arabic / tajweed / qira'at specialist | 526 | 196 |
 | Clinician (Sakina and health content) | 1086 | 252 |
 | Native speaker (ar / bn / ur) | 281 | 13 |
 | Privacy lawyer | 15 | 20 |
@@ -78,7 +78,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
 | Stories: the unseen, signs, tales, khutbahs | 198 |  |  |  |  |  |  |  |  |
 | Stories: modern hadith | 66 |  |  |  |  |  |  |  |  |
-| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 1 |  |  |  |  |  | 1 |  |
+| Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 154 | 1 |  |  |  |  |  | 1 |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
 | Sakina rooms, feelings, safety copy, health |  | 2 |  |  | 60 | 1 | 5 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
@@ -93,7 +93,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2623 lead, 1213 also)
+### Hadith / aqidah scholar (2624 lead, 1213 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -105,7 +105,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
 - Stories: the unseen, signs, tales, khutbahs: 198 items (62 high). Ids start with `story.ghayb`, `story.khutbahs`, `story.signs`, `story.tales`.
 - Stories: modern hadith: 66 items (11 high). Ids start with `story.modernhadith`.
-- Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 153 items (23 high). Ids start with `dua.adhkar`, `dua.daily`, `dua.dhikr-session`, `dua.eid-takbir`, `dua.fatiha-linked`, `dua.hisn-source`.
+- Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 154 items (23 high). Ids start with `dua.adhkar`, `dua.daily`, `dua.dhikr-session`, `dua.eid-takbir`, `dua.fatiha-linked`, `dua.hisn-source`.
 - Prayer times, qibla, Hijri calendar, observances: 10 items (10 high). Ids start with `calendar.observance`.
 - Qur'an text, translation, transliteration, licences: 1 items (0 high). Ids start with `quran.tafsir-absent`.
 - Games and quizzes with religious content: 13 items (9 high). Ids start with `games.claim`, `games.hadith_quiz`, `games.names99`, `games.order_rounds`, `games.seerah_quiz`, `games.trivia`.
@@ -137,7 +137,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Academy schools, Path lessons and static course screens: 25 items (0 high). Ids start with `school.womens`.
 - Stories: seerah, companions, women: 46 items (29 high). Ids start with `story.women`.
 
-### Arabic / tajweed / qira'at specialist (526 lead, 195 also)
+### Arabic / tajweed / qira'at specialist (526 lead, 196 also)
 
 - Academy phrase registry (transliteration, meaning, word glosses): 131 items (131 high). Ids start with `phrase.aqid-und-daw`, `phrase.arabic_hfz`, `phrase.eol_hlth_wmns_char`, `phrase.fam-yth-trx`, `phrase.foundation`.
 - Academy word glosses (300): 300 items (0 high). Ids start with `gloss.001`, `gloss.002`, `gloss.003`, `gloss.004`, `gloss.005`, `gloss.006`.
@@ -3832,7 +3832,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas
 
-155 items, 24 high priority. Area key `dua-dhikr`.
+156 items, 24 high priority. Area key `dua-dhikr`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3952,6 +3952,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `dua.adhkar.after-prayer.06` | Dhikr > After Prayer adhkar > item 6 | Dua 6 of the After Prayer set: meaning "Ayat al-Kursi (Qur'an 2:255). Whoever recites it after every obligatory prayer, nothing stands between him and Paradise except death. Meani…", count 1, source… | Transliteration is the author's own learning aid (tlSource says "flagged for scholar review" where applicable); the meaning and count are not scholar-reviewed. The source line names a graded or weak chain. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | high | adhkar.json (tlSource: flagged for scholar review); FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids) |
 | `dua.adhkar.after-prayer.07` | Dhikr > After Prayer adhkar > item 7 | Dua 7 of the After Prayer set: meaning "There is no god but Allah alone, without partner; His is the dominion and His is the praise; He gives life and causes death, and He is able…", count 10, source… | Transliteration is the author's own learning aid (tlSource says "flagged for scholar review" where applicable); the meaning and count are not scholar-reviewed. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | normal | adhkar.json (tlSource: flagged for scholar review); FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids) |
 | `dua.adhkar.after-prayer.08` | Dhikr > After Prayer adhkar > item 8 | Dua 8 of the After Prayer set: meaning "O Allah, I ask You for beneficial knowledge, wholesome provision, and deeds that are accepted. (Said after Fajr.)", count 1, source "Sunan Ibn Majah 925 — daif… | Transliteration is the author's own learning aid (tlSource says "flagged for scholar review" where applicable); the meaning and count are not scholar-reviewed. The source line names a graded or weak chain. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | high | adhkar.json (tlSource: flagged for scholar review); FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids) |
+| `dua.adhkar.after-prayer.09` | Dhikr > After Prayer adhkar > item 9 | Dua 9 of the After Prayer set: meaning "O Allah, help me to remember You, to thank You, and to worship You well. (The Prophet ﷺ told Mu'adh never to leave it out after every praye…", count 1, source… | Transliteration is the author's own learning aid (tlSource says "flagged for scholar review" where applicable); the meaning and count are not scholar-reviewed. | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist | normal | adhkar.json (tlSource: flagged for scholar review); FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids) |
 | `dua.ramadan.01` | Ramadan > day 1 companion (theme: Opening the month) | Day 1: theme "Opening the month", dua with source "Jami` at-Tirmidhi 3451 — da'if per Zubair Ali Zai; sahih per al-Albani; al-Tirmidhi called it hasan…", meaning and transliteration. | Ramadan data: every transliteration is "a learning aid flagged for scholar review" (ramadan.json note); the theme per day is an app decision; FIX_WORSHIP_REPORT: Ramadan 30 days (translit, dedupe, fixes). | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist, Fiqh scholar | normal | ramadan.json note + translitSource; FIX_WORSHIP_REPORT |
 | `dua.ramadan.02` | Ramadan > day 2 companion (theme: The fast's gate) | Day 2: theme "The fast's gate", dua with source "Customary wording, not a narrated text — the intention (niyyah) is made in the heart. The ruling th…", meaning and transliteration. | Ramadan data: every transliteration is "a learning aid flagged for scholar review" (ramadan.json note); the theme per day is an app decision; FIX_WORSHIP_REPORT: Ramadan 30 days (translit, dedupe, fixes). | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist, Fiqh scholar | normal | ramadan.json note + translitSource; FIX_WORSHIP_REPORT |
 | `dua.ramadan.03` | Ramadan > day 3 companion (theme: At suhoor (the Prophet's words)) | Day 3: theme "At suhoor (the Prophet's words)", dua with source "Sahih al-Bukhari 1923", meaning and transliteration. | Ramadan data: every transliteration is "a learning aid flagged for scholar review" (ramadan.json note); the theme per day is an app decision; FIX_WORSHIP_REPORT: Ramadan 30 days (translit, dedupe, fixes). | Hadith / aqidah scholar + Arabic / tajweed / qira'at specialist, Fiqh scholar | normal | ramadan.json note + translitSource; FIX_WORSHIP_REPORT |

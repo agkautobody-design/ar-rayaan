@@ -1,0 +1,10 @@
+{
+ "muslim:596": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-11-20",
+  "note": "Ka'b ibn 'Ujrah: 33 tasbih, 33 tahmid, 34 takbir after every prescribed prayer; number resolves in hadith-api (arabicnumber 596)"
+ }
+}
