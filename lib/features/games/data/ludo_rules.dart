@@ -8,8 +8,8 @@
 /// the game (0 .. players-1); each seat plays one colour. Two players sit
 /// opposite each other (red and yellow).
 ///
-/// Loop squares are numbered 0..51 clockwise, starting at the top of the top
-/// arm (col 8, row 0). Each colour's start square is 13 squares after the
+/// Loop squares are numbered 0..51 clockwise, starting at the left end of the
+/// left arm's top row, (0, 6). Each colour's start square is 13 squares after the
 /// previous colour's.
 ///
 /// Token state, per colour-independent progress `p`:
@@ -53,7 +53,7 @@ abstract final class LudoRules {
   ];
 
   /// Loop square where each colour's tokens enter the track (colour-indexed):
-  /// red (8,1), blue (13,8), yellow (6,13), green (1,6).
+  /// red (1,6), blue (8,1), yellow (13,8), green (6,13).
   static const List<int> startCell = <int>[1, 14, 27, 40];
 
   /// Loop square after which a colour turns into its home column.
@@ -66,7 +66,7 @@ abstract final class LudoRules {
   static const List<int> columnLen = <int>[5, 5, 5, 5];
 
   /// Safe loop squares: the four starts and the four gold stars
-  /// ((6,2), (12,6), (8,12), (2,8) on the board).
+  /// ((2,8), (6,2), (12,6), (8,12) on the board).
   static const Set<int> safeCells = <int>{1, 9, 14, 22, 27, 35, 40, 48};
 
   /// The colours that play at a table of [players] (2 to 4): opposite corners
