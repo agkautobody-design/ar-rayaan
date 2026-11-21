@@ -668,7 +668,7 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
       r'\bwhat (?:are|is) (?:the )?(?:doubtful|unclear|grey|gray) (?:matters|things|areas)\b',
       r'\bshubuhat\b',
     ],
-    answer: 'Halal means permitted and haram means forbidden. The Prophet ﷺ said, as reported by An-Nu\'man ibn Bashir: the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has protected his religion and his honour (Sahih al-Bukhari 52).\n\nFor particular cases such as food, money or a product, ask me about that case; I answer from the Qur\'an, hadith and the scholars\' views, and I do not rule on your own situation.\n\nSource: Sahih al-Bukhari 52.\n[GO:/academy/transactions]',
+    answer: 'Halal means permitted and haram means forbidden. The Prophet ﷺ said, as reported by An-Nu\'man ibn Bashir: the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has protected his religion and his honour (Sahih al-Bukhari 52).\n\nFor particular cases such as food, money or a product, ask me about that case; I answer from the Qur\'an, hadith and the scholars\' views, and I do not rule on your own situation.\n\nSource: Sahih al-Bukhari 52.',
     topic: 'halal and haram',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the summary stops before the shepherd example.',
@@ -764,18 +764,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'sincerity',
     beforeGate: true,
     reviewNote: 'Scholar review needed.',
-  ),
-  CoreEntry(
-    id: 'surah-ikhlas-about',
-    patterns: <String>[
-      r'\b(?:what is|whats|tell me about|explain|meaning of) (?:surah|sura|surat) (?:al )?(?:ikhlas|ikhlaas|tawhid)\b',
-      r'\bsurah (?:al )?ikhlas\b.*\b(?:about|mean|meaning|reward|virtue)\b',
-      r'\bqul huwa allahu ahad\b',
-    ],
-    answer: 'Surah Al-Ikhlas is surah 112 and has four verses. It says that Allah is One (Qur\'an 112:1), the one everything depends on (Qur\'an 112:2), that He neither begets nor was begotten (Qur\'an 112:3), and that none is equal to Him (Qur\'an 112:4).\n\nIt is short and is commonly memorised early. I am not giving a reward for reciting it here, because I have not checked a source to cite.\n\nSource: Qur\'an 112:1, 112:2, 112:3, 112:4.\n[GO:/quran]',
-    topic: 'Surah Al-Ikhlas',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the verses are summarised; the reward is flagged as not covered.',
   ),
   CoreEntry(
     id: 'shaytan-iblis',
@@ -918,19 +906,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: the account is limited to verses cited; the name of the tree and the kind of the "tree" are not stated.',
   ),
   CoreEntry(
-    id: 'maryam-and-isa',
-    patterns: <String>[
-      r'\b(?:who (?:is|was)|tell me about|story of|what is the story of|explain) (?:maryam|mariam|mary mother of jesus)\b',
-      r'\b(?:isa|jesus)\b.*\b(?:islam|muslim|quran|prophet|believe|born|virgin|miracle)\b',
-      r'\bwho (?:is|was) (?:prophet )?(?:isa|jesus)\b',
-      r'\bwhat do muslims believe about (?:jesus|isa)\b',
-    ],
-    answer: 'Maryam is the only woman named in the Qur\'an, and Surah Maryam (surah 19) is named after her. The Qur\'an says Allah chose her above the women of the worlds (Qur\'an 3:42) and gave her the good news of a word from Him, whose name is the Messiah, Isa son of Maryam (Qur\'an 3:45).\n\nMuslims honour Isa as a messenger of Allah and a human being. The Qur\'an says he was a messenger of Allah and a word He cast to Maryam (Qur\'an 4:171), and that his likeness with Allah is like Adam, created from dust (Qur\'an 3:59). Muslims do not believe he is God or the son of God.\n\nSource: Qur\'an 3:42, 3:45, 4:171, 3:59.\n[GO:/huda/guide?id=huda-islam-christianity]',
-    topic: 'Maryam and Isa',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the final sentence is a statement of the Muslim position; check wording before release.',
-  ),
-  CoreEntry(
     id: 'opening-dua-prayer',
     patterns: <String>[
       r'\b(?:what is|whats|whats) (?:the )?(?:opening|starting|first|istiftah|thana|sana) (?:dua|du a|supplication)\b',
@@ -987,19 +962,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'learning the Qur\'an',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the last paragraph is general study advice without a cited source.',
-  ),
-  CoreEntry(
-    id: 'good-muslim-conduct',
-    patterns: <String>[
-      r'\bhow (?:to|do i|can i|should i) (?:be|become) (?:a )?(?:good|better|true|real) muslim\b',
-      r'\bwhat (?:makes|is) (?:a )?(?:good|true|real) muslim\b',
-      r'\bwho is (?:a )?(?:true|real|good) muslim\b',
-      r'\bwhat is the (?:definition|meaning) of (?:a )?muslim\b',
-    ],
-    answer: 'The Prophet ﷺ described a Muslim by conduct: Abdullah ibn Amr reported a Muslim is the one who avoids harming Muslims with his tongue and hands (Sahih al-Bukhari 10). And Anas reported none of you will have faith until he wishes for his brother what he likes for himself (Sahih al-Bukhari 13).\n\nBeyond that, a good Muslim keeps the pillars: the five prayers, fasting Ramadan, zakat and, if able, Hajj, with sincerity. Ask me about any one of them.\n\nSource: Sahih al-Bukhari 10, 13.',
-    topic: 'being a good Muslim',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the closing paragraph is the app\'s summary of the pillars.',
   ),
   CoreEntry(
     id: 'humility-forgiveness',

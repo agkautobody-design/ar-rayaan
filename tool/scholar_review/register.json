@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6014,
+ "total": 6011,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,7 +40,7 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 672,
+   "items": 669,
    "high_priority": 20
   },
   "hadith": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2604,
-  "Fiqh scholar (per madhab)": 776,
+  "Hadith / aqidah scholar": 2603,
+  "Fiqh scholar (per madhab)": 774,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1322,
-  "normal": 3875,
+  "normal": 3872,
   "low": 817
  },
  "items": [
@@ -41026,25 +41026,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.surah-ikhlas-about",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"surah-ikhlas-about\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='surah-ikhlas-about'",
-   "what_to_review": "Built-in answer \"surah-ikhlas-about\": Surah Al-Ikhlas is surah 112 and has four verses. It says that Allah is One (Qur'an 112:1), the one everything depends on (Qur'an 112:2), that He neither begets nor was begotten (Qur'an 112:3), and that none is equal to Him (Qur'an 112:4). It is short and is…",
-   "why_flagged": "Scholar review needed: the verses are summarised; the reward is flagged as not covered.",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [],
-   "madhabs": [],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.shaytan-iblis",
    "area": "hadi",
    "subarea": "core-answer",
@@ -41296,32 +41277,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.maryam-and-isa",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"maryam-and-isa\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='maryam-and-isa'",
-   "what_to_review": "Built-in answer \"maryam-and-isa\": Maryam is the only woman named in the Qur'an, and Surah Maryam (surah 19) is named after her. The Qur'an says Allah chose her above the women of the worlds (Qur'an 3:42) and gave her the good news of a word from Him, whose name is the Messiah, Isa son of Mary…",
-   "why_flagged": "Scholar review needed: the final sentence is a statement of the Muslim position; check wording before release.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.opening-dua-prayer",
    "area": "hadi",
    "subarea": "core-answer",
@@ -41408,32 +41363,6 @@
    "key": "CoreEntry id='learn-teach-quran'",
    "what_to_review": "Built-in answer \"learn-teach-quran\": 'Uthman reported the Prophet ﷺ saying: the best among you are those who learn the Qur'an and teach it (Sahih al-Bukhari 5027). On memorising, Abu Musa reported: commit yourself to the Qur'an, for by Him in whose Hand is my soul, it is more prone to escape tha…",
    "why_flagged": "Scholar review needed: the last paragraph is general study advice without a cited source.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.good-muslim-conduct",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"good-muslim-conduct\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='good-muslim-conduct'",
-   "what_to_review": "Built-in answer \"good-muslim-conduct\": The Prophet ﷺ described a Muslim by conduct: Abdullah ibn Amr reported a Muslim is the one who avoids harming Muslims with his tongue and hands (Sahih al-Bukhari 10). And Anas reported none of you will have faith until he wishes for his brother what he likes…",
-   "why_flagged": "Scholar review needed: the closing paragraph is the app's summary of the pillars.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

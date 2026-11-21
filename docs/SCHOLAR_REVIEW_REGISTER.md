@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**6014 items.** High priority: 1322. Normal: 3875. Low: 817.
+**6011 items.** High priority: 1322. Normal: 3872. Low: 817.
 
 ### By area
 
@@ -25,7 +25,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Arabic, tajweed, Hifz and Qur'an recitation teaching | 88 | 42 |
 | Huda guides and their madhhab notes | 118 | 104 |
 | Q&A bank rulings | 16 | 6 |
-| Hadi built-in answers | 672 | 20 |
+| Hadi built-in answers | 669 | 20 |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 632 | 122 |
 | Stories: prophets, layers and earlier accounts | 258 | 52 |
 | Stories: seerah, companions, women | 164 | 128 |
@@ -43,14 +43,14 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1871 | 119 |
-| **Total** | **6014** | **1322** |
+| **Total** | **6011** | **1322** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2604 | 1184 |
-| Fiqh scholar (per madhab) | 776 | 257 |
+| Hadith / aqidah scholar | 2603 | 1182 |
+| Fiqh scholar (per madhab) | 774 | 257 |
 | Women's scholar | 151 | 97 |
 | Arabic / tajweed / qira'at specialist | 526 | 195 |
 | Clinician (Sakina and health content) | 1086 | 252 |
@@ -72,7 +72,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 102 |  |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |  |
-| Hadi built-in answers | 342 | 330 |  |  |  |  |  |  |  |
+| Hadi built-in answers | 341 | 328 |  |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 632 |  |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 | 2 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |  |
@@ -93,13 +93,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2604 lead, 1184 also)
+### Hadith / aqidah scholar (2603 lead, 1182 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
 - Huda guides and their madhhab notes: 16 items (3 high). Ids start with `huda.guide`.
 - Q&A bank rulings: 3 items (0 high). Ids start with `qa.07`, `qa.14`, `qa.16`.
-- Hadi built-in answers: 342 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
+- Hadi built-in answers: 341 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
 - Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 632 items (122 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
@@ -113,13 +113,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 250 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.being_heard`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Fiqh scholar (per madhab) (776 lead, 257 also)
+### Fiqh scholar (per madhab) (774 lead, 257 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 102 items (101 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 330 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 328 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - Stories: prophets, layers and earlier accounts: 2 items (1 high). Ids start with `kids.child-mode-stories`, `kids.child-stories`.
 - Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas: 1 items (1 high). Ids start with `kids.child-duas`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
@@ -1743,7 +1743,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi built-in answers
 
-672 items, 20 high priority. Area key `hadi`.
+669 items, 20 high priority. Area key `hadi`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -2049,7 +2049,6 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.amanah-trust` | Hadi chat > built-in answer "amanah-trust" | Built-in answer "amanah-trust": Amanah is a trust: whatever someone puts in your care, and every duty you hold. The Qur'an says Allah commands you to return trusts to their owners (Qur'an 4:58). The… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.qadr-destiny` | Hadi chat > built-in answer "qadr-destiny" | Built-in answer "qadr-destiny": Qadr is Allah's decree, one of the six articles of faith. The Qur'an says that everything has been created with a measure (Qur'an 54:49), and that no disaster strikes… | Scholar review needed: the second paragraph states the mainstream scholarly position without a named scholar. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.ikhlas-sincerity` | Hadi chat > built-in answer "ikhlas-sincerity" | Built-in answer "ikhlas-sincerity": Ikhlas is sincerity: doing worship purely for Allah. The Qur'an says people were only commanded to worship Allah, sincere to Him in religion (Qur'an 98:5), and tel… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.surah-ikhlas-about` | Hadi chat > built-in answer "surah-ikhlas-about" | Built-in answer "surah-ikhlas-about": Surah Al-Ikhlas is surah 112 and has four verses. It says that Allah is One (Qur'an 112:1), the one everything depends on (Qur'an 112:2), that He neither begets… | Scholar review needed: the verses are summarised; the reward is flagged as not covered. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.shaytan-iblis` | Hadi chat > built-in answer "shaytan-iblis" | Built-in answer "shaytan-iblis": Iblis is the one who refused when Allah told the angels to prostrate to Adam. The Qur'an says he refused and was arrogant and became one of the disbelievers (Qur'an 2… | Scholar review needed: whether Iblis was an angel or a jinn is a difference of opinion and is not stated here. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.shahid-martyr` | Hadi chat > built-in answer "shahid-martyr" | Built-in answer "shahid-martyr": Shahid means witness, and it is the word for a martyr. The Qur'an says not to think of those killed in the way of Allah as dead; they are alive with their Lord, provi… | Scholar review needed: the kinds of shahid in the hadith are intentionally not listed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.islamic-calendar` | Hadi chat > built-in answer "islamic-calendar" | Built-in answer "islamic-calendar": The Islamic (Hijri) calendar is a lunar calendar of twelve months. The Qur'an says the number of months with Allah is twelve (Qur'an 9:36), four of them sacred. Ye… | Scholar review needed: the counting from the Hijrah and the eleven-day figure are general facts with no hadith cited. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -2061,12 +2060,10 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.prophet-sulayman` | Hadi chat > built-in answer "prophet-sulayman" | Built-in answer "prophet-sulayman": Sulayman was a prophet and a king, the son of Dawud. The Qur'an says Allah gave him knowledge (Qur'an 27:15) and that he was given the language of the birds (Qur'a… | Scholar review needed: the account is limited to verses cited. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.prophet-dawud` | Hadi chat > built-in answer "prophet-dawud" | Built-in answer "prophet-dawud": Dawud was a prophet and a king. The Qur'an says Allah gave him the Zabur (Qur'an 4:163), that the mountains and birds joined him in glorifying Allah (Qur'an 38:18-19)… | Scholar review needed: the account is limited to verses cited. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.prophet-adam` | Hadi chat > built-in answer "prophet-adam" | Built-in answer "prophet-adam": Adam is the first human being and a prophet. The Qur'an says Allah told the angels He would place a vicegerent on earth (Qur'an 2:30), taught Adam the names (Qur'an 2:… | Scholar review needed: the account is limited to verses cited; the name of the tree and the kind of the "tree" are not stated. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.maryam-and-isa` | Hadi chat > built-in answer "maryam-and-isa" | Built-in answer "maryam-and-isa": Maryam is the only woman named in the Qur'an, and Surah Maryam (surah 19) is named after her. The Qur'an says Allah chose her above the women of the worlds (Qur'an 3… | Scholar review needed: the final sentence is a statement of the Muslim position; check wording before release. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.opening-dua-prayer` | Hadi chat > built-in answer "opening-dua-prayer" | Built-in answer "opening-dua-prayer": Abu Hurayrah reported that he asked the Prophet ﷺ what he said in the pause between the takbir and the recitation, and the Prophet ﷺ answered: "O Allah, set me a… | Scholar review needed: other openings and the schools' preferences are stated in general terms only. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.dhikr-after-prayer` | Hadi chat > built-in answer "dhikr-after-prayer" | Built-in answer "dhikr-after-prayer": Abu Hurayrah reported that poor Companions complained that the wealthy had higher ranks because they gave more in charity. The Prophet ﷺ answered: say "Subhan Al… | Scholar review needed: the note on other reports with different totals is stated in general terms. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.sujud-dua-closeness` | Hadi chat > built-in answer "sujud-dua-closeness" | Built-in answer "sujud-dua-closeness": Abu Hurayrah reported the Prophet ﷺ saying: the nearest a servant comes to his Lord is when he is prostrating himself, so make du'a in it (Sahih Muslim 482). Th… | Scholar review needed: "in whatever language" is the scholars' general view; the hadith does not specify. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.learn-teach-quran` | Hadi chat > built-in answer "learn-teach-quran" | Built-in answer "learn-teach-quran": 'Uthman reported the Prophet ﷺ saying: the best among you are those who learn the Qur'an and teach it (Sahih al-Bukhari 5027). On memorising, Abu Musa reported: c… | Scholar review needed: the last paragraph is general study advice without a cited source. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.good-muslim-conduct` | Hadi chat > built-in answer "good-muslim-conduct" | Built-in answer "good-muslim-conduct": The Prophet ﷺ described a Muslim by conduct: Abdullah ibn Amr reported a Muslim is the one who avoids harming Muslims with his tongue and hands (Sahih al-Bukhar… | Scholar review needed: the closing paragraph is the app's summary of the pillars. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.humility-forgiveness` | Hadi chat > built-in answer "humility-forgiveness" | Built-in answer "humility-forgiveness": Abu Hurayrah reported the Prophet ﷺ saying: charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humble… | Scholar review needed: the summary covers all three statements in the report. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.women-in-the-masjid` | Hadi chat > built-in answer "women-in-the-masjid" | Built-in answer "women-in-the-masjid": Ibn Umar reported that the Prophet ﷺ said: do not stop Allah's women from going to Allah's mosques (Sahih al-Bukhari 900). So women may go to the masjid. The sc… | Scholar review needed: the second paragraph summarises the scholars' discussion in general terms. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.ummah-meaning` | Hadi chat > built-in answer "ummah-meaning" | Built-in answer "ummah-meaning": The ummah is the community of Muslims worldwide. The Qur'an says: you are the best community brought out for mankind, enjoining what is right and forbidding what is w… | Scholar review needed. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |

@@ -15,7 +15,6 @@ In the same hadith Gabriel asked about faith, which the Prophet ﷺ described as
 E('halal-haram-general',
   m=[r'^(?:what is|whats|define|meaning of|explain) (?:halal|haram|halal and haram|haram and halal)$', r'^what (?:does )?(?:halal|haram) mean$', r'\bhow (?:do|can) (?:i )?(?:know|tell) (?:if )?(?:something|it) is (?:halal|haram)\b', r'\bwhat (?:are|is) (?:the )?(?:doubtful|unclear|grey|gray) (?:matters|things|areas)\b', r'\bshubuhat\b'],
   topic='halal and haram',
-  go=['/academy/transactions'],
   text="""
 Halal means permitted and haram means forbidden. The Prophet ﷺ said, as reported by An-Nu'man ibn Bashir: {HS bukhari:52|the lawful is clear and the unlawful is clear, and in between are doubtful matters that most people do not know, so whoever avoids the doubtful has protected his religion and his honour}.
 
@@ -96,17 +95,6 @@ Ikhlas is sincerity: doing worship purely for Allah. The Qur'an says people were
 The opposite is riya, doing a deed to be seen by people. Ask me about it if you want.
 """,
   review='Scholar review needed.')
-
-E('surah-ikhlas-about',
-  m=[r'\b(?:what is|whats|tell me about|explain|meaning of) (?:surah|sura|surat) (?:al )?(?:ikhlas|ikhlaas|tawhid)\b', r'\bsurah (?:al )?ikhlas\b.*\b(?:about|mean|meaning|reward|virtue)\b', r'\bqul huwa allahu ahad\b'],
-  topic='Surah Al-Ikhlas',
-  go=['/quran'],
-  text="""
-Surah Al-Ikhlas is surah 112 and has four verses. It says that Allah is One ({QR 112:1}), the one everything depends on ({QR 112:2}), that He neither begets nor was begotten ({QR 112:3}), and that none is equal to Him ({QR 112:4}).
-
-It is short and is commonly memorised early. I am not giving a reward for reciting it here, because I have not checked a source to cite.
-""",
-  review='Scholar review needed: the verses are summarised; the reward is flagged as not covered.')
 
 E('shaytan-iblis',
   m=[r'\b(?:what is|whats|who is|who was|tell me about|explain) (?:shaytan|shaitan|satan|iblis|the devil|devil)\b', r'\bwhy (?:did|does) (?:shaytan|iblis|satan) (?:refuse|hate|rebel|disobey)\b', r'\b(?:iblis|shaytan)\b.*\b(?:adam|jinn|angel|fire|created|refuse)\b'],
@@ -221,17 +209,6 @@ Adam is the first human being and a prophet. The Qur'an says Allah told the ange
 """,
   review='Scholar review needed: the account is limited to verses cited; the name of the tree and the kind of the "tree" are not stated.')
 
-E('maryam-and-isa',
-  m=[r'\b(?:who (?:is|was)|tell me about|story of|what is the story of|explain) (?:maryam|mariam|mary mother of jesus)\b', r'\b(?:isa|jesus)\b.*\b(?:islam|muslim|quran|prophet|believe|born|virgin|miracle)\b', r'\bwho (?:is|was) (?:prophet )?(?:isa|jesus)\b', r'\bwhat do muslims believe about (?:jesus|isa)\b'],
-  topic='Maryam and Isa',
-  go=['/huda/guide?id=huda-islam-christianity'],
-  text="""
-Maryam is the only woman named in the Qur'an, and Surah Maryam (surah 19) is named after her. The Qur'an says Allah chose her above the women of the worlds ({QR 3:42}) and gave her the good news of a word from Him, whose name is the Messiah, Isa son of Maryam ({QR 3:45}).
-
-Muslims honour Isa as a messenger of Allah and a human being. The Qur'an says he was a messenger of Allah and a word He cast to Maryam ({QR 4:171}), and that his likeness with Allah is like Adam, created from dust ({QR 3:59}). Muslims do not believe he is God or the son of God.
-""",
-  review='Scholar review needed: the final sentence is a statement of the Muslim position; check wording before release.')
-
 E('opening-dua-prayer',
   m=[r'\b(?:what is|whats|what s) (?:the )?(?:opening|starting|first|istiftah|thana|sana) (?:dua|du a|supplication)\b', r'\bdua (?:of|for) (?:the )?(?:opening|istiftah|starting the prayer)\b', r'\bwhat (?:to|do i|should i) say (?:after|between) (?:the )?(?:takbir|takbeer|allahu akbar)\b', r'\bwhat (?:to|do i|should i) (?:say|recite) (?:at|in) (?:the )?(?:start|beginning) of (?:the )?(?:prayer|salah|salat)\b', r'\ballahumma ba ?id (?:bayni|baini)\b'],
   topic='opening du\'a of prayer',
@@ -278,16 +255,6 @@ On memorising, Abu Musa reported: {HS bukhari:5033|commit yourself to the Qur'an
 Practical points such as a daily portion, revision and a teacher are the scholars' and teachers' advice, not hadith; the Qur'an screen has the reader, and the daily portion guide is in the app.
 """,
   review='Scholar review needed: the last paragraph is general study advice without a cited source.')
-
-E('good-muslim-conduct',
-  m=[r'\bhow (?:to|do i|can i|should i) (?:be|become) (?:a )?(?:good|better|true|real) muslim\b', r'\bwhat (?:makes|is) (?:a )?(?:good|true|real) muslim\b', r'\bwho is (?:a )?(?:true|real|good) muslim\b', r'\bwhat is the (?:definition|meaning) of (?:a )?muslim\b'],
-  topic='being a good Muslim',
-  text="""
-The Prophet ﷺ described a Muslim by conduct: Abdullah ibn Amr reported {HS bukhari:10|a Muslim is the one who avoids harming Muslims with his tongue and hands}. And Anas reported {HS bukhari:13|none of you will have faith until he wishes for his brother what he likes for himself}.
-
-Beyond that, a good Muslim keeps the pillars: the five prayers, fasting Ramadan, zakat and, if able, Hajj, with sincerity. Ask me about any one of them.
-""",
-  review='Scholar review needed: the closing paragraph is the app\'s summary of the pillars.')
 
 E('humility-forgiveness',
   m=[r'\bhow (?:to|do i|can i|should i) (?:be|become|stay|remain) humble\b', r'\b(?:what is|whats|define|meaning of|explain) (?:humility|tawadu|tawaadu)\b', r'\bhow (?:to|do i|can i|should i) forgive (?:someone|somebody|a person|them|him|her|people|others|my \w+)\b', r'\b(?:forgiving|forgive) (?:others|people|someone)\b.*\b(?:islam|quran|hadith|reward|allah)\b', r'\bhow to let go of (?:anger|grudges?|resentment)\b'],
