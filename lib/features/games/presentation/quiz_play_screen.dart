@@ -23,7 +23,9 @@ import '../engine/quiz_engine.dart';
 import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
+import '../data/race_link.dart';
 import 'game_results_screen.dart';
+import 'race_banner.dart';
 import 'games_screens.dart';
 
 /// /games/g/:id/play - the shared quiz screen for Qur'an Knowledge and
@@ -35,8 +37,17 @@ class QuizPlayScreen extends ConsumerStatefulWidget {
     required this.gameId,
     required this.config,
     this.resume = false,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
     super.key,
   });
+
+  /// Racing a friend online: the table code, this player's side and the
+  /// shared seed (both players get the same questions).
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   final String gameId;
   final QuizConfig config;
@@ -49,7 +60,9 @@ class QuizPlayScreen extends ConsumerStatefulWidget {
 }
 
 class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
-  final Random _rnd = Random();
+  late final Random _rnd =
+      widget.seed != null ? Random(widget.seed) : Random();
+  RaceLink? _race;
   QuizSession? _session;
   bool _loading = true;
   bool _failed = false;
@@ -59,7 +72,30 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
   @override
   void initState() {
     super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
     unawaited(_load());
+  }
+
+  @override
+  void dispose() {
+    final RaceLink? r = _race;
+    if (r != null) {
+      // Leaving mid-game closes the table and the other side is told. A
+      // finished player leaves it standing until the friend has finished
+      // too, so the friend still sees the final score; it expires anyway.
+      if (_result == null || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
+    super.dispose();
   }
 
   GameDef? get _def => gameById(widget.gameId);
@@ -67,7 +103,7 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
   Future<void> _load() async {
     try {
       QuizSession? s;
-      if (widget.resume) {
+      if (widget.resume && _race == null) {
         s = ref.read(gamesStoreProvider.notifier).savedSession(widget.gameId);
       }
       if (s == null) {
@@ -132,7 +168,7 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
 
   void _save() {
     final QuizSession? s = _session;
-    if (s == null) return;
+    if (s == null || _race != null) return;
     unawaited(ref.read(gamesStoreProvider.notifier).saveSession(s));
   }
 
@@ -141,6 +177,7 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
     if (!s.pick(o)) return;
     setState(() {});
     _save();
+    unawaited(_race?.report(s.index + 1, s.total, s.correct) ?? Future<void>.value());
   }
 
   void _hint() {
@@ -180,6 +217,7 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
     final GamesStoreController store = ref.read(gamesStoreProvider.notifier);
     unawaited(store.record(r));
     unawaited(store.clearSaved(widget.gameId));
+    unawaited(_race?.finish(s.total, s.correct) ?? Future<void>.value());
     setState(() => _result = r);
   }
 
@@ -246,6 +284,13 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           ScreenHeader(title: title, close: true, showSettings: false),
+          if (_race != null)
+            RaceBanner(
+              link: _race!,
+              myScore: s.correct,
+              myTotal: s.total,
+              iFinished: true,
+            ),
           ResultSummaryView(result: r),
           const SizedBox(height: 16),
           Center(
@@ -308,6 +353,8 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
             value: (s.index + (answered ? 1 : 0)) / s.total,
             label: 'Question ${s.index + 1} of ${s.total}',
           ),
+          if (_race != null)
+            RaceBanner(link: _race!, myScore: s.correct, myTotal: s.total),
           if (players > 1) ...<Widget>[
             const SizedBox(height: 12),
             GamePanel(

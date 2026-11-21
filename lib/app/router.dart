@@ -123,7 +123,9 @@ import '../features/games/games_flags.dart';
 import '../features/games/presentation/community_stub_screen.dart';
 import '../features/games/presentation/game_details_screen.dart';
 import '../features/games/presentation/game_history_screen.dart';
+import '../features/games/data/game_invite.dart';
 import '../features/games/presentation/game_invite_screen.dart';
+import '../features/games/presentation/race_table_screen.dart';
 import '../features/games/presentation/game_results_screen.dart';
 import '../features/games/presentation/game_settings_screen.dart';
 import '../features/games/presentation/game_setup_screen.dart';
@@ -696,6 +698,40 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               _fade(const CommunityGamesStubScreen()),
         ),
         GoRoute(
+          // A friend's invitation: join the table and play the same game.
+          path: '/games/race',
+          pageBuilder: (context, state) {
+            final String? code =
+                GameInvite.cleanCode(state.uri.queryParameters['room']);
+            return _fade(
+              code == null
+                  ? const GameInviteScreen()
+                  : RaceTableScreen.guest(
+                      key: ValueKey<String>(code), joinCode: code),
+              pill: false,
+            );
+          },
+        ),
+        GoRoute(
+          // Host: open a table for the game in the query and wait.
+          path: '/games/race/host',
+          pageBuilder: (context, state) {
+            final Map<String, String> q =
+                Map<String, String>.of(state.uri.queryParameters);
+            final String game = q.remove('game') ?? '';
+            return _fade(
+              gameById(game) == null
+                  ? const GameInviteScreen()
+                  : RaceTableScreen.host(
+                      key: ValueKey<String>(state.uri.toString()),
+                      gameId: game,
+                      query: q,
+                    ),
+              pill: false,
+            );
+          },
+        ),
+        GoRoute(
           path: '/games/memory',
           pageBuilder: (context, state) => _fade(
             MemoryGameScreen(
@@ -761,6 +797,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
                 gameId: id,
                 config: QuizConfig.fromQuery(id, state.uri.queryParameters),
                 resume: state.uri.queryParameters['resume'] == '1',
+                raceCode: GameInvite.cleanCode(
+                    state.uri.queryParameters['race']),
+                raceSide: state.uri.queryParameters['side'] == 'guest'
+                    ? 'guest'
+                    : 'host',
+                seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
               ),
               pill: false,
             );

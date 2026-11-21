@@ -41,4 +41,15 @@ abstract final class GameInvite {
       'and needs no account.\n\n'
       'Tap to join my table: ${link(game, code)}\n\n'
       'Or open the app, choose Play online, and enter the code $code.';
+
+  /// The link that opens a race table for a guest.
+  static String raceLink(String code) => '$kInviteUrl/#/games/race?room=$code';
+
+  /// The invite to race on a quiz or puzzle: same questions, live scores.
+  static String raceMessage(String gameTitle, String code) =>
+      'Come and play $gameTitle with me on Ar-Rayaan. We get the same '
+      'questions and see each other\u2019s score live. It is free and '
+      'needs no account.\n\n'
+      'Tap to join: ${raceLink(code)}\n\n'
+      'Or open the app, choose Invite a friend, and enter the code $code.';
 }
