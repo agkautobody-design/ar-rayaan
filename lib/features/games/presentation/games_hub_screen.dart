@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../elder/application/elder_mode.dart';
@@ -89,6 +91,8 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
         if (shown.any((GameDef g) => g.id == s.gameId)) s,
     ];
     return <Widget>[
+      const _InviteCard(),
+      const SizedBox(height: 12),
       Wrap(
         spacing: 8,
         runSpacing: 8,
@@ -364,6 +368,32 @@ class _ContinueTile extends StatelessWidget {
             const Icon(Icons.play_arrow_rounded, color: AppColors.gold),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+/// "Invite a friend to play": one tap to the invite page. A way to bring
+/// someone into the app by sharing a game, nothing more.
+class _InviteCard extends StatelessWidget {
+  const _InviteCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      child: ListTile(
+        key: const Key('games-invite'),
+        contentPadding: EdgeInsets.zero,
+        minVerticalPadding: 10,
+        leading: const Icon(Icons.person_add_alt_1, color: AppColors.gold),
+        title: Text('Invite a friend to play', style: AppText.titleMedium),
+        subtitle: Text(
+          'Send a link. They join your game, free, no account.',
+          style: AppText.bodyMuted,
+        ),
+        trailing: const Icon(Icons.chevron_right, color: AppColors.gold),
+        onTap: () => context.push('/games/invite'),
       ),
     );
   }

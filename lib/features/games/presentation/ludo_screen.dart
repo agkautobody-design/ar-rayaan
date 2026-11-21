@@ -15,6 +15,7 @@ import '../data/ludo_rules.dart';
 import '../data/room_moves.dart';
 import '../ui/games_theme.dart';
 import 'ludo_board_view.dart';
+import '../data/game_invite.dart';
 import 'online_lobby.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/named_sheet.dart';
@@ -39,8 +40,14 @@ class LudoScreen extends StatefulWidget {
     this.players = 2,
     this.humans = 0,
     this.seed,
+    this.inviteRoom,
+    this.inviteSide,
     super.key,
   });
+
+  /// A table opened from an invitation: its code and 'host' or 'guest'.
+  final String? inviteRoom;
+  final String? inviteSide;
 
   final int initialMode;
   final int players;
@@ -171,6 +178,41 @@ class _LudoState extends State<LudoScreen> {
     _menuPlayers = players;
     _menuHumans = players == 2 ? 2 : humans.clamp(2, players);
     _reset();
+    final String? room = GameInvite.cleanCode(widget.inviteRoom);
+    if (room != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) unawaited(_enterInvite(room, widget.inviteSide ?? 'guest'));
+      });
+    }
+  }
+
+  /// Joins (or, for the host, opens) the table an invitation points to.
+  Future<void> _enterInvite(String code, String side) async {
+    Map<String, String>? r;
+    if (side == 'host') {
+      r = <String, String>{'code': code, 'side': 'host'};
+    } else {
+      if (!await OnlineLobby.gate(context) || !mounted) return;
+      try {
+        final Map<String, dynamic>? j = await _rooms.joinRoom(code);
+        if (!mounted) return;
+        final Object? err = j?['error'];
+        if (j == null || err is String) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(err is String
+                  ? err
+                  : 'Online play is not available right now. You can still play on this device.')));
+          return;
+        }
+        r = <String, String>{'code': j['code'] as String, 'side': 'guest'};
+      } catch (e) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(OnlineLobby.describe(e))));
+        return;
+      }
+    }
+    await _startOnline(r);
   }
 
   @override
@@ -424,6 +466,10 @@ class _LudoState extends State<LudoScreen> {
       _rooms,
     );
     if (r == null || !mounted) return;
+    await _startOnline(r);
+  }
+
+  Future<void> _startOnline(Map<String, String> r) async {
     _outbox.clear();
     _syncError = null;
     _opponentLeft = false;

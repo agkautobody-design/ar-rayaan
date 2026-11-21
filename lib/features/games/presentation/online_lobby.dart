@@ -21,15 +21,14 @@ class OnlineLobby extends StatefulWidget {
   /// only when a guardian has switched online tables on for that child, and
   /// an adult on a device that has child profiles answers the parent check
   /// first. [access] is for tests.
-  static Future<Map<String, String>?> show(
-    BuildContext context,
-    String game,
-    GameRoomsService service, {
-    OnlineAccess? access,
-  }) async {
+  /// The family check before any online table: a child profile gets in only
+  /// when a guardian has switched online tables on for that child, and an
+  /// adult on a device that has child profiles answers the parent check
+  /// first. True when the person may go on.
+  static Future<bool> gate(BuildContext context, {OnlineAccess? access}) async {
     final OnlineAccess gate = access ?? OnlineAccess();
     final OnlineVerdict verdict = await gate.check();
-    if (!context.mounted) return null;
+    if (!context.mounted) return false;
     if (verdict.blocked) {
       await showDialog<void>(
         context: context,
@@ -46,12 +45,22 @@ class OnlineLobby extends StatefulWidget {
           ],
         ),
       );
-      return null;
+      return false;
     }
     if (verdict.needsParent) {
       final bool ok = await showParentGate(context);
-      if (!ok || !context.mounted) return null;
+      if (!ok || !context.mounted) return false;
     }
+    return true;
+  }
+
+  static Future<Map<String, String>?> show(
+    BuildContext context,
+    String game,
+    GameRoomsService service, {
+    OnlineAccess? access,
+  }) async {
+    if (!await gate(context, access: access) || !context.mounted) return null;
     return showNamedSheet<Map<String, String>>(
       label: 'Play online',
       context: context,

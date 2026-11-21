@@ -18,6 +18,9 @@ const Set<String> _allowedCallSites = <String>{
   'lib/features/adhkar/presentation/adhkar_screen.dart',
   'lib/features/calendar/presentation/calendar_screen.dart',
   'lib/features/family/presentation/family_tree_screen.dart',
+  // Owner-approved 21 Nov 2026: an invitation to play a game. It carries a
+  // table code only, nothing about the sender (see GameInvite).
+  'lib/features/games/presentation/game_invite_screen.dart',
   'lib/features/hadith/presentation/daily_hadith_card.dart',
   'lib/features/hadith/presentation/hadith_screen.dart',
   'lib/features/huda/presentation/huda_screens.dart',
@@ -57,6 +60,12 @@ const List<String> _neverShare = <String>[
   'lib/features/tracking/',
   'lib/features/zakat/',
 ];
+
+/// Files inside a never-share folder that the owner has approved sharing
+/// from, each for one content kind named above.
+const Set<String> _neverShareExceptions = <String>{
+  'lib/features/games/presentation/game_invite_screen.dart',
+};
 
 /// Names that start a share or build one. A file that uses any of them must
 /// be on [_allowedCallSites] (or be inside lib/features/share/).
@@ -119,6 +128,7 @@ void main() {
     for (final File f in _dartFiles('lib')) {
       final String path = _p(f);
       if (!_neverShare.any(path.startsWith)) continue;
+      if (_neverShareExceptions.contains(path)) continue;
       final String src = f.readAsStringSync();
       if (_shareApi.hasMatch(src) || src.contains('share_service.dart')) {
         bad.add(path);
