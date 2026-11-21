@@ -3274,7 +3274,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     id: 'hadi-about',
     patterns: <String>[
       r'\bwhat can (?:you|hadi) do\b',
-      r'\bwhat (?:do|can) you (?:help|know)\b',
+      r'\bwhat (?:do|can) you (?:help|know)\b(?!\s+about\s+\w)',
       r'\bhow can you help\b',
       r'\bwhat can i ask\b',
       r'\bwhat should i ask\b',

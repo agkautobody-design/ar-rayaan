@@ -141,7 +141,7 @@ The Qur'an notes that people disagree about their number, and says Allah knows b
   review='Scholar review needed: the outline follows the verses cited.')
 
 E('dhul-qarnayn',
-  m=[r'\b(?:who (?:is|was)|tell me about|story of|what is the story of|explain) (?:dhul|dhu al|zul|zul al|dhu l) ?qarnayn\b', r'\b(?:dhul|zul|dhu) ?qarnayn\b', r'\balexander the great\b.*\b(?:quran|islam)\b', r'\bgog and magog\b|\byajuj\b.*\bmajuj\b'],
+  m=[r'\b(?:who (?:is|was)|tell me about|story of|what is the story of|explain) (?:dhul|dhu al|zul|zul al|dhu l) ?qarnayn\b', r'\b(?:dhul|zul|dhu) ?qarnayn\b', r'\balexander the great\b.*\b(?:quran|islam)\b'],
   topic='Dhul-Qarnayn',
   go=['/quran'],
   text="""

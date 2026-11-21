@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6146,
+ "total": 6152,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,12 +40,12 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 752,
+   "items": 753,
    "high_priority": 22
   },
   "hadith": {
    "title": "Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus",
-   "items": 683,
+   "items": 688,
    "high_priority": 136
   },
   "stories-prophets": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2662,
-  "Fiqh scholar (per madhab)": 850,
+  "Hadith / aqidah scholar": 2667,
+  "Fiqh scholar (per madhab)": 851,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1338,
-  "normal": 3991,
+  "normal": 3997,
   "low": 817
  },
  "items": [
@@ -43623,6 +43623,32 @@
    "status": "open"
   },
   {
+   "id": "hadi.core.gog-and-magog",
+   "area": "hadi",
+   "subarea": "core-answer",
+   "where_in_app": "Hadi chat > built-in answer \"gog-and-magog\"",
+   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
+   "key": "CoreEntry id='gog-and-magog'",
+   "what_to_review": "Built-in answer \"gog-and-magog\": Gog and Magog (Ya'juj and Ma'juj) are two peoples in the Qur'an. A people who met Dhul-Qarnayn asked him for protection from their corruption, so he built a barrier between two mountains (Qur'an 18:93-97). Ibn Kathir says they are among the children of Adam,…",
+   "why_flagged": "Scholar review needed: the location and whether they have already emerged are disputed; answer states only what the sources state.",
+   "reviewer_type": "Fiqh scholar (per madhab)",
+   "also_reviewers": [
+    "Hadith / aqidah scholar"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "normal",
+   "source_of_flag": [
+    "hadi_core_data.dart reviewNote (kept for the review list)"
+   ],
+   "label_surface": "Hadi answer bubble (built-in library)",
+   "status": "open"
+  },
+  {
    "id": "hadi.shelf.001",
    "area": "hadi",
    "subarea": "keyword-shelf",
@@ -62004,6 +62030,101 @@
    "also_reviewers": [],
    "madhabs": [],
    "priority": "high",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-1593",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 1593",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-1593]",
+   "what_to_review": "Sahih al-Bukhari 1593: \"the people will continue performing Hajj and Umrah to the Kaaba even after the appearance of Gog and Magog\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-3347",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 3347",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-3347]",
+   "what_to_review": "Sahih al-Bukhari 3347: \"Allah has made an opening in the wall of Gog and Magog, like this\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.bukhari-3598",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih al-Bukhari 3598",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:bukhari-3598]",
+   "what_to_review": "Sahih al-Bukhari 3598: \"Zaynab bint Jahsh reported that the Prophet came alarmed and said a gap the size of the circle he made with his fingers had opened in the barrier of…\" (grade In Sahih al-Bukhari, Included in Sahih al-Bukhari; the collection gives no separ…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih al-Bukhari (Included in Sahih al-Bukhari; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-2880",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 2880",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-2880]",
+   "what_to_review": "Sahih Muslim 2880: \"the same report of the gap in the barrier of Ya'juj and Ma'juj\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
+   ],
+   "label_surface": "Hadi answer source card",
+   "status": "open"
+  },
+  {
+   "id": "hadith.corpus.muslim-2937",
+   "area": "hadith",
+   "subarea": "hadi-corpus",
+   "where_in_app": "Hadi answers that cite Sahih Muslim 2937",
+   "file": "assets/noor/hadi_corpus.json",
+   "key": "hadith[id=h:muslim-2937]",
+   "what_to_review": "Sahih Muslim 2937: \"the long report on the Dajjal, the descent of Isa, and the release and destruction of Gog and Magog before the Last Hour\" (grade In Sahih Muslim, Included in Sahih Muslim; the collection gives no separate…).",
+   "why_flagged": "Hadi grounding corpus: grade: In Sahih Muslim (Included in Sahih Muslim; the collection gives no separate grade). Summary or short excerpt written for this app; not reviewed by a named scholar.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
    "source_of_flag": [
     "assets/noor/hadi_corpus.json note: not yet reviewed by a named scholar"
    ],

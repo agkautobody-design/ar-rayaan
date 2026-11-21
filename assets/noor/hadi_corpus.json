@@ -11240,6 +11240,110 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-1593",
+   "collection": "Sahih al-Bukhari",
+   "number": "1593",
+   "english": "the people will continue performing Hajj and Umrah to the Kaaba even after the appearance of Gog and Magog",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "people",
+    "continue",
+    "performing",
+    "hajj",
+    "umrah",
+    "kaaba",
+    "even",
+    "after"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1593",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-3347",
+   "collection": "Sahih al-Bukhari",
+   "number": "3347",
+   "english": "Allah has made an opening in the wall of Gog and Magog, like this",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "made",
+    "opening",
+    "wall",
+    "magog",
+    "like"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3347",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:bukhari-3598",
+   "collection": "Sahih al-Bukhari",
+   "number": "3598",
+   "english": "Zaynab bint Jahsh reported that the Prophet came alarmed and said a gap the size of the circle he made with his fingers had opened in the barrier of Gog and Magog; destruction comes when wickedness increases",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "zaynab",
+    "bint",
+    "jahsh",
+    "reported",
+    "came",
+    "alarmed",
+    "size",
+    "circle"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3598",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:muslim-2880",
+   "collection": "Sahih Muslim",
+   "number": "2880",
+   "english": "the same report of the gap in the barrier of Ya'juj and Ma'juj",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "same",
+    "report",
+    "barrier",
+    "ya'juj",
+    "ma'juj"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2880",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
+  },
+  {
+   "id": "h:muslim-2937",
+   "collection": "Sahih Muslim",
+   "number": "2937",
+   "english": "the long report on the Dajjal, the descent of Isa, and the release and destruction of Gog and Magog before the Last Hour",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "long",
+    "report",
+    "dajjal",
+    "descent",
+    "release",
+    "destruction",
+    "magog",
+    "before"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2937",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-11-21"
   }
  ]
 }

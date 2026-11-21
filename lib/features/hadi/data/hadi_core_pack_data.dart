@@ -826,7 +826,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
       r'\b(?:who (?:is|was)|tell me about|story of|what is the story of|explain) (?:dhul|dhu al|zul|zul al|dhu l) ?qarnayn\b',
       r'\b(?:dhul|zul|dhu) ?qarnayn\b',
       r'\balexander the great\b.*\b(?:quran|islam)\b',
-      r'\bgog and magog\b|\byajuj\b.*\bmajuj\b',
     ],
     answer: 'Dhul-Qarnayn is a righteous ruler whose story is in Surah Al-Kahf (Qur\'an 18:83). The Qur\'an says Allah gave him power on earth and means to everything (Qur\'an 18:84), and that he travelled to the west and the east. He met a people who asked for protection from Ya\'juj and Ma\'juj, and he built a barrier against them (Qur\'an 18:93-98), then said it was a mercy from his Lord.\n\nWho he was is a matter of difference among scholars, and I do not name him.\n\nSource: Qur\'an 18:83, 18:84, 18:93-98.\n[GO:/quran]',
     topic: 'Dhul-Qarnayn',
@@ -2132,5 +2131,18 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'haya and the branches of faith',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the second paragraph explains haya in the scholars\' words; the number of branches is not listed.',
+  ),
+  CoreEntry(
+    id: 'gog-and-magog',
+    patterns: <String>[
+      r'\b(?:gog and magog|gog magog|gog n magog|yajuj|yajooj|ya juj|majuj|majooj|ma juj|magog)\b',
+      r'\bdhul ?qarnayn\b.*\b(?:wall|barrier|dam)\b',
+      r'\b(?:wall|barrier|dam)\b.*\bdhul ?qarnayn\b',
+      r'\bwall of (?:gog|dhul ?qarnayn)\b',
+    ],
+    answer: 'Gog and Magog (Ya\'juj and Ma\'juj) are two peoples in the Qur\'an. A people who met Dhul-Qarnayn asked him for protection from their corruption, so he built a barrier between two mountains (Qur\'an 18:93-97). Ibn Kathir says they are among the children of Adam, and describes the barrier as iron blocks piled up with molten copper poured over them.\n\nHe told them it was a mercy from his Lord, and that when the promise of his Lord comes, He will level it (Qur\'an 18:98). That is one of the signs of the Last Hour: they will be released and rush down from every height (Qur\'an 21:96-97).\n\nThe Prophet ﷺ came alarmed and said that a gap the size of a circle made with his fingers had opened in the barrier of Gog and Magog. Zaynab bint Jahsh asked whether they would be destroyed while the righteous were among them, and he said yes, when wickedness increases (Zaynab bint Jahsh reported that the Prophet came alarmed and said a gap the size of the circle he made with his fingers had opened in the barrier of Gog and Magog; destruction comes when wickedness increases (Sahih al-Bukhari 3598)). Muslim records the same report (the same report of the gap in the barrier of Ya\'juj and Ma\'juj (Sahih Muslim 2880)). Their release and destruction after the Dajjal and the descent of Isa is in the long report of al-Nawwas ibn Sam\'an (the long report on the Dajjal, the descent of Isa, and the release and destruction of Gog and Magog before the Last Hour (Sahih Muslim 2937)).\n\nWhere is the barrier? Scholars differ. Ma\'ariful Qur\'an mentions walls near Darband in Daghestan or in the Caucasus, and rejects the Great Wall of China. The text itself gives no definite place, and whether they have already emerged is also discussed, so I will not name a place or a date.\n\nFor the whole story, with the places and the different views, open Stories.\n\nSource: Qur\'an 18:93-97, 18:98, 21:96-97; Sahih al-Bukhari 3598; Sahih Muslim 2880, 2937.\n[GO:/stories]\n[GO:/quran]\n[GO:/hadith]',
+    topic: 'Gog and Magog',
+    beforeGate: true,
+    reviewNote: 'Scholar review needed: the location and whether they have already emerged are disputed; answer states only what the sources state.',
   ),
 ];
