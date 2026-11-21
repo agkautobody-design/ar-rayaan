@@ -455,6 +455,15 @@ abstract final class ShareService {
     }
   }
 
+  /// Opens the share sheet for plain [text] (an invitation, say). False when
+  /// there is no sheet or it failed, so the caller can copy instead.
+  static Future<bool> shareText(String text, {String? subject}) async {
+    if (kIsWeb) {
+      return webShareSupported && await webShare(text, title: subject);
+    }
+    return nativeShare(text, subject);
+  }
+
   /// Opens the share sheet for [doc], or copies when there is none or it
   /// fails, and says which. Call it straight from the tap: a browser only
   /// allows its share sheet from one.

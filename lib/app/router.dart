@@ -123,6 +123,7 @@ import '../features/games/games_flags.dart';
 import '../features/games/presentation/community_stub_screen.dart';
 import '../features/games/presentation/game_details_screen.dart';
 import '../features/games/presentation/game_history_screen.dart';
+import '../features/games/presentation/game_invite_screen.dart';
 import '../features/games/presentation/game_results_screen.dart';
 import '../features/games/presentation/game_settings_screen.dart';
 import '../features/games/presentation/game_setup_screen.dart';
@@ -576,6 +577,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           pageBuilder: (context, state) => _fade(const HomeQuickScreen()),
         ),
         GoRoute(
+          path: '/games/invite',
+          pageBuilder: (context, state) => _fade(const GameInviteScreen()),
+        ),
+        GoRoute(
           path: '/games/ludo',
           pageBuilder: (context, state) => _fade(
             LudoScreen(
@@ -586,6 +591,8 @@ GoRouter buildRouter({String initialLocation = '/'}) {
                       2,
               humans:
                   int.tryParse(state.uri.queryParameters['humans'] ?? '') ?? 0,
+              inviteRoom: state.uri.queryParameters['room'],
+              inviteSide: state.uri.queryParameters['side'],
             ),
             pill: false,
           ),
@@ -604,6 +611,8 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               playAs: state.uri.queryParameters['as'] ?? 'white',
               minutes:
                   int.tryParse(state.uri.queryParameters['t'] ?? '') ?? 0,
+              inviteRoom: state.uri.queryParameters['room'],
+              inviteSide: state.uri.queryParameters['side'],
             ),
             pill: false,
           ),
