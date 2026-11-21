@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6064,
+ "total": 6062,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -40,7 +40,7 @@
   },
   "hadi": {
    "title": "Hadi built-in answers",
-   "items": 707,
+   "items": 705,
    "high_priority": 21
   },
   "hadith": {
@@ -130,8 +130,8 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2624,
-  "Fiqh scholar (per madhab)": 806,
+  "Hadith / aqidah scholar": 2623,
+  "Fiqh scholar (per madhab)": 805,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
   "Clinician (Sakina and health content)": 1086,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1325,
-  "normal": 3922,
+  "normal": 3920,
   "low": 817
  },
  "items": [
@@ -41998,25 +41998,6 @@
    "status": "open"
   },
   {
-   "id": "hadi.core.names-of-allah",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"names-of-allah\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='names-of-allah'",
-   "what_to_review": "Built-in answer \"names-of-allah\": The Qur'an says: to Allah belong the best names, so call on Him by them (Qur'an 7:180). Abu Hurayrah reported the Prophet ﷺ saying: Allah has ninety-nine names, one hundred minus one, and whoever knows them will go to Paradise (Sahih al-Bukhari 2736). The had…",
-   "why_flagged": "Scholar review needed: the second paragraph states the usual scholarly reading in general terms.",
-   "reviewer_type": "Hadith / aqidah scholar",
-   "also_reviewers": [],
-   "madhabs": [],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
    "id": "hadi.core.what-allah-loves",
    "area": "hadi",
    "subarea": "core-answer",
@@ -42063,32 +42044,6 @@
    "key": "CoreEntry id='major-sins'",
    "what_to_review": "Built-in answer \"major-sins\": Abu Hurayrah reported the Prophet ﷺ saying: avoid the seven great destructive sins: joining others in worship with Allah, sorcery, killing a life Allah has forbidden without a just cause, taking riba, taking an orphan's wealth, fleeing from the battlefield, a…",
    "why_flagged": "Scholar review needed: the summaries stop at the items named; the last sentence is general.",
-   "reviewer_type": "Fiqh scholar (per madhab)",
-   "also_reviewers": [
-    "Hadith / aqidah scholar"
-   ],
-   "madhabs": [
-    "Hanafi",
-    "Maliki",
-    "Shafi'i",
-    "Hanbali"
-   ],
-   "priority": "normal",
-   "source_of_flag": [
-    "hadi_core_data.dart reviewNote (kept for the review list)"
-   ],
-   "label_surface": "Hadi answer bubble (built-in library)",
-   "status": "open"
-  },
-  {
-   "id": "hadi.core.lying-in-islam",
-   "area": "hadi",
-   "subarea": "core-answer",
-   "where_in_app": "Hadi chat > built-in answer \"lying-in-islam\"",
-   "file": "lib/features/hadi/data/hadi_core_data.dart (generated from tool/hadi_core/)",
-   "key": "CoreEntry id='lying-in-islam'",
-   "what_to_review": "Built-in answer \"lying-in-islam\": Lying is a sin in Islam. Abdullah ibn Mas'ud reported the Prophet ﷺ saying: truthfulness leads to righteousness and righteousness leads to Paradise, while falsehood leads to wickedness and wickedness leads to the Fire (Sahih al-Bukhari 6094). The hadith in Sa…",
-   "why_flagged": "Scholar review needed: the closing explanation is a narrator's comment; scholars differ on its scope.",
    "reviewer_type": "Fiqh scholar (per madhab)",
    "also_reviewers": [
     "Hadith / aqidah scholar"

@@ -204,17 +204,6 @@ How much tajweed is required of every Muslim is discussed by scholars, and I do 
 """,
   review='Scholar review needed: the definition is general; the discussion on obligation is left to scholars.')
 
-E('names-of-allah',
-  m=[r'\b(?:what are|tell me|list|give me|how many) (?:the )?(?:names of allah|99 names|ninety nine names|asma ul husna|asma al husna|beautiful names)\b', r'\b(?:99|ninety nine) names\b', r'\basma (?:ul|al) ?husna\b', r'\bhow many names (?:does|of) allah\b'],
-  topic='the names of Allah',
-  go=['/games/names99'],
-  text="""
-The Qur'an says: to Allah belong the best names, so call on Him by them ({QR 7:180}). Abu Hurayrah reported the Prophet ﷺ saying: {HS bukhari:2736|Allah has ninety-nine names, one hundred minus one, and whoever knows them will go to Paradise}.
-
-The hadith does not say Allah has only ninety-nine names; the number is the ones whose knowledge brings the reward. The Names of Allah game in the app has all ninety-nine.
-""",
-  review='Scholar review needed: the second paragraph states the usual scholarly reading in general terms.')
-
 E('what-allah-loves',
   m=[r'\b(?:what|who) does allah love\b', r'\bwho (?:does|do) (?:you think )?allah love\b', r'\bthose whom allah loves\b', r'\b(?:allah loves|allah s love)\b.*\b(?:who|whom|what|those)\b', r'\bhow (?:to|do i|can i) (?:get|earn|win|gain) (?:allah s|the love of) (?:allah|love)\b'],
   topic='whom Allah loves',
@@ -246,16 +235,6 @@ Abu Bakrah reported he said the biggest of the great sins are: {HS bukhari:5976|
 These lists are not the only places the major sins are named; scholars have collected more. I give these two lists only.
 """,
   review='Scholar review needed: the summaries stop at the items named; the last sentence is general.')
-
-E('lying-in-islam',
-  m=[r'\b(?:what is|whats|ruling on|rules? on|islam on|islam say about|what does islam say about) (?:telling )?(?:lies|lying|a lie|white lies?)\b', r'\bis (?:it )?(?:ok|okay|allowed|permissible|halal|haram) to lie\b', r'\bcan (?:i|you|muslims?) lie\b', r'\bis lying (?:a sin|haram|allowed)\b', r'\bwhen is lying allowed\b'],
-  topic='lying',
-  text="""
-Lying is a sin in Islam. Abdullah ibn Mas'ud reported the Prophet ﷺ saying: {HS bukhari:6094|truthfulness leads to righteousness and righteousness leads to Paradise, while falsehood leads to wickedness and wickedness leads to the Fire}.
-
-The hadith in Sahih Muslim 2605 adds: {HS muslim:2605|a liar is not one who tries to bring reconciliation among people and speaks good or conveys good}. In that narration a transmitter notes that exemptions were mentioned for war, reconciliation between people, and between spouses. Scholars discuss what these cover and how far they go, and I do not give a ruling on a particular case.
-""",
-  review='Scholar review needed: the closing explanation is a narrator\'s comment; scholars differ on its scope.')
 
 E('cheating-trade',
   m=[r'\b(?:what is|whats|ruling on|islam on|islam say about|what does islam say about) (?:cheating|fraud|deception|dishonesty)\b', r'\bis (?:it )?(?:cheating|fraud|deceiving|deception) (?:haram|allowed|a sin)\b', r'\b(?:honesty|honest) in (?:trade|business|selling|buying)\b', r'\b(?:business|trade|trading|selling) (?:ethics|honesty)\b', r'\b(?:islamic|muslim) business ethics\b'],

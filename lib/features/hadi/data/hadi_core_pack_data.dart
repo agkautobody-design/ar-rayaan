@@ -1271,19 +1271,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     reviewNote: 'Scholar review needed: the definition is general; the discussion on obligation is left to scholars.',
   ),
   CoreEntry(
-    id: 'names-of-allah',
-    patterns: <String>[
-      r'\b(?:what are|tell me|list|give me|how many) (?:the )?(?:names of allah|99 names|ninety nine names|asma ul husna|asma al husna|beautiful names)\b',
-      r'\b(?:99|ninety nine) names\b',
-      r'\basma (?:ul|al) ?husna\b',
-      r'\bhow many names (?:does|of) allah\b',
-    ],
-    answer: 'The Qur\'an says: to Allah belong the best names, so call on Him by them (Qur\'an 7:180). Abu Hurayrah reported the Prophet ﷺ saying: Allah has ninety-nine names, one hundred minus one, and whoever knows them will go to Paradise (Sahih al-Bukhari 2736).\n\nThe hadith does not say Allah has only ninety-nine names; the number is the ones whose knowledge brings the reward. The Names of Allah game in the app has all ninety-nine.\n\nSource: Qur\'an 7:180; Sahih al-Bukhari 2736.\n[GO:/games/names99]',
-    topic: 'the names of Allah',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the second paragraph states the usual scholarly reading in general terms.',
-  ),
-  CoreEntry(
     id: 'what-allah-loves',
     patterns: <String>[
       r'\b(?:what|who) does allah love\b',
@@ -1322,20 +1309,6 @@ const List<CoreEntry> kHadiPackEntries = <CoreEntry>[
     topic: 'major sins',
     beforeGate: true,
     reviewNote: 'Scholar review needed: the summaries stop at the items named; the last sentence is general.',
-  ),
-  CoreEntry(
-    id: 'lying-in-islam',
-    patterns: <String>[
-      r'\b(?:what is|whats|ruling on|rules? on|islam on|islam say about|what does islam say about) (?:telling )?(?:lies|lying|a lie|white lies?)\b',
-      r'\bis (?:it )?(?:ok|okay|allowed|permissible|halal|haram) to lie\b',
-      r'\bcan (?:i|you|muslims?) lie\b',
-      r'\bis lying (?:a sin|haram|allowed)\b',
-      r'\bwhen is lying allowed\b',
-    ],
-    answer: 'Lying is a sin in Islam. Abdullah ibn Mas\'ud reported the Prophet ﷺ saying: truthfulness leads to righteousness and righteousness leads to Paradise, while falsehood leads to wickedness and wickedness leads to the Fire (Sahih al-Bukhari 6094).\n\nThe hadith in Sahih Muslim 2605 adds: a liar is not one who tries to bring reconciliation among people and speaks good or conveys good (Sahih Muslim 2605). In that narration a transmitter notes that exemptions were mentioned for war, reconciliation between people, and between spouses. Scholars discuss what these cover and how far they go, and I do not give a ruling on a particular case.\n\nSource: Sahih al-Bukhari 6094; Sahih Muslim 2605.',
-    topic: 'lying',
-    beforeGate: true,
-    reviewNote: 'Scholar review needed: the closing explanation is a narrator\'s comment; scholars differ on its scope.',
   ),
   CoreEntry(
     id: 'cheating-trade',
