@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6062,
+ "total": 6063,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -70,7 +70,7 @@
   },
   "dua-dhikr": {
    "title": "Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas",
-   "items": 155,
+   "items": 156,
    "high_priority": 24
   },
   "new-muslim": {
@@ -130,7 +130,7 @@
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2623,
+  "Hadith / aqidah scholar": 2624,
   "Fiqh scholar (per madhab)": 805,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1325,
-  "normal": 3920,
+  "normal": 3921,
   "low": 817
  },
  "items": [
@@ -78793,7 +78793,7 @@
    "where_in_app": "Dhikr > After Prayer adhkar > item 4",
    "file": "assets/adhkar/adhkar.json",
    "key": "sets[after-prayer].items[n=4]",
-   "what_to_review": "Dua 4 of the After Prayer set: meaning \"SubhanAllah (33), Alhamdulillah (33), Allahu Akbar (33), then to complete one hundred: La ilaha illallah, alone, without partner; His is th…\", count 33, source \"Sahih Muslim 597 (Abu Hurayrah)\", transliteration (learning aid).",
+   "what_to_review": "Dua 4 of the After Prayer set: meaning \"SubhanAllah (33), Alhamdulillah (33), Allahu Akbar (33), then to complete one hundred: La ilaha illallah, alone, without partner; His is th…\", count 33, source \"Sahih Muslim 597 (Abu Hurayrah); Sahih Muslim 596 (Ka'b ibn 'Ujrah)\", transliteration (learning aid).",
    "why_flagged": "Transliteration is the author's own learning aid (tlSource says \"flagged for scholar review\" where applicable); the meaning and count are not scholar-reviewed.",
    "reviewer_type": "Hadith / aqidah scholar",
    "also_reviewers": [
@@ -78889,6 +78889,28 @@
    ],
    "madhabs": [],
    "priority": "high",
+   "source_of_flag": [
+    "adhkar.json (tlSource: flagged for scholar review)",
+    "FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids)"
+   ],
+   "label_surface": "Adhkar screen",
+   "status": "open"
+  },
+  {
+   "id": "dua.adhkar.after-prayer.09",
+   "area": "dua-dhikr",
+   "subarea": "adhkar-after-prayer",
+   "where_in_app": "Dhikr > After Prayer adhkar > item 9",
+   "file": "assets/adhkar/adhkar.json",
+   "key": "sets[after-prayer].items[n=9]",
+   "what_to_review": "Dua 9 of the After Prayer set: meaning \"O Allah, help me to remember You, to thank You, and to worship You well. (The Prophet ﷺ told Mu'adh never to leave it out after every praye…\", count 1, source \"Sunan Abi Dawud 1522 — sahih per al-Albani\", transliteration (learning aid).",
+   "why_flagged": "Transliteration is the author's own learning aid (tlSource says \"flagged for scholar review\" where applicable); the meaning and count are not scholar-reviewed.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [
+    "Arabic / tajweed / qira'at specialist"
+   ],
+   "madhabs": [],
+   "priority": "normal",
    "source_of_flag": [
     "adhkar.json (tlSource: flagged for scholar review)",
     "FIX_WORSHIP_REPORT (adhkar transliteration 50/52; all translit are learning aids)"

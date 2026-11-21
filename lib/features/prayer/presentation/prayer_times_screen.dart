@@ -1097,6 +1097,13 @@ class _QuickLinks extends StatelessWidget {
           label: const Text('How to pray'),
           style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
         ),
+        TextButton.icon(
+          onPressed: () =>
+              context.open('${AppRoutes.adhkar}?set=after-prayer'),
+          icon: const Icon(Icons.auto_awesome_outlined, size: 16),
+          label: const Text('After prayer'),
+          style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+        ),
       ],
     );
   }
