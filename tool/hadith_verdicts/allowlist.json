@@ -106,5 +106,10 @@
  "tirmidhi:2002@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, Darussalam)",
  "tirmidhi:212@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, Darussalam)",
  "tirmidhi:2324@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, al-Albani)",
- "tirmidhi:496@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, Darussalam)"
+ "tirmidhi:496@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, Darussalam)",
+ "abudawud:4727@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, al-Albani)",
+ "ibnmajah:1408@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, Darussalam)",
+ "nasai:693@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (sahih, al-Albani)",
+ "tirmidhi:2312@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (hasan, Darussalam)",
+ "tirmidhi:3231@assets/noor/hadi_corpus.json": "verifiedAt URL field, not prose; grader recorded in hadi_core.json (da'if, Darussalam)"
 }
