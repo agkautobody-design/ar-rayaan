@@ -862,6 +862,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
       r'\bpray\b.*\bsit(?:ting)? down\b',
       r'\b(?:sick|ill|illness|injured|elderly|disabled|disability|wheelchair|bed ?ridden|back pain|knee pain|surgery|pregnan\w*)\b.*\bprayers?\b',
       r'\bprayers?\b.*\b(?:when|if) (?:i am|im|i m) (?:sick|ill|injured|unwell|pregnant)\b',
+      r'\b(?:pray|salah|salat|namaz)\b.*\b(?:when|while|if) (?:i am|im|i m|am) (?:sick|ill|unwell|injured|pregnant)\b',
       r'\bcannot stand\b.*\bprayers?\b',
       r'\bcant stand\b.*\bprayers?\b',
       r'\bprayers? (?:in|on) (?:a )?(?:chair|wheelchair|bed)\b',

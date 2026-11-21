@@ -15,6 +15,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/academy_providers.dart';
 import '../application/word_deck_provider.dart';
 import '../application/academy_strings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../domain/academy_entry.dart';
 import '../domain/academy_models.dart';
 import '../domain/continue_hero.dart';
@@ -851,8 +852,12 @@ class _FrontDoorCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     AcademyDoor? suggested;
     try {
-      suggested = suggestedDoor(
-          ref.read(sharedPreferencesProvider).getString('ar.need'));
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      // Every goal ticked in the introduction (first = first door); older
+      // installs only have the single `ar.need`.
+      final List<String> goals = prefs.getStringList('ar.needs') ??
+          <String>[if (prefs.getString('ar.need') != null) prefs.getString('ar.need')!];
+      suggested = suggestedDoorForAll(goals);
     } catch (_) {}
     Widget door(AcademyDoor d, String titleKey, String bodyKey, Key key) {
       final bool primary = d == suggested;

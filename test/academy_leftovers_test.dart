@@ -185,6 +185,9 @@ void main() {
       expect(suggestedDoor('new'), AcademyDoor.newToIslam);
       expect(suggestedDoor('children'), AcademyDoor.myChild);
       expect(suggestedDoor('other'), isNull);
+      expect(suggestedDoorForAll(<String>['pray', 'children', 'new']),
+          AcademyDoor.myChild);
+      expect(suggestedDoorForAll(<String>['pray', 'peace']), isNull);
     });
 
     test('the switch changes the layout', () {

@@ -58,6 +58,16 @@ AcademyDoor? suggestedDoor(String? onboardingNeed) => switch (onboardingNeed) {
       _ => null,
     };
 
+/// The Academy door for someone who ticked several goals: the first ticked
+/// goal that has a door ("new" or "children"), else none.
+AcademyDoor? suggestedDoorForAll(Iterable<String> needs) {
+  for (final String n in needs) {
+    final AcademyDoor? d = suggestedDoor(n);
+    if (d != null) return d;
+  }
+  return null;
+}
+
 /// What the Academy home shows for a learning track. On the Child track the
 /// other schools sit behind the parent check and so does switching to another
 /// track (the Family Wing uses the same check); on Teen and Parent every
