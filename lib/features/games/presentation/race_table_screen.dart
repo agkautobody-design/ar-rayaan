@@ -148,17 +148,29 @@ class _RaceTableState extends State<RaceTableScreen> {
 
   void _go(String gameId, Map<String, String> query, int seed) {
     _going = true;
-    final Uri u = Uri(
-      path: '/games/g/$gameId/play',
-      queryParameters: <String, String>{
-        ...query,
-        'hints': '0',
-        'players': '1',
-        'race': _code!,
-        'side': _host ? 'host' : 'guest',
-        'seed': '$seed',
-      },
-    );
+    final Map<String, String> race = <String, String>{
+      'race': _code!,
+      'side': _host ? 'host' : 'guest',
+      'seed': '$seed',
+    };
+    final Uri u = gameId == 'memory'
+        ? Uri(
+            path: '/games/memory',
+            queryParameters: <String, String>{
+              'pairs': query['pairs'] ?? '8',
+              'players': '1',
+              ...race,
+            },
+          )
+        : Uri(
+            path: '/games/g/$gameId/play',
+            queryParameters: <String, String>{
+              ...query,
+              'hints': '0',
+              'players': '1',
+              ...race,
+            },
+          );
     context.pushReplacement(u.toString());
   }
 

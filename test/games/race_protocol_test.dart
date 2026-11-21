@@ -76,4 +76,13 @@ void main() {
     );
     expect(s.opponent, const RaceOpponent());
   });
+
+  test('done carries the finish time and it is read back', () {
+    final RaceState s = RaceState.read(
+      mySide: 'host',
+      moves: <int, Map<String, dynamic>>{1: RaceProtocol.done(10, 8, 12345)},
+      status: 'playing',
+    );
+    expect(s.opponent.finishedMs, 12345);
+  });
 }

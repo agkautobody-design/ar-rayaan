@@ -35,8 +35,10 @@ abstract final class RaceProtocol {
   static Map<String, dynamic> prog(int answered, int total, int score) =>
       <String, dynamic>{'t': 'prog', 'a': answered, 'n': total, 'sc': score};
 
-  static Map<String, dynamic> done(int total, int score) =>
-      <String, dynamic>{'t': 'done', 'n': total, 'sc': score};
+  /// [ms]: when this player finished (milliseconds since 1970), only used to
+  /// break a tie: when two scores are equal the first to finish wins.
+  static Map<String, dynamic> done(int total, int score, [int ms = 0]) =>
+      <String, dynamic>{'t': 'done', 'n': total, 'sc': score, 'ms': ms};
 }
 
 /// The shared settings of a race.
@@ -78,12 +80,14 @@ class RaceOpponent {
     this.total = 0,
     this.score = 0,
     this.finished = false,
+    this.finishedMs = 0,
   });
 
   final int answered;
   final int total;
   final int score;
   final bool finished;
+  final int finishedMs;
 
   @override
   bool operator ==(Object other) =>
@@ -91,10 +95,12 @@ class RaceOpponent {
       other.answered == answered &&
       other.total == total &&
       other.score == score &&
-      other.finished == finished;
+      other.finished == finished &&
+      other.finishedMs == finishedMs;
 
   @override
-  int get hashCode => Object.hash(answered, total, score, finished);
+  int get hashCode =>
+      Object.hash(answered, total, score, finished, finishedMs);
 }
 
 /// Everything a player can know about the race from the table.
@@ -142,7 +148,14 @@ class RaceState {
         opp = RaceOpponent(answered: a, total: n, score: sc);
       } else if (t == 'done') {
         bestSeq = k;
-        opp = RaceOpponent(answered: n, total: n, score: sc, finished: true);
+        final Object? ms = m['ms'];
+        opp = RaceOpponent(
+          answered: n,
+          total: n,
+          score: sc,
+          finished: true,
+          finishedMs: ms is int ? ms : 0,
+        );
       }
     }
     return RaceState(

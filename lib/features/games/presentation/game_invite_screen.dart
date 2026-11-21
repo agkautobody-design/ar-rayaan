@@ -29,7 +29,10 @@ Future<void> sendGameInvite(BuildContext context, String text) async {
 }
 
 class GameInviteScreen extends StatefulWidget {
-  const GameInviteScreen({super.key, this.service});
+  const GameInviteScreen({super.key, this.service, this.initialGame});
+
+  /// Skips the choice when the person came from a game's own page.
+  final InviteGame? initialGame;
 
   /// For tests.
   final GameRoomsService? service;
@@ -45,6 +48,15 @@ class _GameInviteScreenState extends State<GameInviteScreen> {
   String? _busy;
   String? _error;
   bool _entered = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final InviteGame? g = widget.initialGame;
+    if (g != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => unawaited(_pick(g)));
+    }
+  }
 
   @override
   void dispose() {

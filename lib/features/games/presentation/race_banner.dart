@@ -27,6 +27,7 @@ class RaceBanner extends StatelessWidget {
     RaceState s, {
     required int myScore,
     required bool iFinished,
+    int myFinishedMs = 0,
   }) {
     if (s.left) return 'Your friend left the table.';
     final RaceOpponent o = s.opponent;
@@ -34,11 +35,18 @@ class RaceBanner extends StatelessWidget {
       if (!iFinished) {
         return 'Your friend finished with ${o.score} of ${o.total} right.';
       }
-      final String verdict = myScore > o.score
+      String verdict = myScore > o.score
           ? 'You won'
           : myScore < o.score
               ? 'Your friend won'
               : 'A draw';
+      // Equal scores: whoever finished first wins, unless it was a photo
+      // finish (under two seconds apart, or a clock is missing).
+      if (myScore == o.score && myFinishedMs > 0 && o.finishedMs > 0) {
+        final int gap = o.finishedMs - myFinishedMs;
+        if (gap > 2000) verdict = 'You won, finishing first';
+        if (gap < -2000) verdict = 'Your friend won, finishing first';
+      }
       return '$verdict: you $myScore, friend ${o.score}.';
     }
     if (iFinished) return 'Waiting for your friend to finish…';
@@ -67,7 +75,10 @@ class RaceBanner extends StatelessWidget {
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
-                  line(s, myScore: myScore, iFinished: iFinished),
+                  line(s,
+                      myScore: myScore,
+                      iFinished: iFinished,
+                      myFinishedMs: link.myFinishedMs),
                   style: AppText.body.copyWith(fontSize: 14),
                 ),
               ),

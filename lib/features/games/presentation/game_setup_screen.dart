@@ -501,23 +501,29 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
   }
 
   String _startRoute(GameDef g) {
+    if (_mode == PlayMode.friends && g.canRace) {
+      // A race: the table screen makes the table and both players are taken
+      // to the same game with the same settings.
+      final Map<String, String> q = <String, String>{'game': g.id};
+      if (g.isQuiz) {
+        q.addAll(QuizConfig(
+          gameId: g.id,
+          topic: _topic,
+          count: _count,
+          difficulty: _difficulty,
+          hints: false,
+        ).toQuery());
+      } else if (g.id == 'memory') {
+        q['pairs'] = '$_pairs';
+      } else {
+        q['topic'] = _topic;
+      }
+      return Uri(path: '/games/race/host', queryParameters: q).toString();
+    }
     if (g.kind == GameEngineKind.order || g.kind == GameEngineKind.words) {
       return Uri(
         path: '/games/g/${g.id}/play',
         queryParameters: <String, String>{'topic': _topic},
-      ).toString();
-    }
-    if (g.isQuiz && _mode == PlayMode.friends) {
-      final QuizConfig c = QuizConfig(
-        gameId: g.id,
-        topic: _topic,
-        count: _count,
-        difficulty: _difficulty,
-        hints: false,
-      );
-      return Uri(
-        path: '/games/race/host',
-        queryParameters: <String, String>{'game': g.id, ...c.toQuery()},
       ).toString();
     }
     if (g.isQuiz) {

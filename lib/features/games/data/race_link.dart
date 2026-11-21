@@ -71,8 +71,13 @@ class RaceLink {
   Future<void> report(int answered, int total, int score) =>
       _send(RaceProtocol.prog(answered, total, score));
 
-  Future<void> finish(int total, int score) =>
-      _send(RaceProtocol.done(total, score));
+  /// When this player finished (ms since 1970), 0 until then.
+  int myFinishedMs = 0;
+
+  Future<void> finish(int total, int score) {
+    myFinishedMs = DateTime.now().millisecondsSinceEpoch;
+    return _send(RaceProtocol.done(total, score, myFinishedMs));
+  }
 
   /// Leaves the table (deletes it, as every table is).
   Future<void> leave() => _rooms.leave(code);

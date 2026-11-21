@@ -580,7 +580,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: '/games/invite',
-          pageBuilder: (context, state) => _fade(const GameInviteScreen()),
+          pageBuilder: (context, state) => _fade(
+            GameInviteScreen(
+              key: ValueKey<String>(state.uri.toString()),
+              initialGame: GameInvite.gameFor(
+                state.uri.queryParameters['game'] ?? '',
+              ),
+            ),
+          ),
         ),
         GoRoute(
           path: '/games/ludo',
@@ -735,11 +742,18 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: '/games/memory',
           pageBuilder: (context, state) => _fade(
             MemoryGameScreen(
+              key: ValueKey<String>(state.uri.toString()),
               players:
                   int.tryParse(state.uri.queryParameters['players'] ?? '') ??
                       1,
               pairs:
                   int.tryParse(state.uri.queryParameters['pairs'] ?? '') ?? 8,
+              raceCode:
+                  GameInvite.cleanCode(state.uri.queryParameters['race']),
+              raceSide: state.uri.queryParameters['side'] == 'guest'
+                  ? 'guest'
+                  : 'host',
+              seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
             ),
             pill: false,
           ),
@@ -771,12 +785,19 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             // A new key per start, so Play again never reuses a finished game.
             final Key key = ValueKey<String>(state.uri.toString());
             final GameEngineKind? kind = gameById(id)?.kind;
+            final Map<String, String> q = state.uri.queryParameters;
+            final String? raceCode = GameInvite.cleanCode(q['race']);
+            final String raceSide = q['side'] == 'guest' ? 'guest' : 'host';
+            final int? seed = int.tryParse(q['seed'] ?? '');
             if (kind == GameEngineKind.order) {
               return _fade(
                 OrderPlayScreen(
                   key: key,
                   gameId: id,
-                  topic: state.uri.queryParameters['topic'],
+                  topic: q['topic'],
+                  raceCode: raceCode,
+                  raceSide: raceSide,
+                  seed: seed,
                 ),
                 pill: false,
               );
@@ -784,10 +805,25 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             if (kind == GameEngineKind.words) {
               return _fade(
                 id == 'scramble'
-                    ? ScrambleScreen(key: key)
+                    ? ScrambleScreen(
+                        key: key,
+                        raceCode: raceCode,
+                        raceSide: raceSide,
+                        seed: seed,
+                      )
                     : id == 'arabic-spelling'
-                        ? ArabicSpellingScreen(key: key)
-                        : WordSearchScreen(key: key),
+                        ? ArabicSpellingScreen(
+                            key: key,
+                            raceCode: raceCode,
+                            raceSide: raceSide,
+                            seed: seed,
+                          )
+                        : WordSearchScreen(
+                            key: key,
+                            raceCode: raceCode,
+                            raceSide: raceSide,
+                            seed: seed,
+                          ),
                 pill: false,
               );
             }

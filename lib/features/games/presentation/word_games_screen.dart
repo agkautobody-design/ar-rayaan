@@ -19,7 +19,9 @@ import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
+import '../data/race_link.dart';
 import 'game_results_screen.dart';
+import 'race_banner.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
@@ -36,7 +38,16 @@ const String _spellingSource = 'The name as the Qur’an spells it: the same '
 /// Loads the names for Arabic Spelling, then plays them in the scramble
 /// screen with the letters laid out right to left.
 class ArabicSpellingScreen extends StatefulWidget {
-  const ArabicSpellingScreen({super.key});
+  const ArabicSpellingScreen({
+    super.key,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+  });
+
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   @override
   State<ArabicSpellingScreen> createState() => _ArabicSpellingState();
@@ -58,7 +69,12 @@ class _ArabicSpellingState extends State<ArabicSpellingScreen> {
             body: Center(child: CircularProgressIndicator()),
           );
         }
-        return ScrambleScreen(spellingPool: pool);
+        return ScrambleScreen(
+          spellingPool: pool,
+          raceCode: widget.raceCode,
+          raceSide: widget.raceSide,
+          seed: widget.seed,
+        );
       },
     );
   }
@@ -78,33 +94,69 @@ String _askAbout(Iterable<WordClue> words) => HadiGameAsk.words(
 /// /games/g/wordsearch/play - find the glossary words hidden in a grid.
 /// Tap the first letter, then the last. No timer; free hints.
 class WordSearchScreen extends ConsumerStatefulWidget {
-  const WordSearchScreen({super.key});
+  const WordSearchScreen({super.key, this.raceCode, this.raceSide, this.seed});
+
+  /// Racing a friend online: table code, side and the shared seed.
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   @override
   ConsumerState<WordSearchScreen> createState() => _WordSearchState();
 }
 
 class _WordSearchState extends ConsumerState<WordSearchScreen> {
-  final Random _rnd = Random();
+  late final Random _rnd =
+      widget.seed != null ? Random(widget.seed) : Random();
+  RaceLink? _race;
   SearchSession? _s;
   Cell? _first;
   Cell? _hint;
   String _message = 'Tap the first letter of a word, then its last letter.';
   bool _recorded = false;
 
+  @override
+  void initState() {
+    super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
+  }
+
+  @override
+  void dispose() {
+    final RaceLink? r = _race;
+    if (r != null) {
+      if (!_recorded || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
+    super.dispose();
+  }
+
   void _ensure(BuildContext context) {
     if (_s != null) return;
     // At large text the grid is smaller so each cell stays easy to tap.
     final bool large = MediaQuery.textScalerOf(context).scale(10) > 13;
-    final int size = large ? 8 : 10;
+    // A race is the same grid for both players, whatever their text size.
+    final int size = large && _race == null ? 8 : 10;
     final WordGrid? g = buildWordGrid(
       LearningLoader.wordPool(),
       _rnd,
       size: size,
-      count: large ? 5 : 7,
+      count: large && _race == null ? 5 : 7,
     );
     if (g == null) return;
-    _s = SearchSession(g, hints: ref.read(gameSettingsProvider).showHints);
+    _s = SearchSession(
+      g,
+      hints: _race == null && ref.read(gameSettingsProvider).showHints,
+    );
   }
 
   void _tap(Cell c) {
@@ -130,10 +182,15 @@ class _WordSearchState extends ConsumerState<WordSearchScreen> {
       } else {
         gameHaptic(ref);
         _message = 'Found ${p.clue.term}: ${p.clue.clue}.';
+        unawaited(_race?.report(
+                s.found.length, s.grid.placed.length, s.found.length) ??
+            Future<void>.value());
       }
     });
     if (s.finished && !_recorded) {
       _recorded = true;
+      unawaited(_race?.finish(s.grid.placed.length, s.found.length) ??
+          Future<void>.value());
       final int now = DateTime.now().millisecondsSinceEpoch;
       unawaited(ref.read(gamesStoreProvider.notifier).record(GameResult(
             id: 'wordsearch-$now',
@@ -186,6 +243,13 @@ class _WordSearchState extends ConsumerState<WordSearchScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           const ScreenHeader(title: 'Word Search', close: true, showSettings: false),
+          if (_race != null)
+            RaceBanner(
+              link: _race!,
+              myScore: s.found.length,
+              myTotal: s.grid.placed.length,
+              iFinished: s.finished,
+            ),
           Text(
             '${s.found.length} OF ${s.grid.placed.length} FOUND',
             style: AppText.eyebrow,
@@ -397,7 +461,18 @@ class _GridCell extends StatelessWidget {
 /// /games/g/scramble/play - put the letters of a glossary word back in order,
 /// with its plain meaning as the clue. No timer; free hints.
 class ScrambleScreen extends ConsumerStatefulWidget {
-  const ScrambleScreen({super.key, this.spellingPool});
+  const ScrambleScreen({
+    super.key,
+    this.spellingPool,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+  });
+
+  /// Racing a friend online: table code, side and the shared seed.
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   /// Arabic Spelling uses this screen with its own pool of Arabic names. Null
   /// means the glossary Word Scramble.
@@ -408,10 +483,37 @@ class ScrambleScreen extends ConsumerStatefulWidget {
 }
 
 class _ScrambleState extends ConsumerState<ScrambleScreen> {
-  final Random _rnd = Random();
+  late final Random _rnd =
+      widget.seed != null ? Random(widget.seed) : Random();
+  RaceLink? _race;
   ScrambleSession? _s;
   String _message = '';
   GameResult? _result;
+
+  @override
+  void initState() {
+    super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
+  }
+
+  @override
+  void dispose() {
+    final RaceLink? r = _race;
+    if (r != null) {
+      if (_result == null || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
+    super.dispose();
+  }
 
   bool get _spell => widget.spellingPool != null;
   String get _title => _spell ? 'Arabic Spelling' : 'Word Scramble';
@@ -428,7 +530,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
     _s = ScrambleSession(
       words,
       _rnd,
-      hints: ref.read(gameSettingsProvider).showHints,
+      hints: _race == null && ref.read(gameSettingsProvider).showHints,
     );
   }
 
@@ -436,6 +538,10 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
     final ScrambleSession s = _s!;
     final bool ok = s.check();
     gameHaptic(ref);
+    if (ok) {
+      unawaited(_race?.report(s.index + 1, s.total, s.firstTry) ??
+          Future<void>.value());
+    }
     setState(() {
       _message = ok
           ? ''
@@ -455,6 +561,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
       outcome: '${s.firstTry} of ${s.total} words right on the first check',
     );
     unawaited(ref.read(gamesStoreProvider.notifier).record(r));
+    unawaited(_race?.finish(s.total, s.firstTry) ?? Future<void>.value());
     setState(() => _result = r);
   }
 
@@ -483,6 +590,13 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
               close: true,
               showSettings: false,
             ),
+            if (_race != null)
+              RaceBanner(
+                link: _race!,
+                myScore: s.firstTry,
+                myTotal: s.total,
+                iFinished: true,
+              ),
             ResultSummaryView(result: done),
             const SizedBox(height: 12),
             Text(
@@ -520,6 +634,8 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
             close: true,
             showSettings: false,
           ),
+          if (_race != null)
+            RaceBanner(link: _race!, myScore: s.firstTry, myTotal: s.total),
           Text('WORD ${s.index + 1} OF ${s.total}', style: AppText.eyebrow),
           const SizedBox(height: 8),
           GameProgressBar(

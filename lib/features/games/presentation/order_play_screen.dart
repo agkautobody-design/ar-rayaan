@@ -20,14 +20,28 @@ import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
+import '../data/race_link.dart';
 import 'game_results_screen.dart';
+import 'race_banner.dart';
 
 /// /games/g/:id/play for the ordering games: the Seerah timeline, Prophets in
 /// Order, and the Wudu and Salah steps. No timer. A wrong check costs
 /// nothing and can be repeated; hints are free. After each round it shows
 /// why the order is right and where it comes from.
 class OrderPlayScreen extends ConsumerStatefulWidget {
-  const OrderPlayScreen({required this.gameId, this.topic, super.key});
+  const OrderPlayScreen({
+    required this.gameId,
+    this.topic,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+    super.key,
+  });
+
+  /// Racing a friend online (see [RaceLink]): table code, side, shared seed.
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   final String gameId;
 
@@ -39,7 +53,9 @@ class OrderPlayScreen extends ConsumerStatefulWidget {
 }
 
 class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
-  final Random _rnd = Random();
+  late final Random _rnd =
+      widget.seed != null ? Random(widget.seed) : Random();
+  RaceLink? _race;
   OrderSession? _s;
   bool _loading = true;
   bool _failed = false;
@@ -48,7 +64,27 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
   @override
   void initState() {
     super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
     unawaited(_load());
+  }
+
+  @override
+  void dispose() {
+    final RaceLink? r = _race;
+    if (r != null) {
+      if (_result == null || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
+    super.dispose();
   }
 
   GameDef? get _def => gameById(widget.gameId);
@@ -62,7 +98,8 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
       );
       if (rounds.isEmpty) throw StateError('no rounds');
       if (!mounted) return;
-      final bool hints = ref.read(gameSettingsProvider).showHints;
+      final bool hints =
+          _race == null && ref.read(gameSettingsProvider).showHints;
       setState(() {
         _s = OrderSession(rounds, _rnd, hints: hints);
         _loading = false;
@@ -90,6 +127,10 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
     s.check();
     gameHaptic(ref);
     setState(() {});
+    if (s.solved) {
+      unawaited(_race?.report(s.index + 1, s.total, s.firstTry) ??
+          Future<void>.value());
+    }
   }
 
   void _finish() {
@@ -103,6 +144,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
       outcome: '${s.firstTry} of ${s.total} rounds right on the first check',
     );
     unawaited(ref.read(gamesStoreProvider.notifier).record(r));
+    unawaited(_race?.finish(s.total, s.firstTry) ?? Future<void>.value());
     setState(() => _result = r);
   }
 
@@ -182,6 +224,13 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           ScreenHeader(title: title, close: true, showSettings: false),
+          if (_race != null)
+            RaceBanner(
+              link: _race!,
+              myScore: _s?.firstTry ?? 0,
+              myTotal: _s?.total ?? 0,
+              iFinished: true,
+            ),
           ResultSummaryView(result: r),
           const SizedBox(height: 12),
           Text(
@@ -224,6 +273,8 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           ScreenHeader(title: title, close: true, showSettings: false),
+          if (_race != null)
+            RaceBanner(link: _race!, myScore: s.firstTry, myTotal: s.total),
           Text('ROUND ${s.index + 1} OF ${s.total}', style: AppText.eyebrow),
           const SizedBox(height: 8),
           GameProgressBar(
@@ -235,7 +286,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
             round.prompt,
             style: AppText.body.copyWith(fontSize: 17, height: 1.5),
           ),
-          if (settings.showHints && !s.solved) ...<Widget>[
+          if (settings.showHints && _race == null && !s.solved) ...<Widget>[
             const SizedBox(height: 10),
             Align(
               alignment: AlignmentDirectional.centerEnd,
