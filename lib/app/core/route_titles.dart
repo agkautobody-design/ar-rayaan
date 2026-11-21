@@ -36,6 +36,8 @@ abstract final class RouteTitles {
     '/games/community': 'Games with Community',
     '/games/memory': 'Names Memory',
     '/games/invite': 'Invite a friend to play',
+    '/games/race': 'Play with a friend',
+    '/games/race/host': 'Play with a friend',
     '/games/ludo': 'Ludo',
     '/games/shatranj': 'Shatranj',
     '/games/lineage': 'Lineage Challenge',

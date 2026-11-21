@@ -123,7 +123,9 @@ import '../features/games/games_flags.dart';
 import '../features/games/presentation/community_stub_screen.dart';
 import '../features/games/presentation/game_details_screen.dart';
 import '../features/games/presentation/game_history_screen.dart';
+import '../features/games/data/game_invite.dart';
 import '../features/games/presentation/game_invite_screen.dart';
+import '../features/games/presentation/race_table_screen.dart';
 import '../features/games/presentation/game_results_screen.dart';
 import '../features/games/presentation/game_settings_screen.dart';
 import '../features/games/presentation/game_setup_screen.dart';
@@ -578,7 +580,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: '/games/invite',
-          pageBuilder: (context, state) => _fade(const GameInviteScreen()),
+          pageBuilder: (context, state) => _fade(
+            GameInviteScreen(
+              key: ValueKey<String>(state.uri.toString()),
+              initialGame: GameInvite.gameFor(
+                state.uri.queryParameters['game'] ?? '',
+              ),
+            ),
+          ),
         ),
         GoRoute(
           path: '/games/ludo',
@@ -696,14 +705,55 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               _fade(const CommunityGamesStubScreen()),
         ),
         GoRoute(
+          // A friend's invitation: join the table and play the same game.
+          path: '/games/race',
+          pageBuilder: (context, state) {
+            final String? code =
+                GameInvite.cleanCode(state.uri.queryParameters['room']);
+            return _fade(
+              code == null
+                  ? const GameInviteScreen()
+                  : RaceTableScreen.guest(
+                      key: ValueKey<String>(code), joinCode: code),
+              pill: false,
+            );
+          },
+        ),
+        GoRoute(
+          // Host: open a table for the game in the query and wait.
+          path: '/games/race/host',
+          pageBuilder: (context, state) {
+            final Map<String, String> q =
+                Map<String, String>.of(state.uri.queryParameters);
+            final String game = q.remove('game') ?? '';
+            return _fade(
+              gameById(game) == null
+                  ? const GameInviteScreen()
+                  : RaceTableScreen.host(
+                      key: ValueKey<String>(state.uri.toString()),
+                      gameId: game,
+                      query: q,
+                    ),
+              pill: false,
+            );
+          },
+        ),
+        GoRoute(
           path: '/games/memory',
           pageBuilder: (context, state) => _fade(
             MemoryGameScreen(
+              key: ValueKey<String>(state.uri.toString()),
               players:
                   int.tryParse(state.uri.queryParameters['players'] ?? '') ??
                       1,
               pairs:
                   int.tryParse(state.uri.queryParameters['pairs'] ?? '') ?? 8,
+              raceCode:
+                  GameInvite.cleanCode(state.uri.queryParameters['race']),
+              raceSide: state.uri.queryParameters['side'] == 'guest'
+                  ? 'guest'
+                  : 'host',
+              seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
             ),
             pill: false,
           ),
@@ -735,12 +785,19 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             // A new key per start, so Play again never reuses a finished game.
             final Key key = ValueKey<String>(state.uri.toString());
             final GameEngineKind? kind = gameById(id)?.kind;
+            final Map<String, String> q = state.uri.queryParameters;
+            final String? raceCode = GameInvite.cleanCode(q['race']);
+            final String raceSide = q['side'] == 'guest' ? 'guest' : 'host';
+            final int? seed = int.tryParse(q['seed'] ?? '');
             if (kind == GameEngineKind.order) {
               return _fade(
                 OrderPlayScreen(
                   key: key,
                   gameId: id,
-                  topic: state.uri.queryParameters['topic'],
+                  topic: q['topic'],
+                  raceCode: raceCode,
+                  raceSide: raceSide,
+                  seed: seed,
                 ),
                 pill: false,
               );
@@ -748,10 +805,25 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             if (kind == GameEngineKind.words) {
               return _fade(
                 id == 'scramble'
-                    ? ScrambleScreen(key: key)
+                    ? ScrambleScreen(
+                        key: key,
+                        raceCode: raceCode,
+                        raceSide: raceSide,
+                        seed: seed,
+                      )
                     : id == 'arabic-spelling'
-                        ? ArabicSpellingScreen(key: key)
-                        : WordSearchScreen(key: key),
+                        ? ArabicSpellingScreen(
+                            key: key,
+                            raceCode: raceCode,
+                            raceSide: raceSide,
+                            seed: seed,
+                          )
+                        : WordSearchScreen(
+                            key: key,
+                            raceCode: raceCode,
+                            raceSide: raceSide,
+                            seed: seed,
+                          ),
                 pill: false,
               );
             }
@@ -761,6 +833,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
                 gameId: id,
                 config: QuizConfig.fromQuery(id, state.uri.queryParameters),
                 resume: state.uri.queryParameters['resume'] == '1',
+                raceCode: GameInvite.cleanCode(
+                    state.uri.queryParameters['race']),
+                raceSide: state.uri.queryParameters['side'] == 'guest'
+                    ? 'guest'
+                    : 'host',
+                seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
               ),
               pill: false,
             );

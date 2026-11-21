@@ -410,7 +410,7 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       );
     }
 
-    if (g.hasHints) {
+    if (g.hasHints && _mode != PlayMode.friends) {
       out.add(
         _Group(
           title: 'Hints',
@@ -429,7 +429,11 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     out.add(
       Center(
         child: PlayButton(
-          label: _mode == PlayMode.friends ? 'Go to the table' : 'Start',
+          label: _mode == PlayMode.friends
+              ? (g.kind == GameEngineKind.board
+                  ? 'Go to the table'
+                  : 'Invite a friend')
+              : 'Start',
           icon: Icons.play_arrow_rounded,
           onPressed: _canStart(g, counts, pairChoices)
               ? () => context.open(_startRoute(g))
@@ -485,6 +489,11 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
               'online hall to be switched on; if it is not, you are told.';
       }
     }
+    if (m == PlayMode.friends) {
+      return 'You get a link to send. When your friend opens it, you both '
+          'answer the same questions and see each other\u2019s score as you '
+          'go. It needs the internet; no name is shared.';
+    }
     return m == PlayMode.passAndPlay
         ? 'Players take turns on this device. Everyone answers different '
             'questions, and the results are shown together.'
@@ -492,6 +501,25 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
   }
 
   String _startRoute(GameDef g) {
+    if (_mode == PlayMode.friends && g.canRace) {
+      // A race: the table screen makes the table and both players are taken
+      // to the same game with the same settings.
+      final Map<String, String> q = <String, String>{'game': g.id};
+      if (g.isQuiz) {
+        q.addAll(QuizConfig(
+          gameId: g.id,
+          topic: _topic,
+          count: _count,
+          difficulty: _difficulty,
+          hints: false,
+        ).toQuery());
+      } else if (g.id == 'memory') {
+        q['pairs'] = '$_pairs';
+      } else {
+        q['topic'] = _topic;
+      }
+      return Uri(path: '/games/race/host', queryParameters: q).toString();
+    }
     if (g.kind == GameEngineKind.order || g.kind == GameEngineKind.words) {
       return Uri(
         path: '/games/g/${g.id}/play',

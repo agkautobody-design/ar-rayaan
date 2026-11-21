@@ -273,7 +273,7 @@ service cloud.firestore {
         && request.resource.data.keys().hasAll(
              ['game', 'status', 'host', 'guest', 'turn', 'moves',
               'createdAt', 'lastTs', 'expireAt'])
-        && request.resource.data.game in ['ludo', 'shatranj']
+        && request.resource.data.game in ['ludo', 'shatranj', 'race']
         && request.resource.data.status == 'waiting'
         && request.resource.data.host.keys().hasOnly(['uid'])
         && request.resource.data.host.uid == request.auth.uid

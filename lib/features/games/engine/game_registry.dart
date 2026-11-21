@@ -40,14 +40,14 @@ extension PlayModeLabel on PlayMode {
   String get label => switch (this) {
         PlayMode.solo => 'Solo',
         PlayMode.passAndPlay => 'Pass and play',
-        PlayMode.friends => 'With a friend online',
+        PlayMode.friends => 'Play online with a friend',
       };
 
   String get blurb => switch (this) {
         PlayMode.solo => 'Play by yourself',
         PlayMode.passAndPlay => 'Take turns on this one device',
         PlayMode.friends =>
-          'Share a six-letter code. Needs the internet and the online hall.',
+          'Invite a friend with a link. Needs the internet and the online hall.',
       };
 }
 
@@ -161,7 +161,18 @@ class GameDef {
   /// "With a friend online": the online hall is a parent's choice, so the
   /// label must not invite something the child cannot do.
   bool offersMode(PlayMode m, {bool child = false}) =>
-      modes.contains(m) && !(child && m == PlayMode.friends);
+      (modes.contains(m) || (m == PlayMode.friends && canRace)) &&
+      !(child && m == PlayMode.friends);
+
+  /// Quiz, ordering, word and memory games can be raced with a friend
+  /// online: both get the same game (one shared seed) and see each other's
+  /// progress. The explorer screens (Names, Lineage, Hijrah, Hifz) have
+  /// nothing to race, and Ludo and Shatranj have their own tables.
+  bool get canRace =>
+      kind == GameEngineKind.quiz ||
+      kind == GameEngineKind.order ||
+      kind == GameEngineKind.words ||
+      kind == GameEngineKind.memory;
 }
 
 /// The most hints a person gets in one game. Hints are free, never bought,

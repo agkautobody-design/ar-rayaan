@@ -175,6 +175,13 @@ class GameDetailsScreen extends ConsumerWidget {
             onPressed: () =>
                 context.open(g.hasSetup ? '/games/g/${g.id}/setup' : g.route),
           ),
+          if (!kChildMode.value &&
+              (g.canRace || g.kind == GameEngineKind.board))
+            OutlineAction(
+              label: 'Invite a friend',
+              icon: Icons.person_add_alt_1,
+              onPressed: () => context.open(_inviteRoute(g)),
+            ),
           OutlineAction(
             label: 'All games',
             onPressed: () => context.go(AppRoutes.games),
@@ -182,6 +189,17 @@ class GameDetailsScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  /// Where "Invite a friend" goes: Ludo and Chess open their table at once;
+  /// the other games take their usual settings first when they have any.
+  static String _inviteRoute(GameDef g) {
+    if (g.kind == GameEngineKind.board) {
+      return '/games/invite?game=${g.id == 'chess' ? 'shatranj' : g.id}';
+    }
+    return g.hasSetup
+        ? '/games/g/${g.id}/setup?mode=friends'
+        : '/games/race/host?game=${g.id}';
   }
 }
 

@@ -73,7 +73,7 @@ void main() {
       expect(rooms, contains("code.matches('[A-HJ-NP-Z2-9]{6}')"));
       expect(rooms, contains('keys().hasOnly('));
       expect(rooms, contains('keys().hasAll('));
-      expect(rooms, contains("game in ['ludo', 'shatranj']"));
+      expect(rooms, contains("game in ['ludo', 'shatranj', 'race']"));
       expect(rooms, contains('createdAt == request.time'));
       expect(rooms, contains('expireAt'));
       expect(rooms, contains('request.resource.data.guest == null'));

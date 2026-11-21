@@ -17,24 +17,41 @@ import '../data/games_adapters.dart';
 import '../data/games_store.dart';
 import '../engine/memory_engine.dart';
 import '../ui/games_theme.dart';
+import '../data/race_link.dart';
 import 'game_results_screen.dart';
+import 'race_banner.dart';
 import 'games_screens.dart';
 import '../../../app/theme/widgets/focus_safe_semantics.dart';
 
 /// /games/memory - Names Memory: turn two cards, an Arabic Name and its
 /// spelling. No timer; a match shows the meaning and where the Name is found.
 class MemoryGameScreen extends ConsumerStatefulWidget {
-  const MemoryGameScreen({this.players = 1, this.pairs = 8, super.key});
+  const MemoryGameScreen({
+    this.players = 1,
+    this.pairs = 8,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+    super.key,
+  });
 
   final int players;
   final int pairs;
+
+  /// Racing a friend online: table code, side and the shared seed (the same
+  /// cards in the same places for both).
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
 
   @override
   ConsumerState<MemoryGameScreen> createState() => _MemoryState();
 }
 
 class _MemoryState extends ConsumerState<MemoryGameScreen> {
-  final Random _rnd = Random();
+  late final Random _rnd =
+      widget.seed != null ? Random(widget.seed) : Random();
+  RaceLink? _race;
   MemoryGame? _game;
   Timer? _timer;
   GameResult? _result;
@@ -42,9 +59,29 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
   final ScrollController _scroll = ScrollController();
 
   @override
+  void initState() {
+    super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
+  }
+
+  @override
   void dispose() {
     _timer?.cancel();
     _scroll.dispose();
+    final RaceLink? r = _race;
+    if (r != null) {
+      if (_result == null || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
     super.dispose();
   }
 
@@ -76,6 +113,10 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
       _timer = Timer(const Duration(milliseconds: 1600), _clear);
     }
     setState(() {});
+    if (out == FlipOutcome.match) {
+      unawaited(_race?.report(g.pairsFound, g.cards.length ~/ 2, g.pairsFound) ??
+          Future<void>.value());
+    }
     if (g.finished) _finish(g);
   }
 
@@ -94,6 +135,7 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
       outcome: '${g.tries} tries',
     );
     unawaited(ref.read(gamesStoreProvider.notifier).record(r));
+    unawaited(_race?.finish(pairs, pairs) ?? Future<void>.value());
     setState(() => _result = r);
   }
 
@@ -172,6 +214,12 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
             close: true,
             showSettings: false,
           ),
+          if (_race != null)
+            RaceBanner(
+              link: _race!,
+              myScore: g.pairsFound,
+              myTotal: g.cards.length ~/ 2,
+            ),
           _status(g),
           const SizedBox(height: 12),
           LayoutBuilder(
@@ -303,6 +351,13 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
             close: true,
             showSettings: false,
           ),
+          if (_race != null)
+            RaceBanner(
+              link: _race!,
+              myScore: r.correct ?? 0,
+              myTotal: r.total ?? 0,
+              iFinished: true,
+            ),
           ResultSummaryView(result: r),
           const SizedBox(height: 8),
           Text(
