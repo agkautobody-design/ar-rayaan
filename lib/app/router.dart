@@ -628,7 +628,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: '/games/lineage',
-          pageBuilder: (context, state) => _fade(const LineageChallengeScreen()),
+          pageBuilder: (context, state) => _fade(LineageChallengeScreen(
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
         ),
         GoRoute(
           path: '/games/hijrah',

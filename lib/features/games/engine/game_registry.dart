@@ -167,12 +167,14 @@ class GameDef {
   /// Quiz, ordering, word and memory games can be raced with a friend
   /// online: both get the same game (one shared seed) and see each other's
   /// progress. The explorer screens (Names, Lineage, Hijrah, Hifz) have
-  /// nothing to race, and Ludo and Shatranj have their own tables.
+  /// nothing to race (Lineage is a scored quiz, so it can be), and Ludo and
+  /// Shatranj have their own tables.
   bool get canRace =>
       kind == GameEngineKind.quiz ||
       kind == GameEngineKind.order ||
       kind == GameEngineKind.words ||
-      kind == GameEngineKind.memory;
+      kind == GameEngineKind.memory ||
+      id == 'lineage';
 }
 
 /// The most hints a person gets in one game. Hints are free, never bought,

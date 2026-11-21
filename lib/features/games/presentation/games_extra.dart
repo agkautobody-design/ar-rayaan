@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
@@ -13,6 +14,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/lineage_rounds.dart';
+import '../data/race_link.dart';
+import 'race_banner.dart';
 
 Future<Map<String, dynamic>> _loadTree() async =>
     json.decode(await rootBundle.loadString('assets/family/tree.json'))
@@ -31,7 +34,17 @@ class _Round {
 
 /// GAME 3 of 5 — the Lineage Challenge: who begot whom, which river, which era.
 class LineageChallengeScreen extends ConsumerStatefulWidget {
-  const LineageChallengeScreen({super.key});
+  const LineageChallengeScreen({
+    super.key,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+  });
+
+  /// Racing a friend online (see [RaceLink]): table code, side, shared seed.
+  final String? raceCode;
+  final String? raceSide;
+  final int? seed;
   @override
   ConsumerState<LineageChallengeScreen> createState() => _LineageState();
 }
@@ -40,17 +53,41 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
   List<_Round>? _rounds;
   int _i = 0, _score = 0;
   int? _picked;
+  RaceLink? _race;
 
   @override
   void initState() {
     super.initState();
+    final String? code = widget.raceCode;
+    if (code != null && widget.raceSide != null) {
+      _race = RaceLink(
+        code: code,
+        side: widget.raceSide!,
+        startN: widget.raceSide == 'host' ? 1 : 0,
+      )..listen();
+    }
     _build();
   }
+
+  @override
+  void dispose() {
+    final RaceLink? r = _race;
+    if (r != null) {
+      if (!_finished || r.state.value.opponent.finished) {
+        unawaited(r.leave());
+      }
+      r.dispose();
+    }
+    super.dispose();
+  }
+
+  bool _finished = false;
 
   Future<void> _build() async {
     final tree = await _loadTree();
     final rounds = <_Round>[
-      for (final LineageRound r in buildLineageRounds(tree, Random()))
+      for (final LineageRound r in buildLineageRounds(
+          tree, widget.seed != null ? Random(widget.seed) : Random()))
         _Round(r.prompt, r.options, r.answer, r.why),
     ];
     setState(() => _rounds = rounds);
@@ -108,6 +145,8 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
       backgroundColor: Colors.transparent,
       body: ListView(padding: const EdgeInsets.fromLTRB(20, 0, 20, 32), children: [
         const ScreenHeader(title: 'Lineage Challenge', close: true),
+        if (_race != null)
+          RaceBanner(link: _race!, myScore: _score, myTotal: _rounds!.length),
         Text('ROUND ${_i + 1} OF ${_rounds!.length} \u00b7 SCORE $_score', style: AppText.eyebrow),
         const SizedBox(height: 10),
         GlassCard(child: Text(r.prompt, style: AppText.body.copyWith(fontSize: 15.5, height: 1.5))),
@@ -125,8 +164,14 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
             child: TextButton.icon(
               onPressed: () {
                 if (_picked == r.answer) _score++;
+                unawaited(_race?.report(_i + 1, _rounds!.length, _score) ??
+                    Future<void>.value());
                 if (!last) setState(() { _picked = null; _i++; });
-                else showDialog<void>(context: context, builder: (ctx) => AlertDialog(
+                else {
+                  _finished = true;
+                  unawaited(_race?.finish(_rounds!.length, _score) ??
+                      Future<void>.value());
+                  showDialog<void>(context: context, builder: (ctx) => AlertDialog(
                   semanticLabel: 'Journey complete',
                   backgroundColor: const Color(0xFF0A0F18),
                   title: Text('Journey complete', style: AppText.titleMedium),
@@ -135,6 +180,7 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
                   actions: [TextButton(onPressed: () { Navigator.pop(ctx); context.go(AppRoutes.games); },
                       child: const Text('Done', style: TextStyle(color: AppColors.goldLight)))],
                 ));
+                }
               },
               iconAlignment: IconAlignment.end,
               icon: const Icon(Icons.arrow_forward_ios, size: 13, color: AppColors.gold),

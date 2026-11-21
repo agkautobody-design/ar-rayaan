@@ -153,7 +153,9 @@ class _RaceTableState extends State<RaceTableScreen> {
       'side': _host ? 'host' : 'guest',
       'seed': '$seed',
     };
-    final Uri u = gameId == 'memory'
+    final Uri u = gameId == 'lineage'
+        ? Uri(path: '/games/lineage', queryParameters: race)
+        : gameId == 'memory'
         ? Uri(
             path: '/games/memory',
             queryParameters: <String, String>{
