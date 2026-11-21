@@ -22,7 +22,7 @@ void main() {
     expect(RaceConfig.tryParse(<String, dynamic>{'t': 'prog'}), isNull);
     expect(
         RaceConfig.tryParse(
-            <String, dynamic>{'t': 'cfg', 'g': '../x', 'q': {}, 's': 1}),
+            <String, dynamic>{'t': 'cfg', 'g': '../x', 'q': <String, String>{}, 's': 1}),
         isNull);
     expect(
         RaceConfig.tryParse(

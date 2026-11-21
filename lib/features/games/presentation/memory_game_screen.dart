@@ -354,8 +354,8 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
           if (_race != null)
             RaceBanner(
               link: _race!,
-              myScore: r.correct,
-              myTotal: r.total,
+              myScore: r.correct ?? 0,
+              myTotal: r.total ?? 0,
               iFinished: true,
             ),
           ResultSummaryView(result: r),
