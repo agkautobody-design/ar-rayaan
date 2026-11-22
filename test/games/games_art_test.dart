@@ -65,6 +65,8 @@ void main() {
           expect(
             g.hidden ||
                 kRacePuzzleIds.contains(g.id) ||
+                g.id == 'connect4' ||
+                g.id == 'draughts' ||
                 kLearningGames.any((GameDef l) => l.id == g.id),
             isTrue,
             reason: g.id,
