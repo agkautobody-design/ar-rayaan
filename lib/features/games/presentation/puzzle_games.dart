@@ -8,11 +8,10 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
-import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../data/race_link.dart';
 import '../engine/puzzle_engines.dart';
+import '../ui/games_theme.dart';
 import 'race_banner.dart';
 
 /// The race plumbing every puzzle shares. Both friends get the same puzzle
@@ -57,6 +56,7 @@ class PuzzleFrame extends StatelessWidget {
   const PuzzleFrame({
     required this.title,
     required this.children,
+    this.tagline,
     this.race,
     this.myScore = 0,
     this.myTotal = 1,
@@ -65,6 +65,7 @@ class PuzzleFrame extends StatelessWidget {
   });
 
   final String title;
+  final String? tagline;
   final List<Widget> children;
   final PuzzleRace? race;
   final int myScore;
@@ -79,7 +80,7 @@ class PuzzleFrame extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: <Widget>[
-          ScreenHeader(title: title, close: true),
+          ArchHeader(title: title, tagline: tagline, close: true, band: true),
           if (link != null)
             RaceBanner(
               link: link,
@@ -101,7 +102,7 @@ Widget puzzleDone(
   required String detail,
 }) {
   return Column(children: <Widget>[
-    GlassCard(
+    GamePanel(
       child: Column(children: <Widget>[
         Text(headline, style: AppText.titleMedium),
         const SizedBox(height: 6),
@@ -111,10 +112,7 @@ Widget puzzleDone(
       ]),
     ),
     const SizedBox(height: 12),
-    TextButton(
-      onPressed: () => context.go(AppRoutes.games),
-      child: const Text('Done', style: TextStyle(color: AppColors.goldLight)),
-    ),
+    PlayButton(label: 'Back to Games', onPressed: () => context.go(AppRoutes.games)),
   ]);
 }
 
@@ -194,7 +192,7 @@ class _MazeState extends State<MazeScreen> {
         child: SizedBox(
           width: 64,
           height: 56,
-          child: GlassCard(
+          child: GamePanel(
             onTap: () => _go(dir),
             padding: EdgeInsets.zero,
             child: Icon(icon, color: AppColors.goldLight),
@@ -207,6 +205,7 @@ class _MazeState extends State<MazeScreen> {
     if (_done) {
       return PuzzleFrame(
         title: 'Maze Escape',
+        tagline: 'Find the way out',
         race: _race,
         myScore: _mazes.length,
         myTotal: _mazes.length,
@@ -239,6 +238,7 @@ class _MazeState extends State<MazeScreen> {
       },
       child: PuzzleFrame(
         title: 'Maze Escape',
+        tagline: 'Find the way out',
         race: _race,
         myScore: _level,
         myTotal: _mazes.length,
@@ -367,6 +367,7 @@ class _MathQuestState extends State<MathQuestScreen> {
     if (_done) {
       return PuzzleFrame(
         title: 'Math Quest',
+        tagline: 'Think it through',
         race: _race,
         myScore: _score,
         myTotal: _qs.length,
@@ -382,6 +383,7 @@ class _MathQuestState extends State<MathQuestScreen> {
     final bool answered = _picked != null;
     return PuzzleFrame(
       title: 'Math Quest',
+      tagline: 'Think it through',
       race: _race,
       myScore: _score,
       myTotal: _qs.length,
@@ -389,7 +391,7 @@ class _MathQuestState extends State<MathQuestScreen> {
         Text('QUESTION ${_i + 1} OF ${_qs.length} · SCORE $_score',
             style: AppText.eyebrow),
         const SizedBox(height: 10),
-        GlassCard(
+        GamePanel(
           child: Center(
             child: Text(q.text,
                 style: AppText.titleMedium.copyWith(fontSize: 26)),
@@ -407,7 +409,7 @@ class _MathQuestState extends State<MathQuestScreen> {
               final Color? edge = right
                   ? const Color(0xFF7FD1A8)
                   : (wrong ? const Color(0xFFE8A07F) : null);
-              final Widget card = GlassCard(
+              final Widget card = GamePanel(
                 onTap: answered ? null : () => setState(() => _picked = o),
                 semanticsLabel:
                     tag == null ? null : '${q.options[o]}. $tag',
@@ -561,6 +563,7 @@ class _PatternState extends State<PatternScreen> {
     if (_done) {
       return PuzzleFrame(
         title: 'Pattern Sequence',
+        tagline: 'Watch. Remember. Repeat.',
         race: _race,
         myScore: _cleared,
         myTotal: rounds,
@@ -578,13 +581,14 @@ class _PatternState extends State<PatternScreen> {
     }
     return PuzzleFrame(
       title: 'Pattern Sequence',
+      tagline: 'Watch. Remember. Repeat.',
       race: _race,
       myScore: _cleared,
       myTotal: rounds,
       children: <Widget>[
         Text('ROUND $_round OF $rounds', style: AppText.eyebrow),
         const SizedBox(height: 10),
-        GlassCard(
+        GamePanel(
           child: SizedBox(
             height: 110,
             child: Center(
@@ -616,7 +620,7 @@ class _PatternState extends State<PatternScreen> {
                 child: SizedBox(
                   width: 92,
                   height: 80,
-                  child: GlassCard(
+                  child: GamePanel(
                     onTap: _showing ? null : () => _tap(s),
                     padding: EdgeInsets.zero,
                     child: Icon(_patternIcons[s],
@@ -683,6 +687,7 @@ class _SlidingState extends State<SlidingTileScreen> {
     if (_done) {
       return PuzzleFrame(
         title: 'Sliding Tile',
+        tagline: 'Slide the tiles into order',
         race: _race,
         myScore: 1,
         myTotal: 1,
@@ -696,6 +701,7 @@ class _SlidingState extends State<SlidingTileScreen> {
     }
     return PuzzleFrame(
       title: 'Sliding Tile',
+      tagline: 'Slide the tiles into order',
       race: _race,
       children: <Widget>[
         Text('${_p.moves} MOVES', style: AppText.eyebrow),
@@ -716,7 +722,7 @@ class _SlidingState extends State<SlidingTileScreen> {
                         label: 'Tile ${_p.tiles[i]}, row '
                             '${i ~/ SlidingPuzzle.side + 1}, column '
                             '${i % SlidingPuzzle.side + 1}',
-                        child: GlassCard(
+                        child: GamePanel(
                           onTap: () => _tap(i),
                           padding: EdgeInsets.zero,
                           child: Center(
@@ -797,6 +803,7 @@ class _MergeState extends State<NumberMergeScreen> {
       final bool won = _g.best >= raceGoal && _race.link != null;
       return PuzzleFrame(
         title: 'Number Merge',
+        tagline: 'Join the numbers',
         race: _race,
         myScore: min(_steps, 8),
         myTotal: 8,
@@ -828,6 +835,7 @@ class _MergeState extends State<NumberMergeScreen> {
       },
       child: PuzzleFrame(
         title: 'Number Merge',
+        tagline: 'Join the numbers',
         race: _race,
         myScore: min(_steps, 8),
         myTotal: 8,
@@ -904,7 +912,7 @@ class _MergeState extends State<NumberMergeScreen> {
                   child: SizedBox(
                     width: 64,
                     height: 52,
-                    child: GlassCard(
+                    child: GamePanel(
                       onTap: () => _slide(b.key),
                       padding: EdgeInsets.zero,
                       child: Icon(b.value, color: AppColors.goldLight),
@@ -987,6 +995,7 @@ class _LogicGridState extends State<LogicGridScreen> {
     if (_done) {
       return PuzzleFrame(
         title: 'Logic Grid',
+        tagline: 'Strategy. Patience. A clear mind.',
         race: _race,
         myScore: 1,
         myTotal: 1,
@@ -1000,11 +1009,12 @@ class _LogicGridState extends State<LogicGridScreen> {
     }
     return PuzzleFrame(
       title: 'Logic Grid',
+      tagline: 'Strategy. Patience. A clear mind.',
       race: _race,
       children: <Widget>[
         Text('FOUR PEOPLE, FOUR HOUSES IN A ROW', style: AppText.eyebrow),
         const SizedBox(height: 10),
-        GlassCard(
+        GamePanel(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -1020,7 +1030,7 @@ class _LogicGridState extends State<LogicGridScreen> {
         const SizedBox(height: 12),
         for (int i = 0; i < LogicGridPuzzle.n; i++)
           _pad(
-            GlassCard(
+            GamePanel(
               child: Row(children: <Widget>[
                 SizedBox(
                     width: 72,
@@ -1067,13 +1077,7 @@ class _LogicGridState extends State<LogicGridScreen> {
             8,
           ),
         if (_msg != null) _pad(Text(_msg!, style: AppText.bodyMuted)),
-        Align(
-          child: TextButton(
-            onPressed: _check,
-            child: const Text('Check my answer',
-                style: TextStyle(color: AppColors.goldLight)),
-          ),
-        ),
+        PlayButton(label: 'Check my answer', onPressed: _check),
       ],
     );
   }
