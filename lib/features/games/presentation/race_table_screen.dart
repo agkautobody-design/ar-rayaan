@@ -153,7 +153,9 @@ class _RaceTableState extends State<RaceTableScreen> {
       'side': _host ? 'host' : 'guest',
       'seed': '$seed',
     };
-    final Uri u = gameId == 'lineage'
+    final Uri u = kRacePuzzleIds.contains(gameId)
+        ? Uri(path: '/games/$gameId', queryParameters: race)
+        : gameId == 'lineage'
         ? Uri(path: '/games/lineage', queryParameters: race)
         : gameId == 'names99'
         ? Uri(path: '/games/names99/quiz', queryParameters: race)
