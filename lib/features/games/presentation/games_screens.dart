@@ -60,12 +60,17 @@ class Name99 {
   /// The Name in Arabic script with vowel marks. Optional so an older
   /// downloaded pack (before the Arabic was added) still loads.
   final String? arabic;
+
+  /// 'name' for one of the Names themselves; 'related' and 'list' rows are
+  /// notes in the deck (a pack from before the field existed has none).
+  final String kind;
   const Name99({
     required this.n,
     required this.name,
     required this.meaning,
     required this.ref,
     this.arabic,
+    this.kind = 'name',
   });
   factory Name99.fromJson(Map<String, dynamic> j) => Name99(
         n: j['n'] as int,
@@ -73,6 +78,7 @@ class Name99 {
         meaning: j['meaning'] as String,
         ref: j['ref'] as String,
         arabic: j['arabic'] as String?,
+        kind: (j['kind'] as String?) ?? 'name',
       );
 }
 

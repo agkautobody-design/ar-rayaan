@@ -13,6 +13,11 @@ void main() {
     expect(childModeAllows('/kids/duas'), isTrue);
     expect(childModeAllows('/games/g/memory'), isTrue);
     expect(childModeAllows('/games/g/ludo'), isFalse);
+    // A child may use the Names cards, but never a race link.
+    expect(childModeAllows('/games/names99'), isTrue);
+    expect(childModeAllows('/games/names99/quiz?race=ABC234&side=guest&seed=1'),
+        isFalse);
+    expect(childModeAllows('/games/g/memory/play?race=ABC234'), isFalse);
   });
 
   test('quick exit guard releases and redirects quiet screens only', () {

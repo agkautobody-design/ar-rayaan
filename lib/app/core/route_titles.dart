@@ -45,6 +45,7 @@ abstract final class RouteTitles {
     '/games/hijrah': 'The Hijrah Journey',
     '/games/trivia': 'Trivia',
     '/games/names99': 'The 99 Names',
+    '/games/names99/quiz': 'Names quiz',
     '/player': 'Nasheed Player',
     '/player/my-additions': 'My Additions',
     '/player/playlists': 'My Playlists',
