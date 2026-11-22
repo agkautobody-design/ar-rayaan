@@ -139,6 +139,7 @@ import '../features/games/presentation/names_quiz_screen.dart';
 import '../features/games/presentation/puzzle_games.dart';
 import '../features/games/presentation/puzzle_games2.dart';
 import '../features/games/presentation/board_games.dart';
+import '../features/games/engine/puzzle_engines.dart' show buildShapeQuestions;
 import '../features/games/chess/chess_ai.dart' show ChessLevel;
 import '../features/games/presentation/shatranj_screen.dart';
 import '../features/games/presentation/ludo_screen.dart';
@@ -971,6 +972,18 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: '/games/draughts',
           pageBuilder: (context, state) => _fade(const DraughtsScreen()),
+        ),
+        GoRoute(
+          path: '/games/shapes',
+          pageBuilder: (context, state) => _fade(MathQuestScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            title: 'Shape Quest',
+            tagline: 'Sides, corners and angles',
+            build: buildShapeQuestions,
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
         ),
         GoRoute(
           path: '/games/names99/quiz',

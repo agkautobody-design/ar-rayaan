@@ -59,6 +59,7 @@ abstract final class RouteTitles {
     '/games/sudoku': 'Sudoku',
     '/games/connect4': 'Four in a Row',
     '/games/draughts': 'Checkers',
+    '/games/shapes': 'Shape Quest',
     '/player': 'Nasheed Player',
     '/player/my-additions': 'My Additions',
     '/player/playlists': 'My Playlists',

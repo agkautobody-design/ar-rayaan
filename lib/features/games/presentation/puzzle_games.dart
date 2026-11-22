@@ -325,10 +325,21 @@ class _MazePainter extends CustomPainter {
 // ------------------------------------------------------------- Math Quest
 
 class MathQuestScreen extends StatefulWidget {
-  const MathQuestScreen({super.key, this.raceCode, this.raceSide, this.seed});
+  const MathQuestScreen({
+    super.key,
+    this.raceCode,
+    this.raceSide,
+    this.seed,
+    this.title = 'Math Quest',
+    this.tagline = 'Think it through',
+    this.build = buildMathQuestions,
+  });
   final String? raceCode;
   final String? raceSide;
   final int? seed;
+  final String title;
+  final String tagline;
+  final List<MathQuestion> Function(Random rnd) build;
 
   @override
   State<MathQuestScreen> createState() => _MathQuestState();
@@ -337,7 +348,7 @@ class MathQuestScreen extends StatefulWidget {
 class _MathQuestState extends State<MathQuestScreen> {
   late final PuzzleRace _race =
       PuzzleRace(widget.raceCode, widget.raceSide, widget.seed);
-  late final List<MathQuestion> _qs = buildMathQuestions(_race.rnd);
+  late final List<MathQuestion> _qs = widget.build(_race.rnd);
   int _i = 0, _score = 0;
   int? _picked;
   bool _done = false;
@@ -366,8 +377,8 @@ class _MathQuestState extends State<MathQuestScreen> {
   Widget build(BuildContext context) {
     if (_done) {
       return PuzzleFrame(
-        title: 'Math Quest',
-        tagline: 'Think it through',
+        title: widget.title,
+        tagline: widget.tagline,
         race: _race,
         myScore: _score,
         myTotal: _qs.length,
@@ -375,15 +386,15 @@ class _MathQuestState extends State<MathQuestScreen> {
         children: <Widget>[
           puzzleDone(context,
               headline: 'Score: $_score of ${_qs.length}',
-              detail: 'Counting is a skill that grows with practice.'),
+              detail: 'Well played. Keep practising and it grows.'),
         ],
       );
     }
     final MathQuestion q = _qs[_i];
     final bool answered = _picked != null;
     return PuzzleFrame(
-      title: 'Math Quest',
-      tagline: 'Think it through',
+      title: widget.title,
+      tagline: widget.tagline,
       race: _race,
       myScore: _score,
       myTotal: _qs.length,

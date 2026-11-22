@@ -193,6 +193,7 @@ const Set<String> kRacePuzzleIds = <String>{
   'memnum',
   'cluehunt',
   'sudoku',
+  'shapes',
 };
 
 /// The most hints a person gets in one game. Hints are free, never bought,
@@ -589,6 +590,21 @@ const List<GameDef> kGames = <GameDef>[
       'Choose the computer or two players on one device.',
       'Move a piece diagonally forward onto an empty dark square.',
       'A capture is compulsory. Reach the far row to be crowned and move both ways.',
+    ],
+  ),
+  GameDef(
+    id: 'shapes',
+    title: 'Shape Quest',
+    blurb: 'Sides, corners and angles of shapes',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/shapes',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Ten questions about shapes: sides, corners and the angles inside.',
+      'Pick the answer you think is right.',
+      'There is no timer. Take your time.',
     ],
   ),
   ...kLearningGames,

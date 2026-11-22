@@ -7,6 +7,25 @@ import 'package:ar_rayaan/features/games/engine/puzzle_engines.dart';
 
 void main() {
   batch2Tests();
+  test('Shape Quest answers are right and options differ', () {
+    for (int seed = 0; seed < 30; seed++) {
+      final List<MathQuestion> qs = buildShapeQuestions(Random(seed));
+      expect(qs.length, 10);
+      for (final MathQuestion q in qs) {
+        expect(q.options.toSet().length, 4);
+        expect(q.options.every((int v) => v > 0), isTrue);
+        final int a = q.options[q.answer];
+        final RegExpMatch? m = RegExp(r'a (\w+)').firstMatch(q.text);
+        const Map<String, int> n = <String, int>{
+          'triangle': 3, 'square': 4, 'rectangle': 4, 'pentagon': 5,
+          'hexagon': 6, 'heptagon': 7, 'octagon': 8, 'nonagon': 9,
+          'decagon': 10,
+        };
+        final int sides = n[m!.group(1)]!;
+        expect(a, q.text.contains('add up') ? (sides - 2) * 180 : sides);
+      }
+    }
+  });
   group('Maze', () {
     test('every cell can be reached and the exit is on the route', () {
       for (int seed = 0; seed < 20; seed++) {
