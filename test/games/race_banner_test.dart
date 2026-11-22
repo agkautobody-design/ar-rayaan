@@ -7,6 +7,11 @@ RaceState _s(RaceOpponent o, {bool left = false}) =>
     RaceState(opponent: o, joined: true, left: left);
 
 void main() {
+  test('the keep-the-app note is plain and has no pressure', () {
+    expect(RaceBanner.keepAppNote, contains('Add to Home Screen'));
+    expect(RaceBanner.keepAppNote, contains('close this page'));
+  });
+
   test('progress while racing', () {
     expect(
       RaceBanner.line(

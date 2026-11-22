@@ -22,6 +22,12 @@ class RaceBanner extends StatelessWidget {
   final int myTotal;
   final bool iFinished;
 
+  /// Shown to an invited friend after they finish. Keeping the app is their
+  /// choice; this only says how.
+  static const String keepAppNote =
+      'Enjoyed it? You can keep Ar-Rayaan on your phone: open your browser '
+      'menu and choose Add to Home Screen. Or just close this page.';
+
   /// The one line shown for the state of the race.
   static String line(
     RaceState s, {
@@ -61,28 +67,43 @@ class RaceBanner extends StatelessWidget {
       builder: (BuildContext context, RaceState s, Widget? _) {
         return Semantics(
           liveRegion: true,
-          child: Container(
-            key: const Key('race-banner'),
-            margin: const EdgeInsets.only(top: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
-            ),
-            child: Row(children: <Widget>[
-              const Icon(Icons.people_alt_outlined,
-                  size: 18, color: AppColors.gold),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  line(s,
-                      myScore: myScore,
-                      iFinished: iFinished,
-                      myFinishedMs: link.myFinishedMs),
-                  style: AppText.body.copyWith(fontSize: 14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                key: const Key('race-banner'),
+                margin: const EdgeInsets.only(top: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border:
+                      Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
                 ),
+                child: Row(children: <Widget>[
+                  const Icon(Icons.people_alt_outlined,
+                      size: 18, color: AppColors.gold),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      line(s,
+                          myScore: myScore,
+                          iFinished: iFinished,
+                          myFinishedMs: link.myFinishedMs),
+                      style: AppText.body.copyWith(fontSize: 14),
+                    ),
+                  ),
+                ]),
               ),
-            ]),
+              // The friend who was invited has no app. Once they have played,
+              // say once, plainly, how to keep it. No pressure, no pop-up.
+              if (iFinished && link.side == 'guest')
+                Padding(
+                  key: const Key('race-keep-app'),
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(keepAppNote, style: AppText.bodyMuted),
+                ),
+            ],
           ),
         );
       },
