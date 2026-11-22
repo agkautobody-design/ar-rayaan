@@ -136,6 +136,7 @@ import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/names_quiz_screen.dart';
+import '../features/games/presentation/flashcards_screen.dart';
 import '../features/games/presentation/puzzle_games.dart';
 import '../features/games/presentation/puzzle_games2.dart';
 import '../features/games/presentation/board_games.dart';
@@ -937,6 +938,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             raceSide: state.uri.queryParameters['side'],
             seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
           )),
+        ),
+        GoRoute(
+          path: '/games/flashcards',
+          pageBuilder: (context, state) => _fade(const FlashcardsScreen()),
         ),
         GoRoute(
           path: '/games/memnum',

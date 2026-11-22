@@ -516,6 +516,21 @@ const List<GameDef> kGames = <GameDef>[
     ],
   ),
   GameDef(
+    id: 'flashcards',
+    title: 'Flashcards',
+    blurb: 'Learn the Names of Allah, card by card',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/flashcards',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'See the Name in Arabic. Tap the card to turn it over.',
+      'Say whether you knew it. Cards you miss come back.',
+      'Ten cards a round, until you know them all.',
+    ],
+  ),
+  GameDef(
     id: 'memnum',
     title: 'Memory Numbers',
     blurb: 'Look at a number, hold it, type it back',
