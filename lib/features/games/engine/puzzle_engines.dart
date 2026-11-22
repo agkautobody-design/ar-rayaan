@@ -674,3 +674,57 @@ class SudokuPuzzle {
     return SudokuPuzzle(p, sol);
   }
 }
+
+// ------------------------------------------------------------ Shape Quest
+
+const List<(String, int)> _polygons = <(String, int)>[
+  ('triangle', 3),
+  ('square', 4),
+  ('rectangle', 4),
+  ('pentagon', 5),
+  ('hexagon', 6),
+  ('heptagon', 7),
+  ('octagon', 8),
+  ('nonagon', 9),
+  ('decagon', 10),
+];
+
+/// [count] geometry questions with whole-number answers (sides, corners and
+/// the sum of the angles inside a shape), four options each.
+List<MathQuestion> buildShapeQuestions(Random rnd, {int count = 10}) {
+  final List<MathQuestion> out = <MathQuestion>[];
+  final List<(String, int)> shapes = List<(String, int)>.of(_polygons)
+    ..shuffle(rnd);
+  for (int i = 0; i < count; i++) {
+    final (String, int) s = shapes[i % shapes.length];
+    final int kind = rnd.nextInt(3);
+    String text;
+    int value;
+    int spread;
+    switch (kind) {
+      case 0:
+        text = 'How many sides does a ${s.$1} have?';
+        value = s.$2;
+        spread = 2;
+      case 1:
+        text = 'How many corners does a ${s.$1} have?';
+        value = s.$2;
+        spread = 2;
+      default:
+        text = 'What do the angles inside a ${s.$1} add up to, in degrees?';
+        value = (s.$2 - 2) * 180;
+        spread = 180;
+    }
+    final Set<int> opts = <int>{value};
+    int step = 1;
+    while (opts.length < 4) {
+      final int w = rnd.nextBool() ? value + spread * step : value - spread * step;
+      if (w > 0) opts.add(w);
+      if (rnd.nextBool()) step++;
+      if (step > 6) step = 1;
+    }
+    final List<int> shuffled = opts.toList()..shuffle(rnd);
+    out.add(MathQuestion(text, shuffled, shuffled.indexOf(value)));
+  }
+  return out;
+}

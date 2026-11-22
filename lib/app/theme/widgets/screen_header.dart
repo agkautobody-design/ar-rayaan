@@ -40,7 +40,7 @@ class ScreenHeader extends StatelessWidget {
   /// screen this one belongs to (a lesson's school, a story's library), and
   /// Home only for a screen that belongs nowhere.
   static final RegExp _gameScreen = RegExp(
-    r'^/games/(?:ludo|shatranj|lineage|hijrah|ayah|memory|trivia|names99(?:/quiz)?|maze|mathquest|pattern|sliding|merge|logicgrid|colorsort|tower|memnum|cluehunt|sudoku|g/[^/]+/play)/?$',
+    r'^/games/(?:ludo|shatranj|lineage|hijrah|ayah|memory|trivia|names99(?:/quiz)?|maze|mathquest|pattern|sliding|merge|logicgrid|colorsort|tower|memnum|cluehunt|sudoku|connect4|draughts|shapes|g/[^/]+/play)/?$',
   );
 
   static void _leave(BuildContext context, {bool close = false}) {
