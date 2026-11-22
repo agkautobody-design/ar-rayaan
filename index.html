@@ -69,21 +69,21 @@
   <!-- Branded boot splash — covered by the Flutter view once the first
        frame renders. Keeps first paint on-brand instead of a white flash. -->
   <div id="ar-boot" style="position:fixed;inset:0;background:#05090F;z-index:0;overflow:hidden;">
-    <img src="assets/assets/images/splash.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(40px) brightness(0.45);" />
-    <img id="ar-boot-art" src="assets/assets/images/splash.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0.96;" />
+    <picture>
+      <source media="(orientation: portrait)" srcset="assets/assets/images/splash_portrait.jpg" />
+      <img src="assets/assets/images/splash_wide.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(40px) brightness(0.45);" />
+    </picture>
+    <picture>
+      <source media="(orientation: portrait)" srcset="assets/assets/images/splash_portrait.jpg" />
+      <img id="ar-boot-art" src="assets/assets/images/splash_wide.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0.96;" />
+    </picture>
     <div style="position:absolute;left:50%;bottom:64px;transform:translateX(-50%);width:120px;height:2px;background:rgba(212,175,55,0.25);border-radius:2px;overflow:hidden;">
       <div style="width:40%;height:100%;background:#D4AF37;border-radius:2px;animation:ar-load 1.4s ease-in-out infinite;"></div>
     </div>
     <style>
       @keyframes ar-load{0%{margin-left:-40%}100%{margin-left:100%}}
-      /* The artwork is landscape. On a tall phone screen it would sit small in
-         the middle, so there it is shown about twice as large, centred on the
-         gate and the verse (the two pillars are trimmed at the sides). The
-         blurred copy behind it fills the rest. The !important marks are needed:
-         the image's own inline style would otherwise win. */
-      @media (orientation: portrait) {
-        #ar-boot-art{inset:auto !important;top:50% !important;left:50% !important;width:min(198vw,150vh) !important;height:auto !important;max-width:none !important;object-fit:fill !important;transform:translate(-50%,-50%) !important;}
-      }
+      /* Phones (portrait) get the tall artwork and wide screens the wide
+         one, picked by the <picture> sources above. */
     </style>
     <!-- Shown by the watchdog script below if the app has not drawn its first
          frame after 20 s, or if the app script fails to load at all. -->
