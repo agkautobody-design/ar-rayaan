@@ -6,6 +6,7 @@ import 'package:ar_rayaan/features/games/engine/game_registry.dart';
 import 'package:ar_rayaan/features/games/engine/puzzle_engines.dart';
 
 void main() {
+  batch2Tests();
   group('Maze', () {
     test('every cell can be reached and the exit is on the route', () {
       for (int seed = 0; seed < 20; seed++) {
@@ -174,4 +175,115 @@ int _eval(String text) {
     v = work[i] == '+' ? v + b : v - b;
   }
   return v;
+}
+
+void batch2Tests() {
+  group('Colour Sort', () {
+    test('a new puzzle is full, mixed, and the same for the same seed', () {
+      final ColourSort a = ColourSort.generate(Random(4));
+      final ColourSort b = ColourSort.generate(Random(4));
+      expect(a.tubes, b.tubes);
+      expect(a.isSolved, isFalse);
+      final List<int> all = a.tubes.expand((List<int> t) => t).toList()..sort();
+      expect(all.length, 20);
+      for (int c = 0; c < 5; c++) {
+        expect(all.where((int v) => v == c).length, 4);
+      }
+    });
+
+    test('pours only onto the same colour or empty, and wins when sorted', () {
+      final ColourSort g = ColourSort.of(<List<int>>[
+        <int>[0, 1, 1],
+        <int>[0, 0, 0, 1],
+        <int>[],
+      ]);
+      expect(g.canPour(0, 1), isFalse); // 1 onto 0
+      expect(g.pour(1, 0), isTrue); // 1 onto 1 → [0,1,1,1]
+      expect(g.tubes[0], <int>[0, 1, 1, 1]);
+      expect(g.tubes[1], <int>[0, 0, 0]);
+      expect(g.pour(0, 2), isTrue);
+      expect(g.tubes[2], <int>[1, 1, 1]);
+      expect(g.pour(0, 1), isTrue); // 0 onto 0 → [0,0,0,0]
+      expect(g.tubes[1].length, 4);
+      expect(g.isSolved, isFalse);
+      final ColourSort done = ColourSort.of(<List<int>>[
+        <int>[0, 0, 0, 0],
+        <int>[],
+      ]);
+      expect(done.isSolved, isTrue);
+    });
+  });
+
+  group('Towers', () {
+    test('rules and the fewest moves', () {
+      final Towers t = Towers(3);
+      expect(t.best, 7);
+      expect(t.canMove(1, 0), isFalse);
+      expect(t.move(0, 2), isTrue);
+      expect(t.canMove(0, 2), isFalse); // 2 onto 1
+      expect(t.move(0, 1), isTrue);
+      expect(t.move(2, 1), isTrue);
+      expect(t.isSolved, isFalse);
+    });
+
+    test('the standard solution solves it in the fewest moves', () {
+      final Towers t = Towers(4);
+      void solve(int n, int a, int b, int c) {
+        if (n == 0) return;
+        solve(n - 1, a, c, b);
+        expect(t.move(a, c), isTrue);
+        solve(n - 1, b, a, c);
+      }
+
+      solve(4, 0, 1, 2);
+      expect(t.isSolved, isTrue);
+      expect(t.moves, t.best);
+    });
+  });
+
+  group('Memory Numbers', () {
+    test('right length, no leading zero, same seed same number', () {
+      for (int d = 3; d <= 9; d++) {
+        final String n = memoryNumber(Random(d), d);
+        expect(n.length, d);
+        expect(n.startsWith('0'), isFalse);
+        expect(memoryNumber(Random(d), d), n);
+      }
+    });
+  });
+
+  group('Clue Hunt', () {
+    test('the code has four different symbols and feedback is exact', () {
+      final List<int> code = clueCode(Random(2));
+      expect(code.toSet().length, 4);
+      final ClueFeedback all = clueFeedback(code, code);
+      expect(all.place, 4);
+      expect(all.misplaced, 0);
+      final ClueFeedback swap =
+          clueFeedback(<int>[0, 1, 2, 3], <int>[1, 0, 2, 4]);
+      expect(swap.place, 1);
+      expect(swap.misplaced, 2);
+    });
+  });
+
+  group('Sudoku', () {
+    test('a puzzle has one answer, which fills every row, column and box', () {
+      final SudokuPuzzle s = SudokuPuzzle.generate(Random(9), clues: 45);
+      expect(SudokuPuzzle.countSolutions(s.puzzle), 1);
+      for (int i = 0; i < 81; i++) {
+        if (s.puzzle[i] != 0) expect(s.puzzle[i], s.solution[i]);
+      }
+      for (int k = 0; k < 9; k++) {
+        final Set<int> row = <int>{}, col = <int>{}, box = <int>{};
+        for (int j = 0; j < 9; j++) {
+          row.add(s.solution[k * 9 + j]);
+          col.add(s.solution[j * 9 + k]);
+          box.add(s.solution[(k ~/ 3 * 3 + j ~/ 3) * 9 + k % 3 * 3 + j % 3]);
+        }
+        expect(row.length, 9);
+        expect(col.length, 9);
+        expect(box.length, 9);
+      }
+    });
+  });
 }
