@@ -135,6 +135,7 @@ import '../features/games/presentation/memory_game_screen.dart';
 import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
+import '../features/games/presentation/names_quiz_screen.dart';
 import '../features/games/chess/chess_ai.dart' show ChessLevel;
 import '../features/games/presentation/shatranj_screen.dart';
 import '../features/games/presentation/ludo_screen.dart';
