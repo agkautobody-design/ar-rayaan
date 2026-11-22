@@ -84,7 +84,7 @@ void main() {
     testWidgets('lists the registered games in sections, without ratings', (
       tester,
     ) async {
-      await pumpScreen(tester, const GamesScreen(), height: 8000);
+      await pumpScreen(tester, const GamesScreen(), height: 16000);
       expect(tester.takeException(), isNull);
       for (final GameCategory c in GameCategory.values) {
         expect(

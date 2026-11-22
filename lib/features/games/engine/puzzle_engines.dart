@@ -426,3 +426,251 @@ class LogicGridPuzzle {
     return LogicGridPuzzle(sol, chosen);
   }
 }
+
+// ---------------------------------------------------------- Colour Sort
+
+/// Tubes of coloured water. Pour the top colour onto the same colour or into
+/// an empty tube until every tube holds one colour.
+class ColourSort {
+  ColourSort._(this.tubes);
+
+  /// Each tube lists its colours from the bottom up.
+  final List<List<int>> tubes;
+  int moves = 0;
+
+  static const int capacity = 4;
+
+  /// [colours] colours, plus two empty tubes, shuffled by a seeded random.
+  factory ColourSort.generate(Random rnd, {int colours = 5}) {
+    final List<int> pool = <int>[
+      for (int c = 0; c < colours; c++)
+        for (int k = 0; k < capacity; k++) c,
+    ];
+    ColourSort g;
+    do {
+      pool.shuffle(rnd);
+      g = ColourSort._(<List<int>>[
+        for (int t = 0; t < colours; t++)
+          pool.sublist(t * capacity, (t + 1) * capacity),
+        <int>[],
+        <int>[],
+      ]);
+    } while (g.isSolved);
+    return g;
+  }
+
+  factory ColourSort.of(List<List<int>> tubes) =>
+      ColourSort._(<List<int>>[for (final List<int> t in tubes) List<int>.of(t)]);
+
+  /// How many of the top colour of [tube] sit together.
+  int _run(List<int> tube) {
+    if (tube.isEmpty) return 0;
+    int n = 0;
+    for (int i = tube.length - 1; i >= 0 && tube[i] == tube.last; i--) {
+      n++;
+    }
+    return n;
+  }
+
+  bool canPour(int from, int to) {
+    if (from == to) return false;
+    final List<int> a = tubes[from], b = tubes[to];
+    if (a.isEmpty || b.length >= capacity) return false;
+    if (b.isNotEmpty && b.last != a.last) return false;
+    // Pouring a whole tube into an empty one only shuffles it.
+    if (b.isEmpty && _run(a) == a.length) return false;
+    return true;
+  }
+
+  /// Pours as much of the top colour as fits. Returns whether anything moved.
+  bool pour(int from, int to) {
+    if (!canPour(from, to)) return false;
+    final List<int> a = tubes[from], b = tubes[to];
+    int n = min(_run(a), capacity - b.length);
+    while (n-- > 0) {
+      b.add(a.removeLast());
+    }
+    moves++;
+    return true;
+  }
+
+  bool get isSolved => tubes.every((List<int> t) =>
+      t.isEmpty || (t.length == capacity && t.every((int c) => c == t.first)));
+
+  bool get isStuck {
+    for (int i = 0; i < tubes.length; i++) {
+      for (int j = 0; j < tubes.length; j++) {
+        if (canPour(i, j)) return false;
+      }
+    }
+    return !isSolved;
+  }
+}
+
+// ------------------------------------------------------------- Towers
+
+/// Tower of Hanoi: move the stack to the last peg, one disc at a time, never
+/// a bigger disc on a smaller one.
+class Towers {
+  Towers(this.discs)
+      : pegs = <List<int>>[
+          <int>[for (int d = discs; d >= 1; d--) d],
+          <int>[],
+          <int>[],
+        ];
+
+  final int discs;
+  final List<List<int>> pegs;
+  int moves = 0;
+
+  /// The fewest moves that can solve it.
+  int get best => (1 << discs) - 1;
+
+  bool canMove(int from, int to) {
+    if (from == to || pegs[from].isEmpty) return false;
+    return pegs[to].isEmpty || pegs[to].last > pegs[from].last;
+  }
+
+  bool move(int from, int to) {
+    if (!canMove(from, to)) return false;
+    pegs[to].add(pegs[from].removeLast());
+    moves++;
+    return true;
+  }
+
+  bool get isSolved => pegs[2].length == discs;
+}
+
+// ------------------------------------------------------ Memory Numbers
+
+/// A number to remember: [digits] digits, no leading zero.
+String memoryNumber(Random rnd, int digits) {
+  final StringBuffer b = StringBuffer('${1 + rnd.nextInt(9)}');
+  for (int i = 1; i < digits; i++) {
+    b.write(rnd.nextInt(10));
+  }
+  return b.toString();
+}
+
+// -------------------------------------------------------- Clue Hunt
+
+/// Feedback on a guess in Clue Hunt: how many symbols are right and in the
+/// right place, and how many are right but in the wrong place.
+class ClueFeedback {
+  const ClueFeedback(this.place, this.misplaced);
+  final int place;
+  final int misplaced;
+}
+
+/// A hidden code of four symbols out of six, with no symbol repeated.
+List<int> clueCode(Random rnd) =>
+    (<int>[0, 1, 2, 3, 4, 5]..shuffle(rnd)).sublist(0, 4);
+
+/// Compares [guess] with [code].
+ClueFeedback clueFeedback(List<int> code, List<int> guess) {
+  int place = 0, shared = 0;
+  for (int i = 0; i < code.length; i++) {
+    if (guess[i] == code[i]) place++;
+    if (code.contains(guess[i])) shared++;
+  }
+  return ClueFeedback(place, shared - place);
+}
+
+// ------------------------------------------------------------- Sudoku
+
+/// A 9 by 9 Sudoku with exactly one answer.
+class SudokuPuzzle {
+  SudokuPuzzle(this.puzzle, this.solution);
+
+  /// 0 is an empty cell.
+  final List<int> puzzle;
+  final List<int> solution;
+
+  static List<int> _base(Random rnd) {
+    // A valid grid by pattern, then shuffled by row, column and digit swaps
+    // that keep it valid.
+    final List<int> digits = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9]..shuffle(rnd);
+    List<int> order() {
+      final List<int> bands = <int>[0, 1, 2]..shuffle(rnd);
+      return <int>[
+        for (final int b in bands)
+          for (final int r in (<int>[0, 1, 2]..shuffle(rnd))) b * 3 + r,
+      ];
+    }
+
+    final List<int> rows = order(), cols = order();
+    return <int>[
+      for (final int r in rows)
+        for (final int c in cols) digits[(r * 3 + r ~/ 3 + c) % 9],
+    ];
+  }
+
+  /// Counts answers (stops at [limit]).
+  static int countSolutions(List<int> grid, {int limit = 2}) {
+    final List<int> g = List<int>.of(grid);
+    int found = 0;
+    bool ok(int i, int v) {
+      final int r = i ~/ 9, c = i % 9;
+      for (int k = 0; k < 9; k++) {
+        if (g[r * 9 + k] == v || g[k * 9 + c] == v) return false;
+      }
+      final int br = r ~/ 3 * 3, bc = c ~/ 3 * 3;
+      for (int a = 0; a < 3; a++) {
+        for (int b = 0; b < 3; b++) {
+          if (g[(br + a) * 9 + bc + b] == v) return false;
+        }
+      }
+      return true;
+    }
+
+    void go() {
+      if (found >= limit) return;
+      int best = -1, bestN = 10;
+      for (int i = 0; i < 81; i++) {
+        if (g[i] != 0) continue;
+        int n = 0;
+        for (int v = 1; v <= 9; v++) {
+          if (ok(i, v)) n++;
+        }
+        if (n < bestN) {
+          bestN = n;
+          best = i;
+          if (n <= 1) break;
+        }
+      }
+      if (best == -1) {
+        found++;
+        return;
+      }
+      for (int v = 1; v <= 9 && found < limit; v++) {
+        if (ok(best, v)) {
+          g[best] = v;
+          go();
+          g[best] = 0;
+        }
+      }
+    }
+
+    go();
+    return found;
+  }
+
+  /// A puzzle with about [clues] given cells and one answer.
+  factory SudokuPuzzle.generate(Random rnd, {int clues = 40}) {
+    final List<int> sol = _base(rnd);
+    final List<int> p = List<int>.of(sol);
+    final List<int> order = List<int>.generate(81, (int i) => i)..shuffle(rnd);
+    int left = 81;
+    for (final int i in order) {
+      if (left <= clues) break;
+      final int keep = p[i];
+      p[i] = 0;
+      if (countSolutions(p) != 1) {
+        p[i] = keep;
+      } else {
+        left--;
+      }
+    }
+    return SudokuPuzzle(p, sol);
+  }
+}
