@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -91,6 +93,8 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
         if (shown.any((GameDef g) => g.id == s.gameId)) s,
     ];
     return <Widget>[
+      const _DailyCard(),
+      const SizedBox(height: 12),
       const _InviteCard(),
       const SizedBox(height: 12),
       Wrap(
@@ -492,6 +496,49 @@ class _InviteCard extends StatelessWidget {
         ),
         trailing: const Icon(Icons.chevron_right, color: AppColors.gold),
         onTap: () => context.push('/games/invite'),
+      ),
+    );
+  }
+}
+
+
+/// One puzzle a day, the same for everyone on the same date.
+class _DailyCard extends StatelessWidget {
+  const _DailyCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final DateTime now = DateTime.now();
+    final int day = now.year * 10000 + now.month * 100 + now.day;
+    final List<String> ids = kRacePuzzleIds.toList()..sort();
+    final String id = ids[Random(day).nextInt(ids.length)];
+    final GameDef? game = <GameDef>[
+      for (final GameDef g in kGames)
+        if (g.id == id) g,
+    ].firstOrNull;
+    if (game == null) return const SizedBox.shrink();
+    return GamePanel(
+      semanticsLabel: 'Daily challenge: ${game.title}',
+      onTap: () => context.open('/games/${game.id}?seed=$day'),
+      child: Row(
+        children: <Widget>[
+          const Icon(Icons.wb_sunny_outlined, color: AppColors.gold, size: 30),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Daily challenge', style: AppText.titleMedium),
+                const SizedBox(height: 2),
+                Text(
+                  'Today: ${game.title}. The same puzzle for everyone.',
+                  style: AppText.bodyMuted,
+                ),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right, color: AppColors.gold),
+        ],
       ),
     );
   }
