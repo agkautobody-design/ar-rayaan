@@ -57,6 +57,8 @@ abstract final class RouteTitles {
     '/games/memnum': 'Memory Numbers',
     '/games/cluehunt': 'Clue Hunt',
     '/games/sudoku': 'Sudoku',
+    '/games/connect4': 'Four in a Row',
+    '/games/draughts': 'Checkers',
     '/player': 'Nasheed Player',
     '/player/my-additions': 'My Additions',
     '/player/playlists': 'My Playlists',

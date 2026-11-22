@@ -559,6 +559,38 @@ const List<GameDef> kGames = <GameDef>[
       'Three mistakes end the game.',
     ],
   ),
+  GameDef(
+    id: 'connect4',
+    title: 'Four in a Row',
+    blurb: 'Drop tokens and line up four',
+    category: GameCategory.strategy,
+    modes: <PlayMode>{PlayMode.solo, PlayMode.passAndPlay},
+    route: '/games/connect4',
+    iconKey: 'chess',
+    kind: GameEngineKind.own,
+    maxPlayers: 2,
+    howToPlay: <String>[
+      'Choose the computer (easy, medium or hard) or two players on one device.',
+      'Take turns dropping a token into a column.',
+      'The first to line up four, across, down or diagonally, wins.',
+    ],
+  ),
+  GameDef(
+    id: 'draughts',
+    title: 'Checkers',
+    blurb: 'A classic game for focus, strategy and patience',
+    category: GameCategory.strategy,
+    modes: <PlayMode>{PlayMode.solo, PlayMode.passAndPlay},
+    route: '/games/draughts',
+    iconKey: 'chess',
+    kind: GameEngineKind.own,
+    maxPlayers: 2,
+    howToPlay: <String>[
+      'Choose the computer or two players on one device.',
+      'Move a piece diagonally forward onto an empty dark square.',
+      'A capture is compulsory. Reach the far row to be crowned and move both ways.',
+    ],
+  ),
   ...kLearningGames,
 ];
 
