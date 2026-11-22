@@ -21,9 +21,9 @@
    "version": 3
   },
   "games/trivia.json": {
-   "bytes": 163217,
-   "sha256": "6cce1f59bddfb17daf930f559c59619f09e674b0136cd2be1eabe04af7e01075",
-   "version": 4
+   "bytes": 163254,
+   "sha256": "6e567594c28a1209950474708718c26c8b9504ce390e2c948d5ece412c789516",
+   "version": 5
   },
   "guides/guides.json": {
    "bytes": 257087,
