@@ -262,49 +262,80 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
           const SizedBox(height: 16),
         ],
-        // Hero: next prayer countdown
-        GlassCard(
-          strong: true,
-          padding: EdgeInsets.symmetric(vertical: tight ? 12 : 24, horizontal: 20),
-          child: Column(
-            children: [
-              Text('NEXT PRAYER', style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              // A word wider than the card shrinks to fit instead of
-              // breaking in the middle ("Maghri / b").
-              WholeWordText(
-                nextName,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: AppText.displayMedium.copyWith(fontSize: 30),
+        // Hero: next prayer countdown, over the owner's prayer picture.
+        ClipRRect(
+          borderRadius: BorderRadius.circular(22),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(color: AppColors.gold.withValues(alpha: 0.55)),
+              image: const DecorationImage(
+                image: AssetImage('assets/images/tiles/tile_prayer.jpg'),
+                fit: BoxFit.cover,
+                alignment: Alignment.centerRight,
               ),
-              const SizedBox(height: 6),
-              Text(
-                DateFormat.jm().format(nextTime),
-                style: AppText.body.copyWith(
-                  color: AppColors.goldLight,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 7,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.gold.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.3),
-                  ),
-                ),
-                child: Text(
-                  _countdown(nextTime),
-                  style: AppText.label.copyWith(color: AppColors.goldLight),
+            ),
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: <double>[0.0, 0.55, 1.0],
+                  colors: <Color>[
+                    Color(0xF205090F),
+                    Color(0xCC05090F),
+                    Color(0x3305090F),
+                  ],
                 ),
               ),
-            ],
+              padding: EdgeInsets.symmetric(
+                  vertical: tight ? 14 : 24, horizontal: 20),
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('NEXT PRAYER', style: AppText.eyebrow),
+                    const SizedBox(height: 10),
+                    // A word wider than the card shrinks to fit instead of
+                    // breaking in the middle ("Maghri / b").
+                    WholeWordText(
+                      nextName,
+                      maxLines: 1,
+                      textAlign: TextAlign.start,
+                      style: AppText.displayMedium.copyWith(fontSize: 34),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      DateFormat.jm().format(nextTime),
+                      style: AppText.body.copyWith(
+                        color: AppColors.goldLight,
+                        fontSize: 18,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color(0x9905090F),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: AppColors.gold.withValues(alpha: 0.55),
+                        ),
+                      ),
+                      child: Text(
+                        _countdown(nextTime),
+                        style:
+                            AppText.label.copyWith(color: AppColors.goldLight),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
         const SizedBox(height: 16),
