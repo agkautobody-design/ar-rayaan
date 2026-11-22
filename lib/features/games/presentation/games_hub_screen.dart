@@ -244,6 +244,104 @@ class GameTile extends StatelessWidget {
     // room to the words: a title must never wrap one letter to a line.
     final bool squeezed = MediaQuery.sizeOf(context).width < 360 ||
         MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
+    final ArtSlot? slot = GamesArt.slotForGame(game.id);
+    if (slot != null && !large && !squeezed) {
+      // The owner's picture across the top of the card, as in the designs,
+      // with the title on it; the words and ways to play sit below.
+      return ArtBuilder(
+        slot: slot,
+        builder: (BuildContext context, bool present) {
+          if (!present) return _row(context, modes, squeezed);
+          return GamePanel(
+            semanticsLabel:
+                '${game.title}. ${game.blurb}. ${modes.join(', ')}.',
+            onTap: () => context.open('/games/g/${game.id}'),
+            padding: EdgeInsets.zero,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(GamesTheme.radius)),
+                  child: SizedBox(
+                    height: 120,
+                    width: double.infinity,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        ExcludeSemantics(child: GamesArt.asset(slot)),
+                        const DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              stops: <double>[0.35, 1],
+                              colors: <Color>[
+                                Colors.transparent,
+                                Color(0xE605090F),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 14,
+                          right: 44,
+                          bottom: 10,
+                          child: WholeWordText(
+                            game.title,
+                            style: AppText.titleMedium.copyWith(
+                              color: GamesTheme.champagne,
+                              fontSize: 20,
+                              shadows: const <Shadow>[
+                                Shadow(color: Colors.black, blurRadius: 8),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const Positioned(
+                          right: 10,
+                          bottom: 10,
+                          child: Icon(Icons.chevron_right,
+                              color: AppColors.goldLight),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 10, 14, 14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      WholeWordText(
+                        game.blurb,
+                        style: AppText.body.copyWith(
+                          color: AppColors.textMuted,
+                          fontSize: 13,
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: <Widget>[
+                          for (final String m in modes) _Tag(label: m),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
+    return _row(context, modes, squeezed);
+  }
+
+  Widget _row(BuildContext context, List<String> modes, bool squeezed) {
     return GamePanel(
       semanticsLabel: '${game.title}. ${game.blurb}. ${modes.join(', ')}.',
       onTap: () => context.open('/games/g/${game.id}'),
