@@ -862,6 +862,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           pageBuilder: (context, state) => _fade(const Names99Screen()),
         ),
         GoRoute(
+          path: '/games/names99/quiz',
+          pageBuilder: (context, state) => _fade(NamesQuizScreen(
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
           path: AppRoutes.huda,
           pageBuilder: (context, state) => _fade(const HudaScreen()),
         ),

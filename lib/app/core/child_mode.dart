@@ -83,6 +83,9 @@ bool childModeAllows(String path) {
   // The Games hub is exact: its other tables (Ludo, chess, online rooms) are not
   // for a child on their own.
   if (path == '/games') return true;
+  // Racing a friend online is never for a child, even in a game a child may
+  // otherwise play (a race link carries `race=`).
+  if (bare.startsWith('/games/') && path.contains('race=')) return false;
   if (bare.startsWith('/games/g/')) {
     final List<String> parts = bare.split('/');
     // /games/g/<id>[/setup|/play|/results]

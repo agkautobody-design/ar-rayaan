@@ -155,6 +155,8 @@ class _RaceTableState extends State<RaceTableScreen> {
     };
     final Uri u = gameId == 'lineage'
         ? Uri(path: '/games/lineage', queryParameters: race)
+        : gameId == 'names99'
+        ? Uri(path: '/games/names99/quiz', queryParameters: race)
         : gameId == 'memory'
         ? Uri(
             path: '/games/memory',

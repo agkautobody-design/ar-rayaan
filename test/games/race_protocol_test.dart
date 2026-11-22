@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ar_rayaan/features/games/data/names_rounds.dart';
 import 'package:ar_rayaan/features/games/data/race_protocol.dart';
 import 'package:ar_rayaan/features/games/engine/game_registry.dart';
 
@@ -87,11 +90,49 @@ void main() {
     expect(s.opponent.finishedMs, 12345);
   });
 
-  test('Lineage can be raced; the other explorer screens cannot', () {
-    expect(gameById('lineage')!.canRace, isTrue);
-    expect(gameById('lineage')!.offersMode(PlayMode.friends), isTrue);
-    for (final String id in <String>['names99', 'hijrah', 'hifz']) {
+  test('Lineage and Names can be raced; the other explorer screens cannot', () {
+    for (final String id in <String>['lineage', 'names99']) {
+      expect(gameById(id)!.canRace, isTrue, reason: id);
+      expect(gameById(id)!.offersMode(PlayMode.friends), isTrue, reason: id);
+    }
+    for (final String id in <String>['hijrah', 'hifz']) {
       expect(gameById(id)!.canRace, isFalse, reason: id);
     }
+  });
+
+  group('Names quiz rounds', () {
+    final List<NamesCard> cards = <NamesCard>[
+      for (int i = 0; i < 30; i++)
+        NamesCard('Name$i', 'Meaning $i', '1:$i', 'ar$i'),
+    ];
+
+    test('same seed gives the same questions, other seeds differ', () {
+      final List<NamesRound> a = buildNamesRounds(cards, Random(7));
+      final List<NamesRound> b = buildNamesRounds(cards, Random(7));
+      final List<NamesRound> c = buildNamesRounds(cards, Random(8));
+      expect(a.map((NamesRound r) => r.meaning).toList(),
+          b.map((NamesRound r) => r.meaning).toList());
+      expect(a.map((NamesRound r) => r.options.join()).toList(),
+          b.map((NamesRound r) => r.options.join()).toList());
+      expect(a.map((NamesRound r) => r.meaning).toList(),
+          isNot(c.map((NamesRound r) => r.meaning).toList()));
+    });
+
+    test('ten questions, four distinct choices, one right, none repeated', () {
+      final List<NamesRound> rs = buildNamesRounds(cards, Random(3));
+      expect(rs.length, 10);
+      expect(rs.map((NamesRound r) => r.meaning).toSet().length, 10);
+      for (final NamesRound r in rs) {
+        expect(r.options.length, 4);
+        expect(r.options.toSet().length, 4);
+        final NamesCard right =
+            cards.firstWhere((NamesCard c) => c.meaning == r.meaning);
+        expect(r.options[r.answer], right.name);
+      }
+    });
+
+    test('too few names gives no quiz', () {
+      expect(buildNamesRounds(cards.take(3).toList(), Random(1)), isEmpty);
+    });
   });
 }
