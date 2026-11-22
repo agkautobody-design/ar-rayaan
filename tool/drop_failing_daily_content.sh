@@ -16,6 +16,9 @@ PATHS="assets/stories assets/content_version.json"
 if python3 tool/check_daily_content.py; then exit 0; fi
 echo "::warning::Daily content check failed; looking for the newest content that passes."
 
+# CI checks out one commit; the walk-back needs the recent history.
+git fetch --quiet --depth=60 origin main 2>/dev/null || true
+
 found=""
 for c in $(git log --format=%H -n 30 -- $PATHS); do
   git checkout "$c" -- $PATHS 2>/dev/null || continue
