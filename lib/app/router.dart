@@ -136,6 +136,7 @@ import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/names_quiz_screen.dart';
+import '../features/games/presentation/puzzle_games.dart';
 import '../features/games/chess/chess_ai.dart' show ChessLevel;
 import '../features/games/presentation/shatranj_screen.dart';
 import '../features/games/presentation/ludo_screen.dart';
@@ -861,6 +862,60 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: AppRoutes.names99,
           pageBuilder: (context, state) => _fade(const Names99Screen()),
+        ),
+        GoRoute(
+          path: '/games/maze',
+          pageBuilder: (context, state) => _fade(MazeScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
+          path: '/games/mathquest',
+          pageBuilder: (context, state) => _fade(MathQuestScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
+          path: '/games/pattern',
+          pageBuilder: (context, state) => _fade(PatternScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
+          path: '/games/sliding',
+          pageBuilder: (context, state) => _fade(SlidingTileScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
+          path: '/games/merge',
+          pageBuilder: (context, state) => _fade(NumberMergeScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
+        ),
+        GoRoute(
+          path: '/games/logicgrid',
+          pageBuilder: (context, state) => _fade(LogicGridScreen(
+            key: ValueKey<String>(state.uri.toString()),
+            raceCode: state.uri.queryParameters['race'],
+            raceSide: state.uri.queryParameters['side'],
+            seed: int.tryParse(state.uri.queryParameters['seed'] ?? ''),
+          )),
         ),
         GoRoute(
           path: '/games/names99/quiz',

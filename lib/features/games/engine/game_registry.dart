@@ -175,8 +175,20 @@ class GameDef {
       kind == GameEngineKind.words ||
       kind == GameEngineKind.memory ||
       id == 'lineage' ||
-      id == 'names99';
+      id == 'names99' ||
+      kRacePuzzleIds.contains(id);
 }
+
+/// The own-engine puzzles that can be raced with a friend: both get the same
+/// puzzle (one shared seed). Their screens are in `puzzle_games.dart`.
+const Set<String> kRacePuzzleIds = <String>{
+  'maze',
+  'mathquest',
+  'pattern',
+  'sliding',
+  'merge',
+  'logicgrid',
+};
 
 /// The most hints a person gets in one game. Hints are free, never bought,
 /// never earned and never traded.
@@ -375,6 +387,96 @@ const List<GameDef> kGames = <GameDef>[
       'Turn over two cards. If an Arabic Name and its spelling match, they stay.',
       'A match shows the meaning and where the Name is found.',
       'There is no timer. Take as long as you like.',
+    ],
+  ),
+  GameDef(
+    id: 'maze',
+    title: 'Maze Escape',
+    blurb: 'Find the way out, three mazes, each bigger',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/maze',
+    iconKey: 'route',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Move with the arrow buttons or your keyboard arrows.',
+      'Walls block you. Reach the gold square at the bottom right.',
+      'Three mazes, each bigger than the last. There is no timer.',
+    ],
+  ),
+  GameDef(
+    id: 'mathquest',
+    title: 'Math Quest',
+    blurb: 'Ten sums, from easy to a little harder',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/mathquest',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Work out the sum and pick the right answer.',
+      'Multiplication and division come before adding and taking away.',
+      'There is no timer. Take your time.',
+    ],
+  ),
+  GameDef(
+    id: 'pattern',
+    title: 'Pattern Sequence',
+    blurb: 'Watch the symbols, then repeat them',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/pattern',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Watch the symbols light up one by one.',
+      'Tap them in the same order.',
+      'Each round adds one more symbol. Six rounds in all.',
+    ],
+  ),
+  GameDef(
+    id: 'sliding',
+    title: 'Sliding Tile',
+    blurb: 'Slide the tiles into order, 1 to 15',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/sliding',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Tap a tile next to the gap to slide it in.',
+      'Put the tiles in order, 1 to 15, with the gap last.',
+      'There is no timer. Fewer moves is a nice goal, not a rule.',
+    ],
+  ),
+  GameDef(
+    id: 'merge',
+    title: 'Number Merge',
+    blurb: 'Slide and join equal tiles to make bigger ones',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/merge',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Swipe or use the arrows to slide every tile.',
+      'Two equal tiles that touch join into one.',
+      'Keep going until no move is left. Racing a friend: the first to make 256 wins.',
+    ],
+  ),
+  GameDef(
+    id: 'logicgrid',
+    title: 'Logic Grid',
+    blurb: 'Four people, four houses: work out who lives where',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/logicgrid',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Read the clues. Every clue is true.',
+      'Choose a house, 1 to 4, for each person. Each house holds one person.',
+      'Tap Check my answer when you think you have it.',
     ],
   ),
   ...kLearningGames,

@@ -63,7 +63,9 @@ void main() {
         // steps, word games, hidden games) draw the icon badge instead.
         if (s == null) {
           expect(
-            g.hidden || kLearningGames.any((GameDef l) => l.id == g.id),
+            g.hidden ||
+                kRacePuzzleIds.contains(g.id) ||
+                kLearningGames.any((GameDef l) => l.id == g.id),
             isTrue,
             reason: g.id,
           );
