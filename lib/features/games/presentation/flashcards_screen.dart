@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import 'games_screens.dart';
 import 'puzzle_games.dart';
@@ -79,7 +80,14 @@ class _FlashcardsState extends ConsumerState<FlashcardsScreen> {
           tagline: 'Tap the card to turn it over',
           children: <Widget>[
             const SizedBox(height: 8),
-            Text('$_known of $_total known', style: AppText.bodyMuted),
+            GameStatBar(
+              stats: <GameStat>[
+                GameStat(Icons.menu_book, 'Card',
+                    '${(_known + 1).clamp(1, _total)} of $_total'),
+                GameStat(Icons.check_circle_outline, 'Known',
+                    '$_known / $_total'),
+              ],
+            ),
             const SizedBox(height: 12),
             GamePanel(
               semanticsLabel: _flipped
@@ -106,16 +114,24 @@ class _FlashcardsState extends ConsumerState<FlashcardsScreen> {
                                       AppText.bodyMuted.copyWith(height: 1.5)),
                             ],
                           )
-                        : Text(
-                            c.arabic ?? c.name,
+                        : Column(
                             key: const ValueKey<bool>(false),
-                            textAlign: TextAlign.center,
-                            textDirection: TextDirection.rtl,
-                            style: const TextStyle(
-                              fontSize: 48,
-                              height: 1.6,
-                              color: AppColors.goldLight,
-                            ),
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                c.arabic ?? c.name,
+                                textAlign: TextAlign.center,
+                                textDirection: TextDirection.rtl,
+                                style: const TextStyle(
+                                  fontSize: 52,
+                                  height: 1.6,
+                                  color: AppColors.goldLight,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              Text('Tap to turn over',
+                                  style: AppText.bodyMuted),
+                            ],
                           ),
                   ),
                 ),
@@ -123,9 +139,25 @@ class _FlashcardsState extends ConsumerState<FlashcardsScreen> {
             ),
             const SizedBox(height: 14),
             if (_flipped) ...<Widget>[
-              PlayButton(label: 'I know it', onPressed: () => _answer(true)),
-              const SizedBox(height: 10),
-              OutlineAction(label: 'Again', onPressed: () => _answer(false)),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: OutlineAction(
+                      label: 'Study again',
+                      icon: Icons.replay,
+                      onPressed: () => _answer(false),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: PlayButton(
+                      label: 'I knew this',
+                      icon: Icons.check,
+                      onPressed: () => _answer(true),
+                    ),
+                  ),
+                ],
+              ),
             ] else
               PlayButton(
                 label: 'Turn over',

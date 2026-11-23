@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import 'games_screens.dart';
 import 'puzzle_games.dart';
@@ -94,50 +95,130 @@ class _MatchingState extends ConsumerState<MatchingScreen> {
             ],
           );
         }
+        final int total = names.length;
         return PuzzleFrame(
-          title: 'Matching',
-          tagline: 'Match each Name to its meaning',
+          title: 'Matching Game',
+          tagline: 'Match each Name of Allah with its meaning.',
           children: <Widget>[
             const SizedBox(height: 8),
-            for (final Name99 n in names)
-              if (!_matched.contains(n.n))
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: GamePanel(
-                    semanticsLabel: 'Name ${n.name}',
-                    onTap: () => setState(() => _picked = names.indexOf(n)),
-                    child: Center(
-                      child: Text(
-                        n.arabic!,
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                          fontSize: 28,
-                          height: 1.5,
-                          color: _picked != null && names[_picked!].n == n.n
-                              ? AppColors.goldLight
-                              : AppColors.textMuted,
+            GameStatBar(
+              stats: <GameStat>[
+                GameStat(Icons.check_circle_outline, 'Matched',
+                    '${_matched.length} / $total'),
+                GameStat(Icons.close, 'Misses', '$_misses'),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      for (final Name99 n in names)
+                        _MatchCard(
+                          semanticsLabel: 'Name ${n.name}',
+                          done: _matched.contains(n.n),
+                          selected:
+                              _picked != null && names[_picked!].n == n.n,
+                          onTap: _matched.contains(n.n)
+                              ? null
+                              : () => setState(
+                                    () => _picked = names.indexOf(n),
+                                  ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text(
+                                n.arabic!,
+                                textDirection: TextDirection.rtl,
+                                style: const TextStyle(
+                                  fontSize: 26,
+                                  height: 1.5,
+                                  color: AppColors.goldLight,
+                                ),
+                              ),
+                              Text(n.name, style: AppText.bodyMuted),
+                            ],
+                          ),
                         ),
-                      ),
-                    ),
+                    ],
                   ),
                 ),
-            const SizedBox(height: 6),
-            Text(_note ?? ' ', style: AppText.bodyMuted),
-            const SizedBox(height: 6),
-            for (final Name99 m in _meanings)
-              if (!_matched.contains(m.n))
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: GamePanel(
-                    semanticsLabel: 'Meaning: ${m.meaning}',
-                    onTap: () => _tapMeaning(m),
-                    child: Text(m.meaning,
-                        style: AppText.bodyMuted.copyWith(height: 1.4)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      for (final Name99 m in _meanings)
+                        _MatchCard(
+                          semanticsLabel: 'Meaning: ${m.meaning}',
+                          done: _matched.contains(m.n),
+                          selected: false,
+                          onTap: _matched.contains(m.n)
+                              ? null
+                              : () => _tapMeaning(m),
+                          child: Text(
+                            m.meaning,
+                            textAlign: TextAlign.center,
+                            style: AppText.body.copyWith(height: 1.3),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Center(child: Text(_note ?? ' ', style: AppText.bodyMuted)),
           ],
         );
       },
+    );
+  }
+}
+
+/// One card in a matching column: gold edge, green and ticked once matched.
+class _MatchCard extends StatelessWidget {
+  const _MatchCard({
+    required this.child,
+    required this.semanticsLabel,
+    required this.done,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final Widget child;
+  final String semanticsLabel;
+  final bool done;
+  final bool selected;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 84),
+        child: GamePanel(
+          semanticsLabel: done ? '$semanticsLabel, matched' : semanticsLabel,
+          selected: selected || done,
+          onTap: onTap,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (done)
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(Icons.check_circle,
+                        color: GamesTheme.good, size: 20),
+                  ),
+                Flexible(child: child),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

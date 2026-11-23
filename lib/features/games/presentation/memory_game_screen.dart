@@ -16,6 +16,7 @@ import '../data/game_history.dart';
 import '../data/games_adapters.dart';
 import '../data/games_store.dart';
 import '../engine/memory_engine.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import '../data/race_link.dart';
 import 'game_results_screen.dart';
@@ -311,12 +312,24 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
   Widget _status(MemoryGame g) {
     final int pairs = g.cards.length ~/ 2;
     if (g.players == 1) {
-      return Semantics(
-        liveRegion: true,
-        child: Text(
-          'PAIRS FOUND ${g.pairsFound} OF $pairs · TRIES ${g.tries}',
-          style: AppText.eyebrow,
-        ),
+      return Column(
+        children: <Widget>[
+          GameStatBar(
+            stats: <GameStat>[
+              GameStat(Icons.shuffle, 'Tries', '${g.tries}'),
+              GameStat(Icons.extension, 'Pairs found',
+                  '${g.pairsFound} / $pairs'),
+              GameStat(Icons.bar_chart, 'Progress',
+                  '${pairs == 0 ? 0 : (100 * g.pairsFound / pairs).round()}%'),
+            ],
+          ),
+          const SizedBox(height: 10),
+          const GameHintBar(
+            title: 'Find the matching pairs',
+            body: 'Tap two cards to turn them over. Match every Name with '
+                'its spelling.',
+          ),
+        ],
       );
     }
     return Wrap(
@@ -428,9 +441,17 @@ class _CardView extends StatelessWidget {
                       ),
                 color: up ? GamesTheme.panelFill : null,
                 border: Border.all(
-                  color: matched ? GamesTheme.good : GamesTheme.border,
-                  width: matched ? 2 : 1.2,
+                  color: matched ? GamesTheme.good : AppColors.gold,
+                  width: matched ? 2 : 1.4,
                 ),
+                boxShadow: up
+                    ? null
+                    : <BoxShadow>[
+                        BoxShadow(
+                          color: AppColors.gold.withValues(alpha: 0.22),
+                          blurRadius: 10,
+                        ),
+                      ],
               ),
               child: Center(
                 child: up
@@ -467,8 +488,8 @@ class _CardView extends StatelessWidget {
   }
 }
 
-/// The back of a card: nested diamonds around a small ring. A plain
-/// geometric pattern; it is not a star and shows no figure.
+/// The back of a card: an eight-point star around a small ring. A plain
+/// geometric pattern; it shows no figure.
 class _CardBackPainter extends CustomPainter {
   const _CardBackPainter(this.color);
 
@@ -482,17 +503,19 @@ class _CardBackPainter extends CustomPainter {
       ..strokeWidth = 1.4;
     final Offset c = size.center(Offset.zero);
     final double s = size.shortestSide;
-    for (int i = 1; i <= 3; i++) {
-      final double r = s * 0.16 * i;
-      final Path diamond = Path()
-        ..moveTo(c.dx, c.dy - r)
-        ..lineTo(c.dx + r, c.dy)
-        ..lineTo(c.dx, c.dy + r)
-        ..lineTo(c.dx - r, c.dy)
-        ..close();
-      canvas.drawPath(diamond, line);
+    // An eight-point star: two squares, one turned a quarter.
+    for (int k = 0; k < 2; k++) {
+      final double r = s * 0.46;
+      final Path sq = Path();
+      for (int i = 0; i < 4; i++) {
+        final double a = (i * 90 + k * 45 + 45) * 3.141592653589793 / 180;
+        final Offset p = c + Offset(r * cos(a), r * sin(a));
+        i == 0 ? sq.moveTo(p.dx, p.dy) : sq.lineTo(p.dx, p.dy);
+      }
+      sq.close();
+      canvas.drawPath(sq, line);
     }
-    canvas.drawCircle(c, s * 0.07, line);
+    canvas.drawCircle(c, s * 0.12, line);
   }
 
   @override
