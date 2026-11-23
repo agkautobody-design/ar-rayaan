@@ -516,6 +516,21 @@ const List<GameDef> kGames = <GameDef>[
     ],
   ),
   GameDef(
+    id: 'matching',
+    title: 'Matching',
+    blurb: 'Pair each Name of Allah with its meaning',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/matching',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Tap a Name in Arabic, then the meaning that goes with it.',
+      'A right pair leaves the board. A wrong one is counted.',
+      'Clear all six to finish.',
+    ],
+  ),
+  GameDef(
     id: 'flashcards',
     title: 'Flashcards',
     blurb: 'Learn the Names of Allah, card by card',

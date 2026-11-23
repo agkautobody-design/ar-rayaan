@@ -56,6 +56,7 @@ abstract final class RouteTitles {
     '/games/tower': 'Tower Builder',
     '/games/memnum': 'Memory Numbers',
     '/games/flashcards': 'Flashcards',
+    '/games/matching': 'Matching',
     '/games/cluehunt': 'Clue Hunt',
     '/games/sudoku': 'Sudoku',
     '/games/connect4': 'Four in a Row',
