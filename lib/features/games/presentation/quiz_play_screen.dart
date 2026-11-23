@@ -20,6 +20,7 @@ import '../data/games_store.dart';
 import '../data/learning_loader.dart';
 import '../engine/game_registry.dart';
 import '../engine/quiz_engine.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
@@ -344,9 +345,25 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           ScreenHeader(title: title, close: true, showSettings: false),
-          Text(
-            'QUESTION ${s.index + 1} OF ${s.total}',
-            style: AppText.eyebrow,
+          GamePanel(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'Question ${s.index + 1} of ${s.total}',
+                    style: AppText.titleMedium.copyWith(
+                      color: GamesTheme.champagne,
+                    ),
+                  ),
+                ),
+                if (s.total <= 12)
+                  GameDots(
+                    done: s.index + (answered ? 1 : 0),
+                    total: s.total,
+                  ),
+              ],
+            ),
           ),
           const SizedBox(height: 8),
           GameProgressBar(
@@ -474,9 +491,36 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
                     style: AppText.body.copyWith(height: 1.5),
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'Source: ${q.citation}',
-                    style: AppText.bodyMuted.copyWith(height: 1.5),
+                  const SizedBox(height: 4),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: GamesTheme.border.withValues(alpha: 0.6),
+                      ),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const Icon(Icons.verified_outlined,
+                            color: AppColors.gold, size: 20),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text('Verified source', style: AppText.eyebrow),
+                              const SizedBox(height: 2),
+                              Text(
+                                'Source: ${q.citation}',
+                                style: AppText.bodyMuted.copyWith(height: 1.5),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 12),
                   AskHadiAboutButton(question: _askText(q)),
@@ -515,7 +559,7 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
     final bool hidden = s.hiddenNow.contains(o);
     final bool isAnswer = o == q.answer;
     final bool isPick = o == pick;
-    IconData icon = Icons.circle_outlined;
+    IconData? icon;
     String? tag;
     if (answered && isAnswer) {
       icon = Icons.check_circle;
@@ -547,12 +591,34 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
       onTap: answered || hidden ? null : () => _pick(o),
       child: Row(
         children: <Widget>[
-          Icon(
-            icon,
-            size: 22,
-            color: answered && isAnswer
-                ? GamesTheme.good
-                : AppColors.goldLight,
+          Container(
+            width: 30,
+            height: 30,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: answered && isAnswer
+                    ? GamesTheme.good
+                    : AppColors.goldLight,
+                width: 1.4,
+              ),
+            ),
+            child: icon != null
+                ? Icon(
+                    icon,
+                    size: 18,
+                    color: answered && isAnswer
+                        ? GamesTheme.good
+                        : AppColors.goldLight,
+                  )
+                : Text(
+                    String.fromCharCode(65 + o),
+                    style: AppText.body.copyWith(
+                      color: AppColors.goldLight,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
           ),
           const SizedBox(width: 12),
           Expanded(

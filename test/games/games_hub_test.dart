@@ -295,7 +295,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('QUESTION 1 OF 3'), findsOneWidget);
+      expect(find.text('Question 1 of 3'), findsOneWidget);
       expect(find.text('Hint (3 left)'), findsOneWidget);
       await tester.tap(find.text('Hint (3 left)'));
       await tester.pump();
