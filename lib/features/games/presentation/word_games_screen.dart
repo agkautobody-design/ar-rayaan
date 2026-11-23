@@ -16,6 +16,7 @@ import '../data/games_store.dart';
 import '../data/learning_loader.dart';
 import '../engine/word_engine.dart';
 import '../ui/games_art.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
@@ -250,9 +251,11 @@ class _WordSearchState extends ConsumerState<WordSearchScreen> {
               myTotal: s.grid.placed.length,
               iFinished: s.finished,
             ),
-          Text(
-            '${s.found.length} OF ${s.grid.placed.length} FOUND',
-            style: AppText.eyebrow,
+          GameStatBar(
+            stats: <GameStat>[
+              GameStat(Icons.search, 'Found',
+                  '${s.found.length} of ${s.grid.placed.length} words'),
+            ],
           ),
           const SizedBox(height: 8),
           GameProgressBar(
@@ -636,7 +639,26 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
           ),
           if (_race != null)
             RaceBanner(link: _race!, myScore: s.firstTry, myTotal: s.total),
-          Text('WORD ${s.index + 1} OF ${s.total}', style: AppText.eyebrow),
+          GamePanel(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text(
+                    'Word ${s.index + 1} of ${s.total}',
+                    style: AppText.titleMedium.copyWith(
+                      color: GamesTheme.champagne,
+                    ),
+                  ),
+                ),
+                if (s.total <= 12)
+                  GameDots(
+                    done: s.index + (s.solved ? 1 : 0),
+                    total: s.total,
+                  ),
+              ],
+            ),
+          ),
           const SizedBox(height: 8),
           GameProgressBar(
             value: (s.index + (s.solved ? 1 : 0)) / s.total,
