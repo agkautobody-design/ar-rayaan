@@ -547,6 +547,21 @@ const List<GameDef> kGames = <GameDef>[
     ],
   ),
   GameDef(
+    id: 'jigsaw',
+    title: 'Jigsaw',
+    blurb: 'Swap the pieces back into the picture',
+    category: GameCategory.words,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/jigsaw',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'The picture is cut into squares and shuffled.',
+      'Tap one piece, then another, to swap them.',
+      'Put every piece back to finish. Try 3 by 3, then 4 by 4.',
+    ],
+  ),
+  GameDef(
     id: 'flashcards',
     title: 'Flashcards',
     blurb: 'Learn the Names of Allah, card by card',
