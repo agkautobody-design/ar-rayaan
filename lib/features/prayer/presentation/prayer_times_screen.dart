@@ -314,23 +314,10 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 7,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color(0x9905090F),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: AppColors.gold.withValues(alpha: 0.55),
-                        ),
-                      ),
-                      child: Text(
-                        _countdown(nextTime),
-                        style:
-                            AppText.label.copyWith(color: AppColors.goldLight),
-                      ),
+                    _CountdownBoxes(
+                      target: nextTime,
+                      clock: () => data.wallClock(DateTime.now()),
+                      spoken: _countdown(nextTime),
                     ),
                   ],
                 ),
@@ -1959,6 +1946,87 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
             ),
           ],
         ],
+      ),
+    );
+  }
+}
+
+
+/// Hours, minutes and seconds to the next prayer in three small boxes. It
+/// ticks once a second on its own, so the rest of the page does not rebuild.
+/// A screen reader hears the minute-level sentence only, never the seconds.
+class _CountdownBoxes extends StatefulWidget {
+  const _CountdownBoxes({
+    required this.target,
+    required this.clock,
+    required this.spoken,
+  });
+
+  final DateTime target;
+  final DateTime Function() clock;
+  final String spoken;
+
+  @override
+  State<_CountdownBoxes> createState() => _CountdownBoxesState();
+}
+
+class _CountdownBoxesState extends State<_CountdownBoxes> {
+  Timer? _t;
+
+  @override
+  void initState() {
+    super.initState();
+    _t = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _t?.cancel();
+    super.dispose();
+  }
+
+  Widget _box(String value, String unit) {
+    return Container(
+      width: 62,
+      padding: const EdgeInsets.symmetric(vertical: 7),
+      decoration: BoxDecoration(
+        color: const Color(0x9905090F),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.55)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            value,
+            style: AppText.titleMedium.copyWith(color: AppColors.goldLight),
+          ),
+          Text(unit, style: AppText.caption.copyWith(letterSpacing: 1.2)),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Duration d = widget.target.difference(widget.clock());
+    if (d.isNegative) d = Duration.zero;
+    String two(int n) => n.toString().padLeft(2, '0');
+    return Semantics(
+      label: widget.spoken,
+      child: ExcludeSemantics(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            _box(two(d.inHours), 'HRS'),
+            const SizedBox(width: 8),
+            _box(two(d.inMinutes.remainder(60)), 'MINS'),
+            const SizedBox(width: 8),
+            _box(two(d.inSeconds.remainder(60)), 'SECS'),
+          ],
+        ),
       ),
     );
   }
