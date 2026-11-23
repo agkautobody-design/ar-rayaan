@@ -113,7 +113,7 @@ void main() {
     Future<void> pump(WidgetTester tester, Widget screen) async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      tester.view.physicalSize = const Size(430, 8000);
+      tester.view.physicalSize = const Size(430, 16000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
