@@ -138,6 +138,7 @@ import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/names_quiz_screen.dart';
 import '../features/games/presentation/family_quiz_screen.dart';
 import '../features/games/presentation/flashcards_screen.dart';
+import '../features/games/presentation/hajj_map_challenge_screen.dart';
 import '../features/games/presentation/seerah_journey_screen.dart';
 import '../features/games/presentation/jigsaw_screen.dart';
 import '../features/games/presentation/matching_screen.dart';
@@ -954,6 +955,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: '/games/seerahjourney',
           pageBuilder: (context, state) => _fade(const SeerahJourneyScreen()),
+        ),
+        GoRoute(
+          path: '/games/hajjmapchallenge',
+          pageBuilder: (context, state) =>
+              _fade(const HajjMapChallengeScreen()),
         ),
         GoRoute(
           path: '/games/matching',
