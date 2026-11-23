@@ -389,7 +389,7 @@ void main() {
           config: QuizConfig(gameId: 'stories', count: 3),
         ),
         width: 360,
-        height: 900,
+        height: 1600,
         scale: 2,
       );
       await tester.pumpAndSettle();
