@@ -67,6 +67,7 @@ void main() {
                 kRacePuzzleIds.contains(g.id) ||
                 g.id == 'connect4' ||
                 g.id == 'flashcards' ||
+                g.id == 'matching' ||
                 g.id == 'draughts' ||
                 kLearningGames.any((GameDef l) => l.id == g.id),
             isTrue,
