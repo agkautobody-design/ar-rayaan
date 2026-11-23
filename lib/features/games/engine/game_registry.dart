@@ -562,6 +562,22 @@ const List<GameDef> kGames = <GameDef>[
     ],
   ),
   GameDef(
+    id: 'seerahjourney',
+    title: 'Seerah Journey',
+    blurb: 'Walk the Seerah chapter by chapter, with sources',
+    category: GameCategory.islamic,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/seerahjourney',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Each chapter is one story of the Seerah School, in order.',
+      'Answer its questions. Each answer shows why and where it comes from.',
+      'Get at least half right to complete the chapter. Progress is kept on this device.',
+    ],
+    sourceNote: 'Questions come from the Seerah School stories and their sources.',
+  ),
+  GameDef(
     id: 'flashcards',
     title: 'Flashcards',
     blurb: 'Learn the Names of Allah, card by card',
