@@ -466,7 +466,7 @@ class _OrderCard extends StatelessWidget {
         constraints: const BoxConstraints(minHeight: GamesTheme.minTap),
         padding: const EdgeInsetsDirectional.fromSTEB(12, 6, 4, 6),
         decoration: BoxDecoration(
-          color: palette.fill,
+          color: palette.fill.withValues(alpha: 0.78),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: rightPlace ? palette.good : palette.border,
