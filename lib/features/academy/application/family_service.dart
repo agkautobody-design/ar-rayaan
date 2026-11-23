@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../domain/children_privacy.dart';
 import '../domain/letters_meta.dart';
 import 'cloud_handles.dart';
@@ -146,6 +147,7 @@ class FamilyService {
     } else {
       await prefs.remove('$_onlineGamesPref.$childId');
     }
+    refreshChildOnline(prefs);
   }
 
   /// The parent-set age band for [childId], or the default.
@@ -368,6 +370,7 @@ class FamilyService {
   Future<void> setActiveChild(String id) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_activePref, id);
+    refreshChildOnline(prefs);
   }
 
   /// Nobody is learning: lessons and exams are no longer saved to a child.
@@ -375,6 +378,7 @@ class FamilyService {
   Future<void> clearActiveChild() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_activePref);
+    refreshChildOnline(prefs);
   }
 
   // ---- progress (on-device, cloud-synced when ready) ----

@@ -20,8 +20,21 @@ final ValueNotifier<bool> kChildMode = ValueNotifier<bool>(false);
 
 const String kChildModePref = 'ar.childMode.v1';
 
+/// True when the child learner now chosen has a guardian-set switch for
+/// inviting a friend to an online table. Off for every child unless a parent
+/// turned it on for that child (behind the parent check).
+final ValueNotifier<bool> kChildOnlineOk = ValueNotifier<bool>(false);
+
+/// Re-reads the guardian switch for the chosen child.
+void refreshChildOnline(SharedPreferences prefs) {
+  final String? id = prefs.getString('ar.family.active');
+  kChildOnlineOk.value =
+      id != null && (prefs.getBool('ar.family.online_games.$id') ?? false);
+}
+
 /// Reads the saved state at start-up.
 void loadChildMode(SharedPreferences prefs) {
+  refreshChildOnline(prefs);
   kChildMode.value = prefs.getBool(kChildModePref) ?? false;
   if (kChildMode.value) kKidsMode.value = true;
 }
@@ -83,9 +96,14 @@ bool childModeAllows(String path) {
   // The Games hub is exact: its other tables (Ludo, chess, online rooms) are not
   // for a child on their own.
   if (path == '/games') return true;
-  // Racing a friend online is never for a child, even in a game a child may
-  // otherwise play (a race link carries `race=`).
-  if (bare.startsWith('/games/') && path.contains('race=')) return false;
+  // Racing a friend online is for a child only when a parent has switched it
+  // on for that child (a race link carries `race=`; invites and the race
+  // table have their own addresses). No chat exists in any of them.
+  if (bare == '/games/invite' ||
+      bare.startsWith('/games/race') ||
+      (bare.startsWith('/games/') && path.contains('race='))) {
+    return kChildOnlineOk.value;
+  }
   if (bare.startsWith('/games/g/')) {
     final List<String> parts = bare.split('/');
     // /games/g/<id>[/setup|/play|/results]

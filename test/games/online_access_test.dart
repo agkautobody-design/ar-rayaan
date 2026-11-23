@@ -24,7 +24,7 @@ void main() {
     expect(await f.onlineGamesAllowed(b), isFalse);
   });
 
-  test('an active child is blocked, even with an old guardian switch', () async {
+  test('an active child is blocked until a guardian switches it on', () async {
     final FamilyService f = FamilyService();
     final String id = await f.addChild('Amal');
     await f.setActiveChild(id);
@@ -32,8 +32,11 @@ void main() {
     expect(off.blocked, isTrue);
     expect(off.message, contains('Amal'));
     await f.setOnlineGamesAllowed(id, true);
-    final OnlineVerdict still = await OnlineAccess(family: f).check();
-    expect(still.blocked, isTrue);
+    final OnlineVerdict on = await OnlineAccess(family: f).check();
+    expect(on.blocked, isFalse);
+    await f.setOnlineGamesAllowed(id, false);
+    final OnlineVerdict offAgain = await OnlineAccess(family: f).check();
+    expect(offAgain.blocked, isTrue);
   });
 
   test('children on the device but nobody chosen asks the parent', () async {

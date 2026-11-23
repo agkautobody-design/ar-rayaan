@@ -417,6 +417,7 @@ class _ParentBands extends ConsumerStatefulWidget {
 class _ParentBandsState extends ConsumerState<_ParentBands> {
   List<Map<String, dynamic>> _children = <Map<String, dynamic>>[];
   final Map<String, String> _bands = <String, String>{};
+  final Map<String, bool> _online = <String, bool>{};
   bool _open = false;
 
   Future<void> _unlock() async {
@@ -425,6 +426,8 @@ class _ParentBandsState extends ConsumerState<_ParentBands> {
     final List<Map<String, dynamic>> kids = await fs.children();
     for (final Map<String, dynamic> k in kids) {
       _bands[k['id'] as String] = await fs.ageBand(k['id'] as String);
+      _online[k['id'] as String] =
+          await fs.onlineGamesAllowed(k['id'] as String);
     }
     if (!mounted) return;
     setState(() {
@@ -475,6 +478,23 @@ class _ParentBandsState extends ConsumerState<_ParentBands> {
                 if (v == null) return;
                 await ref.read(familyServiceProvider).setAgeBand(k['id'] as String, v);
                 setState(() => _bands[k['id'] as String] = v);
+              },
+            ),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text('Invite a friend to play online',
+                  style: AppText.body.copyWith(fontSize: 14)),
+              subtitle: Text(
+                'Lets ${k['name']} start or join a game with a friend by a '
+                'table code or link. There is no chat. Off unless you turn it on.',
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+              ),
+              value: _online[k['id'] as String] ?? false,
+              onChanged: (bool v) async {
+                await ref
+                    .read(familyServiceProvider)
+                    .setOnlineGamesAllowed(k['id'] as String, v);
+                setState(() => _online[k['id'] as String] = v);
               },
             ),
           ],

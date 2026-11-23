@@ -11,13 +11,13 @@ class OnlineVerdict {
   /// child can pick "Nobody"), so an adult answers the parent check first.
   static const OnlineVerdict parentCheck = OnlineVerdict._(false, true, '');
 
-  /// The learner is a child. Online tables are off for children entirely;
-  /// there is no switch for a guardian to turn them on.
+  /// The learner is a child whose guardian has not switched online tables on.
   factory OnlineVerdict.childOff(String childName) => OnlineVerdict._(
         true,
         false,
-        'Online tables are for grown-ups, so they are off for $childName. '
-        'You can still play on this device.',
+        'Online tables are off for $childName. A parent can switch them on in '
+        'Settings, under the age band for each child. You can still play on '
+        'this device.',
       );
 
   final bool blocked;
@@ -27,8 +27,9 @@ class OnlineVerdict {
 
 /// The rule in front of every online table (Ludo and Shatranj).
 ///
-///  * A child profile can never create or join an online table (round 12:
-///    the guardian switch was removed). An old stored switch is ignored.
+///  * A child profile can create or join an online table only when a
+///    guardian has switched it on for that child (behind the parent check,
+///    off by default, per child). There is no chat in any table.
 ///  * With child profiles on the device but nobody chosen as the learner, the
 ///    parent check comes first (otherwise "Nobody" would be a way round it).
 ///  * A device with no child profiles is an adult's: no extra step.
@@ -48,6 +49,7 @@ class OnlineAccess {
         if (c['id'] == id) child = c;
       }
       if (child == null) return OnlineVerdict.parentCheck;
+      if (await _family.onlineGamesAllowed(id)) return OnlineVerdict.allowed;
       final Object? n = child['name'];
       return OnlineVerdict.childOff(n is String && n.isNotEmpty ? n : 'this child');
     } catch (_) {
