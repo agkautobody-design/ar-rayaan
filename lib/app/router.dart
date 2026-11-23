@@ -139,6 +139,7 @@ import '../features/games/presentation/names_quiz_screen.dart';
 import '../features/games/presentation/family_quiz_screen.dart';
 import '../features/games/presentation/flashcards_screen.dart';
 import '../features/games/presentation/hajj_map_challenge_screen.dart';
+import '../features/games/presentation/good_deeds_screen.dart';
 import '../features/games/presentation/seerah_journey_screen.dart';
 import '../features/games/presentation/jigsaw_screen.dart';
 import '../features/games/presentation/matching_screen.dart';
@@ -951,6 +952,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: '/games/jigsaw',
           pageBuilder: (context, state) => _fade(const JigsawScreen()),
+        ),
+        GoRoute(
+          path: '/games/gooddeeds',
+          pageBuilder: (context, state) => _fade(const GoodDeedsScreen()),
         ),
         GoRoute(
           path: '/games/seerahjourney',

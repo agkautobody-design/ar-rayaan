@@ -578,6 +578,23 @@ const List<GameDef> kGames = <GameDef>[
     sourceNote: 'Questions come from the Seerah School stories and their sources.',
   ),
   GameDef(
+    id: 'gooddeeds',
+    title: 'Good Deeds',
+    blurb: 'A short checklist of kind acts and worship for today',
+    category: GameCategory.islamic,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/gooddeeds',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    howToPlay: <String>[
+      'Tap a deed when you have done it today.',
+      'Your ticks are kept on this device for today and start fresh tomorrow.',
+      'Nothing is scored or compared.',
+    ],
+    sourceNote:
+        'Everyday acts of worship and kindness the Qur’an and Sunnah encourage, such as the greeting of salaam and remembering Allah.',
+  ),
+  GameDef(
     id: 'hajjmapchallenge',
     title: 'Hajj Map Challenge',
     blurb: 'Place each rite of Hajj on the map, then review your answers',
