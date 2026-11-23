@@ -275,19 +275,32 @@ class _StoryCard extends StatelessWidget {
             final List<Widget> marks = _marks();
             return Row(
               children: [
-                Container(
-                  width: 42,
-                  height: 42,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.gold.withValues(alpha: 0.35),
+                // The story's own picture once one has been supplied
+                // (assets/stories/art/<id>.webp); until then, the book mark.
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(14),
+                  child: SizedBox(
+                    width: 64,
+                    height: 64,
+                    child: Image.asset(
+                      'assets/stories/art/${story.id}.webp',
+                      fit: BoxFit.cover,
+                      excludeFromSemantics: true,
+                      errorBuilder: (BuildContext c, Object e, StackTrace? s) =>
+                          DecoratedBox(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.gold.withValues(alpha: 0.35),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.auto_stories_outlined,
+                          size: 24,
+                          color: AppColors.goldLight,
+                        ),
+                      ),
                     ),
-                  ),
-                  child: Icon(
-                    Icons.auto_stories_outlined,
-                    size: 20,
-                    color: AppColors.goldLight,
                   ),
                 ),
                 const SizedBox(width: 14),
@@ -331,6 +344,8 @@ class _StoryCard extends StatelessWidget {
                     ),
                   SourceLabelChip(label: story.sourceLabel),
                 ],
+                const SizedBox(width: 6),
+                const Icon(Icons.chevron_right, color: AppColors.goldLight),
               ],
             );
           },
