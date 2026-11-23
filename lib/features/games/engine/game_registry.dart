@@ -578,6 +578,24 @@ const List<GameDef> kGames = <GameDef>[
     sourceNote: 'Questions come from the Seerah School stories and their sources.',
   ),
   GameDef(
+    id: 'hajjmapchallenge',
+    title: 'Hajj Map Challenge',
+    blurb: 'Place each rite of Hajj on the map, then review your answers',
+    category: GameCategory.islamic,
+    modes: <PlayMode>{PlayMode.solo},
+    route: '/games/hajjmapchallenge',
+    iconKey: 'route',
+    kind: GameEngineKind.own,
+    sourceNote: 'The places and rites follow the Huda guide “Hajj — '
+        'Step-by-Step Walkthrough” in the app. They have not yet been '
+        'reviewed by a named scholar.',
+    howToPlay: <String>[
+      'Read the rite, then tap the place on the map where it happens.',
+      'Place all five rites.',
+      'Review your answers. Each miss comes with the reason.',
+    ],
+  ),
+  GameDef(
     id: 'flashcards',
     title: 'Flashcards',
     blurb: 'Learn the Names of Allah, card by card',
