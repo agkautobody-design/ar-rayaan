@@ -488,7 +488,7 @@ void main() {
         const MemoryGameScreen(pairs: 6),
       );
       await tester.pumpAndSettle();
-      expect(find.textContaining('PAIRS FOUND 0 OF 6'), findsOneWidget);
+      expect(find.text('0 / 6'), findsOneWidget);
       // Twelve cards, all face down.
       expect(find.byKey(const ValueKey<String>('memory-card-back')), findsNWidgets(12));
       await tester.tap(find.byKey(const ValueKey<String>('memory-card-back')).first);
