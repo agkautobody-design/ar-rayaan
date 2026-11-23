@@ -90,6 +90,32 @@ abstract final class LearningLoader {
     return out;
   }
 
+  /// The Seerah Journey: one chapter per story that has questions, in the
+  /// order of the Seerah School, each with its own sourced questions.
+  static Future<List<({String id, String title, List<QuizQuestion> questions})>>
+      seerahJourney() async {
+    final List<Map<String, dynamic>> bank = await _seerahBank();
+    final Map<String, SeerahStory> stories = await _seerahStories();
+    final List<String> order = <String>[
+      for (final String id in <String>{
+        for (final Map<String, dynamic> b in bank) b['story'] as String,
+      }.toList()..sort())
+        id,
+    ];
+    return <({String id, String title, List<QuizQuestion> questions})>[
+      for (final String id in order)
+        if (stories[id] != null)
+          (
+            id: id,
+            title: stories[id]!.title,
+            questions: seerahPool(<Map<String, dynamic>>[
+              for (final Map<String, dynamic> b in bank)
+                if (b['story'] == id) b,
+            ], stories),
+          ),
+    ].where((c) => c.questions.isNotEmpty).toList();
+  }
+
   static Future<List<QuizQuestion>> seerahQuiz(Random rnd, int count) async =>
       buildSeerahQuiz(
         await _seerahBank(),

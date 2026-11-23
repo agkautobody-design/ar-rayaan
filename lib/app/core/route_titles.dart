@@ -57,6 +57,7 @@ abstract final class RouteTitles {
     '/games/memnum': 'Memory Numbers',
     '/games/flashcards': 'Flashcards',
     '/games/matching': 'Matching',
+    '/games/seerahjourney': 'Seerah Journey',
     '/games/jigsaw': 'Jigsaw',
     '/games/familyquiz': 'Family Quiz',
     '/games/cluehunt': 'Clue Hunt',

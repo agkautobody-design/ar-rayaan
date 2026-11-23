@@ -68,6 +68,7 @@ void main() {
                 g.id == 'connect4' ||
                 g.id == 'flashcards' ||
                 g.id == 'matching' ||
+                g.id == 'seerahjourney' ||
                 g.id == 'jigsaw' ||
                 g.id == 'familyquiz' ||
                 g.id == 'draughts' ||
