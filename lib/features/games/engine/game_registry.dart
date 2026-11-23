@@ -376,6 +376,22 @@ const List<GameDef> kGames = <GameDef>[
     howToPlay: LudoRules.howToPlay,
   ),
   GameDef(
+    id: 'familyquiz',
+    title: 'Family Quiz',
+    blurb: 'Two teams, one device, questions from the Seerah and Hadith',
+    category: GameCategory.family,
+    modes: <PlayMode>{PlayMode.passAndPlay},
+    route: '/games/familyquiz',
+    iconKey: 'grid',
+    kind: GameEngineKind.own,
+    maxPlayers: 2,
+    howToPlay: <String>[
+      'Two teams share one device and answer in turn.',
+      'After each answer you see why, and where it comes from.',
+      'Twelve questions, six for each team. Most right answers wins.',
+    ],
+  ),
+  GameDef(
     id: 'memory',
     title: 'Names Memory',
     blurb: 'Match each of Allah’s Names in Arabic to its spelling',
