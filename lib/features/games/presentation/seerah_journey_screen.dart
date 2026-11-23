@@ -7,6 +7,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../data/learning_loader.dart';
 import '../engine/quiz_engine.dart';
+import '../ui/game_stats.dart';
 import '../ui/games_theme.dart';
 import 'puzzle_games.dart';
 
@@ -99,12 +100,27 @@ class _JourneyState extends ConsumerState<SeerahJourneyScreen> {
           const SizedBox(height: 12),
           GamePanel(
             child: Column(children: <Widget>[
+              Icon(
+                pass ? Icons.emoji_events_outlined : Icons.refresh,
+                size: 56,
+                color: AppColors.gold,
+              ),
+              const SizedBox(height: 6),
               Text(pass ? 'Chapter complete' : 'Not quite yet',
                   style: AppText.titleMedium),
               const SizedBox(height: 6),
               Text('$_right of ${c.questions.length} right.',
                   style: AppText.bodyMuted),
             ]),
+          ),
+          const SizedBox(height: 12),
+          GameStatBar(
+            stats: <GameStat>[
+              GameStat(Icons.check_circle_outline, 'Correct',
+                  '$_right / ${c.questions.length}'),
+              GameStat(Icons.track_changes, 'Accuracy',
+                  '${(100 * _right / c.questions.length).round()}%'),
+            ],
           ),
           const SizedBox(height: 12),
           PlayButton(
@@ -128,8 +144,25 @@ class _JourneyState extends ConsumerState<SeerahJourneyScreen> {
       tagline: c.title,
       children: <Widget>[
         const SizedBox(height: 8),
-        Text('Question ${_i + 1} of ${c.questions.length}'.toUpperCase(),
-            style: AppText.eyebrow),
+        GamePanel(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  'Question ${_i + 1} of ${c.questions.length}',
+                  style: AppText.titleMedium.copyWith(
+                    color: GamesTheme.champagne,
+                  ),
+                ),
+              ),
+              GameDots(
+                done: _i + (answered ? 1 : 0),
+                total: c.questions.length,
+              ),
+            ],
+          ),
+        ),
         const SizedBox(height: 8),
         GamePanel(child: Text(q.prompt, style: AppText.body.copyWith(height: 1.5))),
         const SizedBox(height: 10),
@@ -140,6 +173,23 @@ class _JourneyState extends ConsumerState<SeerahJourneyScreen> {
               semanticsLabel: q.options[o],
               onTap: () => _pick(o),
               child: Row(children: <Widget>[
+                Container(
+                  width: 28,
+                  height: 28,
+                  alignment: Alignment.center,
+                  margin: const EdgeInsetsDirectional.only(end: 12),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.goldLight),
+                  ),
+                  child: Text(
+                    String.fromCharCode(65 + o),
+                    style: AppText.body.copyWith(
+                      color: AppColors.goldLight,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: Text(
                     q.options[o],
@@ -178,8 +228,12 @@ class _JourneyState extends ConsumerState<SeerahJourneyScreen> {
       tagline: 'Follow the story, chapter by chapter',
       children: <Widget>[
         const SizedBox(height: 8),
-        Text('${_done.length} of ${chapters.length} chapters complete',
-            style: AppText.bodyMuted),
+        GameStatBar(
+          stats: <GameStat>[
+            GameStat(Icons.flag_outlined, 'Chapters',
+                '${_done.length} of ${chapters.length}'),
+          ],
+        ),
         const SizedBox(height: 10),
         for (int k = 0; k < chapters.length; k++)
           Padding(
