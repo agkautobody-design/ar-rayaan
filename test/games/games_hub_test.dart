@@ -295,7 +295,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('QUESTION 1 OF 3'), findsOneWidget);
+      expect(find.text('Question 1 of 3'), findsOneWidget);
       expect(find.text('Hint (3 left)'), findsOneWidget);
       await tester.tap(find.text('Hint (3 left)'));
       await tester.pump();
@@ -389,7 +389,7 @@ void main() {
           config: QuizConfig(gameId: 'stories', count: 3),
         ),
         width: 360,
-        height: 900,
+        height: 1600,
         scale: 2,
       );
       await tester.pumpAndSettle();
