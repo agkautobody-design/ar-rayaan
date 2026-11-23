@@ -21,7 +21,6 @@ import '../ui/games_theme.dart';
 import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import '../data/race_link.dart';
-import 'game_results_screen.dart';
 import 'race_banner.dart';
 
 /// /games/g/:id/play for the ordering games: the Seerah timeline, Prophets in
@@ -57,6 +56,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
       widget.seed != null ? Random(widget.seed) : Random();
   RaceLink? _race;
   OrderSession? _s;
+  final Stopwatch _clock = Stopwatch();
   bool _loading = true;
   bool _failed = false;
   GameResult? _result;
@@ -102,6 +102,9 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
           _race == null && ref.read(gameSettingsProvider).showHints;
       setState(() {
         _s = OrderSession(rounds, _rnd, hints: hints);
+        _clock
+          ..reset()
+          ..start();
         _loading = false;
         _failed = false;
       });
@@ -231,13 +234,10 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
               myTotal: _s?.total ?? 0,
               iFinished: true,
             ),
-          ResultSummaryView(result: r),
-          const SizedBox(height: 12),
-          Text(
-            'Every round could be repeated until it was right. This is only a '
-            'count of rounds, not a measure of anything else.',
-            textAlign: TextAlign.center,
-            style: AppText.bodyMuted.copyWith(height: 1.5),
+          _OrderResult(
+            title: title,
+            session: _s!,
+            elapsed: _clock.elapsed,
           ),
         ],
       ),
@@ -311,8 +311,33 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
             palette: pal,
             child: Column(
               children: <Widget>[
-                for (int p = 0; p < shown.length; p++)
-                  Padding(
+                ReorderableListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  buildDefaultDragHandles: false,
+                  itemCount: shown.length,
+                  proxyDecorator: (Widget child, int i, Animation<double> a) =>
+                      Material(color: Colors.transparent, child: child),
+                  onReorder: (int from, int to) {
+                    if (s.solved) return;
+                    int at = from;
+                    final int target = to > from ? to - 1 : to;
+                    bool moved = false;
+                    while (at < target && s.moveDown(at)) {
+                      at++;
+                      moved = true;
+                    }
+                    while (at > target && s.moveUp(at)) {
+                      at--;
+                      moved = true;
+                    }
+                    if (moved) {
+                      gameHaptic(ref);
+                      setState(() {});
+                    }
+                  },
+                  itemBuilder: (BuildContext context, int p) => Padding(
+                    key: ValueKey<String>(shown[p].id),
                     padding: EdgeInsets.only(
                       bottom: p == shown.length - 1 ? 0 : 8,
                     ),
@@ -321,6 +346,8 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
                       count: shown.length,
                       item: shown[p],
                       palette: pal,
+                      art: _artPath(shown[p]),
+                      showDetail: s.solved,
                       locked: s.locked.contains(p),
                       solved: s.solved,
                       rightPlace: (wrongShown || s.solved) &&
@@ -339,6 +366,7 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
                       },
                     ),
                   ),
+                ),
               ],
             ),
           ),
@@ -424,6 +452,18 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
     );
   }
 
+  /// A name for a card's picture: the words of its label, lower case, joined
+  /// by dashes ("Wash hands" is "wash-hands").
+  static String _slug(String label) => label
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+
+  /// Where the card's picture lives, once one has been supplied:
+  /// assets/games/order/<game>/<slug>.webp. Cards without one show no picture.
+  String _artPath(OrderItem i) =>
+      'assets/games/order/${widget.gameId}/${_slug(i.label)}.webp';
+
   String _askText(OrderRound r) => HadiGameAsk.order(
         items: <String>[for (final OrderItem i in r.items) i.label],
         explanation: r.explanation,
@@ -437,6 +477,8 @@ class _OrderCard extends StatelessWidget {
     required this.count,
     required this.item,
     required this.palette,
+    required this.art,
+    required this.showDetail,
     required this.locked,
     required this.solved,
     required this.rightPlace,
@@ -448,6 +490,8 @@ class _OrderCard extends StatelessWidget {
   final int count;
   final OrderItem item;
   final GamePalette palette;
+  final String art;
+  final bool showDetail;
   final bool locked;
   final bool solved;
   final bool rightPlace;
@@ -475,6 +519,30 @@ class _OrderCard extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
+            if (canMove)
+              ReorderableDragStartListener(
+                index: position,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: ExcludeSemantics(
+                    child: Icon(Icons.drag_indicator,
+                        size: 22, color: palette.accent),
+                  ),
+                ),
+              ),
+            ExcludeSemantics(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  art,
+                  width: 56,
+                  height: 56,
+                  fit: BoxFit.cover,
+                  errorBuilder: (BuildContext c, Object e, StackTrace? st) =>
+                      const SizedBox.shrink(),
+                ),
+              ),
+            ),
             ExcludeSemantics(
               child: Container(
                 width: 30,
@@ -498,14 +566,29 @@ class _OrderCard extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: ExcludeSemantics(
-                child: Text(
-                  item.label,
-                  style: TextStyle(
-                    fontFamily: AppFonts.body,
-                    fontSize: 16,
-                    height: 1.35,
-                    color: palette.text,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      item.label,
+                      style: TextStyle(
+                        fontFamily: AppFonts.body,
+                        fontSize: 16,
+                        height: 1.35,
+                        color: palette.text,
+                      ),
+                    ),
+                    if (showDetail && item.detail != null)
+                      Text(
+                        item.detail!,
+                        style: TextStyle(
+                          fontFamily: AppFonts.body,
+                          fontSize: 13,
+                          height: 1.35,
+                          color: palette.text.withValues(alpha: 0.75),
+                        ),
+                      ),
+                  ],
                 ),
               ),
             ),
@@ -544,6 +627,93 @@ class _OrderCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+/// The finish page, as designed: a heading, steps and accuracy and time, then
+/// every round in its right order.
+class _OrderResult extends StatelessWidget {
+  const _OrderResult({
+    required this.title,
+    required this.session,
+    required this.elapsed,
+  });
+
+  final String title;
+  final OrderSession session;
+  final Duration elapsed;
+
+  @override
+  Widget build(BuildContext context) {
+    final int total = session.total;
+    final int first = session.firstTry;
+    final int pct = total == 0 ? 0 : (first * 100 / total).round();
+    final String time =
+        '${elapsed.inMinutes}:${(elapsed.inSeconds % 60).toString().padLeft(2, '0')}';
+    Widget stat(IconData icon, String big, String small) => Expanded(
+          child: Column(
+            children: <Widget>[
+              Icon(icon, color: AppColors.goldLight),
+              const SizedBox(height: 4),
+              Text(big, style: AppText.titleMedium),
+              Text(small, style: AppText.caption, textAlign: TextAlign.center),
+            ],
+          ),
+        );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        const SizedBox(height: 8),
+        Text('$title complete',
+            textAlign: TextAlign.center, style: AppText.displayMedium),
+        const SizedBox(height: 6),
+        Text(
+          first == total
+              ? 'Alhamdulillah! Every round was right on the first check.'
+              : 'Well done. Every round is now in its right order.',
+          textAlign: TextAlign.center,
+          style: AppText.bodyMuted.copyWith(height: 1.5),
+        ),
+        const SizedBox(height: 14),
+        GamePanel(
+          child: Row(
+            children: <Widget>[
+              stat(Icons.layers_outlined, '$first/$total', 'Right first check'),
+              stat(Icons.track_changes, '$pct%', 'Accuracy'),
+              stat(Icons.timer_outlined, time, 'Time taken'),
+            ],
+          ),
+        ),
+        const SizedBox(height: 14),
+        SectionHeading(title: 'The correct order'),
+        for (final OrderRound r in session.rounds)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: GamePanel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(r.prompt,
+                      style: AppText.bodyMuted.copyWith(height: 1.4)),
+                  const SizedBox(height: 8),
+                  for (int k = 0; k < r.items.length; k++)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Text('${k + 1}. ${r.items[k].label}',
+                          style: AppText.body),
+                    ),
+                  const SizedBox(height: 6),
+                  Text(r.explanation,
+                      style: AppText.bodyMuted.copyWith(height: 1.5)),
+                  const SizedBox(height: 4),
+                  Text('Source: ${r.citation}', style: AppText.caption),
+                ],
+              ),
+            ),
+          ),
+      ],
     );
   }
 }
