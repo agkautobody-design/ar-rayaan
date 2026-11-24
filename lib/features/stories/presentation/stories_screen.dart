@@ -14,6 +14,7 @@ import '../../../app/router.dart';
 import '../data/stories_repository.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story.dart';
+import '../story_art.dart';
 import '../domain/story_length.dart';
 import 'source_label_chip.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -283,7 +284,7 @@ class _StoryCard extends StatelessWidget {
                     width: 64,
                     height: 64,
                     child: Image.asset(
-                      'assets/story_art/${story.id}.webp',
+                      storyArtAsset(story.id),
                       fit: BoxFit.cover,
                       excludeFromSemantics: true,
                       errorBuilder: (BuildContext c, Object e, StackTrace? s) =>
