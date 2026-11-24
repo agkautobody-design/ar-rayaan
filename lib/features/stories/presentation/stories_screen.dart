@@ -276,14 +276,14 @@ class _StoryCard extends StatelessWidget {
             return Row(
               children: [
                 // The story's own picture once one has been supplied
-                // (assets/stories/art/<id>.webp); until then, the book mark.
+                // (assets/story_art/<id>.webp); until then, the book mark.
                 ClipRRect(
                   borderRadius: BorderRadius.circular(14),
                   child: SizedBox(
                     width: 64,
                     height: 64,
                     child: Image.asset(
-                      'assets/stories/art/${story.id}.webp',
+                      'assets/story_art/${story.id}.webp',
                       fit: BoxFit.cover,
                       excludeFromSemantics: true,
                       errorBuilder: (BuildContext c, Object e, StackTrace? s) =>
