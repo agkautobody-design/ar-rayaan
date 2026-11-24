@@ -129080,7 +129080,7 @@ if(s.gaap())p.push(B.cqP)
 if(s.gaao()){o=s.f
 o=!(o==="Seerah report (source not checked)"||o==="Hadith report (reference not checked)")}else o=!1
 if(o)p.push(B.cqR)
-o=A.hC(A.aK(14),A.bV(A.lm("assets/stories/art/"+s.a+".webp",B.K,new A.ckZ(),!0,B.bK,B.cc,!1,j,j,j),64,64),B.b_)
+o=A.hC(A.aK(14),A.bV(A.lm("assets/story_art/"+s.a+".webp",B.K,new A.ckZ(),!0,B.bK,B.cc,!1,j,j,j),64,64),B.b_)
 n=A.c(s.c,j,j,j,j,j,j,B.A,j,j,j)
 m=B.m.j1(A.cVo(s)/150)
 n=A.a([n,A.c(""+(m<1?1:m)+" min read",j,j,j,j,j,j,B.f,j,j,j),B.aN,A.c(s.e,j,j,2,B.aM,j,j,B.f,j,j,j)],q)
