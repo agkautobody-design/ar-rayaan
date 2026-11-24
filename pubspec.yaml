@@ -88,6 +88,8 @@ flutter:
     - assets/games/chess/squares/
     - assets/games/chess/boards/
     - assets/games/art/
+    - assets/games/rites/
+    - assets/games/jigsaw/
     - assets/games/order/hajj-map/
     - assets/games/order/islamic-history/
     - assets/games/order/salah-wudu/

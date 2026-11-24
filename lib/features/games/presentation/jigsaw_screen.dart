@@ -10,13 +10,11 @@ import '../ui/games_theme.dart';
 import 'puzzle_games.dart';
 
 const List<String> _pictures = <String>[
-  'assets/images/tiles/tile_calendar.jpg',
-  'assets/images/tiles/tile_dhikr.jpg',
-  'assets/images/tiles/tile_hadith.jpg',
-  'assets/images/tiles/tile_journey.jpg',
-  'assets/images/tiles/tile_knowledge.jpg',
-  'assets/images/tiles/tile_prayer.jpg',
-  'assets/images/tiles/tile_quran.jpg',
+  'assets/games/jigsaw/1.webp',
+  'assets/games/jigsaw/2.webp',
+  'assets/games/jigsaw/3.webp',
+  'assets/games/jigsaw/4.webp',
+  'assets/games/jigsaw/5.webp',
 ];
 
 /// Jigsaw: the picture is cut into squares and shuffled. Tap one piece, then
