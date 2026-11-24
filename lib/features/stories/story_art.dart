@@ -94,13 +94,43 @@ const Map<String, String> _duaThemes = <String, String>{
   'ghayb-2am-why': 'ghayb-theme-night',
   'ghayb-2am-where-allah': 'ghayb-theme-night',
   'ghayb-2am-why-worship': 'ghayb-theme-night',
+  'newmuslim-01': 'newmuslim-theme-door',
+  'newmuslim-02': 'newmuslim-theme-mosque',
+  'newmuslim-03': 'prayer',
+  'newmuslim-04': 'newmuslim-theme-wudu',
+  'newmuslim-05': 'prayer',
+  'newmuslim-06': 'newmuslim-theme-quran',
+  'newmuslim-07': 'newmuslim-theme-mosque',
+  'newmuslim-08': 'newmuslim-theme-mosque',
+  'newmuslim-09': 'food',
+  'newmuslim-10': 'newmuslim-theme-door',
+  'newmuslim-11': 'newmuslim-theme-quran',
+  'newmuslim-12': 'prayer',
+  'newmuslim-13': 'prayer',
+  'newmuslim-14': 'newmuslim-theme-giving',
+  'newmuslim-15': 'newmuslim-theme-quran',
+  'newmuslim-16': 'prayer',
+  'newmuslim-17': 'family',
+  'newmuslim-18': 'newmuslim-theme-mosque',
+  'newmuslim-19': 'food',
+  'newmuslim-20': 'newmuslim-theme-door',
+  'newmuslim-21': 'prayer',
+  'newmuslim-22': 'morning',
+  'newmuslim-23': 'distress',
+  'newmuslim-24': 'newmuslim-theme-giving',
+  'newmuslim-25': 'newmuslim-theme-ramadan',
+  'newmuslim-26': 'newmuslim-theme-mosque',
+  'newmuslim-27': 'newmuslim-theme-quran',
+  'newmuslim-28': 'newmuslim-theme-quran',
+  'newmuslim-29': 'newmuslim-theme-giving',
+  'newmuslim-30': 'newmuslim-theme-door',
 };
 
 /// Asset path of the picture for [storyId].
 String storyArtAsset(String storyId) {
   final String? theme = _duaThemes[storyId];
   if (theme == null) return 'assets/story_art/$storyId.webp';
-  return theme.startsWith('ghayb-')
+  return theme.contains('-theme-')
       ? 'assets/story_art/$theme.webp'
       : 'assets/story_art/dua-theme-$theme.webp';
 }
