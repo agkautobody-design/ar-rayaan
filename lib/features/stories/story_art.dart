@@ -124,6 +124,18 @@ const Map<String, String> _duaThemes = <String, String>{
   'newmuslim-28': 'newmuslim-theme-quran',
   'newmuslim-29': 'newmuslim-theme-giving',
   'newmuslim-30': 'newmuslim-theme-door',
+  'sign-02': 'sign-theme-moon',
+  'sign-07': 'sign-theme-sun',
+  'tale-cave': 'tale-theme-cave',
+  'tale-cave-people': 'tale-theme-cave',
+  'tale-two-gardens': 'tale-theme-garden',
+  'tale-dog': 'tale-theme-mercy',
+  'tale-umar-milk': 'tale-theme-mercy',
+  'tale-99': 'tale-theme-journey',
+  'tale-yasin': 'tale-theme-journey',
+  'tale-dhul-qarnayn': 'tale-theme-journey',
+  'tale-uwais': 'tale-theme-journey',
+  'tale-khalid-letter': 'tale-theme-journey',
 };
 
 /// Asset path of the picture for [storyId].
