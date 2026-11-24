@@ -162,12 +162,19 @@ class _HajjMapState extends State<HajjMapChallengeScreen> {
               style: AppText.eyebrow),
           const SizedBox(height: 8),
           GamePanel(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
               children: <Widget>[
-                Text(r.name, style: AppText.titleMedium),
-                const SizedBox(height: 4),
-                Text(r.line, style: AppText.bodyMuted),
+                _RitePic(r.name),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(r.name, style: AppText.titleMedium),
+                      const SizedBox(height: 4),
+                      Text(r.line, style: AppText.bodyMuted),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -213,6 +220,7 @@ class _HajjMapState extends State<HajjMapChallengeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(children: <Widget>[
+                    _RitePic(r.name),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,4 +274,39 @@ class _HajjMapState extends State<HajjMapChallengeScreen> {
           Text(small, style: AppText.caption),
         ],
       );
+}
+
+/// A rite's picture (assets/games/rites/<name>.webp) when there is one.
+class _RitePic extends StatelessWidget {
+  const _RitePic(this.name);
+
+  final String name;
+
+  static const Map<String, String> _files = <String, String>{
+    'Tawaf': 'tawaf',
+    'Wuquf at Arafat': 'arafat',
+    'Stay in Muzdalifah': 'muzdalifah',
+    'Ramy al-Jamarat': 'jamarat',
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    final String? f = _files[name];
+    if (f == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsetsDirectional.only(end: 12),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          'assets/games/rites/$f.webp',
+          width: 64,
+          height: 64,
+          fit: BoxFit.cover,
+          excludeFromSemantics: true,
+          errorBuilder: (BuildContext c, Object e, StackTrace? st) =>
+              const SizedBox.shrink(),
+        ),
+      ),
+    );
+  }
 }
