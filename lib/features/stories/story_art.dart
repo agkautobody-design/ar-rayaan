@@ -201,6 +201,16 @@ const Map<String, String> _duaThemes = <String, String>{
   'sign-12': 'sign-theme-promise',
   'sign-05': 'sign-theme-smoke',
   'sign-11': 'sign-theme-fire',
+  'sign-03': 'sign-theme-minor',
+  'sign-04': 'sign-theme-ten',
+  'sign-06': 'sign-theme-beast',
+  'sign-08': 'sign-theme-dajjal',
+  'sign-09': 'sign-theme-isa',
+  'sign-10': 'sign-theme-yajuj',
+  'tale-jurayj': 'tale-theme-worship',
+  'tale-barsisa': 'tale-theme-temptation',
+  'tale-boy-king': 'tale-theme-king',
+  'tale-crow': 'tale-theme-brothers',
 };
 
 /// Asset path of the picture for [storyId].
