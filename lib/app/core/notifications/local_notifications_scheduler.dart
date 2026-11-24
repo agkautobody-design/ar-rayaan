@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 
+import 'adhan_notification_bridge.dart';
 import 'notification_ids.dart';
 import 'prayer_notification_scheduler.dart';
 
@@ -34,6 +35,9 @@ class LocalNotificationsScheduler
   bool _ready = false;
 
   static const String _prayerChannel = 'prayer_times';
+  // A channel's sound cannot change once created, so the adhan sound lives on
+  // its own channel.
+  static const String _adhanChannel = 'prayer_times_adhan';
   static const String _reminderChannel = 'zakat_reminders';
   static const String _academyChannel = 'academy_reminders';
 
@@ -55,8 +59,20 @@ class LocalNotificationsScheduler
             requestSoundPermission: false,
           ),
         ),
+        onDidReceiveNotificationResponse: AdhanNotificationBridge.onResponse,
       );
       _ready = true;
+      try {
+        final NotificationAppLaunchDetails? launch = await _plugin
+            .getNotificationAppLaunchDetails();
+        if (launch != null &&
+            launch.didNotificationLaunchApp &&
+            AdhanNotificationBridge.isPrayerPayload(
+              launch.notificationResponse?.payload,
+            )) {
+          AdhanNotificationBridge.tapped.value++;
+        }
+      } catch (_) {}
     } catch (_) {
       _ready = false;
     }
@@ -120,6 +136,26 @@ class LocalNotificationsScheduler
   }
 
   NotificationDetails _details(String channel) {
+    if (channel == _adhanChannel) {
+      return const NotificationDetails(
+        android: AndroidNotificationDetails(
+          _adhanChannel,
+          'Prayer times (adhan)',
+          channelDescription:
+              'The adhan sounds at each prayer time you switched on.',
+          importance: Importance.max,
+          priority: Priority.max,
+          playSound: true,
+          sound: RawResourceAndroidNotificationSound('adhan'),
+          audioAttributesUsage: AudioAttributesUsage.alarm,
+        ),
+        iOS: DarwinNotificationDetails(
+          presentAlert: true,
+          presentSound: true,
+          presentBadge: false,
+        ),
+      );
+    }
     final bool prayer = channel == _prayerChannel;
     final bool academy = channel == _academyChannel;
     return NotificationDetails(
@@ -191,8 +227,13 @@ class LocalNotificationsScheduler
           title: p.title,
           body: p.body,
           scheduledDate: _zoned(p.at),
-          notificationDetails: _details(_prayerChannel),
+          // The prayer-time notification carries the adhan; the "in 15
+          // minutes" heads-up (a lead id) keeps the plain sound.
+          notificationDetails: _details(
+            p.id >= kLeadIdOffset ? _prayerChannel : _adhanChannel,
+          ),
           androidScheduleMode: mode,
+          payload: p.id >= kLeadIdOffset ? null : 'prayer_${p.prayer}',
         );
       }
     } catch (_) {

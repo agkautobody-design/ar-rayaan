@@ -1,46 +1,29 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show ValueNotifier, kIsWeb;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-/// Bridges prayer notifications to Adhan audio playback.
-/// Call [register] in main() to wire up the notification response handler.
+/// Connects a tapped prayer notification to the full adhan inside the app.
+///
+/// The phone's own notification can only carry a short clip of the adhan
+/// (the Android channel sound); the full recording plays here, when the person
+/// opens the app from the notification. [WorshipBoot] listens to [tapped] and
+/// starts the adhan service.
 class AdhanNotificationBridge {
-  static final FlutterLocalNotificationsPlugin _notifications =
-      FlutterLocalNotificationsPlugin();
+  /// Counts prayer-notification taps; listeners play the adhan on change.
+  static final ValueNotifier<int> tapped = ValueNotifier<int>(0);
 
-  /// Register the notification tap handler that plays Adhan.
+  /// True when [payload] belongs to a prayer-time notification.
+  static bool isPrayerPayload(String? payload) =>
+      payload != null &&
+      (payload.startsWith('prayer_') || payload.startsWith('adhan_'));
+
+  /// Handler given to the notification plugin at initialisation (the same one
+  /// everywhere, so a second initialisation never drops it).
+  static void onResponse(NotificationResponse response) {
+    if (isPrayerPayload(response.payload)) tapped.value++;
+  }
+
+  /// Kept for the boot sequence; the scheduler registers [onResponse] itself.
   static void register() {
-    // No local notifications exist on web; registering would throw at boot.
     if (kIsWeb) return;
-    _notifications.initialize(
-      settings: const InitializationSettings(
-        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-        iOS: DarwinInitializationSettings(),
-      ),
-      onDidReceiveNotificationResponse: _onNotificationTapped,
-    );
-  }
-
-  static void _onNotificationTapped(NotificationResponse response) {
-    final payload = response.payload;
-    if (payload == null) return;
-
-    // Check if this is a prayer notification
-    if (payload.startsWith('prayer_') || payload.startsWith('adhan_')) {
-      debugPrint('Adhan notification tapped: $payload');
-      // Play Adhan audio
-      _playAdhan();
-    }
-  }
-
-  static Future<void> _playAdhan() async {
-    try {
-      // The AdhanService is a Notifier, so we need to access it via Provider
-      // This will be called from a context where Provider is available
-      // For now, we use a static reference or event bus pattern
-      debugPrint('Playing Adhan...');
-    } catch (e) {
-      debugPrint('Failed to play Adhan: $e');
-    }
   }
 }
