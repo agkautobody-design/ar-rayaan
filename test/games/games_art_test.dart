@@ -70,6 +70,7 @@ void main() {
                 g.id == 'matching' ||
                 g.id == 'hajjmapchallenge' ||
                 g.id == 'seerahjourney' ||
+                g.id == 'gooddeeds' ||
                 g.id == 'jigsaw' ||
                 g.id == 'familyquiz' ||
                 g.id == 'draughts' ||

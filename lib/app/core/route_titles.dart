@@ -59,6 +59,7 @@ abstract final class RouteTitles {
     '/games/matching': 'Matching',
     '/games/hajjmapchallenge': 'Hajj Map Challenge',
     '/games/seerahjourney': 'Seerah Journey',
+    '/games/gooddeeds': 'Good Deeds',
     '/games/jigsaw': 'Jigsaw',
     '/games/familyquiz': 'Family Quiz',
     '/games/cluehunt': 'Clue Hunt',
