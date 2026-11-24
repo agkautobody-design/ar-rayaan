@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import '../../../app/core/open_link.dart';
 
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
-import '../../../app/core/notifications/web_notifier.dart';
 import '../../../app/core/sound/sound_services.dart';
 import '../../../app/core/tight_layout.dart';
 import '../../../app/router.dart';
@@ -125,21 +124,6 @@ class _ScheduleState extends ConsumerState<_Schedule> {
   PrayerTimes get data => widget.data;
   DateTime get now => widget.now;
 
-  /// A toggled prayer's time just arrived — fire the full alert once:
-  /// in-app banner (via provider state), adhan sound, browser notification.
-  void _onAlert(String? prayer) {
-    if (prayer == null) return;
-    ref
-        .read(firedAlertsProvider.notifier)
-        .markFired(alertKey(data.wallClock(now), prayer));
-    ref.read(alertBannerProvider.notifier).show(prayer);
-    ref.read(adhanServiceProvider.notifier).playAdhan();
-    WebNotifier.show(
-      'It is now $prayer time',
-      '$prayer · ${data.locationLabel} — Ar-Rayaan',
-    );
-  }
-
   String _countdown(DateTime target) {
     final Duration d = target.difference(data.wallClock(now));
     final int h = d.inHours;
@@ -150,7 +134,6 @@ class _ScheduleState extends ConsumerState<_Schedule> {
 
   @override
   Widget build(BuildContext context) {
-    ref.listen(activeAlertProvider, (_, String? next) => _onAlert(next));
     final (String nextName, DateTime nextTime) = data.nextPrayer(now);
     final bool adhanPlaying = ref.watch(adhanServiceProvider);
     final String? alert = ref.watch(alertBannerProvider);
