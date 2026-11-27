@@ -1,4 +1,6 @@
 import '../../../app/core/scholar_review.dart';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,6 +33,27 @@ String _greeting(int daysReturned) {
       ? 'As-salamu alaikum. $part I’m Sakina.'
       : 'Welcome back. $part I’m glad you’re here.';
 }
+
+/// Small, human check-ins Hādi opens with. One is drawn each time Sakina is
+/// opened (autoDispose resets on leave), so it never reads like a recording.
+const List<String> kHadiCheckIns = <String>[
+  'Hey, what’s on your mind today?',
+  'How’s life treating you lately?',
+  'How are you, really?',
+  'Anything sitting heavy on you today?',
+  'Tell me one good thing and one hard thing about today.',
+  'What’s been taking up space in your head?',
+  'How did you sleep? How’s your heart this morning?',
+  'Long day? I’m here if you want to unload.',
+  'What’s one thing you wish someone asked you today?',
+  'How’s the family? How’s work? How are you in all of it?',
+  'Quiet moment here. What would you like to say out loud?',
+  'Not looking for anything in particular? That’s fine too. How are you?',
+];
+
+final AutoDisposeProvider<String> hadiCheckInProvider =
+    Provider.autoDispose<String>((Ref ref) =>
+        kHadiCheckIns[math.Random().nextInt(kHadiCheckIns.length)]);
 
 /// Everyday starting points: (chip label, first-person sentence Hādi opens
 /// with). Phrased as a disclosure so the listening side of Hādi answers.
@@ -106,6 +129,15 @@ class SakinaScreen extends ConsumerWidget {
                         Text(
                           _greeting(daysReturned),
                           style: AppText.titleMedium.copyWith(
+                            color: AppColors.sand,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          ref.watch(hadiCheckInProvider),
+                          style: AppText.body.copyWith(
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic,
                             color: AppColors.sand,
                           ),
                         ),
