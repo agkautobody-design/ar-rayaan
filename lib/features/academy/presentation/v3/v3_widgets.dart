@@ -19,6 +19,12 @@ import '../../domain/v3/phrase_resolver.dart';
 
 String t(String key) => AcademyStrings.get(key);
 
+/// True from the moment the learner presses a "Hear it" button until they
+/// press Stop (or leave the lesson). While true, the lesson player carries on
+/// to the next recitation by itself, so nobody has to keep pressing it.
+final AutoDisposeStateProvider<bool> continuousListenProvider =
+    StateProvider.autoDispose<bool>((Ref ref) => false);
+
 /// A big Arabic line: right to left, Amiri, wraps at any text size.
 class ArabicText extends StatelessWidget {
   const ArabicText(this.text, {super.key, this.size = 30, this.color});
@@ -264,9 +270,11 @@ class HearButton extends ConsumerWidget {
             final RecitationPlayerNotifier n =
                 ref.read(recitationPlayerProvider.notifier);
             if (playing) {
+              ref.read(continuousListenProvider.notifier).state = false;
               unawaited(n.stop());
               return;
             }
+            ref.read(continuousListenProvider.notifier).state = true;
             unawaited(n.playPlan(RecitationPlanEngine.buildPlan(
               range: _refs,
               perAyahRepeat: 1,
