@@ -1,0 +1,601 @@
+{
+ "schema": 1,
+ "pack": "waswas_ocd",
+ "packKind": "support",
+ "topic": "waswas_ocd",
+ "description": "Waswas and OCD-type doubts: intrusive thoughts are not you, resist rechecking, treatment works, scholar can confirm rulings.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "waswas_ocd.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm glad you told me. These doubts are exhausting, and they are far more common than people admit. What do they say to you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "No judgment. Tell me what keeps coming back and what you do to quiet it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like no matter how many times you check, it never feels finished."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas"],
+   "triggers": ["again", "repeat", "check", "redo"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the doubts target the things you love most, your prayer and your faith."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas"],
+   "triggers": ["prayer", "wudu", "salah", "faith"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're afraid these thoughts mean something terrible about you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas"],
+   "triggers": ["blasphem", "evil", "thoughts"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you spend a lot of time and energy just trying to be sure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas"],
+   "triggers": ["sure", "certain", "clean"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What are the thoughts or doubts, in your own words?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What do you do afterwards to feel safe, repeat, wash, ask someone?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How long does it take, and what has it taken from your day?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Do you feel relief that lasts, or does it come back?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you felt you couldn't go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "The fact that these thoughts distress you shows how much you care about doing right."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Telling someone is brave. These doubts lose some of their grip when spoken."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Intrusive thoughts are common and do not reflect your will. What matters is that you hate them, and that is not how a person who wants them feels."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "normal"],
+   "triggers": ["blasphem", "evil", "thoughts", "intrusive"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Repeating, rechecking and reassurance bring a short relief and teach the mind to ask again. Gently resisting the urge, a little more each day, is how the loop weakens."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "normal"],
+   "triggers": ["repeat", "check", "again", "sure"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars distinguish ordinary doubt from obsessive doubt. For the person caught in waswas, the guidance is generally to ignore the doubt rather than keep checking. A qualified scholar who understands this can confirm what applies to you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "normal"],
+   "triggers": ["wudu", "prayer", "salah", "doubt"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: when the doubt comes, say it's waswas, I will not check, and do the next thing you were doing. Notice that you can bear the discomfort."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one repeating habit and cut it by one repetition today."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write the thought down and the urge that followed. Naming it separates you from it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: seek refuge in Allah from the whisperer once, calmly, and carry on with your prayer without redoing it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "suicide", "crisis"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Waswas and OCD respond well to treatment. A doctor or therapist who knows exposure and response prevention can help, and a scholar can advise on religious rulings. You can say: \"I have repeating doubts and rituals that take over my day.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "doctor", "script"],
+   "triggers": ["weeks", "months", "worse", "work", "sleep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says to seek refuge in Him from the whisperer who whispers in the hearts of people. Refuge is the answer, not an argument."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "mercy"],
+   "triggers": ["whisper", "shaytan", "waswas"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "114:4-5", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah does not burden a soul beyond what it can bear. He does not hold you to what you cannot control, including thoughts that arrive uninvited."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "mercy"],
+   "triggers": ["punish", "sin", "burden"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:286", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love has waswas or OCD, don't join the rituals or reassure endlessly. Be kind, say you believe it is hard, and encourage treatment."
+   },
+   "ageBand": ["adult"],
+   "tags": ["waswas", "family-of"],
+   "triggers": ["my wife", "my husband", "my son", "my daughter", "my friend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Intrusive doubts and compulsions: reassurance-seeking and rechecking keep them going; treatment with a clinician (exposure and response prevention) is effective. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "waswas_ocd.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["waswas", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

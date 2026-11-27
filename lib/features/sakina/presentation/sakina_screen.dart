@@ -1,4 +1,6 @@
 import '../../../app/core/scholar_review.dart';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart' hide Text;
 import '../../../app/theme/widgets/tr_text.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,12 +11,80 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../hadi/application/hadi_controller.dart';
 import '../../support/application/support_settings.dart';
+import '../../support/presentation/need_help_screen.dart' show kNeedHelpOpener;
 import '../../support/presentation/privacy_shield.dart';
 import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
 import 'widgets/need_help_button.dart';
+
+String _greeting(int daysReturned) {
+  final int h = DateTime.now().hour;
+  final String part = h < 5
+      ? 'Still up?'
+      : h < 12
+          ? 'Good morning.'
+          : h < 18
+              ? 'Good afternoon.'
+              : 'Good evening.';
+  return daysReturned <= 1
+      ? 'As-salamu alaikum. $part I’m Sakina.'
+      : 'Welcome back. $part I’m glad you’re here.';
+}
+
+/// Small, human check-ins Hādi opens with. One is drawn each time Sakina is
+/// opened (autoDispose resets on leave), so it never reads like a recording.
+const List<String> kHadiCheckIns = <String>[
+  'Hey, what’s on your mind today?',
+  'How’s life treating you lately?',
+  'How are you, really?',
+  'Anything sitting heavy on you today?',
+  'Tell me one good thing and one hard thing about today.',
+  'What’s been taking up space in your head?',
+  'How did you sleep? How’s your heart this morning?',
+  'Long day? I’m here if you want to unload.',
+  'What’s one thing you wish someone asked you today?',
+  'How’s the family? How’s work? How are you in all of it?',
+  'Quiet moment here. What would you like to say out loud?',
+  'Not looking for anything in particular? That’s fine too. How are you?',
+];
+
+final AutoDisposeProvider<String> hadiCheckInProvider =
+    Provider.autoDispose<String>((Ref ref) =>
+        kHadiCheckIns[math.Random().nextInt(kHadiCheckIns.length)]);
+
+/// Everyday starting points: (chip label, first-person sentence Hādi opens
+/// with). Phrased as a disclosure so the listening side of Hādi answers.
+const List<(String, String)> _everydayTopics = <(String, String)>[
+  ('I can’t switch my mind off',
+      'I am overthinking everything and I cannot switch my mind off, even at night.'),
+  ('I’m stressed and overwhelmed',
+      'I am so stressed and overwhelmed and I do not know where to start.'),
+  ('I feel low or empty',
+      'I feel low and empty and I do not know why.'),
+  ('I’m lonely',
+      'I feel lonely and I have no one to talk to.'),
+  ('I’m angry a lot',
+      'I get angry so fast and I hate who I am becoming.'),
+  ('I’m exhausted',
+      'I am exhausted from work and life and I have nothing left.'),
+  ('My family is a lot right now',
+      'My family does not understand me and home hurts right now. I need to talk about it.'),
+  ('My marriage is hurting',
+      'My marriage is hurting me. We keep having the same fight and I do not know how to reach them anymore.'),
+  ('Money worries',
+      'I am drowning in bills and debt and I cannot see a way through. I need to say it out loud to someone.'),
+  ('Whispers and doubts',
+      'The whispers and doubts will not leave me alone and I am worn out by them.'),
+  ('I feel far from Allah',
+      'I feel far from Allah and it hurts. I do not know how to come back.'),
+  ('A habit keeps pulling me back',
+      'I am struggling with a habit I hate and I feel ashamed. I keep going back to it and I do not want to.'),
+  ('I just need to be heard',
+      'I just need someone to hear me. I do not want advice yet, I just need to say it to someone who will not judge me.'),
+];
 
 /// Sakina — the soul of the app (crisis shell, Wave A4).
 /// Locked look: hero word of mercy → rooms → comfort deck → human help.
@@ -49,50 +119,90 @@ class SakinaScreen extends ConsumerWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
-                  // The door.
+                  // The door: Sakina speaks first, in her own voice.
                   GlassCard(
                     strong: true,
                     padding: const EdgeInsets.all(18),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'No judgment lives here. Only the door back.',
-                          style: AppText.body.copyWith(
-                            fontSize: 14,
-                            height: 1.7,
-                            color: AppColors.sand.withValues(alpha: 0.95),
-                            fontStyle: FontStyle.italic,
+                          _greeting(daysReturned),
+                          style: AppText.titleMedium.copyWith(
+                            color: AppColors.sand,
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: 12),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 7,
+                        const SizedBox(height: 8),
+                        Text(
+                          ref.watch(hadiCheckInProvider),
+                          style: AppText.body.copyWith(
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic,
+                            color: AppColors.sand,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: AppColors.gold.withValues(alpha: 0.4),
-                            ),
-                            color: AppColors.gold.withValues(alpha: 0.08),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Hard day, slow day, or a day with nothing in '
+                          'particular wrong: you can say it here. I listen '
+                          'first. Then, if you want help, we work out one '
+                          'small thing that makes today easier. No judgment, '
+                          'no lecture.',
+                          style: AppText.body.copyWith(
+                            fontSize: 14.5,
+                            height: 1.6,
+                            color: AppColors.sand.withValues(alpha: 0.95),
                           ),
-                          child: Text(
-                            daysReturned <= 1
-                                ? 'Welcome. This door is always open.'
-                                : 'Welcome back, glad you’re here. You have '
-                                      'stopped by on $daysReturned days.',
-                            style: AppText.caption.copyWith(
-                              color: AppColors.gold,
+                        ),
+                        const SizedBox(height: 14),
+                        SizedBox(
+                          width: double.infinity,
+                          child: FilledButton.icon(
+                            key: const Key('sakina-talk-hadi'),
+                            style: FilledButton.styleFrom(
+                              minimumSize: const Size(48, 52),
+                              backgroundColor: AppColors.gold,
+                              foregroundColor: AppColors.night,
                             ),
+                            onPressed: () async {
+                              await ref
+                                  .read(hadiControllerProvider.notifier)
+                                  .openFromSupport(kNeedHelpOpener);
+                              if (context.mounted) context.open(AppRoutes.hadi);
+                            },
+                            icon: const Icon(Icons.chat_bubble_outline),
+                            label: const Text('Talk to Hādi'),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  const Center(child: NeedHelpNowButton()),
+                  const SizedBox(height: 16),
+
+                  // Everyday starting points: tap one and Hādi opens with it.
+                  Text(
+                    'WHAT’S ON YOUR MIND?',
+                    style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Tap whatever is closest. You can change your mind once '
+                    'we start talking.',
+                    style: AppText.caption,
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: <Widget>[
+                      for (final (String, String) t in _everydayTopics)
+                        ActionChip(
+                          key: Key('sakina-topic-${t.$1}'),
+                          label: Text(t.$1),
+                          onPressed: () => context.open(AppRoutes.hadiAsk(t.$2)),
+                        ),
+                    ],
+                  ),
                   const SizedBox(height: 16),
 
                   // Today's comfort card.
@@ -178,13 +288,13 @@ class SakinaScreen extends ConsumerWidget {
 
                   // The rooms.
                   Text(
-                    'THE ROOMS',
+                    'ROOMS FOR THE BIGGER THINGS',
                     style: AppText.eyebrow.copyWith(color: AppColors.gold),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Each opens gently now; full guided pathways arrive after '
-                    'clinician and scholar review.',
+                    'Each room has a few honest words, and a way to talk it '
+                    'through with Hādi.',
                     style: AppText.caption,
                   ),
                   const SizedBox(height: 10),
@@ -194,8 +304,11 @@ class SakinaScreen extends ConsumerWidget {
                   ],
                   const SizedBox(height: 8),
 
-                  // Human help — always on screen, never buried.
+                  // Human help: always one tap away at the bottom, and the
+                  // quick exit stays at the top. Not the first thing here.
                   _HelpSection(countryCode: ref.watch(helpCountryProvider)),
+                  const SizedBox(height: 12),
+                  const Center(child: NeedHelpNowButton()),
                   const SizedBox(height: 16),
                   Text(
                     'SAKINA DOES NOT DIAGNOSE · YOUR CHECK-INS AND VISITS '
@@ -216,6 +329,22 @@ class SakinaScreen extends ConsumerWidget {
     );
   }
 }
+
+/// What Hādi opens with when a person taps "Talk this through" in a room.
+String _roomOpener(String roomId) => switch (roomId) {
+      'quiet-war' =>
+        'I am struggling with a habit I hate and I feel ashamed. I keep going back to it and I do not want to.',
+      'marriage' =>
+        'My marriage is hurting me. We keep having the same fight and I do not know how to reach them anymore.',
+      'family' =>
+        'My family does not understand me and home hurts right now. I need to talk about it.',
+      'loss' => 'I have lost someone I love and the pain does not leave.',
+      'son-father-husband' =>
+        'I carry everything for everyone and I have nowhere to put it down. I need to say it to someone.',
+      'whisper' =>
+        'The whispers and doubts will not leave me alone and I am worn out by them.',
+      _ => 'I just need someone to hear me.',
+    };
 
 /// The support page a room opens, for the rooms that have one.
 String? _pathwayFor(String roomId) => switch (roomId) {
@@ -333,13 +462,20 @@ class _RoomCard extends ConsumerWidget {
               ),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                'FULL PATHWAY · IN CLINICIAN + SCHOLAR REVIEW',
-                style: AppText.eyebrow.copyWith(
-                  fontSize: 12,
-                  color: AppColors.gold.withValues(alpha: 0.9),
+              child: FilledButton.tonalIcon(
+                key: Key('room-talk-${room.id}'),
+                style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () => context.open(
+                  AppRoutes.hadiAsk(_roomOpener(room.id)),
                 ),
+                icon: const Icon(Icons.chat_bubble_outline, size: 18),
+                label: const Text('Talk this through with Hādi'),
               ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Guidance in this room is still in clinician and scholar review.',
+              style: AppText.caption.copyWith(fontSize: 12),
             ),
           ],
         ),
@@ -378,9 +514,11 @@ class _HelpSection extends StatelessWidget {
                 color: AppColors.gold,
               ),
               const SizedBox(width: 6),
-              Text(
-                'TALK TO A HUMAN',
-                style: AppText.eyebrow.copyWith(color: AppColors.gold),
+              Expanded(
+                child: Text(
+                  'IF IT’S MORE THAN A ROUGH DAY',
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                ),
               ),
             ],
           ),

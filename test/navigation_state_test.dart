@@ -139,6 +139,8 @@ void main() {
       (WidgetTester tester) async {
     await AppHarness.boot(tester);
     await AppHarness.go(tester, find.byType(Scaffold).first, AppRoutes.sakina);
+    await tester.scrollUntilVisible(find.text('Steady yourself'), 300,
+        scrollable: find.byType(Scrollable).first);
     await tester.tap(find.text('Steady yourself'));
     await AppHarness.settle(tester);
     expect(AppHarness.location(tester, find.byType(Scaffold).last),

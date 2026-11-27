@@ -20,6 +20,7 @@
 library;
 
 import '../../sakina/domain/crisis_detector.dart';
+import '../../support/data/pack_repository.dart';
 import '../../support/domain/emotion_intent.dart';
 
 abstract final class DistressSignal {
@@ -152,6 +153,53 @@ abstract final class DistressSignal {
   ];
 
   /// Loneliness and being unseen.
+  // Narrow, specific phrases that earn a dedicated everyday pack. Anything
+  // vaguer ("anxious and heavy most days") stays with being_heard.
+  static const List<String> _panic = <String>[
+    'panic attack', 'panic attacks', 'panicking', 'racing heart',
+    'heart racing', 'heart is racing', 'cant breathe', 'cannot breathe',
+  ];
+  static const List<String> _waswas = <String>[
+    'waswas', 'wasawis', 'intrusive thought', 'intrusive thoughts', 'ocd',
+    'redo my wudu', 'repeat my prayer', 'keep washing', 'keep checking',
+    'doubts about my wudu', 'whispers and doubts',
+  ];
+  static const List<String> _anger = <String>[
+    'angry', 'anger', 'temper', 'rage', 'snap at', 'lose my temper',
+    'get angry',
+  ];
+  static const List<String> _lowMood = <String>[
+    'no motivation', 'cant get out of bed', 'cannot get out of bed',
+    'lost interest', 'nothing feels enjoyable', 'depressed', 'depression',
+    'low and empty',
+  ];
+
+  static const List<String> _work = <String>[
+    'burnout', 'burned out', 'burnt out', 'lost my job', 'got fired',
+    'laid off', 'unemployed', 'my boss', 'overworked', 'work is killing',
+  ];
+  static const List<String> _divorce = <String>[
+    'divorce', 'divorced', 'separated', 'separation', 'khula', 'talaq',
+    'custody',
+  ];
+  static const List<String> _pregLoss = <String>[
+    'miscarriage', 'miscarried', 'stillbirth', 'infertility', 'infertile',
+    'cant conceive', 'cannot conceive', 'ivf', 'lost the baby', 'lost my baby',
+  ];
+  static const List<String> _discrim = <String>[
+    'islamophobia', 'islamophobic', 'racist', 'racism', 'discriminated',
+    'discrimination', 'harassed for my hijab', 'called me a terrorist',
+  ];
+  static const List<String> _doubts = <String>[
+    'doubting my faith', 'doubts about islam', 'doubt in allah',
+    'questioning my faith', 'questioning islam', 'losing my faith',
+    'doubts about my faith', 'dont believe anymore',
+  ];
+
+  /// A dedicated pack when it is loaded, otherwise the general one.
+  static String _or(String name) =>
+      SupportPackRepository.byName(name) != null ? name : 'being_heard';
+
   static const List<String> _lonely = <String>[
     'lonely', 'loneliness', 'all alone', 'no friends', 'nobody cares',
     'no one cares', 'no one to talk to', 'nobody to talk to', 'no one to turn to',
@@ -374,6 +422,21 @@ abstract final class DistressSignal {
     if (_has(padded, _money)) return 'money_hardship';
     if (_has(padded, _illness)) return 'illness_pain';
     if (_has(padded, _familyStrain)) return 'family_strain';
+
+    if (_has(padded, _pregLoss)) return _or('pregnancy_loss_infertility');
+    if (_has(padded, _divorce)) return _or('divorce_separation');
+    if (_has(padded, _discrim)) return _or('discrimination');
+    if (_has(padded, _work)) return _or('work_burnout');
+    if (_has(padded, _doubts) && !_has(padded, <String>['losing my faith'])) {
+      return _or('faith_doubts');
+    }
+    if (_has(padded, _waswas)) return _or('waswas_ocd');
+    if (_has(padded, _panic)) return _or('anxiety_panic');
+    if (_has(padded, _anger)) return _or('anger');
+    if (_has(padded, _lowMood)) return _or('low_mood');
+    if (_has(padded, _lonely) && !_has(padded, _sadness)) {
+      return _or('loneliness');
+    }
 
     if (_has(padded, _sadness) ||
         _has(padded, _anxiety) ||

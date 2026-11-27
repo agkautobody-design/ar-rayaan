@@ -1,0 +1,625 @@
+{
+ "schema": 1,
+ "pack": "loneliness",
+ "packKind": "support",
+ "topic": "loneliness",
+ "description": "Loneliness and isolation: being known, small regular connection, community, and Allah being near.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "loneliness.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm glad you came. You can talk to me as long as you like. What's making things feel lonely?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Loneliness is more common than people say out loud. Tell me what it looks like for you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like there are people around you but nobody who really knows you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness"],
+   "triggers": ["nobody", "alone", "no one"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you moved or something changed and the people you counted on aren't there now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness"],
+   "triggers": ["moved", "new city", "left"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you miss being known, not only being around people."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness"],
+   "triggers": ["miss", "known", "understood"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Evenings and weekends can be the loudest time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness"],
+   "triggers": ["night", "weekend", "evening"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When did you last feel properly connected to someone?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is it the lack of people, or the lack of anyone who understands?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What did you used to enjoy with others?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there someone you've drifted from and miss?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you felt you couldn't go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Wanting people is healthy; it means you are built for connection."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Telling me is a first step toward finding your people."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Loneliness is a signal, like hunger, that connection is needed. It is not a sign that you're unlikeable."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "normal"],
+   "triggers": ["unlikeable", "boring", "nobody"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Friendship usually grows from repeated small contact in the same place, not from big gestures. A weekly class, a masjid circle or a volunteer shift adds up."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "normal"],
+   "triggers": ["friends", "make friends", "new"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Online time can leave you more alone than you started. Choosing one real call over an hour of scrolling often feels better."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "normal"],
+   "triggers": ["phone", "scrolling", "online"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: message one person you've drifted from with a simple, how are you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one regular thing this week, a class, the masjid, a walk group, and put it in your calendar."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: say salam to one neighbour or someone at the masjid and ask one question about them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pray one of your prayers in jama'ah, at the masjid or with someone at home, and stay five minutes after."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "suicide", "crisis"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If loneliness has lasted weeks and is pulling your mood down, a counsellor can help, and many services also offer friendly listening calls. You can say: \"I feel very isolated and I want help.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "doctor", "script"],
+   "triggers": ["weeks", "months", "worse", "work", "sleep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says He is near, and answers the one who calls on Him. You are never actually alone in your dua."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "mercy"],
+   "triggers": ["alone", "near", "dua"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:186", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says He is closer to a person than their own jugular vein. Even when no one knows you, He does."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "mercy"],
+   "triggers": ["known", "unseen", "allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "50:16", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah calls the believers brothers and sisters. Looking for your people is part of your deen, not a weakness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "mercy"],
+   "triggers": ["community", "brothers", "ummah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "49:10", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love is lonely, a regular small invitation is worth more than a rare big one. Keep it simple and keep it going."
+   },
+   "ageBand": ["adult"],
+   "tags": ["loneliness", "family-of"],
+   "triggers": ["my wife", "my husband", "my son", "my daughter", "my friend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Loneliness: small regular contact, shared activity and a reliable routine reduce it; persistent loneliness with low mood should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "loneliness.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["loneliness", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
