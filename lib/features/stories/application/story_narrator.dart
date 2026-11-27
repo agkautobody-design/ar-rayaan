@@ -198,14 +198,18 @@ class StoryNarrator extends AutoDisposeNotifier<NarratorState> {
     });
     // One voice at a time: if a Qur'an recitation starts while this is
     // reading, the reading pauses (Resume carries on) instead of talking over it.
-    ref.listen<RecitationPlaybackState>(recitationPlayerProvider,
-        (RecitationPlaybackState? prev, RecitationPlaybackState next) {
-      if (next.playing &&
-          !(prev?.playing ?? false) &&
-          state.status == NarratorStatus.playing) {
-        unawaited(pause());
-      }
-    });
+    try {
+      ref.listen<RecitationPlaybackState>(recitationPlayerProvider,
+          (RecitationPlaybackState? prev, RecitationPlaybackState next) {
+        if (next.playing &&
+            !(prev?.playing ?? false) &&
+            state.status == NarratorStatus.playing) {
+          unawaited(pause());
+        }
+      });
+    } catch (_) {
+      // Built without the audio plugin (tests): nothing to listen to.
+    }
     return const NarratorState();
   }
 
