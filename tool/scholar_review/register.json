@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6521,
+ "total": 6548,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -125,25 +125,25 @@
   },
   "support-packs": {
    "title": "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)",
-   "items": 2156,
-   "high_priority": 139
+   "items": 2183,
+   "high_priority": 141
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2757,
+  "Hadith / aqidah scholar": 2760,
   "Fiqh scholar (per madhab)": 876,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
-  "Clinician (Sakina and health content)": 1203,
+  "Clinician (Sakina and health content)": 1214,
   "Native speaker (ar / bn / ur)": 281,
   "Privacy lawyer": 15,
   "Rights holder / licensing (not a scholar)": 6,
-  "App owner (product wording and voice, not a scholar)": 706
+  "App owner (product wording and voice, not a scholar)": 719
  },
  "totals_by_priority": {
-  "high": 1363,
-  "normal": 4205,
-  "low": 953
+  "high": 1365,
+  "normal": 4217,
+  "low": 966
  },
  "items": [
   {
@@ -109058,6 +109058,534 @@
     "Support packs build (tool/support/build_packs.py)",
     "asset assets/guides/guides.json#huda-arafat",
     "hadith muslim:1348"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.orient.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.orient.001",
+   "what_to_review": "You're welcome to start here, with me. There's no pressure to talk to a person until you're ready. What's on your mind?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.orient.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.orient.002",
+   "what_to_review": "Plenty of people find it easier to say it to an app first. I won't judge, and you set the pace.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.reflect.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.reflect.001",
+   "what_to_review": "It sounds like you're afraid of how people would look at you if they knew.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.reflect.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.reflect.002",
+   "what_to_review": "It sounds like you've been carrying this alone because telling someone feels risky.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.reflect.003",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.reflect.003",
+   "what_to_review": "It sounds like you don't know who is safe to tell.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.reflect.004",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.reflect.004",
+   "what_to_review": "It sounds like you want help, just not face to face yet.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.ask.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.ask.001",
+   "what_to_review": "What worries you most about telling someone?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.ask.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.ask.002",
+   "what_to_review": "Is it about being judged, about privacy, or about not knowing what to say?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.ask.003",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.ask.003",
+   "what_to_review": "Would a message be easier than a call or a visit?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.ask.004",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.ask.004",
+   "what_to_review": "Who is the safest person you can think of, even if you wouldn't tell them yet?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.ask.005",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.affirm.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.affirm.001",
+   "what_to_review": "Wanting to be careful about who you tell is sensible, not cowardly.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.affirm.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.affirm.002",
+   "what_to_review": "Saying anything at all, even here, is a real first step.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.explain.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.explain.001",
+   "what_to_review": "Most people who finally tell someone say they wish they had done it sooner, and that the reaction was kinder than expected. It's still okay to go slowly.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.explain.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.explain.002",
+   "what_to_review": "Doctors, counsellors and helplines keep what you say private, with narrow exceptions around serious danger. You can ask them about it at the start.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.explain.003",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.explain.003",
+   "what_to_review": "You can start small: write a message and don't send it, practise it with me, then send it by text or email. Contact doesn't have to start with a conversation.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.plan-step.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.plan-step.001",
+   "what_to_review": "One small step: tell me the first sentence you'd want to say to someone, and we'll make it as easy as possible.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.plan-step.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.plan-step.002",
+   "what_to_review": "One small step: we can write a short message together that you can send to one safe person or a service.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.plan-step.003",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.plan-step.003",
+   "what_to_review": "One small step: choose which feels easiest, text, email, a phone line, or an in-person visit, and we'll plan that one.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.plan-step.004",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.plan-step.004",
+   "what_to_review": "One small step: tell Allah first, in your own words. He already knows, and it can make saying it to a person lighter.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.safety.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.referral.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.referral.001",
+   "what_to_review": "When you're ready, a doctor, counsellor or helpline can listen. You can start with: \"I'm finding something hard to talk about, and I'd like help with how to begin.\" Many services let you start by text or chat.",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.islamic.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.islamic.001",
+   "what_to_review": "You are not obliged to broadcast your struggles. Choosing carefully who to tell is allowed; start with Allah and with one safe person.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:286"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.islamic.002",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.islamic.002",
+   "what_to_review": "Allah says He is near and answers the one who calls. You can speak to Him before anyone, and He is never shocked.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:186"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.islamic.003",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.islamic.003",
+   "what_to_review": "Allah's mercy encompasses all things, and He says not to despair of it. Nothing you tell Him closes the door.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 39:53"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.family.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.family.001",
+   "what_to_review": "If someone you love finds it hard to open up, don't push for details. Say you're there whenever they're ready and keep inviting them gently.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.first_step.summary.001",
+   "area": "support-packs",
+   "subarea": "first_step",
+   "where_in_app": "Hadi / Wasia support module > pack \"first_step\" (support)",
+   "file": "assets/support/packs/first_step.json",
+   "key": "first_step.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"

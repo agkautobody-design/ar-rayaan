@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**6521 items.** High priority: 1363. Normal: 4205. Low: 953.
+**6548 items.** High priority: 1365. Normal: 4217. Low: 966.
 
 ### By area
 
@@ -42,22 +42,22 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Privacy, terms, children's privacy, community rules | 10 | 10 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 2156 | 139 |
-| **Total** | **6521** | **1363** |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 2183 | 141 |
+| **Total** | **6548** | **1365** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2757 | 1284 |
+| Hadith / aqidah scholar | 2760 | 1284 |
 | Fiqh scholar (per madhab) | 876 | 257 |
 | Women's scholar | 151 | 98 |
 | Arabic / tajweed / qira'at specialist | 526 | 196 |
-| Clinician (Sakina and health content) | 1203 | 252 |
+| Clinician (Sakina and health content) | 1214 | 252 |
 | Native speaker (ar / bn / ur) | 281 | 13 |
 | Privacy lawyer | 15 | 20 |
 | Rights holder / licensing (not a scholar) | 6 | 2 |
-| App owner (product wording and voice, not a scholar) | 706 | 0 |
+| App owner (product wording and voice, not a scholar) | 719 | 0 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
 
@@ -89,11 +89,11 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 10 |  |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |  |
-| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 281 | 43 |  |  | 1091 | 35 |  |  | 706 |
+| Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 284 | 43 |  |  | 1102 | 35 |  |  | 719 |
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2757 lead, 1284 also)
+### Hadith / aqidah scholar (2760 lead, 1284 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 303 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
@@ -111,7 +111,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Games and quizzes with religious content: 13 items (9 high). Ids start with `games.claim`, `games.hadith_quiz`, `games.names99`, `games.order_rounds`, `games.seerah_quiz`, `games.trivia`.
 - Noor, share cards, Home daily cards: 43 items (0 high). Ids start with `noor.app-toc`, `noor.card`, `noor.entry`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 281 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.being_heard`, `support.child_abuse`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 284 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.being_heard`, `support.child_abuse`.
 
 ### Fiqh scholar (per madhab) (876 lead, 257 also)
 
@@ -146,12 +146,12 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 5 items (4 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`, `quran.translit-generated`, `translit.program-made-gap-fill`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1203 lead, 252 also)
+### Clinician (Sakina and health content) (1214 lead, 252 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
 - Sakina rooms, feelings, safety copy, health: 60 items (34 high). Ids start with `health.ruqya-medicine`, `kids.child-reader-r3`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`.
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 1091 items (104 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.being_heard`, `support.checkin`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 1102 items (106 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.being_heard`, `support.checkin`.
 
 ### Native speaker (ar / bn / ur) (281 lead, 13 also)
 
@@ -170,9 +170,9 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 4 items (2 high). Ids start with `quran.clear-quran-pack`, `quran.foundation-terms`, `quran.saheeh-licence`, `quran.word-meanings-source`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.channels`.
 
-### App owner (product wording and voice, not a scholar) (706 lead, 0 also)
+### App owner (product wording and voice, not a scholar) (719 lead, 0 also)
 
-- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 706 items (0 high). Ids start with `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.app_help`, `support.being_heard`, `support.cravings_toolkit`.
+- Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 719 items (0 high). Ids start with `support.alcohol`, `support.anger`, `support.anxiety_panic`, `support.app_help`, `support.being_heard`, `support.cravings_toolkit`.
 
 ## Register by area
 
@@ -4732,7 +4732,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)
 
-2156 items, 139 high priority. Area key `support-packs`.
+2183 items, 141 high priority. Area key `support-packs`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -5219,6 +5219,20 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.fasting_zakat_hajj.howto.003` | Hadi / Wasia support module > pack "fasting_zakat_hajj" (knowledge) | Umrah in a day: enter ihram at the miqat, make seven circuits of the Kaaba, pray two rak'ahs behind the Station of Ibrahim, walk seven lengths between Safa and Marwah, then shave or shorten the hair. | Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); asset assets/guides/guides.json#huda-umrah; asset assets/guides/guides.json#huda-tawaf;… |
 | `support.fasting_zakat_hajj.fact.024` | Hadi / Wasia support module > pack "fasting_zakat_hajj" (knowledge) | The ruling on umrah differs. Scholars differ: the Shafi'i and Hanbali schools say it is obligatory once in a lifetime, and the Hanafi and Maliki schools say a confirmed sunnah. | Support-module snippet (kind fact, pack kind knowledge, risk low, evidence N, status draft). Flags: needsScholarReview; states that scholars differ: each named school to be checked. No named reviewer has signed off. | Fiqh scholar + Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); asset assets/guides/guides.json#huda-umrah |
 | `support.fasting_zakat_hajj.fact.025` | Hadi / Wasia support module > pack "fasting_zakat_hajj" (knowledge) | The day of Arafah is the heart of Hajj. The Prophet said there is no day on which Allah frees more servants from the Fire, and the pilgrim stays at Arafah until sunset. The pilgrim does not fast on t… | Support-module snippet (kind fact, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); asset assets/guides/guides.json#huda-arafat; hadith muslim:1348 |
+| `support.first_step.ask.005` | Hadi / Wasia support module > pack "first_step" (support) | Has it ever got so heavy that you felt you couldn't go on? | Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py); guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority menta… |
+| `support.first_step.explain.001` | Hadi / Wasia support module > pack "first_step" (support) | Most people who finally tell someone say they wish they had done it sooner, and that the reaction was kinder than expected. It's still okay to go slowly. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.explain.002` | Hadi / Wasia support module > pack "first_step" (support) | Doctors, counsellors and helplines keep what you say private, with narrow exceptions around serious danger. You can ask them about it at the start. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.explain.003` | Hadi / Wasia support module > pack "first_step" (support) | You can start small: write a message and don't send it, practise it with me, then send it by text or email. Contact doesn't have to start with a conversation. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.plan-step.001` | Hadi / Wasia support module > pack "first_step" (support) | One small step: tell me the first sentence you'd want to say to someone, and we'll make it as easy as possible. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.plan-step.002` | Hadi / Wasia support module > pack "first_step" (support) | One small step: we can write a short message together that you can send to one safe person or a service. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.plan-step.003` | Hadi / Wasia support module > pack "first_step" (support) | One small step: choose which feels easiest, text, email, a phone line, or an in-person visit, and we'll plan that one. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
+| `support.first_step.plan-step.004` | Hadi / Wasia support module > pack "first_step" (support) | One small step: tell Allah first, in your own words. He already knows, and it can make saying it to a person lighter. | Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py) |
+| `support.first_step.safety.001` | Hadi / Wasia support module > pack "first_step" (support) | If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight. | Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py); guideline WHO fact sheet: suicide; guideline WHO mhGAP: assessment for self-harm and sui… |
+| `support.first_step.referral.001` | Hadi / Wasia support module > pack "first_step" (support) | When you're ready, a doctor, counsellor or helpline can listen. You can start with: "I'm finding something hard to talk about, and I'd like help with how to begin." Many services let you start by tex… | Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background ; guideline WHO mhGAP: assessment for self-harm and suicide in persons with p… |
+| `support.first_step.islamic.001` | Hadi / Wasia support module > pack "first_step" (support) | You are not obliged to broadcast your struggles. Choosing carefully who to tell is allowed; start with Allah and with one safe person. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 2:286 |
+| `support.first_step.islamic.002` | Hadi / Wasia support module > pack "first_step" (support) | Allah says He is near and answers the one who calls. You can speak to Him before anyone, and He is never shocked. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 2:186 |
+| `support.first_step.islamic.003` | Hadi / Wasia support module > pack "first_step" (support) | Allah's mercy encompasses all things, and He says not to despair of it. Nothing you tell Him closes the door. | Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off. | Hadith / aqidah scholar | normal | Support packs build (tool/support/build_packs.py); quran 39:53 |
+| `support.first_step.family.001` | Hadi / Wasia support module > pack "first_step" (support) | If someone you love finds it hard to open up, don't push for details. Say you're there whenever they're ready and keep inviting them gently. | Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.gambling.ask.006` | Hadi / Wasia support module > pack "gambling" (support) | Has any of this made you feel that life isn't worth it? | Support-module snippet (kind ask, pack kind support, risk high, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | high | Support packs build (tool/support/build_packs.py); guideline WHO fact sheet: suicide; background |
 | `support.gambling.explain.001` | Hadi / Wasia support module > pack "gambling" (support) | Gambling problems are common, and people do recover. Support usually combines talking help, practical steps with money, and often peers who have been there. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
 | `support.gambling.explain.002` | Hadi / Wasia support module > pack "gambling" (support) | Many places let you block yourself from betting sites, apps and venues. This is called self-exclusion, and it takes the decision out of the moment. A helpline can tell you what exists where you live. | Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off. | Clinician | normal | Support packs build (tool/support/build_packs.py); background |
@@ -6430,6 +6444,19 @@ Listed in short form (same reason and sources for the whole family; full text in
 - `support.family_strain.affirm.003` (App owner): Staying kind to people who are hard for you is not nothing. It costs you, and that cost is seen.
 - `support.family_strain.affirm.004` (App owner): You are allowed to grieve a relationship with someone who is still alive.
 - `support.family_strain.summary.001` (App owner): What I've heard: {topic} is hurting, and you want your family to feel like family again. Love and hurt can both stay true while w…
+- `support.first_step.orient.001` (App owner): You're welcome to start here, with me. There's no pressure to talk to a person until you're ready. What's on your mind?
+- `support.first_step.orient.002` (App owner): Plenty of people find it easier to say it to an app first. I won't judge, and you set the pace.
+- `support.first_step.reflect.001` (App owner): It sounds like you're afraid of how people would look at you if they knew.
+- `support.first_step.reflect.002` (App owner): It sounds like you've been carrying this alone because telling someone feels risky.
+- `support.first_step.reflect.003` (App owner): It sounds like you don't know who is safe to tell.
+- `support.first_step.reflect.004` (App owner): It sounds like you want help, just not face to face yet.
+- `support.first_step.ask.001` (App owner): What worries you most about telling someone?
+- `support.first_step.ask.002` (App owner): Is it about being judged, about privacy, or about not knowing what to say?
+- `support.first_step.ask.003` (App owner): Would a message be easier than a call or a visit?
+- `support.first_step.ask.004` (App owner): Who is the safest person you can think of, even if you wouldn't tell them yet?
+- `support.first_step.affirm.001` (App owner): Wanting to be careful about who you tell is sensible, not cowardly.
+- `support.first_step.affirm.002` (App owner): Saying anything at all, even here, is a real first step.
+- `support.first_step.summary.001` (App owner): What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for an…
 - `support.gambling.orient.001` (App owner): I'm an app, not a counsellor or a money adviser. I can listen, help you think, and point you to people who can help with gambling…
 - `support.gambling.orient.002` (App owner): This is a private space with no judgement. I can't fix the money side, but I can help you find someone who can. Where would you l…
 - `support.gambling.orient.003` (App owner): Is this about betting, cards, casino games, an app, or gaming with in-game purchases? Any of them is fine to talk about.
