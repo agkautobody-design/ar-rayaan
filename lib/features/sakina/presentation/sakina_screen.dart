@@ -177,8 +177,6 @@ class SakinaScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  const Center(child: NeedHelpNowButton()),
                   const SizedBox(height: 16),
 
                   // Everyday starting points: tap one and Hādi opens with it.
@@ -309,6 +307,8 @@ class SakinaScreen extends ConsumerWidget {
                   // Human help: always one tap away at the bottom, and the
                   // quick exit stays at the top. Not the first thing here.
                   _HelpSection(countryCode: ref.watch(helpCountryProvider)),
+                  const SizedBox(height: 12),
+                  const Center(child: NeedHelpNowButton()),
                   const SizedBox(height: 16),
                   Text(
                     'SAKINA DOES NOT DIAGNOSE · YOUR CHECK-INS AND VISITS '
