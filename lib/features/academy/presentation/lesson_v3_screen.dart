@@ -26,6 +26,7 @@ import '../application/academy_strings.dart';
 import '../application/lessons_v3_provider.dart';
 import '../application/recitation_player_provider.dart';
 import '../domain/academy_models.dart';
+import '../domain/recitation_audio.dart';
 import '../domain/lesson_grounding.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
@@ -150,9 +151,61 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
 
   bool _isGate(V3Step s) => s is CheckStep || s is ArrangeStep || s is MatchStep;
 
-  void _goTo(int i) {
+  void _goTo(int i, {bool auto = false}) {
+    // Moving by hand ends continuous listening; moving on its own does not.
+    if (!auto) ref.read(continuousListenProvider.notifier).state = false;
     unawaited(_player.stop());
     setState(() => _index = i);
+  }
+
+  /// The recitation a step plays, or null when it has none.
+  List<PlaybackEvent>? _audioPlan(V3Step s) {
+    final List<String> refs = switch (s) {
+      TeachStep() => <String>[if (s.quranRef != null) s.quranRef!],
+      SayStep() => s.refs,
+      ListenStep() => <String>[s.ref],
+      _ => const <String>[],
+    };
+    final List<AyahRef> ayat = <AyahRef>[];
+    for (final String r in refs) {
+      final ResolvedPhrase? p = _r.resolve(r);
+      if (p == null || !p.hasAudio) continue;
+      for (final ResolvedLine l in p.lines) {
+        if (l.isAyah) ayat.add(AyahRef(l.surah!, l.ayah!));
+      }
+    }
+    if (ayat.isEmpty) return null;
+    final bool listen = s is ListenStep;
+    return RecitationPlanEngine.buildPlan(
+      range: ayat,
+      perAyahRepeat: 1,
+      gapMs: listen ? 3500 : 2500,
+      loopRange: listen ? s.repeats.clamp(1, 10) : 1,
+    );
+  }
+
+  /// The recitation finished while the learner is listening on: go to the
+  /// next step that has one and play it. Stops at a question (it needs the
+  /// learner) and at the end of the lesson.
+  void _autoNext() {
+    final StateController<bool> on =
+        ref.read(continuousListenProvider.notifier);
+    for (int j = _index + 1; j < _lesson.steps.length; j++) {
+      final V3Step s = _lesson.steps[j];
+      if (_isGate(s)) {
+        on.state = false;
+        _goTo(j, auto: true);
+        return;
+      }
+      final List<PlaybackEvent>? plan = _audioPlan(s);
+      if (plan == null) continue;
+      _goTo(j, auto: true);
+      unawaited(
+          ref.read(academyProgressProvider.notifier).advance(_lesson.id, j));
+      unawaited(_player.playPlan(plan));
+      return;
+    }
+    on.state = false;
   }
 
   Future<void> _next() async {
@@ -385,6 +438,15 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<RecitationPlaybackState>(recitationPlayerProvider,
+        (RecitationPlaybackState? prev, RecitationPlaybackState next) {
+      if (!ref.read(continuousListenProvider)) return;
+      if (next.failed) {
+        ref.read(continuousListenProvider.notifier).state = false;
+      } else if (next.finished && !(prev?.finished ?? false)) {
+        _autoNext();
+      }
+    });
     final V3Step step = _step;
     final bool open = !_isGate(step) || _passed.contains(step.id);
     final int total = _lesson.steps.length;
