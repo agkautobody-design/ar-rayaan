@@ -1,0 +1,625 @@
+{
+ "schema": 1,
+ "pack": "low_mood",
+ "packKind": "support",
+ "topic": "low_mood",
+ "description": "Low mood and heaviness: listen first, small activating steps, hope without pressure, and when a doctor helps.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "low_mood.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm glad you're here. I'm an app, not a doctor, but I can listen and we can find one small thing for today. How has your heart been?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You don't have to be able to explain it. Low days often come without a reason. Tell me what they feel like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like everything takes more effort than it used to."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood"],
+   "triggers": ["tired", "effort", "motivation"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the colour has gone out of things."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood"],
+   "triggers": ["empty", "numb", "nothing", "enjoy"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're carrying this quietly while other people see you coping."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood"],
+   "triggers": ["pretend", "fine", "hide"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're being very hard on yourself for feeling this way."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood"],
+   "triggers": ["useless", "lazy", "burden"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What has changed in the last few weeks?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What does a day look like from waking to sleeping?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there one thing you still manage even on the heavy days?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How are you eating and sleeping?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you felt you couldn't go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Getting through the day while feeling like this is real effort, even if no one sees it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Reaching out is not weakness; it is you looking after yourself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Low mood is a state, not a verdict on who you are. Heavy thoughts like I am useless are symptoms speaking, not facts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "normal"],
+   "triggers": ["useless", "worthless", "burden"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "When energy is low, waiting to feel motivated rarely works. Doing a tiny action first often lifts the feeling a little, not the other way round."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "normal"],
+   "triggers": ["motivation", "cant start", "lazy"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Daylight, a short walk, regular meals and regular sleep are small but real supports for mood."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "normal"],
+   "triggers": ["sleep", "tired", "walk"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: open a window or step outside for five minutes of daylight, then tell me how it felt."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pick the easiest task on your list, set a five minute timer, and stop when it rings."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: send one message to one safe person, even just a greeting."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pray one prayer as you are, however you feel, and then say your own words to Allah, even only: ya Allah, I am tired."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "suicide", "crisis"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If low mood has lasted two weeks or more, or is affecting your sleep, appetite, work or your sense of hope, a doctor can help and treatment works. You can say: \"I have felt low for weeks and I want help with it.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "doctor", "script"],
+   "triggers": ["weeks", "months", "worse", "work", "sleep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah told His Messenger that He had not left him and was not displeased with him. Low seasons are not a sign that Allah has left you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "mercy"],
+   "triggers": ["abandoned", "left", "forsaken", "allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "93:3", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that no worry, sorrow or hardship reaches a believer without Allah using it to lift some of their wrongs. Your pain is seen."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "mercy"],
+   "triggers": ["why", "pain", "suffering"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2573", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.8"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "With hardship comes ease, the Qur'an says, twice over. It does not say the ease is quick, only that it is promised."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "mercy"],
+   "triggers": ["hope", "ease", "when"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "94:5-6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love seems low, you don't need to cheer them up. Sit with them, ask how they are, and keep inviting them to small things without pressure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["low-mood", "family-of"],
+   "triggers": ["my wife", "my husband", "my son", "my daughter", "my friend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Low mood: behavioural activation, routine, light, movement and connection help; persistent low mood or loss of interest for two weeks or more should go to a clinician. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "low_mood.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["low-mood", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

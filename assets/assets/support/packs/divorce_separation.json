@@ -1,0 +1,625 @@
+{
+ "schema": 1,
+ "pack": "divorce_separation",
+ "packKind": "support",
+ "topic": "divorce_separation",
+ "description": "Separation and divorce: grief, children, safety, practical and scholarly help, dignity.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "divorce_separation.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm sorry you're facing this. I'm here to listen, whatever stage it's at. What's been going on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "No judgment. Tell me where things stand."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like grief, even if you're the one who chose it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce"],
+   "triggers": ["divorce", "separat", "ended"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're afraid of what people will say."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce"],
+   "triggers": ["family", "community", "people", "judge"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're worried about the children above everything."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce"],
+   "triggers": ["kids", "children", "custody"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're tired of trying and of not being heard."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce"],
+   "triggers": ["tried", "tired", "fight"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Where are things right now: deciding, in process, or already apart?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you safe at home?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What worries you most about the next month?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who is on your side right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you felt you couldn't go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Whatever the reason, ending a marriage is hard, and you're allowed to feel all of it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're still the same person with worth, whatever a court or a community says."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Divorce brings waves: relief, grief, anger, fear. They tend to come and go and ease with time and support."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "normal"],
+   "triggers": ["divorce", "separat"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Children cope best when they are not put in the middle: no carrying messages, no criticising the other parent to them, and clear routines."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "normal"],
+   "triggers": ["kids", "children", "custody"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "A lawyer who knows your local law and, if you wish, a scholar who knows the Islamic rulings can each help. They answer different questions."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "normal"],
+   "triggers": ["khula", "talaq", "lawyer", "ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write the three practical things you most need to sort, and pick the first."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell one safe person where you are, so you're not alone with it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: keep the children's routine steady this week, the same bedtime, the same meals."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pray two rak'ahs and ask Allah for clarity and the best outcome, in your own words."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "suicide", "crisis"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A family lawyer, a counsellor and, for rulings, a scholar can each help. You can say: \"I'm going through a separation and I need guidance.\" If you aren't safe, call your emergency number."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "doctor", "script"],
+   "triggers": ["weeks", "months", "worse", "work", "sleep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says to part, if it comes to it, with kindness and fairness. Even at the hardest end, dignity is part of the deen."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "mercy"],
+   "triggers": ["dignity", "fair", "talaq"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:229", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says that if they separate, Allah will enrich each of them from His bounty. A door closing is not the end of provision or happiness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "mercy"],
+   "triggers": ["future", "alone", "hope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "4:130", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says not to forget graciousness between you. Staying decent through the process matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "mercy"],
+   "triggers": ["bitter", "revenge", "angry"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:237", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If a loved one is divorcing, don't take sides loudly. Offer meals, a room, rides and listening, and ask what they need."
+   },
+   "ageBand": ["adult"],
+   "tags": ["divorce", "family-of"],
+   "triggers": ["my wife", "my husband", "my son", "my daughter", "my friend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Separation and divorce: practical support, legal advice and emotional care for adults and children; safety first if there is abuse. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "divorce_separation.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["divorce", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
