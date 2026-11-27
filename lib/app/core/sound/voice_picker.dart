@@ -64,6 +64,9 @@ abstract final class VoicePicker {
   ];
   static const List<String> _quality = <String>[
     'premium', 'enhanced', 'neural', 'natural', 'online', 'siri',
+    // Cloud-quality voices: Google's Android "-network" voices, WaveNet /
+    // Studio, and the browser's "Google ..." voices (served from the cloud).
+    'network', 'wavenet', 'studio', 'journey', 'google',
   ];
 
   // Google's Android voices carry a three-letter code after "-x-". These are
@@ -133,6 +136,9 @@ abstract final class VoicePicker {
     int s = 0;
     if (g == want) s += 10;
     if (_isNatural(n)) s += 4;
+    // Cloud-quality voices sound better than the ones stored on the device;
+    // when both exist the better one wins.
+    if (n.contains('network')) s += 4;
     final String l = _norm(locale).toLowerCase();
     if (l.startsWith('en-us')) s += 1;
     return s;
@@ -172,7 +178,8 @@ abstract final class VoicePicker {
     return VoiceChoice(
       name: best['name'].toString(),
       locale: best['locale'].toString(),
-      pitch: profile == VoiceProfile.hadi ? 0.92 : 1.02,
+      // A real voice of the right gender sounds most natural unbent.
+      pitch: 1.0,
       rate: rate,
     );
   }
