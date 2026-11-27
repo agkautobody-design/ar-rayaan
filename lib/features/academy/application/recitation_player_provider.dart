@@ -5,6 +5,7 @@
 /// instantly. Timing gaps use an injectable sleeper for the same reason.
 library;
 
+import 'dart:async' show unawaited;
 import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -14,6 +15,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../../../app/core/sound/voice_claim.dart';
 import '../../downloads/application/audio_store_provider.dart';
 
 import '../data/audioplayers_ayah_player.dart';
@@ -279,5 +281,19 @@ final recitationPlayerProvider =
       );
     },
   );
+  // One voice at a time: starting a recitation claims the voice (the
+  // read-aloud pauses); another source claiming it stops the recitation.
+  bool wasPlaying = false;
+  final void Function() unsubscribe = notifier.addListener(
+      (RecitationPlaybackState st) {
+    if (st.playing && !wasPlaying) claimVoice(ref, VoiceSource.recitation);
+    wasPlaying = st.playing;
+  }, fireImmediately: false);
+  ref.onDispose(unsubscribe);
+  ref.listen<VoiceClaim>(voiceClaimProvider, (VoiceClaim? _, VoiceClaim next) {
+    if (next.source == VoiceSource.narrator) {
+      unawaited(notifier.stop());
+    }
+  });
   return notifier;
 });

@@ -18,9 +18,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart' show sharedPreferencesProvider;
 import '../../../app/core/sound/voice_book.dart';
+import '../../../app/core/sound/voice_claim.dart';
 import '../../../app/core/sound/voice_picker.dart';
-import '../../academy/application/player_queue_provider.dart';
-import '../../academy/application/recitation_player_provider.dart';
 
 /// Speech rates in flutter_tts units. Normal matches the rest of the app.
 const double kNarratorNormalRate = 0.48;
@@ -198,30 +197,16 @@ class StoryNarrator extends AutoDisposeNotifier<NarratorState> {
     });
     // One voice at a time: if a Qur'an recitation starts while this is
     // reading, the reading pauses (Resume carries on) instead of talking over it.
-    try {
-      ref.listen<RecitationPlaybackState>(recitationPlayerProvider,
-          (RecitationPlaybackState? prev, RecitationPlaybackState next) {
-        if (next.playing &&
-            !(prev?.playing ?? false) &&
-            state.status == NarratorStatus.playing) {
-          unawaited(pause());
-        }
-      });
-    } catch (_) {
-      // Built without the audio plugin (tests): nothing to listen to.
-    }
+    // One voice at a time: if a recitation takes over while this is
+    // reading, the reading pauses (Resume carries on).
+    ref.listen<VoiceClaim>(voiceClaimProvider, (VoiceClaim? _, VoiceClaim next) {
+      if (next.source != VoiceSource.narrator &&
+          next.source != VoiceSource.none &&
+          state.status == NarratorStatus.playing) {
+        unawaited(pause());
+      }
+    });
     return const NarratorState();
-  }
-
-  /// Reading starts: whatever recitation or track is playing stops first, so
-  /// the two never play over each other.
-  void _quietOthers() {
-    try {
-      unawaited(ref.read(recitationPlayerProvider.notifier).stop());
-      unawaited(ref.read(playerQueueProvider.notifier).pause());
-    } catch (_) {
-      // Built without those players (tests): nothing to quiet.
-    }
   }
 
   void _set(NarratorState next) {
@@ -277,7 +262,7 @@ class StoryNarrator extends AutoDisposeNotifier<NarratorState> {
 
   Future<void> _run(int from) async {
     final int gen = ++_gen;
-    _quietOthers();
+    claimVoice(ref, VoiceSource.narrator);
     _set(
       state.copyWith(
         status: NarratorStatus.playing,
