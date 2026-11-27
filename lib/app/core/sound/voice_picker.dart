@@ -136,10 +136,9 @@ abstract final class VoicePicker {
     int s = 0;
     if (g == want) s += 10;
     if (_isNatural(n)) s += 4;
-    // Voices stored on the device sound flatter than the cloud-quality
-    // ones; when both exist the better one wins.
+    // Cloud-quality voices sound better than the ones stored on the device;
+    // when both exist the better one wins.
     if (n.contains('network')) s += 4;
-    if (n.contains('-local') || n.contains('compact')) s -= 2;
     final String l = _norm(locale).toLowerCase();
     if (l.startsWith('en-us')) s += 1;
     return s;
