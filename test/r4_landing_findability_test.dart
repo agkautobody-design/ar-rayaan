@@ -115,6 +115,8 @@ void main() {
     await AppHarness.boot(tester);
     await AppHarness.go(tester, find.byType(Scaffold).first, '/sakina');
     final Finder chip = find.byKey(const Key('sakina-duas'));
+    await tester.scrollUntilVisible(chip, 300,
+        scrollable: find.byType(Scrollable).first);
     expect(chip, findsOneWidget);
     expect(find.text('Duas for worry & peace'), findsOneWidget);
     await tester.tap(chip);

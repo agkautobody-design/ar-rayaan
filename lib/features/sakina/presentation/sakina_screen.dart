@@ -514,9 +514,11 @@ class _HelpSection extends StatelessWidget {
                 color: AppColors.gold,
               ),
               const SizedBox(width: 6),
-              Text(
-                'IF IT’S MORE THAN A ROUGH DAY',
-                style: AppText.eyebrow.copyWith(color: AppColors.gold),
+              Expanded(
+                child: Text(
+                  'IF IT’S MORE THAN A ROUGH DAY',
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                ),
               ),
             ],
           ),
