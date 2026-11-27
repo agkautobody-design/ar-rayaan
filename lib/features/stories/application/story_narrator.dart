@@ -18,6 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart' show sharedPreferencesProvider;
 import '../../../app/core/sound/voice_book.dart';
+import '../../../app/core/sound/voice_claim.dart';
 import '../../../app/core/sound/voice_picker.dart';
 
 /// Speech rates in flutter_tts units. Normal matches the rest of the app.
@@ -194,6 +195,17 @@ class StoryNarrator extends AutoDisposeNotifier<NarratorState> {
       _gen++;
       unawaited(_engine.stop());
     });
+    // One voice at a time: if a Qur'an recitation starts while this is
+    // reading, the reading pauses (Resume carries on) instead of talking over it.
+    // One voice at a time: if a recitation takes over while this is
+    // reading, the reading pauses (Resume carries on).
+    ref.listen<VoiceClaim>(voiceClaimProvider, (VoiceClaim? _, VoiceClaim next) {
+      if (next.source != VoiceSource.narrator &&
+          next.source != VoiceSource.none &&
+          state.status == NarratorStatus.playing) {
+        unawaited(pause());
+      }
+    });
     return const NarratorState();
   }
 
@@ -250,6 +262,7 @@ class StoryNarrator extends AutoDisposeNotifier<NarratorState> {
 
   Future<void> _run(int from) async {
     final int gen = ++_gen;
+    claimVoice(ref, VoiceSource.narrator);
     _set(
       state.copyWith(
         status: NarratorStatus.playing,
