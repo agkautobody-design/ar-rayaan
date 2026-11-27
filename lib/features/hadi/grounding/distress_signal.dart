@@ -196,6 +196,13 @@ abstract final class DistressSignal {
     'doubts about my faith', 'dont believe anymore',
   ];
 
+  static const List<String> _firstStep = <String>[
+    'cant tell anyone', 'cannot tell anyone', 'dont want to talk to anyone',
+    'dont want to talk to a person', 'scared to talk to', 'afraid to tell',
+    'too embarrassed', 'too ashamed to tell', 'no one to tell',
+    'dont know who to tell', 'dont want anyone to know',
+  ];
+
   /// A dedicated pack when it is loaded, otherwise the general one.
   static String _or(String name) =>
       SupportPackRepository.byName(name) != null ? name : 'being_heard';
@@ -423,6 +430,7 @@ abstract final class DistressSignal {
     if (_has(padded, _illness)) return 'illness_pain';
     if (_has(padded, _familyStrain)) return 'family_strain';
 
+    if (_has(padded, _firstStep)) return _or('first_step');
     if (_has(padded, _pregLoss)) return _or('pregnancy_loss_infertility');
     if (_has(padded, _divorce)) return _or('divorce_separation');
     if (_has(padded, _discrim)) return _or('discrimination');
