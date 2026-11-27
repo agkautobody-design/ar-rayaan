@@ -174,6 +174,28 @@ abstract final class DistressSignal {
     'low and empty',
   ];
 
+  static const List<String> _work = <String>[
+    'burnout', 'burned out', 'burnt out', 'lost my job', 'got fired',
+    'laid off', 'unemployed', 'my boss', 'overworked', 'work is killing',
+  ];
+  static const List<String> _divorce = <String>[
+    'divorce', 'divorced', 'separated', 'separation', 'khula', 'talaq',
+    'custody',
+  ];
+  static const List<String> _pregLoss = <String>[
+    'miscarriage', 'miscarried', 'stillbirth', 'infertility', 'infertile',
+    'cant conceive', 'cannot conceive', 'ivf', 'lost the baby', 'lost my baby',
+  ];
+  static const List<String> _discrim = <String>[
+    'islamophobia', 'islamophobic', 'racist', 'racism', 'discriminated',
+    'discrimination', 'harassed for my hijab', 'called me a terrorist',
+  ];
+  static const List<String> _doubts = <String>[
+    'doubting my faith', 'doubts about islam', 'doubt in allah',
+    'questioning my faith', 'questioning islam', 'losing my faith',
+    'doubts about my faith', 'dont believe anymore',
+  ];
+
   /// A dedicated pack when it is loaded, otherwise the general one.
   static String _or(String name) =>
       SupportPackRepository.byName(name) != null ? name : 'being_heard';
@@ -401,6 +423,13 @@ abstract final class DistressSignal {
     if (_has(padded, _illness)) return 'illness_pain';
     if (_has(padded, _familyStrain)) return 'family_strain';
 
+    if (_has(padded, _pregLoss)) return _or('pregnancy_loss_infertility');
+    if (_has(padded, _divorce)) return _or('divorce_separation');
+    if (_has(padded, _discrim)) return _or('discrimination');
+    if (_has(padded, _work)) return _or('work_burnout');
+    if (_has(padded, _doubts) && !_has(padded, <String>['losing my faith'])) {
+      return _or('faith_doubts');
+    }
     if (_has(padded, _waswas)) return _or('waswas_ocd');
     if (_has(padded, _panic)) return _or('anxiety_panic');
     if (_has(padded, _anger)) return _or('anger');
