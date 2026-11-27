@@ -86,36 +86,6 @@ class SupportHubScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Talking to Hadi is the easy first step for anyone who is not ready to
-    // speak to a person yet, so it sits at the top, not the bottom.
-    Widget talkToHadi() => Padding(
-          padding: const EdgeInsets.only(top: 12),
-          child: FilledButton.icon(
-            key: const Key('support-talk-to-hadi'),
-            onPressed: () async {
-              await ref
-                  .read(hadiControllerProvider.notifier)
-                  .openFromSupport(hadiOpenerFor(path!));
-              if (context.mounted) context.open(AppRoutes.hadi);
-            },
-            style: FilledButton.styleFrom(
-              minimumSize: const Size(48, 52),
-              backgroundColor: AppColors.gold,
-              foregroundColor: AppColors.night,
-            ),
-            icon: const Icon(Icons.chat_bubble_outline),
-            label: const Text('Talk to Hādi'),
-          ),
-        );
-    final Widget talkNote = Padding(
-      padding: const EdgeInsets.only(top: 6, left: 4),
-      child: Text(
-        'Not ready to speak to a person yet? You can talk to Hādi first. '
-        'No judgment, and no pressure.',
-        style: AppText.caption.copyWith(height: 1.5),
-      ),
-    );
-
     return Scaffold(
       body: Stack(children: <Widget>[
         const ScenicBackground.pattern(),
@@ -246,6 +216,37 @@ class SupportPathwayScreen extends ConsumerWidget {
         Localizations.localeOf(context).languageCode);
     final SupportPack? pack = path == null ? null : SupportPackRepository.byName(path.pack);
     final bool expired = pack != null && pack.expiredAt(DateTime.now());
+
+    // Talking to Hadi is the easy first step for anyone who is not ready to
+    // speak to a person yet, so it sits at the top, not the bottom.
+    Widget talkToHadi() => Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: FilledButton.icon(
+            key: const Key('support-talk-to-hadi'),
+            onPressed: () async {
+              await ref
+                  .read(hadiControllerProvider.notifier)
+                  .openFromSupport(hadiOpenerFor(path!));
+              if (context.mounted) context.open(AppRoutes.hadi);
+            },
+            style: FilledButton.styleFrom(
+              minimumSize: const Size(48, 52),
+              backgroundColor: AppColors.gold,
+              foregroundColor: AppColors.night,
+            ),
+            icon: const Icon(Icons.chat_bubble_outline),
+            label: const Text('Talk to Hādi'),
+          ),
+        );
+    final Widget talkNote = Padding(
+      padding: const EdgeInsets.only(top: 6, left: 4),
+      child: Text(
+        'Not ready to speak to a person yet? You can talk to Hādi first. '
+        'No judgment, and no pressure.',
+        style: AppText.caption.copyWith(height: 1.5),
+      ),
+    );
+
 
     Widget section(String title, List<SupportSnippet> snips, {bool fixed = false}) {
       if (snips.isEmpty) return const SizedBox.shrink();
