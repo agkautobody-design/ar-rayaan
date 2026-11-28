@@ -22,8 +22,12 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('jigsaw cuts', () {
-    test('eight pictures: four of 16 pieces, four of 12', () {
-      expect(kJigsawCuts.length, 8);
+    test('eighteen pictures: four of 16, four of 12, ten of 36', () {
+      expect(kJigsawCuts.length, 18);
+      expect(
+        kJigsawCuts.where((JigsawCut c) => c.pieces.length == 36).length,
+        10,
+      );
       expect(
         kJigsawCuts.where((JigsawCut c) => c.pieces.length == 16).length,
         4,
@@ -210,12 +214,12 @@ void main() {
       );
     });
 
-    for (final int count in <int>[16, 12]) {
+    for (final int count in <int>[16, 12, 36]) {
       testWidgets('all $count pieces can be dragged home to finish',
           (WidgetTester tester) async {
         await open(tester, seed: count);
-        if (count == 12) {
-          await tester.tap(find.text('12'));
+        if (count != 16) {
+          await tester.tap(find.text('$count'));
           await tester.pumpAndSettle();
         }
         final JigsawCut cut = shown(tester);
@@ -285,7 +289,7 @@ void main() {
     });
 
     for (final Size screen in const <Size>[Size(390, 800), Size(360, 640)]) {
-      for (final int count in <int>[16, 12]) {
+      for (final int count in <int>[16, 12, 36]) {
         testWidgets(
             'board and every piece fit on a ${screen.width.toInt()}x'
             '${screen.height.toInt()} screen with $count pieces, no scrolling',
@@ -296,8 +300,8 @@ void main() {
           addTearDown(tester.view.resetDevicePixelRatio);
           await tester.pumpWidget(const MaterialApp(home: JigsawScreen(seed: 8)));
           await tester.pumpAndSettle();
-          if (count == 12) {
-            await tester.tap(find.text('12'));
+          if (count != 16) {
+            await tester.tap(find.text('$count'));
             await tester.pumpAndSettle();
           }
           await tester.pumpAndSettle();
