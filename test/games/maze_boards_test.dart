@@ -27,13 +27,16 @@ List<LogicalKeyboardKey> _walk(Maze m, int from) {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('the twelve maze boards', () {
-    test('there are twelve, smallest first, each with one hex digit a cell',
+  group('the maze boards', () {
+    test('there are twenty-four, smallest first, each with one hex digit a cell',
         () {
-      expect(kMazeBoards.length, 12);
+      expect(kMazeBoards.length, 24);
       final List<int> sizes =
           kMazeBoards.map((MazeBoard b) => b.size).toList();
-      expect(sizes, <int>[5, 6, 8, 9, 11, 12, 14, 16, 18, 20, 23, 26]);
+      expect(sizes, <int>[
+        5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+      ]);
       for (final MazeBoard b in kMazeBoards) {
         expect(b.open.length, b.size * b.size, reason: b.asset);
         expect(RegExp(r'^[0-9a-f]+$').hasMatch(b.open), isTrue);
@@ -91,7 +94,7 @@ void main() {
     });
   });
 
-  testWidgets('Maze Escape: all twelve boards can be walked out of',
+  testWidgets('Maze Escape: all twenty-four boards can be walked out of',
       (WidgetTester tester) async {
     tester.view.physicalSize = const Size(430, 1400);
     tester.view.devicePixelRatio = 1;
@@ -99,12 +102,12 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(const MaterialApp(home: MazeScreen()));
     await tester.pump();
-    expect(find.text('MAZE 1 OF 12 · 0 MOVES'), findsOneWidget);
+    expect(find.text('MAZE 1 OF 24 · 0 MOVES'), findsOneWidget);
     expect(find.byType(Image), findsWidgets);
     expect(find.byKey(const ValueKey<String>('maze-walker')), findsOneWidget);
 
     int moves = 0;
-    for (int level = 0; level < 12; level++) {
+    for (int level = 0; level < 24; level++) {
       final MazeBoard b = kMazeBoards[level];
       final Maze m = Maze.fromOpen(b.size, b.open);
       // A wall stops the walker: try the way that is shut at the start.
@@ -117,12 +120,12 @@ void main() {
         moves++;
       }
       await tester.pump(const Duration(milliseconds: 200));
-      if (level < 11) {
-        expect(find.text('MAZE ${level + 2} OF 12 · $moves MOVES'),
+      if (level < 23) {
+        expect(find.text('MAZE ${level + 2} OF 24 · $moves MOVES'),
             findsOneWidget,
             reason: 'after board ${b.size}');
       }
     }
-    expect(find.text('Out of all 12 mazes'), findsOneWidget);
+    expect(find.text('Out of all 24 mazes'), findsOneWidget);
   });
 }
