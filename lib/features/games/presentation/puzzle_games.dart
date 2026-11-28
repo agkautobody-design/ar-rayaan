@@ -142,6 +142,40 @@ class _MazeState extends State<MazeScreen> {
   ];
   int _level = 0, _cell = 0, _moves = 0;
   bool _done = false;
+  Offset _drag = Offset.zero;
+  bool _swiped = false;
+
+  /// Slide a finger and the walker follows: one cell for each cell's width
+  /// of travel, turning when the finger turns.
+  void _onSlide(Offset delta, double step) {
+    _drag += delta;
+    for (int i = 0; i < 40; i++) {
+      final bool horizontal = _drag.dx.abs() >= _drag.dy.abs();
+      final double travel = horizontal ? _drag.dx : _drag.dy;
+      if (travel.abs() < step) return;
+      final int dir = horizontal
+          ? (travel > 0 ? Maze.right : Maze.left)
+          : (travel > 0 ? Maze.down : Maze.up);
+      _swiped = true;
+      _drag = horizontal
+          ? Offset(_drag.dx - step * travel.sign, _drag.dy)
+          : Offset(_drag.dx, _drag.dy - step * travel.sign);
+      _go(dir);
+    }
+  }
+
+  /// A quick flick that was too short to cross a cell still moves one.
+  void _onSlideEnd() {
+    if (!_swiped && _drag.distance >= 16) {
+      if (_drag.dx.abs() > _drag.dy.abs()) {
+        _go(_drag.dx > 0 ? Maze.right : Maze.left);
+      } else {
+        _go(_drag.dy > 0 ? Maze.down : Maze.up);
+      }
+    }
+    _drag = Offset.zero;
+    _swiped = false;
+  }
 
   @override
   void dispose() {
@@ -249,17 +283,36 @@ class _MazeState extends State<MazeScreen> {
           Text('MAZE ${_level + 1} OF ${_mazes.length} · $_moves MOVES',
               style: AppText.eyebrow),
           const SizedBox(height: 10),
-          Semantics(
-            label: 'Maze ${_level + 1}. You are in row ${_cell ~/ size + 1}, '
-                'column ${_cell % size + 1} of $size. The exit is at row '
-                '$size, column $size. You can move: $_open.',
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: ExcludeSemantics(
-                child: _MazeBoardView(board: _board, cell: _cell),
+          LayoutBuilder(builder: (BuildContext context, BoxConstraints box) {
+            final double step = max(12.0, box.maxWidth / size * 0.85);
+            // The pointer events drive the walker (so a turn mid-slide
+            // works); the drag recognisers only claim the touch so the page
+            // does not scroll under the finger.
+            return Listener(
+              onPointerDown: (_) {
+                _drag = Offset.zero;
+                _swiped = false;
+              },
+              onPointerMove: (PointerMoveEvent e) => _onSlide(e.delta, step),
+              onPointerUp: (_) => _onSlideEnd(),
+              onPointerCancel: (_) => _onSlideEnd(),
+              child: GestureDetector(
+              onHorizontalDragUpdate: (_) {},
+              onVerticalDragUpdate: (_) {},
+              child: Semantics(
+                label: 'Maze ${_level + 1}. You are in row '
+                    '${_cell ~/ size + 1}, column ${_cell % size + 1} of '
+                    '$size. The exit is at row $size, column $size. You can '
+                    'move: $_open.',
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: ExcludeSemantics(
+                    child: _MazeBoardView(board: _board, cell: _cell),
+                  ),
+                ),
               ),
-            ),
-          ),
+            ));
+          }),
           const SizedBox(height: 14),
           Center(child: _pad4(Icons.keyboard_arrow_up, 'up', Maze.up)),
           const SizedBox(height: 6),
@@ -271,7 +324,7 @@ class _MazeState extends State<MazeScreen> {
             _pad4(Icons.keyboard_arrow_right, 'right', Maze.right),
           ]),
           const SizedBox(height: 10),
-          Text('Reach the star at the bottom right. Arrow keys work too.',
+          Text('Slide your finger to walk to the star at the bottom right, or use the arrows.',
               textAlign: TextAlign.center, style: AppText.bodyMuted),
         ],
       ),
