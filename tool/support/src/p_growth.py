@@ -28,7 +28,8 @@ def closeness():
        tags=['closeness', 'allah', 'closer', 'feel', 'feeling', 'presence', 'connection', 'go-adhkar'],
        trig=['feel closer to allah', 'feeling closer to allah', 'feel close to allah', 'feeling close to allah', 'feel allah', 'feeling allah',
              'feel his presence', 'feel connected to allah', 'feeling connected to allah', 'get closer to allah', 'closer to allah',
-             'feeling closer', 'feel closer', 'connect with allah', 'draw nearer to allah', 'build a relationship with allah', 'relationship with allah'],
+             'feeling closer', 'feel closer', 'connect with allah', 'draw nearer to allah', 'build a relationship with allah', 'relationship with allah',
+             'start feeling it', 'start to feel it', 'actually feel it', 'feel it in my heart', 'feel his closeness', 'feel his nearness'],
        dns=['Warm and practical; never imply the person is far from Allah or lacking faith.', 'Offer one or two steps, not a programme.'])
     Fq("Feeling nothing in prayer is common, and it does not mean your prayer is empty or that Allah has turned away. Hearts have seasons. The Prophet often asked Allah to make his heart firm, and you can ask the same. Keep praying, and change one thing: slow down, learn what you recite, or add a short voluntary prayer at a quiet time. Closeness often comes back through steady effort, not through waiting to feel it.",
        [HV('tirmidhi:3522'), HV('muslim:2655'), Q('57:16', S)], cross=[xg('huda-prayer')],

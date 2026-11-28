@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6616,
+ "total": 6773,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -125,25 +125,25 @@
   },
   "support-packs": {
    "title": "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)",
-   "items": 2251,
-   "high_priority": 141
+   "items": 2408,
+   "high_priority": 153
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2828,
+  "Hadith / aqidah scholar": 2841,
   "Fiqh scholar (per madhab)": 876,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
-  "Clinician (Sakina and health content)": 1214,
+  "Clinician (Sakina and health content)": 1280,
   "Native speaker (ar / bn / ur)": 281,
   "Privacy lawyer": 15,
   "Rights holder / licensing (not a scholar)": 6,
-  "App owner (product wording and voice, not a scholar)": 719
+  "App owner (product wording and voice, not a scholar)": 797
  },
  "totals_by_priority": {
-  "high": 1365,
-  "normal": 4285,
-  "low": 966
+  "high": 1377,
+  "normal": 4352,
+  "low": 1044
  },
  "items": [
   {
@@ -99073,6 +99073,515 @@
    "status": "open"
   },
   {
+   "id": "support.caregiver_strain.orient.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.orient.001",
+   "what_to_review": "Caring for someone you love is a lot. I'm glad you told me. How have you been holding up?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.orient.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.orient.002",
+   "what_to_review": "No judgment. Tell me what a normal day looks like for you.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.reflect.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.reflect.001",
+   "what_to_review": "It sounds like you've been putting yourself last for a long time.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.reflect.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.reflect.002",
+   "what_to_review": "It sounds like you love them and you're also exhausted, and both are true.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.reflect.003",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.reflect.003",
+   "what_to_review": "It sounds like you feel guilty for wanting a break.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.reflect.004",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.reflect.004",
+   "what_to_review": "It sounds like most of it falls on you.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.ask.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.ask.001",
+   "what_to_review": "Who are you caring for, and for how long?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.ask.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.ask.002",
+   "what_to_review": "Who else could share even one task?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.ask.003",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.ask.003",
+   "what_to_review": "When did you last rest properly?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.ask.004",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.ask.004",
+   "what_to_review": "What would one hour of relief look like?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.ask.005",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.affirm.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.affirm.001",
+   "what_to_review": "Caring this way is a form of worship, and you're allowed to be tired.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.affirm.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.affirm.002",
+   "what_to_review": "Needing rest does not mean you love them less.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.explain.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.explain.001",
+   "what_to_review": "Carers who rest, share tasks and accept help last longer and give better care. Respite is part of the care, not a betrayal.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.explain.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.explain.002",
+   "what_to_review": "Resentment alongside love is normal and does not make you a bad person. It is a sign you need support.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.explain.003",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.explain.003",
+   "what_to_review": "Local carer services, community groups and the masjid can often help with respite, transport or paperwork.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.plan-step.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.plan-step.001",
+   "what_to_review": "One small step: ask one family member or friend to take one specific task this week.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.plan-step.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.plan-step.002",
+   "what_to_review": "One small step: block one hour that's yours and protect it.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.plan-step.003",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.plan-step.003",
+   "what_to_review": "One small step: find one local carer service and write down its number.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.plan-step.004",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.plan-step.004",
+   "what_to_review": "One small step: pray a short prayer for strength and read about the reward of caring for parents, then rest without guilt.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.safety.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.referral.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.referral.001",
+   "what_to_review": "Your own health matters too. If you're worn out, low or struggling to cope, a doctor or counsellor can help. You can say: \"I'm caring for someone and I'm exhausted.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.islamic.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.islamic.001",
+   "what_to_review": "Allah commands kindness to parents, and He knows the effort you give. He also does not burden a soul beyond what it can bear.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 17:23",
+    "quran 2:286"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.islamic.002",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.islamic.002",
+   "what_to_review": "Allah says with hardship comes ease. Seek help; it is part of how ease arrives.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 94:5-6"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.family.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.family.001",
+   "what_to_review": "If someone you know is a carer, offer a specific hour, a meal or a lift, not a general offer. Ask what they need.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.caregiver_strain.summary.001",
+   "area": "support-packs",
+   "subarea": "caregiver_strain",
+   "where_in_app": "Hadi / Wasia support module > pack \"caregiver_strain\" (support)",
+   "file": "assets/support/packs/caregiver_strain.json",
+   "key": "caregiver_strain.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.character_in_daily_life.howto.001",
    "area": "support-packs",
    "subarea": "character_in_daily_life",
@@ -110531,6 +111040,514 @@
    "status": "open"
   },
   {
+   "id": "support.friendship_betrayal.orient.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.orient.001",
+   "what_to_review": "I'm sorry. Being hurt by someone close is painful. What happened?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.orient.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.orient.002",
+   "what_to_review": "No judgment, and you don't have to decide anything today. Tell me what's going on.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.reflect.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.reflect.001",
+   "what_to_review": "It sounds like you trusted them and it was broken.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.reflect.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.reflect.002",
+   "what_to_review": "It sounds like you're replaying what you could have done differently.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.reflect.003",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.reflect.003",
+   "what_to_review": "It sounds like you're angry and sad at once.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.reflect.004",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.reflect.004",
+   "what_to_review": "It sounds like you lost more than a person; you lost a part of your routine and your circle.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.ask.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.ask.001",
+   "what_to_review": "What hurt most about it?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.ask.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.ask.002",
+   "what_to_review": "Would you like it repaired, or do you want distance?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.ask.003",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.ask.003",
+   "what_to_review": "Have you told them how it affected you?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.ask.004",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.ask.004",
+   "what_to_review": "Who else is on your side right now?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.ask.005",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.affirm.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.affirm.001",
+   "what_to_review": "Being hurt shows you cared and trusted.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.affirm.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.affirm.002",
+   "what_to_review": "You don't have to forgive on anyone's schedule.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.explain.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.explain.001",
+   "what_to_review": "Forgiving someone does not mean going back to how it was. You can forgive and still keep distance or new boundaries.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.explain.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.explain.002",
+   "what_to_review": "A calm, specific message works better than a long argument: what happened, how it affected you, what you need.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.explain.003",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.explain.003",
+   "what_to_review": "Trust returns slowly and with changed behaviour, not only with an apology.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.plan-step.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.plan-step.001",
+   "what_to_review": "One small step: write what you'd say, without sending it, and see how it reads tomorrow.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.plan-step.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.plan-step.002",
+   "what_to_review": "One small step: spend time this week with someone who steadies you.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.plan-step.003",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.plan-step.003",
+   "what_to_review": "One small step: decide one boundary you need, and write it in one line.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.plan-step.004",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.plan-step.004",
+   "what_to_review": "One small step: pray two rak'ahs and ask Allah for a clear heart and good judgement about this person.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.safety.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.referral.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.referral.001",
+   "what_to_review": "If this is affecting your sleep, work or mood for weeks, a counsellor can help you work through it. You can say: \"A friendship ended badly and I'm struggling with it.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.islamic.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.islamic.001",
+   "what_to_review": "Allah says to repel evil with what is better, and the one who was an enemy may become a close friend. Repair is possible, but it's not an obligation to reopen every door.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 41:34"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.islamic.002",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.islamic.002",
+   "what_to_review": "Allah praises those who pardon and make things right, and He promises their reward. Pardon is a choice at your own pace.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 42:40"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.family.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.family.001",
+   "what_to_review": "If someone you love has been betrayed, listen first. Don't tell them to forgive quickly or to cut off quickly.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.friendship_betrayal.summary.001",
+   "area": "support-packs",
+   "subarea": "friendship_betrayal",
+   "where_in_app": "Hadi / Wasia support module > pack \"friendship_betrayal\" (support)",
+   "file": "assets/support/packs/friendship_betrayal.json",
+   "key": "friendship_betrayal.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.gambling.orient.001",
    "area": "support-packs",
    "subarea": "gambling",
@@ -116362,6 +117379,514 @@
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)",
     "authored Conversational wording written for this app; no factual claim"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.orient.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.orient.001",
+   "what_to_review": "Moving far from home is a real loss, even when it was the right choice. What do you miss most?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.orient.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.orient.002",
+   "what_to_review": "I'm glad you told me. Tell me how it's been since you arrived.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.reflect.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.reflect.001",
+   "what_to_review": "It sounds like you're between two places and not fully in either.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.reflect.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.reflect.002",
+   "what_to_review": "It sounds like you miss the sound of your own language, the food and the people who knew you.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.reflect.003",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.reflect.003",
+   "what_to_review": "It sounds like you carry responsibility for people back home as well.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.reflect.004",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.reflect.004",
+   "what_to_review": "It sounds like it's hard to find where you belong.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.ask.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.ask.001",
+   "what_to_review": "How long have you been away?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.ask.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.ask.002",
+   "what_to_review": "What would make your week feel more like home?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.ask.003",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.ask.003",
+   "what_to_review": "Have you found a masjid or group you feel comfortable in?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.ask.004",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.ask.004",
+   "what_to_review": "Who do you speak to back home, and how often?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.ask.005",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.affirm.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.affirm.001",
+   "what_to_review": "Missing home isn't ingratitude; it's love.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.affirm.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.affirm.002",
+   "what_to_review": "You've been brave to build a life somewhere new.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.explain.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.explain.001",
+   "what_to_review": "Homesickness often peaks in the first months and eases as routines and friendships form, though some waves come back around holidays.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.explain.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.explain.002",
+   "what_to_review": "Familiar things carry comfort: a food, a prayer time, a call at the same hour each week. They give structure while the new place becomes known.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.explain.003",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.explain.003",
+   "what_to_review": "Belonging usually grows in small repeated places: a class, the masjid, a neighbour, a workplace friend.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.plan-step.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.plan-step.001",
+   "what_to_review": "One small step: schedule a weekly call with someone back home, same time each week.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.plan-step.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.plan-step.002",
+   "what_to_review": "One small step: cook one dish from home and invite one person to share it.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.plan-step.003",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.plan-step.003",
+   "what_to_review": "One small step: find one regular local event and go twice before deciding.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.plan-step.004",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.plan-step.004",
+   "what_to_review": "One small step: pray one prayer at the masjid this week and stay a few minutes afterwards.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.safety.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.referral.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.referral.001",
+   "what_to_review": "If low mood or loneliness lasts for weeks, a counsellor or a community support service can help. You can say: \"I moved here and I'm finding it hard to settle.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.islamic.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.islamic.001",
+   "what_to_review": "Allah says the earth is vast and He made people into nations and tribes to know one another. You're allowed to build a home in a new place.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 49:13"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.islamic.002",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.islamic.002",
+   "what_to_review": "Allah says He is near and answers the one who calls on Him, in any country and any language.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:186"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.family.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.family.001",
+   "what_to_review": "If someone you love has moved, a regular call, a package from home and a visit when possible matter more than advice.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.homesickness.summary.001",
+   "area": "support-packs",
+   "subarea": "homesickness",
+   "where_in_app": "Hadi / Wasia support module > pack \"homesickness\" (support)",
+   "file": "assets/support/packs/homesickness.json",
+   "key": "homesickness.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -125902,6 +127427,534 @@
    "status": "open"
   },
   {
+   "id": "support.self_worth.orient.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.orient.001",
+   "what_to_review": "I'm glad you said it. The way you talk to yourself matters. What does that voice say?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.orient.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.orient.002",
+   "what_to_review": "No judgment. Tell me what makes you feel you're not enough.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.reflect.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.reflect.001",
+   "what_to_review": "It sounds like you hold yourself to a standard you'd never hold a friend to.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.reflect.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.reflect.002",
+   "what_to_review": "It sounds like everyone else seems to be managing and you feel behind.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.reflect.003",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.reflect.003",
+   "what_to_review": "It sounds like one mistake outweighs everything you've done right.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.reflect.004",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.reflect.004",
+   "what_to_review": "It sounds like you've heard these things for a long time, maybe from someone else first.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.ask.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.ask.001",
+   "what_to_review": "When did you first start believing that about yourself?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.ask.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.ask.002",
+   "what_to_review": "What would you say to a friend who said the same thing about themselves?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.ask.003",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.ask.003",
+   "what_to_review": "Who sees your worth, even when you don't?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.ask.004",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.ask.004",
+   "what_to_review": "What is one thing you did this week that took effort?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.ask.005",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.affirm.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.affirm.001",
+   "what_to_review": "Your worth isn't earned by performance; it's a given.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.affirm.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.affirm.002",
+   "what_to_review": "Being this hard on yourself usually means you care a great deal about doing right.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.explain.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.explain.001",
+   "what_to_review": "Harsh self-talk feels like honesty, but it is mostly habit. Noticing it and answering it, as you would for a friend, weakens it over time.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.explain.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.explain.002",
+   "what_to_review": "Social media shows other people's best moments next to your whole life. The comparison is unfair by design.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.explain.003",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.explain.003",
+   "what_to_review": "Effort and kindness are things you do, and they count even when the outcome isn't perfect.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.plan-step.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.plan-step.001",
+   "what_to_review": "One small step: write down one thing you did today that took effort, however small.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.plan-step.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.plan-step.002",
+   "what_to_review": "One small step: next time the harsh voice speaks, answer it with what you'd tell a friend.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.plan-step.003",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.plan-step.003",
+   "what_to_review": "One small step: ask one person you trust what they value in you.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.plan-step.004",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.plan-step.004",
+   "what_to_review": "One small step: say to Allah what you like about what He made in you, and ask Him to help you see it too.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.safety.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.referral.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.referral.001",
+   "what_to_review": "If these feelings are constant, or come with hopelessness or low mood, a counsellor can help and it does get better. You can say: \"I've been very hard on myself and I want help with that.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.islamic.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.islamic.001",
+   "what_to_review": "Allah says He created the human being in the best form. Your worth began with Him, before any achievement.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 95:4"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.islamic.002",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.islamic.002",
+   "what_to_review": "Allah says the most honoured with Him is the one most mindful of Him, not the richest, prettiest or most successful.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 49:13"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.islamic.003",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.islamic.003",
+   "what_to_review": "Allah says not to despair of His mercy, however much you have done or feel you are.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 39:53"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.family.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.family.001",
+   "what_to_review": "If someone you love speaks harshly of themselves, don't argue with it. Say what you value in them, specifically, and say it often.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.self_worth.summary.001",
+   "area": "support-packs",
+   "subarea": "self_worth",
+   "where_in_app": "Hadi / Wasia support module > pack \"self_worth\" (support)",
+   "file": "assets/support/packs/self_worth.json",
+   "key": "self_worth.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.sexual_violence.orient.001",
    "area": "support-packs",
    "subarea": "sexual_violence",
@@ -127573,6 +129626,514 @@
    "status": "open"
   },
   {
+   "id": "support.sleep_trouble.orient.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.orient.001",
+   "what_to_review": "Not sleeping is miserable. I'm glad you mentioned it. What does your night look like?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.orient.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.orient.002",
+   "what_to_review": "No judgment. Tell me when it started and what happens when you lie down.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.reflect.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.reflect.001",
+   "what_to_review": "It sounds like your mind gets busy the moment the lights go out.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.reflect.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.reflect.002",
+   "what_to_review": "It sounds like you dread bedtime now.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.reflect.003",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.reflect.003",
+   "what_to_review": "It sounds like you wake in the night and can't get back.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.reflect.004",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.reflect.004",
+   "what_to_review": "It sounds like the tiredness is affecting your whole day.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.ask.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.ask.001",
+   "what_to_review": "What time do you go to bed and wake, usually?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.ask.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.ask.002",
+   "what_to_review": "What do you do in the hour before bed?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.ask.003",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.ask.003",
+   "what_to_review": "How much caffeine and what time is the last?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.ask.004",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.ask.004",
+   "what_to_review": "What's on your mind when you can't sleep?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.ask.005",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.affirm.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.affirm.001",
+   "what_to_review": "Poor sleep makes everything harder, and you're coping through it.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.affirm.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.affirm.002",
+   "what_to_review": "Asking for help with sleep is sensible.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.explain.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.explain.001",
+   "what_to_review": "A regular wake time, daylight in the morning and less caffeine after midday are the strongest simple supports for sleep.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.explain.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.explain.002",
+   "what_to_review": "Lying awake trying to sleep keeps the brain alert. If you've been awake about twenty minutes, get up, do something quiet in low light, and go back when sleepy.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.explain.003",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.explain.003",
+   "what_to_review": "A short written list of worries before bed can take them out of your head.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.plan-step.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.plan-step.001",
+   "what_to_review": "One small step: set a fixed wake-up time tomorrow and get daylight within an hour.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.plan-step.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.plan-step.002",
+   "what_to_review": "One small step: no screens for thirty minutes before bed, and dim the lights.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.plan-step.003",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.plan-step.003",
+   "what_to_review": "One small step: write tomorrow's worries on paper before you lie down.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.plan-step.004",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.plan-step.004",
+   "what_to_review": "One small step: make wudu, say the bedtime adhkar slowly and lie on your right side, as the Prophet did.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.safety.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.referral.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.referral.001",
+   "what_to_review": "If poor sleep has lasted weeks, or you snore loudly, stop breathing at night or feel very low, a doctor should check. You can say: \"I haven't slept properly for weeks and it's affecting me.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.islamic.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.islamic.001",
+   "what_to_review": "Allah says He made the night for rest. Rest is part of how He designed your body.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 78:9-10"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.islamic.002",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.islamic.002",
+   "what_to_review": "Allah says the remembrance of Him brings hearts rest. A few slow words of dhikr can ease a busy mind.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 13:28"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.family.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.family.001",
+   "what_to_review": "If someone you love can't sleep, keep the house calm at night, don't lecture, and encourage a regular schedule and a doctor's visit if it persists.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.sleep_trouble.summary.001",
+   "area": "support-packs",
+   "subarea": "sleep_trouble",
+   "where_in_app": "Hadi / Wasia support module > pack \"sleep_trouble\" (support)",
+   "file": "assets/support/packs/sleep_trouble.json",
+   "key": "sleep_trouble.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.smoking_vaping.orient.001",
    "area": "support-packs",
    "subarea": "smoking_vaping",
@@ -128351,6 +130912,514 @@
    "file": "assets/support/packs/smoking_vaping.json",
    "key": "smoking_vaping.summary.001",
    "what_to_review": "What I've heard: you'd like to be free of smoking, {topic} makes it hard, and you're thinking about a plan. The next step is yours.",
+   "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.orient.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.orient.001",
+   "what_to_review": "I'm glad you're here. Social situations can feel very loud inside. What happens when you're around people?",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.orient.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.orient.002",
+   "what_to_review": "No judgment. Tell me which situations are hardest.",
+   "why_flagged": "Support-module snippet (kind orient, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.reflect.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.reflect.001",
+   "what_to_review": "It sounds like you replay conversations afterwards, looking for what you did wrong.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.reflect.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.reflect.002",
+   "what_to_review": "It sounds like you're sure everyone is watching or judging.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.reflect.003",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.reflect.003",
+   "what_to_review": "It sounds like you avoid things you'd actually like to do.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.reflect.004",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.reflect.004",
+   "what_to_review": "It sounds like you want connection but dread the effort.",
+   "why_flagged": "Support-module snippet (kind reflect, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.ask.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.ask.001",
+   "what_to_review": "Which situations are hardest: meeting new people, speaking up, eating in public, the masjid?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.ask.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.ask.002",
+   "what_to_review": "What do you fear will happen?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.ask.003",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.ask.003",
+   "what_to_review": "What do you do to get through it?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.ask.004",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.ask.004",
+   "what_to_review": "What have you been missing because of it?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.ask.005",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.ask.005",
+   "what_to_review": "Has it ever got so heavy that you felt you couldn't go on?",
+   "why_flagged": "Support-module snippet (kind ask, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.affirm.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.affirm.001",
+   "what_to_review": "Being shy or anxious in company is very common, and it's not a flaw.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.affirm.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.affirm.002",
+   "what_to_review": "You're still showing up in ways people don't see.",
+   "why_flagged": "Support-module snippet (kind affirm, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
+   "reviewer_type": "App owner (product wording and voice, not a scholar)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "low",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.explain.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.explain.001",
+   "what_to_review": "Most people are thinking about themselves, not judging you. The spotlight feels bigger from the inside.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.explain.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.explain.002",
+   "what_to_review": "Avoiding situations gives relief now and keeps the fear alive. Small, repeated steps toward them shrink it.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.explain.003",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.explain.003",
+   "what_to_review": "Focusing on the other person, their words and what they need, takes your attention off yourself and eases the fear.",
+   "why_flagged": "Support-module snippet (kind explain, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.plan-step.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.plan-step.001",
+   "what_to_review": "One small step: greet one person with salam and one short question, and stop there.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.plan-step.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.plan-step.002",
+   "what_to_review": "One small step: arrive somewhere early, when it's quiet, and stay ten minutes.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.plan-step.003",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.plan-step.003",
+   "what_to_review": "One small step: after a social moment, write one thing that went fine.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.plan-step.004",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.plan-step.004",
+   "what_to_review": "One small step: before entering a gathering, say a short du'a and remind yourself that Allah is with you there.",
+   "why_flagged": "Support-module snippet (kind plan-step, pack kind support, risk low, evidence N, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.safety.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.safety.001",
+   "what_to_review": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight.",
+   "why_flagged": "Support-module snippet (kind safety, pack kind support, risk high, evidence A, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "guideline WHO fact sheet: suicide",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.referral.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.referral.001",
+   "what_to_review": "If fear of people is limiting your work, study or friendships, a counsellor can teach practical tools and it improves with help. You can say: \"I get very anxious around people and it's limiting my life.\"",
+   "why_flagged": "Support-module snippet (kind referral, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background ",
+    "guideline WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.islamic.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.islamic.001",
+   "what_to_review": "Allah told Musa not to fear, for He is with them, hearing and seeing. Allah is with you in every room.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 20:46"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.islamic.002",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.islamic.002",
+   "what_to_review": "Allah says He does not burden a soul beyond its capacity, so you're only asked for what you can manage today.",
+   "why_flagged": "Support-module snippet (kind islamic, pack kind support, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:286"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.family.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.family.001",
+   "what_to_review": "If someone you love is shy or anxious in company, don't force them or call them rude. Give them a role, a plan and an exit.",
+   "why_flagged": "Support-module snippet (kind family, pack kind support, risk low, evidence C, status draft). Flags: needsClinicianReview. No named reviewer has signed off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.social_anxiety.summary.001",
+   "area": "support-packs",
+   "subarea": "social_anxiety",
+   "where_in_app": "Hadi / Wasia support module > pack \"social_anxiety\" (support)",
+   "file": "assets/support/packs/social_anxiety.json",
+   "key": "social_anxiety.summary.001",
+   "what_to_review": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another.",
    "why_flagged": "Support-module snippet (kind summary, pack kind support, risk low, evidence N, status draft). Flags: none (product wording). No named reviewer has signed off.",
    "reviewer_type": "App owner (product wording and voice, not a scholar)",
    "also_reviewers": [],

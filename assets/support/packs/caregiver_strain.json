@@ -1,0 +1,602 @@
+{
+ "schema": 1,
+ "pack": "caregiver_strain",
+ "packKind": "support",
+ "topic": "caregiver_strain",
+ "description": "Looking after a parent, spouse or child: tiredness, guilt, respite, sharing the load.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "caregiver_strain.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Caring for someone you love is a lot. I'm glad you told me. How have you been holding up?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "No judgment. Tell me what a normal day looks like for you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you've been putting yourself last for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver"],
+   "triggers": ["tired", "last", "myself"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you love them and you're also exhausted, and both are true."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver"],
+   "triggers": ["love", "exhausted", "resent"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel guilty for wanting a break."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver"],
+   "triggers": ["guilty", "break", "selfish"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like most of it falls on you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver"],
+   "triggers": ["alone", "no help", "siblings"],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who are you caring for, and for how long?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who else could share even one task?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When did you last rest properly?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would one hour of relief look like?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has it ever got so heavy that you felt you couldn't go on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Caring this way is a form of worship, and you're allowed to be tired."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Needing rest does not mean you love them less."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Carers who rest, share tasks and accept help last longer and give better care. Respite is part of the care, not a betrayal."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "normal"],
+   "triggers": ["guilty", "break", "selfish"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Resentment alongside love is normal and does not make you a bad person. It is a sign you need support."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "normal"],
+   "triggers": ["resent", "angry", "tired"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Local carer services, community groups and the masjid can often help with respite, transport or paperwork."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "normal"],
+   "triggers": ["help", "support", "alone"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask one family member or friend to take one specific task this week."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: block one hour that's yours and protect it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: find one local carer service and write down its number."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pray a short prayer for strength and read about the reward of caring for parents, then rest without guilt."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If this ever turns into feeling you can't go on, or thoughts of ending your life, please contact your emergency number or a crisis line now. You matter, and people can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "suicide", "crisis"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Your own health matters too. If you're worn out, low or struggling to cope, a doctor or counsellor can help. You can say: \"I'm caring for someone and I'm exhausted.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "doctor", "script"],
+   "triggers": ["weeks", "months", "worse", "work", "sleep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah commands kindness to parents, and He knows the effort you give. He also does not burden a soul beyond what it can bear."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "mercy"],
+   "triggers": ["parents", "mother", "father"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "17:23", "section": "RES_H2 2.2"},
+    {"type": "quran", "ref": "2:286", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah says with hardship comes ease. Seek help; it is part of how ease arrives."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "mercy"],
+   "triggers": ["tired", "hardship", "ease"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "94:5-6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you know is a carer, offer a specific hour, a meal or a lift, not a general offer. Ask what they need."
+   },
+   "ageBand": ["adult"],
+   "tags": ["caregiver", "family-of"],
+   "triggers": ["my wife", "my husband", "my son", "my daughter", "my friend"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Caregiver strain: sustained care for a parent, spouse or child with illness is exhausting; respite, sharing tasks and support groups reduce strain. General teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "caregiver_strain.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} has been weighing on you, and you want it to ease. We found one small step, and you can come back for another."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["caregiver", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
