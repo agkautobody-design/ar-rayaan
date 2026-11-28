@@ -1,0 +1,167 @@
+{
+ "schema": 1,
+ "pack": "family_roles_growth",
+ "packKind": "knowledge",
+ "topic": "family_roles_growth",
+ "description": "Being better to parents, as a husband or wife, finding a spouse, and bringing up children in the deen with warmth.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "family_roles_growth.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Your parents hold a special place: Allah places kindness to them right after worshipping Him. Call or visit more often than you think you need to, say thank you, speak softly even when you disagree, make dua for them, and help without being asked. When they are hard to live with, patience and gentle speech are still your part. A person asked who most deserved his good company, and the Prophet said his mother, three times."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "parents", "mother", "father", "relationship", "kindness", "elderly", "go-character"],
+   "triggers": ["improve my relationship with my parents", "be better to my parents", "how to treat my parents", "my parents and i fight", "how to make my mother happy", "honour my parents", "parents are difficult"],
+   "doNotSay": ["If the parent is abusive, safety first; do not tell the person to endure harm."],
+   "sources": [
+    {"type": "quran", "ref": "17:23-24", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:5971", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "31:14", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_roles_growth.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To be a better husband, be gentle, listen, share the work at home, and speak well of her to others. The Prophet said the best of you are the best to your families, and that he was the best to his. Money and provision matter, and so do time and warmth. Ask her what would make her feel looked after, then do one of those things this week."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "husband", "marriage", "spouse", "better", "wife", "mawaddah"],
+   "triggers": ["better husband", "be a good husband", "how to be a better husband", "how to treat my wife", "how to please my wife", "husband duties"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "30:21", "section": "Qur'an text"},
+    {"type": "quran", "ref": "4:19", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "tirmidhi:3895", "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-nikah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_roles_growth.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To be a better wife, the same marriage rules of kindness and respect apply to both. Speak openly and kindly, thank him for what he does, protect his trust, and agree on how you run the home together. Allah says He placed love and mercy between spouses, and marriage grows when both give more than they take."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "wife", "marriage", "husband", "spouse", "better", "mawaddah"],
+   "triggers": ["better wife", "be a good wife", "how to be a better wife", "how to treat my husband", "wife duties", "how to keep my marriage strong"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "30:21", "section": "Qur'an text"},
+    {"type": "quran", "ref": "4:19", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-nikah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_roles_growth.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "When looking for a spouse, start with character and deen, then make istikhara and ask people you trust who know the person. The Prophet advised choosing the one who is religious. Pray, be honest about your expectations, involve your family, and do not rush. Allah says that He will enrich those who are single if they are righteous."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "spouse", "marriage", "nikah", "istikhara", "single", "proposal"],
+   "triggers": ["find a spouse", "how do i find a spouse", "looking for marriage", "how to find a husband", "how to find a wife", "i want to get married", "how to choose a spouse", "cant find someone to marry"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5090", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "24:32", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-istikhara"}, {"asset": "assets/guides/guides.json", "id": "huda-nikah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_roles_growth.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Teach children to pray by praying with them, not by pressure. Let them stand beside you from about age three or four, make it warm and short, praise effort, and start seriously around seven. Say the words aloud, show them the movements, and make dua for them by name. Allah says to order your family to pray and be steady on it yourself."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "children", "kids", "teach", "prayer", "parenting", "tarbiyah"],
+   "triggers": ["teach my kids to pray", "teach my children to pray", "my child wont pray", "get my kids to pray", "how to raise muslim kids", "how to make my children love islam", "raise my kids in islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "20:132", "section": "Qur'an text"},
+    {"type": "quran", "ref": "66:6", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-children-deen"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_roles_growth.howto.006",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Children copy what they see more than what they hear. Be the person you want them to become: let them see you pray, say sorry, speak gently, and be honest. Keep the home calm, keep Islam warm, and keep talking with them so they bring their questions to you. Make dua for them often; it is a duty and a gift."
+   },
+   "ageBand": ["all"],
+   "tags": ["family", "relationships", "role-model", "parenting", "children", "example", "home", "teens"],
+   "triggers": ["good role model for my kids", "be a role model", "raise good children", "raising teenagers in islam", "my teenager is drifting", "good parent", "how to be a better parent"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "25:74", "section": "Qur'an text"},
+    {"type": "quran", "ref": "31:17", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-children-deen"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

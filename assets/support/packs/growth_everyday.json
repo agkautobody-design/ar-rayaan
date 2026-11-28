@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "pack": "growth_everyday",
+ "packKind": "knowledge",
+ "topic": "growth_everyday",
+ "description": "Everyday growth: becoming a better person one trait at a time, using prayer times to organise the day, learning step by step, and giving small.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "growth_everyday.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Grow one trait at a time. Choose one, for example patience, honesty, or gentle speech, and watch for it for a week. The Prophet said the most beloved to him and the closest to him on the Day of Judgement are those with the best character. Small daily choices build it, and the Character course in the app goes through it step by step."
+   },
+   "ageBand": ["all"],
+   "tags": ["growth", "character", "akhlaq", "better", "person", "manners", "improve", "go-character"],
+   "triggers": ["become a better person", "how to be a better muslim", "improve my character", "how to improve myself", "self improvement", "how to grow as a person", "better version of myself", "work on my character", "have good manners", "good manners", "good character", "be more polite"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2018", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "growth_everyday.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Let the five prayers organise your day. They are decreed at set times, so build your day around them: work and study in the spaces between, and use the minute after each prayer for a short plan for what is next. Many people find the day feels calmer when the prayer is the anchor, not the interruption."
+   },
+   "ageBand": ["all"],
+   "tags": ["growth", "character", "schedule", "productivity", "prayer-times", "day", "organise"],
+   "triggers": ["manage my time", "time management", "organize my day", "be more productive", "productive muslim", "plan my day", "i waste time"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "4:103", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer-times"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "growth_everyday.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Learn in small steps. Pick one topic you care about, spend ten minutes a day on it, and write down one thing you learned. The Prophet said that if Allah wants good for someone, He gives him understanding of the religion. The Seeking Knowledge guide and the Academy in the app are good places to begin."
+   },
+   "ageBand": ["all"],
+   "tags": ["growth", "character", "learning", "knowledge", "study", "islam", "academy"],
+   "triggers": ["where do i start learning", "how to increase my knowledge", "how to study islam", "how to learn islam", "i want to learn more about islam", "how to grow in knowledge"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:71", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-knowledge"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "growth_everyday.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Give a little, often. Charity does not decrease wealth, the Prophet said, and forgiveness and humility raise a person in honour. A small sum on a regular day, a meal sent to a neighbour, a kind message, each counts. You can start today with something small enough that you will repeat it."
+   },
+   "ageBand": ["all"],
+   "tags": ["growth", "character", "charity", "giving", "kindness", "sadaqah", "generosity"],
+   "triggers": ["how to be generous", "small charity ideas", "sadaqah ideas", "how to give charity regularly", "how to be kind", "how to be more generous"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2588", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-sadaqah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

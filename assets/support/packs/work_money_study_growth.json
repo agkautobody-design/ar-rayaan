@@ -1,0 +1,142 @@
+{
+ "schema": 1,
+ "pack": "work_money_study_growth",
+ "packKind": "knowledge",
+ "topic": "work_money_study_growth",
+ "description": "Halal income and finding work, managing money, steady study and exam stress, discipline, time and the phone.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "work_money_study_growth.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Seek halal income and work with your own hands where you can. The Prophet said no one eats better food than that earned by his own work. Avoid anything with interest, deceit or harm, be honest in dealings, and accept less rather than something doubtful. Allah is the provider, and He says that those who are mindful of Him get a way out and provision from where they do not expect."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "halal", "income", "job", "rizq", "earning", "career", "provision"],
+   "triggers": ["find a halal job", "halal income", "make halal income", "how to earn halal", "halal work", "choosing a career as a muslim", "is my job halal", "i cant find a job"],
+   "doNotSay": ["No rulings on specific jobs or products; point to the Earning guide and a scholar for a specific case."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:2072", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "2:168", "section": "Qur'an text"},
+    {"type": "quran", "ref": "65:2-3", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-earning"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "work_money_study_growth.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To manage money well, spend on needs before wants, give something first however small, avoid debt you do not need, and keep a simple record. The Prophet said it is better to cut wood and sell it than to go asking people. Pay what you owe on time. Zakat purifies what is left, and Allah says to be neither miserly nor wasteful."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "budget", "spending", "debt", "savings", "finance", "wealth"],
+   "triggers": ["manage money as a muslim", "how to manage my money", "i am in debt", "how to budget", "save money islam", "stop wasting money", "how to get out of debt"],
+   "doNotSay": ["No investment advice; the app is not a licensed adviser."],
+   "sources": [
+    {"type": "quran", "ref": "25:67", "section": "Qur'an text"},
+    {"type": "quran", "ref": "17:29", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:1470", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "work_money_study_growth.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "For exam stress, make a plan you can keep: short blocks, rest between them, sleep, and a prayer when you feel tight. Ask Allah for ease with the dua of Musa: my Lord, expand my chest and ease my task. Do your best, and place the result with Him. Stress is not a sign you are failing; it means this matters to you."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "exam", "exams", "stress", "student", "anxious", "school", "university"],
+   "triggers": ["exam stress", "stressed about exams", "how to study for exams", "i am scared of my exam", "dua for exams", "study as a muslim", "i cant focus on studying", "how to study better"],
+   "doNotSay": ["If stress sounds like panic or hopelessness, move to the student support area."],
+   "sources": [
+    {"type": "quran", "ref": "20:25-28", "section": "Qur'an text"},
+    {"type": "quran", "ref": "94:5-6", "section": "Qur'an text"},
+    {"type": "quran", "ref": "65:3", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-knowledge"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "work_money_study_growth.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Discipline grows from small promises kept. Choose one daily act, tie it to a fixed time, remove the thing that pulls you away, and start the same minute each day. The Prophet said that many people lose two blessings: health and free time. A short, steady habit beats a big plan you drop."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "discipline", "laziness", "lazy", "phone", "procrastination", "focus", "productivity"],
+   "triggers": ["be more disciplined", "how to be disciplined", "overcome laziness", "i am lazy", "stop wasting time on my phone", "phone addiction", "too much screen time", "how to use my time well", "i waste my time"],
+   "doNotSay": ["Never shame; one small step."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6412", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "work_money_study_growth.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Being busy does not close the door to the Qur'an. Allah says to recite what is easy. Read one page or even a few verses a day, listen while you travel, and keep one verse in mind through the day. Learning and teaching the Qur'an is the best of deeds, so start small and stay with it."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "quran", "busy", "learn", "daily", "recite", "go-quran"],
+   "triggers": ["learn the quran when i am busy", "no time for quran", "how to read quran daily", "how to start reading quran", "how to finish the quran", "make time for the quran", "learn quran as an adult"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "73:20", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:5027", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

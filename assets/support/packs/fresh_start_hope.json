@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "pack": "fresh_start_hope",
+ "packKind": "knowledge",
+ "topic": "fresh_start_hope",
+ "description": "Starting again after wrong: how repentance works, that the door is open, what to do first, and keeping hope.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "fresh_start_hope.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Yes, you can start again. Allah says not to despair of His mercy, because He forgives all sins to the one who returns. The Prophet taught that Allah accepts repentance until the last breath, and that Allah forgives a servant who sins, asks forgiveness, and repeats it. The door is open today."
+   },
+   "ageBand": ["all"],
+   "tags": ["tawbah", "hope", "repentance", "forgiveness", "fresh-start", "mercy", "go-tawba"],
+   "triggers": ["can i start again", "fresh start", "new beginning", "can i repent", "will allah accept my repentance", "start over with allah", "can allah forgive me", "is it too late to repent", "how to return to allah"],
+   "doNotSay": ["No lecture about sin. Hope first. If the person describes despair or self-harm, support path and crisis flow come first."],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "tirmidhi:3537", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2758", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-tawba"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fresh_start_hope.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Repentance has plain steps: stop what you can stop today, feel real regret, decide not to return, and put right what you owe to people. Then ask Allah for forgiveness in your own words and follow it with a good deed. If you slip, you begin again, because the door does not close."
+   },
+   "ageBand": ["all"],
+   "tags": ["tawbah", "hope", "repentance", "steps", "forgiveness", "return", "go-tawba"],
+   "triggers": ["how to repent", "how to make tawbah", "steps of repentance", "how do i repent", "conditions of tawbah", "how to ask allah for forgiveness"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-tawba"},
+    {"type": "quran", "ref": "66:8", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-tawba"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fresh_start_hope.faq.002",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah is happy when you return. The Prophet said that Allah is more pleased with the repentance of His servant than a man who finds his lost mount in the desert. You are not a burden to Him; coming back is the thing He loves."
+   },
+   "ageBand": ["all"],
+   "tags": ["tawbah", "hope", "mercy", "love", "return", "acceptance"],
+   "triggers": ["does allah still love me", "will allah still accept me", "is allah angry with me", "allah is happy when i return"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2747", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:6309", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fresh_start_hope.faq.003",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Do not lose hope. The Prophet taught that Allah created mercy in a hundred parts and sent down only one to all of creation. Had anyone known all the mercy Allah holds, he would not lose hope of Paradise. Hope and effort go together: do what you can, and trust the rest to His mercy."
+   },
+   "ageBand": ["all"],
+   "tags": ["tawbah", "hope", "mercy", "despair", "forgiveness"],
+   "triggers": ["dont lose hope", "i lost hope in allah", "mercy of allah", "how to keep hope", "how to stay hopeful"],
+   "doNotSay": ["If the person says there is no hope for their life, not just their faith, use the support path."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6469", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

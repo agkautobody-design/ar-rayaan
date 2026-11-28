@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "pack": "patience_gratitude",
+ "packKind": "knowledge",
+ "topic": "patience_gratitude",
+ "description": "Patience (sabr) and gratitude (shukr) as everyday skills: how to practise each, contentment, envy and comparison, and ease after hardship.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "patience_gratitude.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Gratitude can be practised. Each night, name three things from the day you are thankful for and say alhamdulillah. Thank a person out loud once a day. Allah says that if you are grateful He will increase you, and the Prophet said a believer's affair is all good: thanks in ease, patience in hardship."
+   },
+   "ageBand": ["all"],
+   "tags": ["sabr", "shukr", "character", "gratitude", "thankful", "blessings", "alhamdulillah"],
+   "triggers": ["how to be grateful", "practice gratitude", "shukr", "feel thankful", "how to be thankful to allah", "i am ungrateful", "count my blessings"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "14:7", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2999", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-gratitude"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "patience_gratitude.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Patience is not feeling nothing. It is not letting the pain decide what you do. Cry if you need to, then breathe, pray, and ask Allah for help. Allah says to seek help through patience and prayer, and that He is with the patient. The Prophet said that patience is at the first strike of a hardship, and that whoever tries to be patient, Allah makes him patient."
+   },
+   "ageBand": ["all"],
+   "tags": ["sabr", "shukr", "character", "patience", "hardship", "pain", "endure", "difficult"],
+   "triggers": ["how to be patient", "sabr", "patience in hardship", "how to have patience", "how to deal with hardship", "how to be patient with allah", "how do i have sabr"],
+   "doNotSay": ["If the person describes heavy distress, acknowledge it and offer the support path before advice."],
+   "sources": [
+    {"type": "quran", "ref": "2:153", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:1302", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:1469", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hardship"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "patience_gratitude.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Hardship is not a sign that Allah has left you. Allah says that with hardship there is ease, and He repeats it twice. The Prophet said that everything is good for a believer, patience in a trial and thanks in comfort. Ease may not come as fast or in the shape you expect, but it is promised."
+   },
+   "ageBand": ["all"],
+   "tags": ["sabr", "shukr", "character", "hardship", "ease", "test", "hope", "trial", "relief"],
+   "triggers": ["when will it get easier", "hardship and ease", "why am i being tested", "why does allah test me", "does hardship ever end", "ease after hardship"],
+   "doNotSay": ["Hopeful and gentle; no claim that suffering is deserved."],
+   "sources": [
+    {"type": "quran", "ref": "94:5-6", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2999", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hardship"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "patience_gratitude.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Comparison steals contentment. When you notice envy, wish good for the person quietly, say alhamdulillah for something of your own, and step away from what feeds it. The Prophet taught not to envy one another, and that whoever holds back from asking people, Allah makes him content."
+   },
+   "ageBand": ["all"],
+   "tags": ["sabr", "shukr", "character", "envy", "jealous", "contentment", "comparison", "comparing", "qanaah"],
+   "triggers": ["how to stop comparing myself", "stop comparing myself", "i compare myself to others", "i am jealous", "how to stop envy", "contentment", "how to be content", "how to be happy with what i have"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6065", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:1469", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
