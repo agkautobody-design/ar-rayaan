@@ -228,7 +228,7 @@ class _JigsawState extends State<JigsawScreen> {
                   ),
                 );
                 final Widget game = _game(b, done);
-                if (!done) return Center(child: game);
+                if (!done) return Align(alignment: Alignment.topCenter, child: game);
                 return ListView(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                   children: <Widget>[
