@@ -146,6 +146,11 @@ class UserKnowsNotifier extends Notifier<UserKnows> {
     unawaited(_syncUp());
   }
 
+  Future<void> forgetGoal(String text) async {
+    await _save(state.withoutGoal(text));
+    unawaited(_syncUp());
+  }
+
   Future<void> forgetCovered(String key) async {
     await _save(state.withoutCovered(key));
     unawaited(_syncUp());

@@ -16,6 +16,8 @@ import '../../support/application/support_settings.dart';
 import '../../support/presentation/need_help_screen.dart' show kNeedHelpOpener;
 import '../../support/presentation/privacy_shield.dart';
 import '../application/sakina_providers.dart';
+import '../../hadi/application/user_knows_provider.dart';
+import '../../hadi/data/user_knows.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
 import 'widgets/need_help_button.dart';
@@ -52,8 +54,26 @@ const List<String> kHadiCheckIns = <String>[
 ];
 
 final AutoDisposeProvider<String> hadiCheckInProvider =
-    Provider.autoDispose<String>((Ref ref) =>
-        kHadiCheckIns[math.Random().nextInt(kHadiCheckIns.length)]);
+    Provider.autoDispose<String>((Ref ref) {
+  final math.Random r = math.Random();
+  // Now and then, ask after something the person told Hādi they are working
+  // on. Only a goal they said themselves, and only while noticing is on.
+  try {
+    final bool on = ref.read(userKnowsProvider.notifier).on;
+    final List<KnownGoal> goals = ref.read(userKnowsProvider).goals;
+    if (on && goals.isNotEmpty && r.nextInt(3) == 0) {
+      final KnownGoal g = goals[r.nextInt(goals.length)];
+      return 'You mentioned a goal: ${_asGoalPhrase(g.text)}. '
+          'How is that going?';
+    }
+  } catch (_) {}
+  return kHadiCheckIns[r.nextInt(kHadiCheckIns.length)];
+});
+
+String _asGoalPhrase(String t) {
+  final String g = t.trim();
+  return g.toLowerCase().startsWith('to ') ? g.substring(3) : g;
+}
 
 /// Everyday starting points: (chip label, first-person sentence Hādi opens
 /// with). Phrased as a disclosure so the listening side of Hādi answers.
