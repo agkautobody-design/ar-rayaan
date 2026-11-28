@@ -527,22 +527,32 @@ class _MathQuestState extends State<MathQuestScreen> {
 
 // ------------------------------------------------------- Pattern Sequence
 
-const List<IconData> _patternIcons = <IconData>[
-  Icons.star_rounded,
-  Icons.nightlight_round,
-  Icons.wb_sunny_rounded,
-  Icons.favorite_rounded,
-  Icons.eco_rounded,
-  Icons.diamond_rounded,
+/// The owner's six gold pieces, in the same order as [_patternNames].
+const List<String> _patternPieces = <String>[
+  'assets/games/pattern/piece_0.webp',
+  'assets/games/pattern/piece_1.webp',
+  'assets/games/pattern/piece_2.webp',
+  'assets/games/pattern/piece_3.webp',
+  'assets/games/pattern/piece_4.webp',
+  'assets/games/pattern/piece_5.webp',
 ];
 const List<String> _patternNames = <String>[
-  'Star',
-  'Crescent',
-  'Sun',
-  'Heart',
-  'Leaf',
-  'Gem',
+  'Twelve-point star',
+  'Eight-point rosette',
+  'Lotus',
+  'Knot',
+  'Hexagon',
+  'Eight-point star',
 ];
+
+Widget _patternPiece(int s, double size) => Image.asset(
+      _patternPieces[s],
+      width: size,
+      height: size,
+      fit: BoxFit.contain,
+      filterQuality: FilterQuality.medium,
+      gaplessPlayback: true,
+    );
 
 class PatternScreen extends StatefulWidget {
   const PatternScreen({super.key, this.raceCode, this.raceSide, this.seed});
@@ -659,7 +669,7 @@ class _PatternState extends State<PatternScreen> {
         const SizedBox(height: 10),
         GamePanel(
           child: SizedBox(
-            height: 110,
+            height: 120,
             child: Center(
               child: _showing
                   ? (_lit == null
@@ -667,8 +677,7 @@ class _PatternState extends State<PatternScreen> {
                       : Semantics(
                           liveRegion: true,
                           label: _patternNames[_lit!],
-                          child: Icon(_patternIcons[_lit!],
-                              size: 72, color: AppColors.goldLight),
+                          child: _patternPiece(_lit!, 104),
                         ))
                   : Text(
                       'Now repeat them: symbol ${_typed + 1} of ${_seq.length}',
@@ -687,16 +696,15 @@ class _PatternState extends State<PatternScreen> {
                 button: true,
                 label: _patternNames[s],
                 child: SizedBox(
-                  width: 92,
-                  height: 80,
+                  width: 96,
+                  height: 96,
                   child: GamePanel(
                     onTap: _showing ? null : () => _tap(s),
-                    padding: EdgeInsets.zero,
-                    child: Icon(_patternIcons[s],
-                        size: 38,
-                        color: _showing
-                            ? AppColors.textFaint
-                            : AppColors.goldLight),
+                    padding: const EdgeInsets.all(4),
+                    child: Opacity(
+                      opacity: _showing ? 0.4 : 1,
+                      child: _patternPiece(s, 88),
+                    ),
                   ),
                 ),
               ),
