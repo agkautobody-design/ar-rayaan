@@ -10,6 +10,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../data/race_link.dart';
+import '../engine/maze_boards.dart';
 import '../engine/puzzle_engines.dart';
 import '../ui/games_theme.dart';
 import 'race_banner.dart';
@@ -132,25 +133,23 @@ class MazeScreen extends StatefulWidget {
 }
 
 class _MazeState extends State<MazeScreen> {
-  static const List<int> _sizes = <int>[7, 9, 11];
   late final PuzzleRace _race =
       PuzzleRace(widget.raceCode, widget.raceSide, widget.seed);
-  late final List<Maze> _mazes;
+
+  /// The same boards, in the same order, for everyone: smallest first.
+  late final List<Maze> _mazes = <Maze>[
+    for (final MazeBoard b in kMazeBoards) Maze.fromOpen(b.size, b.open),
+  ];
   int _level = 0, _cell = 0, _moves = 0;
   bool _done = false;
-
-  @override
-  void initState() {
-    super.initState();
-    final Random r = _race.rnd;
-    _mazes = <Maze>[for (final int s in _sizes) Maze.generate(s, r)];
-  }
 
   @override
   void dispose() {
     _race.dispose();
     super.dispose();
   }
+
+  MazeBoard get _board => kMazeBoards[_level];
 
   Maze get _maze => _mazes[_level];
 
@@ -172,6 +171,10 @@ class _MazeState extends State<MazeScreen> {
           _level++;
           _cell = 0;
         });
+        if (_level + 1 < kMazeBoards.length) {
+          unawaited(precacheImage(
+              AssetImage(kMazeBoards[_level + 1].asset), context));
+        }
       }
     }
   }
@@ -253,7 +256,7 @@ class _MazeState extends State<MazeScreen> {
             child: AspectRatio(
               aspectRatio: 1,
               child: ExcludeSemantics(
-                child: CustomPaint(painter: _MazePainter(_maze, _cell)),
+                child: _MazeBoardView(board: _board, cell: _cell),
               ),
             ),
           ),
@@ -268,7 +271,7 @@ class _MazeState extends State<MazeScreen> {
             _pad4(Icons.keyboard_arrow_right, 'right', Maze.right),
           ]),
           const SizedBox(height: 10),
-          Text('Reach the gold square at the bottom right. Arrow keys work too.',
+          Text('Reach the star at the bottom right. Arrow keys work too.',
               textAlign: TextAlign.center, style: AppText.bodyMuted),
         ],
       ),
@@ -276,50 +279,52 @@ class _MazeState extends State<MazeScreen> {
   }
 }
 
-class _MazePainter extends CustomPainter {
-  _MazePainter(this.maze, this.cell);
-  final Maze maze;
+/// One board: the owner's picture, with the walker laid over its start cell.
+class _MazeBoardView extends StatelessWidget {
+  const _MazeBoardView({required this.board, required this.cell});
+  final MazeBoard board;
   final int cell;
 
   @override
-  void paint(Canvas canvas, Size size) {
-    final int n = maze.size;
-    final double s = size.width / n;
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(Offset.zero & size, const Radius.circular(12)),
-      Paint()..color = const Color(0xFF0B1B2A),
-    );
-    canvas.drawRect(
-      Rect.fromLTWH((n - 1) * s + 3, (n - 1) * s + 3, s - 6, s - 6),
-      Paint()..color = AppColors.gold,
-    );
-    final Paint wall = Paint()
-      ..color = AppColors.goldLight
-      ..strokeWidth = 2.5
-      ..strokeCap = StrokeCap.round;
-    canvas.drawRect(
-        Offset.zero & size,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2.5
-          ..color = AppColors.goldLight);
-    for (int i = 0; i < n * n; i++) {
-      final int r = i ~/ n, c = i % n;
-      final double x = c * s, y = r * s;
-      if (!maze.canMove(i, Maze.right) && c < n - 1) {
-        canvas.drawLine(Offset(x + s, y), Offset(x + s, y + s), wall);
-      }
-      if (!maze.canMove(i, Maze.down) && r < n - 1) {
-        canvas.drawLine(Offset(x, y + s), Offset(x + s, y + s), wall);
-      }
-    }
-    final int pr = cell ~/ n, pc = cell % n;
-    canvas.drawCircle(Offset(pc * s + s / 2, pr * s + s / 2), s * 0.28,
-        Paint()..color = const Color(0xFFFFF6C8));
+  Widget build(BuildContext context) {
+    final int row = cell ~/ board.size, col = cell % board.size;
+    final (double cx, double cy) = board.centre(row, col);
+    final (double cw, double ch) = board.cell;
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints box) {
+      final double s = box.maxWidth;
+      final double d = min(cw, ch) * s * 0.46;
+      return Stack(children: <Widget>[
+        Positioned.fill(
+          child: Image.asset(board.asset,
+              key: ValueKey<String>(board.asset),
+              fit: BoxFit.fill,
+              filterQuality: FilterQuality.medium,
+              gaplessPlayback: true),
+        ),
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 90),
+          curve: Curves.easeOut,
+          left: cx * s - d / 2,
+          top: cy * s - d / 2,
+          width: d,
+          height: d,
+          child: DecoratedBox(
+            key: const ValueKey<String>('maze-walker'),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: const Color(0xFFFFF1B8),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                    color: const Color(0xFFFFD866).withValues(alpha: 0.85),
+                    blurRadius: d * 0.7,
+                    spreadRadius: d * 0.08),
+              ],
+            ),
+          ),
+        ),
+      ]);
+    });
   }
-
-  @override
-  bool shouldRepaint(_MazePainter old) => old.cell != cell || old.maze != maze;
 }
 
 // ------------------------------------------------------------- Math Quest
