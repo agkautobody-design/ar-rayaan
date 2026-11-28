@@ -1,0 +1,267 @@
+{
+ "schema": 1,
+ "pack": "closeness_to_allah",
+ "packKind": "knowledge",
+ "topic": "closeness_to_allah",
+ "description": "Feeling close to Allah: what to do when you want to feel nearer, when prayer feels empty, how to be present in prayer, remembrance, the Qur'an with meaning, the night prayer, and kindness as worship.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "closeness_to_allah.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Feeling close to Allah is something you can build, and it usually starts small. Slow your prayers down by a few breaths in each position. Say what you really mean in prostration, in your own words. After the prayer, stay seated for a short remembrance of Allah before you reach for your phone. Closeness grows through many small turns toward Him, not one big moment, and Allah says He answers each step you take toward Him with a bigger one."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "allah", "closer", "feel", "feeling", "presence", "connection", "go-adhkar"],
+   "triggers": ["feel closer to allah", "feeling closer to allah", "feel close to allah", "feeling close to allah", "feel allah", "feeling allah", "feel his presence", "feel connected to allah", "feeling connected to allah", "get closer to allah", "closer to allah", "feeling closer", "feel closer", "connect with allah", "draw nearer to allah", "build a relationship with allah", "relationship with allah"],
+   "doNotSay": ["Warm and practical; never imply the person is far from Allah or lacking faith.", "Offer one or two steps, not a programme."],
+   "sources": [
+    {"type": "quran", "ref": "2:152", "section": "Qur'an text"},
+    {"type": "quran", "ref": "20:14", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:7405", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-adhkar"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Feeling nothing in prayer is common, and it does not mean your prayer is empty or that Allah has turned away. Hearts have seasons. The Prophet often asked Allah to make his heart firm, and you can ask the same. Keep praying, and change one thing: slow down, learn what you recite, or add a short voluntary prayer at a quiet time. Closeness often comes back through steady effort, not through waiting to feel it."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "prayer", "feeling", "empty", "dry", "heart", "faith", "go-adhkar"],
+   "triggers": ["feel nothing when i pray", "feel nothing in prayer", "pray but feel nothing", "prayer feels empty", "prayer feels dry", "no feeling in prayer", "prayer feels like routine", "prayer feels mechanical", "feel nothing when i read quran", "my heart feels hard", "my heart feels dry"],
+   "doNotSay": ["Never say their faith is weak.", "If they also describe low mood or hopelessness, the support path comes first, not this answer."],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3522", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2655", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "57:16", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To be more present in prayer: before you start, take a breath and remember who you are standing before. Learn the meaning of what you recite, even a few lines at a time. Pause in each position until you are still, as the Prophet taught. If your mind wanders, gently bring it back and carry on; you do not need to start over. A quiet corner and a phone left in another room help more than people expect."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "khushu", "focus", "prayer", "distracted", "concentration", "wandering"],
+   "triggers": ["khushu", "khushoo", "focus in prayer", "focus in salah", "mind wanders in prayer", "distracted in prayer", "distracted in salah", "concentrate in prayer", "concentrate in salah", "be present in prayer", "cant focus in prayer", "how to pray with presence"],
+   "doNotSay": ["If the person describes intrusive doubts about wudu or prayer that distress them, point to the waswas support area instead."],
+   "sources": [
+    {"type": "quran", "ref": "23:1-2", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:45", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:757", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Remembrance gives the heart rest. Allah says hearts find peace in remembering Him. Choose a few short words and attach them to something you already do: after each prayer, on waking, before sleep, while you walk. The morning and evening adhkar in the app are a ready set. Little and often is better than long and rare."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "dhikr", "remembrance", "peace", "heart", "calm", "go-adhkar"],
+   "triggers": ["how to do dhikr", "ways to remember allah", "peace of heart", "peace in my heart", "heart find rest", "inner peace", "how to remember allah more", "make dhikr a habit", "where to start with dhikr"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "13:28", "section": "Qur'an text"},
+    {"type": "quran", "ref": "33:41", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6408", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-adhkar"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an softens hearts when you give it a little time each day. Read a small portion in a language you understand, slowly, and stop where a verse speaks to you. Say it back to yourself and ask what it asks of you today. Even a few verses with attention do more than many pages in a rush."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "quran", "heart", "soften", "meaning", "go-quran"],
+   "triggers": ["quran soften my heart", "connect with the quran", "feel the quran", "read quran with meaning", "understand the quran", "quran touches my heart", "i read quran but feel nothing"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:23", "section": "Qur'an text"},
+    {"type": "quran", "ref": "8:2", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "The night is a special time for closeness. Pray two rak'ahs in the last part of the night, even short ones, and make your dua. The Prophet told us that Allah comes down to the lowest heaven in the last third of the night and asks who is asking, so that He may give. Start with one night a week if every night is too much."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "night", "tahajjud", "dua", "last-third"],
+   "triggers": ["when is allah closest", "closest to allah at night", "last third of the night", "night prayer for closeness", "best time for dua"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1145", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "32:16", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-tahajjud"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.006",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Looking at what Allah made turns the heart toward Him. Spend a few quiet minutes outside or at a window, look at the sky, a tree, the changing light, and think about who made it all and why. Allah praises those who remember Him and reflect on the creation of the heavens and the earth."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "reflection", "creation", "nature", "gratitude", "tafakkur"],
+   "triggers": ["reflect on creation", "tafakkur", "feel allah in nature", "see allah in creation", "ponder creation"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "3:190", "section": "Qur'an text"},
+    {"type": "quran", "ref": "3:191", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.faq.002",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah hears you and He is near. He says that when His servants ask about Him, He is near and answers the one who calls. A reply does not always look like what you asked for, and the Prophet taught us not to give up by saying that we called and nothing came. Keep asking, and keep your thought of Allah good, because He is as His servant thinks of Him."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "dua", "allah", "answer", "hears", "near", "patience"],
+   "triggers": ["does allah hear me", "will allah answer my dua", "why is allah not answering", "allah is not answering my dua", "dua not answered", "does allah listen to me", "how do i know allah hears me"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:186", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6340", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:7405", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.howto.007",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Kindness is also a way to Allah. The Prophet said that whoever helps his brother with a need, Allah helps him with his own. Do one quiet good thing today for someone who cannot repay you, and keep it between you and Allah. Many people find that their heart opens through service when it feels closed in prayer."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "kindness", "service", "help", "good-deeds"],
+   "triggers": ["get closer to allah by helping", "closeness through good deeds", "kindness and closeness to allah", "serve others for allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:2442", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "tirmidhi:2018", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-sadaqah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "closeness_to_allah.faq.003",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "There is no fixed time for feeling close to Allah, and nobody can promise one. What the sources promise is that Allah guides those who strive for Him and is with those who do good. Pick a small daily practice, keep it for a few weeks, and notice what changes. Steady and small is what the Prophet said Allah loves most."
+   },
+   "ageBand": ["all"],
+   "tags": ["closeness", "spiritual", "patience", "steady", "progress"],
+   "triggers": ["how long until i feel close to allah", "when will i feel close to allah", "how long does it take to feel allah", "when will i feel it"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "29:69", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
