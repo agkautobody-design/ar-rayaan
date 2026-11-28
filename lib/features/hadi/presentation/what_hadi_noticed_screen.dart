@@ -78,6 +78,12 @@ class _State extends ConsumerState<WhatHadiNoticedScreen> {
                       'Delete this one',
                       () => n.forgetRole(r),
                     ),
+                  for (final KnownGoal g in k.goals)
+                    _row(
+                      'Your goal: ${g.text}',
+                      'Delete this one',
+                      () => n.forgetGoal(g.text),
+                    ),
                   for (final MapEntry<String, KnownTopic> e in topics)
                     _row(
                       'You often ask about: ${UserKnowsRules.labels[e.key]}',

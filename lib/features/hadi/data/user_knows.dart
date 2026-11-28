@@ -25,6 +25,28 @@ class KnownTopic {
   }
 }
 
+/// A goal the person said out loud ("my goal is to finish Juz Amma"), kept
+/// in their own words so Hadi can ask how it is going.
+class KnownGoal {
+  const KnownGoal({required this.text, required this.added});
+
+  final String text;
+
+  /// The day it was said, YYYY-MM-DD.
+  final String added;
+
+  Map<String, Object> toJson() => <String, Object>{'x': text, 'd': added};
+
+  static KnownGoal? fromJson(Object? j) {
+    if (j is! Map) return null;
+    final Object? x = j['x'];
+    final Object? d = j['d'];
+    if (x is! String || d is! String) return null;
+    if (!UserKnowsRules.goalOk(x)) return null;
+    return KnownGoal(text: x, added: d);
+  }
+}
+
 /// What Hadi has noticed about one person from how they use him: subjects
 /// they ask about, and a few plain facts they said about themselves ("my
 /// son", "I am new to Islam"). It lives on the device (and, for a signed-in
@@ -38,6 +60,7 @@ class UserKnows {
     this.asked = 0,
     this.since = '',
     this.covered = const <String, KnownTopic>{},
+    this.goals = const <KnownGoal>[],
   });
 
   static const UserKnows empty = UserKnows();
@@ -60,7 +83,12 @@ class UserKnows {
   /// say "we went over this" and not repeat himself. Kept for a year.
   final Map<String, KnownTopic> covered;
 
-  bool get isEmpty => topics.isEmpty && roles.isEmpty && covered.isEmpty;
+  /// Goals the person stated, newest first (at most
+  /// [UserKnowsRules.maxGoals]).
+  final List<KnownGoal> goals;
+
+  bool get isEmpty =>
+      topics.isEmpty && roles.isEmpty && covered.isEmpty && goals.isEmpty;
 
   UserKnows copyWith({
     Map<String, KnownTopic>? topics,
@@ -68,6 +96,7 @@ class UserKnows {
     int? asked,
     String? since,
     Map<String, KnownTopic>? covered,
+    List<KnownGoal>? goals,
   }) =>
       UserKnows(
         topics: topics ?? this.topics,
@@ -75,6 +104,7 @@ class UserKnows {
         asked: asked ?? this.asked,
         since: since ?? this.since,
         covered: covered ?? this.covered,
+        goals: goals ?? this.goals,
       );
 
   Map<String, Object> toJson() => <String, Object>{
@@ -89,6 +119,7 @@ class UserKnows {
           for (final MapEntry<String, KnownTopic> e in covered.entries)
             e.key: e.value.toJson(),
         },
+        'g': <Object>[for (final KnownGoal g in goals) g.toJson()],
       };
 
   String encode() => json.encode(toJson());
@@ -132,9 +163,18 @@ class UserKnows {
         if (v != null && UserKnowsRules.idRe.hasMatch(k)) covered[k] = v;
       }
     }
+    final List<KnownGoal> goals = <KnownGoal>[];
+    final Object? ge = d['g'];
+    if (ge is List) {
+      for (final Object? e in ge) {
+        final KnownGoal? g = KnownGoal.fromJson(e);
+        if (g != null && goals.length < UserKnowsRules.maxGoals) goals.add(g);
+      }
+    }
     final Object? n = d['n'];
     final Object? s = d['s'];
     return UserKnows(
+      goals: goals,
       topics: topics,
       roles: roles,
       asked: n is int ? n : 0,
@@ -153,6 +193,13 @@ class UserKnows {
   UserKnows withoutRole(String key) =>
       copyWith(roles: <String>{...roles}..remove(key));
 
+  UserKnows withoutGoal(String text) => copyWith(
+        goals: <KnownGoal>[
+          for (final KnownGoal g in goals)
+            if (g.text != text) g,
+        ],
+      );
+
   UserKnows withoutCovered(String key) => copyWith(
         covered: <String, KnownTopic>{
           for (final MapEntry<String, KnownTopic> e in covered.entries)
@@ -166,6 +213,30 @@ abstract final class UserKnowsRules {
   static const int maxCount = 50;
   static const int maxTopics = 12;
   static const int maxCovered = 40;
+  static const int maxGoals = 5;
+
+  /// A stored goal: short, plain and safe to keep.
+  static bool goalOk(String t) {
+    final String g = t.trim();
+    if (g.length < 6 || g.length > 80) return false;
+    return mayLearnFrom(g);
+  }
+
+  static final RegExp _goalRe = RegExp(
+      r'\b(?:my goals? (?:is|are|this (?:year|month|week) is)(?: to)?|i(?: am|m) (?:working on|trying to)|i want to|i(?: am|m) aiming to)\s+(.{4,120})',
+      caseSensitive: false);
+
+  /// The goal the person stated in [question], cleaned up, or null. Only an
+  /// explicit "my goal is…" style statement counts, and only a safe one.
+  static String? goalOf(String question) {
+    final RegExpMatch? m = _goalRe.firstMatch(question.trim());
+    if (m == null) return null;
+    String g = m.group(1)!.trim();
+    g = g.split(RegExp(r'\s+(?:but|because|and then|so that)\s+'))[0];
+    g = g.split(RegExp(r'[.?!;]'))[0].trim();
+    if (g.length > 80) g = g.substring(0, 80).trim();
+    return goalOk(g) ? g : null;
+  }
 
   /// An answer id as stored: lower-case words joined by dashes.
   static final RegExp idRe = RegExp(r'^[a-z0-9][a-z0-9-]{1,60}$');
@@ -305,7 +376,14 @@ abstract final class UserKnowsRules {
     final List<MapEntry<String, KnownTopic>> newest = keptCovered.entries.toList()
       ..sort((MapEntry<String, KnownTopic> a, MapEntry<String, KnownTopic> b) =>
           b.value.last.compareTo(a.value.last));
+    final List<KnownGoal> freshGoals = <KnownGoal>[
+      for (final KnownGoal g in k.goals)
+        if (DateTime.tryParse(g.added) == null ||
+            now.difference(DateTime.parse(g.added)).inDays <= forgetAfterDays)
+          g,
+    ].take(maxGoals).toList();
     return k.copyWith(
+      goals: freshGoals,
       topics: <String, KnownTopic>{
         for (final MapEntry<String, KnownTopic> e in sorted.take(maxTopics))
           e.key: e.value,
@@ -326,7 +404,8 @@ abstract final class UserKnowsRules {
     final Set<String> roles = rolesOf(question);
     final String? id =
         answerId != null && idRe.hasMatch(answerId) ? answerId : null;
-    if (topic == null && roles.isEmpty && id == null) return k;
+    final String? goal = goalOf(question);
+    if (topic == null && roles.isEmpty && id == null && goal == null) return k;
     final String today = day(now);
     final Map<String, KnownTopic> topics = <String, KnownTopic>{...k.topics};
     if (topic != null) {
@@ -348,6 +427,13 @@ abstract final class UserKnowsRules {
         asked: k.asked + 1,
         since: k.since.isEmpty ? today : k.since,
         covered: covered,
+        goals: goal == null
+            ? k.goals
+            : <KnownGoal>[
+                KnownGoal(text: goal, added: today),
+                for (final KnownGoal g in k.goals)
+                  if (g.text.toLowerCase() != goal.toLowerCase()) g,
+              ].take(maxGoals).toList(),
       ),
       now,
     );
@@ -387,6 +473,13 @@ abstract final class UserKnowsRules {
         asked: a.asked > b.asked ? a.asked : b.asked,
         since: since,
         covered: covered,
+        goals: <KnownGoal>[
+          ...a.goals,
+          for (final KnownGoal g in b.goals)
+            if (!a.goals.any((KnownGoal x) =>
+                x.text.toLowerCase() == g.text.toLowerCase()))
+              g,
+        ].take(maxGoals).toList(),
       ),
       now,
     );
@@ -400,6 +493,7 @@ abstract final class UserKnowsRules {
           b.value.count.compareTo(a.value.count));
     return <String>[
       for (final String r in k.roles) roleLabels[r]!,
+      for (final KnownGoal g in k.goals) 'Your goal: ${g.text}',
       for (final MapEntry<String, KnownTopic> e in sorted)
         'You often ask about: ${labels[e.key]}',
     ];
