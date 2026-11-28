@@ -94,6 +94,25 @@ void main() {
     });
   });
 
+  testWidgets('Maze Escape: sliding a finger walks the walker',
+      (WidgetTester tester) async {
+    tester.view.physicalSize = const Size(430, 1400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(const MaterialApp(home: MazeScreen()));
+    await tester.pump();
+    final Maze m = Maze.fromOpen(kMazeBoards[0].size, kMazeBoards[0].open);
+    final int open = Maze.dirs.firstWhere((int d) => m.canMove(m.start, d));
+    final Offset to = switch (open) {
+      Maze.right => const Offset(120, 0),
+      _ => const Offset(0, 120),
+    };
+    await tester.drag(find.byKey(const ValueKey<String>('maze-walker')), to);
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(find.text('MAZE 1 OF 24 · 0 MOVES'), findsNothing);
+  });
+
   testWidgets('Maze Escape: all twenty-four boards can be walked out of',
       (WidgetTester tester) async {
     tester.view.physicalSize = const Size(430, 1400);
