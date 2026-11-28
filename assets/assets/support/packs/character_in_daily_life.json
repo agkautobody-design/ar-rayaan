@@ -44,8 +44,8 @@
     "en": "Forgiving does not mean saying it did not hurt. It means choosing not to carry it. Start by asking Allah to ease your heart, wish the person guidance, and decide that you will not take revenge. You can forgive and still keep distance or set limits. Allah loves those who pardon, and the Prophet said forgiving raises a person in honour."
    },
    "ageBand": ["all"],
-   "tags": ["character", "akhlaq", "forgive", "forgiveness", "hurt", "grudge", "pardon", "betrayed", "resentment"],
-   "triggers": ["forgive someone who hurt me", "how do i forgive", "how to forgive someone", "i cant forgive", "hard to forgive", "let go of a grudge", "someone betrayed me", "let go of resentment"],
+   "tags": ["character", "akhlaq", "forgiving", "hurt", "grudge", "pardon", "betrayed", "resentment"],
+   "triggers": ["forgive someone who hurt me", "how do i forgive them", "how to forgive someone", "how do i forgive my parents", "how do i forgive my husband", "how do i forgive my wife", "how do i forgive my friend", "i cant forgive", "hard to forgive", "let go of a grudge", "someone betrayed me", "let go of resentment"],
    "doNotSay": ["Never push someone to reconcile with an abuser; forgiving is not staying in danger."],
    "sources": [
     {"type": "quran", "ref": "42:40", "section": "Qur'an text"},
@@ -93,6 +93,32 @@
    "kind": "howto",
    "stage": ["question"],
    "text": {
+    "en": "To break a habit of gossip, make a rule you can follow: when a name comes up, say something good or nothing, and change the subject. Notice who and what sets you off and spend less time there. If you slip, stop, and if the person was harmed by it, ask Allah's forgiveness, make dua for them, and where you can, speak well of them. A habit that took years to build can be undone one conversation at a time."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "tongue", "gossip", "gossiping", "backbiting", "ghibah", "speech", "habit", "break", "stop"],
+   "triggers": ["how do i stop it gossip", "break the habit of gossip", "i slipped and gossiped", "i backbit someone", "i talked about someone behind their back", "how to make up for backbiting"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6018", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "49:11-12", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2589", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
     "en": "Humility is not thinking little of yourself; it is not thinking of yourself too much. Serve someone without being asked, accept advice without arguing, thank people who teach you, and say I do not know when you do not. The Prophet said Allah revealed that you should be humble so that none boasts over another."
    },
    "ageBand": ["all"],
@@ -113,7 +139,7 @@
    "status": "draft"
   },
   {
-   "id": "character_in_daily_life.howto.005",
+   "id": "character_in_daily_life.howto.006",
    "kind": "howto",
    "stage": ["question"],
    "text": {
@@ -138,7 +164,7 @@
    "status": "draft"
   },
   {
-   "id": "character_in_daily_life.howto.006",
+   "id": "character_in_daily_life.howto.007",
    "kind": "howto",
    "stage": ["question"],
    "text": {
@@ -164,7 +190,7 @@
    "status": "draft"
   },
   {
-   "id": "character_in_daily_life.howto.007",
+   "id": "character_in_daily_life.howto.008",
    "kind": "howto",
    "stage": ["question"],
    "text": {
@@ -172,7 +198,7 @@
    },
    "ageBand": ["all"],
    "tags": ["character", "akhlaq", "friends", "friendship", "company", "peer", "pressure", "influence", "community"],
-   "triggers": ["peer pressure", "handle peer pressure", "bad friends", "how to find good friends", "make friends in the community", "make friends", "friends in the community", "how to make muslim friends", "friends who pull me away", "lonely as a muslim"],
+   "triggers": ["peer pressure", "handle peer pressure", "bad friends", "how to find good friends", "make friends in the community", "make friends", "friends in the community", "how to make muslim friends", "friends who pull me away", "lonely as a muslim", "i dont have friends", "i have no friends", "no friends here", "new here and have no friends"],
    "doNotSay": [],
    "sources": [
     {"type": "hadith", "ref": "bukhari:2101", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
@@ -188,7 +214,7 @@
    "status": "draft"
   },
   {
-   "id": "character_in_daily_life.howto.008",
+   "id": "character_in_daily_life.howto.009",
    "kind": "howto",
    "stage": ["question"],
    "text": {
