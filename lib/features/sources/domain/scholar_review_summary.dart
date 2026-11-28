@@ -22,7 +22,7 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 6616;
+const int kScholarReviewTotal = 6619;
 
 /// Items marked high priority.
 const int kScholarReviewHighPriority = 1365;
@@ -52,11 +52,11 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 10, 10),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
-    ScholarReviewArea('support-packs', 'Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)', 2251, 141),
+    ScholarReviewArea('support-packs', 'Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)', 2254, 141),
 ];
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
-    ScholarReviewerCount('Hadith / aqidah scholar', 2828),
+    ScholarReviewerCount('Hadith / aqidah scholar', 2831),
     ScholarReviewerCount('Fiqh scholar (per madhab)', 876),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 526),

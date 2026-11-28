@@ -91,8 +91,8 @@ def goals():
        trig=['tawakkul', 'trust in allah', 'rely on allah', 'how to trust allah', 'trust allah with my plans', 'leave it to allah', 'how to have tawakkul'])
     Hw("When motivation is low, shrink the task until it is almost too small to refuse: one page, five minutes, one phone call. Begin it, and let the habit carry you. The Prophet said that the deeds Allah loves most are the regular ones, even if small. Steady beats strong.",
        [HV('bukhari:6464')],
-       tags=['motivation', 'lazy', 'procrastination', 'start', 'habit', 'steady'],
-       trig=['no motivation', 'how to stay motivated', 'how to get motivated', 'cant stay motivated', 'procrastination', 'i keep procrastinating', 'how to stop being lazy', 'how to start'])
+       tags=['motivation', 'lazy', 'procrastination', 'habit', 'steady'],
+       trig=['no motivation', 'how to stay motivated', 'how to get motivated', 'cant stay motivated', 'procrastination', 'i keep procrastinating', 'how to stop being lazy'])
     Hw("When you cannot decide, do three things: gather facts and ask people who know the matter, pray the two rak'ahs of istikhara and ask Allah for what is best, then choose and move forward. Allah says that once you have decided, you rely on Him. You do not need a dream or a sign.",
        [Q('3:159', S)], cross=[xg('huda-istikhara')],
        tags=['decision', 'choose', 'istikhara', 'career', 'consult', 'go-istikhara'],
@@ -142,8 +142,8 @@ def habits():
        trig=['after ramadan i stopped', 'lost my iman after ramadan', 'ramadan high is gone', 'keep ramadan habits', 'how to keep ramadan habits', 'iman dropped after ramadan'])
     Hw("To wake for Fajr, start the night before: make the intention to pray, sleep soon after Isha, keep the phone away from the bed, and set the alarm across the room. Say the sleeping remembrance so you sleep with Allah in mind. If you oversleep, pray it as soon as you wake; it is still owed and still accepted.",
        [guide('huda-sleep'), Q('17:78', S)], cross=[xg('huda-sleep'), xg('huda-qada')],
-       tags=['fajr', 'wake', 'sleep', 'alarm', 'routine'],
-       trig=['wake up for fajr', 'cant wake for fajr', 'how to wake up for fajr', 'miss fajr every day', 'sleep through fajr', 'fajr alarm'],
+       tags=['fajr', 'wake', 'sleep', 'alarm', 'routine', 'missing', 'missed', 'sleeping'],
+       trig=['miss fajr', 'missing fajr', 'i keep missing fajr', 'i always sleep through fajr', 'sleep through my alarm for fajr', 'wake up for fajr', 'cant wake for fajr', 'how to wake up for fajr', 'miss fajr every day', 'sleep through fajr', 'fajr alarm'],
        dns=['No shaming for missed Fajr.'])
     return [p]
 
@@ -179,8 +179,8 @@ def fresh_start():
                        ['tawbah', 'hope'])
     Fq("Yes, you can start again. Allah says not to despair of His mercy, because He forgives all sins to the one who returns. The Prophet taught that Allah accepts repentance until the last breath, and that Allah forgives a servant who sins, asks forgiveness, and repeats it. The door is open today.",
        [Q('39:53', S), HV('tirmidhi:3537'), HV('muslim:2758')], cross=[xg('huda-tawba')],
-       tags=['tawbah', 'repentance', 'forgiveness', 'fresh-start', 'mercy', 'hope', 'go-tawba'],
-       trig=['can i start again', 'fresh start', 'new beginning', 'can i repent', 'will allah accept my repentance', 'start over with allah', 'can allah forgive me', 'is it too late to repent', 'how to return to allah'],
+       tags=['tawbah', 'repentance', 'forgiveness', 'fresh-start', 'mercy', 'hope', 'allah', 'go-tawba'],
+       trig=['can i start again', 'fresh start', 'new beginning', 'can i repent', 'will allah accept my repentance', 'start over with allah', 'can allah forgive me', 'will allah forgive me', 'does allah forgive everything', 'would allah forgive me', 'is it too late to repent', 'how to return to allah', 'i feel guilty about what i did', 'i feel so guilty', 'guilty about my sins'],
        dns=['No lecture about sin. Hope first. If the person describes despair or self-harm, support path and crisis flow come first.'])
     Hw("Repentance has plain steps: stop what you can stop today, feel real regret, decide not to return, and put right what you owe to people. Then ask Allah for forgiveness in your own words and follow it with a good deed. If you slip, you begin again, because the door does not close.",
        [guide('huda-tawba'), Q('66:8', S)], cross=[xg('huda-tawba')],
