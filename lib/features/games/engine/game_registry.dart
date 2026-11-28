@@ -558,7 +558,7 @@ const List<GameDef> kGames = <GameDef>[
     howToPlay: <String>[
       'The picture is cut into real jigsaw pieces and scattered below the board.',
       'Drag each piece to its place. When it is close, it clicks in and stays.',
-      'Place every piece to finish. Try 12 pieces, then 16. Peek shows the picture.',
+      'Place every piece to finish. Try 12 pieces, then 16, then 36. Peek shows the picture.',
     ],
   ),
   GameDef(

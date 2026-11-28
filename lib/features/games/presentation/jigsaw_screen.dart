@@ -40,7 +40,16 @@ class _JigsawState extends State<JigsawScreen> {
   late JigsawCut _cut;
 
   /// Height of the tray under the board, as a fraction of the board's.
-  double get _tray => _cut.rows == 4 ? 0.62 : 0.7;
+  double get _tray => _big ? 0.62 : (_cut.rows == 4 ? 0.62 : 0.7);
+
+  /// Pictures with many small pieces (36) get a wider, denser tray.
+  bool get _big => _cut.pieces.length > 16;
+  int get _trayCols => _big ? 9 : 4;
+  double get _looseSize => _big ? 0.6 : _looseScale;
+
+  /// Smaller pieces need a closer drop: the same share of a piece's size.
+  double get _snap =>
+      kJigsawSnap * 4 / max(_cut.rows, _cut.cols).clamp(4, 99);
   late List<Offset> _pos; // top-left of each piece, as fractions of the board
   late List<bool> _placed;
   late List<int> _loose; // loose pieces, last one is drawn on top
@@ -71,15 +80,16 @@ class _JigsawState extends State<JigsawScreen> {
     _cut = from[_rnd.nextInt(from.length)];
     final int n = _cut.pieces.length;
     final List<int> cells = List<int>.generate(n, (int i) => i)..shuffle(_rnd);
-    final int rowsT = (n / 4).ceil();
+    final int cols = _trayCols;
+    final int rowsT = (n / cols).ceil();
     _pos = List<Offset>.filled(n, Offset.zero);
     for (int i = 0; i < n; i++) {
       final JigsawPiece p = _cut.pieces[i];
       final int k = cells[i];
       final double jx = (_rnd.nextDouble() - 0.5) * 0.05;
       final double jy = (_rnd.nextDouble() - 0.5) * 0.05;
-      final double cx = ((k % 4) + 0.5) / 4 + jx;
-      final double cy = 1 + _tray * (((k ~/ 4) + 0.5) / rowsT) + jy;
+      final double cx = ((k % cols) + 0.5) / cols + jx;
+      final double cy = 1 + _tray * (((k ~/ cols) + 0.5) / rowsT) + jy;
       _pos[i] = Offset(
         (cx - p.width / 2).clamp(0.0, 1 - p.width),
         (cy - p.height / 2).clamp(1.01, 1 + _tray - p.height),
@@ -144,7 +154,7 @@ class _JigsawState extends State<JigsawScreen> {
   bool _tryClick(int i) {
     final JigsawPiece p = _cut.pieces[i];
     final Offset home = Offset(p.x0, p.y0);
-    if ((_pos[i] - home).distance > kJigsawSnap) return false;
+    if ((_pos[i] - home).distance > _snap) return false;
     _place(i);
     return true;
   }
@@ -204,6 +214,11 @@ class _JigsawState extends State<JigsawScreen> {
                     label: '16',
                     selected: _count == 16,
                     onTap: () => _setCount(16),
+                  ),
+                  GameChip(
+                    label: '36',
+                    selected: _count == 36,
+                    onTap: () => _setCount(36),
                   ),
                   if (!done)
                     GameChip(
@@ -327,7 +342,7 @@ class _JigsawState extends State<JigsawScreen> {
     final bool lifted = _drag == i;
     // Loose pieces resting in the tray are smaller; over the board, full size.
     final bool inTray = !placed && !lifted && _pos[i].dy + p.height / 2 > 1;
-    final double scale = inTray ? _looseScale : 1;
+    final double scale = inTray ? _looseSize : 1;
     final Widget face = SizedBox(
       key: ValueKey<String>('jigsaw-piece-$i'),
       width: w,
