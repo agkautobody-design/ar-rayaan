@@ -171,6 +171,11 @@ void main() {
       final int first = topLoose(tester, done);
       final Offset home = target(tester, cut.pieces[first]);
 
+      expect(
+        find.descendant(of: face(first), matching: find.byType(Listener)),
+        findsWidgets,
+      );
+
       // Far from home: stays loose where it was dropped.
       await tester.drag(face(first), const Offset(0, -40));
       await tester.pump();
@@ -184,14 +189,11 @@ void main() {
       expect(tester.getTopLeft(face(first)).dx, closeTo(home.dx, 0.6));
       expect(tester.getTopLeft(face(first)).dy, closeTo(home.dy, 0.6));
 
-      // A placed piece cannot be dragged away again.
-      await tester.drag(face(first), const Offset(0, 200));
-      await tester.pump();
-      expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
-      final Offset after = tester.getTopLeft(face(first)) -
-          tester.getTopLeft(find.byKey(const ValueKey<String>('jigsaw-board')));
-      expect(after.dx, closeTo(cut.pieces[first].x0 * b, 0.6));
-      expect(after.dy, closeTo(cut.pieces[first].y0 * b, 0.6));
+      // A placed piece is locked: it no longer takes touches.
+      expect(
+        find.descendant(of: face(first), matching: find.byType(Listener)),
+        findsNothing,
+      );
     });
 
     for (final int count in <int>[16, 12]) {
