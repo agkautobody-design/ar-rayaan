@@ -285,13 +285,20 @@ class _MazeState extends State<MazeScreen> {
           const SizedBox(height: 10),
           LayoutBuilder(builder: (BuildContext context, BoxConstraints box) {
             final double step = max(12.0, box.maxWidth / size * 0.85);
-            return GestureDetector(
-              onPanStart: (_) {
+            // The pointer events drive the walker (so a turn mid-slide
+            // works); the drag recognisers only claim the touch so the page
+            // does not scroll under the finger.
+            return Listener(
+              onPointerDown: (_) {
                 _drag = Offset.zero;
                 _swiped = false;
               },
-              onPanUpdate: (DragUpdateDetails d) => _onSlide(d.delta, step),
-              onPanEnd: (_) => _onSlideEnd(),
+              onPointerMove: (PointerMoveEvent e) => _onSlide(e.delta, step),
+              onPointerUp: (_) => _onSlideEnd(),
+              onPointerCancel: (_) => _onSlideEnd(),
+              child: GestureDetector(
+              onHorizontalDragUpdate: (_) {},
+              onVerticalDragUpdate: (_) {},
               child: Semantics(
                 label: 'Maze ${_level + 1}. You are in row '
                     '${_cell ~/ size + 1}, column ${_cell % size + 1} of '
@@ -304,7 +311,7 @@ class _MazeState extends State<MazeScreen> {
                   ),
                 ),
               ),
-            );
+            ));
           }),
           const SizedBox(height: 14),
           Center(child: _pad4(Icons.keyboard_arrow_up, 'up', Maze.up)),
