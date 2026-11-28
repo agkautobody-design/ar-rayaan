@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/ask_hadi_pill.dart';
+import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../engine/jigsaw_cuts.dart';
 import '../ui/games_theme.dart';
@@ -15,8 +17,9 @@ import 'puzzle_games.dart';
 /// place for it to click in.
 const double kJigsawSnap = 0.08;
 
-/// Height of the loose-piece tray, as a fraction of the picture's height.
-const double _trayHeight = 0.95;
+/// Loose pieces in the tray are drawn at this size so the whole game fits on
+/// one screen; a piece grows to full size when picked up or put on the board.
+const double _looseScale = 0.68;
 
 /// Jigsaw: real jigsaw pieces, cut along the lines of the picture. The pieces
 /// start scattered in the tray under the board. Drag each one to its place;
@@ -35,6 +38,9 @@ class _JigsawState extends State<JigsawScreen> {
   late final Random _rnd = Random(widget.seed);
   int _count = 16;
   late JigsawCut _cut;
+
+  /// Height of the tray under the board, as a fraction of the board's.
+  double get _tray => _cut.rows == 4 ? 0.62 : 0.7;
   late List<Offset> _pos; // top-left of each piece, as fractions of the board
   late List<bool> _placed;
   late List<int> _loose; // loose pieces, last one is drawn on top
@@ -73,10 +79,10 @@ class _JigsawState extends State<JigsawScreen> {
       final double jx = (_rnd.nextDouble() - 0.5) * 0.05;
       final double jy = (_rnd.nextDouble() - 0.5) * 0.05;
       final double cx = ((k % 4) + 0.5) / 4 + jx;
-      final double cy = 1 + _trayHeight * (((k ~/ 4) + 0.5) / rowsT) + jy;
+      final double cy = 1 + _tray * (((k ~/ 4) + 0.5) / rowsT) + jy;
       _pos[i] = Offset(
         (cx - p.width / 2).clamp(0.0, 1 - p.width),
-        (cy - p.height / 2).clamp(1.01, 1 + _trayHeight - p.height),
+        (cy - p.height / 2).clamp(1.01, 1 + _tray - p.height),
       );
     }
     _placed = List<bool>.filled(n, false);
@@ -119,7 +125,7 @@ class _JigsawState extends State<JigsawScreen> {
       final Offset o = _pos[i] + e.delta / b;
       _pos[i] = Offset(
         o.dx.clamp(0.0, 1 - p.width),
-        o.dy.clamp(0.0, 1 + _trayHeight - p.height),
+        o.dy.clamp(0.0, 1 + _tray - p.height),
       );
     });
   }
@@ -173,126 +179,142 @@ class _JigsawState extends State<JigsawScreen> {
   Widget build(BuildContext context) {
     final bool done = _solved;
     final int n = _cut.pieces.length;
-    return PuzzleFrame(
-      title: 'Jigsaw',
-      tagline: 'Drag each piece to its place',
-      children: <Widget>[
-        const SizedBox(height: 8),
-        Wrap(
-          alignment: WrapAlignment.spaceBetween,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 12,
-          runSpacing: 8,
-          children: <Widget>[
-            Text('Placed: $_placedCount of $n', style: AppText.label),
-            Wrap(spacing: 8, children: <Widget>[
-              GameChip(
-                label: '12 pieces',
-                selected: _count == 12,
-                onTap: () => _setCount(12),
-              ),
-              GameChip(
-                label: '16 pieces',
-                selected: _count == 16,
-                onTap: () => _setCount(16),
-              ),
-            ]),
-          ],
-        ),
-        const SizedBox(height: 10),
-        LayoutBuilder(builder: (BuildContext context, BoxConstraints cons) {
-          final double b = min(cons.maxWidth, 560);
-          final double h = done ? b : b * (1 + _trayHeight);
-          return Center(
-            child: SizedBox(
-              key: const ValueKey<String>('jigsaw-board'),
-              width: b,
-              height: h,
-              child: Stack(
-                key: const ValueKey<String>('jigsaw-stack'),
-                clipBehavior: Clip.none,
-                children: <Widget>[
-                  Positioned(
-                    key: const ValueKey<String>('jigsaw-bg'),
-                    left: 0,
-                    top: 0,
-                    width: b,
-                    height: b,
-                    child: IgnorePointer(
-                      child: CustomPaint(
-                        painter: _BoardPainter(_cut, _placed, b),
-                      ),
-                    ),
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Column(
+        children: <Widget>[
+          // Just a back button and the title: the room is for the pieces.
+          const ScreenHeader(title: 'Jigsaw', close: true, showSettings: false),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 6),
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 8,
+              runSpacing: 6,
+              children: <Widget>[
+                Text('Placed: $_placedCount of $n', style: AppText.label),
+                Wrap(spacing: 6, children: <Widget>[
+                  GameChip(
+                    label: '12',
+                    selected: _count == 12,
+                    onTap: () => _setCount(12),
                   ),
-                  if (_peek && !done)
-                    Positioned(
-                      key: const ValueKey<String>('jigsaw-peek'),
-                      left: 0,
-                      top: 0,
-                      width: b,
-                      height: b,
-                      child: IgnorePointer(
-                        child: Opacity(
-                          opacity: 0.4,
-                          child: Image.asset(_cut.asset, fit: BoxFit.fill),
-                        ),
-                      ),
-                    ),
+                  GameChip(
+                    label: '16',
+                    selected: _count == 16,
+                    onTap: () => _setCount(16),
+                  ),
                   if (!done)
-                    Positioned(
-                      key: const ValueKey<String>('jigsaw-tray'),
-                      left: 0,
-                      top: b + 6,
-                      width: b,
-                      height: b * _trayHeight - 6,
-                      child: IgnorePointer(
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: AppColors.night.withValues(alpha: 0.35),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: AppColors.gold.withValues(alpha: 0.25),
-                            ),
-                          ),
-                        ),
-                      ),
+                    GameChip(
+                      label: 'Peek',
+                      selected: _peek,
+                      onTap: () => setState(() => _peek = !_peek),
                     ),
-                  for (int i = 0; i < n; i++)
-                    if (_placed[i]) _pieceView(i, b),
-                  for (final int i in _loose) _pieceView(i, b),
-                ],
-              ),
+                ]),
+              ],
             ),
-          );
-        }),
-        const SizedBox(height: 12),
-        if (!done)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              GameChip(
-                label: 'Peek at the picture',
-                selected: _peek,
-                onTap: () => setState(() => _peek = !_peek),
-              ),
-            ],
           ),
-        if (done)
-          puzzleDone(
-            context,
-            headline: 'Picture complete',
-            detail: '${_cut.title}\n'
-                'Finished in ${_time(_finishedIn ?? Duration.zero)}, '
-                '$_drops drops.',
-          ),
-        if (done) ...<Widget>[
-          const SizedBox(height: 10),
-          OutlineAction(
-            label: 'Play again',
-            onPressed: () => setState(() => _deal(not: _cut)),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints cons) {
+                // The board and the tray together always fit the space.
+                final double b = max(
+                  120.0,
+                  min(
+                    min(cons.maxWidth - 24, 560.0),
+                    (cons.maxHeight - AskHadiPillHost.bandHeight) /
+                        (1 + _tray),
+                  ),
+                );
+                final Widget game = _game(b, done);
+                if (!done) return Center(child: game);
+                return ListView(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+                  children: <Widget>[
+                    Center(child: game),
+                    const SizedBox(height: 12),
+                    puzzleDone(
+                      context,
+                      headline: 'Picture complete',
+                      detail: '${_cut.title}\n'
+                          'Finished in ${_time(_finishedIn ?? Duration.zero)}, '
+                          '$_drops drops.',
+                    ),
+                    const SizedBox(height: 10),
+                    OutlineAction(
+                      label: 'Play again',
+                      onPressed: () => setState(() => _deal(not: _cut)),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
-      ],
+      ),
+    );
+  }
+
+  Widget _game(double b, bool done) {
+    final int n = _cut.pieces.length;
+    final double h = done ? b : b * (1 + _tray);
+    return SizedBox(
+      key: const ValueKey<String>('jigsaw-board'),
+      width: b,
+      height: h,
+      child: Stack(
+        key: const ValueKey<String>('jigsaw-stack'),
+        clipBehavior: Clip.none,
+        children: <Widget>[
+          Positioned(
+            key: const ValueKey<String>('jigsaw-bg'),
+            left: 0,
+            top: 0,
+            width: b,
+            height: b,
+            child: IgnorePointer(
+              child: CustomPaint(painter: _BoardPainter(_cut, _placed, b)),
+            ),
+          ),
+          if (_peek && !done)
+            Positioned(
+              key: const ValueKey<String>('jigsaw-peek'),
+              left: 0,
+              top: 0,
+              width: b,
+              height: b,
+              child: IgnorePointer(
+                child: Opacity(
+                  opacity: 0.4,
+                  child: Image.asset(_cut.asset, fit: BoxFit.fill),
+                ),
+              ),
+            ),
+          if (!done)
+            Positioned(
+              key: const ValueKey<String>('jigsaw-tray'),
+              left: 0,
+              top: b + 6,
+              width: b,
+              height: b * _tray - 6,
+              child: IgnorePointer(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: AppColors.night.withValues(alpha: 0.35),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.25),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          for (int i = 0; i < n; i++)
+            if (_placed[i]) _pieceView(i, b),
+          for (final int i in _loose) _pieceView(i, b),
+        ],
+      ),
     );
   }
 
@@ -303,6 +325,9 @@ class _JigsawState extends State<JigsawScreen> {
     final double h = p.height * b;
     final bool placed = _placed[i];
     final bool lifted = _drag == i;
+    // Loose pieces resting in the tray are smaller; over the board, full size.
+    final bool inTray = !placed && !lifted && _pos[i].dy + p.height / 2 > 1;
+    final double scale = inTray ? _looseScale : 1;
     final Widget face = SizedBox(
       key: ValueKey<String>('jigsaw-piece-$i'),
       width: w,
@@ -366,7 +391,13 @@ class _JigsawState extends State<JigsawScreen> {
                   _drops++;
                   _place(i);
                 }),
-        child: ExcludeSemantics(child: face),
+        child: ExcludeSemantics(
+          child: AnimatedScale(
+            scale: scale,
+            duration: const Duration(milliseconds: 120),
+            child: face,
+          ),
+        ),
       ),
     );
   }
