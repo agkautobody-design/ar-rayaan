@@ -549,16 +549,16 @@ const List<GameDef> kGames = <GameDef>[
   GameDef(
     id: 'jigsaw',
     title: 'Jigsaw',
-    blurb: 'Swap the pieces back into the picture',
+    blurb: 'Drag the pieces back into the picture',
     category: GameCategory.words,
     modes: <PlayMode>{PlayMode.solo},
     route: '/games/jigsaw',
     iconKey: 'grid',
     kind: GameEngineKind.own,
     howToPlay: <String>[
-      'The picture is cut into squares and shuffled.',
-      'Tap one piece, then another, to swap them.',
-      'Put every piece back to finish. Try 3 by 3, then 4 by 4.',
+      'The picture is cut into real jigsaw pieces and scattered below the board.',
+      'Drag each piece to its place. When it is close, it clicks in and stays.',
+      'Place every piece to finish. Try 12 pieces, then 16. Peek shows the picture.',
     ],
   ),
   GameDef(
