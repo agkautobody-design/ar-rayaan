@@ -203,6 +203,33 @@ abstract final class DistressSignal {
     'dont know who to tell', 'dont want anyone to know',
   ];
 
+  static const List<String> _sleep = <String>[
+    'insomnia', 'trouble sleeping', 'cant sleep at night', 'cant fall asleep',
+    'cannot fall asleep', 'not sleeping', 'wake up at 3am', 'barely sleep',
+  ];
+  static const List<String> _social = <String>[
+    'social anxiety', 'anxious around people', 'scared of people',
+    'afraid of speaking', 'cant talk to people', 'awkward around people',
+    'dread gatherings',
+  ];
+  static const List<String> _homesick = <String>[
+    'homesick', 'homesickness', 'miss home', 'miss my country',
+    'new country', 'moved abroad', 'dont fit in here',
+  ];
+  static const List<String> _friend = <String>[
+    'betrayed me', 'betrayal', 'my friend lied', 'friend stabbed',
+    'lost my best friend', 'friendship ended', 'friend dropped me',
+  ];
+  static const List<String> _carer = <String>[
+    'looking after my mother', 'looking after my father',
+    'caring for my mother', 'caring for my father', 'caring for my wife',
+    'caring for my husband', 'caregiver', 'carer', 'look after my parents',
+  ];
+  static const List<String> _selfWorth = <String>[
+    'im a failure', 'i am a failure', 'never enough', 'im not enough',
+    'i am not enough',
+  ];
+
   /// A dedicated pack when it is loaded, otherwise the general one.
   static String _or(String name) =>
       SupportPackRepository.byName(name) != null ? name : 'being_heard';
@@ -430,6 +457,12 @@ abstract final class DistressSignal {
     if (_has(padded, _illness)) return 'illness_pain';
     if (_has(padded, _familyStrain)) return 'family_strain';
 
+    if (_has(padded, _sleep)) return _or('sleep_trouble');
+    if (_has(padded, _carer)) return _or('caregiver_strain');
+    if (_has(padded, _friend)) return _or('friendship_betrayal');
+    if (_has(padded, _homesick)) return _or('homesickness');
+    if (_has(padded, _social)) return _or('social_anxiety');
+    if (_has(padded, _selfWorth)) return _or('self_worth');
     if (_has(padded, _firstStep)) return _or('first_step');
     if (_has(padded, _pregLoss)) return _or('pregnancy_loss_infertility');
     if (_has(padded, _divorce)) return _or('divorce_separation');
