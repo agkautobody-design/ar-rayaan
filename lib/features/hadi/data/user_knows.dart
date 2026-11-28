@@ -190,7 +190,23 @@ abstract final class UserKnowsRules {
     'character': 'Character and manners',
     'hajj': 'Hajj and Umrah',
     'learning': 'Study and learning',
+    'closeness': 'Feeling close to Allah',
+    'goals': 'Goals and purpose',
+    'habits': 'Steady habits',
+    'patience': 'Patience and gratitude',
+    'freshstart': 'Starting again and hope',
   };
+
+  /// An answer id as it is stored (see [idRe]): a built-in knowledge
+  /// snippet id such as `closeness_to_allah.howto.001` becomes
+  /// `closeness-to-allah-howto-001`.
+  static String coveredId(String id) {
+    final String c = id
+        .toLowerCase()
+        .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+        .replaceAll(RegExp(r'^-+|-+$'), '');
+    return c.length > 60 ? c.substring(0, 60) : c;
+  }
 
   /// Plain things a person says about themselves, shown as they were
   /// understood.
@@ -201,6 +217,10 @@ abstract final class UserKnowsRules {
   };
 
   static final List<(String, RegExp)> _topicRes = <(String, RegExp)>[
+    ('closeness', RegExp(r'\b(?:closer to allah|close to allah|feel allah|connect(?:ed)? (?:with|to) allah|khushu|khushoo|feel nothing (?:when|in) (?:i )?(?:pray|prayer|salah)|prayer feels (?:empty|dry))\b')),
+    ('freshstart', RegExp(r'\b(?:start again|start over|fresh start|new beginning|repent\w*|tawbah|tawba|can allah forgive)\b')),
+    ('goals', RegExp(r'\b(?:my goals?|achieve|accomplish|purpose|motivat\w*|procrastinat\w*|tawakkul|my dreams?)\b')),
+    ('habits', RegExp(r'\b(?:consisten\w*|habits?|routine|fajr alarm|wake (?:up )?for fajr|after ramadan)\b')),
     ('wudu', RegExp(r'\b(?:wudu|ablution|ghusl|tayammum|najas|purif\w*|istinja)\b')),
     ('prayer', RegExp(r'\b(?:pray\w*|salah|salat|namaz|rakah|rakat|rak ?ahs?|sujud|ruku|witr|tahajjud|jumu?ah|friday prayer|adhan|azan|qibla|prayer times?)\b')),
     ('fasting', RegExp(r'\b(?:fast\w*|ramadan|ramzan|sawm|suhoor|sehri|iftar|taraweeh|laylat al ?qadr|eid)\b')),
@@ -210,7 +230,8 @@ abstract final class UserKnowsRules {
     ('hadith', RegExp(r'\b(?:hadith|hadiths|sunnah|bukhari|muslim|sahih|isnad)\b')),
     ('seerah', RegExp(r'\b(?:seerah|sirah|prophets?|muhammad|ibrahim|musa|isa|yusuf|nuh|companions?|sahaba|khalifa|caliph\w*|uhud|badr|hijrah)\b')),
     ('family', RegExp(r'\b(?:marriage|nikah|wife|husband|spouse|parent\w*|mother|father|mum|mom|dad|raise|raising|children|kids|family|in-?laws?)\b')),
-    ('character', RegExp(r'\b(?:patience|sabr|honest\w*|gratitude|shukr|humble|humility|kindness|forgiv\w*|anger|backbiting|ghibah|manners|akhlaq|neighbou?rs?)\b')),
+    ('patience', RegExp(r'\b(?:patience|sabr|grateful|gratitude|shukr|thankful|envy|jealous\w*)\b')),
+    ('character', RegExp(r'\b(?:honest\w*|gratitude|shukr|humble|humility|kindness|forgiv\w*|anger|backbiting|ghibah|manners|akhlaq|neighbou?rs?)\b')),
     ('hajj', RegExp(r'\b(?:hajj|umrah|ihram|kaaba|kabah|mecca|makkah|madinah|medina|tawaf|arafah)\b')),
     ('learning', RegExp(r'\b(?:learn\w*|study|studying|arabic|alphabet|lesson|course|school|madrasa|madrasah|teacher|knowledge)\b')),
   ];

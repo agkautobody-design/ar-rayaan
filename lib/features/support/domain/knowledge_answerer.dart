@@ -95,4 +95,87 @@ abstract final class KnowledgeAnswerer {
     if (b == null || b.score < threshold || b.score - second < margin) return null;
     return b;
   }
+
+  /// Openers that mean "continue what we were just saying", not a new
+  /// subject. A short question that leans on "it", "that" or "this" counts
+  /// too.
+  static final RegExp _followOpen = RegExp(
+      r'^(?:but |ok but |okay but |i get that|i understand|i see|and |so |then |what can i do|what do i do|what should i do|where do i start|where should i start|how do i start|how can i start|how do i begin|what else|tell me more|more |give me an example|for example|like what|such as|can you say more|go on)');
+  static final RegExp _followRef = RegExp(r'\b(?:it|that|this|them|those|these)\b');
+
+  /// Whether [question] reads as a follow-up to the answer just given.
+  static bool isFollowUp(String question) {
+    final String n = CrisisDetector.normalize(question);
+    if (n.isEmpty) return false;
+    final int words = n.split(' ').where((String w) => w.isNotEmpty).length;
+    if (words > 14) return false;
+    if (_followOpen.hasMatch(n)) return true;
+    return words <= 5 && _followRef.hasMatch(n);
+  }
+
+  /// The next answer in the pack of [previous] that the person has not seen
+  /// ([isSeen] says whether a snippet id was already given), preferring a how-to and the one that fits
+  /// the words of [question] best. Null when the pack has nothing left, so
+  /// the normal path goes on. Never used for a support or permission
+  /// snippet.
+  static KnowledgeAnswer? followUp(
+    String question,
+    SupportSnippet previous,
+    List<SupportPack> packs, {
+    bool Function(String id)? isSeen,
+    String ageBand = 'adult',
+    String lang = 'en',
+    bool allowDraft = true,
+    DateTime? now,
+  }) {
+    final DateTime t = now ?? DateTime.now();
+    final String n = CrisisDetector.normalize(question);
+    final Set<String> words = tokens(question).toSet();
+    KnowledgeAnswer? best;
+    for (final SupportPack p in packs) {
+      if (p.kind != 'knowledge' || p.expiredAt(t) || p.name != previous.pack) continue;
+      for (final SupportSnippet s in p.snippets) {
+        if (s.id == previous.id || (isSeen?.call(s.id) ?? false)) continue;
+        if (s.askPermission || !s.matchesAge(ageBand) || s.text.isEmpty) continue;
+        if (!allowDraft && !s.shippable) continue;
+        final int v = score(s, n, words) + (s.kind == 'howto' ? 2 : 0);
+        if (best == null || v > best.score) {
+          best = KnowledgeAnswer(text: s.textIn(lang), snippet: s, score: v);
+        }
+      }
+    }
+    return best;
+  }
+
+  /// Where an answer sends the person: its first cross-referenced Huda guide
+  /// and, from a go- tag, one screen. [isGuide] says whether a guide id may
+  /// be opened (the caller passes the nav list); [screens] maps a go- tag to
+  /// a route the caller allows. At most two routes.
+  static List<String> routesFor(
+    SupportSnippet s, {
+    required bool Function(String guideId) isGuide,
+    required Map<String, String> screens,
+  }) {
+    final List<String> out = <String>[];
+    for (final Map<String, dynamic> x in s.crossRef) {
+      final Object? id = x['id'];
+      final Object? asset = x['asset'];
+      if (id is String &&
+          asset is String &&
+          asset.endsWith('guides/guides.json') &&
+          isGuide(id)) {
+        out.add('/huda/guide?id=$id');
+        break;
+      }
+    }
+    for (final String tag in s.tags) {
+      if (!tag.startsWith('go-')) continue;
+      final String? r = screens[tag.substring(3)];
+      if (r != null && !out.contains(r)) {
+        out.add(r);
+        break;
+      }
+    }
+    return out;
+  }
 }

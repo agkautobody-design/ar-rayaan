@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6548,
+ "total": 6616,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -125,12 +125,12 @@
   },
   "support-packs": {
    "title": "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)",
-   "items": 2183,
+   "items": 2251,
    "high_priority": 141
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2760,
+  "Hadith / aqidah scholar": 2828,
   "Fiqh scholar (per madhab)": 876,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1365,
-  "normal": 4217,
+  "normal": 4285,
   "low": 966
  },
  "items": [
@@ -99073,6 +99073,178 @@
    "status": "open"
   },
   {
+   "id": "support.character_in_daily_life.howto.001",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.001",
+   "what_to_review": "Anger is a wave you can learn to ride. Say that you seek refuge in Allah, sit down if you are standing, lie down if you are sitting, and make wudu with cool water. Stay quiet until it drops, because words said in anger are the ones people regret. The Prophet said the strong person is the one who controls himself in anger.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6114",
+    "quran 3:134"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.002",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.002",
+   "what_to_review": "Forgiving does not mean saying it did not hurt. It means choosing not to carry it. Start by asking Allah to ease your heart, wish the person guidance, and decide that you will not take revenge. You can forgive and still keep distance or set limits. Allah loves those who pardon, and the Prophet said forgiving raises a person in honour.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 42:40",
+    "quran 24:22",
+    "hadith muslim:2588"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.003",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.003",
+   "what_to_review": "To guard the tongue, pause before you speak and ask: is it true, is it needed, is it kind. The Prophet said whoever believes in Allah and the Last Day should speak good or stay silent. Backbiting is saying about someone what they would dislike, even if it is true. When a conversation turns that way, change the subject or leave it, and make dua for the person.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6018",
+    "hadith muslim:2589",
+    "quran 49:12"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.004",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.004",
+   "what_to_review": "Humility is not thinking little of yourself; it is not thinking of yourself too much. Serve someone without being asked, accept advice without arguing, thank people who teach you, and say I do not know when you do not. The Prophet said Allah revealed that you should be humble so that none boasts over another.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith muslim:2865",
+    "quran 25:63"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.005",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.005",
+   "what_to_review": "Keeping your intention sincere is an ongoing job. Before an act of worship, take one breath and say silently that it is for Allah. If you notice you want to be seen, do not stop the good deed; just correct the intention and carry on. Do some good in secret that only Allah knows. The Prophet said deeds are by intentions.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:1",
+    "quran 98:5",
+    "quran 107:4-6"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.006",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.006",
+   "what_to_review": "To leave a sin, make it harder to reach and fill the gap. Remove what triggers it, change your company and your routine, and replace it with something good at the same time of day. When you slip, do not wait: make tawbah at once and do a good deed after it. Allah says good deeds wipe out bad ones, and the door of tawbah stays open.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 11:114",
+    "hadith tirmidhi:1987",
+    "quran 39:53"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.007",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.007",
+   "what_to_review": "Good company matters more than people admit. The Prophet compared a good companion to a perfume seller and a bad one to a blacksmith: one gives you something or a pleasant scent, the other may burn your clothes or leave a bad smell. Spend more time with people who remind you of Allah, and stay kind to the rest without following them.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:2101",
+    "quran 18:28"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.008",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.008",
+   "what_to_review": "With a difficult person at work or in the family, answer what is bad with what is better. Allah says that good and evil are not equal, and that then the one between whom and you was enmity may become like a close friend. Stay calm, keep your voice low, say what you need once and clearly, and keep your own conduct clean. You do not have to let anyone mistreat you; set limits politely, and speak to someone senior if needed.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 41:34-35",
+    "quran 25:63"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.checkin.checkin-adult.001",
    "area": "support-packs",
    "subarea": "checkin",
@@ -100562,6 +100734,325 @@
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)",
     "background "
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.001",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.001",
+   "what_to_review": "Feeling close to Allah is something you can build, and it usually starts small. Slow your prayers down by a few breaths in each position. Say what you really mean in prostration, in your own words. After the prayer, stay seated for a short remembrance of Allah before you reach for your phone. Closeness grows through many small turns toward Him, not one big moment, and Allah says He answers each step you take toward Him with a bigger one.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:152",
+    "quran 20:14",
+    "hadith bukhari:7405"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.faq.001",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.faq.001",
+   "what_to_review": "Feeling nothing in prayer is common, and it does not mean your prayer is empty or that Allah has turned away. Hearts have seasons. The Prophet often asked Allah to make his heart firm, and you can ask the same. Keep praying, and change one thing: slow down, learn what you recite, or add a short voluntary prayer at a quiet time. Closeness often comes back through steady effort, not through waiting to feel it.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith tirmidhi:3522",
+    "hadith muslim:2655",
+    "quran 57:16"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.002",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.002",
+   "what_to_review": "To be more present in prayer: before you start, take a breath and remember who you are standing before. Learn the meaning of what you recite, even a few lines at a time. Pause in each position until you are still, as the Prophet taught. If your mind wanders, gently bring it back and carry on; you do not need to start over. A quiet corner and a phone left in another room help more than people expect.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 23:1-2",
+    "quran 2:45",
+    "hadith bukhari:757"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.003",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.003",
+   "what_to_review": "Remembrance gives the heart rest. Allah says hearts find peace in remembering Him. Choose a few short words and attach them to something you already do: after each prayer, on waking, before sleep, while you walk. The morning and evening adhkar in the app are a ready set. Little and often is better than long and rare.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 13:28",
+    "quran 33:41",
+    "hadith bukhari:6408"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.004",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.004",
+   "what_to_review": "The Qur'an softens hearts when you give it a little time each day. Read a small portion in a language you understand, slowly, and stop where a verse speaks to you. Say it back to yourself and ask what it asks of you today. Even a few verses with attention do more than many pages in a rush.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 39:23",
+    "quran 8:2"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.005",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.005",
+   "what_to_review": "The night is a special time for closeness. Pray two rak'ahs in the last part of the night, even short ones, and make your dua. The Prophet told us that Allah comes down to the lowest heaven in the last third of the night and asks who is asking, so that He may give. Start with one night a week if every night is too much.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:1145",
+    "quran 32:16"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.006",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.006",
+   "what_to_review": "Looking at what Allah made turns the heart toward Him. Spend a few quiet minutes outside or at a window, look at the sky, a tree, the changing light, and think about who made it all and why. Allah praises those who remember Him and reflect on the creation of the heavens and the earth.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 3:190",
+    "quran 3:191"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.faq.002",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.faq.002",
+   "what_to_review": "Allah hears you and He is near. He says that when His servants ask about Him, He is near and answers the one who calls. A reply does not always look like what you asked for, and the Prophet taught us not to give up by saying that we called and nothing came. Keep asking, and keep your thought of Allah good, because He is as His servant thinks of Him.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:186",
+    "hadith bukhari:6340",
+    "hadith bukhari:7405"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.howto.007",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.howto.007",
+   "what_to_review": "Kindness is also a way to Allah. The Prophet said that whoever helps his brother with a need, Allah helps him with his own. Do one quiet good thing today for someone who cannot repay you, and keep it between you and Allah. Many people find that their heart opens through service when it feels closed in prayer.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:2442",
+    "hadith tirmidhi:2018"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.closeness_to_allah.faq.003",
+   "area": "support-packs",
+   "subarea": "closeness_to_allah",
+   "where_in_app": "Hadi / Wasia support module > pack \"closeness_to_allah\" (knowledge)",
+   "file": "assets/support/packs/closeness_to_allah.json",
+   "key": "closeness_to_allah.faq.003",
+   "what_to_review": "There is no fixed time for feeling close to Allah, and nobody can promise one. What the sources promise is that Allah guides those who strive for Him and is with those who do good. Pick a small daily practice, keep it for a few weeks, and notice what changes. Steady and small is what the Prophet said Allah loves most.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 29:69",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.consistency_habits.howto.001",
+   "area": "support-packs",
+   "subarea": "consistency_habits",
+   "where_in_app": "Hadi / Wasia support module > pack \"consistency_habits\" (knowledge)",
+   "file": "assets/support/packs/consistency_habits.json",
+   "key": "consistency_habits.howto.001",
+   "what_to_review": "Start with the smallest version you can keep every day. The Prophet said that the deed most loved by Allah is the regular one, even if it is little. One short portion of Qur'an, two minutes of remembrance, one prayer prayed on time. Keep that for a few weeks before you add anything.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.consistency_habits.howto.002",
+   "area": "support-packs",
+   "subarea": "consistency_habits",
+   "where_in_app": "Hadi / Wasia support module > pack \"consistency_habits\" (knowledge)",
+   "file": "assets/support/packs/consistency_habits.json",
+   "key": "consistency_habits.howto.002",
+   "what_to_review": "Tie the new habit to something you already do every day. After you pray, say your remembrance. After you wake, read a few verses. After you sit for the evening meal, name one blessing. The old habit reminds you of the new one, so you do not rely on remembering or on mood.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464",
+    "quran 33:41"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.consistency_habits.faq.001",
+   "area": "support-packs",
+   "subarea": "consistency_habits",
+   "where_in_app": "Hadi / Wasia support module > pack \"consistency_habits\" (knowledge)",
+   "file": "assets/support/packs/consistency_habits.json",
+   "key": "consistency_habits.faq.001",
+   "what_to_review": "Missing a few days is not the end, and you do not have to start from zero or make up a guilt. Allah says not to despair of His mercy. Just do the smallest version today. The Prophet said to do what you are able to do, and the regular deed is the one loved most, so coming back is itself the habit.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 39:53",
+    "quran 2:286",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.consistency_habits.faq.002",
+   "area": "support-packs",
+   "subarea": "consistency_habits",
+   "where_in_app": "Hadi / Wasia support module > pack \"consistency_habits\" (knowledge)",
+   "file": "assets/support/packs/consistency_habits.json",
+   "key": "consistency_habits.faq.002",
+   "what_to_review": "A drop after Ramadan is very common, and the fix is to keep a small piece of it rather than all or nothing. Choose one thing that worked in Ramadan, for example a short night prayer, a daily portion of Qur'an, or a charity, and carry it forward at a smaller size. The deed loved most is the regular one, not the largest.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.consistency_habits.howto.003",
+   "area": "support-packs",
+   "subarea": "consistency_habits",
+   "where_in_app": "Hadi / Wasia support module > pack \"consistency_habits\" (knowledge)",
+   "file": "assets/support/packs/consistency_habits.json",
+   "key": "consistency_habits.howto.003",
+   "what_to_review": "To wake for Fajr, start the night before: make the intention to pray, sleep soon after Isha, keep the phone away from the bed, and set the alarm across the room. Say the sleeping remembrance so you sleep with Allah in mind. If you oversleep, pray it as soon as you wake; it is still owed and still accepted.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "asset assets/guides/guides.json#huda-sleep",
+    "quran 17:78"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -105636,6 +106127,242 @@
    "status": "open"
   },
   {
+   "id": "support.faith_and_heart.faq.001",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.faq.001",
+   "what_to_review": "Suffering is one of the hardest questions, and the answer is not simple. The Qur'an says life is a test, that Allah will try people with fear, hunger and loss, and that the patient are given glad tidings. The Prophet said that no tiredness, illness, worry or sorrow touches a believer without Allah wiping away some of their sins for it. Your pain is real, it is not hidden from Allah, and it is not wasted.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:155-157",
+    "quran 67:2",
+    "hadith bukhari:5641"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.001",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.001",
+   "what_to_review": "Trusting Allah's plan means doing your part and calming your heart about the rest. You may dislike something that is good for you and love something that is bad, and Allah knows while you do not. Make dua for what you want, keep working, and when a door closes, ask for what is better. Allah is enough for the one who relies on Him.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:216",
+    "quran 65:3",
+    "hadith bukhari:6340"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.002",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.002",
+   "what_to_review": "Doubts come to everyone, and having them is not disbelief. When such thoughts arise, the Prophet taught to say that you believe in Allah and stop dwelling on them. Ask your questions openly, read the answers, and speak with someone who knows. Do not let a thought you dislike convince you that you have lost your faith.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith muslim:134",
+    "quran 2:260"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.faq.002",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.faq.002",
+   "what_to_review": "Feeling like a hypocrite worries only people who care about sincerity. The Companion Hanzala felt the same when his heart changed between the Prophet's gathering and home life, and the Prophet told him that if you were always as you are with me, the angels would shake your hand, but it is an hour and an hour. Hearts rise and fall. Keep doing the good, stay with good people, and ask Allah to keep your heart firm.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith muslim:2750",
+    "hadith tirmidhi:3522"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.003",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.003",
+   "what_to_review": "When you are worried or sad, say the Prophet's dua: O Allah, I seek refuge in You from worry and grief. Then do one small thing that is in your hands, speak to someone you trust, and rest. Remembering Allah brings the heart rest. If the worry is heavy or does not lift, speak to a doctor or counsellor too; that is also a means Allah gave you.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6369",
+    "quran 13:28"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.004",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.004",
+   "what_to_review": "A broken relationship hurts, and you are allowed to grieve it. Do not rush yourself. Make wudu and pray, ask Allah to take away the pain and replace it with what is better, limit contact and what keeps the wound open, and lean on family or friends you trust. Allah says you may dislike something that is good for you, and that with hardship there is ease.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:216",
+    "quran 94:5-6",
+    "quran 13:28"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.005",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.005",
+   "what_to_review": "To overcome fear, name it, do what you can about it, then place the rest with Allah. Say that Allah is enough for us and the best of guardians; this is what the believers said when people told them to fear, and it increased their faith. Fear shrinks when you act on it a step at a time and do not face it alone.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 3:173",
+    "quran 2:286"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.006",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.006",
+   "what_to_review": "Peace comes from remembering Allah, doing good, and accepting what you cannot change. Allah says hearts find rest in His remembrance, and that whoever does good as a believer, He gives a good life. Pray on time, keep a few minutes of quiet remembrance, be thankful for one thing at the end of each day, and give something to someone.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 13:28",
+    "quran 16:97"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.faq.003",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.faq.003",
+   "what_to_review": "Signs that Allah loves a person are not a checklist, but the Qur'an gives the path: Allah says that if you love Him, follow the Prophet and Allah will love you, and He says He loves those who do good and those who turn back to Him. Doing the obligatory well, adding voluntary prayer and remembrance, and being kind to people are the way. If you want closeness, that wish is itself a good sign.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 3:31",
+    "quran 2:195",
+    "quran 2:222"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.007",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.007",
+   "what_to_review": "Dua works best when you ask with presence and certainty. Begin by praising Allah and sending blessings on the Prophet, ask for what you need in plain words, ask with firm hope, and repeat it. Choose good times: the last third of the night, between adhan and iqamah, and while prostrating. Ask for both this life and the next, and keep asking.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:186",
+    "quran 40:60",
+    "hadith bukhari:6340"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.faith_and_heart.howto.008",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.howto.008",
+   "what_to_review": "The best dhikr is the one you will keep. Start with a few: say subhan Allah, alhamdulillah and Allahu akbar after each prayer, and ask forgiveness often. The Prophet said two words are light on the tongue, heavy on the scale and beloved to the Merciful: subhan Allah wa bihamdihi, subhan Allah al-Azim. Pair it with something you already do each day.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6406",
+    "quran 33:41"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.faith_doubts.orient.001",
    "area": "support-packs",
    "subarea": "faith_doubts",
@@ -107487,6 +108214,134 @@
     "Support packs build (tool/support/build_packs.py)",
     "asset assets/guides/guides.json#huda-children-deen",
     "quran 20:132"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.001",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.001",
+   "what_to_review": "Your parents hold a special place: Allah places kindness to them right after worshipping Him. Call or visit more often than you think you need to, say thank you, speak softly even when you disagree, make dua for them, and help without being asked. When they are hard to live with, patience and gentle speech are still your part. A person asked who most deserved his good company, and the Prophet said his mother, three times.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 17:23-24",
+    "hadith bukhari:5971",
+    "quran 31:14"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.002",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.002",
+   "what_to_review": "To be a better husband, be gentle, listen, share the work at home, and speak well of her to others. The Prophet said the best of you are the best to your families, and that he was the best to his. Money and provision matter, and so do time and warmth. Ask her what would make her feel looked after, then do one of those things this week.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 30:21",
+    "quran 4:19",
+    "hadith tirmidhi:3895"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.003",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.003",
+   "what_to_review": "To be a better wife, the same marriage rules of kindness and respect apply to both. Speak openly and kindly, thank him for what he does, protect his trust, and agree on how you run the home together. Allah says He placed love and mercy between spouses, and marriage grows when both give more than they take.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 30:21",
+    "quran 4:19"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.004",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.004",
+   "what_to_review": "When looking for a spouse, start with character and deen, then make istikhara and ask people you trust who know the person. The Prophet advised choosing the one who is religious. Pray, be honest about your expectations, involve your family, and do not rush. Allah says that He will enrich those who are single if they are righteous.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:5090",
+    "quran 24:32"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.005",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.005",
+   "what_to_review": "Teach children to pray by praying with them, not by pressure. Let them stand beside you from about age three or four, make it warm and short, praise effort, and start seriously around seven. Say the words aloud, show them the movements, and make dua for them by name. Allah says to order your family to pray and be steady on it yourself.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 20:132",
+    "quran 66:6"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.family_roles_growth.howto.006",
+   "area": "support-packs",
+   "subarea": "family_roles_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"family_roles_growth\" (knowledge)",
+   "file": "assets/support/packs/family_roles_growth.json",
+   "key": "family_roles_growth.howto.006",
+   "what_to_review": "Children copy what they see more than what they hear. Be the person you want them to become: let them see you pray, say sorry, speak gently, and be honest. Keep the home calm, keep Islam warm, and keep talking with them so they bring their questions to you. Make dua for them often; it is a duty and a gift.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 25:74",
+    "quran 31:17"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -109591,6 +110446,91 @@
    "status": "open"
   },
   {
+   "id": "support.fresh_start_hope.faq.001",
+   "area": "support-packs",
+   "subarea": "fresh_start_hope",
+   "where_in_app": "Hadi / Wasia support module > pack \"fresh_start_hope\" (knowledge)",
+   "file": "assets/support/packs/fresh_start_hope.json",
+   "key": "fresh_start_hope.faq.001",
+   "what_to_review": "Yes, you can start again. Allah says not to despair of His mercy, because He forgives all sins to the one who returns. The Prophet taught that Allah accepts repentance until the last breath, and that Allah forgives a servant who sins, asks forgiveness, and repeats it. The door is open today.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 39:53",
+    "hadith tirmidhi:3537",
+    "hadith muslim:2758"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.fresh_start_hope.howto.001",
+   "area": "support-packs",
+   "subarea": "fresh_start_hope",
+   "where_in_app": "Hadi / Wasia support module > pack \"fresh_start_hope\" (knowledge)",
+   "file": "assets/support/packs/fresh_start_hope.json",
+   "key": "fresh_start_hope.howto.001",
+   "what_to_review": "Repentance has plain steps: stop what you can stop today, feel real regret, decide not to return, and put right what you owe to people. Then ask Allah for forgiveness in your own words and follow it with a good deed. If you slip, you begin again, because the door does not close.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "asset assets/guides/guides.json#huda-tawba",
+    "quran 66:8"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.fresh_start_hope.faq.002",
+   "area": "support-packs",
+   "subarea": "fresh_start_hope",
+   "where_in_app": "Hadi / Wasia support module > pack \"fresh_start_hope\" (knowledge)",
+   "file": "assets/support/packs/fresh_start_hope.json",
+   "key": "fresh_start_hope.faq.002",
+   "what_to_review": "Allah is happy when you return. The Prophet said that Allah is more pleased with the repentance of His servant than a man who finds his lost mount in the desert. You are not a burden to Him; coming back is the thing He loves.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith muslim:2747",
+    "hadith bukhari:6309"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.fresh_start_hope.faq.003",
+   "area": "support-packs",
+   "subarea": "fresh_start_hope",
+   "where_in_app": "Hadi / Wasia support module > pack \"fresh_start_hope\" (knowledge)",
+   "file": "assets/support/packs/fresh_start_hope.json",
+   "key": "fresh_start_hope.faq.003",
+   "what_to_review": "Do not lose hope. The Prophet taught that Allah created mercy in a hundred parts and sent down only one to all of creation. Had anyone known all the mercy Allah holds, he would not lose hope of Paradise. Hope and effort go together: do what you can, and trust the rest to His mercy.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6469",
+    "quran 39:53"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.gambling.orient.001",
    "area": "support-packs",
    "subarea": "gambling",
@@ -110380,6 +111320,173 @@
    "priority": "low",
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.001",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.001",
+   "what_to_review": "Work and trust go together. Make your intention clear, break the goal into a step small enough to do this week, start it, ask Allah for success in your own words, and accept the result calmly. Allah says a person gets what he strives for, and tells us to consult others, and once we have decided, to rely on Him.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:1",
+    "quran 53:39",
+    "quran 3:159"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.002",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.002",
+   "what_to_review": "Trust in Allah is not sitting still. The Prophet said that if you relied on Allah as He should be relied on, He would provide for you as He provides for the birds, which leave in the morning empty and come back full. They go out and work. Plan, act, then place the result with Allah, who is enough for the one who relies on Him.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith tirmidhi:2344",
+    "quran 65:3"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.003",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.003",
+   "what_to_review": "When motivation is low, shrink the task until it is almost too small to refuse: one page, five minutes, one phone call. Begin it, and let the habit carry you. The Prophet said that the deeds Allah loves most are the regular ones, even if small. Steady beats strong.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.004",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.004",
+   "what_to_review": "When you cannot decide, do three things: gather facts and ask people who know the matter, pray the two rak'ahs of istikhara and ask Allah for what is best, then choose and move forward. Allah says that once you have decided, you rely on Him. You do not need a dream or a sign.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 3:159"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.faq.001",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.faq.001",
+   "what_to_review": "If a plan fails or a door closes, that is allowed to hurt, and it is also not the end of the road. Learn what you can, adjust, and try again. Allah says He brings about what He wills and has set a measure for everything, and that whoever relies on Him, He is enough for him.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 65:3",
+    "quran 2:216"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.005",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.005",
+   "what_to_review": "Ordinary work becomes worship when it is done with a good intention. The Prophet said that deeds are by intentions. Earning to look after your family, studying to be useful, caring for a parent, each can be for Allah. Allah says He made us to worship Him, and worship is wider than the prayer mat.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:1",
+    "quran 51:56"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.006",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.006",
+   "what_to_review": "Make dua for your goal and keep making it. The Prophet said your dua is answered as long as you are not impatient and say that you called and it was not answered. Ask for what you want, ask for what is best, and keep working. Allah is near and answers the one who calls.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6340",
+    "quran 2:186"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.goals_and_purpose.howto.007",
+   "area": "support-packs",
+   "subarea": "goals_and_purpose",
+   "where_in_app": "Hadi / Wasia support module > pack \"goals_and_purpose\" (knowledge)",
+   "file": "assets/support/packs/goals_and_purpose.json",
+   "key": "goals_and_purpose.howto.007",
+   "what_to_review": "A simple way to set goals for your deen: choose one prayer to improve, one small portion of Qur'an you will read, one short remembrance you will say each day, and one kind act each week. Keep it so small you cannot fail, hold it for a month, then add one more thing. Allah says to turn to Him with longing when you have finished your duties.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464",
+    "quran 94:7-8"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -111208,6 +112315,86 @@
    "priority": "low",
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.growth_everyday.howto.001",
+   "area": "support-packs",
+   "subarea": "growth_everyday",
+   "where_in_app": "Hadi / Wasia support module > pack \"growth_everyday\" (knowledge)",
+   "file": "assets/support/packs/growth_everyday.json",
+   "key": "growth_everyday.howto.001",
+   "what_to_review": "Grow one trait at a time. Choose one, for example patience, honesty, or gentle speech, and watch for it for a week. The Prophet said the most beloved to him and the closest to him on the Day of Judgement are those with the best character. Small daily choices build it, and the Character course in the app goes through it step by step.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith tirmidhi:2018"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.growth_everyday.howto.002",
+   "area": "support-packs",
+   "subarea": "growth_everyday",
+   "where_in_app": "Hadi / Wasia support module > pack \"growth_everyday\" (knowledge)",
+   "file": "assets/support/packs/growth_everyday.json",
+   "key": "growth_everyday.howto.002",
+   "what_to_review": "Let the five prayers organise your day. They are decreed at set times, so build your day around them: work and study in the spaces between, and use the minute after each prayer for a short plan for what is next. Many people find the day feels calmer when the prayer is the anchor, not the interruption.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 4:103"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.growth_everyday.howto.003",
+   "area": "support-packs",
+   "subarea": "growth_everyday",
+   "where_in_app": "Hadi / Wasia support module > pack \"growth_everyday\" (knowledge)",
+   "file": "assets/support/packs/growth_everyday.json",
+   "key": "growth_everyday.howto.003",
+   "what_to_review": "Learn in small steps. Pick one topic you care about, spend ten minutes a day on it, and write down one thing you learned. The Prophet said that if Allah wants good for someone, He gives him understanding of the religion. The Seeking Knowledge guide and the Academy in the app are good places to begin.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:71"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.growth_everyday.howto.004",
+   "area": "support-packs",
+   "subarea": "growth_everyday",
+   "where_in_app": "Hadi / Wasia support module > pack \"growth_everyday\" (knowledge)",
+   "file": "assets/support/packs/growth_everyday.json",
+   "key": "growth_everyday.howto.004",
+   "what_to_review": "Give a little, often. Charity does not decrease wealth, the Prophet said, and forgiveness and humility raise a person in honour. A small sum on a regular day, a meal sent to a neighbour, a kind message, each counts. You can start today with something small enough that you will repeat it.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith muslim:2588"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -121410,6 +122597,91 @@
    "priority": "low",
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.patience_gratitude.howto.001",
+   "area": "support-packs",
+   "subarea": "patience_gratitude",
+   "where_in_app": "Hadi / Wasia support module > pack \"patience_gratitude\" (knowledge)",
+   "file": "assets/support/packs/patience_gratitude.json",
+   "key": "patience_gratitude.howto.001",
+   "what_to_review": "Gratitude can be practised. Each night, name three things from the day you are thankful for and say alhamdulillah. Thank a person out loud once a day. Allah says that if you are grateful He will increase you, and the Prophet said a believer's affair is all good: thanks in ease, patience in hardship.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 14:7",
+    "hadith muslim:2999"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.patience_gratitude.howto.002",
+   "area": "support-packs",
+   "subarea": "patience_gratitude",
+   "where_in_app": "Hadi / Wasia support module > pack \"patience_gratitude\" (knowledge)",
+   "file": "assets/support/packs/patience_gratitude.json",
+   "key": "patience_gratitude.howto.002",
+   "what_to_review": "Patience is not feeling nothing. It is not letting the pain decide what you do. Cry if you need to, then breathe, pray, and ask Allah for help. Allah says to seek help through patience and prayer, and that He is with the patient. The Prophet said that patience is at the first strike of a hardship, and that whoever tries to be patient, Allah makes him patient.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 2:153",
+    "hadith bukhari:1302",
+    "hadith bukhari:1469"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.patience_gratitude.faq.001",
+   "area": "support-packs",
+   "subarea": "patience_gratitude",
+   "where_in_app": "Hadi / Wasia support module > pack \"patience_gratitude\" (knowledge)",
+   "file": "assets/support/packs/patience_gratitude.json",
+   "key": "patience_gratitude.faq.001",
+   "what_to_review": "Hardship is not a sign that Allah has left you. Allah says that with hardship there is ease, and He repeats it twice. The Prophet said that everything is good for a believer, patience in a trial and thanks in comfort. Ease may not come as fast or in the shape you expect, but it is promised.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 94:5-6",
+    "hadith muslim:2999"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.patience_gratitude.howto.003",
+   "area": "support-packs",
+   "subarea": "patience_gratitude",
+   "where_in_app": "Hadi / Wasia support module > pack \"patience_gratitude\" (knowledge)",
+   "file": "assets/support/packs/patience_gratitude.json",
+   "key": "patience_gratitude.howto.003",
+   "what_to_review": "Comparison steals contentment. When you notice envy, wish good for the person quietly, say alhamdulillah for something of your own, and step away from what feeds it. The Prophet taught not to envy one another, and that whoever holds back from asking people, Allah makes him content.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6065",
+    "hadith bukhari:1469"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"
@@ -138625,6 +139897,178 @@
    "priority": "low",
    "source_of_flag": [
     "Support packs build (tool/support/build_packs.py)"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.001",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.001",
+   "what_to_review": "Seek halal income and work with your own hands where you can. The Prophet said no one eats better food than that earned by his own work. Avoid anything with interest, deceit or harm, be honest in dealings, and accept less rather than something doubtful. Allah is the provider, and He says that those who are mindful of Him get a way out and provision from where they do not expect.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:2072",
+    "quran 2:168",
+    "quran 65:2-3"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.002",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.002",
+   "what_to_review": "To manage money well, spend on needs before wants, give something first however small, avoid debt you do not need, and keep a simple record. The Prophet said it is better to cut wood and sell it than to go asking people. Pay what you owe on time. Zakat purifies what is left, and Allah says to be neither miserly nor wasteful.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 25:67",
+    "quran 17:29",
+    "hadith bukhari:1470"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.003",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.003",
+   "what_to_review": "For exam stress, make a plan you can keep: short blocks, rest between them, sleep, and a prayer when you feel tight. Ask Allah for ease with the dua of Musa: my Lord, expand my chest and ease my task. Do your best, and place the result with Him. Stress is not a sign you are failing; it means this matters to you.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 20:25-28",
+    "quran 94:5-6",
+    "quran 65:3"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.004",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.004",
+   "what_to_review": "Discipline grows from small promises kept. Choose one daily act, tie it to a fixed time, remove the thing that pulls you away, and start the same minute each day. The Prophet said that many people lose two blessings: health and free time. A short, steady habit beats a big plan you drop.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6412",
+    "hadith bukhari:6464"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.005",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.005",
+   "what_to_review": "Being busy does not close the door to the Qur'an. Allah says to recite what is easy. Read one page or even a few verses a day, listen while you travel, and keep one verse in mind through the day. Learning and teaching the Qur'an is the best of deeds, so start small and stay with it.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 73:20",
+    "hadith bukhari:5027"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.worship_better.howto.001",
+   "area": "support-packs",
+   "subarea": "worship_better",
+   "where_in_app": "Hadi / Wasia support module > pack \"worship_better\" (knowledge)",
+   "file": "assets/support/packs/worship_better.json",
+   "key": "worship_better.howto.001",
+   "what_to_review": "To improve your salah, change one thing at a time. Pray earlier in the time, slow each position, learn the meaning of what you recite, and pray as the Prophet taught. Add the regular sunnah prayers and a short remembrance afterwards. Allah says the believers are those who are humble in their prayer.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 23:1-2",
+    "hadith bukhari:631",
+    "hadith bukhari:757"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.worship_better.howto.002",
+   "area": "support-packs",
+   "subarea": "worship_better",
+   "where_in_app": "Hadi / Wasia support module > pack \"worship_better\" (knowledge)",
+   "file": "assets/support/packs/worship_better.json",
+   "key": "worship_better.howto.002",
+   "what_to_review": "If you are starting from nothing, start with one prayer and add the next every week or two. Pray it on time, even if short, and learn the words for it first. Build up to five without guilt about the past. Every prayer you add is a win, and Allah accepts what you do, not what you could not yet do.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6464",
+    "quran 2:286"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.worship_better.howto.003",
+   "area": "support-packs",
+   "subarea": "worship_better",
+   "where_in_app": "Hadi / Wasia support module > pack \"worship_better\" (knowledge)",
+   "file": "assets/support/packs/worship_better.json",
+   "key": "worship_better.howto.003",
+   "what_to_review": "If you keep delaying the prayer, make it automatic. Set the prayer times in the app, put a small action right before each one (water, wudu, a quick tidy), and pray as soon as the call comes. Tell someone near you so you pray together. The Prophet said the most beloved deed to Allah is prayer at its proper time.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:527",
+    "quran 4:103"
    ],
    "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
    "status": "open"

@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "pack": "worship_better",
+ "packKind": "knowledge",
+ "topic": "worship_better",
+ "description": "Improving your prayer, starting the five daily prayers from nothing, praying on time, and getting out of the habit of delaying.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "worship_better.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To improve your salah, change one thing at a time. Pray earlier in the time, slow each position, learn the meaning of what you recite, and pray as the Prophet taught. Add the regular sunnah prayers and a short remembrance afterwards. Allah says the believers are those who are humble in their prayer."
+   },
+   "ageBand": ["all"],
+   "tags": ["worship", "prayer", "salah", "improve", "better", "quality", "slow", "sunnah", "go-prayer"],
+   "triggers": ["improve my salah", "improve my prayer", "pray better", "make my prayer better", "better salah", "how to pray properly", "my prayer is rushed", "i rush my prayer"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "23:1-2", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:631", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:757", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer"}, {"asset": "assets/guides/guides.json", "id": "huda-nawafil"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "worship_better.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "If you are starting from nothing, start with one prayer and add the next every week or two. Pray it on time, even if short, and learn the words for it first. Build up to five without guilt about the past. Every prayer you add is a win, and Allah accepts what you do, not what you could not yet do."
+   },
+   "ageBand": ["all"],
+   "tags": ["worship", "prayer", "start", "beginner", "five", "prayers", "pray", "regular", "begin", "go-prayer"],
+   "triggers": ["start praying five times a day", "how to start praying", "start praying again", "i never prayed", "how to start salah", "i want to start praying", "how to begin praying", "how to pray five times a day"],
+   "doNotSay": ["No guilt about past prayers; no talk of sin."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "2:286", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer"}, {"asset": "assets/guides/guides.json", "id": "huda-prayer-times"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "worship_better.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "If you keep delaying the prayer, make it automatic. Set the prayer times in the app, put a small action right before each one (water, wudu, a quick tidy), and pray as soon as the call comes. Tell someone near you so you pray together. The Prophet said the most beloved deed to Allah is prayer at its proper time."
+   },
+   "ageBand": ["all"],
+   "tags": ["worship", "prayer", "delay", "late", "on-time", "procrastinate", "habit", "go-prayer"],
+   "triggers": ["stop procrastinating on prayer", "i delay my prayers", "i pray late", "pray on time", "how to pray on time", "i keep missing prayers", "i always pray late"],
+   "doNotSay": ["No shame; one small step to start with."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:527", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "4:103", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-prayer-times"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

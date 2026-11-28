@@ -1,0 +1,209 @@
+{
+ "schema": 1,
+ "pack": "goals_and_purpose",
+ "packKind": "knowledge",
+ "topic": "goals_and_purpose",
+ "description": "Setting and reaching goals with intention, planning, effort, du'a and trust; choosing between options; motivation; and what to do when things do not work out.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "goals_and_purpose.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Work and trust go together. Make your intention clear, break the goal into a step small enough to do this week, start it, ask Allah for success in your own words, and accept the result calmly. Allah says a person gets what he strives for, and tells us to consult others, and once we have decided, to rely on Him."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "success", "plan", "effort", "dream", "achieve", "accomplish", "ambition"],
+   "triggers": ["accomplish my goals", "achieve my goals", "reach my goals", "how to achieve goals", "succeed in my goals", "help me accomplish", "goals in life", "how to reach my dreams", "help me succeed", "make my goals come true", "achieve my dreams"],
+   "doNotSay": ["Practical and encouraging; no promise of a particular outcome."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "53:39", "section": "Qur'an text"},
+    {"type": "quran", "ref": "3:159", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-istikhara"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Trust in Allah is not sitting still. The Prophet said that if you relied on Allah as He should be relied on, He would provide for you as He provides for the birds, which leave in the morning empty and come back full. They go out and work. Plan, act, then place the result with Allah, who is enough for the one who relies on Him."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "tawakkul", "trust", "rely", "provision", "rizq", "plans"],
+   "triggers": ["tawakkul", "trust in allah", "rely on allah", "how to trust allah", "trust allah with my plans", "leave it to allah", "how to have tawakkul"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2344", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "65:3", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "When motivation is low, shrink the task until it is almost too small to refuse: one page, five minutes, one phone call. Begin it, and let the habit carry you. The Prophet said that the deeds Allah loves most are the regular ones, even if small. Steady beats strong."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "motivation", "lazy", "procrastination", "start", "habit", "steady"],
+   "triggers": ["no motivation", "how to stay motivated", "how to get motivated", "cant stay motivated", "procrastination", "i keep procrastinating", "how to stop being lazy", "how to start"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "When you cannot decide, do three things: gather facts and ask people who know the matter, pray the two rak'ahs of istikhara and ask Allah for what is best, then choose and move forward. Allah says that once you have decided, you rely on Him. You do not need a dream or a sign."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "decision", "choose", "istikhara", "career", "consult", "go-istikhara"],
+   "triggers": ["how do i make a decision", "cant decide", "which path to choose", "choosing a career", "how to choose", "hard decision", "big decision"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "3:159", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-istikhara"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "If a plan fails or a door closes, that is allowed to hurt, and it is also not the end of the road. Learn what you can, adjust, and try again. Allah says He brings about what He wills and has set a measure for everything, and that whoever relies on Him, He is enough for him."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "failure", "disappointment", "rejection", "plans", "regret", "retry"],
+   "triggers": ["my plans failed", "didnt get what i wanted", "failed my goal", "didnt get the job", "got rejected", "i failed my exam", "my plan did not work", "things did not work out", "hopeless about my goals", "give up on my goals", "feel like giving up on my goals", "my goals feel impossible"],
+   "doNotSay": ["If the person sounds hopeless rather than disappointed, move to the support path."],
+   "sources": [
+    {"type": "quran", "ref": "65:3", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:216", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Ordinary work becomes worship when it is done with a good intention. The Prophet said that deeds are by intentions. Earning to look after your family, studying to be useful, caring for a parent, each can be for Allah. Allah says He made us to worship Him, and worship is wider than the prayer mat."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "meaning", "intention", "work", "life", "niyyah"],
+   "triggers": ["what is my purpose", "purpose in life", "meaning of my life", "why am i here", "how to find purpose", "my life has no direction"],
+   "doNotSay": ["If the person says life has no point in a way that suggests hopelessness, support path first."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "51:56", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.006",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Make dua for your goal and keep making it. The Prophet said your dua is answered as long as you are not impatient and say that you called and it was not answered. Ask for what you want, ask for what is best, and keep working. Allah is near and answers the one who calls."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "dua", "success", "patience", "ask"],
+   "triggers": ["dua for success", "dua to achieve my goals", "pray for my goals", "how to make dua for what i want", "dua for my plans"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6340", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "2:186", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "goals_and_purpose.howto.007",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "A simple way to set goals for your deen: choose one prayer to improve, one small portion of Qur'an you will read, one short remembrance you will say each day, and one kind act each week. Keep it so small you cannot fail, hold it for a month, then add one more thing. Allah says to turn to Him with longing when you have finished your duties."
+   },
+   "ageBand": ["all"],
+   "tags": ["goals", "purpose", "deen", "iman", "plan", "routine", "growth", "life", "change", "go-adhkar"],
+   "triggers": ["spiritual goals", "goals for my deen", "how to improve my iman", "how to become more religious", "how to improve myself spiritually", "grow in my faith", "strengthen my iman", "change my life", "turn my life around", "new chapter in my life", "success in this life and the next", "successful in this life and the next", "success in dunya and akhirah", "dunya and akhirah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "94:7-8", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}, {"asset": "assets/guides/guides.json", "id": "huda-adhkar"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

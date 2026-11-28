@@ -1,0 +1,139 @@
+{
+ "schema": 1,
+ "pack": "consistency_habits",
+ "packKind": "knowledge",
+ "topic": "consistency_habits",
+ "description": "Building steady worship and daily habits: starting small, tying a habit to something you already do, starting again after missing days without shame, the slump after Ramadan, and waking for Fajr.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "consistency_habits.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Start with the smallest version you can keep every day. The Prophet said that the deed most loved by Allah is the regular one, even if it is little. One short portion of Qur'an, two minutes of remembrance, one prayer prayed on time. Keep that for a few weeks before you add anything."
+   },
+   "ageBand": ["all"],
+   "tags": ["habits", "consistency", "habit", "steady", "routine", "regular", "small"],
+   "triggers": ["build a habit", "be consistent", "stay consistent in prayer", "consistency in worship", "how to be consistent", "how do i stay consistent", "cant stay consistent", "make worship a habit"],
+   "doNotSay": ["No streaks and no shaming: the owner ruled that the app never shames anyone for missing days."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "consistency_habits.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Tie the new habit to something you already do every day. After you pray, say your remembrance. After you wake, read a few verses. After you sit for the evening meal, name one blessing. The old habit reminds you of the new one, so you do not rely on remembering or on mood."
+   },
+   "ageBand": ["all"],
+   "tags": ["habits", "consistency", "habit", "routine", "anchor", "daily", "reminder", "go-adhkar"],
+   "triggers": ["how to remember to read quran", "how to remember my dhikr", "daily routine", "islamic daily routine", "morning routine", "how to start my day", "habit stacking"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "33:41", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-adhkar"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "consistency_habits.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Missing a few days is not the end, and you do not have to start from zero or make up a guilt. Allah says not to despair of His mercy. Just do the smallest version today. The Prophet said to do what you are able to do, and the regular deed is the one loved most, so coming back is itself the habit."
+   },
+   "ageBand": ["all"],
+   "tags": ["habits", "consistency", "missed", "restart", "again", "slip", "guilt", "fell-off"],
+   "triggers": ["i missed days", "i missed a few days", "i broke my routine", "fell off my routine", "start again after missing", "lost my routine", "i stopped praying for a while", "how to restart", "how do i start again after stopping"],
+   "doNotSay": ["Never shame; do not count days or talk about streaks.", "If the person says they have stopped praying altogether and feels hopeless, offer the fresh-start answer and the support path."],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:286", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-tawba"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "consistency_habits.faq.002",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "A drop after Ramadan is very common, and the fix is to keep a small piece of it rather than all or nothing. Choose one thing that worked in Ramadan, for example a short night prayer, a daily portion of Qur'an, or a charity, and carry it forward at a smaller size. The deed loved most is the regular one, not the largest."
+   },
+   "ageBand": ["all"],
+   "tags": ["habits", "consistency", "ramadan", "after-ramadan", "slump", "iman", "habit"],
+   "triggers": ["after ramadan i stopped", "lost my iman after ramadan", "ramadan high is gone", "keep ramadan habits", "how to keep ramadan habits", "iman dropped after ramadan"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "consistency_habits.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To wake for Fajr, start the night before: make the intention to pray, sleep soon after Isha, keep the phone away from the bed, and set the alarm across the room. Say the sleeping remembrance so you sleep with Allah in mind. If you oversleep, pray it as soon as you wake; it is still owed and still accepted."
+   },
+   "ageBand": ["all"],
+   "tags": ["habits", "consistency", "fajr", "wake", "sleep", "alarm", "routine"],
+   "triggers": ["wake up for fajr", "cant wake for fajr", "how to wake up for fajr", "miss fajr every day", "sleep through fajr", "fajr alarm"],
+   "doNotSay": ["No shaming for missed Fajr."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-sleep"},
+    {"type": "quran", "ref": "17:78", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-sleep"}, {"asset": "assets/guides/guides.json", "id": "huda-qada"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

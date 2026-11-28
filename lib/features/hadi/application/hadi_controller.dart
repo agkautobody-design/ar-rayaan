@@ -104,6 +104,14 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/games/shatranj', '/support/listening-to-your-child', '/support',
 };
 
+/// go- tags on a knowledge snippet → the screen it offers as a button.
+const Map<String, String> kHadiGrowthScreens = <String, String>{
+  'adhkar': '/adhkar',
+  'quran': '/quran',
+  'character': '/academy/character',
+  'prayer': '/prayer',
+};
+
 /// Short names for the screens Hādi offers as buttons. A route that is not
 /// listed still works; its button says "Open this screen".
 const Map<String, String> kHadiRouteNames = <String, String>{
@@ -617,6 +625,8 @@ class HadiController extends Notifier<HadiState> {
     _latch = null;
     _latchChecks = 0;
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
+    _lastKnowledge = null;
+    _shownKnowledge.clear();
     _lastSupportTopic = null;
     _lastDistressPack = null;
     _lastDistressTheme = null;
@@ -993,6 +1003,13 @@ class HadiController extends Notifier<HadiState> {
 
   final Set<String> _cardTexts = <String>{};
 
+  /// The knowledge answer Hādi gave last, and every one given in this thread,
+  /// so a follow-up ("what can I do to start feeling it") continues it.
+  SupportSnippet? _lastKnowledge;
+  String? _pendingCoveredId;
+  String _lastKnowledgeText = '\u0000';
+  final Set<String> _shownKnowledge = <String>{};
+
   /// Texts of the fixed replies from [_safeReply]; they carry help lines but
   /// are not a full crisis card, so they do not stand in for one.
   final Set<String> _safeTexts = <String>{};
@@ -1187,8 +1204,9 @@ class HadiController extends Notifier<HadiState> {
                 question,
                 answerId: ce != null && HadiCore.isCoreAnswer(result)
                     ? ce.id
-                    : null,
+                    : _pendingCoveredId,
               ));
+          _pendingCoveredId = null;
         } catch (_) {}
       }
       return result;
@@ -2039,7 +2057,36 @@ class HadiController extends Notifier<HadiState> {
           return text;
         }
       }
-      final KnowledgeAnswer? ka = libraryOwns
+      // A follow-up continues the knowledge answer only when that answer is
+      // still the last thing Hādi said.
+      HadiMessage? lastHadi;
+      for (final HadiMessage m in state.messages.reversed) {
+        if (m.fromHadi) {
+          lastHadi = m;
+          break;
+        }
+      }
+      final bool follow = !libraryOwns &&
+          _lastKnowledge != null &&
+          lastHadi != null &&
+          lastHadi.text.contains(_lastKnowledgeText) &&
+          KnowledgeAnswerer.isFollowUp(q);
+      final Map<String, KnownTopic> priorCovered = _mayUseKnows()
+          ? ref.read(userKnowsProvider).covered
+          : const <String, KnownTopic>{};
+      bool seenBefore(String id) =>
+          _shownKnowledge.contains(id) ||
+          priorCovered.containsKey(UserKnowsRules.coveredId('kn-$id'));
+      KnowledgeAnswer? ka = follow
+          ? KnowledgeAnswerer.followUp(
+              q,
+              _lastKnowledge!,
+              SupportPackRepository.packs,
+              isSeen: seenBefore,
+              allowDraft: SupportPackRepository.allowDraft,
+            )
+          : null;
+      ka ??= libraryOwns
           ? null
           : KnowledgeAnswerer.answer(
               q,
@@ -2047,9 +2094,25 @@ class HadiController extends Notifier<HadiState> {
               allowDraft: SupportPackRepository.allowDraft,
             );
       if (ka != null) {
+        _lastKnowledge = ka.snippet;
+        _lastKnowledgeText = ka.text;
+        final bool again = _shownKnowledge.contains(ka.snippet.id) ||
+            priorCovered.containsKey(UserKnowsRules.coveredId('kn-${ka.snippet.id}'));
+        _shownKnowledge.add(ka.snippet.id);
+        _pendingCoveredId = UserKnowsRules.coveredId('kn-${ka.snippet.id}');
         String text = ka.text;
+        if (again) {
+          text = 'We went over this one before, so here it is again.\n\n$text';
+        }
         if (ruling == RulingClass.general) {
           text = '$text\n\n${RulingGate.generalFooter}';
+        }
+        for (final String r in KnowledgeAnswerer.routesFor(
+          ka.snippet,
+          isGuide: kHadiGuideNames.containsKey,
+          screens: kHadiGrowthScreens,
+        )) {
+          text = '$text\n[GO:$r]';
         }
         state = state.copy(
           messages: <HadiMessage>[

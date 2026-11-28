@@ -1,0 +1,216 @@
+{
+ "schema": 1,
+ "pack": "character_in_daily_life",
+ "packKind": "knowledge",
+ "topic": "character_in_daily_life",
+ "description": "Anger, forgiving someone who hurt you, guarding the tongue and gossip, humility, and keeping your intention sincere.",
+ "audience": "hadi",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "character_in_daily_life.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Anger is a wave you can learn to ride. Say that you seek refuge in Allah, sit down if you are standing, lie down if you are sitting, and make wudu with cool water. Stay quiet until it drops, because words said in anger are the ones people regret. The Prophet said the strong person is the one who controls himself in anger."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "anger", "angry", "temper", "control", "calm", "rage", "go-character"],
+   "triggers": ["stop being angry", "control my anger", "i get angry easily", "anger problem", "how to calm down when angry", "i lose my temper", "how to stop shouting", "i am always angry"],
+   "doNotSay": ["If anger is with violence or fear of harming someone, move to safety and support; do not give a lecture."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6114", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "3:134", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Forgiving does not mean saying it did not hurt. It means choosing not to carry it. Start by asking Allah to ease your heart, wish the person guidance, and decide that you will not take revenge. You can forgive and still keep distance or set limits. Allah loves those who pardon, and the Prophet said forgiving raises a person in honour."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "forgive", "forgiveness", "hurt", "grudge", "pardon", "betrayed", "resentment"],
+   "triggers": ["forgive someone who hurt me", "how do i forgive", "how to forgive someone", "i cant forgive", "hard to forgive", "let go of a grudge", "someone betrayed me", "let go of resentment"],
+   "doNotSay": ["Never push someone to reconcile with an abuser; forgiving is not staying in danger."],
+   "sources": [
+    {"type": "quran", "ref": "42:40", "section": "Qur'an text"},
+    {"type": "quran", "ref": "24:22", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2588", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hardship"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To guard the tongue, pause before you speak and ask: is it true, is it needed, is it kind. The Prophet said whoever believes in Allah and the Last Day should speak good or stay silent. Backbiting is saying about someone what they would dislike, even if it is true. When a conversation turns that way, change the subject or leave it, and make dua for the person."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "tongue", "gossip", "gossiping", "backbiting", "ghibah", "speech", "words", "go-character"],
+   "triggers": ["how to stop gossiping", "control my tongue", "stop gossiping", "how to stop backbiting", "i gossip too much", "avoid ghibah", "how to watch my words", "stop talking about people"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6018", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2589", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "49:12", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.004",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Humility is not thinking little of yourself; it is not thinking of yourself too much. Serve someone without being asked, accept advice without arguing, thank people who teach you, and say I do not know when you do not. The Prophet said Allah revealed that you should be humble so that none boasts over another."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "humble", "humility", "pride", "arrogance", "ego", "modest"],
+   "triggers": ["become more humble", "how to be humble", "i am too proud", "how to remove arrogance", "how to remove pride", "how to control my ego"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2865", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "25:63", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Keeping your intention sincere is an ongoing job. Before an act of worship, take one breath and say silently that it is for Allah. If you notice you want to be seen, do not stop the good deed; just correct the intention and carry on. Do some good in secret that only Allah knows. The Prophet said deeds are by intentions."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "intention", "niyyah", "sincerity", "ikhlas", "riya", "showing-off", "pure"],
+   "triggers": ["make my intention sincere", "purify my intention", "avoid showing off in worship", "how to avoid riya", "riya", "ikhlas", "sincerity in worship", "keep my niyyah pure", "pure intention", "how to keep my intention pure", "how to be sincere to allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "98:5", "section": "Qur'an text"},
+    {"type": "quran", "ref": "107:4-6", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.006",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "To leave a sin, make it harder to reach and fill the gap. Remove what triggers it, change your company and your routine, and replace it with something good at the same time of day. When you slip, do not wait: make tawbah at once and do a good deed after it. Allah says good deeds wipe out bad ones, and the door of tawbah stays open."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "sin", "sinning", "haram", "temptation", "bad-habit", "quit", "go-tawba"],
+   "triggers": ["stop sinning", "how to stop sinning", "stay away from haram", "how to leave a sin", "i keep falling into the same sin", "how to stop a bad habit", "overcome temptation", "i keep doing the same sin"],
+   "doNotSay": ["No shaming. If the matter is addiction, point to the support area for that topic."],
+   "sources": [
+    {"type": "quran", "ref": "11:114", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "tirmidhi:1987", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-tawba"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.007",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Good company matters more than people admit. The Prophet compared a good companion to a perfume seller and a bad one to a blacksmith: one gives you something or a pleasant scent, the other may burn your clothes or leave a bad smell. Spend more time with people who remind you of Allah, and stay kind to the rest without following them."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "friends", "friendship", "company", "peer", "pressure", "influence", "community"],
+   "triggers": ["peer pressure", "handle peer pressure", "bad friends", "how to find good friends", "make friends in the community", "make friends", "friends in the community", "how to make muslim friends", "friends who pull me away", "lonely as a muslim"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:2101", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "18:28", "section": "Qur'an text"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "character_in_daily_life.howto.008",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "With a difficult person at work or in the family, answer what is bad with what is better. Allah says that good and evil are not equal, and that then the one between whom and you was enmity may become like a close friend. Stay calm, keep your voice low, say what you need once and clearly, and keep your own conduct clean. You do not have to let anyone mistreat you; set limits politely, and speak to someone senior if needed."
+   },
+   "ageBand": ["all"],
+   "tags": ["character", "akhlaq", "coworker", "boss", "colleague", "difficult", "conflict", "workplace", "toxic", "neighbour"],
+   "triggers": ["difficult coworker", "difficult boss", "deal with a difficult person", "toxic coworker", "a person at work hates me", "i have a conflict at work", "how to deal with rude people", "my boss is unfair"],
+   "doNotSay": ["If it is harassment or abuse, tell them to report it and seek help; do not tell them to just be patient."],
+   "sources": [
+    {"type": "quran", "ref": "41:34-35", "section": "Qur'an text"},
+    {"type": "quran", "ref": "25:63", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
