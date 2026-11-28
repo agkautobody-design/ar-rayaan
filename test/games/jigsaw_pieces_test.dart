@@ -114,7 +114,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(MaterialApp(home: JigsawScreen(seed: seed)));
-      await tester.pump();
+      await tester.pumpAndSettle();
     }
 
     JigsawCut shown(WidgetTester tester) {
@@ -149,8 +149,12 @@ void main() {
 
     /// Where piece [i] sits (top-left at full size), whatever its drawn size.
     Offset modelPos(WidgetTester tester, int i) {
-      final Positioned p =
-          tester.widget<Positioned>(find.byKey(ValueKey<int>(i)));
+      final Positioned p = tester.widget<Positioned>(
+        find.descendant(
+          of: find.byKey(ValueKey<int>(i)),
+          matching: find.byType(Positioned),
+        ).first,
+      );
       return tester.getTopLeft(
             find.byKey(const ValueKey<String>('jigsaw-board')),
           ) +
@@ -188,13 +192,13 @@ void main() {
 
       // Far from home: stays loose where it was dropped.
       await tester.drag(face(first), const Offset(0, -40));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 0 of ${cut.pieces.length}'), findsOneWidget);
 
       // Close to home but not exactly on it: it clicks in.
       final Offset now = modelPos(tester, first);
       await tester.drag(face(first), home - now + const Offset(12, 8));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
       expect(modelPos(tester, first).dx, closeTo(home.dx, 0.6));
       expect(modelPos(tester, first).dy, closeTo(home.dy, 0.6));
@@ -212,7 +216,7 @@ void main() {
         await open(tester, seed: count);
         if (count == 12) {
           await tester.tap(find.text('12'));
-          await tester.pump();
+          await tester.pumpAndSettle();
         }
         final JigsawCut cut = shown(tester);
         expect(cut.pieces.length, count);
@@ -222,7 +226,7 @@ void main() {
           final Offset home = target(tester, cut.pieces[i]);
           final Offset now = modelPos(tester, i);
           await tester.drag(face(i), home - now);
-          await tester.pump();
+          await tester.pumpAndSettle();
           expect(modelPos(tester, i).dx, closeTo(home.dx, 0.6),
               reason: 'piece $i');
           done.add(i);
@@ -232,7 +236,7 @@ void main() {
         expect(find.text('Play again'), findsOneWidget);
         // Playing again deals a different picture, loose again.
         await tester.tap(find.text('Play again'));
-        await tester.pump();
+        await tester.pumpAndSettle();
         expect(find.text('Picture complete'), findsNothing);
         expect(shown(tester).asset, isNot(cut.asset));
         expect(find.text('Placed: 0 of $count'), findsOneWidget);
@@ -249,7 +253,7 @@ void main() {
       );
       tester.binding.pipelineOwner.semanticsOwner!
           .performAction(node.id, SemanticsAction.tap);
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
       expect(
         find.bySemanticsLabel(RegExp('Piece in row 1, column 1, placed')),
@@ -264,7 +268,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(const MaterialApp(home: JigsawScreen(seed: 5)));
-      await tester.pump();
+      await tester.pumpAndSettle();
       final JigsawCut cut = shown(tester);
       final Size board = tester.getSize(
         find.byKey(const ValueKey<String>('jigsaw-board')),
@@ -276,7 +280,7 @@ void main() {
           ) +
           Offset(cut.pieces[i].x0 * 366, cut.pieces[i].y0 * 366);
       await tester.drag(face(i), home - modelPos(tester, i));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
     });
 
@@ -291,10 +295,10 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
           await tester.pumpWidget(const MaterialApp(home: JigsawScreen(seed: 8)));
-          await tester.pump();
+          await tester.pumpAndSettle();
           if (count == 12) {
             await tester.tap(find.text('12'));
-            await tester.pump();
+            await tester.pumpAndSettle();
           }
           await tester.pumpAndSettle();
           final JigsawCut cut = shown(tester);

@@ -15,7 +15,7 @@ import 'puzzle_games.dart';
 
 /// How close (as a fraction of the picture) a dropped piece must be to its
 /// place for it to click in.
-const double kJigsawSnap = 0.08;
+const double kJigsawSnap = 0.12;
 
 /// Loose pieces in the tray are drawn at this size so the whole game fits on
 /// one screen; a piece grows to full size when picked up or put on the board.
@@ -374,8 +374,11 @@ class _JigsawState extends State<JigsawScreen> {
     );
     final int row = i ~/ _cut.cols + 1;
     final int col = i % _cut.cols + 1;
-    return Positioned(
+    return AnimatedPositioned(
       key: ValueKey<int>(i),
+      // Follows the finger at once; glides into place when let go.
+      duration: lifted ? Duration.zero : const Duration(milliseconds: 140),
+      curve: Curves.easeOut,
       left: _pos[i].dx * b,
       top: _pos[i].dy * b,
       width: w,
