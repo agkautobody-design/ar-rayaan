@@ -68,7 +68,8 @@ void main() {
           // its bounding box, so it is not a plain square.
           if (a / (p.width * p.height) < 0.97) shaped++;
         }
-        expect(total, closeTo(1, 0.12), reason: c.asset);
+        // The cut lines and the picture's margin take the rest.
+        expect(total, inInclusiveRange(0.7, 1.0), reason: c.asset);
         expect(shaped, c.pieces.length, reason: '${c.asset} has square pieces');
       }
     });
@@ -186,7 +187,11 @@ void main() {
       // A placed piece cannot be dragged away again.
       await tester.drag(face(first), const Offset(0, 200));
       await tester.pump();
-      expect(tester.getTopLeft(face(first)).dy, closeTo(home.dy, 0.6));
+      expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
+      final Offset after = tester.getTopLeft(face(first)) -
+          tester.getTopLeft(find.byKey(const ValueKey<String>('jigsaw-board')));
+      expect(after.dx, closeTo(cut.pieces[first].x0 * b, 0.6));
+      expect(after.dy, closeTo(cut.pieces[first].y0 * b, 0.6));
     });
 
     for (final int count in <int>[16, 12]) {

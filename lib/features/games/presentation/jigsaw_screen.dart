@@ -178,17 +178,19 @@ class _JigsawState extends State<JigsawScreen> {
       tagline: 'Drag each piece to its place',
       children: <Widget>[
         const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 12,
+          runSpacing: 8,
           children: <Widget>[
             Text('Placed: $_placedCount of $n', style: AppText.label),
-            Row(children: <Widget>[
+            Wrap(spacing: 8, children: <Widget>[
               GameChip(
                 label: '12 pieces',
                 selected: _count == 12,
                 onTap: () => _setCount(12),
               ),
-              const SizedBox(width: 8),
               GameChip(
                 label: '16 pieces',
                 selected: _count == 16,
