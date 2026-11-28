@@ -11,8 +11,8 @@ import 'package:ar_rayaan/features/support/domain/support_pack.dart';
 SupportPack _load(String name) {
   final String raw = File('assets/support/packs/$name.json').readAsStringSync();
   final SupportPack? p = SupportPack.parse(raw);
-  expect(p, isNotNull, reason: name);
-  return p!;
+  if (p == null) throw StateError('pack did not parse: $name');
+  return p;
 }
 
 void main() {
