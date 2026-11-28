@@ -84,6 +84,7 @@ flutter:
     - assets/games/
     - assets/games/ludo/
     - assets/games/connect4/
+    - assets/games/checkers/
     - assets/games/chess/
     - assets/games/chess/pieces/
     - assets/games/chess/squares/

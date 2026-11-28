@@ -13,6 +13,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../engine/board_engines.dart';
+import '../ui/checkers_board.dart';
 import '../ui/connect4_board.dart';
 import '../ui/games_theme.dart';
 import 'puzzle_games.dart';
@@ -414,13 +415,13 @@ class _DraughtsState extends State<DraughtsScreen> {
     }
     if (w != 0) {
       if (_mode!.vsComputer) return w == 1 ? 'You win' : 'The computer wins';
-      return 'Player $w wins';
+      return w == 1 ? 'Ruby wins' : 'Onyx wins';
     }
     final bool mustCapture =
         _moves.isNotEmpty && (_moves.first.first ~/ 8 - _moves.first[1] ~/ 8).abs() == 2;
     final String who = _mode!.vsComputer
         ? (_g.turn == 1 ? 'Your turn' : 'The computer is thinking…')
-        : 'Player ${_g.turn}, your turn';
+        : (_g.turn == 1 ? 'Ruby, your turn' : 'Onyx, your turn');
     return mustCapture ? '$who · you must capture' : who;
   }
 
@@ -449,66 +450,15 @@ class _DraughtsState extends State<DraughtsScreen> {
           child: Text(_status.toUpperCase(), style: AppText.eyebrow),
         ),
         const SizedBox(height: 10),
-        AspectRatio(
-          aspectRatio: 1,
-          child: GridView.count(
-            crossAxisCount: 8,
-            physics: const NeverScrollableScrollPhysics(),
-            children: <Widget>[
-              for (int i = 0; i < 64; i++)
-                Semantics(
-                  button: true,
-                  selected: _sel == i,
-                  label: 'Row ${i ~/ 8 + 1}, column ${i % 8 + 1}, '
-                      '${_pieceName(_g.board[i])}'
-                      '${targets.contains(i) ? ', you can move here' : ''}',
-                  child: GestureDetector(
-                    onTap: () => _tap(i),
-                    child: ExcludeSemantics(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: (i ~/ 8 + i % 8).isOdd
-                              ? const Color(0xFF1B2A44)
-                              : const Color(0xFFEAD6B4),
-                          border: _sel == i
-                              ? Border.all(color: AppColors.goldLight, width: 3)
-                              : (targets.contains(i)
-                                  ? Border.all(color: const Color(0xFF7FD1A8), width: 3)
-                                  : null),
-                        ),
-                        child: _g.board[i] == 0
-                            ? null
-                            : Center(
-                                child: Container(
-                                  width: 30,
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Draughts.side(_g.board[i]) == 1
-                                        ? const Color(0xFFF6EBCB)
-                                        : const Color(0xFF05090F),
-                                    border: Border.all(
-                                        color: AppColors.gold, width: 2),
-                                  ),
-                                  child: Draughts.isKing(_g.board[i])
-                                      ? Icon(Icons.workspace_premium,
-                                          size: 18,
-                                          color: Draughts.side(_g.board[i]) == 1
-                                              ? const Color(0xFF3A2A06)
-                                              : AppColors.goldLight)
-                                      : null,
-                                ),
-                              ),
-                      ),
-                    ),
-                  ),
-                ),
-            ],
-          ),
+        CheckersBoard(
+          board: _g.board,
+          selected: _sel,
+          targets: targets,
+          onTap: _tap,
         ),
         const SizedBox(height: 10),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          Text('Cream: ${_g.count(1)}   ·   Dark: ${_g.count(2)}',
+          Text('Ruby: ${_g.count(1)}   ·   Onyx: ${_g.count(2)}',
               style: AppText.bodyMuted),
         ]),
         const SizedBox(height: 6),
@@ -532,12 +482,4 @@ class _DraughtsState extends State<DraughtsScreen> {
       ],
     );
   }
-
-  static String _pieceName(int p) => switch (p) {
-        0 => 'empty',
-        1 => 'cream man',
-        2 => 'dark man',
-        3 => 'cream king',
-        _ => 'dark king',
-      };
 }
