@@ -19,6 +19,15 @@ class Maze {
   static const int up = 1, right = 2, down = 4, left = 8;
   static const List<int> dirs = <int>[up, right, down, left];
 
+  /// A maze read from a board: one hex digit per cell, row by row, with the
+  /// open directions as bits (see [up], [right], [down], [left]).
+  factory Maze.fromOpen(int size, String hex) {
+    assert(hex.length == size * size);
+    return Maze._(size, <int>[
+      for (int i = 0; i < hex.length; i++) int.parse(hex[i], radix: 16),
+    ]);
+  }
+
   /// A maze made by depth-first carving, so every cell is reachable.
   factory Maze.generate(int size, Random rnd) {
     final List<int> open = List<int>.filled(size * size, 0);
