@@ -83,6 +83,7 @@ flutter:
     - assets/guides/
     - assets/games/
     - assets/games/ludo/
+    - assets/games/connect4/
     - assets/games/chess/
     - assets/games/chess/pieces/
     - assets/games/chess/squares/

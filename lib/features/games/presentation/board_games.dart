@@ -13,6 +13,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/tr_text.dart';
 import '../engine/board_engines.dart';
+import '../ui/connect4_board.dart';
 import '../ui/games_theme.dart';
 import 'puzzle_games.dart';
 
@@ -258,11 +259,11 @@ class _ConnectFourState extends State<ConnectFourScreen> {
     }
     if (_g.winner != 0) {
       if (_mode!.vsComputer) return _g.winner == 1 ? 'You win' : 'The computer wins';
-      return 'Player ${_g.winner} wins';
+      return _g.winner == 1 ? 'Emerald wins' : 'Ruby wins';
     }
     if (_g.isFull) return 'A draw';
     if (_mode!.vsComputer) return _g.turn == 1 ? 'Your turn' : 'The computer is thinking…';
-    return 'Player ${_g.turn}, your turn';
+    return _g.turn == 1 ? 'Emerald, your turn' : 'Ruby, your turn';
   }
 
   @override
@@ -285,78 +286,9 @@ class _ConnectFourState extends State<ConnectFourScreen> {
           child: Text(_status.toUpperCase(), style: AppText.eyebrow),
         ),
         const SizedBox(height: 10),
-        AspectRatio(
-          aspectRatio: ConnectFour.cols / ConnectFour.rows,
-          child: LayoutBuilder(builder: (BuildContext _, BoxConstraints bc) {
-            final double cell = bc.maxWidth / ConnectFour.cols;
-            return Stack(children: <Widget>[
-              Positioned.fill(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: const Color(0xCC010F16),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: GamesTheme.border, width: 1.6),
-                  ),
-                ),
-              ),
-              for (int c = 0; c < ConnectFour.cols; c++)
-                Positioned(
-                  left: c * cell,
-                  top: 0,
-                  width: cell,
-                  height: bc.maxHeight,
-                  child: Semantics(
-                    button: true,
-                    label: 'Drop in column ${c + 1}'
-                        '${_g.canDrop(c) ? '' : ', full'}',
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => _drop(c),
-                      child: ExcludeSemantics(
-                        child: Column(children: <Widget>[
-                          for (int r = 0; r < ConnectFour.rows; r++)
-                            SizedBox(
-                              height: bc.maxHeight / ConnectFour.rows,
-                              child: Center(
-                                child: Container(
-                                  width: cell * 0.78,
-                                  height: cell * 0.78,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: _g.at(r, c) == 0
-                                        ? const Color(0xFF05090F)
-                                        : (_g.at(r, c) == 1
-                                            ? const Color(0xFFE2A63F)
-                                            : const Color(0xFFF6EBCB)),
-                                    border: Border.all(
-                                      color: _g.line.contains(r * 7 + c)
-                                          ? Colors.white
-                                          : GamesTheme.border,
-                                      width: _g.line.contains(r * 7 + c) ? 3 : 1,
-                                    ),
-                                  ),
-                                  child: _g.at(r, c) == 0
-                                      ? null
-                                      : Center(
-                                          child: Text(
-                                              _g.at(r, c) == 1 ? 'G' : 'C',
-                                              style: const TextStyle(
-                                                  color: Color(0xFF3A2A06),
-                                                  fontWeight: FontWeight.w700)),
-                                        ),
-                                ),
-                              ),
-                            ),
-                        ]),
-                      ),
-                    ),
-                  ),
-                ),
-            ]);
-          }),
-        ),
+        Connect4Board(game: _g, onDrop: _drop),
         const SizedBox(height: 10),
-        Text('Gold (G) goes first, cream (C) second. Tap a column to drop a token. Four in a line wins.',
+        Text('Emerald goes first, ruby second. Tap a column to drop a token. Four in a line wins.',
             textAlign: TextAlign.center, style: AppText.bodyMuted),
         const SizedBox(height: 10),
         if (over && !_online)
