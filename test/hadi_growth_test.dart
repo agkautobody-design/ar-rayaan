@@ -145,7 +145,7 @@ void main() {
 
   test('pack json is valid', () {
     for (final SupportPack p in packs) {
-      expect(jsonDecode(File('assets/support/packs/${p.name}.json').readAsStringSync()), isA<Map>());
+      expect(jsonDecode(File('assets/support/packs/${p.name}.json').readAsStringSync()), isA<Map<String, dynamic>>());
     }
   });
 }
