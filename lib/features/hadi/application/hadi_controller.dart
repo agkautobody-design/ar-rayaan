@@ -923,6 +923,24 @@ class HadiController extends Notifier<HadiState> {
   /// True when the last thing Hadi said was a distress reply (being heard,
   /// grief, shame) and [q] is a natural next turn in it: "yes", "it helps a
   /// little", "thanks" carry no feeling word of their own.
+  /// The person's last question and Hādi's last answer, trimmed, for reading
+  /// a short follow-up in context. Empty when there is no earlier turn.
+  String _threadContext() {
+    String? user;
+    String? hadi;
+    for (final HadiMessage m in state.messages.reversed) {
+      if (m.fromHadi) {
+        hadi ??= m.text;
+      } else if (hadi != null) {
+        user = m.text;
+        break;
+      }
+    }
+    if (hadi == null) return '';
+    String cut(String t, int n) => t.length > n ? t.substring(0, n) : t;
+    return '${cut(user ?? '', 160)} ${cut(hadi, 240)}'.trim();
+  }
+
   bool _continuesDistress(String q) {
     if (_lastDistressPack == null || state.messages.isEmpty) return false;
     final HadiMessage last = state.messages.last;
@@ -2093,6 +2111,21 @@ class HadiController extends Notifier<HadiState> {
               SupportPackRepository.packs,
               allowDraft: SupportPackRepository.allowDraft,
             );
+      // "I get that but what can I do to start feeling it": a follow-up whose
+      // "it" is in the answer just given, even when that answer did not come
+      // from a knowledge pack. Read the question again together with the
+      // person's last question and Hādi's last answer, so "feeling it" after
+      // "Allah is near" finds the closeness how-to instead of a dead end.
+      if (ka == null && !libraryOwns && KnowledgeAnswerer.isFollowUp(q)) {
+        final String ctx = _threadContext();
+        if (ctx.isNotEmpty) {
+          ka = KnowledgeAnswerer.answer(
+            '$ctx $q',
+            SupportPackRepository.packs,
+            allowDraft: SupportPackRepository.allowDraft,
+          );
+        }
+      }
       if (ka != null) {
         _lastKnowledge = ka.snippet;
         _lastKnowledgeText = ka.text;
