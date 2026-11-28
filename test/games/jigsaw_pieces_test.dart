@@ -114,7 +114,7 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(MaterialApp(home: JigsawScreen(seed: seed)));
-      await tester.pump();
+      await tester.pumpAndSettle();
     }
 
     JigsawCut shown(WidgetTester tester) {
@@ -147,6 +147,20 @@ void main() {
       return board + Offset(p.x0 * b, p.y0 * b);
     }
 
+    /// Where piece [i] sits (top-left at full size), whatever its drawn size.
+    Offset modelPos(WidgetTester tester, int i) {
+      final Positioned p = tester.widget<Positioned>(
+        find.descendant(
+          of: find.byKey(ValueKey<int>(i)),
+          matching: find.byType(Positioned),
+        ).first,
+      );
+      return tester.getTopLeft(
+            find.byKey(const ValueKey<String>('jigsaw-board')),
+          ) +
+          Offset(p.left!, p.top!);
+    }
+
     Finder face(int i) => find.byKey(ValueKey<String>('jigsaw-piece-$i'));
 
     testWidgets('pieces start loose in the tray, below the board',
@@ -158,7 +172,7 @@ void main() {
       );
       expect(find.text('Placed: 0 of ${cut.pieces.length}'), findsOneWidget);
       for (int i = 0; i < cut.pieces.length; i++) {
-        final Offset at = tester.getTopLeft(face(i));
+        final Offset at = modelPos(tester, i);
         expect(at.dy, greaterThanOrEqualTo(board.dy + b), reason: 'piece $i');
       }
     });
@@ -178,16 +192,16 @@ void main() {
 
       // Far from home: stays loose where it was dropped.
       await tester.drag(face(first), const Offset(0, -40));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 0 of ${cut.pieces.length}'), findsOneWidget);
 
       // Close to home but not exactly on it: it clicks in.
-      final Offset now = tester.getTopLeft(face(first));
+      final Offset now = modelPos(tester, first);
       await tester.drag(face(first), home - now + const Offset(12, 8));
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
-      expect(tester.getTopLeft(face(first)).dx, closeTo(home.dx, 0.6));
-      expect(tester.getTopLeft(face(first)).dy, closeTo(home.dy, 0.6));
+      expect(modelPos(tester, first).dx, closeTo(home.dx, 0.6));
+      expect(modelPos(tester, first).dy, closeTo(home.dy, 0.6));
 
       // A placed piece is locked: it no longer takes touches.
       expect(
@@ -201,8 +215,8 @@ void main() {
           (WidgetTester tester) async {
         await open(tester, seed: count);
         if (count == 12) {
-          await tester.tap(find.text('12 pieces'));
-          await tester.pump();
+          await tester.tap(find.text('12'));
+          await tester.pumpAndSettle();
         }
         final JigsawCut cut = shown(tester);
         expect(cut.pieces.length, count);
@@ -210,10 +224,10 @@ void main() {
         for (int step = 0; step < count; step++) {
           final int i = topLoose(tester, done);
           final Offset home = target(tester, cut.pieces[i]);
-          final Offset now = tester.getTopLeft(face(i));
+          final Offset now = modelPos(tester, i);
           await tester.drag(face(i), home - now);
-          await tester.pump();
-          expect(tester.getTopLeft(face(i)).dx, closeTo(home.dx, 0.6),
+          await tester.pumpAndSettle();
+          expect(modelPos(tester, i).dx, closeTo(home.dx, 0.6),
               reason: 'piece $i');
           done.add(i);
           expect(find.text('Placed: ${step + 1} of $count'), findsOneWidget);
@@ -222,7 +236,7 @@ void main() {
         expect(find.text('Play again'), findsOneWidget);
         // Playing again deals a different picture, loose again.
         await tester.tap(find.text('Play again'));
-        await tester.pump();
+        await tester.pumpAndSettle();
         expect(find.text('Picture complete'), findsNothing);
         expect(shown(tester).asset, isNot(cut.asset));
         expect(find.text('Placed: 0 of $count'), findsOneWidget);
@@ -239,7 +253,7 @@ void main() {
       );
       tester.binding.pipelineOwner.semanticsOwner!
           .performAction(node.id, SemanticsAction.tap);
-      await tester.pump();
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
       expect(
         find.bySemanticsLabel(RegExp('Piece in row 1, column 1, placed')),
@@ -254,20 +268,58 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(const MaterialApp(home: JigsawScreen(seed: 5)));
-      await tester.pump();
+      await tester.pumpAndSettle();
       final JigsawCut cut = shown(tester);
       final Size board = tester.getSize(
         find.byKey(const ValueKey<String>('jigsaw-board')),
       );
-      expect(board.width, 350);
+      expect(board.width, 366);
       final int i = topLoose(tester, <int>{});
       final Offset home = tester.getTopLeft(
             find.byKey(const ValueKey<String>('jigsaw-board')),
           ) +
-          Offset(cut.pieces[i].x0 * 350, cut.pieces[i].y0 * 350);
-      await tester.drag(face(i), home - tester.getTopLeft(face(i)));
-      await tester.pump();
+          Offset(cut.pieces[i].x0 * 366, cut.pieces[i].y0 * 366);
+      await tester.drag(face(i), home - modelPos(tester, i));
+      await tester.pumpAndSettle();
       expect(find.text('Placed: 1 of ${cut.pieces.length}'), findsOneWidget);
     });
+
+    for (final Size screen in const <Size>[Size(390, 800), Size(360, 640)]) {
+      for (final int count in <int>[16, 12]) {
+        testWidgets(
+            'board and every piece fit on a ${screen.width.toInt()}x'
+            '${screen.height.toInt()} screen with $count pieces, no scrolling',
+            (WidgetTester tester) async {
+          tester.view.physicalSize = screen;
+          tester.view.devicePixelRatio = 1;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          await tester.pumpWidget(const MaterialApp(home: JigsawScreen(seed: 8)));
+          await tester.pumpAndSettle();
+          if (count == 12) {
+            await tester.tap(find.text('12'));
+            await tester.pumpAndSettle();
+          }
+          await tester.pumpAndSettle();
+          final JigsawCut cut = shown(tester);
+          expect(cut.pieces.length, count);
+          final Rect area = Rect.fromLTWH(0, 0, screen.width, screen.height);
+          final Rect stack = tester.getRect(
+            find.byKey(const ValueKey<String>('jigsaw-board')),
+          );
+          expect(area.contains(stack.topLeft), isTrue);
+          // Leaves the strip at the bottom free for the Ask Hadi pill.
+          expect(stack.bottom, lessThanOrEqualTo(screen.height - 59));
+          for (int i = 0; i < count; i++) {
+            final Rect r = tester.getRect(face(i));
+            expect(r.left, greaterThanOrEqualTo(-1), reason: 'piece $i');
+            expect(r.right, lessThanOrEqualTo(screen.width + 1),
+                reason: 'piece $i');
+            expect(r.bottom, lessThanOrEqualTo(stack.bottom + 1),
+                reason: 'piece $i');
+          }
+        });
+      }
+    }
   });
 }
