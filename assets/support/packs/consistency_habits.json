@@ -118,8 +118,8 @@
     "en": "To wake for Fajr, start the night before: make the intention to pray, sleep soon after Isha, keep the phone away from the bed, and set the alarm across the room. Say the sleeping remembrance so you sleep with Allah in mind. If you oversleep, pray it as soon as you wake; it is still owed and still accepted."
    },
    "ageBand": ["all"],
-   "tags": ["habits", "consistency", "fajr", "wake", "sleep", "alarm", "routine"],
-   "triggers": ["wake up for fajr", "cant wake for fajr", "how to wake up for fajr", "miss fajr every day", "sleep through fajr", "fajr alarm"],
+   "tags": ["habits", "consistency", "fajr", "wake", "sleep", "alarm", "routine", "missing", "missed", "sleeping"],
+   "triggers": ["miss fajr", "missing fajr", "i keep missing fajr", "i always sleep through fajr", "sleep through my alarm for fajr", "wake up for fajr", "cant wake for fajr", "how to wake up for fajr", "miss fajr every day", "sleep through fajr", "fajr alarm"],
    "doNotSay": ["No shaming for missed Fajr."],
    "sources": [
     {"type": "asset", "ref": "assets/guides/guides.json#huda-sleep"},

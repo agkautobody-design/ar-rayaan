@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 6773,
+ "total": 6776,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -125,12 +125,12 @@
   },
   "support-packs": {
    "title": "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)",
-   "items": 2408,
+   "items": 2411,
    "high_priority": 153
   }
  },
  "totals_by_reviewer_type": {
-  "Hadith / aqidah scholar": 2841,
+  "Hadith / aqidah scholar": 2844,
   "Fiqh scholar (per madhab)": 876,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 526,
@@ -142,7 +142,7 @@
  },
  "totals_by_priority": {
   "high": 1377,
-  "normal": 4352,
+  "normal": 4355,
   "low": 1044
  },
  "items": [
@@ -99653,6 +99653,28 @@
    "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
    "file": "assets/support/packs/character_in_daily_life.json",
    "key": "character_in_daily_life.howto.004",
+   "what_to_review": "To break a habit of gossip, make a rule you can follow: when a name comes up, say something good or nothing, and change the subject. Notice who and what sets you off and spend less time there. If you slip, stop, and if the person was harmed by it, ask Allah's forgiveness, make dua for them, and where you can, speak well of them. A habit that took years to build can be undone one conversation at a time.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:6018",
+    "quran 49:11-12",
+    "hadith muslim:2589"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.character_in_daily_life.howto.005",
+   "area": "support-packs",
+   "subarea": "character_in_daily_life",
+   "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
+   "file": "assets/support/packs/character_in_daily_life.json",
+   "key": "character_in_daily_life.howto.005",
    "what_to_review": "Humility is not thinking little of yourself; it is not thinking of yourself too much. Serve someone without being asked, accept advice without arguing, thank people who teach you, and say I do not know when you do not. The Prophet said Allah revealed that you should be humble so that none boasts over another.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -99668,12 +99690,12 @@
    "status": "open"
   },
   {
-   "id": "support.character_in_daily_life.howto.005",
+   "id": "support.character_in_daily_life.howto.006",
    "area": "support-packs",
    "subarea": "character_in_daily_life",
    "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
    "file": "assets/support/packs/character_in_daily_life.json",
-   "key": "character_in_daily_life.howto.005",
+   "key": "character_in_daily_life.howto.006",
    "what_to_review": "Keeping your intention sincere is an ongoing job. Before an act of worship, take one breath and say silently that it is for Allah. If you notice you want to be seen, do not stop the good deed; just correct the intention and carry on. Do some good in secret that only Allah knows. The Prophet said deeds are by intentions.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -99690,12 +99712,12 @@
    "status": "open"
   },
   {
-   "id": "support.character_in_daily_life.howto.006",
+   "id": "support.character_in_daily_life.howto.007",
    "area": "support-packs",
    "subarea": "character_in_daily_life",
    "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
    "file": "assets/support/packs/character_in_daily_life.json",
-   "key": "character_in_daily_life.howto.006",
+   "key": "character_in_daily_life.howto.007",
    "what_to_review": "To leave a sin, make it harder to reach and fill the gap. Remove what triggers it, change your company and your routine, and replace it with something good at the same time of day. When you slip, do not wait: make tawbah at once and do a good deed after it. Allah says good deeds wipe out bad ones, and the door of tawbah stays open.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -99712,12 +99734,12 @@
    "status": "open"
   },
   {
-   "id": "support.character_in_daily_life.howto.007",
+   "id": "support.character_in_daily_life.howto.008",
    "area": "support-packs",
    "subarea": "character_in_daily_life",
    "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
    "file": "assets/support/packs/character_in_daily_life.json",
-   "key": "character_in_daily_life.howto.007",
+   "key": "character_in_daily_life.howto.008",
    "what_to_review": "Good company matters more than people admit. The Prophet compared a good companion to a perfume seller and a bad one to a blacksmith: one gives you something or a pleasant scent, the other may burn your clothes or leave a bad smell. Spend more time with people who remind you of Allah, and stay kind to the rest without following them.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -99733,12 +99755,12 @@
    "status": "open"
   },
   {
-   "id": "support.character_in_daily_life.howto.008",
+   "id": "support.character_in_daily_life.howto.009",
    "area": "support-packs",
    "subarea": "character_in_daily_life",
    "where_in_app": "Hadi / Wasia support module > pack \"character_in_daily_life\" (knowledge)",
    "file": "assets/support/packs/character_in_daily_life.json",
-   "key": "character_in_daily_life.howto.008",
+   "key": "character_in_daily_life.howto.009",
    "what_to_review": "With a difficult person at work or in the family, answer what is bad with what is better. Allah says that good and evil are not equal, and that then the one between whom and you was enmity may become like a close friend. Stay calm, keep your voice low, say what you need once and clearly, and keep your own conduct clean. You do not have to let anyone mistreat you; set limits politely, and speak to someone senior if needed.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -106765,6 +106787,28 @@
    "status": "open"
   },
   {
+   "id": "support.faith_and_heart.faq.003",
+   "area": "support-packs",
+   "subarea": "faith_and_heart",
+   "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
+   "file": "assets/support/packs/faith_and_heart.json",
+   "key": "faith_and_heart.faq.003",
+   "what_to_review": "It is allowed to hurt, and it is allowed to still hurt after you have understood the reasons. Grief and faith can sit together. The Prophet wept when his son Ibrahim died and said the eyes shed tears and the heart grieves, and we say only what pleases our Lord. Yaqub said he complains of his sorrow only to Allah. Pour it out to Allah in your own words, let people near you share it, and give yourself time.",
+   "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "hadith bukhari:1303",
+    "quran 12:86",
+    "quran 94:5-6"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
    "id": "support.faith_and_heart.howto.005",
    "area": "support-packs",
    "subarea": "faith_and_heart",
@@ -106807,12 +106851,12 @@
    "status": "open"
   },
   {
-   "id": "support.faith_and_heart.faq.003",
+   "id": "support.faith_and_heart.faq.004",
    "area": "support-packs",
    "subarea": "faith_and_heart",
    "where_in_app": "Hadi / Wasia support module > pack \"faith_and_heart\" (knowledge)",
    "file": "assets/support/packs/faith_and_heart.json",
-   "key": "faith_and_heart.faq.003",
+   "key": "faith_and_heart.faq.004",
    "what_to_review": "Signs that Allah loves a person are not a checklist, but the Qur'an gives the path: Allah says that if you love Him, follow the Prophet and Allah will love you, and He says He loves those who do good and those who turn back to Him. Doing the obligatory well, adding voluntary prayer and remembrance, and being kind to people are the way. If you want closeness, that wish is itself a good sign.",
    "why_flagged": "Support-module snippet (kind faq, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -143043,6 +143087,28 @@
    "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
    "file": "assets/support/packs/work_money_study_growth.json",
    "key": "work_money_study_growth.howto.004",
+   "what_to_review": "Losing a job is a real blow, and it is fine to feel shaken. Provision is in Allah's hands and also asks for effort: tell people you trust, update your CV, apply to a few places each day, and keep your prayers steady. Allah says that no creature on the earth is without its provision from Him, and that whoever is mindful of Him, He makes a way out and provides from where he did not expect. Keep your spending simple for now and ask about support you may be entitled to.",
+   "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
+   "reviewer_type": "Hadith / aqidah scholar",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "normal",
+   "source_of_flag": [
+    "Support packs build (tool/support/build_packs.py)",
+    "quran 11:6",
+    "quran 65:2-3",
+    "hadith tirmidhi:2344"
+   ],
+   "label_surface": "Hadi / Wasia reply (support, conversation or knowledge pack)",
+   "status": "open"
+  },
+  {
+   "id": "support.work_money_study_growth.howto.005",
+   "area": "support-packs",
+   "subarea": "work_money_study_growth",
+   "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
+   "file": "assets/support/packs/work_money_study_growth.json",
+   "key": "work_money_study_growth.howto.005",
    "what_to_review": "Discipline grows from small promises kept. Choose one daily act, tie it to a fixed time, remove the thing that pulls you away, and start the same minute each day. The Prophet said that many people lose two blessings: health and free time. A short, steady habit beats a big plan you drop.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",
@@ -143058,12 +143124,12 @@
    "status": "open"
   },
   {
-   "id": "support.work_money_study_growth.howto.005",
+   "id": "support.work_money_study_growth.howto.006",
    "area": "support-packs",
    "subarea": "work_money_study_growth",
    "where_in_app": "Hadi / Wasia support module > pack \"work_money_study_growth\" (knowledge)",
    "file": "assets/support/packs/work_money_study_growth.json",
-   "key": "work_money_study_growth.howto.005",
+   "key": "work_money_study_growth.howto.006",
    "what_to_review": "Being busy does not close the door to the Qur'an. Allah says to recite what is easy. Read one page or even a few verses a day, listen while you travel, and keep one verse in mind through the day. Learning and teaching the Qur'an is the best of deeds, so start small and stay with it.",
    "why_flagged": "Support-module snippet (kind howto, pack kind knowledge, risk low, evidence D, status draft). Flags: needsScholarReview. No named reviewer has signed off.",
    "reviewer_type": "Hadith / aqidah scholar",

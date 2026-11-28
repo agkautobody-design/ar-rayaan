@@ -78,17 +78,40 @@ void main() {
       expect(next!.snippet.pack, first.snippet.pack);
       expect(next.snippet.id, isNot(first.snippet.id));
     });
-    test('skips what was already given', () {
+    test('skips what was already given and stops when nothing linked is left', () {
       final KnowledgeAnswer first =
           KnowledgeAnswerer.answer('how do I feel closer to Allah', packs)!;
-      final Set<String> seen = <String>{};
+      final Set<String> seen = <String>{first.snippet.id};
       KnowledgeAnswer? n = KnowledgeAnswerer.followUp('what else', first.snippet, packs,
           isSeen: seen.contains);
-      while (n != null) {
+      int steps = 0;
+      while (n != null && steps < 20) {
         expect(seen.add(n.snippet.id), isTrue);
-        n = KnowledgeAnswerer.followUp('what else', first.snippet, packs, isSeen: seen.contains);
+        n = KnowledgeAnswerer.followUp('what else', n.snippet, packs, isSeen: seen.contains);
+        steps++;
       }
-      expect(seen.length, packs.firstWhere((SupportPack p) => p.name == first.snippet.pack).snippets.length - 1);
+      expect(steps, lessThan(20));
+      expect(seen.length, greaterThan(2));
+    });
+    test('does not wander to an unrelated answer in the same pack', () {
+      final KnowledgeAnswer kids =
+          KnowledgeAnswerer.answer('how can I teach my kids to pray', packs)!;
+      final KnowledgeAnswer? next = KnowledgeAnswerer.followUp(
+          'ok but where do I start', kids.snippet, packs,
+          isSeen: (String id) => id == kids.snippet.id);
+      expect(next == null || !next.snippet.tags.contains('spouse'), isTrue);
+    });
+    test('a more specific teenager question is answered', () {
+      expect(KnowledgeAnswerer.answer('what about my teenager who is drifting', packs)!.snippet.pack,
+          'family_roles_growth');
+    });
+    test('missing Fajr is answered', () {
+      expect(KnowledgeAnswerer.answer('I keep missing fajr', packs)!.snippet.pack,
+          'consistency_habits');
+    });
+    test('losing a job is answered', () {
+      expect(KnowledgeAnswerer.answer('I got fired today', packs)!.snippet.pack,
+          'work_money_study_growth');
     });
   });
 

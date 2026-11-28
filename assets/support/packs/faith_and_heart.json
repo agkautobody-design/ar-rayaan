@@ -165,6 +165,32 @@
    "status": "draft"
   },
   {
+   "id": "faith_and_heart.faq.003",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "It is allowed to hurt, and it is allowed to still hurt after you have understood the reasons. Grief and faith can sit together. The Prophet wept when his son Ibrahim died and said the eyes shed tears and the heart grieves, and we say only what pleases our Lord. Yaqub said he complains of his sorrow only to Allah. Pour it out to Allah in your own words, let people near you share it, and give yourself time."
+   },
+   "ageBand": ["all"],
+   "tags": ["faith", "heart", "hurts", "pain", "grief", "sad", "still", "cry", "tears", "sorrow"],
+   "triggers": ["it still hurts", "it hurts so much", "it still hurts even though i know", "i understand but it hurts", "the pain wont go away", "i cant stop crying", "my heart aches"],
+   "doNotSay": ["Never say faith should remove the pain. If grief is heavy or they cannot function, point to the grief support area."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1303", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "12:86", "section": "Qur'an text"},
+    {"type": "quran", "ref": "94:5-6", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hardship"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
    "id": "faith_and_heart.howto.005",
    "kind": "howto",
    "stage": ["question"],
@@ -214,7 +240,7 @@
    "status": "draft"
   },
   {
-   "id": "faith_and_heart.faq.003",
+   "id": "faith_and_heart.faq.004",
    "kind": "faq",
    "stage": ["question"],
    "text": {

@@ -69,8 +69,8 @@
     "en": "When motivation is low, shrink the task until it is almost too small to refuse: one page, five minutes, one phone call. Begin it, and let the habit carry you. The Prophet said that the deeds Allah loves most are the regular ones, even if small. Steady beats strong."
    },
    "ageBand": ["all"],
-   "tags": ["goals", "purpose", "motivation", "lazy", "procrastination", "start", "habit", "steady"],
-   "triggers": ["no motivation", "how to stay motivated", "how to get motivated", "cant stay motivated", "procrastination", "i keep procrastinating", "how to stop being lazy", "how to start"],
+   "tags": ["goals", "purpose", "motivation", "lazy", "procrastination", "habit", "steady"],
+   "triggers": ["no motivation", "how to stay motivated", "how to get motivated", "cant stay motivated", "procrastination", "i keep procrastinating", "how to stop being lazy"],
    "doNotSay": [],
    "sources": [
     {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}

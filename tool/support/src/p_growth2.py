@@ -27,13 +27,17 @@ def inner_character():
        dns=['If anger is with violence or fear of harming someone, move to safety and support; do not give a lecture.'])
     Hw("Forgiving does not mean saying it did not hurt. It means choosing not to carry it. Start by asking Allah to ease your heart, wish the person guidance, and decide that you will not take revenge. You can forgive and still keep distance or set limits. Allah loves those who pardon, and the Prophet said forgiving raises a person in honour.",
        [Q('42:40', S), Q('24:22', S), HV('muslim:2588')], cross=[xg('huda-hardship')],
-       tags=['forgive', 'forgiveness', 'hurt', 'grudge', 'pardon', 'betrayed', 'resentment'],
-       trig=['forgive someone who hurt me', 'how do i forgive', 'how to forgive someone', 'i cant forgive', 'hard to forgive', 'let go of a grudge', 'someone betrayed me', 'let go of resentment'],
+       tags=['forgiving', 'hurt', 'grudge', 'pardon', 'betrayed', 'resentment'],
+       trig=['forgive someone who hurt me', 'how do i forgive them', 'how to forgive someone', 'how do i forgive my parents', 'how do i forgive my husband', 'how do i forgive my wife', 'how do i forgive my friend', 'i cant forgive', 'hard to forgive', 'let go of a grudge', 'someone betrayed me', 'let go of resentment'],
        dns=['Never push someone to reconcile with an abuser; forgiving is not staying in danger.'])
     Hw("To guard the tongue, pause before you speak and ask: is it true, is it needed, is it kind. The Prophet said whoever believes in Allah and the Last Day should speak good or stay silent. Backbiting is saying about someone what they would dislike, even if it is true. When a conversation turns that way, change the subject or leave it, and make dua for the person.",
        [HV('bukhari:6018'), HV('muslim:2589'), Q('49:12', S)], cross=[xg('huda-speech')],
        tags=['tongue', 'gossip', 'gossiping', 'backbiting', 'ghibah', 'speech', 'words', 'go-character'],
        trig=['how to stop gossiping', 'control my tongue', 'stop gossiping', 'how to stop backbiting', 'i gossip too much', 'avoid ghibah', 'how to watch my words', 'stop talking about people'])
+    Hw("To break a habit of gossip, make a rule you can follow: when a name comes up, say something good or nothing, and change the subject. Notice who and what sets you off and spend less time there. If you slip, stop, and if the person was harmed by it, ask Allah's forgiveness, make dua for them, and where you can, speak well of them. A habit that took years to build can be undone one conversation at a time.",
+       [HV('bukhari:6018'), Q('49:11-12', S), HV('muslim:2589')], cross=[xg('huda-speech')],
+       tags=['tongue', 'gossip', 'gossiping', 'backbiting', 'ghibah', 'speech', 'habit', 'break', 'stop'],
+       trig=['how do i stop it gossip', 'break the habit of gossip', 'i slipped and gossiped', 'i backbit someone', 'i talked about someone behind their back', 'how to make up for backbiting'])
     Hw("Humility is not thinking little of yourself; it is not thinking of yourself too much. Serve someone without being asked, accept advice without arguing, thank people who teach you, and say I do not know when you do not. The Prophet said Allah revealed that you should be humble so that none boasts over another.",
        [HV('muslim:2865'), Q('25:63', S)],
        tags=['humble', 'humility', 'pride', 'arrogance', 'ego', 'modest'],
@@ -50,7 +54,7 @@ def inner_character():
     Hw("Good company matters more than people admit. The Prophet compared a good companion to a perfume seller and a bad one to a blacksmith: one gives you something or a pleasant scent, the other may burn your clothes or leave a bad smell. Spend more time with people who remind you of Allah, and stay kind to the rest without following them.",
        [HV('bukhari:2101'), Q('18:28', S)],
        tags=['friends', 'friendship', 'company', 'peer', 'pressure', 'influence', 'community'],
-       trig=['peer pressure', 'handle peer pressure', 'bad friends', 'how to find good friends', 'make friends in the community', 'make friends', 'friends in the community', 'how to make muslim friends', 'friends who pull me away', 'lonely as a muslim'])
+       trig=['peer pressure', 'handle peer pressure', 'bad friends', 'how to find good friends', 'make friends in the community', 'make friends', 'friends in the community', 'how to make muslim friends', 'friends who pull me away', 'lonely as a muslim', 'i dont have friends', 'i have no friends', 'no friends here', 'new here and have no friends'])
     Hw("With a difficult person at work or in the family, answer what is bad with what is better. Allah says that good and evil are not equal, and that then the one between whom and you was enmity may become like a close friend. Stay calm, keep your voice low, say what you need once and clearly, and keep your own conduct clean. You do not have to let anyone mistreat you; set limits politely, and speak to someone senior if needed.",
        [Q('41:34-35', S), Q('25:63', S)], cross=[xg('huda-speech')],
        tags=['coworker', 'boss', 'colleague', 'difficult', 'conflict', 'workplace', 'toxic', 'neighbour'],
@@ -86,8 +90,8 @@ def family_roles():
        trig=['teach my kids to pray', 'teach my children to pray', 'my child wont pray', 'get my kids to pray', 'how to raise muslim kids', 'how to make my children love islam', 'raise my kids in islam'])
     Hw("Children copy what they see more than what they hear. Be the person you want them to become: let them see you pray, say sorry, speak gently, and be honest. Keep the home calm, keep Islam warm, and keep talking with them so they bring their questions to you. Make dua for them often; it is a duty and a gift.",
        [Q('25:74', S), Q('31:17', S)], cross=[xg('huda-children-deen')],
-       tags=['role-model', 'parenting', 'children', 'example', 'home', 'teens'],
-       trig=['good role model for my kids', 'be a role model', 'raise good children', 'raising teenagers in islam', 'my teenager is drifting', 'good parent', 'how to be a better parent'])
+       tags=['role-model', 'parenting', 'children', 'example', 'home', 'teens', 'teen', 'teenager', 'teenagers', 'drifting'],
+       trig=['my teenager is drifting', 'teenager drifting away from islam', 'my teen is losing interest in islam', 'good role model for my kids', 'be a role model', 'raise good children', 'raising teenagers in islam', 'my teenager is drifting', 'good parent', 'how to be a better parent'])
     return [p]
 
 
@@ -110,6 +114,11 @@ def work_money_study():
        tags=['exam', 'exams', 'stress', 'study', 'student', 'anxious', 'school', 'university'],
        trig=['exam stress', 'stressed about exams', 'how to study for exams', 'i am scared of my exam', 'dua for exams', 'study as a muslim', 'i cant focus on studying', 'how to study better'],
        dns=['If stress sounds like panic or hopelessness, move to the student support area.'])
+    Hw("Losing a job is a real blow, and it is fine to feel shaken. Provision is in Allah's hands and also asks for effort: tell people you trust, update your CV, apply to a few places each day, and keep your prayers steady. Allah says that no creature on the earth is without its provision from Him, and that whoever is mindful of Him, He makes a way out and provides from where he did not expect. Keep your spending simple for now and ask about support you may be entitled to.",
+       [Q('11:6', S), Q('65:2-3', S), HV('tirmidhi:2344')], cross=[xg('huda-earning'), xg('huda-hardship')],
+       tags=['job', 'fired', 'laid-off', 'unemployed', 'jobless', 'redundant', 'work', 'rizq', 'income', 'find'],
+       trig=['got fired', 'i got fired', 'i lost my job', 'laid off', 'i was laid off', 'i am unemployed', 'cant find a job', 'cant find one', 'what if i cant find a job', 'made redundant', 'i have no job'],
+       dns=['Gentle. If the person sounds hopeless, the support path comes first. No financial advice.'])
     Hw("Discipline grows from small promises kept. Choose one daily act, tie it to a fixed time, remove the thing that pulls you away, and start the same minute each day. The Prophet said that many people lose two blessings: health and free time. A short, steady habit beats a big plan you drop.",
        [HV('bukhari:6412'), HV('bukhari:6464')],
        tags=['discipline', 'laziness', 'lazy', 'phone', 'procrastination', 'focus', 'productivity'],
@@ -154,6 +163,11 @@ def faith_heart():
        tags=['breakup', 'heartbreak', 'relationship', 'ex', 'divorce', 'rejected', 'broken-heart'],
        trig=['get over a breakup', 'i got dumped', 'my heart is broken', 'heartbroken', 'how to move on from someone', 'how to get over someone', 'broke up with me', 'how to heal a broken heart'],
        dns=['Gentle. If the person is in despair or says they cannot go on, the support path comes first.'])
+    Fq("It is allowed to hurt, and it is allowed to still hurt after you have understood the reasons. Grief and faith can sit together. The Prophet wept when his son Ibrahim died and said the eyes shed tears and the heart grieves, and we say only what pleases our Lord. Yaqub said he complains of his sorrow only to Allah. Pour it out to Allah in your own words, let people near you share it, and give yourself time.",
+       [HV('bukhari:1303'), Q('12:86', S), Q('94:5-6', S)], cross=[xg('huda-hardship')],
+       tags=['hurts', 'pain', 'grief', 'sad', 'still', 'cry', 'tears', 'heart', 'sorrow'],
+       trig=['it still hurts', 'it hurts so much', 'it still hurts even though i know', 'i understand but it hurts', 'the pain wont go away', 'i cant stop crying', 'my heart aches'],
+       dns=['Never say faith should remove the pain. If grief is heavy or they cannot function, point to the grief support area.'])
     Hw("To overcome fear, name it, do what you can about it, then place the rest with Allah. Say that Allah is enough for us and the best of guardians; this is what the believers said when people told them to fear, and it increased their faith. Fear shrinks when you act on it a step at a time and do not face it alone.",
        [Q('3:173', S), Q('2:286', S)],
        tags=['fear', 'afraid', 'scared', 'courage', 'tawakkul', 'worry'],

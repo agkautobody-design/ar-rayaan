@@ -146,8 +146,8 @@
     "en": "Children copy what they see more than what they hear. Be the person you want them to become: let them see you pray, say sorry, speak gently, and be honest. Keep the home calm, keep Islam warm, and keep talking with them so they bring their questions to you. Make dua for them often; it is a duty and a gift."
    },
    "ageBand": ["all"],
-   "tags": ["family", "relationships", "role-model", "parenting", "children", "example", "home", "teens"],
-   "triggers": ["good role model for my kids", "be a role model", "raise good children", "raising teenagers in islam", "my teenager is drifting", "good parent", "how to be a better parent"],
+   "tags": ["family", "relationships", "role-model", "parenting", "children", "example", "home", "teens", "teen", "teenager", "teenagers", "drifting"],
+   "triggers": ["my teenager is drifting", "teenager drifting away from islam", "my teen is losing interest in islam", "good role model for my kids", "be a role model", "raise good children", "raising teenagers in islam", "good parent", "how to be a better parent"],
    "doNotSay": [],
    "sources": [
     {"type": "quran", "ref": "25:74", "section": "Qur'an text"},

@@ -19,8 +19,8 @@
     "en": "Yes, you can start again. Allah says not to despair of His mercy, because He forgives all sins to the one who returns. The Prophet taught that Allah accepts repentance until the last breath, and that Allah forgives a servant who sins, asks forgiveness, and repeats it. The door is open today."
    },
    "ageBand": ["all"],
-   "tags": ["tawbah", "hope", "repentance", "forgiveness", "fresh-start", "mercy", "go-tawba"],
-   "triggers": ["can i start again", "fresh start", "new beginning", "can i repent", "will allah accept my repentance", "start over with allah", "can allah forgive me", "is it too late to repent", "how to return to allah"],
+   "tags": ["tawbah", "hope", "repentance", "forgiveness", "fresh-start", "mercy", "allah", "go-tawba"],
+   "triggers": ["can i start again", "fresh start", "new beginning", "can i repent", "will allah accept my repentance", "start over with allah", "can allah forgive me", "will allah forgive me", "does allah forgive everything", "would allah forgive me", "is it too late to repent", "how to return to allah", "i feel guilty about what i did", "i feel so guilty", "guilty about my sins"],
    "doNotSay": ["No lecture about sin. Hope first. If the person describes despair or self-harm, support path and crisis flow come first."],
    "sources": [
     {"type": "quran", "ref": "39:53", "section": "Qur'an text"},

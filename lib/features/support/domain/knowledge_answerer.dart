@@ -132,14 +132,34 @@ abstract final class KnowledgeAnswerer {
     final String n = CrisisDetector.normalize(question);
     final Set<String> words = tokens(question).toSet();
     KnowledgeAnswer? best;
+    int bestRel = 0;
     for (final SupportPack p in packs) {
       if (p.kind != 'knowledge' || p.expiredAt(t) || p.name != previous.pack) continue;
+      // Tags every snippet of the pack carries say nothing about which
+      // answer comes next, so they do not count as a link.
+      Set<String>? common;
+      for (final SupportSnippet s in p.snippets) {
+        common = common == null
+            ? s.tags.toSet()
+            : common.intersection(s.tags.toSet());
+      }
+      final Set<String> prevTags = previous.tags
+          .where((String x) => !x.startsWith('go-') && !(common?.contains(x) ?? false))
+          .toSet();
       for (final SupportSnippet s in p.snippets) {
         if (s.id == previous.id || (isSeen?.call(s.id) ?? false)) continue;
         if (s.askPermission || !s.matchesAge(ageBand) || s.text.isEmpty) continue;
         if (!allowDraft && !s.shippable) continue;
-        final int v = score(s, n, words) + (s.kind == 'howto' ? 2 : 0);
-        if (best == null || v > best.score) {
+        final int shared = s.tags.where(prevTags.contains).length;
+        // A follow-up goes on only to an answer that is linked to the last
+        // one (a shared tag) or to the words just asked; otherwise the
+        // normal path goes on.
+        final int asked = score(s, n, words);
+        if (shared == 0 && asked < 4) continue;
+        final int rel = shared * 2 + asked;
+        final int v = rel + (s.kind == 'howto' ? 1 : 0);
+        if (best == null || v > bestRel) {
+          bestRel = v;
           best = KnowledgeAnswer(text: s.textIn(lang), snippet: s, score: v);
         }
       }

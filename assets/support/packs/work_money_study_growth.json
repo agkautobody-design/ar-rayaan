@@ -94,6 +94,32 @@
    "kind": "howto",
    "stage": ["question"],
    "text": {
+    "en": "Losing a job is a real blow, and it is fine to feel shaken. Provision is in Allah's hands and also asks for effort: tell people you trust, update your CV, apply to a few places each day, and keep your prayers steady. Allah says that no creature on the earth is without its provision from Him, and that whoever is mindful of Him, He makes a way out and provides from where he did not expect. Keep your spending simple for now and ask about support you may be entitled to."
+   },
+   "ageBand": ["all"],
+   "tags": ["work", "money", "study", "job", "fired", "laid-off", "unemployed", "jobless", "redundant", "rizq", "income", "find"],
+   "triggers": ["got fired", "i got fired", "i lost my job", "laid off", "i was laid off", "i am unemployed", "cant find a job", "cant find one", "what if i cant find a job", "made redundant", "i have no job"],
+   "doNotSay": ["Gentle. If the person sounds hopeless, the support path comes first. No financial advice."],
+   "sources": [
+    {"type": "quran", "ref": "11:6", "section": "Qur'an text"},
+    {"type": "quran", "ref": "65:2-3", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "tirmidhi:2344", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-earning"}, {"asset": "assets/guides/guides.json", "id": "huda-hardship"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "work_money_study_growth.howto.005",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
     "en": "Discipline grows from small promises kept. Choose one daily act, tie it to a fixed time, remove the thing that pulls you away, and start the same minute each day. The Prophet said that many people lose two blessings: health and free time. A short, steady habit beats a big plan you drop."
    },
    "ageBand": ["all"],
@@ -114,7 +140,7 @@
    "status": "draft"
   },
   {
-   "id": "work_money_study_growth.howto.005",
+   "id": "work_money_study_growth.howto.006",
    "kind": "howto",
    "stage": ["question"],
    "text": {
